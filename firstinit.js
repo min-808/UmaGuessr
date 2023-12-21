@@ -20,7 +20,6 @@ module.exports = {
             max_assignments: 1,
             inventory: {},
             characters: {},
-            eidolons: {},
             wish_count: 0,
             four_star_pity: 0,
             five_star_pity: 0

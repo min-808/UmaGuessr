@@ -24,12 +24,19 @@ module.exports = {
                     "`/register`" + " - " + "Allows you to register your UID to the bot" + "\n" +
                     "`/showcase`" + " - " + "(WIP) Extra information about your showcase" + "\n" + 
                     "\n" + 
+                    "`/wish`" + " - " + "Wish for characters with HSR rates" + "\n" + 
+                    "`/balance`" + " - " + "Check your stellar jade balance" + "\n" + 
+                    "`/daily`" + " - " + "Get 1000 stellar jades every 24 hours" + "\n" +
+                    "`/pity`" + " - " + "See your 4 and 5 star pities" + "\n" + 
+                    "`/showcase`" + " - " + "(WIP) Shows your owned characters" + "\n" + 
+                    "`/collection`" + " - " + "(WIP) Shows your light cones and items" + "\n" + 
+                    "\n" + 
                     "`/help`" + " - " + "Brings up the help menu" + "\n" +
                     "`/math`" + " - " + "Does simple math" + "\n" + 
                     "`/ping`" + " - " + "Pong!" + "\n"
                 },
             )
-            .setFooter({ text: "Powered by MiHoMo API | Data from StarRailRes & Dimbreath" })
+            .setFooter({ text: "Uses the MiHoMo API | Data from StarRailRes & Dimbreath" })
 
         interaction.reply({ embeds: [testEmbed], files: [file], ephemeral: true });
     }

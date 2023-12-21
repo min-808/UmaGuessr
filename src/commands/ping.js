@@ -14,7 +14,7 @@ module.exports = {
         const reply = await interaction.fetchReply();
         const ping = reply.createdTimestamp - interaction.createdTimestamp
 
-        interaction.editReply(`Pong! (${ping}ms)`)
+        interaction.editReply(`:ping_pong: ${ping}ms`)
     }
     
 }
