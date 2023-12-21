@@ -70,10 +70,12 @@ module.exports = {
                     
                 } else {
                     interaction.editReply('Invalid UID!')
+                    await client.close()
                 }
 
         } catch (error) {
             interaction.editReply('Something broke! ' + error)
+            await client.close()
         }
 
     }

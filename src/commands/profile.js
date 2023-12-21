@@ -269,16 +269,19 @@ module.exports = {
 
                     } else {
                         interaction.editReply({ content: "Invalid Profile UID... somehow?? lmk if this happens`"})
+                        await client.close()
                     }
                     
                     
                 } else {
                         interaction.editReply('Make sure to run the command </register:1173561826936635402> to register your UID to the bot!')
+                        await client.close()
                 }
 
                 } catch (error) {
                     console.log(`There was an error: ${error}`)
                     interaction.editReply({ content: "Something broke!"})
+                    await client.close()
             }
         })();
     }

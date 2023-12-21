@@ -55,6 +55,8 @@ module.exports = {
         const theResponse = interaction.options.get('character').value;
         var query = theResponse.charAt(0).toUpperCase() + theResponse.slice(1)
 
+        console.log(Date.now())
+
         if (theResponse.includes(" ")) {
             const first = theResponse.charAt(0).toUpperCase() + theResponse.slice(1, theResponse.indexOf(" ") + 1) // Silver_
             const second = theResponse.charAt(theResponse.indexOf(" ") + 1).toUpperCase() + theResponse.slice(theResponse.indexOf(" ") + 2) // Wolf
