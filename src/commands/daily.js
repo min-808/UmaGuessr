@@ -1,5 +1,7 @@
-var { SlashCommandBuilder, AttachmentBuilder, EmbedBuilder } = require('discord.js');
+var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
+
+const setup = require('../../firstinit');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -32,7 +34,7 @@ module.exports = {
                 var client = new MongoClient(uri)
 
                 var database = client.db("economy");
-                var ids = database.collection("stellar jades")
+                var ids = database.collection("inventories")
                 var discordID = parseInt(interaction.user.id)
 
                 // Check how many documents are in the query (discord_id)
@@ -44,7 +46,7 @@ module.exports = {
                     var options = {
                         projection: {
                             _id: 0,
-                            amount: 1,
+                            jade_count: 1,
                             dailytimer: 1
                         }
                     }
@@ -52,7 +54,7 @@ module.exports = {
                     // Then get the first thing that matches the discord id, and options is the query from before
                     var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
                     // Then find the thing called hsr_id
-                    var currentAmount = toParseUserUID['amount']
+                    var currentAmount = toParseUserUID['jade_count']
                     var pastTime = toParseUserUID['dailytimer']
                     
                     // If you can't claim daily yet
@@ -60,7 +62,7 @@ module.exports = {
                         testEmbed.spliceFields(0, 1,
                             {
                                 name: "\n",
-                                value: `You can't claim daily right now`
+                                value: `You can claim again in **${((pastTime - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours**`
                             })
 
                         testEmbed.setFooter({ text: "\n" })
@@ -70,20 +72,16 @@ module.exports = {
                         // Update entries
                         const updateValues = {
                             $set: {
-                                amount: currentAmount += 500,
+                                jade_count: currentAmount += 1000,
                                 dailytimer: currentTime
                             }
                         }
 
                         await ids.updateOne({discord_id: discordID}, updateValues)
 
-                        // Get the new value
-                        var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                        var updatedAmount = toParseUserUID['amount']
-
                         testEmbed.spliceFields(0, 1, {
                             name: "\n",
-                            value: `**You have successfully claimed your daily 500 jades!** ${updatedAmount}`
+                            value: `**You have claimed your daily 1000 jades!**`
                         })
 
                         testEmbed.setTimestamp();
@@ -95,37 +93,22 @@ module.exports = {
                 } else {
                     // If document not found, make a new database entry, do this for all economy commands
 
-                    // Outline of new database entry
-                    const doc = {
-                        discord_id: parseInt(discordID),
-                        amount: 0,
-                        dailytimer: 0,
-                        hourlytimer: 0,
-                        assignmenttimer: 0,
-                        maxassignments: 1
-                    }
-
-                    const result = await ids.insertOne(doc);
-                    console.log(`A new entry was inserted with the _id: ${result.insertedId}`);
+                    await setup.init(discordID, "economy", "inventories")
                     
                     // Up to here is default for every economy command, further on is command-specific
                     
                     const updateValues = {
                         $set: {
-                            amount: 500,
+                            jade_count: 1000,
                             dailytimer: currentTime
                         }
                     }
 
                     await ids.updateOne({discord_id: discordID}, updateValues)
 
-                    // Get the new value
-                    var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                    var updatedAmount = toParseUserUID['amount']
-
                     testEmbed.spliceFields(0, 1, {
                         name: "\n",
-                        value: `**You have successfully claimed your daily 500 jades!**`
+                        value: `**You have claimed your daily 1000 jades!**`
                     })
 
                     testEmbed.setTimestamp();

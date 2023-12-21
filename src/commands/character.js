@@ -47,15 +47,12 @@ module.exports = {
         );
     }
 
-        
     ,
     run: async ({ interaction }) => {
         await interaction.deferReply()
 
         const theResponse = interaction.options.get('character').value;
         var query = theResponse.charAt(0).toUpperCase() + theResponse.slice(1)
-
-        console.log(Date.now())
 
         if (theResponse.includes(" ")) {
             const first = theResponse.charAt(0).toUpperCase() + theResponse.slice(1, theResponse.indexOf(" ") + 1) // Silver_
@@ -71,7 +68,6 @@ module.exports = {
             return;
             // i prob could've just added an else statement and put the below code in it but this works too
         }
-
 
         const selectedChar = charId[query]["id"]
         const numRarity = charSheet[selectedChar]["rarity"];
@@ -108,7 +104,6 @@ module.exports = {
                     value: "-"
                 }
             )
-
 
         var ids = [];
         var nums = [];
@@ -150,14 +145,12 @@ module.exports = {
             format += `${readable[i]} \n`
         }
 
-
         testEmbed.spliceFields(4, 1, {
             name: "Materials",
             value: format
         }
         )
         
-
         if (numRarity === 3) {
             testEmbed.spliceFields(1, 1, 
                 {
