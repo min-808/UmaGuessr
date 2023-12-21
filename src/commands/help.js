@@ -29,7 +29,7 @@ module.exports = {
                     "`/ping`" + " - " + "Pong!" + "\n"
                 },
             )
-            .setFooter({ text:"Powered by MiHoMo API | Data from StarRailRes & Dimbreath" })
+            .setFooter({ text: "Powered by MiHoMo API | Data from StarRailRes & Dimbreath" })
 
         interaction.reply({ embeds: [testEmbed], files: [file], ephemeral: true });
     }

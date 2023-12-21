@@ -20,7 +20,7 @@ const charSkills = require('../../src/assets/character_skills.json')
 const matsRequired = require('../../src/assets/character_promotions.json')
 const items = require('../../src/assets/items.json')
 
-let choices = ['March 7th', 'Dan Heng', 'Himeko', 'Welt', 'Kafka', 'Silver Wolf', 'Arlan', 'Asta', 'Herta', 'Bronya', 'Seele', 'Serval', 'Gepard', 'Natasha', 'Pela', 'Clara', 'Sampo', 'Hook', 'Qingque', 'Tingyun', 'Luocha', 'Jing Yuan', 'Blade', 'Sushang', 'Yukong', 'Yanqing', 'Bailu', 'Trailblazer', 'Lynx', 'Jingliu', 'Guinaifen', 'Fu Xuan', 'Topaz']
+let choices = ['March 7th', 'Dan Heng', 'Himeko', 'Welt', 'Kafka', 'Silver Wolf', 'Arlan', 'Asta', 'Herta', 'Bronya', 'Seele', 'Serval', 'Gepard', 'Natasha', 'Pela', 'Clara', 'Sampo', 'Hook', 'Qingque', 'Tingyun', 'Luocha', 'Jing Yuan', 'Blade', 'Sushang', 'Yukong', 'Yanqing', 'Bailu', 'Trailblazer', 'Lynx', 'Jingliu', 'Guinaifen', 'Fu Xuan', 'Topaz', 'Hanya', 'Huohuo', 'Argenti']
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -63,7 +63,7 @@ module.exports = {
 
         if (!choices.includes(query)) {
             interaction.editReply({
-                content: "Unable to find character. Check spelling or select from list",
+                content: "Unable to find character. Check the spelling or select from list",
                 ephemeral: true
             })
             return;
