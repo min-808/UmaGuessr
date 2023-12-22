@@ -19,7 +19,11 @@ module.exports = {
             assignment_timer: 0,
             max_assignments: 1,
             inventory: {},
-            characters: {},
+            characters: { 
+                8001: 1,
+                1001: 1,
+                1002: 1
+            },
             wish_count: 0,
             four_star_pity: 0,
             five_star_pity: 0

@@ -59,8 +59,8 @@ module.exports = {
                         {
                             name: `\n`,
                             value: `Total Wishes: **${wishCount}**\n
-                                    5✦ Pity: **${fiveStarPity}**\n
-                                    4✦ Pity: **${fourStarPity}**`
+5✦ Pity: **${fiveStarPity}**\n
+4✦ Pity: **${fourStarPity}**`
                         })
 
                     interaction.editReply({ embeds: [testEmbed] });

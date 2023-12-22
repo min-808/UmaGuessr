@@ -2,29 +2,21 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const buttonPagination = require('../../button-pagination')
+
+const charSheet = require('../../src/assets/characters.json')
+const emoteSheet = require('../../src/assets/emotes.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('collection')
-    .setDescription('Check your characters'),
+    .setDescription('Check your character collection'),
 
     run: ({ interaction }) => {
              
         (async () => { // run, and if an error occurs, you can catch it
-
-            await interaction.deferReply();
-
-            // Placeholder embed for now
-            var testEmbed = new EmbedBuilder()
-            .setColor(0x9a7ee7)
-            .addFields(
-                {
-                    name: "\n",
-                    value: "\n"
-                },
-            )
 
             try {
 
@@ -34,55 +26,127 @@ module.exports = {
                 var ids = database.collection("inventories")
                 var discordID = parseInt(interaction.user.id)
 
-                // Check how many documents are in the query (discord_id)
                 var counter = await ids.countDocuments({discord_id: discordID})
 
-                // If document found, get the hsr_id (set to 1, and id set to 0)
-                if (counter >= 1) {
+                if (counter >= 1) { // If you have an account with the bot AND you have at least one character
 
                     var options = {
                         projection: {
-                            jade_count: 1,
+                            characters: 1,
                         }
                     }
+    
+                    var listOfCharacters = (await ids.findOne({discord_id: discordID}, options))['characters']
+    
+                    // console.log(listOfItems)
+                    var size = Object.keys(listOfCharacters).length
+    
+                    console.log(size)
 
-                    // Then get the first thing that matches the discord id, and options is the query from before
-                    var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                    // Then find the thing called hsr_id
-                    var currentAmount = toParseUserUID['jade_count']
+                    if (size > 0) {
+                
+                        var pages = Math.floor(size / 10)
+                        if (size % 10 != 0) { // In case of uneven pages
+                            pages += 1;
+                        }
+
+                        const embeds = []
+                        for (let i = 0; i < pages; i++) {
+                            embeds.push(new EmbedBuilder().setDescription(`**Characters | Page (${i + 1}/${pages})**`)
+                            .setColor(0x9a7ee7)
+                            .addFields(
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                            )
+                            )
+
+                            if (size >= 10) { // fill the page!
+                                
+                                for (var j = 0; j < 10; j++) {
+                                    currentCharacter = Object.keys(listOfCharacters)[Object.keys(listOfCharacters).length - 1] // Set the current character to the last one
+
+                                    embeds[i].spliceFields(j, j + 1,
+                                        {
+                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `\n`
+                                        }
+                                    )
+
+                                    if (listOfCharacters[currentCharacter] != 1) { // If the character has eidolons
+                                        embeds[i].spliceFields(j, j + 1,
+                                            {
+                                                name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `E${listOfCharacters[currentCharacter]}`
+                                            }
+                                        )
+                                    }
+                                    delete listOfCharacters[`${currentCharacter}`] // Remove the first character from your list
+                                }
+                                size -= 10 // Decrement
+                            } else if (size < 10) { // only fill as much as you need (size)
+                                for (var h = 0; h < size; h++) {
+                                    currentCharacter = Object.keys(listOfCharacters)[Object.keys(listOfCharacters).length - 1]
+
+                                    embeds[i].spliceFields(h, h + 1,
+                                        {
+                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `\n`
+                                        }
+                                    )
+
+                                    if (listOfCharacters[currentCharacter] != 1) { // If the character has eidolons
+                                        embeds[i].spliceFields(h, h + 1,
+                                            {
+                                                name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `E${listOfCharacters[currentCharacter]}`
+                                            }
+                                        )
+                                    }
+                                    delete listOfCharacters[`${currentCharacter}`]
+                                }
+                                size = 0
+                            }
+                        }
+                        await buttonPagination(interaction, embeds)
+                        await client.close()
+                    } else if (size == 0) { // You have an account but you didn't wish yet; 0 characters (won't happen but in case)
+                        var testEmbed = new EmbedBuilder()
+                        .setDescription(`**Characters | Page (1/1)**`)
+                        .setColor(0x9a7ee7)
+                        .addFields(
+                            { name: "You have no characters!", value: "\n" }
+                        )
+                        
+                        await interaction.deferReply()
+                        interaction.editReply({ embeds: [testEmbed] });
+                        await client.close()
+                        }
+                } else if (counter == 0) { // You don't have an account yet, this assumes you have only Trailblazer, March 7th, and Dan Heng
                     
-                    testEmbed.spliceFields(0, 1,
-                        {
-                            name: "\n",
-                            value: `You have **${currentAmount}** stellar jade`
-                        })
-
-                    interaction.editReply({ embeds: [testEmbed] });
-                    await client.close()
-
-                } else {
-                    // If document not found, make a new database entry, do this for all economy commands
-
                     await setup.init(discordID, "economy", "inventories")
- 
-                    // Get the new value
-                    var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                    var updatedAmount = toParseUserUID['jade_count']
 
-                    testEmbed.spliceFields(0, 1, {
-                        name: "\n",
-                        value: `You have **${updatedAmount}** stellar jade`
-                    })
+                    var testEmbed = new EmbedBuilder()
+                        .setDescription(`**Characters | Page (1/1)**`)
+                        .setColor(0x9a7ee7)
+                        .addFields(
+                            { name: `Trailblazer (5${emoteSheet["Stars"]["StarBig"]["id"]})`, value: "\n" },
+                            { name: `March 7th (4${emoteSheet["Stars"]["StarBig"]["id"]})`, value: "\n" },
+                            { name: `Dan Heng (4${emoteSheet["Stars"]["StarBig"]["id"]})`, value: "\n" }
+                        )
                     
+                    await interaction.deferReply()
                     interaction.editReply({ embeds: [testEmbed] });
                     await client.close()
-                }
-
-                } catch (error) {
-                    console.log(`There was an error: ${error}`)
-                    interaction.editReply({ content: "Something broke!"})
-                    await client.close()
+                } 
+            } catch (error) {
+                console.log(`There was an error: ${error}`)
+                interaction.editReply({ content: "Something broke!"})
+                await client.close()
             }
+
         })();
     }
 }

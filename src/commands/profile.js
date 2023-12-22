@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, Message } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 const charSheet = require('../../src/assets/characters.json')
 const emoteSheet = require('../../src/assets/emotes.json')

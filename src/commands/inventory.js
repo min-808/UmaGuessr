@@ -2,6 +2,10 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const buttonPagination = require('../../button-pagination')
+
+const LCSheet = require('../../src/assets/light_cones.json')
+const emoteSheet = require('../../src/assets/emotes.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -14,18 +18,6 @@ module.exports = {
              
         (async () => { // run, and if an error occurs, you can catch it
 
-            await interaction.deferReply();
-
-            // Placeholder embed for now
-            var testEmbed = new EmbedBuilder()
-            .setColor(0x9a7ee7)
-            .addFields(
-                {
-                    name: "\n",
-                    value: "\n"
-                },
-            )
-
             try {
 
                 var client = new MongoClient(uri)
@@ -34,54 +26,123 @@ module.exports = {
                 var ids = database.collection("inventories")
                 var discordID = parseInt(interaction.user.id)
 
-                // Check how many documents are in the query (discord_id)
                 var counter = await ids.countDocuments({discord_id: discordID})
 
-                // If document found, get the hsr_id (set to 1, and id set to 0)
-                if (counter >= 1) {
+                if (counter >= 1) { // If you have an account with the bot AND you have at least one thing in your inventory
 
                     var options = {
                         projection: {
-                            jade_count: 1,
+                            inventory: 1,
                         }
                     }
+    
+                    var listOfItems = (await ids.findOne({discord_id: discordID}, options))['inventory']
+    
+                    // console.log(listOfItems)
+                    var size = Object.keys(listOfItems).length
+    
+                    console.log(size)
 
-                    // Then get the first thing that matches the discord id, and options is the query from before
-                    var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                    // Then find the thing called hsr_id
-                    var currentAmount = toParseUserUID['jade_count']
+                    if (size > 0) {
+                
+                        var pages = Math.floor(size / 10)
+                        if (size % 10 != 0) { // In case of uneven pages
+                            pages += 1;
+                        }
+
+                        const embeds = []
+                        for (let i = 0; i < pages; i++) {
+                            embeds.push(new EmbedBuilder().setDescription(`**Inventory | Page (${i + 1}/${pages})**`)
+                            .setColor(0x9a7ee7)
+                            .addFields(
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" },
+                            )
+                            )
+
+                            if (size >= 10) { // fill the page!
+                                
+                                for (var j = 0; j < 10; j++) {
+                                    currentItem = Object.keys(listOfItems)[Object.keys(listOfItems).length - 1] // Set the current item to the last one
+
+                                    embeds[i].spliceFields(j, j + 1,
+                                        {
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `\n`
+                                        }
+                                    )
+
+                                    if (listOfItems[currentItem] != 1) { // If the item is superimposed
+                                        embeds[i].spliceFields(j, j + 1,
+                                            {
+                                                name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `SI ${listOfItems[currentItem]}`
+                                            }
+                                        )
+                                    }
+                                    delete listOfItems[`${currentItem}`] // Remove the first item from your list
+                                }
+                                size -= 10 // Decrement
+                            } else if (size < 10) { // only fill as much as you need (size)
+                                for (var h = 0; h < size; h++) {
+                                    currentItem = Object.keys(listOfItems)[Object.keys(listOfItems).length - 1]
+
+                                    embeds[i].spliceFields(h, h + 1,
+                                        {
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `\n`
+                                        }
+                                    )
+
+                                    if (listOfItems[currentItem] != 1) { // If the item is superimposed
+                                        embeds[i].spliceFields(h, h + 1,
+                                            {
+                                                name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `SI ${listOfItems[currentItem]}`
+                                            }
+                                        )
+                                    }
+                                    delete listOfItems[`${currentItem}`]
+                                }
+                                size = 0
+                            }
+                        }
+                        await buttonPagination(interaction, embeds)
+                        await client.close()
+                    } else if (size == 0) { // You have an account but you didn't wish yet; 0 inventory
+                        var testEmbed = new EmbedBuilder()
+                        .setDescription(`**Inventory | Page (1/1)**`)
+                        .setColor(0x9a7ee7)
+                        .addFields(
+                            { name: "You have no items!", value: "\n" }
+                        )
+                        
+                        await interaction.deferReply()
+                        interaction.editReply({ embeds: [testEmbed] });
+                        await client.close()
+                        }
+                } else if (counter == 0) { // You don't have an account yet, this assumes you have 0 inventory
                     
-                    testEmbed.spliceFields(0, 1,
-                        {
-                            name: "\n",
-                            value: `You have **${currentAmount}** stellar jade`
-                        })
-
-                    interaction.editReply({ embeds: [testEmbed] });
-                    await client.close()
-
-                } else {
-                    // If document not found, make a new database entry, do this for all economy commands
-
                     await setup.init(discordID, "economy", "inventories")
- 
-                    // Get the new value
-                    var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                    var updatedAmount = toParseUserUID['jade_count']
 
-                    testEmbed.spliceFields(0, 1, {
-                        name: "\n",
-                        value: `You have **${updatedAmount}** stellar jade`
-                    })
+                    var testEmbed = new EmbedBuilder()
+                        .setDescription(`**Inventory | Page (1/1)**`)
+                        .setColor(0x9a7ee7)
+                        .addFields(
+                            { name: "You have no items!", value: "\n" }
+                    )
                     
+                    await interaction.deferReply()
                     interaction.editReply({ embeds: [testEmbed] });
                     await client.close()
-                }
-
-                } catch (error) {
-                    console.log(`There was an error: ${error}`)
-                    interaction.editReply({ content: "Something broke!"})
-                    await client.close()
+                } 
+            } catch (error) {
+                console.log(`There was an error: ${error}`)
+                interaction.editReply({ content: "Something broke!"})
+                await client.close()
             }
         })();
     }

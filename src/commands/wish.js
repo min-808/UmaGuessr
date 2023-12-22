@@ -110,11 +110,33 @@ module.exports = {
                                 testEmbed.setThumbnail(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/character/${fiveStarChars[chooseFSC]}.png`)
                                 testEmbed.setFooter( {text: `Current pity: ${(await ids.findOne({discord_id: discordID}, options))['five_star_pity']}`} )
 
+                                var name = "characters." + fiveStarChars[chooseFSC]
+
+                                var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters']
+                                if (fiveStarChars[chooseFSC] in characterCollection) {
+                                    console.log("found")
+                                    await ids.updateOne({ discord_id: discordID }, { $inc: { [name] : 1 } })
+                                } else {
+                                    console.log("new")
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [name] : 1 } })
+                                }
+
                                 result = `${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                             } else {
                                 chooseFSLC = Math.floor(Math.random() * (fiveStarLC.length))
                                 testEmbed.setThumbnail(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/${fiveStarLC[chooseFSLC]}.png`)
                                 testEmbed.setFooter( {text: `Current pity: ${(await ids.findOne({discord_id: discordID}, options))['five_star_pity']}`} )
+
+                                var name = "inventory." + fiveStarLC[chooseFSLC]
+
+                                var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
+                                if (fiveStarLC[chooseFSLC] in inventoryCollection) {
+                                    console.log("found")
+                                    await ids.updateOne({ discord_id: discordID }, { $inc: { [name] : 1 } })
+                                } else {
+                                    console.log("new")
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [name] : 1 } })
+                                }
 
                                 result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                             }
@@ -139,11 +161,33 @@ module.exports = {
                                 testEmbed.setThumbnail(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/character/${fourStarChars[chooseFourSC]}.png`)
                                 testEmbed.setFooter( {text: `Current pity: ${(await ids.findOne({discord_id: discordID}, options))['five_star_pity']}`} )
 
+                                var name = "characters." + fourStarChars[chooseFourSC]
+
+                                var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters']
+                                if (fourStarChars[chooseFourSC] in characterCollection) {
+                                    console.log("found")
+                                    await ids.updateOne({ discord_id: discordID }, { $inc: { [name] : 1 } })
+                                } else {
+                                    console.log("new")
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [name] : 1 } })
+                                }
+
                                 result = `${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                             } else {
                                 chooseFourSLC = Math.floor(Math.random() * (fourStarLC.length))
                                 testEmbed.setThumbnail(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/${fourStarLC[chooseFourSLC]}.png`)
                                 testEmbed.setFooter( {text: `Current pity: ${(await ids.findOne({discord_id: discordID}, options))['five_star_pity']}`} )
+
+                                var name = "inventory." + fourStarLC[chooseFourSLC]
+
+                                var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
+                                if (fourStarLC[chooseFourSLC] in inventoryCollection) {
+                                    console.log("found")
+                                    await ids.updateOne({ discord_id: discordID }, { $inc: { [name] : 1 } })
+                                } else {
+                                    console.log("new")
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [name] : 1 } })
+                                }
 
                                 result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                             }
@@ -163,14 +207,16 @@ module.exports = {
                             testEmbed.setThumbnail(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/light_cone/${threeStarLC[chooseTSLC]}.png`)
                             testEmbed.setFooter( {text: `Current pity: ${(await ids.findOne({discord_id: discordID}, options))['five_star_pity']}`} )
 
-                            var name = "inventory." + LCSheet[threeStarLC[chooseTSLC]]["name"]
+                            var name = "inventory." + threeStarLC[chooseTSLC]
 
-                            console.log(await ids.countDocuments({ inventory: { $eq: "Fine Fruit" } }))
-
-                            const add3S = {
-                                $set: { [name] : 1 }
+                            var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
+                            if (threeStarLC[chooseTSLC] in inventoryCollection) {
+                                console.log("found")
+                                await ids.updateOne({ discord_id: discordID }, { $inc: { [name] : 1 } })
+                            } else {
+                                console.log("new")
+                                await ids.updateOne({ discord_id: discordID }, { $set: { [name] : 1 } })
                             }
-                            await ids.updateOne({ discord_id: discordID }, add3S)
 
                             result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                         }
@@ -188,7 +234,7 @@ module.exports = {
                             {
                                 name: "\n",
                                 value: `You got **${result}**\n
-                                You now have **${(await ids.findOne({discord_id: discordID}, options))['jade_count']}** stellar jade`
+You now have **${(await ids.findOne({discord_id: discordID}, options))['jade_count']}** stellar jade`
                             })
 
                         interaction.editReply({ embeds: [testEmbed] });

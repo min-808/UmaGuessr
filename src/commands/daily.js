@@ -47,7 +47,7 @@ module.exports = {
                         projection: {
                             _id: 0,
                             jade_count: 1,
-                            dailytimer: 1
+                            daily_timer: 1
                         }
                     }
 
@@ -55,7 +55,7 @@ module.exports = {
                     var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
                     // Then find the thing called hsr_id
                     var currentAmount = toParseUserUID['jade_count']
-                    var pastTime = toParseUserUID['dailytimer']
+                    var pastTime = toParseUserUID['daily_timer']
                     
                     // If you can't claim daily yet
                     if ((pastTime += 86400000) >= currentTime) {
@@ -73,7 +73,7 @@ module.exports = {
                         const updateValues = {
                             $set: {
                                 jade_count: currentAmount += 1000,
-                                dailytimer: currentTime
+                                daily_timer: currentTime
                             }
                         }
 
@@ -100,7 +100,7 @@ module.exports = {
                     const updateValues = {
                         $set: {
                             jade_count: 1000,
-                            dailytimer: currentTime
+                            daily_timer: currentTime
                         }
                     }
 
