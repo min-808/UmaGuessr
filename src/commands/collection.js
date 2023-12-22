@@ -5,6 +5,7 @@ const setup = require('../../firstinit');
 const buttonPagination = require('../../button-pagination')
 
 const charSheet = require('../../src/assets/characters.json')
+const LCSheet = require('../../src/assets/light_cones.json')
 const emoteSheet = require('../../src/assets/emotes.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
@@ -41,12 +42,14 @@ module.exports = {
                     // console.log(listOfItems)
                     var size = Object.keys(listOfCharacters).length
     
-                    console.log(size)
+                    // console.log(size)
+
+                    var showPerPage = 5
 
                     if (size > 0) {
                 
-                        var pages = Math.floor(size / 10)
-                        if (size % 10 != 0) { // In case of uneven pages
+                        var pages = Math.floor(size / showPerPage)
+                        if (size % showPerPage != 0) { // In case of uneven pages
                             pages += 1;
                         }
 
@@ -67,44 +70,28 @@ module.exports = {
                             )
                             )
 
-                            if (size >= 10) { // fill the page!
+                            if (size >= showPerPage) { // fill the page!
                                 
-                                for (var j = 0; j < 10; j++) {
+                                for (var j = 0; j < showPerPage; j++) {
                                     currentCharacter = Object.keys(listOfCharacters)[Object.keys(listOfCharacters).length - 1] // Set the current character to the last one
 
                                     embeds[i].spliceFields(j, j + 1,
                                         {
-                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `\n`
+                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Level ${listOfCharacters[currentCharacter]["level"]}\nEidolon ${listOfCharacters[currentCharacter]["eidolon"]}\nLight Cone [${LCSheet[listOfCharacters[currentCharacter]["lc"]]["name"]}]`
                                         }
                                     )
-
-                                    if (listOfCharacters[currentCharacter] != 1) { // If the character has eidolons
-                                        embeds[i].spliceFields(j, j + 1,
-                                            {
-                                                name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `E${listOfCharacters[currentCharacter]}`
-                                            }
-                                        )
-                                    }
                                     delete listOfCharacters[`${currentCharacter}`] // Remove the first character from your list
                                 }
-                                size -= 10 // Decrement
-                            } else if (size < 10) { // only fill as much as you need (size)
+                                size -= showPerPage // Decrement
+                            } else if (size < showPerPage) { // only fill as much as you need (size)
                                 for (var h = 0; h < size; h++) {
                                     currentCharacter = Object.keys(listOfCharacters)[Object.keys(listOfCharacters).length - 1]
 
                                     embeds[i].spliceFields(h, h + 1,
                                         {
-                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `\n`
+                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Level ${listOfCharacters[currentCharacter]["level"]}\nEidolon ${listOfCharacters[currentCharacter]["eidolon"]}\nLight Cone [${LCSheet[listOfCharacters[currentCharacter]["lc"]]["name"]}]`
                                         }
                                     )
-
-                                    if (listOfCharacters[currentCharacter] != 1) { // If the character has eidolons
-                                        embeds[i].spliceFields(h, h + 1,
-                                            {
-                                                name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `E${listOfCharacters[currentCharacter]}`
-                                            }
-                                        )
-                                    }
                                     delete listOfCharacters[`${currentCharacter}`]
                                 }
                                 size = 0

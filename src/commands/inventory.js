@@ -41,12 +41,14 @@ module.exports = {
                     // console.log(listOfItems)
                     var size = Object.keys(listOfItems).length
     
-                    console.log(size)
+                    // console.log(size)
+
+                    var showPerPage = 5
 
                     if (size > 0) {
                 
-                        var pages = Math.floor(size / 10)
-                        if (size % 10 != 0) { // In case of uneven pages
+                        var pages = Math.floor(size / showPerPage)
+                        if (size % showPerPage != 0) { // In case of uneven pages
                             pages += 1;
                         }
 
@@ -67,44 +69,28 @@ module.exports = {
                             )
                             )
 
-                            if (size >= 10) { // fill the page!
+                            if (size >= showPerPage) { // fill the page!
                                 
-                                for (var j = 0; j < 10; j++) {
+                                for (var j = 0; j < showPerPage; j++) {
                                     currentItem = Object.keys(listOfItems)[Object.keys(listOfItems).length - 1] // Set the current item to the last one
 
                                     embeds[i].spliceFields(j, j + 1,
                                         {
-                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `\n`
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Level ${listOfItems[currentItem]["level"]}\nSuperimpose ${listOfItems[currentItem]["si"]}`
                                         }
                                     )
-
-                                    if (listOfItems[currentItem] != 1) { // If the item is superimposed
-                                        embeds[i].spliceFields(j, j + 1,
-                                            {
-                                                name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `SI ${listOfItems[currentItem]}`
-                                            }
-                                        )
-                                    }
                                     delete listOfItems[`${currentItem}`] // Remove the first item from your list
                                 }
-                                size -= 10 // Decrement
-                            } else if (size < 10) { // only fill as much as you need (size)
+                                size -= showPerPage // Decrement
+                            } else if (size < showPerPage) { // only fill as much as you need (size)
                                 for (var h = 0; h < size; h++) {
                                     currentItem = Object.keys(listOfItems)[Object.keys(listOfItems).length - 1]
 
                                     embeds[i].spliceFields(h, h + 1,
                                         {
-                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `\n`
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Level ${listOfItems[currentItem]["level"]}\nSuperimpose ${listOfItems[currentItem]["si"]}`
                                         }
                                     )
-
-                                    if (listOfItems[currentItem] != 1) { // If the item is superimposed
-                                        embeds[i].spliceFields(h, h + 1,
-                                            {
-                                                name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `SI ${listOfItems[currentItem]}`
-                                            }
-                                        )
-                                    }
                                     delete listOfItems[`${currentItem}`]
                                 }
                                 size = 0

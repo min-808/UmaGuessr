@@ -14,24 +14,29 @@ module.exports = async (interaction, pages, time = 60 * 1000) => {
             })
         }
 
+        const front = new ButtonBuilder()
+            .setCustomId('front')
+            .setEmoji('⏮')
+            .setStyle(ButtonStyle.Primary)
+            .setDisabled(true)
+
         const prev = new ButtonBuilder()
             .setCustomId('prev')
             .setEmoji('⬅')
             .setStyle(ButtonStyle.Primary)
             .setDisabled(true)
 
-        const home = new ButtonBuilder()
-            .setCustomId('home')
-            .setEmoji('🏠')
-            .setStyle(ButtonStyle.Secondary)
-            .setDisabled(true)
-
         const next = new ButtonBuilder()
             .setCustomId('next')
             .setEmoji('➡')
             .setStyle(ButtonStyle.Primary)
+        
+        const end = new ButtonBuilder()
+            .setCustomId('end')
+            .setEmoji('⏭')
+            .setStyle(ButtonStyle.Primary)
 
-        const buttons = new ActionRowBuilder().addComponents([prev, home, next])
+        const buttons = new ActionRowBuilder().addComponents([front, prev, next, end])
         let index = 0;
 
         const msg = await interaction.editReply({
@@ -54,26 +59,30 @@ module.exports = async (interaction, pages, time = 60 * 1000) => {
                 if (index > 0) {
                     index--
                 } 
-            } else if (i.customId == 'home') {
-                    index = 0;
+            } else if (i.customId == 'front') {
+                index = 0;
             } else if (i.customId == 'next') {
                 if (index < pages.length - 1) {
                     index++;
                 }
+            } else if (i.customId == 'end') {
+                index = pages.length - 1
             }
 
             if (index == 0) {
                 prev.setDisabled(true)
-                home.setDisabled(true)
+                front.setDisabled(true)
             } else {
                 prev.setDisabled(false)
-                home.setDisabled(false)
+                front.setDisabled(false)
             }
 
             if (index == pages.length - 1) {
                 next.setDisabled(true)
+                end.setDisabled(true)
             } else {
                 next.setDisabled(false)
+                end.setDisabled(false)
             }
 
             await msg.edit({

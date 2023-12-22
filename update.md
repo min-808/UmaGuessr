@@ -11,6 +11,16 @@ descriptions.json - Get new file and add this:
         "desc": "None"
     }
 
+light_cones.json add this:
+,
+    "-1": {
+        "id": "-1",
+        "name": "None",
+        "rarity": 0,
+        "path": "None",
+        "desc": "No weapon and a dream"
+    }
+
 Get new:
 character_promotions.json
 character_skills.json
