@@ -63,39 +63,39 @@ module.exports = {
                     return true;
                 }
                 break;
-            case 84:
+            case 84: // From here on it's a linear progression of +5.6% every wish until wish 90, based on the average ROC of wishes 73-82
                 var check = Math.floor(Math.random() * (10000) + 1)
-                if (check < 5689) {
+                if (check < 6143) {
                     return true;
                 }
                 break;
             case 85:
                 var check = Math.floor(Math.random() * (10000) + 1)
-                if (check < 5082) {
+                if (check < 6703) {
                     return true;
                 }
                 break;
             case 86:
                 var check = Math.floor(Math.random() * (10000) + 1)
-                if (check < 3827) {
+                if (check < 7263) {
                     return true;
                 }
                 break;
             case 87:
                 var check = Math.floor(Math.random() * (10000) + 1)
-                if (check < 2471) {
+                if (check < 7823) {
                     return true;
                 }
                 break;
             case 88:
                 var check = Math.floor(Math.random() * (10000) + 1)
-                if (check < 2196) {
+                if (check < 8383) {
                     return true;
                 }
                 break;
             case 89:
                 var check = Math.floor(Math.random() * (10000) + 1)
-                if (check < 2973) {
+                if (check < 8943) {
                     return true;
                 }
                 break;

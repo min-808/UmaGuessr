@@ -5,6 +5,9 @@ const mongoose = require('mongoose');
 const { CommandHandler } = require('djs-commander');
 const path = require('path');
 const fs = require('node:fs');
+var { MongoClient } = require("mongodb");
+
+var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 const client = new Client({
     intents: [ // a set of permissions that the bot can use to access a set of events
@@ -34,6 +37,30 @@ for (const file of commandFiles) {
 
     client.commands.set(command.data.name, command)
 };
+
+async function replenishPower() {
+    var client = new MongoClient(uri)
+
+    var database = client.db("economy");
+    var ids = database.collection("inventories")
+    
+    var howMany = await ids.countDocuments()
+    console.log(`There are ${howMany} documents. Updating uncapped trailblaze power...`)
+
+    const updatePower = {
+        $inc: {
+            trailblaze_power: 1
+        }
+    }
+
+    await ids.updateMany({ trailblaze_power: { $lt: 240 } }, updatePower);
+
+    await client.close()
+}
+
+client.on('ready', async () => { // Replenish trailblaze power every 8 minutes
+    setInterval(replenishPower, 480000)
+})
 
 client.on('interactionCreate', async interaction => { // interactions within slash commands
 

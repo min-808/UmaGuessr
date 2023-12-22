@@ -26,10 +26,11 @@ module.exports = {
                     "\n" + 
                     "`/wish`" + " - " + "Wish for characters with HSR rates" + "\n" + 
                     "`/balance`" + " - " + "Check your stellar jade balance" + "\n" + 
-                    "`/daily`" + " - " + "Get 1000 stellar jades every 24 hours" + "\n" +
+                    "`/power`" + " - " + "Check your how much trailblaze power you have" + "\n" + 
+                    "`/daily`" + " - " + "Get 1000 stellar jade every 24 hours" + "\n" +
                     "`/pity`" + " - " + "See your 4 and 5 star pities" + "\n" + 
-                    "`/showcase`" + " - " + "(WIP) Shows your owned characters" + "\n" + 
-                    "`/collection`" + " - " + "(WIP) Shows your light cones and items" + "\n" + 
+                    "`/collection`" + " - " + "Shows your owned characters" + "\n" + 
+                    "`/inventory`" + " - " + "Shows your light cones and items" + "\n" + 
                     "\n" + 
                     "`/help`" + " - " + "Brings up the help menu" + "\n" +
                     "`/math`" + " - " + "Does simple math" + "\n" + 

@@ -18,11 +18,25 @@ module.exports = {
             daily_timer: 0,
             assignment_timer: 0,
             max_assignments: 1,
+            trailblaze_power: 240,
+            max_trailblaze_power: 240,
             inventory: {},
             characters: { 
-                8001: 1,
-                1001: 1,
-                1002: 1
+                8001: { // Trailblazer m7 dh
+                    "level": 1,
+                    "lc": -1,
+                    "eidolon": 0
+                },
+                1001: {
+                    "level": 1,
+                    "lc": -1,
+                    "eidolon": 0
+                },
+                1002: {
+                    "level": 1,
+                    "lc": -1,
+                    "eidolon": 0
+                }
             },
             wish_count: 0,
             four_star_pity: 0,

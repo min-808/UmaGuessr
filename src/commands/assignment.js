@@ -2,14 +2,13 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
-const emoteSheet = require('../../src/assets/emotes.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('pity')
-    .setDescription('Check your pity'),
+    .setName('assignment')
+    .setDescription('Put your characters on assignments to earn some stellar jade!'),
 
     run: ({ interaction }) => {
              
@@ -43,25 +42,19 @@ module.exports = {
 
                     var options = {
                         projection: {
-                            wish_count: 1,
-                            four_star_pity: 1,
-                            five_star_pity: 1
+                            jade_count: 1,
                         }
                     }
 
                     // Then get the first thing that matches the discord id, and options is the query from before
                     var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
                     // Then find the thing called hsr_id
-                    var wishCount = toParseUserUID['wish_count']
-                    var fourStarPity = toParseUserUID['four_star_pity']
-                    var fiveStarPity = toParseUserUID['five_star_pity']
+                    var currentAmount = toParseUserUID['jade_count']
                     
                     testEmbed.spliceFields(0, 1,
                         {
-                            name: `\n`,
-                            value: `Total Wishes: **${wishCount}**\n
-5${emoteSheet["Stars"]["StarBig"]["id"]} Pity: **${fiveStarPity}**\n
-4${emoteSheet["Stars"]["StarBig"]["id"]} Pity: **${fourStarPity}**`
+                            name: "\n",
+                            value: `You have **${currentAmount}** stellar jade`
                         })
 
                     interaction.editReply({ embeds: [testEmbed] });
@@ -74,16 +67,11 @@ module.exports = {
  
                     // Get the new value
                     var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-
-                    var wishCount = toParseUserUID['wish_count']
-                    var fourStarPity = toParseUserUID['four_star_pity']
-                    var fiveStarPity = toParseUserUID['five_star_pity']
+                    var updatedAmount = toParseUserUID['jade_count']
 
                     testEmbed.spliceFields(0, 1, {
                         name: "\n",
-                        value: `Total Wishes: **${wishCount}**\n
-                                4✦ Pity: **${fourStarPity}**\n
-                                5✦ Pity: **${fiveStarPity}**`
+                        value: `You have **${updatedAmount}** stellar jade`
                     })
                     
                     interaction.editReply({ embeds: [testEmbed] });
