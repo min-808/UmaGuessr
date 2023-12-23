@@ -45,7 +45,11 @@ async function replenishPower() {
     var ids = database.collection("inventories")
     
     var howMany = await ids.countDocuments()
-    console.log(`There are ${howMany} documents. Updating uncapped trailblaze power...`)
+
+    var currentDate = new Date()
+    var currentTime = currentDate.toLocaleTimeString('en-US')
+
+    console.log(`[${currentTime}] - There are ${howMany} documents. Updating uncapped trailblaze power...`)
 
     const updatePower = {
         $inc: {

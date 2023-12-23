@@ -150,6 +150,7 @@ module.exports = {
 
                                 var level = "inventory." + fiveStarLC[chooseFSLC] + ".level"
                                 var si = "inventory." + fiveStarLC[chooseFSLC] + ".si"
+                                var equipped = "inventory." + fiveStarLC[chooseFSLC] + ".equipped_on"
 
                                 var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                 if (fiveStarLC[chooseFSLC] in inventoryCollection) {
@@ -177,6 +178,7 @@ module.exports = {
                                     console.log("new")
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { jade_count: currentAmount += 500 } } )
                                     result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+500 stellar jade`
                                 }
@@ -243,6 +245,7 @@ module.exports = {
 
                                 var level = "inventory." + fourStarLC[chooseFourSLC] + ".level"
                                 var si = "inventory." + fourStarLC[chooseFourSLC] + ".si"
+                                var equipped = "inventory." + fourStarLC[chooseFourSLC] + ".equipped_on"
 
                                 var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                 if (fourStarLC[chooseFourSLC] in inventoryCollection) {
@@ -270,6 +273,7 @@ module.exports = {
                                     console.log("new")
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { jade_count: currentAmount += 100 } } )
                                     result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+100 stellar jade`
                                 }
@@ -292,6 +296,7 @@ module.exports = {
 
                             var level = "inventory." + threeStarLC[chooseTSLC] + ".level"
                             var si = "inventory." + threeStarLC[chooseTSLC] + ".si"
+                            var equipped = "inventory." + threeStarLC[chooseTSLC] + ".equipped_on"
 
                             var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                             if (threeStarLC[chooseTSLC] in inventoryCollection) {
@@ -319,6 +324,7 @@ module.exports = {
                                 console.log("new")
                                 await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                 await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
+                                await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
                                 result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                             }
                         }

@@ -4,6 +4,7 @@ var { MongoClient } = require("mongodb");
 const setup = require('../../firstinit');
 const buttonPagination = require('../../button-pagination')
 
+const charSheet = require('../../src/assets/characters.json')
 const LCSheet = require('../../src/assets/light_cones.json')
 const emoteSheet = require('../../src/assets/emotes.json')
 
@@ -61,11 +62,7 @@ module.exports = {
                                 { name: "\n", value: "\n" },
                                 { name: "\n", value: "\n" },
                                 { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" }
                             )
                             )
 
@@ -76,7 +73,7 @@ module.exports = {
 
                                     embeds[i].spliceFields(j, j + 1,
                                         {
-                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Level ${listOfItems[currentItem]["level"]}\nSuperimpose ${listOfItems[currentItem]["si"]}`
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${charSheet[listOfItems[currentItem]["equipped_on"]]["name"]}**\nLevel: ${listOfItems[currentItem]["level"]}\nSuperimpose: ${listOfItems[currentItem]["si"]}`
                                         }
                                     )
                                     delete listOfItems[`${currentItem}`] // Remove the first item from your list
@@ -88,7 +85,7 @@ module.exports = {
 
                                     embeds[i].spliceFields(h, h + 1,
                                         {
-                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Level ${listOfItems[currentItem]["level"]}\nSuperimpose ${listOfItems[currentItem]["si"]}`
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${charSheet[listOfItems[currentItem]["equipped_on"]]["name"]}**\nLevel: ${listOfItems[currentItem]["level"]}\nSuperimpose: ${listOfItems[currentItem]["si"]}`
                                         }
                                     )
                                     delete listOfItems[`${currentItem}`]

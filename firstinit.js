@@ -22,7 +22,7 @@ module.exports = {
             max_trailblaze_power: 240,
             inventory: {},
             characters: { 
-                8001: { // Trailblazer m7 dh
+                8004: { // Trailblazer m7 dh
                     "level": 1,
                     "lc": -1,
                     "eidolon": 0

@@ -62,11 +62,7 @@ module.exports = {
                                 { name: "\n", value: "\n" },
                                 { name: "\n", value: "\n" },
                                 { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
-                                { name: "\n", value: "\n" },
+                                { name: "\n", value: "\n" }
                             )
                             )
 
@@ -77,7 +73,7 @@ module.exports = {
 
                                     embeds[i].spliceFields(j, j + 1,
                                         {
-                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Level ${listOfCharacters[currentCharacter]["level"]}\nEidolon ${listOfCharacters[currentCharacter]["eidolon"]}\nLight Cone [${LCSheet[listOfCharacters[currentCharacter]["lc"]]["name"]}]`
+                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Light Cone: **${LCSheet[listOfCharacters[currentCharacter]["lc"]]["name"]}**\nLevel: ${listOfCharacters[currentCharacter]["level"]}\nEidolon: ${listOfCharacters[currentCharacter]["eidolon"]}`
                                         }
                                     )
                                     delete listOfCharacters[`${currentCharacter}`] // Remove the first character from your list
@@ -89,7 +85,7 @@ module.exports = {
 
                                     embeds[i].spliceFields(h, h + 1,
                                         {
-                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Level ${listOfCharacters[currentCharacter]["level"]}\nEidolon ${listOfCharacters[currentCharacter]["eidolon"]}\nLight Cone [${LCSheet[listOfCharacters[currentCharacter]["lc"]]["name"]}]`
+                                            name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Light Cone: **${LCSheet[listOfCharacters[currentCharacter]["lc"]]["name"]}**\nLevel: ${listOfCharacters[currentCharacter]["level"]}\nEidolon: ${listOfCharacters[currentCharacter]["eidolon"]}`
                                         }
                                     )
                                     delete listOfCharacters[`${currentCharacter}`]

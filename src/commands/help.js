@@ -31,6 +31,7 @@ module.exports = {
                     "`/pity`" + " - " + "See your 4 and 5 star pities" + "\n" + 
                     "`/collection`" + " - " + "Shows your owned characters" + "\n" + 
                     "`/inventory`" + " - " + "Shows your light cones and items" + "\n" + 
+                    "`/equip`" + " - " + "Put light cones on your characters to earn more jade" + "\n" + 
                     "\n" + 
                     "`/help`" + " - " + "Brings up the help menu" + "\n" +
                     "`/math`" + " - " + "Does simple math" + "\n" + 
