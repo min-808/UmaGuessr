@@ -7,8 +7,8 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('usepower')
-    .setDescription('dev command'),
+    .setName('bonus')
+    .setDescription('Get a one-time bonus of 5000 stellar jade!'),
 
     run: ({ interaction }) => {
              
@@ -37,33 +37,34 @@ module.exports = {
                 // Check how many documents are in the query (discord_id)
                 var counter = await ids.countDocuments({discord_id: discordID})
 
-                // If document found, get the hsr_id (set to 1, and id set to 0)
                 if (counter < 1) {
                     // If document not found, make a new database entry, do this for all economy commands
                     await setup.init(discordID, "economy", "inventories")
                 }
-
-                const updatePower = {
-                    $inc: {
-                        trailblaze_power: -40
+                var options = {
+                    projection: {
+                        jade_count: 1,
                     }
                 }
-                await ids.updateOne({ discord_id: discordID }, updatePower);
+
+                // Then get the first thing that matches the discord id, and options is the query from before
+                var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
+                var currentAmount = toParseUserUID['jade_count']
                 
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `done`
+                        value: `You have **${currentAmount}** stellar jade`
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });
                 await client.close()
 
-            } catch (error) {
-                console.log(`There was an error: ${error}`)
-                interaction.editReply({ content: "Something broke!"})
-                await client.close()
-            }
+                } catch (error) {
+                    console.log(`There was an error: ${error}`)
+                    interaction.editReply({ content: "Something broke!"})
+                    await client.close()
+                }
         })();
     }
 }

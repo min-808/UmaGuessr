@@ -15,6 +15,7 @@ module.exports = {
         const doc = {
             discord_id: parseInt(discordID),
             jade_count: 0,
+            bonus_claimed: false,
             daily_timer: 0,
             assignment_timer: 0,
             max_assignments: 1,

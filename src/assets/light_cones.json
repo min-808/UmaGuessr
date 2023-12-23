@@ -808,12 +808,5 @@
         "icon": "icon/light_cone/24003.png",
         "preview": "image/light_cone_preview/24003.png",
         "portrait": "image/light_cone_portrait/24003.png"
-    },
-    "-1": {
-        "id": "-1",
-        "name": "None",
-        "rarity": 0,
-        "path": "None",
-        "desc": "No weapon and a dream"
     }
 }

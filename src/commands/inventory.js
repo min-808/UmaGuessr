@@ -54,6 +54,8 @@ module.exports = {
                         }
 
                         const embeds = []
+                        var whoItsOn = ""
+
                         for (let i = 0; i < pages; i++) {
                             embeds.push(new EmbedBuilder().setDescription(`**Inventory | Page (${i + 1}/${pages})**`)
                             .setColor(0x9a7ee7)
@@ -71,9 +73,15 @@ module.exports = {
                                 for (var j = 0; j < showPerPage; j++) {
                                     currentItem = Object.keys(listOfItems)[Object.keys(listOfItems).length - 1] // Set the current item to the last one
 
+                                    if (listOfItems[currentItem]["equipped_on"] == -1) {
+                                        whoItsOn = "None"
+                                    } else {
+                                        whoItsOn = charSheet[listOfItems[currentItem]["equipped_on"]]["name"]
+                                    }
+
                                     embeds[i].spliceFields(j, j + 1,
                                         {
-                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${charSheet[listOfItems[currentItem]["equipped_on"]]["name"]}**\nLevel: ${listOfItems[currentItem]["level"]}\nSuperimpose: ${listOfItems[currentItem]["si"]}`
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${whoItsOn}**\nLevel: ${listOfItems[currentItem]["level"]}\nSuperimpose: ${listOfItems[currentItem]["si"]}`
                                         }
                                     )
                                     delete listOfItems[`${currentItem}`] // Remove the first item from your list
@@ -83,9 +91,15 @@ module.exports = {
                                 for (var h = 0; h < size; h++) {
                                     currentItem = Object.keys(listOfItems)[Object.keys(listOfItems).length - 1]
 
+                                    if (listOfItems[currentItem]["equipped_on"] == -1) {
+                                        whoItsOn = "None"
+                                    } else {
+                                        whoItsOn = charSheet[listOfItems[currentItem]["equipped_on"]]["name"]
+                                    }
+
                                     embeds[i].spliceFields(h, h + 1,
                                         {
-                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${charSheet[listOfItems[currentItem]["equipped_on"]]["name"]}**\nLevel: ${listOfItems[currentItem]["level"]}\nSuperimpose: ${listOfItems[currentItem]["si"]}`
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${whoItsOn}**\nLevel: ${listOfItems[currentItem]["level"]}\nSuperimpose: ${listOfItems[currentItem]["si"]}`
                                         }
                                     )
                                     delete listOfItems[`${currentItem}`]

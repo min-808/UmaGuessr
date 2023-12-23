@@ -72,7 +72,6 @@ module.exports = {
                 // Check how many documents are in the query (discord_id)
                 var counter = await ids.countDocuments({discord_id: discordID})
 
-                // If document found, get the hsr_id (set to 1, and id set to 0)
                 if (counter < 1) {
                     // If document not found, make a new database entry, do this for all economy commands
                     await setup.init(discordID, "economy", "inventories")
@@ -87,7 +86,7 @@ module.exports = {
 
                 // Then get the first thing that matches the discord id, and options is the query from before
                 var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                // Then find the thing called hsr_id
+
                 var currentInventory = toParseUserUID['inventory']
                 var currentChars = toParseUserUID['characters']
 

@@ -40,66 +40,40 @@ module.exports = {
                 // Check how many documents are in the query (discord_id)
                 var counter = await ids.countDocuments({discord_id: discordID})
 
-                // If document found, get the hsr_id (set to 1, and id set to 0)
-                if (counter >= 1) {
-
-                    var options = {
-                        projection: {
-                            _id: 0,
-                            jade_count: 1,
-                            daily_timer: 1
-                        }
+                if (counter < 1) {
+                    // If document not found, make a new database entry, do this for all economy commands
+                    await setup.init(discordID, "economy", "inventories")
+                }
+                var options = {
+                    projection: {
+                        _id: 0,
+                        jade_count: 1,
+                        daily_timer: 1
                     }
+                }
 
-                    // Then get the first thing that matches the discord id, and options is the query from before
-                    var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                    // Then find the thing called hsr_id
-                    var currentAmount = toParseUserUID['jade_count']
-                    var pastTime = toParseUserUID['daily_timer']
-                    
-                    // If you can't claim daily yet
-                    if ((pastTime += 86400000) >= currentTime) {
-                        testEmbed.spliceFields(0, 1,
-                            {
-                                name: "\n",
-                                value: `You can claim again in **${((pastTime - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours**`
-                            })
-
-                        testEmbed.setFooter({ text: "\n" })
-
-                    } else { // You can claim
-                        
-                        // Update entries
-                        const updateValues = {
-                            $set: {
-                                jade_count: currentAmount += 1000,
-                                daily_timer: currentTime
-                            }
-                        }
-
-                        await ids.updateOne({discord_id: discordID}, updateValues)
-
-                        testEmbed.spliceFields(0, 1, {
+                // Then get the first thing that matches the discord id, and options is the query from before
+                var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
+                // Then find the thing called hsr_id
+                var currentAmount = toParseUserUID['jade_count']
+                var pastTime = toParseUserUID['daily_timer']
+                
+                // If you can't claim daily yet
+                if ((pastTime += 86400000) >= currentTime) {
+                    testEmbed.spliceFields(0, 1,
+                        {
                             name: "\n",
-                            value: `**You have claimed your daily 1000 jades!**`
+                            value: `You can claim again in **${((pastTime - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours**`
                         })
 
-                        testEmbed.setTimestamp();
-                    }
-                        
-                    interaction.editReply({ embeds: [testEmbed] });
-                    await client.close()
+                    testEmbed.setFooter({ text: "\n" })
 
-                } else {
-                    // If document not found, make a new database entry, do this for all economy commands
-
-                    await setup.init(discordID, "economy", "inventories")
+                } else { // You can claim
                     
-                    // Up to here is default for every economy command, further on is command-specific
-                    
+                    // Update entries
                     const updateValues = {
                         $set: {
-                            jade_count: 1000,
+                            jade_count: currentAmount += 1000,
                             daily_timer: currentTime
                         }
                     }
@@ -112,15 +86,14 @@ module.exports = {
                     })
 
                     testEmbed.setTimestamp();
-                    
-                    interaction.editReply({ embeds: [testEmbed] });
-                    await client.close()
                 }
-
-                } catch (error) {
-                    console.log(`There was an error: ${error}`)
-                    interaction.editReply({ content: "Something broke!"})
-                    await client.close()
+                    
+                interaction.editReply({ embeds: [testEmbed] });
+                await client.close()
+            } catch (error) {
+                console.log(`There was an error: ${error}`)
+                interaction.editReply({ content: "Something broke!"})
+                await client.close()
             }
         })();
     }
