@@ -37,34 +37,52 @@ module.exports = {
                 // Check how many documents are in the query (discord_id)
                 var counter = await ids.countDocuments({discord_id: discordID})
 
+                // If document found, get the hsr_id (set to 1, and id set to 0)
                 if (counter < 1) {
                     // If document not found, make a new database entry, do this for all economy commands
                     await setup.init(discordID, "economy", "inventories")
                 }
-                var options = {
-                    projection: {
-                        jade_count: 1,
+
+                const addJade = {
+                    $inc: {
+                        jade_count: 5000
                     }
                 }
 
-                // Then get the first thing that matches the discord id, and options is the query from before
-                var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                var currentAmount = toParseUserUID['jade_count']
-                
-                testEmbed.spliceFields(0, 1,
-                    {
-                        name: "\n",
-                        value: `You have **${currentAmount}** stellar jade`
+                const setTrue = {
+                    $set : {
+                        bonus_claimed: true
+                    }
+                }
+
+                var broadSearch = await ids.findOne({ discord_id: discordID })
+                var claimed = broadSearch["bonus_claimed"]
+
+                if (claimed) {
+                    testEmbed.spliceFields(0, 1,
+                        {
+                            name: "\n",
+                            value: `You already claimed the bonus!`
                     })
+                } else {
+                    await ids.updateOne({ discord_id: discordID }, addJade);
+                    await ids.updateOne({ discord_id: discordID }, setTrue)
+                    
+                    testEmbed.spliceFields(0, 1,
+                        {
+                            name: "\n",
+                            value: `You have claimed your one-time **5000 stellar jade** bonus!`
+                    })
+                }
 
                 interaction.editReply({ embeds: [testEmbed] });
                 await client.close()
 
-                } catch (error) {
-                    console.log(`There was an error: ${error}`)
-                    interaction.editReply({ content: "Something broke!"})
-                    await client.close()
-                }
+            } catch (error) {
+                console.log(`There was an error: ${error}`)
+                interaction.editReply({ content: "Something broke!"})
+                await client.close()
+            }
         })();
     }
 }

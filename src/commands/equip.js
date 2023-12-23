@@ -5,7 +5,6 @@ const setup = require('../../firstinit');
 
 const LCSheet = require('../../src/assets/light_cones.json')
 const charSheet = require('../../src/assets/characters.json');
-const inventory = require('./inventory');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -147,6 +146,7 @@ module.exports = {
                         Case 4. If the LC is held by someone AND the character is holding an LC (in this case, swap LCs)
 
                         For cases 2 and 4, let the person know that the old character is holding nothing/it was swapped
+                        Also for case 4, make sure to check that you're not swapping the same character with each other. Weird output but still functions
                     */
 
                     if ((getEquippedOn == -1) && (getCurrentCharLC == -1)) { // Case 1
