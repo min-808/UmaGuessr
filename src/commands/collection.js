@@ -58,6 +58,22 @@ module.exports = {
                     const embeds = []
                     var whoItsOn = ""
 
+                    var sortedByRarity = [];
+
+                    for (const [key] of Object.entries(listOfCharacters)) {
+                        var currentCharacter = key
+                        if (charSheet[currentCharacter]["rarity"] == 5) {
+                            sortedByRarity.push(currentCharacter)
+                        }
+                    }
+
+                    for (const [key] of Object.entries(listOfCharacters)) {
+                        var currentCharacter = key
+                        if (charSheet[currentCharacter]["rarity"] == 4) {
+                            sortedByRarity.push(currentCharacter)
+                        }
+                    }
+
                     for (let i = 0; i < pages; i++) {
                         embeds.push(new EmbedBuilder().setDescription(`**Characters | Page (${i + 1}/${pages})**`)
                         .setColor(0x9a7ee7)
@@ -73,7 +89,7 @@ module.exports = {
                         if (size >= showPerPage) { // fill the page!
                             
                             for (var j = 0; j < showPerPage; j++) {
-                                currentCharacter = Object.keys(listOfCharacters)[Object.keys(listOfCharacters).length - 1] // Set the current character to the last one
+                                currentCharacter = sortedByRarity[0] // Set the current character to the first one
 
                                 if (listOfCharacters[currentCharacter]["lc"] == -1) {
                                     whoItsOn = "None"
@@ -86,12 +102,12 @@ module.exports = {
                                         name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Light Cone: **${whoItsOn}**\nLevel: ${listOfCharacters[currentCharacter]["level"]}\nEidolon: ${listOfCharacters[currentCharacter]["eidolon"]}`
                                     }
                                 )
-                                delete listOfCharacters[`${currentCharacter}`] // Remove the last character from your list
+                                sortedByRarity.shift() // Remove the first character from the array by shifting over
                             }
                             size -= showPerPage // Decrement
                         } else if (size < showPerPage) { // only fill as much as you need (given by size)
                             for (var h = 0; h < size; h++) {
-                                currentCharacter = Object.keys(listOfCharacters)[Object.keys(listOfCharacters).length - 1]
+                                currentCharacter = sortedByRarity[0]
 
                                 if (listOfCharacters[currentCharacter]["lc"] == -1) {
                                     whoItsOn = "None"
@@ -104,7 +120,7 @@ module.exports = {
                                         name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Light Cone: **${whoItsOn}**\nLevel: ${listOfCharacters[currentCharacter]["level"]}\nEidolon: ${listOfCharacters[currentCharacter]["eidolon"]}`
                                     }
                                 )
-                                delete listOfCharacters[`${currentCharacter}`]
+                                sortedByRarity.shift()
                             }
                             size = 0
                         }
