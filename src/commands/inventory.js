@@ -41,6 +41,7 @@ module.exports = {
     
                     // console.log(listOfItems)
                     var size = Object.keys(listOfItems).length
+                    var permaSize = Object.keys(listOfItems).length
     
                     // console.log(size)
 
@@ -86,6 +87,7 @@ module.exports = {
                                     )
                                     delete listOfItems[`${currentItem}`] // Remove the first item from your list
                                 }
+                                embeds[i].setFooter({text: `You have ${permaSize} items`})
                                 size -= showPerPage // Decrement
                             } else if (size < showPerPage) { // only fill as much as you need (size)
                                 for (var h = 0; h < size; h++) {
@@ -104,6 +106,7 @@ module.exports = {
                                     )
                                     delete listOfItems[`${currentItem}`]
                                 }
+                                embeds[i].setFooter({text: `You have ${permaSize} items`})
                                 size = 0
                             }
                         }

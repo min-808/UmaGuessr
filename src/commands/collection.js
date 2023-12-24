@@ -43,6 +43,7 @@ module.exports = {
 
                 // console.log(listOfItems)
                 var size = Object.keys(listOfCharacters).length
+                var permaSize = Object.keys(listOfCharacters).length
 
                 // console.log(size)
 
@@ -104,6 +105,7 @@ module.exports = {
                                 )
                                 sortedByRarity.shift() // Remove the first character from the array by shifting over
                             }
+                            embeds[i].setFooter({text: `You have ${permaSize} characters`})
                             size -= showPerPage // Decrement
                         } else if (size < showPerPage) { // only fill as much as you need (given by size)
                             for (var h = 0; h < size; h++) {
@@ -122,6 +124,7 @@ module.exports = {
                                 )
                                 sortedByRarity.shift()
                             }
+                            embeds[i].setFooter({text: `You have ${permaSize} characters`})
                             size = 0
                         }
                     }
