@@ -51,19 +51,16 @@ async function replenishPower() {
 
     console.log(`[${currentTime}] - There are ${howMany} documents. Updating uncapped trailblaze power...`)
 
-    const updatePower = {
-        $inc: {
-            trailblaze_power: 1
-        }
-    }
-
-    await ids.updateMany({ trailblaze_power: { $lt: 240 } }, updatePower);
+    await ids.updateMany(
+        { $expr: { $lt: ["$trailblaze_power", "$max_trailblaze_power"] } }, 
+        { $inc: { trailblaze_power: 1 } }
+    )
 
     await client.close()
 }
 
 client.on('ready', async () => { // Replenish trailblaze power every 8 minutes
-    setInterval(replenishPower, 480000)
+    setInterval(replenishPower, 360000) // 360000
 })
 
 client.on('interactionCreate', async interaction => { // interactions within slash commands

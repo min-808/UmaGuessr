@@ -20,7 +20,24 @@ const charSkills = require('../../src/assets/character_skills.json')
 const matsRequired = require('../../src/assets/character_promotions.json')
 const items = require('../../src/assets/items.json')
 
-let choices = ['March 7th', 'Dan Heng', 'Himeko', 'Welt', 'Kafka', 'Silver Wolf', 'Arlan', 'Asta', 'Herta', 'Bronya', 'Seele', 'Serval', 'Gepard', 'Natasha', 'Pela', 'Clara', 'Sampo', 'Hook', 'Qingque', 'Tingyun', 'Luocha', 'Jing Yuan', 'Blade', 'Sushang', 'Yukong', 'Yanqing', 'Bailu', 'Trailblazer', 'Lynx', 'Jingliu', 'Guinaifen', 'Fu Xuan', 'Topaz', 'Hanya', 'Huohuo', 'Argenti']
+// let choices = ['March 7th', 'Dan Heng', 'Himeko', 'Welt', 'Kafka', 'Silver Wolf', 'Arlan', 'Asta', 'Herta', 'Bronya', 'Seele', 'Serval', 'Gepard', 'Natasha', 'Pela', 'Clara', 'Sampo', 'Hook', 'Qingque', 'Tingyun', 'Luocha', 'Jing Yuan', 'Blade', 'Sushang', 'Yukong', 'Yanqing', 'Bailu', 'Trailblazer', 'Lynx', 'Jingliu', 'Guinaifen', 'Fu Xuan', 'Topaz', 'Hanya', 'Huohuo', 'Argenti']
+let newChoices = []
+let filteredChoices = []
+
+var count = Object.keys(charSheet).length
+var countId = Object.keys(charId).length
+
+// Push all char names to newChoices
+for (var i = 0; i < count; i++) {
+    newChoices.push(Object.values(charSheet)[i].name)
+}
+
+// Filter it so the array is holding only unique values
+filteredChoices = newChoices.filter(function(item, pos) {
+    return newChoices.indexOf(item) == pos
+})
+
+choices = filteredChoices
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -52,13 +69,31 @@ module.exports = {
         await interaction.deferReply()
 
         const theResponse = interaction.options.get('character').value;
-        var query = theResponse.charAt(0).toUpperCase() + theResponse.slice(1)
+        var query = theResponse
+        var id = ""
+        var dId = ""
 
+        // Connect name and id
+        for (var i = 0; i < count; i++) {
+            if (Object.values(charSheet)[i].name == query) {
+                id = Object.values(charSheet)[i].id
+            }
+        }
+
+        // Connect dId and id
+        for (var j = 0; j < countId; j++) {
+            if (Object.values(charId)[j].id == id) {
+                dId = Object.values(charId)[j].dId
+            }
+        }
+
+        /*
         if (theResponse.includes(" ")) {
             const first = theResponse.charAt(0).toUpperCase() + theResponse.slice(1, theResponse.indexOf(" ") + 1) // Silver_
             const second = theResponse.charAt(theResponse.indexOf(" ") + 1).toUpperCase() + theResponse.slice(theResponse.indexOf(" ") + 2) // Wolf
             query = first + second;
         }
+        */
 
         if (!choices.includes(query)) {
             interaction.editReply({
@@ -69,7 +104,7 @@ module.exports = {
             // i prob could've just added an else statement and put the below code in it but this works too
         }
 
-        const selectedChar = charId[query]["id"]
+        const selectedChar = id
         const numRarity = charSheet[selectedChar]["rarity"];
 
         const testEmbed = new EmbedBuilder()
@@ -80,7 +115,7 @@ module.exports = {
             .addFields(
                 {
                     name: "Description",
-                    value: charDesc[charId[query]["dId"]]["desc"].replaceAll('\\n', '\n').replaceAll('{NICKNAME}', "Trailblazer").replaceAll('A {F#girl}{M#boy}', "One"),
+                    value: charDesc[dId]["desc"].replaceAll('\\n', '\n').replaceAll('{NICKNAME}', "Trailblazer").replaceAll('A {F#girl}{M#boy}', "One"),
                 },
                 {
                     name: "Rarity",

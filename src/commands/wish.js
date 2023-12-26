@@ -19,7 +19,7 @@ module.exports = {
             .setName("multiple")
             .setDescription('10x Wish')
             .addChoices({
-                name: "10x", value: "10x"
+                name: "10", value: "10"
             })
     ),
 
@@ -68,7 +68,8 @@ module.exports = {
                         wish_count: 1,
                         four_star_pity: 1,
                         five_star_pity: 1,
-                        exp_material: 1
+                        exp_material: 1,
+                        credits: 1,
                     }
                 }
 
@@ -149,7 +150,7 @@ module.exports = {
 
                                         var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters'] //here
                                         if (fiveStarChars[chooseFSC] in characterCollection) {
-                                            console.log("found") // Just increase eidolon level, make sure it caps at 6
+                                            // console.log("found") // Just increase eidolon level, make sure it caps at 6
 
                                             const getEidolon = {
                                                 projection: {
@@ -162,23 +163,23 @@ module.exports = {
                                             var getEV = findEV["characters"][fiveStarChars[chooseFSC]]["eidolon"]
                                             
                                             if (getEV >= 6) { // E6 + duplicate
-                                                await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 400 } } )
+                                                await ids.updateOne({discord_id: discordID}, { $inc: { credits: 8000 } } )
                                                 result = `${emoteSheet["Stars"]["Maxed"]["id"]} ${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                                amountDueToDupes += 400;
+                                                amountDueToDupes += 8000;
                                             } else { // you got a duplicate
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { [eidolon] : 1 } })
-                                                await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 80 } } )
+                                                await ids.updateOne({discord_id: discordID}, { $inc: { credits: 1600 } } )
                                                 result = `${emoteSheet["Stars"]["Dupe"]["id"]} ${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                                amountDueToDupes += 80;
+                                                amountDueToDupes += 1600;
                                             }
                                         } else {
-                                            console.log("new")
+                                            // console.log("new")
                                             await ids.updateOne({ discord_id: discordID }, { $inc: { [level] : 1 } })
                                             await ids.updateOne({ discord_id: discordID }, { $inc: { [lc] : -1 } })
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [eidolon] : 0 } })
-                                            await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 80 } } )
+                                            await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 1000 } } )
                                             result = `${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                            amountDueToDupes += 80
+                                            amountDueToDupes += 1000
                                         }
                                     } else { // YOU GOT A LIGHT CONE
                                         chooseFSLC = Math.floor(Math.random() * (fiveStarLC.length))
@@ -191,7 +192,7 @@ module.exports = {
 
                                         var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                         if (fiveStarLC[chooseFSLC] in inventoryCollection) {
-                                            console.log("found")
+                                            // console.log("found")
 
                                             const getSI = {
                                                 projection: {
@@ -204,23 +205,23 @@ module.exports = {
                                             var getSV = findSV["inventory"][fiveStarLC[chooseFSLC]]["si"]
 
                                             if (getSV >= 6) { // You have 6 si already
-                                                await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 400 } } )
+                                                await ids.updateOne({discord_id: discordID}, { $inc: { credits: 8000 } } )
                                                 result = result = `${emoteSheet["Stars"]["Maxed"]["id"]} ${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                                amountDueToDupes += 400;
+                                                amountDueToDupes += 8000;
                                             } else { // You got a duplicate
-                                                await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 80 } } )
+                                                await ids.updateOne({discord_id: discordID}, { $inc: { credits: 1600 } } )
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
                                                 result = `${emoteSheet["Stars"]["Dupe"]["id"]} ${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                                amountDueToDupes += 80;
+                                                amountDueToDupes += 1600;
                                             }
                                         } else { // Your first time getting the lc
-                                            console.log("new")
+                                            // console.log("new")
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
-                                            await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 80 } } )
+                                            await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 1000 } } )
                                             result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                            amountDueToDupes += 80;
+                                            amountDueToDupes += 1000;
                                         }
                                     }
                                 // Check if you got a 4 star
@@ -250,7 +251,7 @@ module.exports = {
 
                                         var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters']
                                         if (fourStarChars[chooseFourSC] in characterCollection) {
-                                            console.log("found")
+                                            // console.log("found")
 
                                             const getEidolon = {
                                                 projection: {
@@ -263,23 +264,23 @@ module.exports = {
                                             var getEV = findEV["characters"][fourStarChars[chooseFourSC]]["eidolon"]
 
                                             if (getEV >= 6) { // Dupe + E6
-                                                await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 40 }})
+                                                await ids.updateOne({discord_id: discordID}, { $inc: { credits: 800 }})
                                                 result = `${emoteSheet["Stars"]["Maxed"]["id"]} ${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                                amountDueToDupes += 40
+                                                amountDueToDupes += 800
                                             } else { // you got a duplicate
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { [eidolon]: 1 } })
-                                                await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 16 } } )
+                                                await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 320 } } )
                                                 result = `${emoteSheet["Stars"]["Dupe"]["id"]} ${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                                amountDueToDupes += 16
+                                                amountDueToDupes += 320
                                             }
                                         } else { // Your first time getting the character
-                                            console.log("new")
+                                            // console.log("new")
                                             await ids.updateOne({ discord_id: discordID }, { $inc: { [level] : 1 } })
                                             await ids.updateOne({ discord_id: discordID }, { $inc: { [lc] : -1 } })
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [eidolon] : 0 } })
-                                            await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 16 } } )
+                                            await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 200 } } )
                                             result = `${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                            amountDueToDupes += 16
+                                            amountDueToDupes += 200
                                         }
                                     } else { // YOU GOT A LIGHTCONE
                                         chooseFourSLC = Math.floor(Math.random() * (fourStarLC.length))
@@ -292,7 +293,7 @@ module.exports = {
 
                                         var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                         if (fourStarLC[chooseFourSLC] in inventoryCollection) {
-                                            console.log("found")
+                                            // console.log("found")
 
                                             const getSI = {
                                                 projection: {
@@ -305,23 +306,23 @@ module.exports = {
                                             var getSV = findSV["inventory"][fourStarLC[chooseFourSLC]]["si"]
 
                                             if (getSV >= 6) { // You have 6 si already
-                                                await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 40 } } )
+                                                await ids.updateOne({discord_id: discordID}, { $inc: { credits: 800 } } )
                                                 result = `${emoteSheet["Stars"]["Maxed"]["id"]} ${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                                amountDueToDupes += 40
+                                                amountDueToDupes += 800
                                             } else { // You got a duplicate
-                                                await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 16 } } )
+                                                await ids.updateOne({discord_id: discordID}, { $inc: { credits: 320 } } )
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
                                                 result = `${emoteSheet["Stars"]["Dupe"]["id"]} ${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                                amountDueToDupes += 16
+                                                amountDueToDupes += 320
                                             }
                                         } else { // Your first time getting the lc
-                                            console.log("new")
+                                            // console.log("new")
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
-                                            await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 16 } } )
+                                            await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 200 } } )
                                             result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                            amountDueToDupes += 16
+                                            amountDueToDupes += 200
                                         }
                                     }
                                 // You got a 3 star sadge, must be a light cone
@@ -346,7 +347,7 @@ module.exports = {
 
                                     var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                     if (threeStarLC[chooseTSLC] in inventoryCollection) {
-                                        console.log("found")
+                                        // console.log("found")
 
                                         const getSI = {
                                             projection: {
@@ -359,23 +360,23 @@ module.exports = {
                                         var getSV = findSV["inventory"][threeStarLC[chooseTSLC]]["si"]
 
                                         if (getSV >= 6) { // You have 6 si already
-                                            await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 20 } } )
+                                            await ids.updateOne({discord_id: discordID}, { $inc: { credits: 400 } } )
                                             result = `${emoteSheet["Stars"]["Maxed"]["id"]} ${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                            amountDueToDupes += 20
+                                            amountDueToDupes += 400
                                         } else { // You got a duplicate
-                                            await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 4 } } )
+                                            await ids.updateOne({discord_id: discordID}, { $inc: { credits: 80 } } )
                                             await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
                                             result = `${emoteSheet["Stars"]["Dupe"]["id"]} ${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                            amountDueToDupes += 4
+                                            amountDueToDupes += 80
                                         }
                                     } else { // Your first time getting the lc
-                                        console.log("new")
+                                        // console.log("new")
                                         await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                         await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                         await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
-                                        await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 4 } } )
+                                        await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 50 } } )
                                         result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
-                                        amountDueToDupes += 4
+                                        amountDueToDupes += 50
                                     }
                                 }
 
@@ -399,7 +400,7 @@ module.exports = {
                         testEmbed.spliceFields(9, 10,
                             {
                                 name: "\n",
-                                value: `You got **${result}**\n\nYou got **${amountDueToDupes}** EXP Material from duplicates\nYou now have **${reset['jade_count']}** stellar jade`
+                                value: `You got **${result}**\n\nYou got **${amountDueToDupes}** Credits from duplicates\nYou now have **${reset['jade_count']}** stellar jade`
                             })
 
                         interaction.editReply({ embeds: [testEmbed] });
@@ -451,7 +452,7 @@ module.exports = {
 
                                 var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters'] //here
                                 if (fiveStarChars[chooseFSC] in characterCollection) {
-                                    console.log("found") // Just increase eidolon level, make sure it caps at 6
+                                    // console.log("found") // Just increase eidolon level, make sure it caps at 6
 
                                     const getEidolon = {
                                         projection: {
@@ -464,20 +465,20 @@ module.exports = {
                                     var getEV = findEV["characters"][fiveStarChars[chooseFSC]]["eidolon"]
                                     
                                     if (getEV >= 6) {
-                                        await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 400 } } )
-                                        result = `${charSheet[fiveStarChars[chooseFSC]]["name"]}, but you already have six eidolons!\n\n+400 EXP Material`
+                                        await ids.updateOne({discord_id: discordID}, { $inc: { credits: 8000 } } )
+                                        result = `${charSheet[fiveStarChars[chooseFSC]]["name"]}, but you already have six eidolons!\n\n+8000 Credits`
                                     } else { // you got a duplicate
                                         await ids.updateOne({ discord_id: discordID }, { $inc: { [eidolon] : 1 } })
-                                        await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 80 } } )
-                                        result = `${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nEidolon Level: ${getEV + 1}\n+80 EXP Material`
+                                        await ids.updateOne({discord_id: discordID}, { $inc: { credits: 1600 } } )
+                                        result = `${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nEidolon Level: ${getEV + 1}\n+1600 Credits`
                                     }
                                 } else {
-                                    console.log("new")
+                                    // console.log("new")
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { [level] : 1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { [lc] : -1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [eidolon] : 0 } })
-                                    await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 80 } } )
-                                    result = `${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+80 EXP Material`
+                                    await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 1000 } } )
+                                    result = `${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+1000 Credits`
                                 }
                             } else { // YOU GOT A LIGHT CONE
                                 chooseFSLC = Math.floor(Math.random() * (fiveStarLC.length))
@@ -490,7 +491,7 @@ module.exports = {
 
                                 var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                 if (fiveStarLC[chooseFSLC] in inventoryCollection) {
-                                    console.log("found")
+                                    // console.log("found")
 
                                     const getSI = {
                                         projection: {
@@ -503,20 +504,20 @@ module.exports = {
                                     var getSV = findSV["inventory"][fiveStarLC[chooseFSLC]]["si"]
 
                                     if (getSV >= 6) { // You have 6 si already
-                                        await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 400 } } )
-                                        result = result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]}, but you already have six superimpositions!\n\n+400 EXP Material`
+                                        await ids.updateOne({discord_id: discordID}, { $inc: { credits: 8000 } } )
+                                        result = result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]}, but you already have six superimpositions!\n\n+8000 Credits`
                                     } else { // You got a duplicate
-                                        await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 80 } } )
+                                        await ids.updateOne({discord_id: discordID}, { $inc: { credits: 1600 } } )
                                         await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
-                                        result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nSI Level: ${getSV + 1}\n+80 EXP Material`
+                                        result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nSI Level: ${getSV + 1}\n+1600 Credits`
                                     }
                                 } else { // Your first time getting the lc
-                                    console.log("new")
+                                    // console.log("new")
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
-                                    await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 80 } } )
-                                    result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+80 EXP Material`
+                                    await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 1000 } } )
+                                    result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+1000 Credits`
                                 }
                             }
                         // Check if you got a 4 star
@@ -546,7 +547,7 @@ module.exports = {
 
                                 var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters']
                                 if (fourStarChars[chooseFourSC] in characterCollection) {
-                                    console.log("found")
+                                    // console.log("found")
 
                                     const getEidolon = {
                                         projection: {
@@ -559,20 +560,20 @@ module.exports = {
                                     var getEV = findEV["characters"][fourStarChars[chooseFourSC]]["eidolon"]
 
                                     if (getEV >= 6) {
-                                        await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 40 }})
-                                        result = `${charSheet[fourStarChars[chooseFourSC]]["name"]}, but you already have six eidolons!\n\n+40 EXP Material`
+                                        await ids.updateOne({discord_id: discordID}, { $inc: { credits: 800 }})
+                                        result = `${charSheet[fourStarChars[chooseFourSC]]["name"]}, but you already have six eidolons!\n\n+800 Credits`
                                     } else { // you got a duplicate
                                         await ids.updateOne({ discord_id: discordID }, { $inc: { [eidolon]: 1 } })
-                                        await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 16 } } )
-                                        result = `${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nEidolon Level: ${getEV + 1}\n+16 EXP Material`
+                                        await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 320 } } )
+                                        result = `${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nEidolon Level: ${getEV + 1}\n+320 Credits`
                                     }
                                 } else { // Your first time getting the character
-                                    console.log("new")
+                                    // console.log("new")
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { [level] : 1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { [lc] : -1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [eidolon] : 0 } })
-                                    await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 16 } } )
-                                    result = `${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+16 EXP Material`
+                                    await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 200 } } )
+                                    result = `${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+200 Credits`
                                 }
                             } else { // YOU GOT A LIGHTCONE
                                 chooseFourSLC = Math.floor(Math.random() * (fourStarLC.length))
@@ -585,7 +586,7 @@ module.exports = {
 
                                 var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                 if (fourStarLC[chooseFourSLC] in inventoryCollection) {
-                                    console.log("found")
+                                    // console.log("found")
 
                                     const getSI = {
                                         projection: {
@@ -598,20 +599,20 @@ module.exports = {
                                     var getSV = findSV["inventory"][fourStarLC[chooseFourSLC]]["si"]
 
                                     if (getSV >= 6) { // You have 6 si already
-                                        await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 40 } } )
-                                        result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]}, but you already have six superimpositions!\n\n+40 EXP Material`
+                                        await ids.updateOne({discord_id: discordID}, { $inc: { credits: 800 } } )
+                                        result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]}, but you already have six superimpositions!\n\n+800 Credits`
                                     } else { // You got a duplicate
-                                        await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 16 } } )
+                                        await ids.updateOne({discord_id: discordID}, { $inc: { credits: 320 } } )
                                         await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
-                                        result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nSI Level: ${getSV + 1}\n+16 EXP Material`
+                                        result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nSI Level: ${getSV + 1}\n+320 Credits`
                                     }
                                 } else { // Your first time getting the lc
-                                    console.log("new")
+                                    // console.log("new")
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
-                                    await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 16 } } )
-                                    result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+16 EXP Material`
+                                    await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 200 } } )
+                                    result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+200 Credits`
                                 }
                             }
                         // You got a 3 star sadge, must be a light cone
@@ -636,7 +637,7 @@ module.exports = {
 
                             var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                             if (threeStarLC[chooseTSLC] in inventoryCollection) {
-                                console.log("found")
+                                // console.log("found")
 
                                 const getSI = {
                                     projection: {
@@ -649,20 +650,20 @@ module.exports = {
                                 var getSV = findSV["inventory"][threeStarLC[chooseTSLC]]["si"]
 
                                 if (getSV >= 6) { // You have 6 si already
-                                    await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 20 } } )
-                                    result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]}, but you already have six superimpositions!\n\n+20 EXP Material`
+                                    await ids.updateOne({discord_id: discordID}, { $inc: { credits: 400 } } )
+                                    result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]}, but you already have six superimpositions!\n\n+400 Credits`
                                 } else { // You got a duplicate
-                                    await ids.updateOne({discord_id: discordID}, { $inc: { exp_material: 4 } } )
+                                    await ids.updateOne({discord_id: discordID}, { $inc: { credits: 80 } } )
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
-                                    result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nSI Level: ${getSV + 1}\n+4 EXP Material`
+                                    result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\nSI Level: ${getSV + 1}\n+80 Credits`
                                 }
                             } else { // Your first time getting the lc
-                                console.log("new")
+                                // console.log("new")
                                 await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                 await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                 await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
-                                await ids.updateOne({ discord_id: discordID }, { $inc: { exp_material: 4 } } )
-                                result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n+4 EXP Material`
+                                await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 50 } } )
+                                result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n+50 Credits`
                             }
                         }
 
@@ -679,7 +680,7 @@ module.exports = {
                             {
                                 name: "\n",
                                 value: `You got **${result}**\n
-                    You now have **${(await ids.findOne({discord_id: discordID}, options))['jade_count']}** stellar jade`
+    You now have **${(await ids.findOne({discord_id: discordID}, options))['jade_count']}** stellar jade`
                             })
 
                         interaction.editReply({ embeds: [testEmbed] });
@@ -689,7 +690,7 @@ module.exports = {
                 
             } catch (error) {
                 console.log(`There was an error: ${error}`)
-                interaction.editReply({ content: "Something broke!"})
+                interaction.editReply({ content: "Failed creating embed, please don't spam the command! Wishes have been calculated"})
                 await client.close()
             }
         })()

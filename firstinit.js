@@ -15,6 +15,7 @@ module.exports = {
         const doc = {
             discord_id: parseInt(discordID),
             jade_count: 0,
+            credits: 0,
             exp_material: 10,
             bonus_claimed: false,
             daily_timer: 0,

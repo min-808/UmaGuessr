@@ -3,17 +3,12 @@ var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
 
-const LCSheet = require('../../src/assets/light_cones.json')
-const charSheet = require('../../src/assets/characters.json')
-const emoteSheet = require('../../src/assets/emotes.json')
-const areaSheet = require('../../src/assets/areas.json')
-
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('assignment')
-    .setDescription('Send your characters on assignments to earn stellar jade'),
+    .setName('credits')
+    .setDescription('Check how many Credits you have'),
 
     run: ({ interaction }) => {
              
@@ -42,27 +37,24 @@ module.exports = {
                 // Check how many documents are in the query (discord_id)
                 var counter = await ids.countDocuments({discord_id: discordID})
 
-                // If document found, get the hsr_id (set to 1, and id set to 0)
                 if (counter < 1) {
-
                     // If document not found, make a new database entry, do this for all economy commands
                     await setup.init(discordID, "economy", "inventories")
                 }
                 var options = {
                     projection: {
-                        jade_count: 1,
+                        credits: 1,
                     }
                 }
 
                 // Then get the first thing that matches the discord id, and options is the query from before
                 var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                // Then find the thing called hsr_id
-                var currentAmount = toParseUserUID['jade_count']
+                var currentAmount = toParseUserUID['credits']
                 
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `You have **${currentAmount}** stellar jade`
+                        value: `You have **${currentAmount}** Credits`
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });
