@@ -176,7 +176,7 @@ module.exports = {
         var readable = [];
 
         for (var i = 0; i < ids.length; i++) {
-            readable.push(`\`${nums[i]}x\` | ${items[ids[i]]["name"]}`)
+            readable.push(`\`${nums[i]}x\` ${items[ids[i]]["name"]}`)
             format += `${readable[i]} \n`
         }
 
