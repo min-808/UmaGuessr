@@ -1,4 +1,4 @@
-This is a Discord bot based on Honkai: Star Rail
+This is a Discord bot based on Honkai: Star Rail\
 It can access your actual in-game profile information, and I'm in the process of implementing an economy system with wishing, inventories, and assignments with your collected characters
 
 It utilizes the [StarRailRes](https://github.com/Mar-7th/StarRailRes) repository for the library\
