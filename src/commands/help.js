@@ -27,10 +27,7 @@ module.exports = {
                     "**__Fun__**" + "\n" +
                     "`/wish`" + " - " + "Wish for characters with Star Rail rates" + "\n" + 
                     "`/pity`" + " - " + "See your 4 and 5 star pities" + "\n" + 
-                    "`/balance`" + " - " + "Check your stellar jade balance" + "\n" + 
-                    "`/credits`" + " - " + "Check your credit balance" + "\n" + 
-                    "`/power`" + " - " + "Check how much trailblaze power you have" + "\n" + 
-                    "`/power`" + " - " + "Check how much EXP materials you have" + "\n" + 
+                    "`/balance`" + " - " + "Check your stellar jades, exp, credits, and power" + "\n" + 
                     "`/daily`" + " - " + "Get 1000 stellar jade every 24 hours" + "\n" +
                     "`/bonus`" + " - " + "Get a one-time bonus of 5000 stellar jade" + "\n" +
                     "`/characters`" + " - " + "Shows your owned characters" + "\n" + 

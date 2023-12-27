@@ -44,17 +44,23 @@ module.exports = {
                 var options = {
                     projection: {
                         jade_count: 1,
+                        credits: 1,
+                        exp_material: 1,
+                        trailblaze_power: 1,
                     }
                 }
 
                 // Then get the first thing that matches the discord id, and options is the query from before
                 var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                var currentAmount = toParseUserUID['jade_count']
+                var jade_count = toParseUserUID['jade_count']
+                var credits = toParseUserUID['credits']
+                var exp_material = toParseUserUID['exp_material']
+                var trailblaze_power = toParseUserUID['trailblaze_power']
                 
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `You have **${currentAmount}** Stellar Jade`
+                        value: `**${jade_count}** Stellar Jade\n**${credits}** Credits\n**${exp_material}** EXP Material\n\n**${trailblaze_power}**/240 Trailblaze Power`
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });
