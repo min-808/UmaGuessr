@@ -16,7 +16,4 @@ character_promotions.json
 character_skills.json
 items.json
 
-Add new characters to drop down menu
 elements.json - If there are new elements, add it to this
-
-Commands with an a in front of them are being edited to test on test servers
