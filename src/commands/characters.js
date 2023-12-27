@@ -4,15 +4,15 @@ var { MongoClient } = require("mongodb");
 const setup = require('../../firstinit');
 const buttonPagination = require('../../button-pagination')
 
-const charSheet = require('../../src/assets/characters.json')
-const LCSheet = require('../../src/assets/light_cones.json')
-const emoteSheet = require('../../src/assets/emotes.json')
+const charSheet = require('../assets/characters.json')
+const LCSheet = require('../assets/light_cones.json')
+const emoteSheet = require('../assets/emotes.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('collection')
+    .setName('characters')
     .setDescription('Check your character collection'),
 
     run: ({ interaction }) => {

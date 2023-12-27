@@ -1,5 +1,5 @@
 const { SlashCommandBuilder, AttachmentBuilder, EmbedBuilder } = require('discord.js');
-const charSheet = require('../../src/assets/characters.json')
+const charSheet = require('../assets/characters.json')
 /*
 var xml = new XMLHttpRequest();
 XMLHttpRequest.onreadystatechange = function() {
@@ -12,13 +12,13 @@ xmlhttp.send();
 
 */
 
-const charDesc = require ('../../src/assets/descriptions.json')
-const charId = require('../../src/assets/char-id.json')
-const emoteSheet = require('../../src/assets/emotes.json')
-const paths = require('../../src/assets/paths.json')
-const charSkills = require('../../src/assets/character_skills.json')
-const matsRequired = require('../../src/assets/character_promotions.json')
-const items = require('../../src/assets/items.json')
+const charDesc = require ('../assets/descriptions.json')
+const charId = require('../assets/char-id.json')
+const emoteSheet = require('../assets/emotes.json')
+const paths = require('../assets/paths.json')
+const charSkills = require('../assets/character_skills.json')
+const matsRequired = require('../assets/character_promotions.json')
+const items = require('../assets/items.json')
 
 // let choices = ['March 7th', 'Dan Heng', 'Himeko', 'Welt', 'Kafka', 'Silver Wolf', 'Arlan', 'Asta', 'Herta', 'Bronya', 'Seele', 'Serval', 'Gepard', 'Natasha', 'Pela', 'Clara', 'Sampo', 'Hook', 'Qingque', 'Tingyun', 'Luocha', 'Jing Yuan', 'Blade', 'Sushang', 'Yukong', 'Yanqing', 'Bailu', 'Trailblazer', 'Lynx', 'Jingliu', 'Guinaifen', 'Fu Xuan', 'Topaz', 'Hanya', 'Huohuo', 'Argenti']
 let newChoices = []
@@ -41,7 +41,7 @@ choices = filteredChoices
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('character')
+    .setName('info')
     .setDescription('Returns information about a character')
     //.setDescription('TEST COMMAND')
     .addStringOption((option) => 
