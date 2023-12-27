@@ -193,7 +193,7 @@ module.exports = {
                                         LCBonus += Math.floor(Math.random() * (160 - 150 + 1) + 150)
                                     }
 
-                                    levelBonus += currentChars[charMap.get(character)]["level"]
+                                    levelBonus += (currentChars[charMap.get(character)]["level"]) * 2
     
                                     var total = baseReward + charBonus + LCBonus + levelBonus
                                     var TPCost = reqPlanet.trailblaze_cost

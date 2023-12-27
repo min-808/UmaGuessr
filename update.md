@@ -16,4 +16,7 @@ character_promotions.json
 character_skills.json
 items.json
 
+
+
+
 elements.json - If there are new elements, add it to this
