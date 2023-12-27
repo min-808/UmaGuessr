@@ -7,8 +7,8 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('upgrade')
-    .setDescription('Level up assignment level to get better assignments!'),
+    .setName('unlock')
+    .setDescription('Spend credits to unlock new planets'),
 
     run: ({ interaction }) => {
              
@@ -65,7 +65,7 @@ module.exports = {
                             testEmbed.spliceFields(0, 1,
                                 {
                                     name: "\n",
-                                    value: `You need **${32000}** credits to unlock Xianzhou Luofu`
+                                    value: `You need **${32000 - currentCredits}** more credits to unlock **Xianzhou Luofu**`
                                 })
                         } else {
 
@@ -85,7 +85,7 @@ module.exports = {
                             testEmbed.spliceFields(0, 1,
                                 {
                                     name: "\n",
-                                    value: `You need **${7000}** credits to unlock Jarilo-VI`
+                                    value: `You need **${7000 - currentCredits}** more credits to unlock **Jarilo-VI**`
                                 })
                         } else {
 

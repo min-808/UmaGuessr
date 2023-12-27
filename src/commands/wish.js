@@ -86,7 +86,7 @@ module.exports = {
                 // Then find the thing
                 var currentAmount = toParseUserUID['jade_count']
 
-                if (multipleWish == "10x") {
+                if (multipleWish == "10") {
                     // If you're doing 10x but don't have enough to multi-wish
                     if (currentAmount < 1600) {
                         testEmbed.spliceFields(0, 1, {
