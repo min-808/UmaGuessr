@@ -43,7 +43,10 @@ module.exports = {
 
             try {
 
-                var inputChar = interaction.options.get('character').value
+                var inputChar = (interaction.options.get('character').value).toLowerCase() // thank you stackoverflow
+                                                                            .split(' ')
+                                                                            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
+                                                                            .join(' ');
                 var inputLC = interaction.options.get('lightcone').value
 
                 // Using a hashmap to reverse key value pairs (key = character name, value = id)
