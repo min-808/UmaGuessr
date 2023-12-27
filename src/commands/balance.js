@@ -54,7 +54,7 @@ module.exports = {
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `You have **${currentAmount}** stellar jade`
+                        value: `You have **${currentAmount}** Stellar Jade`
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });

@@ -4,7 +4,6 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('help')
     .setDescription('Shows all available commands'),
-    //.setDescription('TEST COMMAND'),
     
     run: ({ interaction }) => {
 
@@ -19,20 +18,29 @@ module.exports = {
                 {
                     name: "\n",
                     value: 
+                    "**__Game__**" + "\n" +
                     "`/profile`" + " - " + "Returns information about the player" + "\n" + 
-                    "`/character`" + " - " + "Returns information about a character" + "\n" + 
                     "`/register`" + " - " + "Allows you to register your UID to the bot" + "\n" +
+                    "`/info`" + " - " + "Returns information about a character" + "\n" + 
                     "`/showcase`" + " - " + "(WIP) Extra information about your showcase" + "\n" + 
                     "\n" + 
-                    "`/wish`" + " - " + "Wish for characters with HSR rates" + "\n" + 
-                    "`/balance`" + " - " + "Check your stellar jade balance" + "\n" + 
-                    "`/power`" + " - " + "Check your how much trailblaze power you have" + "\n" + 
-                    "`/daily`" + " - " + "Get 1000 stellar jade every 24 hours" + "\n" +
+                    "**__Fun__**" + "\n" +
+                    "`/wish`" + " - " + "Wish for characters with Star Rail rates" + "\n" + 
                     "`/pity`" + " - " + "See your 4 and 5 star pities" + "\n" + 
-                    "`/collection`" + " - " + "Shows your owned characters" + "\n" + 
-                    "`/inventory`" + " - " + "Shows your light cones and items" + "\n" + 
-                    "`/equip`" + " - " + "Put light cones on your characters to earn more jade" + "\n" + 
+                    "`/balance`" + " - " + "Check your stellar jade balance" + "\n" + 
+                    "`/credits`" + " - " + "Check your credit balance" + "\n" + 
+                    "`/power`" + " - " + "Check how much trailblaze power you have" + "\n" + 
+                    "`/power`" + " - " + "Check how much EXP materials you have" + "\n" + 
+                    "`/daily`" + " - " + "Get 1000 stellar jade every 24 hours" + "\n" +
+                    "`/bonus`" + " - " + "Get a one-time bonus of 5000 stellar jade" + "\n" +
+                    "`/characters`" + " - " + "Shows your owned characters" + "\n" + 
+                    "`/inventory`" + " - " + "Shows your owned light cones" + "\n" + 
+                    "`/equip`" + " - " + "Put light cones on your characters" + "\n" + 
+                    "`/unequip`" + " - " + "Remove light cones from your characters" + "\n" + 
+                    "`/assignment`" + " - " + "Go on assignments with your characters" + "\n" + 
+                    "`/unlock`" + " - " + "Spend credits to unlock new planets" + "\n" + 
                     "\n" + 
+                    "**__Misc.__**" + "\n" +
                     "`/help`" + " - " + "Brings up the help menu" + "\n" +
                     "`/math`" + " - " + "Does simple math" + "\n" + 
                     "`/ping`" + " - " + "Pong!" + "\n"
@@ -40,6 +48,6 @@ module.exports = {
             )
             .setFooter({ text: "Uses the MiHoMo API | Data from StarRailRes & Dimbreath" })
 
-        interaction.reply({ embeds: [testEmbed], files: [file], ephemeral: true });
+        interaction.reply({ embeds: [testEmbed], files: [file] });
     }
 }
