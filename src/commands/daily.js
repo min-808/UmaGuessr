@@ -25,7 +25,6 @@ module.exports = {
                     value: "\n"
                 },
             )
-            .setFooter({ text: "You can claim again in 24 hours" })
 
             try {
                 var currentTime = Date.now();
@@ -48,7 +47,8 @@ module.exports = {
                     projection: {
                         _id: 0,
                         jade_count: 1,
-                        daily_timer: 1
+                        daily_timer: 1,
+                        bonus_claimed: 1,
                     }
                 }
 
@@ -57,6 +57,7 @@ module.exports = {
                 // Then find the thing called hsr_id
                 var currentAmount = toParseUserUID['jade_count']
                 var pastTime = toParseUserUID['daily_timer']
+                var displayHint = !toParseUserUID['bonus_claimed']
                 
                 // If you can't claim daily yet
                 if ((pastTime += 86400000) >= currentTime) {
@@ -66,11 +67,7 @@ module.exports = {
                             value: `You can claim again in **${((pastTime - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours**`
                         })
 
-                    testEmbed.setFooter({ text: "\n" })
-
                 } else { // You can claim
-                    
-                    // Update entries
                     const updateValues = {
                         $set: {
                             jade_count: currentAmount += 1000,
@@ -86,6 +83,12 @@ module.exports = {
                     })
 
                     testEmbed.setTimestamp();
+
+                    if (displayHint) {
+                        testEmbed.setFooter({text: "Get an extra 5000 jades with /bonus"})
+                    } else {
+                        testEmbed.setFooter({text: "You can claim again in 24 hours"})
+                    }
                 }
                     
                 interaction.editReply({ embeds: [testEmbed] });

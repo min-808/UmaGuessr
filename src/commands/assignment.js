@@ -218,8 +218,7 @@ module.exports = {
 **+${baseReward}** (Base Reward)
 **+${charBonus}** (Character Bonus)
 **+${LCBonus}** (Light Cone Bonus)
-**+${levelBonus}** (Level Bonus)
-    
+**+${levelBonus}** (Level Bonus)\n
 **${total}** Total Stellar Jade earned\n\n
 You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
                                         })
