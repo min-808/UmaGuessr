@@ -5,7 +5,6 @@ const setup = require('../../firstinit');
 
 const LCSheet = require('../../src/assets/light_cones.json')
 const charSheet = require('../../src/assets/characters.json')
-const emoteSheet = require('../../src/assets/emotes.json')
 const areaSheet = require('../../src/assets/areas.json')
 
 let choices = []
@@ -99,6 +98,7 @@ module.exports = {
                         trailblaze_power: 1,
                         credits: 1,
                         characters: 1,
+                        inventory: 1,
                     }
                 }
 
@@ -109,6 +109,7 @@ module.exports = {
                 var retCredits = toParseUserUID['credits']
                 var currentTP = toParseUserUID['trailblaze_power']
                 var currentChars = toParseUserUID['characters']
+                var currentLC = toParseUserUID['inventory']
 
                 if (interaction.options.get('character') && interaction.options.get('planet')) { // If a character and planet are found
 
@@ -172,30 +173,41 @@ module.exports = {
                                     var charBonus = 0
                                     var LCBonus = 0
                                     var levelBonus = 0
+                                    var eidolonBonus = 0
 
-                                    if (charSheet[charMap.get(character)]["rarity"] == 4) {
+                                    // Character Bonus
+                                    if ((charSheet[charMap.get(character)]["rarity"] == 4) || character == "Trailblazer") {
                                         charBonus += Math.floor(Math.random() * (60 - 50 + 1) + 50)
-                                    } else if (character == "Trailblazer") {
-                                        charBonus += Math.floor(Math.random() * (80 - 70 + 1) + 70)
+                                        eidolonBonus += (currentChars[charMap.get(character)]["eidolon"]) * 10
                                     } else if (charSheet[charMap.get(character)]["rarity"] == 5) {
                                         charBonus += charBonus += Math.floor(Math.random() * (170 - 160 + 1) + 160)
+                                        eidolonBonus += (charSheet[charMap.get(character)]["eidolon"]) * 90
                                     }
 
                                     var findLC = currentChars[charMap.get(character)]["lc"]
 
+                                    // LC Bonus
                                     if (findLC == -1) { // Holding nothing
                                         LCBonus += 0
                                     } else if (LCSheet[findLC]["rarity"] == 3) {
                                         LCBonus += Math.floor(Math.random() * (40 - 30 + 1) + 30)
+                                        eidolonBonus += (currentLC[findLC]["si"]) * 2
                                     } else if (LCSheet[findLC]["rarity"] == 4) {
-                                        LCBonus += Math.floor(Math.random() * (70 - 60 + 1) + 60)
+                                        LCBonus += Math.floor(Math.random() * (60 - 50 + 1) + 50)
+                                        eidolonBonus += (currentLC[findLC]["si"]) * 10
                                     } else if (LCSheet[findLC]["rarity"] == 5) {
                                         LCBonus += Math.floor(Math.random() * (160 - 150 + 1) + 150)
+                                        eidolonBonus += (currentLC[findLC]["si"]) * 90
                                     }
 
-                                    levelBonus += (currentChars[charMap.get(character)]["level"]) * 2
+                                    // Level Bonus
+                                    if ((currentChars[charMap.get(character)]["level"]) == 1) {
+                                        levelBonus += 0
+                                    } else {
+                                        levelBonus += ((currentChars[charMap.get(character)]["level"]) * 2)
+                                    }
     
-                                    var total = baseReward + charBonus + LCBonus + levelBonus
+                                    var total = baseReward + charBonus + LCBonus + levelBonus + eidolonBonus
                                     var TPCost = reqPlanet.trailblaze_cost
 
                                     const updateAll = {
@@ -218,6 +230,7 @@ module.exports = {
 **+${baseReward}** (Base Reward)
 **+${charBonus}** (Character Bonus)
 **+${LCBonus}** (Light Cone Bonus)
+**+${eidolonBonus}** (Eidolon/SI Bonus)
 **+${levelBonus}** (Level Bonus)\n
 **${total}** Total Stellar Jade earned\n\n
 You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
@@ -256,16 +269,17 @@ You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
                             {
                                 name: "**__Assignments__**",
                                 value: `You can send your characters on assignments to various planets to earn stellar jade\n
-    It costs **Trailblaze Power** (/power) to go on assignments, with each planet varying in trailblaze power cost
-    **Higher rarity** characters and light cones give you more stellar jade upon completing the assignment\n\n
-    **__Planets__**
-    To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
-    1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
-    2. Jarilo-VI **(costs ${Object.values(areaSheet)[1]["unlock_cost"]} credits)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
-    3. Xianzhou Luofu **(costs ${Object.values(areaSheet)[2]["unlock_cost"]} credits)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
-    \n
-    Current highest planet: **${areaSheet[retLevel].name}**
-    Current credits: **${retCredits}**`
+It costs **Trailblaze Power** (/power) to go on assignments, with each planet varying in trailblaze power cost
+**Higher rarity** characters and light cones give you more stellar jade upon completing the assignment (rarity bonus > eidolon bonus)
+**Leveling up** your characters and light cones also give a small bonus\n\n
+**__Planets__**
+To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
+1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
+2. Jarilo-VI **(costs ${Object.values(areaSheet)[1]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
+3. Xianzhou Luofu **(costs ${Object.values(areaSheet)[2]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
+\n
+Current highest planet: **${areaSheet[retLevel].name}**
+Current credits: **${retCredits}**`
                             })
     
                         interaction.editReply({ embeds: [testEmbed] });
@@ -275,16 +289,17 @@ You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
                             {
                                 name: "**__Assignments__**",
                                 value: `You can send your characters on assignments to various planets to earn stellar jade\n
-    It costs **Trailblaze Power** (/power) to go on assignments, with each planet varying in trailblaze power cost
-    **Higher rarity** characters and light cones give you more stellar jade upon completing the assignment\n\n
-    **__Planets__**
-    To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
-    1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
-    2. Jarilo-VI **(unlocked!)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
-    3. Xianzhou Luofu **(costs ${Object.values(areaSheet)[2]["unlock_cost"]} credits)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
-    \n
-    Current highest planet: **${areaSheet[retLevel].name}**
-    Current credits: **${retCredits}**`
+It costs **Trailblaze Power** (/power) to go on assignments, with each planet varying in trailblaze power cost
+**Higher rarity** characters and light cones give you more stellar jade upon completing the assignment (rarity bonus > eidolon bonus)
+**Leveling up** your characters and light cones also give a small bonus\n\n
+**__Planets__**
+To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
+1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
+2. Jarilo-VI **(unlocked!)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
+3. Xianzhou Luofu **(costs ${Object.values(areaSheet)[2]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
+\n
+Current highest planet: **${areaSheet[retLevel].name}**
+Current credits: **${retCredits}**`
                             })
     
                         interaction.editReply({ embeds: [testEmbed] });
@@ -294,16 +309,17 @@ You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
                             {
                                 name: "**__Assignments__**",
                                 value: `You can send your characters on assignments to various planets to earn stellar jade\n
-    It costs **Trailblaze Power** (/power) to go on assignments, with each planet varying in trailblaze power cost
-    **Higher rarity** characters and light cones give you more stellar jade upon completing the assignment\n\n
-    **__Planets__**
-    To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
-    1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
-    2. Jarilo-VI **(unlocked!)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
-    3. Xianzhou Luofu **(unlocked!)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
-    \n
-    Current highest planet: **${areaSheet[retLevel].name}**
-    Current credits: **${retCredits}**`
+It costs **Trailblaze Power** (/power) to go on assignments, with each planet varying in trailblaze power cost
+**Higher rarity** characters and light cones give you more stellar jade upon completing the assignment (rarity bonus > eidolon bonus)
+**Leveling up** your characters and light cones also give a small bonus\n\n
+**__Planets__**
+To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
+1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
+2. Jarilo-VI **(unlocked!)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
+3. Xianzhou Luofu **(unlocked!)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
+\n
+Current highest planet: **${areaSheet[retLevel].name}**
+Current credits: **${retCredits}**`
                             })
     
                         interaction.editReply({ embeds: [testEmbed] });
@@ -315,7 +331,7 @@ You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
 
                 } catch (error) {
                     console.log(`There was an error: ${error}`)
-                    interaction.editReply({ content: "something broke let me know lol"})
+                    interaction.editReply({ content: "something broke pls let me know"})
                     await client.close()
                 }
         })();

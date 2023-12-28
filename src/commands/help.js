@@ -39,6 +39,7 @@ module.exports = {
                     "\n" + 
                     "**__Misc.__**" + "\n" +
                     "`/help`" + " - " + "Brings up the help menu" + "\n" +
+                    "`/chat`" + " - " + "(WIP) Talk with character.ai characters" + "\n" +
                     "`/math`" + " - " + "Does simple math" + "\n" + 
                     "`/ping`" + " - " + "Pong!" + "\n"
                 },
