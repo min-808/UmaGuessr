@@ -8,7 +8,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('leaderboard')
-    .setDescription('(WIP) Check the leaderboard'),
+    .setDescription('Leaderboard sorted by wish count'),
 
     run: ({ interaction }) => {
              
@@ -32,7 +32,7 @@ module.exports = {
 
                 var database = client.db("economy");
                 var ids = database.collection("inventories")
-                var discordID = parseInt(interaction.user.id)
+                var discordID = BigInt(interaction.user.id)
 
                 // Check how many documents are in the query (discord_id)
                 var counter = await ids.countDocuments({discord_id: discordID})
@@ -43,24 +43,30 @@ module.exports = {
                 }
                 var options = {
                     projection: {
-                        jade_count: 1,
-                        credits: 1,
-                        exp_material: 1,
-                        trailblaze_power: 1,
+                        wish_count: 1,
                     }
                 }
 
                 // Then get the first thing that matches the discord id, and options is the query from before
                 var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                var jade_count = toParseUserUID['jade_count']
-                var credits = toParseUserUID['credits']
-                var exp_material = toParseUserUID['exp_material']
-                var trailblaze_power = toParseUserUID['trailblaze_power']
+                var wish_count = toParseUserUID['wish_count']
+
+                console.log(interaction.user.id)
+
+                const response = await fetch('https://discord.com/api/v10/users/' + '236186510326628353', {
+                    headers: {
+                        'Authorization': 'Bot ' + (process.env.TOKEN)
+                    }
+                })
+
+                var test = JSON.stringify(await response.json(), null, 4)
+                console.log(test)
+                
                 
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `**${jade_count}** Stellar Jade\n**${credits}** Credits\n**${exp_material}** EXP Material\n\n**${trailblaze_power}**/240 Trailblaze Power`
+                        value: `ya`
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });

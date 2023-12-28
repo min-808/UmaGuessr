@@ -24,7 +24,7 @@ module.exports = {
 
                 const database = client.db("registration");
                 const ids = database.collection("ids")
-                var discordID = parseInt(interaction.user.id)
+                var discordID = BigInt(interaction.user.id)
 
                 const counter = await ids.countDocuments({discord_id: discordID})
 

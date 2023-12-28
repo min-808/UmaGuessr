@@ -10,10 +10,9 @@ module.exports = {
 
         var database = client.db(db);
         var ids = database.collection(collection)
-        var discordID = id
     
         const doc = {
-            discord_id: parseInt(discordID),
+            discord_id: id,
             jade_count: 0,
             credits: 0,
             exp_material: 10,

@@ -25,7 +25,7 @@ module.exports = {
 
                 var database = client.db("economy");
                 var ids = database.collection("inventories")
-                var discordID = parseInt(interaction.user.id)
+                var discordID = BigInt(interaction.user.id)
 
                 var counter = await ids.countDocuments({discord_id: discordID})
 

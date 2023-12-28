@@ -32,7 +32,7 @@ module.exports = {
                 if (res.ok) {
                     const data = await res.json();
                     var username = String(data?.["detailInfo"]?.['nickname'])
-                    var discordID = interaction.user.id
+                    var discordID = BigInt(interaction.user.id)
                     var discordUser = interaction.user.username
 
                     const counter = await ids.countDocuments({discord_id: discordID})
@@ -54,7 +54,7 @@ module.exports = {
 
                     } else { // Make a new entry
                         const doc = {
-                            discord_id: parseInt(discordID),
+                            discord_id: BigInt(discordID),
                             hsr_id: userUID,
                             discord_user: discordUser,
                             date_added: `${date.getUTCFullYear()}-${date.getUTCMonth() + 1}-${date.getUTCDate()}`,
