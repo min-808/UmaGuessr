@@ -7,6 +7,9 @@ const path = require('path');
 const fs = require('node:fs');
 var { MongoClient } = require("mongodb");
 
+const CharacterAI = require('node_characterai');
+const characterAI = new CharacterAI();
+
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 const client = new Client({
@@ -60,7 +63,7 @@ async function replenishPower() {
 }
 
 client.on('ready', async () => { // Replenish trailblaze power every 6 minutes
-    setInterval(replenishPower, 360000) // 360000 is 6 minutes
+    setInterval(replenishPower, 360_000) // 360,000 is 6 minutes
 })
 
 client.on('interactionCreate', async interaction => { // interactions within slash commands
