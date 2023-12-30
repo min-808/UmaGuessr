@@ -7,8 +7,8 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 
 module.exports = {
     data: new SlashCommandBuilder()
-    .setName('level')
-    .setDescription('(WIP) Level up your characters and light cones'),
+    .setName('COMMAND_NAME')
+    .setDescription('COMMAND_DESCRIPTION'),
 
     run: ({ interaction }) => {
              

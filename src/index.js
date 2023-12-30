@@ -59,8 +59,8 @@ async function replenishPower() {
     await client.close()
 }
 
-client.on('ready', async () => { // Replenish trailblaze power every 8 minutes
-    setInterval(replenishPower, 360000) // 360000
+client.on('ready', async () => { // Replenish trailblaze power every 6 minutes
+    setInterval(replenishPower, 360000) // 360000 is 6 minutes
 })
 
 client.on('interactionCreate', async interaction => { // interactions within slash commands

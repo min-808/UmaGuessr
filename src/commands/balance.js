@@ -25,6 +25,7 @@ module.exports = {
                     value: "\n"
                 },
             )
+            .setFooter({text: `1 trailblaze power replenishes every 6 minutes`})
 
             try {
 
