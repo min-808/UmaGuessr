@@ -35,6 +35,7 @@ module.exports = {
                     "`/equip`" + " - " + "Put light cones on your characters" + "\n" + 
                     "`/unequip`" + " - " + "Remove light cones from your characters" + "\n" + 
                     "`/assignment`" + " - " + "Go on assignments with your characters" + "\n" + 
+                    "`/calyx`" + " - " + "Enter every 2 hours to obtain free exp and credits" + "\n" + 
                     "`/unlock`" + " - " + "Spend credits to unlock new planets" + "\n" + 
                     "\n" + 
                     "**__Misc.__**" + "\n" +
