@@ -60,7 +60,7 @@ module.exports = {
                 var displayHint = !toParseUserUID['bonus_claimed']
                 
                 // If you can't claim daily yet
-                if ((pastTime += 86400000) >= currentTime) {
+                if ((pastTime += 86_400_000) >= currentTime) {
                     testEmbed.spliceFields(0, 1,
                         {
                             name: "\n",
