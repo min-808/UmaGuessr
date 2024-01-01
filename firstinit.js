@@ -18,6 +18,7 @@ module.exports = {
             exp_material: 10,
             bonus_claimed: false,
             daily_timer: 0,
+            weekly_timer: 0,
             assignment_level: 0,
             trailblaze_power: 240,
             max_trailblaze_power: 240,
