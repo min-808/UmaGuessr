@@ -10,14 +10,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "axios": "^1.6.3",
-    "cheerio": "^1.0.0-rc.12",
     "discord.js": "^14.11.0",
     "djs-commander": "^0.0.50",
     "dotenv": "^16.3.1",
+    "mongodb": "^6.3.0",
     "mongoose": "^7.4.0",
-    "node_characterai": "^1.1.8",
-    "request": "^2.88.2",
-    "sharp": "^0.33.1"
+    "node_characterai": "^1.1.8"
   }
 }
