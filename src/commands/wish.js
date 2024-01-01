@@ -204,7 +204,7 @@ module.exports = {
                                             var findSV = await ids.findOne({discord_id: discordID}, getSI)
                                             var getSV = findSV["inventory"][fiveStarLC[chooseFSLC]]["si"]
 
-                                            if (getSV >= 6) { // You have 6 si already
+                                            if (getSV >= 5) { // You have 5 si already
                                                 await ids.updateOne({discord_id: discordID}, { $inc: { credits: 8000 } } )
                                                 result = result = `${emoteSheet["Stars"]["Maxed"]["id"]} ${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                                                 amountDueToDupes += 8000;
@@ -305,7 +305,7 @@ module.exports = {
                                             var findSV = await ids.findOne({discord_id: discordID}, getSI)
                                             var getSV = findSV["inventory"][fourStarLC[chooseFourSLC]]["si"]
 
-                                            if (getSV >= 6) { // You have 6 si already
+                                            if (getSV >= 5) { // You have 5 si already
                                                 await ids.updateOne({discord_id: discordID}, { $inc: { credits: 800 } } )
                                                 result = `${emoteSheet["Stars"]["Maxed"]["id"]} ${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                                                 amountDueToDupes += 800
@@ -359,7 +359,7 @@ module.exports = {
                                         var findSV = await ids.findOne({discord_id: discordID}, getSI)
                                         var getSV = findSV["inventory"][threeStarLC[chooseTSLC]]["si"]
 
-                                        if (getSV >= 6) { // You have 6 si already
+                                        if (getSV >= 5) { // You have 5 si already
                                             await ids.updateOne({discord_id: discordID}, { $inc: { credits: 400 } } )
                                             result = `${emoteSheet["Stars"]["Maxed"]["id"]} ${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                                             amountDueToDupes += 400
@@ -503,9 +503,9 @@ module.exports = {
                                     var findSV = await ids.findOne({discord_id: discordID}, getSI)
                                     var getSV = findSV["inventory"][fiveStarLC[chooseFSLC]]["si"]
 
-                                    if (getSV >= 6) { // You have 6 si already
+                                    if (getSV >= 5) { // You have 5 si already
                                         await ids.updateOne({discord_id: discordID}, { $inc: { credits: 8000 } } )
-                                        result = result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]}, but you already have six superimpositions!\n\n+8000 Credits`
+                                        result = result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]}, but you already have five superimpositions!\n\n+8000 Credits`
                                     } else { // You got a duplicate
                                         await ids.updateOne({discord_id: discordID}, { $inc: { credits: 1600 } } )
                                         await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
@@ -598,9 +598,9 @@ module.exports = {
                                     var findSV = await ids.findOne({discord_id: discordID}, getSI)
                                     var getSV = findSV["inventory"][fourStarLC[chooseFourSLC]]["si"]
 
-                                    if (getSV >= 6) { // You have 6 si already
+                                    if (getSV >= 5) { // You have 5 si already
                                         await ids.updateOne({discord_id: discordID}, { $inc: { credits: 800 } } )
-                                        result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]}, but you already have six superimpositions!\n\n+800 Credits`
+                                        result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]}, but you already have five superimpositions!\n\n+800 Credits`
                                     } else { // You got a duplicate
                                         await ids.updateOne({discord_id: discordID}, { $inc: { credits: 320 } } )
                                         await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
@@ -649,9 +649,9 @@ module.exports = {
                                 var findSV = await ids.findOne({discord_id: discordID}, getSI)
                                 var getSV = findSV["inventory"][threeStarLC[chooseTSLC]]["si"]
 
-                                if (getSV >= 6) { // You have 6 si already
+                                if (getSV >= 5) { // You have 5 si already
                                     await ids.updateOne({discord_id: discordID}, { $inc: { credits: 400 } } )
-                                    result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]}, but you already have six superimpositions!\n\n+400 Credits`
+                                    result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]}, but you already have five superimpositions!\n\n+400 Credits`
                                 } else { // You got a duplicate
                                     await ids.updateOne({discord_id: discordID}, { $inc: { credits: 80 } } )
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { [si] : 1 } })
