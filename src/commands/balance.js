@@ -48,6 +48,7 @@ module.exports = {
                         credits: 1,
                         exp_material: 1,
                         trailblaze_power: 1,
+                        fuel: 1,
                     }
                 }
 
@@ -57,11 +58,12 @@ module.exports = {
                 var credits = toParseUserUID['credits']
                 var exp_material = toParseUserUID['exp_material']
                 var trailblaze_power = toParseUserUID['trailblaze_power']
+                var fuel = toParseUserUID['fuel']
                 
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `**${jade_count}** Stellar Jade\n**${credits}** Credits\n**${exp_material}** EXP Material\n\n**${trailblaze_power}**/240 Trailblaze Power`
+                        value: `**${jade_count}** Stellar Jade\n**${credits}** Credits\n**${exp_material}** EXP Material\n\n**${trailblaze_power}**/240 Trailblaze Power\n**${fuel}** Fuel`
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });

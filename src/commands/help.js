@@ -29,6 +29,7 @@ module.exports = {
                     "`/pity`" + " - " + "See your 4 and 5 star pities" + "\n" + 
                     "`/balance`" + " - " + "Check your stellar jades, exp, credits, and power" + "\n" + 
                     "`/daily`" + " - " + "Get 1000 stellar jade every 24 hours" + "\n" +
+                    "`/missions`" + " - " + "Check your daily missions" + "\n" +
                     "`/bonus`" + " - " + "Get a one-time bonus of 5000 stellar jade" + "\n" +
                     "`/characters`" + " - " + "Shows your owned characters" + "\n" + 
                     "`/inventory`" + " - " + "Shows your owned light cones" + "\n" + 
@@ -37,6 +38,7 @@ module.exports = {
                     "`/assignment`" + " - " + "Go on assignments with your characters" + "\n" + 
                     "`/calyx`" + " - " + "Enter every 2 hours to obtain free exp and credits" + "\n" + 
                     "`/unlock`" + " - " + "Spend credits to unlock new planets" + "\n" + 
+                    "`/fuel`" + " - " + "Spend fuel to get trailblaze power" + "\n" + 
                     "\n" + 
                     "**__Misc.__**" + "\n" +
                     "`/help`" + " - " + "Brings up the help menu" + "\n" +
