@@ -226,7 +226,7 @@ module.exports = {
                                     testEmbed.spliceFields(0, 1,
                                         {
                                             name: "\n",
-                                            value: `**Assignment Completed!**\n
+                                            value: `**Assignment Completed at ${areaSheet[retLevel]["name"]}!**\n
 **+${baseReward}** (Base Reward)
 **+${charBonus}** (Character Bonus)
 **+${LCBonus}** (Light Cone Bonus)
