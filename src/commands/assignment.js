@@ -181,7 +181,7 @@ module.exports = {
                                         eidolonBonus += (currentChars[charMap.get(character)]["eidolon"]) * 10
                                     } else if (charSheet[charMap.get(character)]["rarity"] == 5) {
                                         charBonus += charBonus += Math.floor(Math.random() * (170 - 160 + 1) + 160)
-                                        eidolonBonus += (charSheet[charMap.get(character)]["eidolon"]) * 90
+                                        eidolonBonus += (currentChars[charMap.get(character)]["eidolon"]) * 90
                                     }
 
                                     var findLC = currentChars[charMap.get(character)]["lc"]
