@@ -2,9 +2,10 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
-const calyxSheet = require('../../src/assets/calyx.json')
+const calyxSheet = require('../../src/assets/calyx.json');
+const missions = require('./missions');
 
-let choices = ["upgrade"]
+let choices = ["info", "upgrade"]
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -15,7 +16,7 @@ module.exports = {
     .addStringOption((option) => 
         option
             .setName("options")
-            .setDescription("Level up your Calyx using credits")
+            .setDescription("Get info about calyxes or upgrade the level")
             .setRequired(false)
             .setAutocomplete(true)
     ),
@@ -74,6 +75,8 @@ module.exports = {
                         calyx_timer: 1,
                         calyx_level: 1,
                         fuel: 1,
+                        missions: 1,
+                        missions_completed: 1,
                     }
                 }
 
@@ -148,21 +151,51 @@ module.exports = {
                                 value: `**Level ${currentLevel} Calyx Completed!**\n
 **+${resultingCredits}** Credits
 **+${resultingEXP}** EXP Material
-**+${resultingFuel}** Fuel 🌟\n\n
+**+${resultingFuel}** Fuel 🌟\n
 You now have **${retCredits}** Credits, **${retEXP}** EXP Material, and **${retFuel}** Fuel`
                             })
+                            .setFooter({ text: `You can run the Calyx again in 2 hours` })
                         } else {
                             testEmbed.spliceFields(0, 1, {
                                 name: "\n",
                                 value: `**Level ${currentLevel} Calyx Completed!**\n
 **+${resultingCredits}** Credits
-**+${resultingEXP}** EXP Material\n\n
+**+${resultingEXP}** EXP Material\n
 You now have **${retCredits}** Credits and **${retEXP}** EXP Material`
                             })
+                            .setFooter({ text: `You can run the Calyx again in 2 hours` })
                         }
+
+                        var getMissions = toParseUserUID['missions']
+
+                        var addMissionID = []
+
+                        for (var i = 0; i < 5; i++) {
+                            addMissionID.push(getMissions[i]["id"])
+                        }
+
+                        if (addMissionID.includes(0)) { // id for calyx mission
+                            var mission = `missions.${addMissionID.indexOf(0)}.completed`
+                            var missionSymbol = `missions.${addMissionID.indexOf(0)}.completed_symbol`
+
+                            const setTrue = {
+                                $set: {
+                                    [mission]: true,
+                                    [missionSymbol]: "✅",
+                                },
+                                $inc: {
+                                    jade_count: 75
+                                }
+                            }
+
+                            // Possible bug where if you finish right when there's a reset, it incorrectly updates the wrong mission since its index 0 and it changes
+
+                            await ids.updateOne({discord_id: discordID}, setTrue)
+                        } //
                     }
                         
                     interaction.editReply({ embeds: [testEmbed] });
+
                     await client.close()
 
                 } else if (interaction.options.get("options").value == "upgrade") { // You want to upgrade
@@ -207,6 +240,14 @@ You now have **${retCredits}** Credits and **${retEXP}** EXP Material`
                         interaction.editReply({ embeds: [testEmbed] });
                         await client.close()
                     }
+                } else if (interaction.options.get('options').value == "info") { // you selected info
+                    testEmbed.spliceFields(0, 1, {
+                        name: "\n",
+                        value: `poop edit later`
+                    })
+
+                    interaction.editReply({ embeds: [testEmbed] });
+                    await client.close()
                 } else { // Invalid option
                     testEmbed.spliceFields(0, 1, {
                         name: "\n",

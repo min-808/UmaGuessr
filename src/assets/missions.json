@@ -1,0 +1,34 @@
+{
+    "0": {
+        "id": 0,
+        "description": "Run one calyx"
+    },
+    "1": {
+        "id": 1,
+        "description": "Send a character on an assignment"
+    },
+    "2": {
+        "id": 2,
+        "description": "Claim your daily jades"
+    },
+    "3": {
+        "id": 3,
+        "description": "Spend 160 trailblaze power"
+    },
+    "4": {
+        "id": 4,
+        "description": "Equip a light cone on a character"
+    },
+    "5": {
+        "id": 5,
+        "description": "Get an overview of a Star Rail character with /info"
+    },
+    "6": {
+        "id": 6,
+        "description": "Check your balance"
+    },
+    "7": {
+        "id": 7,
+        "description": "Check your pity"
+    }
+}

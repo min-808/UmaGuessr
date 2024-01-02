@@ -47,7 +47,9 @@ module.exports = {
                     projection: {
                         wish_count: 1,
                         four_star_pity: 1,
-                        five_star_pity: 1
+                        five_star_pity: 1,
+                        missions: 1,
+                        missions_completed: 1,
                     }
                 }
 
@@ -57,6 +59,31 @@ module.exports = {
                 var wishCount = toParseUserUID['wish_count']
                 var fourStarPity = toParseUserUID['four_star_pity']
                 var fiveStarPity = toParseUserUID['five_star_pity']
+
+                var getMissions = toParseUserUID['missions']
+
+                var addMissionID = []
+
+                for (var i = 0; i < 5; i++) {
+                    addMissionID.push(getMissions[i]["id"])
+                }
+
+                if (addMissionID.includes(7)) { // id for pity mission
+                    var mission = `missions.${addMissionID.indexOf(7)}.completed`
+                    var missionSymbol = `missions.${addMissionID.indexOf(7)}.completed_symbol`
+
+                    const setTrue = {
+                        $set: {
+                            [mission]: true,
+                            [missionSymbol]: "✅",
+                        },
+                        $inc: {
+                            jade_count: 75,
+                        }
+                    }
+
+                    await ids.updateOne({discord_id: discordID}, setTrue)
+                }
                 
                 testEmbed.spliceFields(0, 1,
                     {

@@ -49,6 +49,8 @@ module.exports = {
                         jade_count: 1,
                         daily_timer: 1,
                         bonus_claimed: 1,
+                        missions: 1,
+                        missions_completed: 1,
                     }
                 }
 
@@ -76,6 +78,31 @@ module.exports = {
                     }
 
                     await ids.updateOne({discord_id: discordID}, updateValues)
+
+                    var getMissions = toParseUserUID['missions']
+
+                    var addMissionID = []
+
+                    for (var i = 0; i < 5; i++) {
+                        addMissionID.push(getMissions[i]["id"])
+                    }
+
+                    if (addMissionID.includes(2)) { // id for daily mission
+                        var mission = `missions.${addMissionID.indexOf(2)}.completed`
+                        var missionSymbol = `missions.${addMissionID.indexOf(2)}.completed_symbol`
+
+                        const setTrue = {
+                            $set: {
+                                [mission]: true,
+                                [missionSymbol]: "✅",
+                            },
+                            $inc: {
+                                jade_count: 75
+                            }
+                        }
+
+                        await ids.updateOne({discord_id: discordID}, setTrue)
+                    }
 
                     testEmbed.spliceFields(0, 1, {
                         name: "\n",

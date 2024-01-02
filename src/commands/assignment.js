@@ -99,6 +99,9 @@ module.exports = {
                         credits: 1,
                         characters: 1,
                         inventory: 1,
+                        missions: 1,
+                        missions_completed: 1,
+                        trailblaze_power_used_today: 1,
                     }
                 }
 
@@ -214,19 +217,66 @@ module.exports = {
                                         $inc: {
                                             trailblaze_power: -TPCost,
                                             jade_count: total,
+                                            trailblaze_power_used_today: TPCost,
                                         }
                                     }
 
                                     await ids.updateOne({discord_id: discordID}, updateAll)
-
                                     var updatedInfo = await ids.findOne({discord_id: discordID}, options);
-                                    var retPower = updatedInfo['trailblaze_power']
-                                    var retJades = updatedInfo['jade_count']
+
+                                    var getMissions = toParseUserUID['missions']
+
+                                    var addMissionID = []
+            
+                                    for (var i = 0; i < 5; i++) {
+                                        addMissionID.push(getMissions[i]["id"])
+                                    }
+            
+                                    if (addMissionID.includes(1)) { // id for assignment mission
+                                        var mission = `missions.${addMissionID.indexOf(1)}.completed`
+                                        var missionSymbol = `missions.${addMissionID.indexOf(1)}.completed_symbol`
+            
+                                        const setTrue = {
+                                            $set: {
+                                                [mission]: true,
+                                                [missionSymbol]: "✅",
+                                            },
+                                            $inc: {
+                                                jade_count: 75,
+                                            }
+                                        }
+            
+                                        await ids.updateOne({discord_id: discordID}, setTrue)
+                                    }
+
+                                    if (addMissionID.includes(3)) { // id for 160 power mission
+                                        if (updatedInfo['trailblaze_power_used_today'] >= 160) {
+                                            var mission = `missions.${addMissionID.indexOf(3)}.completed`
+                                            var missionSymbol = `missions.${addMissionID.indexOf(3)}.completed_symbol`
+                
+                                            const setTrue = {
+                                                $set: {
+                                                    [mission]: true,
+                                                    [missionSymbol]: "✅",
+                                                },
+                                                $inc: {
+                                                    jade_count: 75,
+                                                }
+                                            }
+                                            await ids.updateOne({discord_id: discordID}, setTrue)
+                        
+                                        }
+                                    }
+
+                                    var finalInfo = await ids.findOne({discord_id: discordID}, options);
+
+                                    var retPower = finalInfo['trailblaze_power']
+                                    var retJades = finalInfo['jade_count']
     
                                     testEmbed.spliceFields(0, 1,
                                         {
                                             name: "\n",
-                                            value: `**Assignment Completed at ${areaSheet[retLevel]["name"]}!**\n
+                                            value: `**Assignment Completed at ${areaSheet[retLevel]["name"]}**\n
 **+${baseReward}** (Base Reward)
 **+${charBonus}** (Character Bonus)
 **+${LCBonus}** (Light Cone Bonus)
@@ -238,6 +288,7 @@ You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
                     
                                     interaction.editReply({ embeds: [testEmbed] });
                                     await client.close()
+                                    
                                 }
                             }
                         }

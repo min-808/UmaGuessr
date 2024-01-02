@@ -1,5 +1,11 @@
 const { SlashCommandBuilder, AttachmentBuilder, EmbedBuilder } = require('discord.js');
+var { MongoClient } = require("mongodb");
 const charSheet = require('../assets/characters.json')
+
+const setup = require('../../firstinit');
+
+var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
+
 /*
 var xml = new XMLHttpRequest();
 XMLHttpRequest.onreadystatechange = function() {
@@ -66,7 +72,30 @@ module.exports = {
 
     ,
     run: async ({ interaction }) => {
+
         await interaction.deferReply()
+
+        var client = new MongoClient(uri)
+
+        var database = client.db("economy");
+        var ids = database.collection("inventories")
+        var discordID = BigInt(interaction.user.id)
+
+        // Check how many documents are in the query (discord_id)
+        var counter = await ids.countDocuments({discord_id: discordID})
+
+        // If document found, get the hsr_id (set to 1, and id set to 0)
+        if (counter < 1) {
+
+            // If document not found, make a new database entry, do this for all economy commands
+            await setup.init(discordID, "economy", "inventories")
+        }
+        var options = {
+            projection: {
+                missions: 1,
+                missions_completed: 1,
+            }
+        }
 
         const theResponse = interaction.options.get('character').value;
         var query = theResponse
@@ -103,6 +132,35 @@ module.exports = {
             return;
             // i prob could've just added an else statement and put the below code in it but this works too
         }
+
+        var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
+
+        var getMissions = toParseUserUID['missions']
+
+        var addMissionID = []
+
+        for (var i = 0; i < 5; i++) {
+            addMissionID.push(getMissions[i]["id"])
+        }
+
+        if (addMissionID.includes(5)) { // id for info mission
+            var mission = `missions.${addMissionID.indexOf(5)}.completed`
+            var missionSymbol = `missions.${addMissionID.indexOf(5)}.completed_symbol`
+
+            const setTrue = {
+                $set: {
+                    [mission]: true,
+                    [missionSymbol]: "✅",
+                },
+                $inc: {
+                    jade_count: 75,
+                }
+            }
+
+            await ids.updateOne({discord_id: discordID}, setTrue)
+        }
+
+        client.close()
 
         const selectedChar = id
         const numRarity = charSheet[selectedChar]["rarity"];

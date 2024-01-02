@@ -1,6 +1,7 @@
 // Make sure to client.close after using this function, cuz it doesn't close here
 
 var { MongoClient } = require("mongodb");
+const missionSheet = require('../../../Code/Bots/Seele/src/assets/missions.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -10,7 +11,20 @@ module.exports = {
 
         var database = client.db(db);
         var ids = database.collection(collection)
-    
+
+        // Randomize missions
+
+        var missions = []
+
+        while (missions.length < 5) {
+            var randomNum = Math.floor(Math.random() * Object.keys(missionSheet).length) // Grabs a random id
+            if (missions.indexOf(randomNum) === -1) { // Ensures uniqueness
+                missions.push(randomNum)
+            }
+        }
+
+        console.log(missions)
+
         const doc = {
             discord_id: id,
             jade_count: 0,
@@ -18,11 +32,14 @@ module.exports = {
             fuel: 1,
             exp_material: 10,
             bonus_claimed: false,
+            missions_completed: false,
+            missions_claimed: false,
             daily_timer: 0,
             weekly_timer: 0,
             calyx_timer: 0,
             assignment_level: 0,
             calyx_level: 1,
+            trailblaze_power_used_today: 0,
             trailblaze_power: 240,
             max_trailblaze_power: 240,
             inventory: {},
@@ -43,6 +60,43 @@ module.exports = {
                     "eidolon": 0
                 }
             },
+            missions: [
+                { 
+                    "id": missionSheet[missions[0]]['id'],
+                    "description": missionSheet[missions[0]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+                { 
+                    "id": missionSheet[missions[1]]['id'],
+                    "description": missionSheet[missions[1]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+                { 
+                    "id": missionSheet[missions[2]]['id'],
+                    "description": missionSheet[missions[2]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+                { 
+                    "id": missionSheet[missions[3]]['id'],
+                    "description": missionSheet[missions[3]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+                { 
+                    "id": missionSheet[missions[4]]['id'],
+                    "description": missionSheet[missions[4]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+            ],
             wish_count: 0,
             four_star_pity: 0,
             five_star_pity: 0

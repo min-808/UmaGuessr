@@ -49,16 +49,46 @@ module.exports = {
                         exp_material: 1,
                         trailblaze_power: 1,
                         fuel: 1,
+                        missions: 1,
+                        missions_completed: 1,
                     }
                 }
 
                 // Then get the first thing that matches the discord id, and options is the query from before
                 var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                var jade_count = toParseUserUID['jade_count']
-                var credits = toParseUserUID['credits']
-                var exp_material = toParseUserUID['exp_material']
-                var trailblaze_power = toParseUserUID['trailblaze_power']
-                var fuel = toParseUserUID['fuel']
+                
+                var getMissions = toParseUserUID['missions']
+
+                var addMissionID = []
+
+                for (var i = 0; i < 5; i++) {
+                    addMissionID.push(getMissions[i]["id"])
+                }
+
+                if (addMissionID.includes(6)) { // id for balance mission
+                    var mission = `missions.${addMissionID.indexOf(6)}.completed`
+                    var missionSymbol = `missions.${addMissionID.indexOf(6)}.completed_symbol`
+
+                    const setTrue = {
+                        $set: {
+                            [mission]: true,
+                            [missionSymbol]: "✅",
+                        },
+                        $inc: {
+                            jade_count: 75,
+                        }
+                    }
+
+                    await ids.updateOne({discord_id: discordID}, setTrue)
+                }
+
+                var finalCheck = await ids.findOne({discord_id: discordID}, options);
+
+                var jade_count = finalCheck['jade_count']
+                var credits = finalCheck['credits']
+                var exp_material = finalCheck['exp_material']
+                var trailblaze_power = finalCheck['trailblaze_power']
+                var fuel = finalCheck['fuel']
                 
                 testEmbed.spliceFields(0, 1,
                     {

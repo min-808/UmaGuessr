@@ -5,10 +5,13 @@ const mongoose = require('mongoose');
 const { CommandHandler } = require('djs-commander');
 const path = require('path');
 const fs = require('node:fs');
-var { MongoClient } = require("mongodb");
+var { MongoClient } = require('mongodb');
+const cron = require('node-cron')
 
 const CharacterAI = require('node_characterai');
 const characterAI = new CharacterAI();
+
+const missionSheet = require('../src/assets/missions.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -62,8 +65,89 @@ async function replenishPower() {
     await client.close()
 }
 
+async function resetDailies() {
+    var client = new MongoClient(uri)
+
+    var database = client.db("economy");
+    var ids = database.collection("inventories")
+    
+    var howMany = await ids.countDocuments()
+
+    var currentDate = new Date()
+    var currentTime = currentDate.toLocaleTimeString('en-US')
+
+    console.log(`[${currentTime}] - Randomizing daily missions...`)
+
+    // Randomize missions
+
+    var missions = []
+
+    while (missions.length < 5) {
+        var randomNum = Math.floor(Math.random() * Object.keys(missionSheet).length) // Grabs a random id
+        if (missions.indexOf(randomNum) === -1) { // Ensures uniqueness
+            missions.push(randomNum)
+        }
+    }
+
+    const update = {
+        $set: {
+            'missions': [
+                { 
+                    "id": missionSheet[missions[0]]['id'],
+                    "description": missionSheet[missions[0]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+                { 
+                    "id": missionSheet[missions[1]]['id'],
+                    "description": missionSheet[missions[1]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+                { 
+                    "id": missionSheet[missions[2]]['id'],
+                    "description": missionSheet[missions[2]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+                { 
+                    "id": missionSheet[missions[3]]['id'],
+                    "description": missionSheet[missions[3]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+                { 
+                    "id": missionSheet[missions[4]]['id'],
+                    "description": missionSheet[missions[4]]['description'],
+                    "reward": 75,
+                    "completed": false,
+                    "completed_symbol": "❌"
+                },
+            ],
+            missions_completed: false,
+            trailblaze_power_used_today: 0,
+            missions_claimed: false,
+        }
+
+    }
+
+    await ids.updateMany({}, update)
+
+    await client.close()
+}
+
 client.on('ready', async () => { // Replenish trailblaze power every 6 minutes
-    setInterval(replenishPower, 360_000) // 360,000 is 6 minutes, you get 240 power every 24 hours
+    cron.schedule('*/6 * * * *', () => { // 240 power every 24 hours
+        replenishPower()
+    })
+
+    cron.schedule('0 23 * * *', () => { // Daily reset at 11pm HST (UTC-10)
+        resetDailies()
+    })
 })
 
 client.on('interactionCreate', async interaction => { // interactions within slash commands

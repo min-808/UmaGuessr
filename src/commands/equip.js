@@ -83,6 +83,8 @@ module.exports = {
                         _id: 0,
                         inventory: 1,
                         characters: 1,
+                        missions: 1,
+                        missions_completed: 1,
                     }
                 }
 
@@ -107,6 +109,31 @@ module.exports = {
                     })
                 } else if ((charMap.get(inputChar) && (charMap.get(inputChar) in currentChars)) && (LCMap.get(inputLC) && (LCMap.get(inputLC) in currentInventory))) {// If you have both
                     // Success
+
+                    var getMissions = toParseUserUID['missions']
+
+                    var addMissionID = []
+
+                    for (var i = 0; i < 5; i++) {
+                        addMissionID.push(getMissions[i]["id"])
+                    }
+
+                    if (addMissionID.includes(4)) { // id for equip mission
+                        var mission = `missions.${addMissionID.indexOf(4)}.completed`
+                        var missionSymbol = `missions.${addMissionID.indexOf(4)}.completed_symbol`
+
+                        const setTrue = {
+                            $set: {
+                                [mission]: true,
+                                [missionSymbol]: "✅",
+                            },
+                            $inc: {
+                                jade_count: 75
+                            }
+                        }
+
+                        await ids.updateOne({discord_id: discordID}, setTrue)
+                    } //
 
                     // Either unequip the current and put the new one on
                     // OR put the new one on
