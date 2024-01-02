@@ -59,7 +59,7 @@ module.exports = {
                 var pastTime = toParseUserUID['weekly_timer']
                 var displayHint = !toParseUserUID['bonus_claimed']
                 
-                // If you can't claim daily yet
+                // If you can't claim weekly yet
                 if ((pastTime += 604_800_000) >= currentTime) {
                     testEmbed.spliceFields(0, 1,
                         {
