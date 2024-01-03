@@ -174,7 +174,7 @@ You now have **${retCredits}** Credits and **${retEXP}** EXP Material`
                             addMissionID.push(getMissions[i]["id"])
                         }
 
-                        if (addMissionID.includes(0)) { // id for calyx mission
+                        if ((addMissionID.includes(0)) && (getMissions[addMissionID.indexOf(0)]["completed"] == false)) { // id for balance mission
                             var mission = `missions.${addMissionID.indexOf(0)}.completed`
                             var missionSymbol = `missions.${addMissionID.indexOf(0)}.completed_symbol`
 

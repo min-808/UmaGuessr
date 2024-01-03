@@ -68,7 +68,7 @@ module.exports = {
                     addMissionID.push(getMissions[i]["id"])
                 }
 
-                if (addMissionID.includes(7)) { // id for pity mission
+                if ((addMissionID.includes(7)) && (getMissions[addMissionID.indexOf(7)]["completed"] == false)) { // id for balance mission
                     var mission = `missions.${addMissionID.indexOf(7)}.completed`
                     var missionSymbol = `missions.${addMissionID.indexOf(7)}.completed_symbol`
 
