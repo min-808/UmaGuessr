@@ -1,4 +1,4 @@
-var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
+var { SlashCommandBuilder, EmbedBuilder, Embed } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
@@ -10,14 +10,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('missions')
-    .setDescription('Check your daily missions')
-    .addStringOption((option) => 
-        option
-            .setName("options")
-            .setDescription("Claim your free fuel")
-            .setRequired(false)
-            .setAutocomplete(true)
-    ),
+    .setDescription('Check your daily missions'),
 
     async autocomplete (interaction) {
 
@@ -95,14 +88,12 @@ module.exports = {
                 var getUpdated = await ids.findOne({discord_id: discordID}, options)
                 var completed = getUpdated['missions_completed']
                 var hasClaimed = getUpdated['missions_claimed']
-
-                if (interaction.options.get('options') == undefined) { // Didn't select claim
     
-                    if (completed == false) { // Not all done
-                        testEmbed.spliceFields(0, 1,
-                            {
-                                name: "\n",
-                                value: `**Daily Missions\n**
+                if (completed == false) { // Not all done
+                    testEmbed.spliceFields(0, 1,
+                        {
+                            name: "\n",
+                            value: `**Daily Missions\n**
 ${missions[0]["completed_symbol"]} ${missions[0]["description"]}
 Reward: **75** stellar jade\n
 ${missions[1]["completed_symbol"]} ${missions[1]["description"]}
@@ -113,18 +104,37 @@ ${missions[3]["completed_symbol"]} ${missions[3]["description"]}
 Reward: **75** stellar jade\n
 ${missions[4]["completed_symbol"]} ${missions[4]["description"]}
 Reward: **75** stellar jade\n
-❌ Complete all missions
+❌ Complete all missions (Do /missions after completed to claim)
 Reward: **1** fuel`
-                            })
-                            .setFooter({ text: `Resets daily at 4am EST` })
-        
-                        interaction.editReply({ embeds: [testEmbed] });
-                        await client.close()
-                    } else { // All done
-                        testEmbed.spliceFields(0, 1,
-                            {
-                                name: "\n",
-                                value: `**Daily Missions\n**
+                        })
+                        .setFooter({ text: `Resets daily at 4am EST` })
+    
+                    interaction.editReply({ embeds: [testEmbed] });
+                    await client.close()
+                } else { // All done and hasn't claimed fuel
+
+                    if (hasClaimed == false) {
+                        const updateAll = {
+                            $set: {
+                                missions_claimed: true
+                            },
+                            $inc: {
+                                fuel: 1
+                            }
+                        }
+
+                        await ids.updateOne({discord_id: discordID}, updateAll)
+
+                        const fuelClaimedEmbed = new EmbedBuilder()
+                            .setColor(0x9a7ee7)
+                            .addFields({ name: `\n`, value: `Claimed your **1** fuel` })
+
+                        interaction.channel.send({ embeds: [fuelClaimedEmbed] });
+                    }
+                    testEmbed.spliceFields(0, 1,
+                        {
+                            name: "\n",
+                            value: `**Daily Missions\n**
 ${missions[0]["completed_symbol"]} ${missions[0]["description"]}
 Reward: **75** stellar jade\n
 ${missions[1]["completed_symbol"]} ${missions[1]["description"]}
@@ -137,59 +147,12 @@ ${missions[4]["completed_symbol"]} ${missions[4]["description"]}
 Reward: **75** stellar jade\n
 ⭐ Complete all missions
 Reward: **1** fuel`
-                            })
-                            .setFooter({ text: `Resets daily at 4am EST` })
-        
-                        interaction.editReply({ embeds: [testEmbed] });
-                        await client.close()
-                    }
-                } else if (interaction.options.get('options').value == "claim") {
-                    
-                    if ((completed) && (hasClaimed == false)) { // If you can claim
-                        const updateAll = {
-                            $set: {
-                                missions_claimed: true
-                            },
-                            $inc: {
-                                fuel: 1
-                            }
-                        }
-
-                        await ids.updateOne({discord_id: discordID}, updateAll)
-
-                        testEmbed.spliceFields(0, 1, {
-                            name: "\n",
-                            value: `Claimed your **1** fuel`
                         })
-    
-                        interaction.editReply({ embeds: [testEmbed] });
-                        await client.close()
-                    } else if ((completed) && (hasClaimed)) { // You already claimed
-                        testEmbed.spliceFields(0, 1, {
-                            name: "\n",
-                            value: `You **already claimed** the fuel from the daily mission`
-                        })
-    
-                        interaction.editReply({ embeds: [testEmbed] });
-                        await client.close()
-                    } else {
-                        testEmbed.spliceFields(0, 1, {
-                            name: "\n",
-                            value: `You **haven't completed** all the daily missions yet`
-                        })
-    
-                        interaction.editReply({ embeds: [testEmbed] });
-                        await client.close()
-                    }
-                } else {
-                    testEmbed.spliceFields(0, 1, {
-                        name: "\n",
-                        value: `Invalid option, select from list`
-                    })
+                        .setFooter({ text: `Resets daily at 4am EST` })
 
                     interaction.editReply({ embeds: [testEmbed] });
                     await client.close()
-                }
+                } 
             } catch (error) {
                 console.log(`There was an error: ${error}`)
                 interaction.editReply({ content: "Something broke!"})
