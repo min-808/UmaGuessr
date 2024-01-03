@@ -76,7 +76,7 @@ async function resetDailies() {
     var currentDate = new Date()
     var currentTime = currentDate.toLocaleTimeString('en-US')
 
-    console.log(`[${currentTime}] - Randomizing daily missions...`)
+    console.log(`[${currentTime}] - Resetting daily missions...`)
 
     // Randomize missions
 
