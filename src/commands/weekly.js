@@ -70,7 +70,7 @@ module.exports = {
                 } else { // You can claim
                     const updateValues = {
                         $set: {
-                            jade_count: currentAmount += 2500,
+                            jade_count: currentAmount += 2000,
                             weekly_timer: currentTime
                         }
                     }

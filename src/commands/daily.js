@@ -112,7 +112,7 @@ module.exports = {
                     testEmbed.setTimestamp();
 
                     if (displayHint) {
-                        testEmbed.setFooter({text: "Get an extra 5000 jades with /bonus"})
+                        testEmbed.setFooter({text: "Get an extra 4000 jades with /bonus"})
                     } else {
                         testEmbed.setFooter({text: "You can claim again in 24 hours"})
                     }

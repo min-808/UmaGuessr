@@ -29,7 +29,7 @@ module.exports = {
                     "`/balance`" + " - " + "Check your jades, exp, credits, and power" + "\n" + 
                     "`/daily`" + " - " + "Get 1000 stellar jade every 24 hours" + "\n" +
                     "`/missions`" + " - " + "Check your daily missions" + "\n" +
-                    "`/bonus`" + " - " + "Get a one-time bonus of 5000 jade" + "\n" +
+                    "`/bonus`" + " - " + "Get a one-time bonus of 4000 jade" + "\n" +
                     "`/characters`" + " - " + "Shows your owned characters" + "\n" + 
                     "`/inventory`" + " - " + "Shows your owned light cones" + "\n" + 
                     "`/equip`" + " - " + "Put light cones on your characters" + "\n" + 

@@ -8,7 +8,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('bonus')
-    .setDescription('Get a one-time bonus of 5000 stellar jade!'),
+    .setDescription('Get a one-time bonus of 4000 stellar jade!'),
 
     run: ({ interaction }) => {
              
@@ -45,7 +45,7 @@ module.exports = {
 
                 const addJade = {
                     $inc: {
-                        jade_count: 5000
+                        jade_count: 4000
                     }
                 }
 
@@ -71,7 +71,7 @@ module.exports = {
                     testEmbed.spliceFields(0, 1,
                         {
                             name: "\n",
-                            value: `You have claimed your one-time **5000 stellar jade** bonus!`
+                            value: `You have claimed your one-time **4000 stellar jade** bonus!`
                     })
                 }
 
