@@ -42,22 +42,39 @@ module.exports = {
             trailblaze_power_used_today: 0,
             trailblaze_power: 240,
             max_trailblaze_power: 240,
+            team: [
+                {
+                    "id": -1,
+                },
+                {
+                    "id": -1,
+                },
+                {
+                    "id": -1,
+                },
+                {
+                    "id": -1,
+                },
+            ],
             inventory: {},
             characters: { 
                 8004: { // Trailblazer m7 dh
                     "level": 1,
                     "lc": -1,
-                    "eidolon": 0
+                    "eidolon": 0,
+                    "inTeam": true
                 },
                 1001: {
                     "level": 1,
                     "lc": -1,
-                    "eidolon": 0
+                    "eidolon": 0,
+                    "inTeam": true
                 },
                 1002: {
                     "level": 1,
                     "lc": -1,
-                    "eidolon": 0
+                    "eidolon": 0,
+                    "inTeam": true
                 }
             },
             missions: [
@@ -103,6 +120,15 @@ module.exports = {
         }
     
         const result = await ids.insertOne(doc);
+
+        await ids.updateOne({discord_id: id}, {
+            $set: {
+                "team.0.id": 8004,
+                "team.1.id": 1001,
+                "team.2.id": 1002,
+            }
+        })
+
         console.log(`A new entry was inserted with the _id: ${result.insertedId}`);
     }
 }

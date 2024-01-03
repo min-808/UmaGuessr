@@ -27,14 +27,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('assignment')
-    .setDescription('Send your characters on assignments to earn stellar jade')
-    .addStringOption((option) =>
-        option
-            .setName("character")
-            .setDescription("Enter the character to send on the assignment")
-            .setRequired(false)
-            
-    )
+    .setDescription('Send your team on assignments to earn stellar jade')
     .addStringOption((option) => 
         option
             .setName("planet")
@@ -102,6 +95,7 @@ module.exports = {
                         missions: 1,
                         missions_completed: 1,
                         trailblaze_power_used_today: 1,
+                        team: 1,
                     }
                 }
 
@@ -113,35 +107,20 @@ module.exports = {
                 var currentTP = toParseUserUID['trailblaze_power']
                 var currentChars = toParseUserUID['characters']
                 var currentLC = toParseUserUID['inventory']
+                var team = toParseUserUID['team']
 
-                if (interaction.options.get('character') && interaction.options.get('planet')) { // If a character and planet are found
-
+                if (interaction.options.get('planet')) { // If planet is found
                     var planet = interaction.options.get('planet').value
-                    var character = (interaction.options.get('character').value).toLowerCase() // thank you stackoverflow
-                                                                                .split(' ')
-                                                                                .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-                                                                                .join(' ');
-
-                    if ((!choices.includes(planet) && (charMap.get(character) == undefined)) || (choices.includes(planet) && (charMap.get(character) == undefined)) || (!choices.includes(planet) && (charMap.get(character)))) { // Can't find character or planet
+                    if (!(choices.includes(planet))) { // Can't find planet
                         testEmbed.spliceFields(0, 1,
                             {
                                 name: "\n",
-                                value: `Unable to find the character or planet. Check spelling or select from list`
+                                value: `Unable to find the planet. Check spelling or select from list`
                             })
         
                         interaction.editReply({ embeds: [testEmbed] });
                         await client.close()
-                    } else if ((charMap.get(character)) && ((choices.includes(planet)))) { // Character AND planet exist
-                        if ((!(charMap.get(character) in currentChars))) { // But you don't have the character
-                            testEmbed.spliceFields(0, 1,
-                                {
-                                    name: "\n",
-                                    value: `You don't own ${character}`
-                                })
-            
-                            interaction.editReply({ embeds: [testEmbed] });
-                            await client.close()
-                        } else if (charMap.get(character) in currentChars) { // You have the character
+                    } else { { // Planet exists
                             var reqPlanet = ""
 
                             for (var i = 0; i < Object.keys(areaSheet).length; i++) {
@@ -170,7 +149,7 @@ module.exports = {
                     
                                     interaction.editReply({ embeds: [testEmbed] });
                                     await client.close()
-                                } else {
+                                } else { // Success
 
                                     var baseReward = reqPlanet.base_reward
                                     var charBonus = 0
@@ -178,81 +157,81 @@ module.exports = {
                                     var levelBonus = 0
                                     var eidolonBonus = 0
 
-                                    // Character Bonus
-                                    if ((charSheet[charMap.get(character)]["rarity"] == 4) || character == "Trailblazer") {
-                                        charBonus += Math.floor(Math.random() * (60 - 50 + 1) + 50)
-                                        eidolonBonus += (currentChars[charMap.get(character)]["eidolon"]) * 10
-                                    } else if (charSheet[charMap.get(character)]["rarity"] == 5) {
-                                        charBonus += charBonus += Math.floor(Math.random() * (170 - 160 + 1) + 160)
-                                        eidolonBonus += (currentChars[charMap.get(character)]["eidolon"]) * 90
-                                    }
+                                    characterArr = []
+                                    characterArrReadable = ""
 
-                                    var findLC = currentChars[charMap.get(character)]["lc"]
-
-                                    // LC Bonus
-                                    if (findLC == -1) { // Holding nothing
-                                        LCBonus += 0
-                                    } else if (LCSheet[findLC]["rarity"] == 3) {
-                                        LCBonus += Math.floor(Math.random() * (40 - 30 + 1) + 30)
-                                        eidolonBonus += (currentLC[findLC]["si"]) * 2
-                                    } else if (LCSheet[findLC]["rarity"] == 4) {
-                                        LCBonus += Math.floor(Math.random() * (60 - 50 + 1) + 50)
-                                        eidolonBonus += (currentLC[findLC]["si"]) * 10
-                                    } else if (LCSheet[findLC]["rarity"] == 5) {
-                                        LCBonus += Math.floor(Math.random() * (160 - 150 + 1) + 150)
-                                        eidolonBonus += (currentLC[findLC]["si"]) * 90
-                                    }
-
-                                    // Level Bonus
-                                    if ((currentChars[charMap.get(character)]["level"]) == 1) {
-                                        levelBonus += 0
-                                    } else {
-                                        levelBonus += ((currentChars[charMap.get(character)]["level"]) * 2)
-                                    }
-    
-                                    var total = baseReward + charBonus + LCBonus + levelBonus + eidolonBonus
-                                    var TPCost = reqPlanet.trailblaze_cost
-
-                                    const updateAll = {
-                                        $inc: {
-                                            trailblaze_power: -TPCost,
-                                            jade_count: total,
-                                            trailblaze_power_used_today: TPCost,
+                                    for (var i = 0; i < 4; i++) {
+                                        if (team[i]['id'] != -1) {
+                                            characterArr.push(team[i]['id'])
                                         }
                                     }
 
-                                    await ids.updateOne({discord_id: discordID}, updateAll)
-                                    var updatedInfo = await ids.findOne({discord_id: discordID}, options);
-
-                                    var getMissions = toParseUserUID['missions']
-
-                                    var addMissionID = []
-            
-                                    for (var i = 0; i < 5; i++) {
-                                        addMissionID.push(getMissions[i]["id"])
-                                    }
-            
-                                    if (addMissionID.includes(1)) { // id for assignment mission
-                                        var mission = `missions.${addMissionID.indexOf(1)}.completed`
-                                        var missionSymbol = `missions.${addMissionID.indexOf(1)}.completed_symbol`
-            
-                                        const setTrue = {
-                                            $set: {
-                                                [mission]: true,
-                                                [missionSymbol]: "✅",
-                                            },
-                                            $inc: {
-                                                jade_count: 75,
+                                    if (characterArr.length >= 1) { // Good you have a team
+                                        for (var i = 0; i < characterArr.length; i++) {
+                                            if (i < characterArr.length - 1) {
+                                                characterArrReadable += charSheet[characterArr[i]]["name"] + ", "
+                                            } else {
+                                                characterArrReadable += charSheet[characterArr[i]]["name"]
+                                            }
+    
+                                            // Character Bonus
+                                            if ((charSheet[characterArr[i]]["rarity"] == 4) || (charSheet[characterArr[i]]["name"] == "Trailblazer")) {
+                                                charBonus += Math.floor(Math.random() * (40 - 30 + 1) + 30)
+                                                eidolonBonus += (currentChars[characterArr[i]]["eidolon"]) * 8
+                                            } else if (charSheet[characterArr[i]]["rarity"] == 5) {
+                                                charBonus += Math.floor(Math.random() * (80 - 70 + 1) + 70)
+                                                eidolonBonus += (currentChars[characterArr[i]]["eidolon"]) * 70
+                                            }
+    
+                                            var findLC = currentChars[characterArr[i]]["lc"]
+    
+                                            // LC Bonus
+                                            if (findLC == -1) { // Holding nothing
+                                                LCBonus += 0
+                                            } else if (LCSheet[findLC]["rarity"] == 3) {
+                                                LCBonus += Math.floor(Math.random() * (15 - 10 + 1) + 10)
+                                                eidolonBonus += (currentLC[findLC]["si"]) * 2
+                                            } else if (LCSheet[findLC]["rarity"] == 4) {
+                                                LCBonus += Math.floor(Math.random() * (30 - 20 + 1) + 20)
+                                                eidolonBonus += (currentLC[findLC]["si"]) * 10
+                                            } else if (LCSheet[findLC]["rarity"] == 5) {
+                                                LCBonus += Math.floor(Math.random() * (70 - 60 + 1) + 60)
+                                                eidolonBonus += (currentLC[findLC]["si"]) * 70
+                                            }
+    
+                                            // Level Bonus
+                                            if ((currentChars[characterArr[i]]["level"]) == 1) {
+                                                levelBonus += 0
+                                            } else {
+                                                levelBonus += ((currentChars[characterArr[i]]["level"]) * 2)
                                             }
                                         }
-            
-                                        await ids.updateOne({discord_id: discordID}, setTrue)
-                                    }
-
-                                    if (addMissionID.includes(3)) { // id for 160 power mission
-                                        if (updatedInfo['trailblaze_power_used_today'] >= 160) {
-                                            var mission = `missions.${addMissionID.indexOf(3)}.completed`
-                                            var missionSymbol = `missions.${addMissionID.indexOf(3)}.completed_symbol`
+    
+                                        var total = baseReward + charBonus + LCBonus + levelBonus + eidolonBonus
+                                        var TPCost = reqPlanet.trailblaze_cost
+    
+                                        const updateAll = {
+                                            $inc: {
+                                                trailblaze_power: -TPCost,
+                                                jade_count: total,
+                                                trailblaze_power_used_today: TPCost,
+                                            }
+                                        }
+    
+                                        await ids.updateOne({discord_id: discordID}, updateAll)
+                                        var updatedInfo = await ids.findOne({discord_id: discordID}, options);
+    
+                                        var getMissions = toParseUserUID['missions']
+    
+                                        var addMissionID = []
+                
+                                        for (var i = 0; i < 5; i++) {
+                                            addMissionID.push(getMissions[i]["id"])
+                                        }
+                
+                                        if ((addMissionID.includes(1)) && (getMissions[addMissionID.indexOf(1)]["completed"] == false)) { // id for balance mission
+                                            var mission = `missions.${addMissionID.indexOf(1)}.completed`
+                                            var missionSymbol = `missions.${addMissionID.indexOf(1)}.completed_symbol`
                 
                                             const setTrue = {
                                                 $set: {
@@ -263,20 +242,38 @@ module.exports = {
                                                     jade_count: 75,
                                                 }
                                             }
+                
                                             await ids.updateOne({discord_id: discordID}, setTrue)
-                        
                                         }
-                                    }
-
-                                    var finalInfo = await ids.findOne({discord_id: discordID}, options);
-
-                                    var retPower = finalInfo['trailblaze_power']
-                                    var retJades = finalInfo['jade_count']
     
-                                    testEmbed.spliceFields(0, 1,
-                                        {
-                                            name: "\n",
-                                            value: `**Assignment Completed at ${areaSheet[retLevel]["name"]}**\n
+                                        if ((addMissionID.includes(3)) && (getMissions[addMissionID.indexOf(3)]["completed"] == false)) { // id for balance mission
+                                            if (updatedInfo['trailblaze_power_used_today'] >= 160) {
+                                                var mission = `missions.${addMissionID.indexOf(3)}.completed`
+                                                var missionSymbol = `missions.${addMissionID.indexOf(3)}.completed_symbol`
+                    
+                                                const setTrue = {
+                                                    $set: {
+                                                        [mission]: true,
+                                                        [missionSymbol]: "✅",
+                                                    },
+                                                    $inc: {
+                                                        jade_count: 75,
+                                                    }
+                                                }
+                                                await ids.updateOne({discord_id: discordID}, setTrue)
+                            
+                                            }
+                                        }
+    
+                                        var finalInfo = await ids.findOne({discord_id: discordID}, options);
+    
+                                        var retPower = finalInfo['trailblaze_power']
+                                        var retJades = finalInfo['jade_count']
+        
+                                        testEmbed.spliceFields(0, 1,
+                                            {
+                                                name: "\n",
+                                                value: `**Assignment Completed at ${areaSheet[retLevel]["name"]}**\nWith ${characterArrReadable}\n
 **+${baseReward}** (Base Reward)
 **+${charBonus}** (Character Bonus)
 **+${LCBonus}** (Light Cone Bonus)
@@ -284,10 +281,22 @@ module.exports = {
 **+${levelBonus}** (Level Bonus)\n
 **${total}** Total Stellar Jade earned\n\n
 You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
-                                        })
-                    
-                                    interaction.editReply({ embeds: [testEmbed] });
-                                    await client.close()
+                                            })
+                        
+                                        interaction.editReply({ embeds: [testEmbed] });
+                                        await client.close()
+                                    } else {
+                                        testEmbed.spliceFields(0, 1,
+                                            {
+                                                name: "\n",
+                                                value: `Set up a team with **/team** first`
+                                            })
+
+                                        interaction.editReply({ embeds: [testEmbed] });
+                                        await client.close()
+                                    }
+
+                                    
                                     
                                 }
                             }
@@ -381,7 +390,7 @@ Current credits: **${retCredits}**`
                 }
 
                 } catch (error) {
-                    console.log(`There was an error: ${error}`)
+                    console.log(`There was an error: ${error.stack}`)
                     interaction.editReply({ content: "something broke pls let me know"})
                     await client.close()
                 }
