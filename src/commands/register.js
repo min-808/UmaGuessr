@@ -28,7 +28,10 @@ module.exports = {
 
             const date = new Date();
 
-            const res = await fetch("https://api.mihomo.me/sr_info/" + userUID + "?lang=en");
+            // Old "https://api.mihomo.me/sr_info/" + userUID + "?lang=en"
+            // Enka "https://enka.network/api/hsr/uid/" + userUID
+
+            const res = await fetch("https://enka.network/api/hsr/uid/" + userUID);
                 if (res.ok) {
                     const data = await res.json();
                     var username = String(data?.["detailInfo"]?.['nickname'])

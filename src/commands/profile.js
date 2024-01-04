@@ -40,17 +40,26 @@ module.exports = {
                     const toParseUserUID = await ids.findOne({discord_id: discordID}, options);
                     const userUID = toParseUserUID['hsr_id']
                     // await client.close()
+
+                    // Old "https://api.mihomo.me/sr_info/" + userUID + "?lang=en"
+                    // Enka "https://enka.network/api/hsr/uid/" + userUID
                     
-                    const res = await fetch("https://api.mihomo.me/sr_info/" + userUID + "?lang=en");
+                    const res = await fetch("https://enka.network/api/hsr/uid/" + userUID);
                     if (res.ok) {
                         const data = await res.json();
 
                         // console.log(data, { depth: null }) // .dir for full
 
-                        var suppChar = String(data?.["detailInfo"]?.['assistAvatarDetail']?.["avatarId"]);
+                        // var suppChar = String(data?.["detailInfo"]?.['assistAvatarDetail']?.["avatarId"]); OLD
+
+                        // var showOne = String(data?.["detailInfo"]?.['avatarDetailList']?.[0]?.["avatarId"])
+                        // var showTwo = String(data?.["detailInfo"]?.['avatarDetailList']?.[1]?.["avatarId"]);
+                        // var showThree = String(data?.["detailInfo"]?.['avatarDetailList']?.[2]?.["avatarId"]);
+
+                        var suppChar = String(data?.["detailInfo"]?.['avatarDetailList']?.[1]?.["avatarId"])
 
                         var showOne = String(data?.["detailInfo"]?.['avatarDetailList']?.[0]?.["avatarId"])
-                        var showTwo = String(data?.["detailInfo"]?.['avatarDetailList']?.[1]?.["avatarId"]);
+                        var showTwo = String(data?.["detailInfo"]?.['avatarDetailList']?.[3]?.["avatarId"]);
                         var showThree = String(data?.["detailInfo"]?.['avatarDetailList']?.[2]?.["avatarId"]);
 
                         var signature = String(data?.["detailInfo"]?.["signature"]);
@@ -190,24 +199,24 @@ module.exports = {
                                 }
                             )
                         }
-
+ //
                         if (supportCheck == "1") {
                             testEmbed.spliceFields(5, 1
                                 ,{
                                     name: "Support",
                                     value:
-                                    emoteSheet["Colored"][[charSheet[suppChar]["element"]]]["id"] + " " + charSheet[suppChar]["name"] + " - Lv. " + String(data["detailInfo"]['assistAvatarDetail']["level"]),
+                                    emoteSheet["Colored"][[charSheet[suppChar]["element"]]]["id"] + " " + charSheet[suppChar]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][1]["level"]),
                                 }
                             )
                         }
 
-                        if (showcaseCheck === "3") {
+                        if (showcaseCheck === "3") { // THESE NUMBERS USED TO BE 0 1 2 AND SUPP SHOULDVE HAD LINK FROM ABOVE AND NOT 1, BUT 0
                             testEmbed.spliceFields(6, 1, 
                                 {
                                     name: "Showcase",
                                     value: 
                                     emoteSheet["Colored"][[charSheet[showOne]["element"]]]["id"] + " " + charSheet[showOne]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][0]["level"]) + "\n" +
-                                    emoteSheet["Colored"][[charSheet[showTwo]["element"]]]["id"] + " " + charSheet[showTwo]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][1]["level"]) + "\n" +
+                                    emoteSheet["Colored"][[charSheet[showTwo]["element"]]]["id"] + " " + charSheet[showTwo]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][3]["level"]) + "\n" +
                                     emoteSheet["Colored"][[charSheet[showThree]["element"]]]["id"] + " " + charSheet[showThree]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][2]["level"]),
                                 }
                             )
@@ -217,7 +226,7 @@ module.exports = {
                                     name: "Showcase",
                                     value: 
                                     emoteSheet["Colored"][[charSheet[showOne]["element"]]]["id"] + " " + charSheet[showOne]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][0]["level"]) + "\n" +
-                                    emoteSheet["Colored"][[charSheet[showTwo]["element"]]]["id"] + " " + charSheet[showTwo]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][1]["level"]) + "\n" +
+                                    emoteSheet["Colored"][[charSheet[showTwo]["element"]]]["id"] + " " + charSheet[showTwo]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][3]["level"]) + "\n" +
                                     "-"
                                 }
                             )
@@ -279,7 +288,7 @@ module.exports = {
                 }
 
                 } catch (error) {
-                    console.log(`There was an error: ${error}`)
+                    console.log(`There was an error: ${error.stack}`)
                     interaction.editReply({ content: "Something broke!"})
                     await client.close()
             }
