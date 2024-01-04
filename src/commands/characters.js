@@ -36,10 +36,38 @@ module.exports = {
                 var options = {
                     projection: {
                         characters: 1,
+                        missions: 1,
+                        missions_completed: 1,
                     }
                 }
 
-                var listOfCharacters = (await ids.findOne({discord_id: discordID}, options))['characters']
+                var toParseUserUID = await ids.findOne({discord_id: discordID}, options)
+                var listOfCharacters = toParseUserUID['characters']
+                
+                var getMissions = toParseUserUID['missions']
+
+                var addMissionID = []
+
+                for (var i = 0; i < 5; i++) {
+                    addMissionID.push(getMissions[i]["id"])
+                }
+
+                if ((addMissionID.includes(8)) && (getMissions[addMissionID.indexOf(8)]["completed"] == false)) { // id for daily mission
+                    var mission = `missions.${addMissionID.indexOf(8)}.completed`
+                    var missionSymbol = `missions.${addMissionID.indexOf(8)}.completed_symbol`
+
+                    const setTrue = {
+                        $set: {
+                            [mission]: true,
+                            [missionSymbol]: "✅",
+                        },
+                        $inc: {
+                            jade_count: 75
+                        }
+                    }
+
+                    await ids.updateOne({discord_id: discordID}, setTrue)
+                }
 
                 // console.log(listOfItems)
                 var size = Object.keys(listOfCharacters).length

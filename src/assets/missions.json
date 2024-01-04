@@ -5,7 +5,7 @@
     },
     "1": {
         "id": 1,
-        "description": "Send a character on an assignment"
+        "description": "Send your team on an assignment"
     },
     "2": {
         "id": 2,
@@ -30,5 +30,13 @@
     "7": {
         "id": 7,
         "description": "Check your pity"
+    },
+    "8": {
+        "id": 8,
+        "description": "Check your characters"
+    },
+    "9": {
+        "id": 9,
+        "description": "Check your inventory"
     }
 }
