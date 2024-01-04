@@ -52,7 +52,7 @@ module.exports = {
                     addMissionID.push(getMissions[i]["id"])
                 }
 
-                if ((addMissionID.includes(8)) && (getMissions[addMissionID.indexOf(8)]["completed"] == false)) { // id for daily mission
+                if ((addMissionID.includes(8)) && (getMissions[addMissionID.indexOf(8)]["completed"] == false)) { // id for characters mission
                     var mission = `missions.${addMissionID.indexOf(8)}.completed`
                     var missionSymbol = `missions.${addMissionID.indexOf(8)}.completed_symbol`
 

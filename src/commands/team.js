@@ -63,6 +63,8 @@ module.exports = {
                     projection: {
                         team: 1,
                         characters: 1,
+                        missions: 1,
+                        missions_completed: 1,
                     }
                 }
 
@@ -70,6 +72,9 @@ module.exports = {
                 var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
                 var team = toParseUserUID['team']
                 var characters = toParseUserUID['characters']
+
+                var getMissions = toParseUserUID['missions']
+                var addMissionID = []
 
                 if ((interaction.options.get('add') == undefined) && (interaction.options.get('remove') == undefined)) { // No options entered, so just show their current team
                     var displayChars = []
@@ -83,6 +88,27 @@ module.exports = {
                             displayChars.push(charSheet[team[i]["id"]]["name"])
                             lvChars.push(`- Lv. ${characters[team[i]["id"]]["level"]}`)
                         }
+                    }
+
+                    for (var i = 0; i < 5; i++) {
+                        addMissionID.push(getMissions[i]["id"])
+                    }
+
+                    if ((addMissionID.includes(10)) && (getMissions[addMissionID.indexOf(10)]["completed"] == false)) { // id for team mission
+                        var mission = `missions.${addMissionID.indexOf(10)}.completed`
+                        var missionSymbol = `missions.${addMissionID.indexOf(10)}.completed_symbol`
+
+                        const setTrue = {
+                            $set: {
+                                [mission]: true,
+                                [missionSymbol]: "✅",
+                            },
+                            $inc: {
+                                jade_count: 75
+                            }
+                        }
+
+                        await ids.updateOne({discord_id: discordID}, setTrue)
                     }
 
                     

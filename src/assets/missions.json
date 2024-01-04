@@ -38,5 +38,9 @@
     "9": {
         "id": 9,
         "description": "Check your inventory"
+    },
+    "10": {
+        "id": 10,
+        "description": "Check your team"
     }
 }
