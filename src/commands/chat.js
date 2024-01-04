@@ -46,6 +46,12 @@ module.exports = {
                 var getName = findChar["characters"][0]['participant__name']
                 var getDesc = findChar["characters"][0]['title']
                 var getFile = findChar["characters"][0]['avatar_file_name']
+
+                if (getDesc == "") {
+                    getDesc = findChar["characters"][0]['title']
+                } else {
+                    getDesc = `*${findChar["characters"][0]['title']}*\n`
+                }
     
                 console.log(`${interaction.user.username} is chatting with ${getName}`)
                 console.log("Num interactions: " + findChar["characters"][0]["participant__num_interactions"])
@@ -60,21 +66,21 @@ module.exports = {
                 checkInstances.push(interaction.user.id)
     
                 testEmbed.spliceFields(0, 1, {
-                    name: "\n", value: `You are now chatting with **${getName}**\n*${getDesc}*\n\nThe chat will stay open for 20 minutes or until you type \`end\`\n\nSend your first message`
+                    name: "\n", value: `You are now chatting with **${getName}**\n${getDesc}\nThe chat will stay open for 20 minutes or until you type \`end\`\n\nSend your first message`
                 })
                 testEmbed.setThumbnail(`https://characterai.io/i/80/static/avatars/${getFile}`)
     
                 interaction.editReply({ embeds: [testEmbed] })
                 
     
-                const collector = interaction.channel.createMessageCollector({
+                const collector = interaction.channel.createMessageCollector({ // Fix when you delete the message, since the reply can't go through
                     filter: (message) =>
                         message.author.id === interaction.user.id && message.channelId === interaction.channelId, // Only the person who started the chat can talk with them
-                        time: 1_200_000
+                        time: 1_200_000 // 20min
                 })
     
                 collector.on('collect', async (message) => {
-                    if (message.content == `end`) {
+                    if (message.content == `end` || message.content == `End`) {
                         collector.stop()
                     } else {
                         const response = await chat.sendAndAwaitResponse(message.content, true);
@@ -98,7 +104,7 @@ module.exports = {
                 interaction.editReply("You can only talk to one character at a time!\nEnd your current conversation to talk to a new character")
             }
         } catch (error) {
-            console.log(error)
+            console.log(error.stack)
             await interaction.editReply("Could not find character, or something broke. Something probably broke lmk :(")
         }
         
