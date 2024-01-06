@@ -162,6 +162,7 @@ module.exports = {
                                             var lc = "characters." + fiveStarChars[chooseFSC] + ".lc"
                                             var eidolon = "characters." + fiveStarChars[chooseFSC] + ".eidolon"
                                             var inTeam = "characters." + fiveStarChars[chooseFSC] + ".inTeam"
+                                            var asc_level = "characters." + fiveStarChars[chooseFSC] + ".asc_level"
     
                                             var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters'] //here
                                             if (fiveStarChars[chooseFSC] in characterCollection) {
@@ -193,6 +194,7 @@ module.exports = {
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { [lc] : -1 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [eidolon] : 0 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [inTeam] : false } })
+                                                await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } }) 
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 1000 } } )
                                                 result = `${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                                                 amountDueToDupes += 1000
@@ -205,6 +207,7 @@ module.exports = {
                                             var level = "inventory." + fiveStarLC[chooseFSLC] + ".level"
                                             var si = "inventory." + fiveStarLC[chooseFSLC] + ".si"
                                             var equipped = "inventory." + fiveStarLC[chooseFSLC] + ".equipped_on"
+                                            var asc_level = "inventory." + fiveStarLC[chooseFSLC] + ".asc_level"
     
                                             var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                             if (fiveStarLC[chooseFSLC] in inventoryCollection) {
@@ -235,6 +238,7 @@ module.exports = {
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
+                                                await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 1000 } } )
                                                 result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                                                 amountDueToDupes += 1000;
@@ -265,6 +269,7 @@ module.exports = {
                                             var lc = "characters." + fourStarChars[chooseFourSC] + ".lc"
                                             var eidolon = "characters." + fourStarChars[chooseFourSC] + ".eidolon"
                                             var inTeam = "characters." + fourStarChars[chooseFourSC] + ".inTeam"
+                                            var asc_level = "characters." + fourStarChars[chooseFourSC] + ".asc_level"
     
                                             var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters']
                                             if (fourStarChars[chooseFourSC] in characterCollection) {
@@ -296,6 +301,7 @@ module.exports = {
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { [lc] : -1 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [eidolon] : 0 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [inTeam] : false } })
+                                                await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 200 } } )
                                                 result = `${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                                                 amountDueToDupes += 200
@@ -308,6 +314,7 @@ module.exports = {
                                             var level = "inventory." + fourStarLC[chooseFourSLC] + ".level"
                                             var si = "inventory." + fourStarLC[chooseFourSLC] + ".si"
                                             var equipped = "inventory." + fourStarLC[chooseFourSLC] + ".equipped_on"
+                                            var asc_level = "inventory." + fourStarLC[chooseFourSLC] + ".asc_level"
     
                                             var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                             if (fourStarLC[chooseFourSLC] in inventoryCollection) {
@@ -338,6 +345,7 @@ module.exports = {
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
+                                                await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                                 await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 200 } } )
                                                 result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                                                 amountDueToDupes += 200
@@ -362,6 +370,7 @@ module.exports = {
                                         var level = "inventory." + threeStarLC[chooseTSLC] + ".level"
                                         var si = "inventory." + threeStarLC[chooseTSLC] + ".si"
                                         var equipped = "inventory." + threeStarLC[chooseTSLC] + ".equipped_on"
+                                        var asc_level = "inventory." + threeStarLC[chooseTSLC] + ".asc_level"
     
                                         var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                         if (threeStarLC[chooseTSLC] in inventoryCollection) {
@@ -392,6 +401,7 @@ module.exports = {
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                             await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
+                                            await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                             await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 50 } } )
                                             result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})`
                                             amountDueToDupes += 50
@@ -469,6 +479,7 @@ module.exports = {
                                 var lc = "characters." + fiveStarChars[chooseFSC] + ".lc"
                                 var eidolon = "characters." + fiveStarChars[chooseFSC] + ".eidolon"
                                 var inTeam = "characters." + fiveStarChars[chooseFSC] + ".inTeam"
+                                var asc_level = "characters." + fiveStarChars[chooseFSC] + ".asc_level"
 
                                 var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters'] //here
                                 if (fiveStarChars[chooseFSC] in characterCollection) {
@@ -498,6 +509,7 @@ module.exports = {
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { [lc] : -1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [eidolon] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [inTeam] : false } })
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 1000 } } )
                                     result = `${charSheet[fiveStarChars[chooseFSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+1000 Credits`
                                 }
@@ -509,6 +521,7 @@ module.exports = {
                                 var level = "inventory." + fiveStarLC[chooseFSLC] + ".level"
                                 var si = "inventory." + fiveStarLC[chooseFSLC] + ".si"
                                 var equipped = "inventory." + fiveStarLC[chooseFSLC] + ".equipped_on"
+                                var asc_level = "inventory." + fiveStarLC[chooseFSLC] + ".asc_level"
 
                                 var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                 if (fiveStarLC[chooseFSLC] in inventoryCollection) {
@@ -537,6 +550,7 @@ module.exports = {
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 1000 } } )
                                     result = `${LCSheet[fiveStarLC[chooseFSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+1000 Credits`
                                 }
@@ -566,6 +580,7 @@ module.exports = {
                                 var lc = "characters." + fourStarChars[chooseFourSC] + ".lc"
                                 var eidolon = "characters." + fourStarChars[chooseFourSC] + ".eidolon"
                                 var inTeam = "characters." + fourStarChars[chooseFourSC] + ".inTeam"
+                                var asc_level = "characters." + fourStarChars[chooseFourSC] + ".asc_level"
 
                                 var characterCollection = (await ids.findOne({discord_id: discordID}, options))['characters']
                                 if (fourStarChars[chooseFourSC] in characterCollection) {
@@ -595,6 +610,7 @@ module.exports = {
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { [lc] : -1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [eidolon] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [inTeam] : false } })
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 200 } } )
                                     result = `${charSheet[fourStarChars[chooseFourSC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+200 Credits`
                                 }
@@ -606,6 +622,7 @@ module.exports = {
                                 var level = "inventory." + fourStarLC[chooseFourSLC] + ".level"
                                 var si = "inventory." + fourStarLC[chooseFourSLC] + ".si"
                                 var equipped = "inventory." + fourStarLC[chooseFourSLC] + ".equipped_on"
+                                var asc_level = "inventory." + fourStarLC[chooseFourSLC] + ".asc_level"
 
                                 var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                                 if (fourStarLC[chooseFourSLC] in inventoryCollection) {
@@ -634,6 +651,7 @@ module.exports = {
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
+                                    await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                     await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 200 } } )
                                     result = `${LCSheet[fourStarLC[chooseFourSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n\n+200 Credits`
                                 }
@@ -657,6 +675,7 @@ module.exports = {
                             var level = "inventory." + threeStarLC[chooseTSLC] + ".level"
                             var si = "inventory." + threeStarLC[chooseTSLC] + ".si"
                             var equipped = "inventory." + threeStarLC[chooseTSLC] + ".equipped_on"
+                            var asc_level = "inventory." + threeStarLC[chooseTSLC] + ".asc_level"
 
                             var inventoryCollection = (await ids.findOne({discord_id: discordID}, options))['inventory']
                             if (threeStarLC[chooseTSLC] in inventoryCollection) {
@@ -685,6 +704,7 @@ module.exports = {
                                 await ids.updateOne({ discord_id: discordID }, { $set: { [level] : 1 } })
                                 await ids.updateOne({ discord_id: discordID }, { $set: { [si] : 0 } })
                                 await ids.updateOne({ discord_id: discordID }, { $set: { [equipped] : -1 } })
+                                await ids.updateOne({ discord_id: discordID }, { $set: { [asc_level] : 0 } })
                                 await ids.updateOne({ discord_id: discordID }, { $inc: { credits: 50 } } )
                                 result = `${LCSheet[threeStarLC[chooseTSLC]]["name"]} (${emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"] + emoteSheet["Stars"]["StarBig"]["id"]})\n+50 Credits`
                             }

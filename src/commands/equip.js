@@ -50,8 +50,6 @@ module.exports = {
                 var inputLC = interaction.options.get('lightcone').value
 
                 // Using a hashmap to reverse key value pairs (key = character name, value = id)
-                // Although it's a for loop, it's doing the loop a constant number of times as there's ~40 chars and ~80 LCs. Close to O(1) I think?
-                // Lookup and set should be O(1) though
 
                 var charMap = new Map()
                 for (var [key, value] of Object.entries(charSheet)) {
