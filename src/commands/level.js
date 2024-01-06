@@ -74,6 +74,8 @@ module.exports = {
                         credits: 1,
                         characters: 1,
                         inventory: 1,
+                        missions: 1,
+                        missions_completed: 1,
                     }
                 }
 
@@ -153,7 +155,7 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                 interaction.editReply({ embeds: [testEmbed] });
                                 await client.close()
                             } else { // You have enough, success!
-                                var type = ""
+
 
                                 var checkLC = LCMap.get(inputTarget)
                                 var checkChar = charMap.get(inputTarget)
@@ -191,7 +193,34 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                 }
 
                                 if ((returnLevel >= 1) && (returnLevel < 80)) { // LC Lv 1-20 MAKE SURE TO DO THE CASE WHERE YOU OVER LEVEL, so return the books back and set to max level
+                                    
+                                    var getMissions = toParseUserUID['missions']
+
+                                    var addMissionID = []
+                
+                                    for (var i = 0; i < 5; i++) {
+                                        addMissionID.push(getMissions[i]["id"])
+                                    }
+                
+                                    if ((addMissionID.includes(11)) && (getMissions[addMissionID.indexOf(11)]["completed"] == false)) { // id for level mission
+                                        var mission = `missions.${addMissionID.indexOf(11)}.completed`
+                                        var missionSymbol = `missions.${addMissionID.indexOf(11)}.completed_symbol`
+                
+                                        const setTrue = {
+                                            $set: {
+                                                [mission]: true,
+                                                [missionSymbol]: "✅",
+                                            },
+                                            $inc: {
+                                                jade_count: 75
+                                            }
+                                        }
+                
+                                        await ids.updateOne({discord_id: discordID}, setTrue)
+                                    }
+
                                     // First step is to find what the max level is, given the asc level
+
                                     var maxLevel = 0
 
                                     if (returnAscLevel == 0) {
