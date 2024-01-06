@@ -1,0 +1,33 @@
+{
+    "char-lc-20": {
+        "id": "char-lc-20",
+        "cost": 1
+    },
+    "char-lc-40": {
+        "id": "char-lc-40",
+        "cost": 2
+    },
+    "char-lc-60": {
+        "id": "char-lc-60",
+        "cost": 8
+    },
+    "char-lc-80": {
+        "id": "char-lc-80",
+        "cost": 20
+    },
+    "char-lc-20asc": {
+        "id": "char-lc-20asc",
+        "cost": 5000,
+        "max_level": 40
+    },
+    "char-lc-40asc": {
+        "id": "char-lc-40asc",
+        "cost": 10000,
+        "max_level": 60
+    },
+    "char-lc-60asc": {
+        "id": "char-lc-60asc",
+        "cost": 20000,
+        "max_level": 80
+    }
+}
