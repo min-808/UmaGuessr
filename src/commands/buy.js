@@ -12,7 +12,7 @@ module.exports = {
     .addIntegerOption((option) =>
         option
             .setName("amount")
-            .setDescription("Enter the amount of exp material you want to buy (500 credits => 1 material)")
+            .setDescription("Enter the amount of exp material you want to buy (250 credits => 1 material)")
             .setRequired(false)
             
     ),
@@ -71,12 +71,12 @@ module.exports = {
                     await client.close()
                 } else { // Something was entered
                     var amountEntered = interaction.options.get('amount').value
-                    var cost = (amountEntered * 500)
+                    var cost = (amountEntered * 250)
                     if (cost > credits) { // can't afford
                         testEmbed.spliceFields(0, 1,
                             {
                                 name: "\n",
-                                value: `You don't have enough credits to buy **${amountEntered}** EXP Material\nYou need \`${cost}\` credits but you only have \`${credits}\` credits`
+                                value: `You don't have enough credits to buy **${amountEntered}** EXP Material\nYou need **${cost}** credits but you only have **${credits}** credits`
                             })
                         
                         interaction.editReply({ embeds: [testEmbed] });

@@ -38,7 +38,7 @@ module.exports = {
                 )
     
                 if (!characterAI.isAuthenticated()) { // So multiple people can chat with the bot
-                    await characterAI.authenticateWithToken(process.env.CHAI_TOKEN)
+                    await characterAI.authenticateWithToken(process.env.CAI_TOKEN, process.env.CAI_ID)
                 }
     
                 var findChar = await characterAI.searchCharacters(char)

@@ -78,7 +78,7 @@ module.exports = {
                         testEmbed.spliceFields(0, 1,
                             {
                                 name: "\n",
-                                value: `You don't have enough fuel to use. You entered \`${amountEntered}\` but you have \`${fuelAmount}\` fuel`
+                                value: `You don't have enough fuel to use. You entered **${amountEntered}** but you have **${fuelAmount}** fuel`
                             })
                         
                         interaction.editReply({ embeds: [testEmbed] });
@@ -94,7 +94,7 @@ module.exports = {
 
                             const noButton = new ButtonBuilder()
                                 .setLabel('✗')
-                                .setStyle(ButtonStyle.Primary)
+                                .setStyle(ButtonStyle.Danger)
                                 .setCustomId('no')
 
                             const buttonRow = new ActionRowBuilder().addComponents(yesButton, noButton)
