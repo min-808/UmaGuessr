@@ -97,6 +97,12 @@ module.exports = {
                         })
             
                         collectorConfirm.on('collect', async (message) => {
+                            testEmbed.spliceFields(0, 1,
+                                {
+                                    name: "\n",
+                                    value: `No action was taken`
+                                })
+
                             if (message.content == `CONFIRM`) {
                                 await ids.deleteOne({ _id: getID })
 
@@ -107,22 +113,11 @@ module.exports = {
                                     })
                                 collectorConfirm.stop()
                             } else {
-                                testEmbed.spliceFields(0, 1,
-                                    {
-                                        name: "\n",
-                                        value: `No action was taken`
-                                    })
                                 collectorConfirm.stop()
                             }
                         })
                         
                         collectorConfirm.on('end', () => {
-                            testEmbed.spliceFields(0, 1,
-                                {
-                                    name: "\n",
-                                    value: `No action was taken`
-                                })
-                            
                             interaction.channel.send({ embeds: [testEmbed] })
                         })
                             
