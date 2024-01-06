@@ -79,7 +79,6 @@ module.exports = {
 
                 // Then get the first thing that matches the discord id, and options is the query from before
                 var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                var currentCredits = toParseUserUID['credits']
                 var currentEXPMaterial = toParseUserUID['exp_material']
                 var currentChars = toParseUserUID['characters']
                 var currentInventory = toParseUserUID['inventory']
@@ -207,8 +206,6 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                     
                                     var costPerLevel = levelSheet[`char-lc-${maxLevel}`]["cost"]
                                     var levelsRemaining = maxLevel - returnLevel
-                                    console.log(costPerLevel)   
-                                    console.log(levelsRemaining)
 
                                     if (returnLevel == maxLevel) {
                                         testEmbed.spliceFields(0, 1,
@@ -241,8 +238,6 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                         if (amountEntered % costPerLevel != 0) { // But it doesn't even out, so add as much as you can then return the remaining
                                             var remainder = amountEntered % costPerLevel // How much is left over
                                             var toAdd = Math.floor(amountEntered / costPerLevel) // How much levels to add
-
-                                            console.log(remainder)
 
                                             await ids.updateOne({discord_id: discordID}, { 
                                                 $inc: {
