@@ -27,7 +27,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('assignment')
-    .setDescription('Send your team on assignments to earn stellar jade')
+    .setDescription('Send your team on assignments to earn stellar jade. Run the command with no options to see info')
     .addStringOption((option) => 
         option
             .setName("planet")
@@ -134,7 +134,7 @@ module.exports = {
                                 testEmbed.spliceFields(0, 1,
                                     {
                                         name: "\n",
-                                        value: `You cannot access **${planet}** yet. You need to be level \`${reqPlanetLv + 1}\`, but you're level \`${retLevel + 1}\``
+                                        value: `You cannot access **${planet}** yet. You need to be level **${reqPlanetLv + 1}**, but you're level **${retLevel + 1}**`
                                     })
                 
                                 interaction.editReply({ embeds: [testEmbed] });
@@ -144,7 +144,7 @@ module.exports = {
                                     testEmbed.spliceFields(0, 1,
                                         {
                                             name: "\n",
-                                            value: `You don't have enough Trailblaze Power. You need \`${reqPlanet.trailblaze_cost}\`, but you have \`${currentTP}\``
+                                            value: `You don't have enough Trailblaze Power. You need **${reqPlanet.trailblaze_cost}**, but you have **${currentTP}**`
                                         })
                     
                                     interaction.editReply({ embeds: [testEmbed] });
@@ -177,7 +177,7 @@ module.exports = {
                                             // Character Bonus
                                             if ((charSheet[characterArr[i]]["rarity"] == 4) || (charSheet[characterArr[i]]["name"] == "Trailblazer")) {
                                                 charBonus += Math.floor(Math.random() * (40 - 30 + 1) + 30)
-                                                eidolonBonus += (currentChars[characterArr[i]]["eidolon"]) * 8
+                                                eidolonBonus += (currentChars[characterArr[i]]["eidolon"]) * 6
                                             } else if (charSheet[characterArr[i]]["rarity"] == 5) {
                                                 charBonus += Math.floor(Math.random() * (80 - 70 + 1) + 70)
                                                 eidolonBonus += (currentChars[characterArr[i]]["eidolon"]) * 70
@@ -189,13 +189,13 @@ module.exports = {
                                             if (findLC == -1) { // Holding nothing
                                                 LCBonus += 0
                                             } else if (LCSheet[findLC]["rarity"] == 3) {
-                                                LCBonus += Math.floor(Math.random() * (15 - 10 + 1) + 10)
+                                                LCBonus += 10
                                                 eidolonBonus += (currentLC[findLC]["si"]) * 2
                                             } else if (LCSheet[findLC]["rarity"] == 4) {
-                                                LCBonus += Math.floor(Math.random() * (30 - 20 + 1) + 20)
-                                                eidolonBonus += (currentLC[findLC]["si"]) * 10
+                                                LCBonus += Math.floor(Math.random() * (30 - 25 + 1) + 25)
+                                                eidolonBonus += (currentLC[findLC]["si"]) * 6
                                             } else if (LCSheet[findLC]["rarity"] == 5) {
-                                                LCBonus += Math.floor(Math.random() * (70 - 60 + 1) + 60)
+                                                LCBonus += Math.floor(Math.random() * (80 - 70 + 1) + 70)
                                                 eidolonBonus += (currentLC[findLC]["si"]) * 70
                                             }
     
@@ -203,8 +203,18 @@ module.exports = {
                                             if ((currentChars[characterArr[i]]["level"]) == 1) {
                                                 levelBonus += 0
                                             } else {
-                                                levelBonus += ((currentChars[characterArr[i]]["level"]) * 2)
+                                                levelBonus += ((currentChars[characterArr[i]]["level"]) * 1)
                                             }
+
+                                            // Level Bonus for LC
+                                            if ((currentChars[characterArr[i]]["lc"]) == -1) {
+                                                levelBonus += 0
+                                            } else if (currentLC[currentChars[characterArr[i]]["lc"]]["level"] == 1) {
+                                                levelBonus += 0
+                                            } else if (currentLC[currentChars[characterArr[i]]["lc"]]["level"] >= 1) {
+                                                levelBonus += ((currentLC[currentChars[characterArr[i]]["lc"]]["level"]) * 1)
+                                            }
+
                                         }
     
                                         var total = baseReward + charBonus + LCBonus + levelBonus + eidolonBonus
