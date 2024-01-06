@@ -60,18 +60,21 @@ module.exports = {
             characters: { 
                 8004: { // Trailblazer m7 dh
                     "level": 1,
+                    "asc_level": 0,
                     "lc": -1,
                     "eidolon": 0,
                     "inTeam": true
                 },
                 1001: {
                     "level": 1,
+                    "asc_level": 0,
                     "lc": -1,
                     "eidolon": 0,
                     "inTeam": true
                 },
                 1002: {
                     "level": 1,
+                    "asc_level": 0,
                     "lc": -1,
                     "eidolon": 0,
                     "inTeam": true
