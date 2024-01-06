@@ -8,6 +8,9 @@ const charSheet = require('../assets/characters.json')
 const LCSheet = require('../assets/light_cones.json')
 const emoteSheet = require('../assets/emotes.json')
 
+const levelSheet = require('../assets/levels.json')
+const level = require('./level');
+
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
@@ -45,7 +48,6 @@ module.exports = {
                 var listOfCharacters = toParseUserUID['characters']
                 
                 var getMissions = toParseUserUID['missions']
-
                 var addMissionID = []
 
                 for (var i = 0; i < 5; i++) {
@@ -69,11 +71,8 @@ module.exports = {
                     await ids.updateOne({discord_id: discordID}, setTrue)
                 }
 
-                // console.log(listOfItems)
                 var size = Object.keys(listOfCharacters).length
                 var permaSize = Object.keys(listOfCharacters).length
-
-                // console.log(size)
 
                 var showPerPage = 5
 
@@ -103,6 +102,8 @@ module.exports = {
                         }
                     }
 
+                    var getLevelValues = Object.values(levelSheet)
+
                     for (let i = 0; i < pages; i++) {
                         embeds.push(new EmbedBuilder().setDescription(`**Characters | Page (${i + 1}/${pages})**`)
                         .setColor(0x9a7ee7)
@@ -128,7 +129,7 @@ module.exports = {
 
                                 embeds[i].spliceFields(j, j + 1,
                                     {
-                                        name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Light Cone: **${whoItsOn}**\nLevel: ${listOfCharacters[currentCharacter]["level"]}\nEidolon: ${listOfCharacters[currentCharacter]["eidolon"]}`
+                                        name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Light Cone: **${whoItsOn}**\nLevel: **${listOfCharacters[currentCharacter]["level"]}**/${getLevelValues[4 + listOfCharacters[currentCharacter]['asc_level']]["max_level"]}\nEidolon: **${listOfCharacters[currentCharacter]["eidolon"]}**/6`
                                     }
                                 )
                                 sortedByRarity.shift() // Remove the first character from the array by shifting over
@@ -147,7 +148,7 @@ module.exports = {
 
                                 embeds[i].spliceFields(h, h + 1,
                                     {
-                                        name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Light Cone: **${whoItsOn}**\nLevel: ${listOfCharacters[currentCharacter]["level"]}\nEidolon: ${listOfCharacters[currentCharacter]["eidolon"]}`
+                                        name: `**${charSheet[currentCharacter]["name"]}** (${charSheet[currentCharacter]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Light Cone: **${whoItsOn}**\nLevel: **${listOfCharacters[currentCharacter]["level"]}**/${getLevelValues[4 + listOfCharacters[currentCharacter]['asc_level']]["max_level"]}\nEidolon: **${listOfCharacters[currentCharacter]["eidolon"]}**`
                                     }
                                 )
                                 sortedByRarity.shift()
@@ -160,7 +161,7 @@ module.exports = {
                     await client.close()
                 }
             } catch (error) {
-                console.log(`There was an error: ${error}`)
+                console.log(`There was an error: ${error.stack}`)
                 interaction.editReply({ content: "Something broke!"})
                 await client.close()
             }

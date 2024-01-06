@@ -8,6 +8,8 @@ const charSheet = require('../../src/assets/characters.json')
 const LCSheet = require('../../src/assets/light_cones.json')
 const emoteSheet = require('../../src/assets/emotes.json')
 
+const levelSheet = require('../assets/levels.json')
+
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
@@ -85,6 +87,8 @@ module.exports = {
                         const embeds = []
                         var whoItsOn = ""
 
+                        var getLevelValues = Object.values(levelSheet)
+
                         for (let i = 0; i < pages; i++) {
                             embeds.push(new EmbedBuilder().setDescription(`**Inventory | Page (${i + 1}/${pages})**`)
                             .setColor(0x9a7ee7)
@@ -110,7 +114,7 @@ module.exports = {
 
                                     embeds[i].spliceFields(j, j + 1,
                                         {
-                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${whoItsOn}**\nLevel: ${listOfItems[currentItem]["level"]}\nSuperimpose: ${listOfItems[currentItem]["si"]}`
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${whoItsOn}**\nLevel: **${listOfItems[currentItem]["level"]}**/${getLevelValues[4 + listOfItems[currentItem]['asc_level']]["max_level"]}\nSuperimpose: **${listOfItems[currentItem]["si"]}**`
                                         }
                                     )
                                     delete listOfItems[`${currentItem}`] // Remove the first item from your list
@@ -129,7 +133,7 @@ module.exports = {
 
                                     embeds[i].spliceFields(h, h + 1,
                                         {
-                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${whoItsOn}**\nLevel: ${listOfItems[currentItem]["level"]}\nSuperimpose: ${listOfItems[currentItem]["si"]}`
+                                            name: `**${LCSheet[currentItem]["name"]}** (${LCSheet[currentItem]["rarity"]}${emoteSheet["Stars"]["StarBig"]["id"]})`, value: `Equipped on: **${whoItsOn}**\nLevel: **${listOfItems[currentItem]["level"]}**/${getLevelValues[4 + listOfItems[currentItem]['asc_level']]["max_level"]}\nSuperimpose: **${listOfItems[currentItem]["si"]}**`
                                         }
                                     )
                                     delete listOfItems[`${currentItem}`]

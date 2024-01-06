@@ -15,6 +15,11 @@
         "id": "char-lc-80",
         "cost": 20
     },
+    "char-lc-0asc": {
+        "id": "char-lc-20asc",
+        "cost": 0,
+        "max_level": 20
+    },
     "char-lc-20asc": {
         "id": "char-lc-20asc",
         "cost": 5000,
