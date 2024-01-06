@@ -70,8 +70,6 @@ async function resetDailies() {
 
     var database = client.db("economy");
     var ids = database.collection("inventories")
-    
-    var howMany = await ids.countDocuments()
 
     var currentDate = new Date()
     var currentTime = currentDate.toLocaleTimeString('en-US')
@@ -84,7 +82,7 @@ async function resetDailies() {
 
     while (missions.length < 5) {
         var randomNum = Math.floor(Math.random() * Object.keys(missionSheet).length) // Grabs a random id
-        if (missions.indexOf(randomNum) === -1) { // Ensures uniqueness
+        if (missions.indexOf(randomNum) == -1) { // Ensures uniqueness
             missions.push(randomNum)
         }
     }
@@ -140,7 +138,9 @@ async function resetDailies() {
     await client.close()
 }
 
-client.on('ready', async () => { // Replenish trailblaze power every 6 minutes
+client.on('ready', async () => { // When the bot turns on
+
+    // Initialize Cron scheduler
     cron.schedule('*/6 * * * *', () => { // 240 power every 24 hours
         replenishPower()
     })
