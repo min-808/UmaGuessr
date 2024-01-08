@@ -1,46 +1,46 @@
 {
     "1": {
         "id": "1",
-        "low_credits": 50,
-        "high_credits": 75,
-        "low_exp": 2,
-        "high_exp": 3,
+        "low_credits": 100,
+        "high_credits": 125,
+        "low_exp": 4,
+        "high_exp": 5,
         "fuel_chance": 15,
         "next_cost": 1000
     },
     "2": {
         "id": "2",
-        "low_credits": 75,
-        "high_credits": 100,
-        "low_exp": 3,
-        "high_exp": 4,
+        "low_credits": 125,
+        "high_credits": 150,
+        "low_exp": 5,
+        "high_exp": 6,
         "fuel_chance": 20,
         "next_cost": 2000
     },
     "3": {
         "id": "3",
-        "low_credits": 100,
-        "high_credits": 125,
-        "low_exp": 4,
-        "high_exp": 5,
+        "low_credits": 150,
+        "high_credits": 175,
+        "low_exp": 6,
+        "high_exp": 7,
         "fuel_chance": 25,
         "next_cost": 8000
     },
     "4": {
         "id": "4",
-        "low_credits": 125,
-        "high_credits": 150,
-        "low_exp": 5,
-        "high_exp": 6,
+        "low_credits": 175,
+        "high_credits": 200,
+        "low_exp": 7,
+        "high_exp": 8,
         "fuel_chance": 30,
         "next_cost": 160000
     },
     "5": {
         "id": "5",
-        "low_credits": 150,
-        "high_credits": 175,
-        "low_exp": 6,
-        "high_exp": 7,
+        "low_credits": 200,
+        "high_credits": 225,
+        "low_exp": 8,
+        "high_exp": 9,
         "fuel_chance": 35,
         "next_cost": 99999999999999999
     }
