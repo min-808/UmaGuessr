@@ -258,7 +258,7 @@ You now have **${retCredits}** Credits and **${retEXP}** EXP Material`
                     await client.close()
                 }
             } catch (error) {
-                console.log(`There was an error: ${error}`)
+                console.log(`There was an error: ${error.stack}`)
                 interaction.editReply({ content: "Something broke!"})
                 await client.close()
             }

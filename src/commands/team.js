@@ -86,7 +86,7 @@ module.exports = {
                             lvChars.push(``)
                         } else {
                             displayChars.push(charSheet[team[i]["id"]]["name"])
-                            lvChars.push(`- Lv. ${characters[team[i]["id"]]["level"]}`)
+                            lvChars.push(`Level: **${characters[team[i]["id"]]["level"]}**`)
                         }
                     }
 
@@ -116,10 +116,14 @@ module.exports = {
                         {
                             name: "\n",
                             value: `**Your Current Team**\n
-**${displayChars[0]}** ${lvChars[0]}\n
-**${displayChars[1]}** ${lvChars[1]}\n
-**${displayChars[2]}** ${lvChars[2]}\n
-**${displayChars[3]}** ${lvChars[3]}\n`
+**${displayChars[0]}**
+${lvChars[0]}\n
+**${displayChars[1]}**
+${lvChars[1]}\n
+**${displayChars[2]}**
+${lvChars[2]}\n
+**${displayChars[3]}**
+${lvChars[3]}\n`
                         })
     
                     interaction.editReply({ embeds: [testEmbed] });
@@ -273,7 +277,7 @@ module.exports = {
                 }
 
             } catch (error) {
-                console.log(`There was an error: ${error}`)
+                console.log(`There was an error: ${error.stack}`)
                 interaction.editReply({ content: "Something broke!"})
                 await client.close()
             }

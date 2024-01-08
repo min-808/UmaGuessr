@@ -77,7 +77,7 @@ module.exports = {
                 }
 
         } catch (error) {
-            interaction.editReply('Something broke! ' + error)
+            interaction.editReply('Something broke! ' + error.stack)
             await client.close()
         }
 

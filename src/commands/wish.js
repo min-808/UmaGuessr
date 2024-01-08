@@ -732,7 +732,7 @@ module.exports = {
                 }
                 
             } catch (error) {
-                console.log(`There was an error: ${error}`)
+                console.log(`There was an error: ${error.stack}`)
                 interaction.editReply({ content: "Failed creating embed, please don't spam the command! Wishes have been calculated"})
                 await client.close()
             }
