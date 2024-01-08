@@ -50,7 +50,7 @@ module.exports = {
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `The bot has been up for **${((getNewTime - getOldTime) / (1000 * 60 * 60)).toFixed(1)}** hours`
+                        value: `The bot has been up for **${((getNewTime - getOldTime) / (1000 * 60 * 60 * 24)).toFixed(1)}** days`
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });
