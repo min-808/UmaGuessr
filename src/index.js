@@ -42,7 +42,22 @@ for (const file of commandFiles) {
     const command = require(filePath)
 
     client.commands.set(command.data.name, command)
-};
+}
+
+async function setUptime() {
+    var currentTime = Date.now()
+
+    var client = new MongoClient(uri)
+
+    var database = client.db("economy")
+    var ids = database.collection("uptime")
+
+    await ids.updateOne({}, {
+        $set: {
+            time: currentTime
+        }
+    })
+}
 
 async function replenishPower() {
     var client = new MongoClient(uri)
@@ -139,6 +154,8 @@ async function resetDailies() {
 }
 
 client.on('ready', async () => { // When the bot turns on
+
+    setUptime()
 
     // Initialize Cron scheduler
     cron.schedule('*/6 * * * *', () => { // 240 power every 24 hours
