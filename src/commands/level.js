@@ -193,31 +193,6 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                 }
 
                                 if ((returnLevel >= 1) && (returnLevel < 80)) { // LC Lv 1-20 MAKE SURE TO DO THE CASE WHERE YOU OVER LEVEL, so return the books back and set to max level
-                                    
-                                    var getMissions = toParseUserUID['missions']
-
-                                    var addMissionID = []
-                
-                                    for (var i = 0; i < 5; i++) {
-                                        addMissionID.push(getMissions[i]["id"])
-                                    }
-                
-                                    if ((addMissionID.includes(11)) && (getMissions[addMissionID.indexOf(11)]["completed"] == false)) { // id for level mission
-                                        var mission = `missions.${addMissionID.indexOf(11)}.completed`
-                                        var missionSymbol = `missions.${addMissionID.indexOf(11)}.completed_symbol`
-                
-                                        const setTrue = {
-                                            $set: {
-                                                [mission]: true,
-                                                [missionSymbol]: "✅",
-                                            },
-                                            $inc: {
-                                                jade_count: 75
-                                            }
-                                        }
-                
-                                        await ids.updateOne({discord_id: discordID}, setTrue)
-                                    }
 
                                     // First step is to find what the max level is, given the asc level
 
@@ -246,6 +221,31 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                         interaction.editReply({ embeds: [testEmbed] });
                                         await client.close()
                                     } else if (amountEntered > (costPerLevel * levelsRemaining)) { // Level overflow checker
+                                        var getMissions = toParseUserUID['missions']
+
+                                        var addMissionID = []
+                    
+                                        for (var i = 0; i < 5; i++) {
+                                            addMissionID.push(getMissions[i]["id"])
+                                        }
+                    
+                                        if ((addMissionID.includes(11)) && (getMissions[addMissionID.indexOf(11)]["completed"] == false)) { // id for level mission
+                                            var mission = `missions.${addMissionID.indexOf(11)}.completed`
+                                            var missionSymbol = `missions.${addMissionID.indexOf(11)}.completed_symbol`
+                    
+                                            const setTrue = {
+                                                $set: {
+                                                    [mission]: true,
+                                                    [missionSymbol]: "✅",
+                                                },
+                                                $inc: {
+                                                    jade_count: 75
+                                                }
+                                            }
+                    
+                                            await ids.updateOne({discord_id: discordID}, setTrue)
+                                        }
+
                                         await ids.updateOne({discord_id: discordID}, { 
                                             $inc: {
                                                 exp_material: -(costPerLevel * levelsRemaining)
@@ -264,6 +264,31 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                         interaction.editReply({ embeds: [testEmbed] });
                                         await client.close()
                                     } else { // The amount entered won't overflow
+                                        var getMissions = toParseUserUID['missions']
+
+                                        var addMissionID = []
+                    
+                                        for (var i = 0; i < 5; i++) {
+                                            addMissionID.push(getMissions[i]["id"])
+                                        }
+                    
+                                        if ((addMissionID.includes(11)) && (getMissions[addMissionID.indexOf(11)]["completed"] == false)) { // id for level mission
+                                            var mission = `missions.${addMissionID.indexOf(11)}.completed`
+                                            var missionSymbol = `missions.${addMissionID.indexOf(11)}.completed_symbol`
+                    
+                                            const setTrue = {
+                                                $set: {
+                                                    [mission]: true,
+                                                    [missionSymbol]: "✅",
+                                                },
+                                                $inc: {
+                                                    jade_count: 75
+                                                }
+                                            }
+                    
+                                            await ids.updateOne({discord_id: discordID}, setTrue)
+                                        }
+
                                         if (amountEntered % costPerLevel != 0) { // But it doesn't even out, so add as much as you can then return the remaining
                                             var remainder = amountEntered % costPerLevel // How much is left over
                                             var toAdd = Math.floor(amountEntered / costPerLevel) // How much levels to add
