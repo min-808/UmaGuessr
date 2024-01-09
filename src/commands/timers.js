@@ -66,19 +66,19 @@ module.exports = {
                 if ((dailyTimer += 86_000_000) >= currentTime) {
                     var getDaily = `${((dailyTimer - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours`
                 } else {
-                    var getDaily = "Claimable"
+                    var getDaily = "__Claimable__"
                 }
 
                 if ((weeklyTimer += 604_800_000) >= currentTime) {
                     var getWeekly = `${((weeklyTimer - currentTime) / (1000 * 60 * 60 * 24)).toFixed(1)} days`
                 } else {
-                    var getWeekly = "Claimable"
+                    var getWeekly = "__Claimable__"
                 }
 
                 if ((calyxTimer += 7_200_000) >= currentTime) {
                     var getCalyx = `${((calyxTimer - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours`
                 } else {
-                    var getCalyx = "Claimable"
+                    var getCalyx = "__Claimable__"
                 }
 
                 if (TP < MTP) {
@@ -87,15 +87,14 @@ module.exports = {
 
                     var getTP = `${(timeDiff / 60).toFixed(1)} hours`
                 } else {
-                    var getTP = "Trailblaze Power is Full"
+                    var getTP = "__Trailblaze Power is Full__"
                 }
 
                 
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `**Timers**\n
-**Weekly** - ${getWeekly}
+                        value: `**Weekly** - ${getWeekly}
 **Daily** - ${getDaily}
 **Calyx** - ${getCalyx}
 

@@ -723,7 +723,7 @@ module.exports = {
                             {
                                 name: "\n",
                                 value: `You got **${result}**\n
-    You now have **${(await ids.findOne({discord_id: discordID}, options))['jade_count']}** stellar jade`
+You now have **${(await ids.findOne({discord_id: discordID}, options))['jade_count']}** stellar jade`
                             })
 
                         interaction.editReply({ embeds: [testEmbed] });

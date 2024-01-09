@@ -115,7 +115,7 @@ module.exports = {
                     testEmbed.spliceFields(0, 1,
                         {
                             name: "\n",
-                            value: `**Your Current Team**\n
+                            value: `
 **${displayChars[0]}**
 ${lvChars[0]}\n
 **${displayChars[1]}**
