@@ -52,6 +52,7 @@ module.exports = {
                         calyx_timer: 1,
                         trailblaze_power: 1,
                         max_trailblaze_power: 1,
+                        missions: 1,
                     }
                 }
 
@@ -63,31 +64,55 @@ module.exports = {
                 var TP = toParseUserUID['trailblaze_power']
                 var MTP = toParseUserUID['max_trailblaze_power']
 
+                var getMissions = toParseUserUID['missions']
+
+                var addMissionID = []
+
+                for (var i = 0; i < 5; i++) {
+                    addMissionID.push(getMissions[i]["id"])
+                }
+
+                if ((addMissionID.includes(12)) && (getMissions[addMissionID.indexOf(12)]["completed"] == false)) { // id for timers mission
+                    var mission = `missions.${addMissionID.indexOf(12)}.completed`
+                    var missionSymbol = `missions.${addMissionID.indexOf(12)}.completed_symbol`
+
+                    const setTrue = {
+                        $set: {
+                            [mission]: true,
+                            [missionSymbol]: "✅",
+                        },
+                        $inc: {
+                            jade_count: 75
+                        }
+                    }
+
+                    await ids.updateOne({discord_id: discordID}, setTrue)
+                }
+
                 if ((dailyTimer += 86_000_000) >= currentTime) {
-                    var getDaily = `${((dailyTimer - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours`
+                    var getDaily = `${Math.floor((dailyTimer - currentTime) / (1000 * 60 * 60)).toFixed(0)} hours, ${(((dailyTimer - currentTime) / 1000 / 60) % 60).toFixed(0)} minutes`
                 } else {
                     var getDaily = "__Claimable__"
                 }
 
                 if ((weeklyTimer += 604_800_000) >= currentTime) {
-                    var getWeekly = `${((weeklyTimer - currentTime) / (1000 * 60 * 60 * 24)).toFixed(1)} days`
+                    var getWeekly = `${Math.floor((weeklyTimer - currentTime) / (1000 * 60 * 60 * 24)).toFixed(0)} days, ${Math.floor(((weeklyTimer - currentTime) / 1000 / 60 / 60) % 24).toFixed(0)} hours`
                 } else {
                     var getWeekly = "__Claimable__"
                 }
 
                 if ((calyxTimer += 7_200_000) >= currentTime) {
-                    var getCalyx = `${((calyxTimer - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours`
+                    var getCalyx = `${Math.floor((calyxTimer - currentTime) / (1000 * 60 * 60)).toFixed(0)} hour, ${(((calyxTimer - currentTime) / 1000 / 60) % 60).toFixed(0)} minutes`
                 } else {
                     var getCalyx = "__Claimable__"
                 }
 
                 if (TP < MTP) {
-                    var difference = MTP - TP
-                    var timeDiff = difference * 6
+                    var differenceMS = (MTP - TP) * 360000
 
-                    var getTP = `${(timeDiff / 60).toFixed(1)} hours`
+                    var getTP = `${Math.floor((differenceMS) / (1000 * 60 * 60)).toFixed(0)} hours, ${(((differenceMS) / 1000 / 60) % 60).toFixed(0)} minutes`
                 } else {
-                    var getTP = "__Trailblaze Power is Full__"
+                    var getTP = "__Full__"
                 }
 
                 

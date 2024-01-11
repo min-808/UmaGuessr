@@ -46,11 +46,19 @@ module.exports = {
                 var getOldTime = toParseUserUID['time']
 
                 var getNewTime = Date.now()
+
+                var writeTime;
+
+                if ((getNewTime - getOldTime) < 86_000_000) { // Display as hours if the time is less than one day, else display as days
+                    writeTime = `${((getNewTime - getOldTime) / (1000 * 60 * 60)).toFixed(1)} hours`
+                } else {
+                    writeTime = `${((getNewTime - getOldTime) / (1000 * 60 * 60 * 24)).toFixed(1)} days`
+                }
                 
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `The bot has been up for **${((getNewTime - getOldTime) / (1000 * 60 * 60 * 24)).toFixed(1)}** days`
+                        value: `The bot has been up for **${writeTime}**`
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });

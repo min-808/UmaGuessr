@@ -46,5 +46,9 @@
     "11": {
         "id": 11,
         "description": "Level up a character or light cone once"
+    },
+    "12": {
+        "id": 12,
+        "description": "Check your timers"
     }
 }
