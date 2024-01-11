@@ -154,7 +154,7 @@ module.exports = {
 **+${resultingFuel}** Fuel 🌟\n
 You now have **${retCredits}** Credits, **${retEXP}** EXP Material, and **${retFuel}** Fuel`
                             })
-                            .setFooter({ text: `You can run the Calyx again in 2 hours` })
+                            .setFooter({ text: `You can do the Calyx again in 2 hours` })
                         } else {
                             testEmbed.spliceFields(0, 1, {
                                 name: "\n",
@@ -163,7 +163,7 @@ You now have **${retCredits}** Credits, **${retEXP}** EXP Material, and **${retF
 **+${resultingEXP}** EXP Material\n
 You now have **${retCredits}** Credits and **${retEXP}** EXP Material`
                             })
-                            .setFooter({ text: `You can run the Calyx again in 2 hours` })
+                            .setFooter({ text: `You can do the Calyx again in 2 hours` })
                         }
 
                         var getMissions = toParseUserUID['missions']

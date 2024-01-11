@@ -215,7 +215,7 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                         testEmbed.spliceFields(0, 1,
                                             {
                                                 name: "\n",
-                                                value: `**${inputTarget}** is at the max level of **${maxLevel}**/${maxLevel}\nTo increase the Ascension level, enter **/ascend**`
+                                                value: `**${inputTarget}** is at the max level of **${maxLevel}**/${maxLevel}\nTo increase the Ascension level, do **/ascend**`
                                             })
                                         
                                         interaction.editReply({ embeds: [testEmbed] });
@@ -258,7 +258,7 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                         testEmbed.spliceFields(0, 1,
                                             {
                                                 name: "\n",
-                                                value: `You entered **${amountEntered}**, but you only need **${costPerLevel * levelsRemaining}** EXP Material to reach the max level\n**${amountEntered - (costPerLevel * levelsRemaining)}** EXP Material has been returned to you\n\n**${inputTarget}** is now at the max level of **${maxLevel}**/${maxLevel}\nTo increase the Ascension level, enter **/ascend**`
+                                                value: `You entered **${amountEntered}**, but you only need **${costPerLevel * levelsRemaining}** EXP Material to reach the max level\n**${amountEntered - (costPerLevel * levelsRemaining)}** EXP Material has been returned to you\n\n**${inputTarget}** is now at the max level of **${maxLevel}**/${maxLevel}\nTo increase the Ascension level, do **/ascend**`
                                             })
                                         
                                         interaction.editReply({ embeds: [testEmbed] });
