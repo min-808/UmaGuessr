@@ -31,6 +31,8 @@ module.exports = {
             credits: 0,
             fuel: 1,
             exp_material: 10,
+            exp: 0,
+            level: 1,
             bonus_claimed: false,
             missions_completed: false,
             missions_claimed: false,
