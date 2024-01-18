@@ -9,7 +9,6 @@ const LCSheet = require('../assets/light_cones.json')
 const emoteSheet = require('../assets/emotes.json')
 
 const levelSheet = require('../assets/levels.json')
-const level = require('./level');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
