@@ -105,7 +105,7 @@ Reward: **75** stellar jade & **290** Trailblaze EXP\n
 ${missions[4]["completed_symbol"]} ${missions[4]["description"]}
 Reward: **75** stellar jade & **290** Trailblaze EXP\n
 ❌ Complete all missions (Do /missions after completed to claim)
-**1** fuel`
+Reward: **1** fuel`
                         })
                         .setFooter({ text: `Resets daily at 4am EST` })
     

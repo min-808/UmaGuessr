@@ -273,7 +273,7 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                             .addFields(
                                                 {
                                                     name: "\n",
-                                                    value: "You leveled up!"
+                                                    value: "Your Trailblaze Level increased!\n\nClaim rewards with **/rewards** or check your level with **/profile**"
                                                 },
                                             )
                                             await interaction.channel.send({ embeds: [levelEmbed] })
@@ -315,7 +315,7 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                             .addFields(
                                                 {
                                                     name: "\n",
-                                                    value: "You leveled up!"
+                                                    value: "Your Trailblaze Level increased!\n\nClaim rewards with **/rewards** or check your level with **/profile**"
                                                 },
                                             )
                                             await interaction.channel.send({ embeds: [levelEmbed] })

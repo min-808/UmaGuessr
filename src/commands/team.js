@@ -137,12 +137,12 @@ ${lvChars[3]}\n`
                         .addFields(
                             {
                                 name: "\n",
-                                value: "You leveled up!"
+                                value: "Your Trailblaze Level increased!\n\nClaim rewards with **/rewards** or check your level with **/profile**"
                             },
                         )
                         await interaction.channel.send({ embeds: [levelEmbed] })
                     }
-                    
+
                     await client.close()
                 } else if ((interaction.options.get('add')) && (interaction.options.get('remove') == undefined)) { // You want to add a character
                     var character = (interaction.options.get('add').value).toLowerCase() // thank you stackoverflow

@@ -106,12 +106,12 @@ module.exports = {
                     .addFields(
                         {
                             name: "\n",
-                            value: "You leveled up!"
+                            value: "Your Trailblaze Level increased!\n\nClaim rewards with **/rewards** or check your level with **/profile**"
                         },
                     )
                     await interaction.channel.send({ embeds: [levelEmbed] })
                 }
-                
+
                 await client.close()
             } catch (error) {
                 console.log(`There was an error: ${error.stack}`)
