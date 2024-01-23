@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const areaSheet = require('../../src/assets/areas.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -53,58 +54,29 @@ module.exports = {
                 var currentLevel = toParseUserUID['assignment_level']
                 var currentCredits = toParseUserUID['credits']
 
-                if (currentLevel == 2) {
+                if (currentLevel == Object.keys(areaSheet).length - 1) {
                     testEmbed.spliceFields(0, 1,
                         {
                             name: "\n",
                             value: `You are at the **max** assignment level`
                         })
                 } else {
-                    if (currentLevel == 1) {
-                        if (currentCredits < 32000) {
-                            testEmbed.spliceFields(0, 1,
-                                {
-                                    name: "\n",
-                                    value: `You need **${32000 - currentCredits}** more credits to unlock **Xianzhou Luofu**`
-                                })
-                        } else {
-
-                            await ids.updateOne({ discord_id: discordID }, { $inc: { credits: -32000 }})
-                            await ids.updateOne({ discord_id: discordID }, { $inc: { assignment_level: 1 }})
-                            var getNew = await ids.findOne({discord_id: discordID}, options)
-                            var newCredits = getNew['credits']
-
-                            testEmbed.spliceFields(0, 1,
-                                {
-                                    name: "\n",
-                                    value: `**Xianzhou Luofu** unlocked! You now have **${newCredits}** Credits`
-                                })
-                        }
-                    } else if (currentLevel == 0) {
-                        if (currentCredits < 7000) {
-                            testEmbed.spliceFields(0, 1,
-                                {
-                                    name: "\n",
-                                    value: `You need **${7000 - currentCredits}** more credits to unlock **Jarilo-VI**`
-                                })
-                        } else {
-
-                            await ids.updateOne({ discord_id: discordID }, { $inc: { credits: -7000 }})
-                            await ids.updateOne({ discord_id: discordID }, { $inc: { assignment_level: 1 }})
-                            var getNew = await ids.findOne({discord_id: discordID}, options)
-                            var newCredits = getNew['credits']
-
-                            testEmbed.spliceFields(0, 1,
-                                {
-                                    name: "\n",
-                                    value: `**Jarilo-VI** unlocked! You now have **${newCredits}** Credits`
-                                })
-                        }
-                    } else {
+                    if (currentCredits < areaSheet[currentLevel + 1]['unlock_cost']) {
                         testEmbed.spliceFields(0, 1,
                             {
                                 name: "\n",
-                                value: `what`
+                                value: `You need **${areaSheet[currentLevel + 1]['unlock_cost'] - currentCredits}** more credits to unlock **${areaSheet[currentLevel + 1]['name']}**`
+                            })
+                    } else { // you have enough
+                        var newLevelCost = areaSheet[currentLevel + 1]['unlock_cost']
+                        await ids.updateOne({ discord_id: discordID }, { $inc: { credits: -newLevelCost, assignment_level: 1 }})
+                        var getNew = await ids.findOne({discord_id: discordID}, options)
+                        var newCredits = getNew['credits']
+
+                        testEmbed.spliceFields(0, 1,
+                            {
+                                name: "\n",
+                                value: `**${areaSheet[currentLevel + 1]['name']}** unlocked! You now have **${newCredits}** Credits`
                             })
                     }
                 }
