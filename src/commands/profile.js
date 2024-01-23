@@ -109,11 +109,20 @@ module.exports = {
                         amountOf3++
                     }
                 }
+
+                const response = await fetch(`https://discord.com/api/v10/users/${discordID}`, {
+                            headers: {
+                                'Authorization': 'Bot ' + (process.env.TOKEN)
+                            }
+                        })
+    
+                var parse = await response.json()
+                var returnedUsername = String(parse?.["username"])
                 
                 testEmbed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `**Profile**`
+                        value: `**${returnedUsername}'s Profile**`
                     })
 
                 testEmbed.addFields({
@@ -172,7 +181,7 @@ Power Used Today: **${TPUsedToday}**\n`,
                     .addFields(
                         {
                             name: "\n",
-                            value: "You leveled up!"
+                            value: "Your Trailblaze Level increased!\n\nClaim rewards with **/rewards** or check your level with **/profile**"
                         },
                     )
                     await interaction.channel.send({ embeds: [levelEmbed] })
