@@ -3,6 +3,7 @@ var { MongoClient } = require("mongodb");
 const charSheet = require('../assets/characters.json')
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -154,10 +155,25 @@ module.exports = {
                 },
                 $inc: {
                     jade_count: 75,
+                    exp: 290,
                 }
             }
 
             await ids.updateOne({discord_id: discordID}, setTrue)
+        }
+
+        var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
+
+        if (levelSuccess) {
+            var levelEmbed = new EmbedBuilder()
+            .setColor(0x9a7ee7)
+            .addFields(
+                {
+                    name: "\n",
+                    value: "You leveled up!"
+                },
+            )
+            await interaction.channel.send({ embeds: [levelEmbed] })
         }
 
         client.close()

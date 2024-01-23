@@ -4,6 +4,7 @@ var { MongoClient } = require("mongodb");
 const setup = require('../../firstinit');
 const calyxSheet = require('../../src/assets/calyx.json');
 const missions = require('./missions');
+const checkLevel = require('../../check-level');
 
 let choices = ["info", "upgrade"]
 
@@ -93,7 +94,7 @@ module.exports = {
                         testEmbed.spliceFields(0, 1,
                             {
                                 name: "\n",
-                                value: `You can run the Calyx again in **${((pastTime - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours**`
+                                value: `You can do the Calyx again in **${((pastTime - currentTime) / (1000 * 60 * 60)).toFixed(1)} hours**`
                             })
 
                     } else { // You can run the calyx
@@ -120,12 +121,17 @@ module.exports = {
                             resultingFuel += 1
                         }
 
+                        // Get EXP Gained
+
+                        var resultingTExp = 100 // cghange
+
                         
                         const updateValues = {
                             $inc: {
                                 credits: resultingCredits,
                                 exp_material: resultingEXP,
-                                fuel: resultingFuel
+                                fuel: resultingFuel,
+                                exp: resultingTExp,
                             }
                         }
 
@@ -150,6 +156,7 @@ module.exports = {
                                 name: "\n",
                                 value: `**Level ${currentLevel} Calyx Completed!**\n
 **+${resultingCredits}** Credits
+**+${resultingTExp}** Trailblaze EXP
 **+${resultingEXP}** EXP Material
 **+${resultingFuel}** Fuel 🌟\n
 You now have **${retCredits}** Credits, **${retEXP}** EXP Material, and **${retFuel}** Fuel`
@@ -160,6 +167,7 @@ You now have **${retCredits}** Credits, **${retEXP}** EXP Material, and **${retF
                                 name: "\n",
                                 value: `**Level ${currentLevel} Calyx Completed!**\n
 **+${resultingCredits}** Credits
+**+${resultingTExp}** Trailblaze EXP
 **+${resultingEXP}** EXP Material\n
 You now have **${retCredits}** Credits and **${retEXP}** EXP Material`
                             })
@@ -184,7 +192,8 @@ You now have **${retCredits}** Credits and **${retEXP}** EXP Material`
                                     [missionSymbol]: "✅",
                                 },
                                 $inc: {
-                                    jade_count: 75
+                                    jade_count: 75,
+                                    exp: 290
                                 }
                             }
 
@@ -192,9 +201,23 @@ You now have **${retCredits}** Credits and **${retEXP}** EXP Material`
 
                             await ids.updateOne({discord_id: discordID}, setTrue)
                         } //
+var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
+                        var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
                     }
                         
                     interaction.editReply({ embeds: [testEmbed] });
+
+                    if (levelSuccess) {
+                        var levelEmbed = new EmbedBuilder()
+                        .setColor(0x9a7ee7)
+                        .addFields(
+                            {
+                                name: "\n",
+                                value: "You leveled up!"
+                            },
+                        )
+                        await interaction.channel.send({ embeds: [levelEmbed] })
+                    }
 
                     await client.close()
 

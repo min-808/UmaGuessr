@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder, ChatInputCommandInteraction } = require
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 
 const LCSheet = require('../../src/assets/light_cones.json')
 const charSheet = require('../../src/assets/characters.json');
@@ -126,12 +127,15 @@ module.exports = {
                                 [missionSymbol]: "✅",
                             },
                             $inc: {
-                                jade_count: 75
+                                jade_count: 75,
+                                exp: 290,
                             }
                         }
 
                         await ids.updateOne({discord_id: discordID}, setTrue)
                     } //
+
+                    var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
 
                     // Either unequip the current and put the new one on
                     // OR put the new one on
@@ -234,6 +238,19 @@ module.exports = {
                 }
 
                 interaction.editReply({ embeds: [testEmbed] });
+
+                if (levelSuccess) {
+                    var levelEmbed = new EmbedBuilder()
+                    .setColor(0x9a7ee7)
+                    .addFields(
+                        {
+                            name: "\n",
+                            value: "You leveled up!"
+                        },
+                    )
+                    await interaction.channel.send({ embeds: [levelEmbed] })
+                }
+                
                 await client.close()
 
             } catch (error) {

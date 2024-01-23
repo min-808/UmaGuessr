@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 const charSheet = require('../../src/assets/characters.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
@@ -104,13 +105,15 @@ module.exports = {
                                 [missionSymbol]: "✅",
                             },
                             $inc: {
-                                jade_count: 75
+                                jade_count: 75,
+                                exp: 290,
                             }
                         }
 
                         await ids.updateOne({discord_id: discordID}, setTrue)
                     }
 
+                    var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
                     
                     testEmbed.spliceFields(0, 1,
                         {
@@ -127,6 +130,19 @@ ${lvChars[3]}\n`
                         })
     
                     interaction.editReply({ embeds: [testEmbed] });
+
+                    if (levelSuccess) {
+                        var levelEmbed = new EmbedBuilder()
+                        .setColor(0x9a7ee7)
+                        .addFields(
+                            {
+                                name: "\n",
+                                value: "You leveled up!"
+                            },
+                        )
+                        await interaction.channel.send({ embeds: [levelEmbed] })
+                    }
+                    
                     await client.close()
                 } else if ((interaction.options.get('add')) && (interaction.options.get('remove') == undefined)) { // You want to add a character
                     var character = (interaction.options.get('add').value).toLowerCase() // thank you stackoverflow

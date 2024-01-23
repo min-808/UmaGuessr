@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 const buttonPagination = require('../../button-pagination')
 
 const charSheet = require('../../src/assets/characters.json')
@@ -62,12 +63,15 @@ module.exports = {
                                 [missionSymbol]: "✅",
                             },
                             $inc: {
-                                jade_count: 75
+                                jade_count: 75,
+                                exp: 290,
                             }
                         }
 
                         await ids.updateOne({discord_id: discordID}, setTrue)
                     }
+
+                    var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
     
                     // console.log(listOfItems)
                     var size = Object.keys(listOfItems).length
@@ -143,6 +147,19 @@ module.exports = {
                             }
                         }
                         await buttonPagination(interaction, embeds)
+
+                        if (levelSuccess) {
+                            var levelEmbed = new EmbedBuilder()
+                            .setColor(0x9a7ee7)
+                            .addFields(
+                                {
+                                    name: "\n",
+                                    value: "You leveled up!"
+                                },
+                            )
+                            await interaction.channel.send({ embeds: [levelEmbed] })
+                        }
+                        
                         await client.close()
                     } else if (size == 0) { // You have an account but you didn't wish yet; 0 inventory
                         var testEmbed = new EmbedBuilder()

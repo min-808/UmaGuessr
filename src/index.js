@@ -70,7 +70,7 @@ async function replenishPower() {
     var currentDate = new Date()
     var currentTime = currentDate.toLocaleTimeString('en-US')
 
-    console.log(`[${currentTime}] - There are ${howMany} documents. Updating uncapped trailblaze power...`)
+    console.log(`[${currentTime}] - There are ${howMany} documents. Updating trailblaze power...`)
 
     await ids.updateMany(
         { $expr: { $lt: ["$trailblaze_power", "$max_trailblaze_power"] } }, 
@@ -109,6 +109,7 @@ async function resetDailies() {
                     "id": missionSheet[missions[0]]['id'],
                     "description": missionSheet[missions[0]]['description'],
                     "reward": 75,
+                    "exp_reward": 290,
                     "completed": false,
                     "completed_symbol": "❌"
                 },
@@ -116,6 +117,7 @@ async function resetDailies() {
                     "id": missionSheet[missions[1]]['id'],
                     "description": missionSheet[missions[1]]['description'],
                     "reward": 75,
+                    "exp_reward": 290,
                     "completed": false,
                     "completed_symbol": "❌"
                 },
@@ -123,6 +125,7 @@ async function resetDailies() {
                     "id": missionSheet[missions[2]]['id'],
                     "description": missionSheet[missions[2]]['description'],
                     "reward": 75,
+                    "exp_reward": 290,
                     "completed": false,
                     "completed_symbol": "❌"
                 },
@@ -130,6 +133,7 @@ async function resetDailies() {
                     "id": missionSheet[missions[3]]['id'],
                     "description": missionSheet[missions[3]]['description'],
                     "reward": 75,
+                    "exp_reward": 290,
                     "completed": false,
                     "completed_symbol": "❌"
                 },
@@ -137,6 +141,7 @@ async function resetDailies() {
                     "id": missionSheet[missions[4]]['id'],
                     "description": missionSheet[missions[4]]['description'],
                     "reward": 75,
+                    "exp_reward": 290,
                     "completed": false,
                     "completed_symbol": "❌"
                 },

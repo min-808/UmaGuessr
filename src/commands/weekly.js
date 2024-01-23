@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -69,8 +70,11 @@ module.exports = {
 
                 } else { // You can claim
                     const updateValues = {
+                        $inc: {
+                            jade_count: 2000,
+                            exp: 600,
+                        },
                         $set: {
-                            jade_count: currentAmount += 2000,
                             weekly_timer: currentTime
                         }
                     }
@@ -79,8 +83,12 @@ module.exports = {
 
                     testEmbed.spliceFields(0, 1, {
                         name: "\n",
-                        value: `**You have claimed your weekly 2500 jades!**`
+                        value: `**You have claimed your weekly rewards!**\n
+                        +**2000** Stellar Jade
+                        +**600** Trailblaze EXP`
                     })
+
+                    var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
 
                     testEmbed.setTimestamp();
 
@@ -92,6 +100,19 @@ module.exports = {
                 }
                     
                 interaction.editReply({ embeds: [testEmbed] });
+
+                if (levelSuccess) {
+                    var levelEmbed = new EmbedBuilder()
+                    .setColor(0x9a7ee7)
+                    .addFields(
+                        {
+                            name: "\n",
+                            value: "You leveled up!"
+                        },
+                    )
+                    await interaction.channel.send({ embeds: [levelEmbed] })
+                }
+
                 await client.close()
             } catch (error) {
                 console.log(`There was an error: ${error.stack}`)

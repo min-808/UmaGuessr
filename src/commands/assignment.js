@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 
 const LCSheet = require('../../src/assets/light_cones.json')
 const charSheet = require('../../src/assets/characters.json')
@@ -219,12 +220,14 @@ module.exports = {
     
                                         var total = baseReward + charBonus + LCBonus + levelBonus + eidolonBonus
                                         var TPCost = reqPlanet.trailblaze_cost
+                                        var EXPGain = reqPlanet.exp_reward
     
                                         const updateAll = {
                                             $inc: {
                                                 trailblaze_power: -TPCost,
                                                 jade_count: total,
                                                 trailblaze_power_used_today: TPCost,
+                                                exp: EXPGain,
                                             }
                                         }
     
@@ -239,7 +242,7 @@ module.exports = {
                                             addMissionID.push(getMissions[i]["id"])
                                         }
                 
-                                        if ((addMissionID.includes(1)) && (getMissions[addMissionID.indexOf(1)]["completed"] == false)) { // id for balance mission
+                                        if ((addMissionID.includes(1)) && (getMissions[addMissionID.indexOf(1)]["completed"] == false)) { // id for assignment mission
                                             var mission = `missions.${addMissionID.indexOf(1)}.completed`
                                             var missionSymbol = `missions.${addMissionID.indexOf(1)}.completed_symbol`
                 
@@ -250,13 +253,14 @@ module.exports = {
                                                 },
                                                 $inc: {
                                                     jade_count: 75,
+                                                    exp: 290,
                                                 }
                                             }
                 
                                             await ids.updateOne({discord_id: discordID}, setTrue)
                                         }
     
-                                        if ((addMissionID.includes(3)) && (getMissions[addMissionID.indexOf(3)]["completed"] == false)) { // id for balance mission
+                                        if ((addMissionID.includes(3)) && (getMissions[addMissionID.indexOf(3)]["completed"] == false)) { // id for 160 power mission
                                             if (updatedInfo['trailblaze_power_used_today'] >= 160) {
                                                 var mission = `missions.${addMissionID.indexOf(3)}.completed`
                                                 var missionSymbol = `missions.${addMissionID.indexOf(3)}.completed_symbol`
@@ -268,12 +272,15 @@ module.exports = {
                                                     },
                                                     $inc: {
                                                         jade_count: 75,
+                                                        exp: 290,
                                                     }
                                                 }
                                                 await ids.updateOne({discord_id: discordID}, setTrue)
                             
                                             }
                                         }
+
+                                        var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
     
                                         var finalInfo = await ids.findOne({discord_id: discordID}, options);
     
@@ -289,11 +296,24 @@ module.exports = {
 **+${LCBonus}** (Light Cone Bonus)
 **+${eidolonBonus}** (Eidolon/SI Bonus)
 **+${levelBonus}** (Level Bonus)\n
-**${total}** Total Stellar Jade earned\n\n
+**${total}** Total Stellar Jade earned\n**${EXPGain}** Trailblaze EXP earned\n
 You now have **${retPower}** Trailblaze Power and **${retJades}** Stellar Jade`
                                             })
                         
                                         interaction.editReply({ embeds: [testEmbed] });
+
+                                        if (levelSuccess) {
+                                            var levelEmbed = new EmbedBuilder()
+                                            .setColor(0x9a7ee7)
+                                            .addFields(
+                                                {
+                                                    name: "\n",
+                                                    value: "You leveled up!"
+                                                },
+                                            )
+                                            await interaction.channel.send({ embeds: [levelEmbed] })
+                                        }
+                                        
                                         await client.close()
                                     } else {
                                         testEmbed.spliceFields(0, 1,

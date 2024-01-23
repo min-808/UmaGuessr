@@ -2,6 +2,8 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
+
 const emoteSheet = require('../../src/assets/emotes.json')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
@@ -79,11 +81,14 @@ module.exports = {
                         },
                         $inc: {
                             jade_count: 75,
+                            exp: 290,
                         }
                     }
 
                     await ids.updateOne({discord_id: discordID}, setTrue)
                 }
+
+                var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
                 
                 testEmbed.spliceFields(0, 1,
                     {
@@ -94,6 +99,19 @@ module.exports = {
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });
+
+                if (levelSuccess) {
+                    var levelEmbed = new EmbedBuilder()
+                    .setColor(0x9a7ee7)
+                    .addFields(
+                        {
+                            name: "\n",
+                            value: "You leveled up!"
+                        },
+                    )
+                    await interaction.channel.send({ embeds: [levelEmbed] })
+                }
+                
                 await client.close()
             } catch (error) {
                 console.log(`There was an error: ${error.stack}`)

@@ -4,20 +4,23 @@
         "name": "Herta Space Station",
         "unlock_cost": 0,
         "base_reward": 100,
-        "trailblaze_cost": 60
+        "trailblaze_cost": 60,
+        "exp_reward": 120
     },
     "1": {
         "id": "1",
         "name": "Jarilo-VI",
         "unlock_cost": 8000,
         "base_reward": 300,
-        "trailblaze_cost": 80
+        "trailblaze_cost": 80,
+        "exp_reward": 160
     },
     "2": {
         "id": "2",
         "name": "Xianzhou Luofu",
         "unlock_cost": 42000,
         "base_reward": 600,
-        "trailblaze_cost": 100
+        "trailblaze_cost": 100,
+        "exp_reward": 200
     }
 }

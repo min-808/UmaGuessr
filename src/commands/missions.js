@@ -95,17 +95,17 @@ module.exports = {
                             name: "\n",
                             value: `**Daily Missions\n**
 ${missions[0]["completed_symbol"]} ${missions[0]["description"]}
-Reward: **75** stellar jade\n
+Reward: **75** stellar jade & **290** Trailblaze EXP\n
 ${missions[1]["completed_symbol"]} ${missions[1]["description"]}
-Reward: **75** stellar jade\n
+Reward: **75** stellar jade & **290** Trailblaze EXP\n
 ${missions[2]["completed_symbol"]} ${missions[2]["description"]}
-Reward: **75** stellar jade\n
+Reward: **75** stellar jade & **290** Trailblaze EXP\n
 ${missions[3]["completed_symbol"]} ${missions[3]["description"]}
-Reward: **75** stellar jade\n
+Reward: **75** stellar jade & **290** Trailblaze EXP\n
 ${missions[4]["completed_symbol"]} ${missions[4]["description"]}
-Reward: **75** stellar jade\n
+Reward: **75** stellar jade & **290** Trailblaze EXP\n
 ❌ Complete all missions (Do /missions after completed to claim)
-Reward: **1** fuel`
+**1** fuel`
                         })
                         .setFooter({ text: `Resets daily at 4am EST` })
     

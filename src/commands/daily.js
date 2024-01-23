@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -57,7 +58,6 @@ module.exports = {
                 // Then get the first thing that matches the discord id, and options is the query from before
                 var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
                 // Then find the thing called hsr_id
-                var currentAmount = toParseUserUID['jade_count']
                 var pastTime = toParseUserUID['daily_timer']
                 var displayHint = !toParseUserUID['bonus_claimed']
                 
@@ -71,11 +71,15 @@ module.exports = {
 
                 } else { // You can claim
                     const updateValues = {
+                        $inc: {
+                            jade_count: 1000,
+                            exp: 300,
+                        },
                         $set: {
-                            jade_count: currentAmount += 1000,
                             daily_timer: currentTime
                         }
                     }
+                    
 
                     await ids.updateOne({discord_id: discordID}, updateValues)
 
@@ -97,7 +101,8 @@ module.exports = {
                                 [missionSymbol]: "✅",
                             },
                             $inc: {
-                                jade_count: 75
+                                jade_count: 75,
+                                exp: 290,
                             }
                         }
 
@@ -106,10 +111,14 @@ module.exports = {
 
                     testEmbed.spliceFields(0, 1, {
                         name: "\n",
-                        value: `**You have claimed your daily 1000 jades!**`
+                        value: `**You have claimed your daily rewards!**\n
++**1000** Stellar Jade
++**300** Trailblaze EXP`
                     })
 
                     testEmbed.setTimestamp();
+
+                    var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
 
                     if (displayHint) {
                         testEmbed.setFooter({text: "Get an extra 4000 jades with /bonus"})
@@ -119,6 +128,19 @@ module.exports = {
                 }
                     
                 interaction.editReply({ embeds: [testEmbed] });
+
+                if (levelSuccess) {
+                    var levelEmbed = new EmbedBuilder()
+                    .setColor(0x9a7ee7)
+                    .addFields(
+                        {
+                            name: "\n",
+                            value: "You leveled up!"
+                        },
+                    )
+                    await interaction.channel.send({ embeds: [levelEmbed] })
+                }
+
                 await client.close()
             } catch (error) {
                 console.log(`There was an error: ${error.stack}`)

@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder, ButtonStyle, ButtonBuilder, ActionRowBu
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit')
+const checkLevel = require('../../check-level');
 
 const levelSheet = require('../../src/assets/levels.json')
 const LCSheet = require('../../src/assets/light_cones.json')
@@ -239,12 +240,15 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                                     [missionSymbol]: "✅",
                                                 },
                                                 $inc: {
-                                                    jade_count: 75
+                                                    jade_count: 75,
+                                                    exp: 290,
                                                 }
                                             }
                     
                                             await ids.updateOne({discord_id: discordID}, setTrue)
                                         }
+
+                                        var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
 
                                         await ids.updateOne({discord_id: discordID}, { 
                                             $inc: {
@@ -262,6 +266,19 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                             })
                                         
                                         interaction.editReply({ embeds: [testEmbed] });
+
+                                        if (levelSuccess) {
+                                            var levelEmbed = new EmbedBuilder()
+                                            .setColor(0x9a7ee7)
+                                            .addFields(
+                                                {
+                                                    name: "\n",
+                                                    value: "You leveled up!"
+                                                },
+                                            )
+                                            await interaction.channel.send({ embeds: [levelEmbed] })
+                                        }
+
                                         await client.close()
                                     } else { // The amount entered won't overflow
                                         var getMissions = toParseUserUID['missions']
@@ -282,11 +299,26 @@ You can earn **EXP Material** by purchasing them for 250 credits with **/buy**, 
                                                     [missionSymbol]: "✅",
                                                 },
                                                 $inc: {
-                                                    jade_count: 75
+                                                    jade_count: 75,
+                                                    exp: 290,
                                                 }
                                             }
                     
                                             await ids.updateOne({discord_id: discordID}, setTrue)
+                                        }
+
+                                        var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
+
+                                        if (levelSuccess) {
+                                            var levelEmbed = new EmbedBuilder()
+                                            .setColor(0x9a7ee7)
+                                            .addFields(
+                                                {
+                                                    name: "\n",
+                                                    value: "You leveled up!"
+                                                },
+                                            )
+                                            await interaction.channel.send({ embeds: [levelEmbed] })
                                         }
 
                                         if (amountEntered % costPerLevel != 0) { // But it doesn't even out, so add as much as you can then return the remaining

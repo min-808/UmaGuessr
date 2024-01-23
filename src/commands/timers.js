@@ -2,6 +2,7 @@ var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 const daily = require('./daily');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
@@ -82,12 +83,15 @@ module.exports = {
                             [missionSymbol]: "✅",
                         },
                         $inc: {
-                            jade_count: 75
+                            jade_count: 75,
+                            exp: 290,
                         }
                     }
 
                     await ids.updateOne({discord_id: discordID}, setTrue)
                 }
+
+                var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
 
                 if ((dailyTimer += 86_000_000) >= currentTime) {
                     var getDaily = `${Math.floor((dailyTimer - currentTime) / (1000 * 60 * 60)).toFixed(0)} hours, ${(((dailyTimer - currentTime) / 1000 / 60) % 60).toFixed(0)} minutes`
@@ -127,6 +131,19 @@ module.exports = {
                     })
 
                 interaction.editReply({ embeds: [testEmbed] });
+
+                if (levelSuccess) {
+                    var levelEmbed = new EmbedBuilder()
+                    .setColor(0x9a7ee7)
+                    .addFields(
+                        {
+                            name: "\n",
+                            value: "You leveled up!"
+                        },
+                    )
+                    await interaction.channel.send({ embeds: [levelEmbed] })
+                }
+                
                 await client.close()
 
                 } catch (error) {
