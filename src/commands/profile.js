@@ -4,6 +4,7 @@ var { MongoClient } = require("mongodb");
 const charSheet = require('../../src/assets/characters.json')
 const LCSheet = require('../../src/assets/light_cones.json')
 const TLSheet = require('../../src/assets/tl.json')
+const areaSheet = require('../../src/assets/areas.json')
 
 const setup = require('../../firstinit');
 const checkLevel = require('../../check-level');
@@ -63,6 +64,8 @@ module.exports = {
                         inventory: 1,
                         missions: 1,
                         missions_completed: 1,
+                        assignment_level: 1,
+                        trailblaze_power_used_today: 1,
                     }
                 }
 
@@ -79,13 +82,13 @@ module.exports = {
                 var exp = finalCheck['exp']
                 var characters = finalCheck['characters']
                 var inventory = finalCheck['inventory']
+                var assignmentLevel = finalCheck['assignment_level']
                 var currentRewardLevel = finalCheck['rewards']
+                var TPUsedToday = finalCheck['trailblaze_power_used_today']
 
                 var amountOf5 = 0
                 var amountOf4 = 0
                 var amountOf3 = 0
-
-
 
                 for (var i = 0; i < Object.keys(characters).length; i++) {
                     if (charSheet[Object.keys(characters)[i]]['rarity'] == 5) {
@@ -119,7 +122,9 @@ module.exports = {
 EXP to Next Level **${exp}**/${TLSheet[level]["next_exp"]}\n
 **${amountOf5}** Five Stars
 **${amountOf4}** Four Stars
-**${amountOf3}** Three Stars\n`,
+**${amountOf3}** Three Stars\n
+Highest Planet: **${areaSheet[assignmentLevel]['name']}**
+Power Used Today: **${TPUsedToday}**\n`,
                     inline: true
                 })
 
@@ -147,7 +152,8 @@ EXP to Next Level **${exp}**/${TLSheet[level]["next_exp"]}\n
                             [missionSymbol]: "✅",
                         },
                         $inc: {
-                            jade_count: 75
+                            jade_count: 75,
+                            exp: 290,
                         }
                     }
 
