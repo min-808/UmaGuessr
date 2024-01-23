@@ -1,17 +1,19 @@
-const { SlashCommandBuilder } = require('discord.js');
-const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
+var { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require('discord.js');
+var { MongoClient } = require("mongodb");
+
 const charSheet = require('../../src/assets/characters.json')
-const emoteSheet = require('../../src/assets/emotes.json')
-const { MongoClient } = require("mongodb");
+const LCSheet = require('../../src/assets/light_cones.json')
+const TLSheet = require('../../src/assets/tl.json')
 
-const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
+const setup = require('../../firstinit');
+const checkLevel = require('../../check-level');
 
-// const wait = require('node:timers/promises').setTimeout;
+var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
     data: new SlashCommandBuilder()
     .setName('profile')
-    .setDescription('Returns information about your profile'),
+    .setDescription('Shows your bot game stats'),
 
     run: ({ interaction }) => {
              
@@ -19,279 +21,164 @@ module.exports = {
 
             await interaction.deferReply();
 
-            try {
-                const client = new MongoClient(uri)
+            const file = new AttachmentBuilder('src/assets/peppy.png');
 
-                const database = client.db("registration");
-                const ids = database.collection("ids")
+            // Placeholder embed for now
+            var testEmbed = new EmbedBuilder()
+            .setColor(0x9a7ee7)
+            .setThumbnail("attachment://peppy.png")
+            .addFields(
+                {
+                    name: "\n",
+                    value: "\n"
+                },
+            )
+
+            try {
+
+                var client = new MongoClient(uri)
+
+                var database = client.db("economy");
+                var ids = database.collection("inventories")
                 var discordID = BigInt(interaction.user.id)
 
-                const counter = await ids.countDocuments({discord_id: discordID})
+                // Check how many documents are in the query (discord_id)
+                var counter = await ids.countDocuments({discord_id: discordID})
 
-                if (counter >= 1) {
-
-                    const options = {
-                        projection: {
-                            _id: 0,
-                            hsr_id: 1
-                        }
-                    }
-
-                    const toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-                    const userUID = toParseUserUID['hsr_id']
-                    // await client.close()
-
-                    // Old "https://api.mihomo.me/sr_info/" + userUID + "?lang=en"
-                    // Enka "https://enka.network/api/hsr/uid/" + userUID
-                    
-                    const res = await fetch("https://enka.network/api/hsr/uid/" + userUID);
-                    if (res.ok) {
-                        const data = await res.json();
-
-                        // console.log(data, { depth: null }) // .dir for full
-
-                        // var suppChar = String(data?.["detailInfo"]?.['assistAvatarDetail']?.["avatarId"]); OLD
-
-                        // var showOne = String(data?.["detailInfo"]?.['avatarDetailList']?.[0]?.["avatarId"])
-                        // var showTwo = String(data?.["detailInfo"]?.['avatarDetailList']?.[1]?.["avatarId"]);
-                        // var showThree = String(data?.["detailInfo"]?.['avatarDetailList']?.[2]?.["avatarId"]);
-
-                        var suppChar = String(data?.["detailInfo"]?.['avatarDetailList']?.[1]?.["avatarId"])
-
-                        var showOne = String(data?.["detailInfo"]?.['avatarDetailList']?.[0]?.["avatarId"])
-                        var showTwo = String(data?.["detailInfo"]?.['avatarDetailList']?.[3]?.["avatarId"]);
-                        var showThree = String(data?.["detailInfo"]?.['avatarDetailList']?.[2]?.["avatarId"]);
-
-                        var signature = String(data?.["detailInfo"]?.["signature"]);
-
-                        var worldLevel = String(data?.["detailInfo"]?.['worldLevel']);
-
-                        var supportCheck = "0";
-                        var showcaseCheck = "000";
-
-                        var signatureCheck = "0";
-                        
-                        var worldLevelCheck = "0"; // 1 is the default for world level no matter what i believe
-
-                        if (suppChar !== "undefined") {
-                            //console.log("has supp")
-                            supportCheck = "1";
-                        } else {
-                            console.log("no supp")
-                        }
-
-                        if ((showOne === "undefined") && (showTwo === "undefined") && (showThree === "undefined")) {
-                            console.log("000")
-                            showcaseCheck = "0";
-                        } else if ((showOne !== "undefined") && (showTwo === "undefined") && (showThree === "undefined")) {
-                            //console.log("100")
-                            showcaseCheck = "1"
-                        } else if ((showOne !== "undefined") && (showTwo !== "undefined") && (showThree === "undefined")) {
-                            //console.log("110")
-                            showcaseCheck = "2";
-                        } else if ((showOne !== "undefined") && (showTwo !== "undefined") && (showThree !== "undefined")) {
-                            //console.log("111");
-                            showcaseCheck = "3";
-                        } else if ((showOne === "undefined") && (showTwo !== "undefined") && (showThree === "undefined")) {
-                            //console.log("010");
-                            showcaseCheck = "1";
-                        } else if ((showOne === "undefined") && (showTwo === "undefined") && (showThree !== "undefined")) {
-                            //console.log("001");
-                            showcaseCheck = "1";
-                        } else if ((showOne === "undefined") && (showTwo !== "undefined") && (showThree !== "undefined")) {
-                            //console.log("011")
-                            showcaseCheck = "2"
-                        } else if ((showOne !== "undefined") && (showTwo === "undefined") && (showThree !== "undefined")) {
-                            //console.log("101");
-                            showcaseCheck = "2";
-                        } else {
-                            console.log("showcase check bugged");
-                            showcaseCheck = "showcase check error"
-                        }
-
-                        if (signature !== "undefined") {
-                            //console.log("has signature")
-                            signatureCheck = "1"
-                        } else if (signature === "undefined") {
-                            console.log("no bio")
-                        }
-
-                        if (worldLevel !== "undefined") {
-                            //console.log("world level is above 0")
-                            worldLevelCheck = "1"
-                        } else if (worldLevel === "undefined") {
-                            console.log("world level is 0")
-                        }
-
-                        /*
-                        DEBUG
-
-                        console.log("Support Check: " + supportCheck)
-                        console.log("Support: " + suppChar)
-                        console.log();
-
-                        console.log("Showcase Check: " + showcaseCheck)
-                        console.log("Showcase one: " + showOne)
-                        console.log("Showcase two: " + showTwo)
-                        console.log("Showcase three: " + showThree)
-
-                        */
-
-                        // console.log(suppChar)
-
-                        
-
-                        const testEmbed = new EmbedBuilder()
-                        .setColor(0x9a7ee7)
-                        .setTitle("Profile Information")
-                        .setTimestamp()
-                        .setThumbnail(`https://raw.githubusercontent.com/Mar-7th/StarRailRes/master/icon/character/${suppChar}.png`)
-                        .addFields(
-                            {
-                                name: "Username",
-                                value: data["detailInfo"]['nickname'],
-                                inline: true
-                            }, // 603476362
-                            {
-                                name: "Achievements",
-                                value: String(data["detailInfo"]["recordInfo"]['achievementCount']),
-                                inline: true
-                            },
-                            { 
-                                name: '\u200B', 
-                                value: '\u200B',
-                                inline: true
-                            },
-                            {
-                                name: "Characters",
-                                value: String(data["detailInfo"]["recordInfo"]['avatarCount']),
-                                inline: true
-                            },
-                            {
-                                name: "TL // WL",
-                                value: String(data["detailInfo"]['level']) + " // 0",
-                                inline: true
-                            },
-                            {
-                                name: "Support",
-                                value: "-"
-                            },
-                            {
-                                name: "Showcase",
-                                value: 
-                                "-" + "\n" + 
-                                "-" + "\n" + 
-                                "-"
-                            },
-                            {
-                                name: '\u200B',
-                                value: "~ *" + "No bio" + "*",
-                                inline: true
-                            },
-                        )
-
-                        if (worldLevelCheck === "1") {
-                            testEmbed.spliceFields(4, 1, 
-                                {
-                                    name: "TL // WL",
-                                    value: String(data["detailInfo"]['level']) + " // " + String(data["detailInfo"]['worldLevel']),
-                                    inline: true
-                                }
-                            )
-                        }
- //
-                        if (supportCheck == "1") {
-                            testEmbed.spliceFields(5, 1
-                                ,{
-                                    name: "Support",
-                                    value:
-                                    emoteSheet["Colored"][[charSheet[suppChar]["element"]]]["id"] + " " + charSheet[suppChar]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][1]["level"]),
-                                }
-                            )
-                        }
-
-                        if (showcaseCheck === "3") { // THESE NUMBERS USED TO BE 0 1 2 AND SUPP SHOULDVE HAD LINK FROM ABOVE AND NOT 1, BUT 0
-                            testEmbed.spliceFields(6, 1, 
-                                {
-                                    name: "Showcase",
-                                    value: 
-                                    emoteSheet["Colored"][[charSheet[showOne]["element"]]]["id"] + " " + charSheet[showOne]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][0]["level"]) + "\n" +
-                                    emoteSheet["Colored"][[charSheet[showTwo]["element"]]]["id"] + " " + charSheet[showTwo]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][3]["level"]) + "\n" +
-                                    emoteSheet["Colored"][[charSheet[showThree]["element"]]]["id"] + " " + charSheet[showThree]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][2]["level"]),
-                                }
-                            )
-                        } else if (showcaseCheck === "2") {
-                            testEmbed.spliceFields(6, 1, 
-                                {
-                                    name: "Showcase",
-                                    value: 
-                                    emoteSheet["Colored"][[charSheet[showOne]["element"]]]["id"] + " " + charSheet[showOne]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][0]["level"]) + "\n" +
-                                    emoteSheet["Colored"][[charSheet[showTwo]["element"]]]["id"] + " " + charSheet[showTwo]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][3]["level"]) + "\n" +
-                                    "-"
-                                }
-                            )
-                        } else if (showcaseCheck === "1") {
-                            testEmbed.spliceFields(6, 1, 
-                                {
-                                    name: "Showcase",
-                                    value: 
-                                    emoteSheet["Colored"][[charSheet[showOne]["element"]]]["id"] + " " + charSheet[showOne]["name"] + " - Lv. " + String(data["detailInfo"]['avatarDetailList'][0]["level"]) + "\n" +
-                                    "-" + "\n" +
-                                    "-"
-                                }
-                            )
-                        }
-
-                        if (signatureCheck === "1") {
-                            testEmbed.spliceFields(7, 1, 
-                                {
-                                    name: '\u200B',
-                                    value: "~ *" + String(data["detailInfo"]["signature"]) + "*",
-                                    inline: true
-                                }
-                            )
-                        }
-
-                        // emoteSheet["Colored"][[charSheet[suppChar]["element"]]]["id"]
-                        // [charSheet[suppChar]["element"]]
-
-                        // .setImage("attachment://1102.png")
-
-                        /*
-
-                            This part is for if there is an empty space in the showcase/support
-
-                        */
-
-                        
-                                //{
-                                    //name: "test",
-                                    //value: "test again"
-                                //}
-                            //)
-                        
-            
-                        // await wait(4000);
-
-                        interaction.editReply({ embeds: [testEmbed] });
-                        await client.close()
-
-                    } else {
-                        interaction.editReply({ content: "Invalid Profile UID... somehow?? lmk if this happens`"})
-                        await client.close()
-                    }
-                    
-                    
-                } else {
-                        interaction.editReply('Make sure to run the command </register:1173561826936635402> to register your UID to the bot!')
-                        await client.close()
+                if (counter < 1) {
+                    // If document not found, make a new database entry, do this for all economy commands
+                    await setup.init(discordID, "economy", "inventories")
                 }
+                var options = {
+                    projection: {
+                        jade_count: 1,
+                        credits: 1,
+                        exp_material: 1,
+                        trailblaze_power: 1,
+                        fuel: 1,
+                        level: 1,
+                        exp: 1,
+                        rewards: 1,
+                        characters: 1,
+                        inventory: 1,
+                        missions: 1,
+                        missions_completed: 1,
+                    }
+                }
+
+                // Then get the first thing that matches the discord id, and options is the query from before
+                var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
+                var finalCheck = await ids.findOne({discord_id: discordID}, options)
+
+                var jade_count = finalCheck['jade_count']
+                var credits = finalCheck['credits']
+                var exp_material = finalCheck['exp_material']
+                var trailblaze_power = finalCheck['trailblaze_power']
+                var fuel = finalCheck['fuel']
+                var level = finalCheck['level']
+                var exp = finalCheck['exp']
+                var characters = finalCheck['characters']
+                var inventory = finalCheck['inventory']
+                var currentRewardLevel = finalCheck['rewards']
+
+                var amountOf5 = 0
+                var amountOf4 = 0
+                var amountOf3 = 0
+
+
+
+                for (var i = 0; i < Object.keys(characters).length; i++) {
+                    if (charSheet[Object.keys(characters)[i]]['rarity'] == 5) {
+                        amountOf5++;
+                    } else if (charSheet[Object.keys(characters)[i]]['rarity'] == 4) {
+                        amountOf4++;
+                    } else {
+                        amountOf3++
+                    }
+                }
+
+                for (var i = 0; i < Object.keys(inventory).length; i++) {
+                    if (LCSheet[Object.keys(inventory)[i]]['rarity'] == 5) {
+                        amountOf5++
+                    } else if (LCSheet[Object.keys(inventory)[i]]['rarity'] == 4) {
+                        amountOf4++
+                    } else {
+                        amountOf3++
+                    }
+                }
+                
+                testEmbed.spliceFields(0, 1,
+                    {
+                        name: "\n",
+                        value: `**Profile**`
+                    })
+
+                testEmbed.addFields({
+                    name: "\n",
+                    value: `Trailblaze Level **${level}**
+EXP to Next Level **${exp}**/${TLSheet[level]["next_exp"]}\n
+**${amountOf5}** Five Stars
+**${amountOf4}** Four Stars
+**${amountOf3}** Three Stars\n`,
+                    inline: true
+                })
+
+                testEmbed.addFields({
+                    name: "\n",
+                    value: `**${jade_count}** Stellar Jade\n**${credits}** Credits\n**${exp_material}** EXP Material\n\n**${trailblaze_power}**/240 Trailblaze Power\n**${fuel}** Fuel`,
+                    inline: true
+                })
+
+                var getMissions = finalCheck['missions']
+
+                var addMissionID = []
+
+                for (var i = 0; i < 5; i++) {
+                    addMissionID.push(getMissions[i]["id"])
+                }
+
+                if ((addMissionID.includes(6)) && (getMissions[addMissionID.indexOf(6)]["completed"] == false)) { // id for profile mission
+                    var mission = `missions.${addMissionID.indexOf(6)}.completed`
+                    var missionSymbol = `missions.${addMissionID.indexOf(6)}.completed_symbol`
+
+                    const setTrue = {
+                        $set: {
+                            [mission]: true,
+                            [missionSymbol]: "✅",
+                        },
+                        $inc: {
+                            jade_count: 75
+                        }
+                    }
+
+                    await ids.updateOne({discord_id: discordID}, setTrue)
+                }
+
+                if (currentRewardLevel < level) {
+                    testEmbed.setFooter({text: "You can claim Trailblaze Level rewards with /rewards"})
+                }
+
+                interaction.editReply({ embeds: [testEmbed], files: [file] });
+
+                if (levelSuccess) {
+                    var levelEmbed = new EmbedBuilder()
+                    .setColor(0x9a7ee7)
+                    .addFields(
+                        {
+                            name: "\n",
+                            value: "You leveled up!"
+                        },
+                    )
+                    await interaction.channel.send({ embeds: [levelEmbed] })
+                }
+
+                await client.close()
 
                 } catch (error) {
                     console.log(`There was an error: ${error.stack}`)
                     interaction.editReply({ content: "Something broke!"})
                     await client.close()
-            }
+                }
         })();
     }
 }
