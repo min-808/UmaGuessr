@@ -5,7 +5,7 @@ const buttonPagination = require('../../button-pagination')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
-let choices = ["wish_count", "credits", "jade_count", "calyx_level", "assignment_level"]
+let choices = ["wish_count", "credits", "jade_count", "calyx_level", "assignment_level", "level"]
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -52,6 +52,7 @@ module.exports = {
                         jade_count: 1,
                         calyx_level: 1,
                         assignment_level: 1,
+                        level: 1,
                     }
                 }
 
@@ -80,6 +81,9 @@ module.exports = {
                             break
                         case "jade_count":
                             countType = "Stellar Jade"
+                            break
+                        case "level":
+                            countType = "Trailblaze Level"
                             break
                         default:
                             countType = ""
