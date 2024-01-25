@@ -39,13 +39,18 @@ module.exports = {
             try {
 
                 var charMap = new Map()
+                var LCMap = new Map()
+                var lowerCaseCharMap = new Map()
+                var lowerCaseLCMap = new Map()
+
                 for (var [key, value] of Object.entries(charSheet)) {
                     charMap.set(value["name"], key)
+                    lowerCaseCharMap.set(value["name"].toLowerCase(), key)
                 }
 
-                var LCMap = new Map()
                 for (var [key, value] of Object.entries(LCSheet)) {
                     LCMap.set(value["name"], key)
+                    lowerCaseLCMap.set(value["name"].toLowerCase(), key)
                 }
 
                 var client = new MongoClient(uri)
@@ -91,22 +96,23 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
                     await client.close()
                 } else if (interaction.options.get('target')) { // Found a target
                     var inputTarget = interaction.options.get('target').value
+                    var lowercaseInput = inputTarget.toLowerCase()
 
-                    if ((charMap.get(inputTarget) == undefined) && (LCMap.get(inputTarget) == undefined)) { // Character/light cone doesn't exist
+                    if ((lowerCaseCharMap.get(lowercaseInput) == undefined) && (lowerCaseLCMap.get(lowercaseInput) == undefined)) { // Character/light cone doesn't exist
                         testEmbed.spliceFields(0, 1,
                             {
                                 name: "\n",
-                                value: `**${inputTarget}** doesn't exist! Check spelling/casing`
+                                value: `\`${inputTarget}\` doesn't exist! Check spelling`
                         })
 
                         interaction.editReply({ embeds: [testEmbed] });
                         await client.close()
                     } else { // Character/LC exists
-                        if ((!(charMap.get(inputTarget) in currentChars)) && (!(LCMap.get(inputTarget) in currentInventory))) { // You don't own the character or LC
+                        if ((!(lowerCaseCharMap.get(lowercaseInput) in currentChars)) && (!(lowerCaseLCMap.get(lowercaseInput) in currentInventory))) { // You don't own the character or LC
                             testEmbed.spliceFields(0, 1,
                                 {
                                     name: "\n",
-                                    value: `You don't have **${inputTarget}**`
+                                    value: `You don't have \`${inputTarget}\``
                             })
     
                             interaction.editReply({ embeds: [testEmbed] });
@@ -115,12 +121,12 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
 
                             var type = ""
 
-                            var checkLC = LCMap.get(inputTarget)
-                            var checkChar = charMap.get(inputTarget)
+                            var checkLC = lowerCaseLCMap.get(lowercaseInput)
+                            var checkChar = lowerCaseCharMap.get(lowercaseInput)
 
                             if (checkLC != undefined) { // It's an LC
-                                var getStringLevel = "inventory." + LCMap.get(inputTarget) + ".level"
-                                var getStringAscLevel = "inventory." + LCMap.get(inputTarget) + ".asc_level"
+                                var getStringLevel = "inventory." + lowerCaseLCMap.get(lowercaseInput) + ".level"
+                                var getStringAscLevel = "inventory." + lowerCaseLCMap.get(lowercaseInput) + ".asc_level"
 
                                 var getLevel = await ids.findOne({discord_id: discordID}, {
                                     projection: {
@@ -134,8 +140,8 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
 
                                 type = "LC"
                             } else { // It's a character
-                                var getStringLevel = "characters." + charMap.get(inputTarget) + ".level"
-                                var getStringAscLevel = "characters." + charMap.get(inputTarget) + ".asc_level"
+                                var getStringLevel = "characters." + lowerCaseCharMap.get(lowercaseInput) + ".level"
+                                var getStringAscLevel = "characters." + lowerCaseCharMap.get(lowercaseInput) + ".asc_level"
 
                                 var getLevel = await ids.findOne({discord_id: discordID}, {
                                     projection: {
@@ -150,8 +156,15 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
                                 type = "Char"
                             }
 
-                            // This is hella inefficient, maybe i can put it in a loop? but my brain is not large enough sadly
+                            var returnFormat = ""
 
+                            if (type == "LC") {
+                                returnFormat = LCSheet[lowerCaseLCMap.get(inputTarget)]["name"]
+                            } else if (type == "Char") {
+                                returnFormat = charSheet[lowerCaseCharMap.get(inputTarget)]["name"]
+                            }
+
+                            // This is hella inefficient, maybe i can put it in a loop? but my brain is not large enough sadly
                             if (((returnLevel == 20) && (returnAscLevel == 0)) || ((returnLevel == 40) && (returnAscLevel == 1)) || 
                                 ((returnLevel == 60) && (returnAscLevel == 2))) { // Ascension time
 
@@ -164,6 +177,7 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
 
                                     await interaction.editReply({ embeds: [testEmbed] });
                                 } else {
+
                                     const yesButton = new ButtonBuilder()
                                         .setLabel('✓')
                                         .setStyle(ButtonStyle.Primary)
@@ -179,7 +193,7 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
                                     testEmbed.spliceFields(0, 1,
                                         {
                                             name: "\n",
-                                            value: `You have hit the max level for Ascension ${returnAscLevel}\nDo you want to ascend **${inputTarget}** to Ascension **${returnAscLevel + 1}**?\n\nCost: **${levelSheet[`char-lc-${returnLevel}asc`]["cost"]}** credits`
+                                            value: `You have hit the max level for Ascension ${returnAscLevel}\nDo you want to ascend **${returnFormat}** to Ascension **${returnAscLevel + 1}**?\n\nCost: **${levelSheet[`char-lc-${returnLevel}asc`]["cost"]}** credits`
                                         })
 
                                     const reply = await interaction.editReply({ embeds: [testEmbed], components: [buttonRowLC] });
@@ -205,7 +219,7 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
                                                 testEmbed.spliceFields(0, 1,
                                                     {
                                                         name: "\n",
-                                                        value: `Ascended **${inputTarget}** to Ascension **${returnAscLevel + 1}**\nThe max level is now **${levelSheet[`char-lc-${returnLevel}asc`]["max_level"]}**\n\nYou now have **${currentCredits - levelSheet[`char-lc-${returnLevel}asc`]["cost"]}** credits`
+                                                        value: `Ascended **${returnFormat}** to Ascension **${returnAscLevel + 1}**\nThe max level is now **${levelSheet[`char-lc-${returnLevel}asc`]["max_level"]}**\n\nYou now have **${currentCredits - levelSheet[`char-lc-${returnLevel}asc`]["cost"]}** credits`
                                                     })
                                                 
                                                 interaction.reply({ embeds: [testEmbed] });
@@ -269,7 +283,7 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
                                     testEmbed.spliceFields(0, 1,
                                         {
                                             name: "\n",
-                                            value: `**${inputTarget}** has hit the max Ascension level`
+                                            value: `**${returnFormat}** has hit the max Ascension level`
                                         })
                                     
                                     interaction.editReply({ embeds: [testEmbed] });
@@ -278,7 +292,7 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
                                     testEmbed.spliceFields(0, 1,
                                         {
                                             name: "\n",
-                                            value: `You can't ascend\n\n**${inputTarget}**'s level is **${returnLevel}**/${maxLevel}`
+                                            value: `You can't ascend\n\n**${returnFormat}**'s level is **${returnLevel}**/${maxLevel}`
                                         })
                                     
                                     interaction.editReply({ embeds: [testEmbed] });

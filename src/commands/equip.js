@@ -44,25 +44,31 @@ module.exports = {
 
             try {
 
-                var inputChar = (interaction.options.get('character').value).toLowerCase() // thank you stackoverflow
-                                                                            .split(' ')
-                                                                            .map((s) => s.charAt(0).toUpperCase() + s.substring(1))
-                                                                            .join(' ');
+                var inputChar = interaction.options.get('character').value
                 var inputLC = interaction.options.get('lightcone').value
+
+                var lowercaseInputChar = inputChar.toLowerCase()
+                var lowercaseInputLC = inputLC.toLowerCase()
+
+                // console.log(inputChar)
 
                 // Using a hashmap to reverse key value pairs (key = character name, value = id)
 
+                var lowerCaseCharMap = new Map()
+                var lowerCaseLCMap = new Map()
                 var charMap = new Map()
+                var LCMap = new Map()
+
                 for (var [key, value] of Object.entries(charSheet)) {
                     charMap.set(value["name"], key)
+                    lowerCaseCharMap.set(value["name"].toLowerCase(), key)
                 }
-                // console.log(charMap)
 
-                var LCMap = new Map()
                 for (var [key, value] of Object.entries(LCSheet)) {
                     LCMap.set(value["name"], key)
+                    lowerCaseLCMap.set(value["name"].toLowerCase(), key)
                 }
-                // console.log(LCMap)
+                // console.log(lowerCaseCharMap)
 
                 var client = new MongoClient(uri)
 
@@ -93,20 +99,20 @@ module.exports = {
                 var currentInventory = toParseUserUID['inventory']
                 var currentChars = toParseUserUID['characters']
 
-                if ((charMap.get(inputChar) == undefined) || (LCMap.get(inputLC) == undefined)) { // If the character and light cones don't exist at all
+                if ((lowerCaseCharMap.get(lowercaseInputChar) == undefined) || (lowerCaseLCMap.get(lowercaseInputLC) == undefined)) { // If the character and light cones don't exist at all
                     // console.log(currentChars)
                     testEmbed.spliceFields(0, 1,
                         {
                             name: "\n",
                             value: `Character \`${inputChar}\` or Light Cone \`${inputLC}\` doesn't exist! Check spelling/casing`
                     })
-                } else if ((charMap.get(inputChar) && (!(charMap.get(inputChar) in currentChars))) || (LCMap.get(inputLC) && (!(LCMap.get(inputLC) in currentInventory)))) { // If you don't own either light cone or character
+                } else if ((lowerCaseCharMap.get(lowercaseInputChar) && (!(lowerCaseCharMap.get(lowercaseInputChar) in currentChars))) || (lowerCaseLCMap.get(lowercaseInputLC) && (!(lowerCaseLCMap.get(lowercaseInputLC) in currentInventory)))) { // If you don't own either light cone or character
                     testEmbed.spliceFields(0, 1,
                         {
                             name: "\n",
                             value: `You don't have Character \`${inputChar}\` or Light Cone \`${inputLC}\``
                     })
-                } else if ((charMap.get(inputChar) && (charMap.get(inputChar) in currentChars)) && (LCMap.get(inputLC) && (LCMap.get(inputLC) in currentInventory))) {// If you have both
+                } else if ((lowerCaseCharMap.get(lowercaseInputChar) && (lowerCaseCharMap.get(lowercaseInputChar) in currentChars)) && (lowerCaseLCMap.get(lowercaseInputLC) && (lowerCaseLCMap.get(lowercaseInputLC) in currentInventory))) {// If you have the LC
                     // Success
 
                     var getMissions = toParseUserUID['missions']
@@ -133,15 +139,15 @@ module.exports = {
                         }
 
                         await ids.updateOne({discord_id: discordID}, setTrue)
-                    } //
+                    }
 
                     var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
 
                     // Either unequip the current and put the new one on
                     // OR put the new one on
 
-                    var lc = "characters." + charMap.get(inputChar) + ".lc"
-                    var equipped = "inventory." + LCMap.get(inputLC) + ".equipped_on"
+                    var lc = "characters." + lowerCaseCharMap.get(lowercaseInputChar) + ".lc"
+                    var equipped = "inventory." + lowerCaseLCMap.get(lowercaseInputLC) + ".equipped_on"
 
                     const getLC = {
                         projection: {
@@ -153,22 +159,22 @@ module.exports = {
 
                     const setLC = { 
                         $set: { 
-                            [lc]: parseInt(LCMap.get(inputLC))
+                            [lc]: parseInt(lowerCaseLCMap.get(lowercaseInputLC))
                         } 
                     }
 
                     const setEquipped = {
                         $set: {
-                            [equipped]: parseInt(charMap.get(inputChar))
+                            [equipped]: parseInt(lowerCaseCharMap.get(lowercaseInputChar))
                         }
                     }
 
-                    var message = `\`${inputChar}\` has equipped \`${inputLC}\``
+                    var message = `\`${charSheet[lowerCaseCharMap.get(lowercaseInputChar)]["name"]}\` has equipped \`${LCSheet[lowerCaseLCMap.get(lowercaseInputLC)]["name"]}\`` // upper case this
 
                     var findLC = await ids.findOne({discord_id: discordID}, getLC)
 
-                    var getCurrentCharLC = findLC["characters"][charMap.get(inputChar)]["lc"]
-                    var getEquippedOn = findLC["inventory"][LCMap.get(inputLC)]["equipped_on"]
+                    var getCurrentCharLC = findLC["characters"][lowerCaseCharMap.get(lowercaseInputChar)]["lc"]
+                    var getEquippedOn = findLC["inventory"][lowerCaseLCMap.get(lowercaseInputLC)]["equipped_on"]
 
                     /* 
                     Four cases
@@ -186,16 +192,16 @@ module.exports = {
                         await ids.updateOne({discord_id: discordID}, setEquipped) // Set LC to be equipped by character
                     } else if ((getEquippedOn != -1) && (getCurrentCharLC == -1)) { // Case 2
                         // I have to: Get the character it's on via the LC, set that character to hold nothing, set the LC to the new character, then set new character to hold said LC
-                        var oldCharNumber = findLC['inventory'][LCMap.get(inputLC)]['equipped_on']
+                        var oldCharNumber = findLC['inventory'][lowerCaseLCMap.get(lowercaseInputLC)]['equipped_on']
                         var test = "characters." + oldCharNumber + ".lc"
                         await ids.updateOne({discord_id: discordID}, { $set: { [test]: -1 }})
                         await ids.updateOne({discord_id: discordID}, setLC)
                         await ids.updateOne({discord_id: discordID}, setEquipped)
 
-                        message = `\`${inputChar}\` has equipped \`${inputLC}\`\n\n${charSheet[oldCharNumber]["name"]} is now holding \`Nothing\``
+                        message = `\`${charSheet[lowerCaseCharMap.get(lowercaseInputChar)]["name"]}\` has equipped \`${LCSheet[lowerCaseLCMap.get(lowercaseInputLC)]["name"]}\`\n\n\`${charSheet[oldCharNumber]["name"]}\` is now holding Nothing` // upper case this
                     } else if ((getEquippedOn == -1) && (getCurrentCharLC != -1)) { // Case 3
                         // I have to: Get the light cone via the character and set it to equipped -1. Then set the new light cone to be equipped by the character, and the character to hold the new lightcone
-                        var oldLC = findLC['characters'][charMap.get(inputChar)]['lc']
+                        var oldLC = findLC['characters'][lowerCaseCharMap.get(lowercaseInputChar)]['lc']
                         var test = "inventory." + oldLC + ".equipped_on"
                         await ids.updateOne({discord_id: discordID}, { $set: { [test]: -1 }})
                         await ids.updateOne({discord_id: discordID}, setLC)
@@ -204,8 +210,8 @@ module.exports = {
                         // the most complicated one
                         var findBroad = await ids.findOne({discord_id: discordID})
                         
-                        var toChangeLC = findBroad['characters'][charMap.get(inputChar)]['lc'] // LC
-                        var toChangeChar = findBroad['inventory'][LCMap.get(inputLC)]['equipped_on'] // Char
+                        var toChangeLC = findBroad['characters'][lowerCaseCharMap.get(lowercaseInputChar)]['lc'] // LC
+                        var toChangeChar = findBroad['inventory'][lowerCaseLCMap.get(lowercaseInputLC)]['equipped_on'] // Char
 
                         var newLC = findBroad['characters'][toChangeChar]['lc'] // LC
                         var newChar = findBroad['inventory'][toChangeLC]['equipped_on'] // Char
@@ -225,7 +231,7 @@ module.exports = {
                         await ids.updateOne({discord_id: discordID}, { $set: { [oldSetChar]: parseInt(toChangeChar) }})
                         //console.log(oldSetChar + " and " + toChangeChar)
 
-                        message = `\`${inputChar}\` has swapped items with \`${charSheet[toChangeChar]["name"]}\`\n\n\`${inputChar}\` now has \`${LCSheet[newLC]["name"]}\`\n\`${charSheet[toChangeChar]["name"]}\` now has \`${LCSheet[toChangeLC]["name"]}\``
+                        message = `\`${charSheet[lowerCaseCharMap.get(lowercaseInputChar)]["name"]}\` has swapped items with \`${charSheet[toChangeChar]["name"]}\`\n\n\`${charSheet[lowerCaseCharMap.get(lowercaseInputChar)]["name"]}\` now has \`${LCSheet[newLC]["name"]}\`\n\`${charSheet[toChangeChar]["name"]}\` now has \`${LCSheet[toChangeLC]["name"]}\`` // upper case this
                     } else {
                         console.log("I messed up somewhere")
                     }
