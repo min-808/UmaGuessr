@@ -50,7 +50,6 @@ module.exports = {
     data: new SlashCommandBuilder()
     .setName('info')
     .setDescription('Returns information about a character')
-    //.setDescription('TEST COMMAND')
     .addStringOption((option) => 
         option
             .setName("character")
