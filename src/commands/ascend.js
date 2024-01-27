@@ -159,9 +159,9 @@ You can earn **Credits** by wishing with **/wish**, or doing calyxes every two h
                             var returnFormat = ""
 
                             if (type == "LC") {
-                                returnFormat = LCSheet[lowerCaseLCMap.get(inputTarget)]["name"]
+                                returnFormat = LCSheet[lowerCaseLCMap.get(lowercaseInput)]["name"]
                             } else if (type == "Char") {
-                                returnFormat = charSheet[lowerCaseCharMap.get(inputTarget)]["name"]
+                                returnFormat = charSheet[lowerCaseCharMap.get(lowercaseInput)]["name"]
                             }
 
                             // This is hella inefficient, maybe i can put it in a loop? but my brain is not large enough sadly
