@@ -83,7 +83,7 @@ module.exports = {
                             countType = "Stellar Jade"
                             break
                         case "level":
-                            countType = "Trailblaze Level"
+                            countType = "TL"
                             break
                         default:
                             countType = ""
