@@ -12,9 +12,12 @@ descriptions.json - Get new file and add this:
     }
 
 Get new:
+characters.json
 character_promotions.json
 character_skills.json
 items.json
+descriptions.json
+light_cones.json
 
 
 

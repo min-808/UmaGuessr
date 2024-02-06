@@ -367,6 +367,7 @@ To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
 1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
 2. Jarilo-VI **(costs ${Object.values(areaSheet)[1]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
 3. Xianzhou Luofu **(costs ${Object.values(areaSheet)[2]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
+4. Penacony **(costs ${Object.values(areaSheet)[3]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[3]["base_reward"]}** jade / **${Object.values(areaSheet)[3]["trailblaze_cost"]}** power\n
 \n
 Current highest planet: **${areaSheet[retLevel].name}**
 Current credits: **${retCredits}**`
@@ -387,6 +388,7 @@ To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
 1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
 2. Jarilo-VI **(unlocked!)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
 3. Xianzhou Luofu **(costs ${Object.values(areaSheet)[2]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
+4. Penacony **(costs ${Object.values(areaSheet)[3]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[3]["base_reward"]}** jade / **${Object.values(areaSheet)[3]["trailblaze_cost"]}** power\n
 \n
 Current highest planet: **${areaSheet[retLevel].name}**
 Current credits: **${retCredits}**`
@@ -407,6 +409,7 @@ To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
 1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
 2. Jarilo-VI **(unlocked!)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
 3. Xianzhou Luofu **(unlocked!)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
+4. Penacony **(costs ${Object.values(areaSheet)[3]["unlock_cost"]} credits to unlock)**\n**${Object.values(areaSheet)[3]["base_reward"]}** jade / **${Object.values(areaSheet)[3]["trailblaze_cost"]}** power\n
 \n
 Current highest planet: **${areaSheet[retLevel].name}**
 Current credits: **${retCredits}**`
@@ -415,7 +418,28 @@ Current credits: **${retCredits}**`
                         interaction.editReply({ embeds: [testEmbed] });
                         await client.close()
                     } else if (retLevel == 3) {
-                        // erm add when penacony is released
+                        testEmbed.spliceFields(0, 1,
+                            {
+                                name: "**__Assignments__**",
+                                value: `You can send your characters on assignments to various planets to earn stellar jade\n
+It costs **Trailblaze Power** (/power) to go on assignments, with each planet varying in trailblaze power cost
+**Higher rarity** characters and light cones give you more stellar jade upon completing the assignment (rarity bonus > eidolon bonus)
+**Leveling up** your characters and light cones also give a small bonus\n\n
+**__Planets__**
+To unlock planets, upgrade your **level** (/unlock) at the cost of credits\n
+1. Herta Space Station **(unlocked!)**\n**${Object.values(areaSheet)[0]["base_reward"]}** jade / **${Object.values(areaSheet)[0]["trailblaze_cost"]}** power\n
+2. Jarilo-VI **(unlocked!)**\n**${Object.values(areaSheet)[1]["base_reward"]}** jade / **${Object.values(areaSheet)[1]["trailblaze_cost"]}** power\n
+3. Xianzhou Luofu **(unlocked!)**\n**${Object.values(areaSheet)[2]["base_reward"]}** jade / **${Object.values(areaSheet)[2]["trailblaze_cost"]}** power\n
+4. Penacony **(unlocked!)**\n**${Object.values(areaSheet)[3]["base_reward"]}** jade / **${Object.values(areaSheet)[3]["trailblaze_cost"]}** power\n
+\n
+Current highest planet: **${areaSheet[retLevel].name}**
+Current credits: **${retCredits}**`
+                            })
+    
+                        interaction.editReply({ embeds: [testEmbed] });
+                        await client.close()
+                    } else if (retLevel == 4) {
+                        // Add when the next planet comes out
                     }
                 }
 

@@ -22,5 +22,13 @@
         "base_reward": 600,
         "trailblaze_cost": 100,
         "exp_reward": 200
+    },
+    "3": {
+        "id": "3",
+        "name": "Penacony",
+        "unlock_cost": 90000,
+        "base_reward": 1200,
+        "trailblaze_cost": 120,
+        "exp_reward": 240
     }
 }
