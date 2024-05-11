@@ -371,6 +371,7 @@
             "Simulated Universe Point Rewards",
             "Nameless Honor",
             "Embers Exchange",
+            "Starlight Exchange",
             "Limited-Time Event Rewards"
         ]
     },
@@ -462,13 +463,13 @@
         "icon": "icon/item/800.png",
         "come_from": []
     },
-    "999": {
-        "id": "999",
-        "name": "",
+    "802": {
+        "id": "802",
+        "name": "Wayfare's Blessing",
         "type": "Material",
         "sub_type": "Material",
-        "rarity": 3,
-        "icon": "icon/item/Icon_Testmaterial01.png",
+        "rarity": 5,
+        "icon": "icon/item/802.png",
         "come_from": []
     },
     "11001": {
@@ -804,6 +805,15 @@
         "icon": "icon/item/11003.png",
         "come_from": []
     },
+    "11301": {
+        "id": "11301",
+        "name": "Gallagher's Eidolon",
+        "type": "Material",
+        "sub_type": "Eidolon",
+        "rarity": 4,
+        "icon": "icon/item/11001.png",
+        "come_from": []
+    },
     "11302": {
         "id": "11302",
         "name": "Argenti's Eidolon",
@@ -816,6 +826,15 @@
     "11303": {
         "id": "11303",
         "name": "Ruan Mei's Eidolon",
+        "type": "Material",
+        "sub_type": "Eidolon",
+        "rarity": 5,
+        "icon": "icon/item/11003.png",
+        "come_from": []
+    },
+    "11304": {
+        "id": "11304",
+        "name": "Aventurine's Eidolon",
         "type": "Material",
         "sub_type": "Eidolon",
         "rarity": 5,
@@ -849,6 +868,24 @@
         "icon": "icon/item/11003.png",
         "come_from": []
     },
+    "11308": {
+        "id": "11308",
+        "name": "Acheron's Eidolon",
+        "type": "Material",
+        "sub_type": "Eidolon",
+        "rarity": 5,
+        "icon": "icon/item/11003.png",
+        "come_from": []
+    },
+    "11309": {
+        "id": "11309",
+        "name": "Robin's Eidolon",
+        "type": "Material",
+        "sub_type": "Eidolon",
+        "rarity": 5,
+        "icon": "icon/item/11003.png",
+        "come_from": []
+    },
     "11312": {
         "id": "11312",
         "name": "Misha's Eidolon",
@@ -856,6 +893,15 @@
         "sub_type": "Eidolon",
         "rarity": 4,
         "icon": "icon/item/11001.png",
+        "come_from": []
+    },
+    "11315": {
+        "id": "11315",
+        "name": "Boothill's Eidolon",
+        "type": "Material",
+        "sub_type": "Eidolon",
+        "rarity": 5,
+        "icon": "icon/item/11003.png",
         "come_from": []
     },
     "18001": {
@@ -900,6 +946,27 @@
         "sub_type": "Eidolon",
         "rarity": 5,
         "icon": "icon/item/18003.png",
+        "come_from": []
+    },
+    "18005": {
+        "id": "18005",
+        "name": "Shadow of Harmony",
+        "type": "Material",
+        "sub_type": "Eidolon",
+        "rarity": 5,
+        "icon": "icon/item/18005.png",
+        "come_from": [
+            "Trailblaze Mission Rewards",
+            "Obtained by upgrading the Clockie Statue"
+        ]
+    },
+    "18006": {
+        "id": "18006",
+        "name": "Shadow of Harmony",
+        "type": "Material",
+        "sub_type": "Eidolon",
+        "rarity": 5,
+        "icon": "icon/item/18005.png",
         "come_from": []
     },
     "71000": {
@@ -2222,6 +2289,82 @@
             "Simulated Universe: World 8 - Immersion Device Redemption"
         ]
     },
+    "83131": {
+        "id": "83131",
+        "name": "Sigonia, the Unclaimed Desolation",
+        "type": "Display",
+        "sub_type": "RelicSetShowOnly",
+        "rarity": 2,
+        "icon": "icon/item/71030.png",
+        "come_from": []
+    },
+    "83132": {
+        "id": "83132",
+        "name": "Sigonia, the Unclaimed Desolation",
+        "type": "Display",
+        "sub_type": "RelicSetShowOnly",
+        "rarity": 3,
+        "icon": "icon/item/71030.png",
+        "come_from": []
+    },
+    "83133": {
+        "id": "83133",
+        "name": "Sigonia, the Unclaimed Desolation",
+        "type": "Display",
+        "sub_type": "RelicSetShowOnly",
+        "rarity": 4,
+        "icon": "icon/item/71030.png",
+        "come_from": []
+    },
+    "83134": {
+        "id": "83134",
+        "name": "Sigonia, the Unclaimed Desolation",
+        "type": "Display",
+        "sub_type": "RelicSetShowOnly",
+        "rarity": 5,
+        "icon": "icon/item/71030.png",
+        "come_from": [
+            "Simulated Universe: World 9 - Immersion Device Redemption"
+        ]
+    },
+    "83141": {
+        "id": "83141",
+        "name": "Izumo Gensei and Takama Divine Realm",
+        "type": "Display",
+        "sub_type": "RelicSetShowOnly",
+        "rarity": 2,
+        "icon": "icon/item/71031.png",
+        "come_from": []
+    },
+    "83142": {
+        "id": "83142",
+        "name": "Izumo Gensei and Takama Divine Realm",
+        "type": "Display",
+        "sub_type": "RelicSetShowOnly",
+        "rarity": 3,
+        "icon": "icon/item/71031.png",
+        "come_from": []
+    },
+    "83143": {
+        "id": "83143",
+        "name": "Izumo Gensei and Takama Divine Realm",
+        "type": "Display",
+        "sub_type": "RelicSetShowOnly",
+        "rarity": 4,
+        "icon": "icon/item/71031.png",
+        "come_from": []
+    },
+    "83144": {
+        "id": "83144",
+        "name": "Izumo Gensei and Takama Divine Realm",
+        "type": "Display",
+        "sub_type": "RelicSetShowOnly",
+        "rarity": 5,
+        "icon": "icon/item/71031.png",
+        "come_from": [
+            "Simulated Universe: World 9 - Immersion Device Redemption"
+        ]
+    },
     "89001": {
         "id": "89001",
         "name": "Planar Ornaments",
@@ -2296,7 +2439,7 @@
         "icon": "icon/item/110111.png",
         "come_from": [
             "Calyx (Storage Zone)",
-            "Calyx (Storage zone)",
+            "Calyx (Storage Zone)",
             "Embers Exchange",
             "Omni-Synthesizer — Material Exchange"
         ]
@@ -2631,6 +2774,92 @@
             "Omni-Synthesizer — Material Exchange"
         ]
     },
+    "110191": {
+        "id": "110191",
+        "name": "Meteoric Bullet",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 2,
+        "icon": "icon/item/110191.png",
+        "come_from": [
+            "Calyx: SoulGlad™ Scorchsand Audition Venue",
+            "Calyx: SoulGlad™ Scorchsand Audition Venue",
+            "Embers Exchange",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110192": {
+        "id": "110192",
+        "name": "Destined Expiration",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 3,
+        "icon": "icon/item/110192.png",
+        "come_from": [
+            "Calyx: SoulGlad™ Scorchsand Audition Venue",
+            "Calyx: SoulGlad™ Scorchsand Audition Venue",
+            "Omni-Synthesizer — Material Synthesis",
+            "Embers Exchange",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110193": {
+        "id": "110193",
+        "name": "Countertemporal Shot",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 4,
+        "icon": "icon/item/110193.png",
+        "come_from": [
+            "Calyx: SoulGlad™ Scorchsand Audition Venue",
+            "Calyx: SoulGlad™ Scorchsand Audition Venue",
+            "Omni-Synthesizer — Material Synthesis",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110211": {
+        "id": "110211",
+        "name": "Scattered Stardust",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 2,
+        "icon": "icon/item/110211.png",
+        "come_from": [
+            "Calyx: Clock Studios Theme Park",
+            "Calyx: Clock Studios Theme Park",
+            "Embers Exchange",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110212": {
+        "id": "110212",
+        "name": "Crystal Meteorites",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 3,
+        "icon": "icon/item/110212.png",
+        "come_from": [
+            "Calyx: Clock Studios Theme Park",
+            "Calyx: Clock Studios Theme Park",
+            "Omni-Synthesizer — Material Synthesis",
+            "Embers Exchange",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110213": {
+        "id": "110213",
+        "name": "Divine Amber",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 4,
+        "icon": "icon/item/110213.png",
+        "come_from": [
+            "Calyx: Clock Studios Theme Park",
+            "Calyx: Clock Studios Theme Park",
+            "Omni-Synthesizer — Material Synthesis",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
     "110221": {
         "id": "110221",
         "name": "Fiery Spirit",
@@ -2713,6 +2942,49 @@
         "come_from": [
             "Calyx: The Reverie (Dreamscape)",
             "Calyx: The Reverie (Dreamscape)",
+            "Omni-Synthesizer — Material Synthesis",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110241": {
+        "id": "110241",
+        "name": "Alien Tree Seed",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 2,
+        "icon": "icon/item/110241.png",
+        "come_from": [
+            "Calyx (Fyxestroll Garden)",
+            "Calyx (Fyxestroll Garden)",
+            "Embers Exchange",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110242": {
+        "id": "110242",
+        "name": "Nourishing Honey",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 3,
+        "icon": "icon/item/110242.png",
+        "come_from": [
+            "Calyx (Fyxestroll Garden)",
+            "Calyx (Fyxestroll Garden)",
+            "Omni-Synthesizer — Material Synthesis",
+            "Embers Exchange",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110243": {
+        "id": "110243",
+        "name": "Myriad Fruit",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 4,
+        "icon": "icon/item/110243.png",
+        "come_from": [
+            "Calyx (Fyxestroll Garden)",
+            "Calyx (Fyxestroll Garden)",
             "Omni-Synthesizer — Material Synthesis",
             "Omni-Synthesizer — Material Exchange"
         ]
@@ -2911,6 +3183,32 @@
             "Omni-Synthesizer — Material Exchange"
         ]
     },
+    "110421": {
+        "id": "110421",
+        "name": "IPC Work Permit",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 4,
+        "icon": "icon/item/110421.png",
+        "come_from": [
+            "Stagnant Shadow: Clock Studios Theme Park",
+            "Stagnant Shadow: Clock Studios Theme Park",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
+    "110422": {
+        "id": "110422",
+        "name": "Raging Heart",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 4,
+        "icon": "icon/item/110422.png",
+        "come_from": [
+            "Stagnant Shadow: Dewlight Pavilion",
+            "Stagnant Shadow: Dewlight Pavilion",
+            "Omni-Synthesizer — Material Exchange"
+        ]
+    },
     "110423": {
         "id": "110423",
         "name": "Dream Fridge",
@@ -2979,6 +3277,17 @@
         "icon": "icon/item/110504.png",
         "come_from": [
             "Echo of War (Seclusion Zone)"
+        ]
+    },
+    "110505": {
+        "id": "110505",
+        "name": "Lost Echo of the Shared Wish",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 4,
+        "icon": "icon/item/110505.png",
+        "come_from": [
+            "Echo of War: Penacony Grand Theater"
         ]
     },
     "111001": {
@@ -3403,6 +3712,17 @@
         "icon": "icon/item/121001.png",
         "come_from": [
             "Obtained via leveling your popularity level in \"Ghostly Grove\""
+        ]
+    },
+    "121002": {
+        "id": "121002",
+        "name": "Clockwork Inspiration Notebook",
+        "type": "Material",
+        "sub_type": "Material",
+        "rarity": 4,
+        "icon": "icon/item/121002.png",
+        "come_from": [
+            "Obtained by increasing the Film Editing progress for Dreamjoy Memoir"
         ]
     },
     "122000": {
@@ -4726,7 +5046,7 @@
     },
     "140210": {
         "id": "140210",
-        "name": "Flash drive with a picture of Pela and her mother",
+        "name": "Floppy disk with a picture of Pela and her mother",
         "type": "Mission",
         "sub_type": "Mission",
         "rarity": 3,
@@ -5869,7 +6189,7 @@
     },
     "140344": {
         "id": "140344",
-        "name": "Evidence: \"Mutual Assured Destruction\" Button",
+        "name": "Evidence: \"Mutually Assured Destruction\" Button",
         "type": "Mission",
         "sub_type": "Mission",
         "rarity": 3,
@@ -6328,7 +6648,7 @@
     },
     "140400": {
         "id": "140400",
-        "name": "Unknown Puzzle Fragment",
+        "name": "Unknown Jigsaw Fragment",
         "type": "Mission",
         "sub_type": "Mission",
         "rarity": 3,
@@ -6677,6 +6997,240 @@
         "icon": "icon/item/140437.png",
         "come_from": []
     },
+    "140440": {
+        "id": "140440",
+        "name": "Fate's Epistle",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140440.png",
+        "come_from": []
+    },
+    "140441": {
+        "id": "140441",
+        "name": "Invite Received by the Annihilation Gang",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140441.png",
+        "come_from": []
+    },
+    "140442": {
+        "id": "140442",
+        "name": "Gulliver's Arch",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140442.png",
+        "come_from": []
+    },
+    "140443": {
+        "id": "140443",
+        "name": "Pinball Machine Model",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140443.png",
+        "come_from": []
+    },
+    "140444": {
+        "id": "140444",
+        "name": "Aventurine's Cornerstone",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140444.png",
+        "come_from": []
+    },
+    "140445": {
+        "id": "140445",
+        "name": "Aventurine's Box",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140445.png",
+        "come_from": []
+    },
+    "140446": {
+        "id": "140446",
+        "name": "Aventurine's Box",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140446.png",
+        "come_from": []
+    },
+    "140447": {
+        "id": "140447",
+        "name": "Aventurine's Baggage",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140447.png",
+        "come_from": []
+    },
+    "140448": {
+        "id": "140448",
+        "name": "Aventurine's Baggage",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140448.png",
+        "come_from": []
+    },
+    "140449": {
+        "id": "140449",
+        "name": "Mundanite's Insight",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140449.png",
+        "come_from": []
+    },
+    "140450": {
+        "id": "140450",
+        "name": "\"Mutually Assured Destruction\" Button",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140099.png",
+        "come_from": []
+    },
+    "140451": {
+        "id": "140451",
+        "name": "Special Drink \"El Dorado\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140451.png",
+        "come_from": []
+    },
+    "140452": {
+        "id": "140452",
+        "name": "Special Drink \"The Premature Burial\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140452.png",
+        "come_from": []
+    },
+    "140453": {
+        "id": "140453",
+        "name": "Special Drink \"Dream Within Dream\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140453.png",
+        "come_from": []
+    },
+    "140454": {
+        "id": "140454",
+        "name": "Special Drink \"The Big Sleep\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140454.png",
+        "come_from": []
+    },
+    "140455": {
+        "id": "140455",
+        "name": "Special Drink \"The Long Goodbye\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140455.png",
+        "come_from": []
+    },
+    "140456": {
+        "id": "140456",
+        "name": "Special Drink \"Farewell, My Lovely\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140456.png",
+        "come_from": []
+    },
+    "140457": {
+        "id": "140457",
+        "name": "Special Drink \"A Ticket to the Boneyard\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140457.png",
+        "come_from": []
+    },
+    "140458": {
+        "id": "140458",
+        "name": "Special Drink \"Even the Wicked\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140458.png",
+        "come_from": []
+    },
+    "140459": {
+        "id": "140459",
+        "name": "Special Drink \"Time to Murder and Create\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140459.png",
+        "come_from": []
+    },
+    "140460": {
+        "id": "140460",
+        "name": "Sunday & Robin's Light Cone",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140099.png",
+        "come_from": []
+    },
+    "140461": {
+        "id": "140461",
+        "name": "Topaz's Cornerstone",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140461.png",
+        "come_from": []
+    },
+    "140462": {
+        "id": "140462",
+        "name": "Jade's Cornerstone",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140462.png",
+        "come_from": []
+    },
+    "140463": {
+        "id": "140463",
+        "name": "Aventurine's Chains",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140463.png",
+        "come_from": []
+    },
+    "140464": {
+        "id": "140464",
+        "name": "Little Aventurine's Trinket",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140464.png",
+        "come_from": []
+    },
+    "140465": {
+        "id": "140465",
+        "name": "Commemorative Photo",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140465.png",
+        "come_from": []
+    },
     "140466": {
         "id": "140466",
         "name": "Hanu's Dream Bubble",
@@ -6711,6 +7265,186 @@
         "sub_type": "Mission",
         "rarity": 3,
         "icon": "icon/item/140407.png",
+        "come_from": []
+    },
+    "140470": {
+        "id": "140470",
+        "name": "Oksana's \"Toys\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/300052.png",
+        "come_from": []
+    },
+    "140471": {
+        "id": "140471",
+        "name": "Mr. Bigwig's Jigsaw Fragment",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140400.png",
+        "come_from": []
+    },
+    "140472": {
+        "id": "140472",
+        "name": "Spade's Jigsaw Fragment",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140400.png",
+        "come_from": []
+    },
+    "140473": {
+        "id": "140473",
+        "name": "Melancholy's Jigsaw Fragment",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140400.png",
+        "come_from": []
+    },
+    "140474": {
+        "id": "140474",
+        "name": "Starlet's Jigsaw Fragment",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140400.png",
+        "come_from": []
+    },
+    "140475": {
+        "id": "140475",
+        "name": "Lady's Jigsaw Fragment",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140400.png",
+        "come_from": []
+    },
+    "140476": {
+        "id": "140476",
+        "name": "Tin Man's Jigsaw Fragment",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140400.png",
+        "come_from": []
+    },
+    "140477": {
+        "id": "140477",
+        "name": "\"The Dreamweaver Archives\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/190002.png",
+        "come_from": []
+    },
+    "140478": {
+        "id": "140478",
+        "name": "Photo From the Archives",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140478.png",
+        "come_from": []
+    },
+    "140479": {
+        "id": "140479",
+        "name": "Dreamweavers' Group Photo",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140478.png",
+        "come_from": []
+    },
+    "140483": {
+        "id": "140483",
+        "name": "Mr. Soda's Extras Film Reel",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140483.png",
+        "come_from": []
+    },
+    "140484": {
+        "id": "140484",
+        "name": "Brother Hanu's Extras Film Reel",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140484.png",
+        "come_from": []
+    },
+    "140485": {
+        "id": "140485",
+        "name": "Boss Stone's Extras Film Reel",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140485.png",
+        "come_from": []
+    },
+    "140486": {
+        "id": "140486",
+        "name": "Origami Bird's Extras Film Reel",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140486.png",
+        "come_from": []
+    },
+    "140487": {
+        "id": "140487",
+        "name": "Old Man Wood's Extras Film Reel",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140487.png",
+        "come_from": []
+    },
+    "140488": {
+        "id": "140488",
+        "name": "Hamster Ball Knight's Extras Film Reel",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140488.png",
+        "come_from": []
+    },
+    "140492": {
+        "id": "140492",
+        "name": "Lost Property",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "140493": {
+        "id": "140493",
+        "name": "Big Ticker's Broken Heart (I)",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140493.png",
+        "come_from": []
+    },
+    "140494": {
+        "id": "140494",
+        "name": "Big Ticker's Broken Heart (II)",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140493.png",
+        "come_from": []
+    },
+    "140495": {
+        "id": "140495",
+        "name": "Big Ticker's Broken Heart (III)",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140493.png",
         "come_from": []
     },
     "149957": {
@@ -7035,6 +7769,339 @@
         "sub_type": "Mission",
         "rarity": 3,
         "icon": "icon/item/420001.png",
+        "come_from": []
+    },
+    "150010": {
+        "id": "150010",
+        "name": "Recipe: Dream Syrup",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408418.png",
+        "come_from": []
+    },
+    "150011": {
+        "id": "150011",
+        "name": "Recipe: Classic SoulGlad",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/401025.png",
+        "come_from": []
+    },
+    "150012": {
+        "id": "150012",
+        "name": "Recipe: Bright Future",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408417.png",
+        "come_from": []
+    },
+    "150013": {
+        "id": "150013",
+        "name": "Recipe: High Stakes",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408802.png",
+        "come_from": []
+    },
+    "150014": {
+        "id": "150014",
+        "name": "Recipe: Pika White Grape Soda",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408613.png",
+        "come_from": []
+    },
+    "150015": {
+        "id": "150015",
+        "name": "Recipe: Eternal Endurance",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408616.png",
+        "come_from": []
+    },
+    "150016": {
+        "id": "150016",
+        "name": "Special Drink \"El Dorado\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150016.png",
+        "come_from": []
+    },
+    "150017": {
+        "id": "150017",
+        "name": "Special Drink \"The Premature Burial\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150017.png",
+        "come_from": []
+    },
+    "150018": {
+        "id": "150018",
+        "name": "Special Drink \"Dream Within Dream\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150018.png",
+        "come_from": []
+    },
+    "150019": {
+        "id": "150019",
+        "name": "Special Drink \"The Big Sleep\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150019.png",
+        "come_from": []
+    },
+    "150020": {
+        "id": "150020",
+        "name": "Special Drink \"The Long Goodbye\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150020.png",
+        "come_from": []
+    },
+    "150021": {
+        "id": "150021",
+        "name": "Special Drink \"Farewell, My Lovely\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150021.png",
+        "come_from": []
+    },
+    "150022": {
+        "id": "150022",
+        "name": "Special Drink \"A Ticket to the Boneyard\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150022.png",
+        "come_from": []
+    },
+    "150023": {
+        "id": "150023",
+        "name": "Special Drink \"Even the Wicked\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150023.png",
+        "come_from": []
+    },
+    "150024": {
+        "id": "150024",
+        "name": "Special Drink \"Time to Murder and Create\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150024.png",
+        "come_from": []
+    },
+    "150025": {
+        "id": "150025",
+        "name": "Special Drink \"El Dorado\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150025.png",
+        "come_from": []
+    },
+    "150026": {
+        "id": "150026",
+        "name": "Special Drink \"The Premature Burial\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150026.png",
+        "come_from": []
+    },
+    "150027": {
+        "id": "150027",
+        "name": "Special Drink \"Dream Within Dream\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150027.png",
+        "come_from": []
+    },
+    "150028": {
+        "id": "150028",
+        "name": "Special Drink \"The Big Sleep\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150028.png",
+        "come_from": []
+    },
+    "150029": {
+        "id": "150029",
+        "name": "Special Drink \"The Long Goodbye\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150029.png",
+        "come_from": []
+    },
+    "150030": {
+        "id": "150030",
+        "name": "Special Drink \"Farewell, My Lovely\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150030.png",
+        "come_from": []
+    },
+    "150031": {
+        "id": "150031",
+        "name": "Special Drink \"A Ticket to the Boneyard\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150031.png",
+        "come_from": []
+    },
+    "150032": {
+        "id": "150032",
+        "name": "Special Drink \"Even the Wicked\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150032.png",
+        "come_from": []
+    },
+    "150033": {
+        "id": "150033",
+        "name": "Special Drink \"Time to Murder and Create\"",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150033.png",
+        "come_from": []
+    },
+    "150034": {
+        "id": "150034",
+        "name": "Cork Coaster",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/150034.png",
+        "come_from": []
+    },
+    "150035": {
+        "id": "150035",
+        "name": "Nightingale Statue Clue",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140099.png",
+        "come_from": []
+    },
+    "150036": {
+        "id": "150036",
+        "name": "Big Ticker's Broken Heart (I)",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140493.png",
+        "come_from": []
+    },
+    "150037": {
+        "id": "150037",
+        "name": "Big Ticker's Broken Heart (II)",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140493.png",
+        "come_from": []
+    },
+    "150038": {
+        "id": "150038",
+        "name": "Big Ticker's Broken Heart (III)",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/140493.png",
+        "come_from": []
+    },
+    "150039": {
+        "id": "150039",
+        "name": "Dreamjolt Hostelry Group Photo",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/149975.png",
+        "come_from": []
+    },
+    "150040": {
+        "id": "150040",
+        "name": "Dreamy Cone (Three Flavors)",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 4,
+        "icon": "icon/item/408801.png",
+        "come_from": []
+    },
+    "150041": {
+        "id": "150041",
+        "name": "Floatdisc Burger",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408609.png",
+        "come_from": []
+    },
+    "150042": {
+        "id": "150042",
+        "name": "Clockie Pizza (Whole)",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408610.png",
+        "come_from": []
+    },
+    "150043": {
+        "id": "150043",
+        "name": "Potato Fries Sundae",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408611.png",
+        "come_from": []
+    },
+    "150044": {
+        "id": "150044",
+        "name": "Oak Cake Rolls",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408612.png",
+        "come_from": []
+    },
+    "150045": {
+        "id": "150045",
+        "name": "Pika White Grape Soda",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 3,
+        "icon": "icon/item/408613.png",
+        "come_from": []
+    },
+    "150046": {
+        "id": "150046",
+        "name": "Classic SoulGlad",
+        "type": "Mission",
+        "sub_type": "Mission",
+        "rarity": 2,
+        "icon": "icon/item/401025.png",
         "come_from": []
     },
     "180001": {
@@ -8976,7 +10043,7 @@
     },
     "190258": {
         "id": "190258",
-        "name": "The startaro bubble tea tastes horrible.",
+        "name": "The Startaro Bubble Tea Tastes Horrible",
         "type": "Usable",
         "sub_type": "Book",
         "rarity": 1,
@@ -9633,7 +10700,7 @@
     },
     "190335": {
         "id": "190335",
-        "name": "Echoes of Antiquity: A Grand Overview of Traditional Xianzhou Folk Culture — Foxian Drum Chanting",
+        "name": "Echoes of Antiquity: A Grand Overview of Traditional Xianzhou Folk Culture — Foxian Drum Chant",
         "type": "Usable",
         "sub_type": "Book",
         "rarity": 1,
@@ -10047,7 +11114,7 @@
     },
     "190382": {
         "id": "190382",
-        "name": "Butterfly Shadow's Special Issue: The Ten Best Butterfly Immersias of the Millennium — No. 3: Last Night on the Luofu",
+        "name": "Butterfly Shadow's Special Issue: The Ten Best Butterfly Immersias of the Millennium — No. 3: Last Evenings on Luofu",
         "type": "Usable",
         "sub_type": "Book",
         "rarity": 1,
@@ -11253,7 +12320,7 @@
     },
     "190519": {
         "id": "190519",
-        "name": "Foxian Drum Chanting Lament of the Six Follies",
+        "name": "Foxian Drum Chant Lament of the Six Follies",
         "type": "Usable",
         "sub_type": "Book",
         "rarity": 1,
@@ -11746,6 +12813,24 @@
         "icon": "icon/item/190015.png",
         "come_from": []
     },
+    "190574": {
+        "id": "190574",
+        "name": "Planet of Festivities Collectible Card — Planet of Festivities: Hanunue",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190575": {
+        "id": "190575",
+        "name": "Planet of Festivities Collectible Card - Planet of Festivities: Glaux",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
     "190576": {
         "id": "190576",
         "name": "Planet of Festivities Collectible Card — Planet of Festivities: Oti Alfalfa",
@@ -11755,9 +12840,27 @@
         "icon": "icon/item/190015.png",
         "come_from": []
     },
+    "190577": {
+        "id": "190577",
+        "name": "Planet of Festivities Collectible Card — The Planet of Festivities: Hamz",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
     "190578": {
         "id": "190578",
         "name": "Planet of Festivities Collectible Card — Planet of Festivities: Mr. Aideen",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190579": {
+        "id": "190579",
+        "name": "Planet of Festivities Collectible Card - Planet of Festivities: Nameless Hero",
         "type": "Usable",
         "sub_type": "Book",
         "rarity": 1,
@@ -11812,6 +12915,591 @@
     "190585": {
         "id": "190585",
         "name": "Attendant Hamilton's Notes (IV)",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190586": {
+        "id": "190586",
+        "name": "Planet of Festivities Collectible Card — The Planet of Festivities: Maeven Ellis",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190587": {
+        "id": "190587",
+        "name": "Planet of Festivities Collectible Card — The Planet of Festivities: Gopher Wood",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190588": {
+        "id": "190588",
+        "name": "A Letter from Robin",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190589": {
+        "id": "190589",
+        "name": "\"Doctor's Advice\"",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190590": {
+        "id": "190590",
+        "name": "List of Suspects",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190013.png",
+        "come_from": []
+    },
+    "190591": {
+        "id": "190591",
+        "name": "List of Death's Victims",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190013.png",
+        "come_from": []
+    },
+    "190592": {
+        "id": "190592",
+        "name": "A Letter from Alfalfa",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190593": {
+        "id": "190593",
+        "name": "Summary of Clock Studios Financial Report",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190594": {
+        "id": "190594",
+        "name": "Maker's Diary about Mecha Town",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190595": {
+        "id": "190595",
+        "name": "Clockie and Mirror Princess, Part A",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190596": {
+        "id": "190596",
+        "name": "Clockie and Mirror Princess, Part B",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190597": {
+        "id": "190597",
+        "name": "Watchmaker Investigation Record",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190598": {
+        "id": "190598",
+        "name": "A Hymn of Charmonic Strings",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190599": {
+        "id": "190599",
+        "name": "Odes of Harmony, First Movement",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190600": {
+        "id": "190600",
+        "name": "Stowaway Investigative Report Part 1",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190013.png",
+        "come_from": []
+    },
+    "190601": {
+        "id": "190601",
+        "name": "Stowaway Investigative Report Part 2",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190013.png",
+        "come_from": []
+    },
+    "190602": {
+        "id": "190602",
+        "name": "Penacony Flight Guide",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190603": {
+        "id": "190603",
+        "name": "Comments on Scorchsand Adventure",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190604": {
+        "id": "190604",
+        "name": "A Letter of Complaint",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190605": {
+        "id": "190605",
+        "name": "My Romantic Encounters",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190606": {
+        "id": "190606",
+        "name": "A Letter to Dreamscape Motivators",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190608": {
+        "id": "190608",
+        "name": "Project: Scarab",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190609": {
+        "id": "190609",
+        "name": "A Scrawled Note",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190610": {
+        "id": "190610",
+        "name": "A Handwritten Letter",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190611": {
+        "id": "190611",
+        "name": "Supernatural Encounters in Paperfold Academy",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190013.png",
+        "come_from": []
+    },
+    "190612": {
+        "id": "190612",
+        "name": "An Unsent Letter",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190613": {
+        "id": "190613",
+        "name": "Claudia's Gathered Clues",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190614": {
+        "id": "190614",
+        "name": "A Letter of Diffidation",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190615": {
+        "id": "190615",
+        "name": "Classified: Major Incidents in Dreamscape",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190616": {
+        "id": "190616",
+        "name": "Excerpts from Dreamscape Crime Files",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190617": {
+        "id": "190617",
+        "name": "Quinn's Diary",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190618": {
+        "id": "190618",
+        "name": "Alfalfa Bank Insurance Package Information Booklet",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190013.png",
+        "come_from": []
+    },
+    "190619": {
+        "id": "190619",
+        "name": "Hanu's Adventure Part 2, Chapter 1",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190620": {
+        "id": "190620",
+        "name": "Hanu's Adventure Part 2, Chapter 2",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190621": {
+        "id": "190621",
+        "name": "Hanu's Adventure Part 2, Chapter 3",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190622": {
+        "id": "190622",
+        "name": "Hanu's Adventure Part 2, Chapter 4",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190624": {
+        "id": "190624",
+        "name": "Planet of Festivities Collectible Card - Planet of Festivities: Origami Dreamweaver",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190625": {
+        "id": "190625",
+        "name": "Lost Property",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190626": {
+        "id": "190626",
+        "name": "Someone's Treasure",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190015.png",
+        "come_from": []
+    },
+    "190627": {
+        "id": "190627",
+        "name": "Dreamflux Reef Travel Guide 19.0",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190628": {
+        "id": "190628",
+        "name": "Clockie and Captain Revolver Part 1",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190629": {
+        "id": "190629",
+        "name": "Clockie and Captain Revolver Part 2",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190630": {
+        "id": "190630",
+        "name": "Clockie and Captain Revolver Part 3",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190631": {
+        "id": "190631",
+        "name": "Hanu's Adventure Part 3, Chapter 1",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190632": {
+        "id": "190632",
+        "name": "Hanu's Adventure Part 3, Chapter 2",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190634": {
+        "id": "190634",
+        "name": "Mr. Soda's Extras",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190635": {
+        "id": "190635",
+        "name": "Boss Stone's Extras",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190636": {
+        "id": "190636",
+        "name": "Brother Hanu's Extras",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190637": {
+        "id": "190637",
+        "name": "Origami Bird's Extras",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190638": {
+        "id": "190638",
+        "name": "Old Man Wood's Extras",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190639": {
+        "id": "190639",
+        "name": "Hamster Ball Knight's Extras",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190014.png",
+        "come_from": []
+    },
+    "190640": {
+        "id": "190640",
+        "name": "The Dreamweaver Archives",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190641": {
+        "id": "190641",
+        "name": "Claudia's Gathered Clues (II)",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190642": {
+        "id": "190642",
+        "name": "Death of the Crow",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190643": {
+        "id": "190643",
+        "name": "The Story of SoulGlad: Dreams in a Bottle",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190644": {
+        "id": "190644",
+        "name": "Night of Burning Dreams Script",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190645": {
+        "id": "190645",
+        "name": "Collection of Audition Violation Cases",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190013.png",
+        "come_from": []
+    },
+    "190646": {
+        "id": "190646",
+        "name": "A Hundred Truths about the Pepeshi",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190647": {
+        "id": "190647",
+        "name": "Evening Tavern Stories: SoulGlad Special Issue",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190013.png",
+        "come_from": []
+    },
+    "190648": {
+        "id": "190648",
+        "name": "The Unchosen Path (Part 1)",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190649": {
+        "id": "190649",
+        "name": "The Unchosen Path (Part 2)",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190650": {
+        "id": "190650",
+        "name": "The Unchosen Path (Part 3)",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190651": {
+        "id": "190651",
+        "name": "The Unchosen Path (Part 4)",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190652": {
+        "id": "190652",
+        "name": "The Unchosen Path (Part 5)",
+        "type": "Usable",
+        "sub_type": "Book",
+        "rarity": 1,
+        "icon": "icon/item/190016.png",
+        "come_from": []
+    },
+    "190653": {
+        "id": "190653",
+        "name": "The Unchosen Path (Part 6)",
         "type": "Usable",
         "sub_type": "Book",
         "rarity": 1,
@@ -12234,7 +13922,7 @@
     },
     "210010": {
         "id": "210010",
-        "name": "Flashpoint",
+        "name": "\"Flashpoint\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12657,7 +14345,7 @@
     },
     "210300": {
         "id": "210300",
-        "name": "Against The Day",
+        "name": "\"Against The Day\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12666,7 +14354,7 @@
     },
     "210301": {
         "id": "210301",
-        "name": "Challenge to the Reader",
+        "name": "\"Challenge to the Reader\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12675,7 +14363,7 @@
     },
     "210302": {
         "id": "210302",
-        "name": "The Player on The Other Side",
+        "name": "\"The Player on The Other Side\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12684,7 +14372,7 @@
     },
     "210303": {
         "id": "210303",
-        "name": "Fair Play",
+        "name": "\"Fair Play\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12702,7 +14390,7 @@
     },
     "210305": {
         "id": "210305",
-        "name": "Nevermore",
+        "name": "\"Nevermore\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12711,7 +14399,7 @@
     },
     "210306": {
         "id": "210306",
-        "name": "This Side of Paradise",
+        "name": "\"This Side of Paradise\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12720,7 +14408,7 @@
     },
     "210307": {
         "id": "210307",
-        "name": "Golden Land",
+        "name": "\"Golden Land\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12729,7 +14417,7 @@
     },
     "210308": {
         "id": "210308",
-        "name": "Ace in the Hole",
+        "name": "\"Ace in the Hole\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12738,7 +14426,7 @@
     },
     "210309": {
         "id": "210309",
-        "name": "The Big Sleep",
+        "name": "\"The Big Sleep\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12747,7 +14435,7 @@
     },
     "210310": {
         "id": "210310",
-        "name": "Realitätsprinzip",
+        "name": "\"Realitätsprinzip\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12756,7 +14444,7 @@
     },
     "210311": {
         "id": "210311",
-        "name": "Lustprinzip",
+        "name": "\"Lustprinzip\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12765,7 +14453,7 @@
     },
     "210312": {
         "id": "210312",
-        "name": "Halfway House",
+        "name": "\"Halfway House\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12774,7 +14462,7 @@
     },
     "210313": {
         "id": "210313",
-        "name": "If I Can Stop One Heart From Breaking",
+        "name": "\"If I Can Stop One Heart From Breaking\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12783,7 +14471,7 @@
     },
     "210314": {
         "id": "210314",
-        "name": "Chaîne Signifiante",
+        "name": "\"Chaîne Signifiante\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12792,7 +14480,340 @@
     },
     "210315": {
         "id": "210315",
-        "name": "Stade du Miroir",
+        "name": "\"Stade du Miroir\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210316": {
+        "id": "210316",
+        "name": "\"City Upon a Hill\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210317": {
+        "id": "210317",
+        "name": "\"Spellbound\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210318": {
+        "id": "210318",
+        "name": "\"Hi, Dolly!\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210319": {
+        "id": "210319",
+        "name": "\"The Midnight Special\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210320": {
+        "id": "210320",
+        "name": "\"If One Wakes at Midnight\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210321": {
+        "id": "210321",
+        "name": "\"Stranger Than Paradise\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210322": {
+        "id": "210322",
+        "name": "\"On The Disintegration of Evermemoria\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210323": {
+        "id": "210323",
+        "name": "\"Citizen Hanunue\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210324": {
+        "id": "210324",
+        "name": "\"Into the Yawning Chasm\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210325": {
+        "id": "210325",
+        "name": "\"Dream First!\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210326": {
+        "id": "210326",
+        "name": "\"Speedy Hamz\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210327": {
+        "id": "210327",
+        "name": "\"Omertà\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210328": {
+        "id": "210328",
+        "name": "\"Polaris\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210329": {
+        "id": "210329",
+        "name": "\"Oed' und leer das Meer\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210330": {
+        "id": "210330",
+        "name": "\"Fast & Furynuts\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210331": {
+        "id": "210331",
+        "name": "\"Way of the Wolf\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210332": {
+        "id": "210332",
+        "name": "\"Infirma Nostri Corporis\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210333": {
+        "id": "210333",
+        "name": "\"Symphony No. 8 'A Thousand Suns'\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210334": {
+        "id": "210334",
+        "name": "Hope Is the Thing With Feathers",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210335": {
+        "id": "210335",
+        "name": "\"Some Like It Hot\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210336": {
+        "id": "210336",
+        "name": "\"No Business Like Show Business\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210337": {
+        "id": "210337",
+        "name": "\"The Strength of Sin Is the Law\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210338": {
+        "id": "210338",
+        "name": "\"The Sting of Death Is Sin\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210339": {
+        "id": "210339",
+        "name": "\"The City in the Sea\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210340": {
+        "id": "210340",
+        "name": "\"A Star Is Born\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210341": {
+        "id": "210341",
+        "name": "\"An Actor Prepares\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210342": {
+        "id": "210342",
+        "name": "\"Little Little Caesar\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210343": {
+        "id": "210343",
+        "name": "\"Nobility of Time\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210344": {
+        "id": "210344",
+        "name": "\"Walk of Fame\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210345": {
+        "id": "210345",
+        "name": "\"Lux Aeterna\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210346": {
+        "id": "210346",
+        "name": "\"Hosanna in Excelsis\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210347": {
+        "id": "210347",
+        "name": "\"Confutatis\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210348": {
+        "id": "210348",
+        "name": "\"Agnus Aeon\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210349": {
+        "id": "210349",
+        "name": "\"Requiem Aeternam\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210350": {
+        "id": "210350",
+        "name": "\"Sway to My Beat in Cosmos\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210351": {
+        "id": "210351",
+        "name": "\"Hope Is the Thing With Feathers (Overture)\"",
+        "type": "Usable",
+        "sub_type": "MusicAlbum",
+        "rarity": 3,
+        "icon": "icon/item/210001.png",
+        "come_from": []
+    },
+    "210352": {
+        "id": "210352",
+        "name": "\"Morns Like These\"",
         "type": "Usable",
         "sub_type": "MusicAlbum",
         "rarity": 3,
@@ -12843,6 +14864,28 @@
             "Obtained from the \"Critter Pick\" event"
         ]
     },
+    "220004": {
+        "id": "220004",
+        "name": "Monster Tavern",
+        "type": "Usable",
+        "sub_type": "ChatBubble",
+        "rarity": 4,
+        "icon": "icon/item/220004.png",
+        "come_from": [
+            "Obtained from Vignettes in a Cup"
+        ]
+    },
+    "220005": {
+        "id": "220005",
+        "name": "Cinematic Dreamchase",
+        "type": "Usable",
+        "sub_type": "ChatBubble",
+        "rarity": 4,
+        "icon": "icon/item/220005.png",
+        "come_from": [
+            "Chat Box obtained from the \"Dreamjoy Memoir\" event"
+        ]
+    },
     "221000": {
         "id": "221000",
         "name": "Nameless Journey",
@@ -12882,7 +14925,7 @@
         "rarity": 4,
         "icon": "icon/item/221003.png",
         "come_from": [
-            "Obtained from the \"A Foxian Tale of the Haunted\" Event"
+            "Obtained from the A Foxian Tale of the Haunted Event"
         ]
     },
     "221004": {
@@ -12894,6 +14937,17 @@
         "icon": "icon/item/221004.png",
         "come_from": [
             "Obtained by upgrading the Clockie Statue"
+        ]
+    },
+    "221005": {
+        "id": "221005",
+        "name": "Cosmodyssey",
+        "type": "Usable",
+        "sub_type": "PhoneTheme",
+        "rarity": 4,
+        "icon": "icon/item/221005.png",
+        "come_from": [
+            "Obtained from the Cosmodyssey Event"
         ]
     },
     "222000": {
@@ -13002,6 +15056,24 @@
         "sub_type": "TravelBrochurePaster",
         "rarity": 4,
         "icon": "icon/item/223010.png",
+        "come_from": []
+    },
+    "223011": {
+        "id": "223011",
+        "name": "Boothill",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223011.png",
+        "come_from": []
+    },
+    "223012": {
+        "id": "223012",
+        "name": "Argenti",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223012.png",
         "come_from": []
     },
     "223020": {
@@ -13137,6 +15209,15 @@
         "sub_type": "TravelBrochurePaster",
         "rarity": 4,
         "icon": "icon/item/223059.png",
+        "come_from": []
+    },
+    "223060": {
+        "id": "223060",
+        "name": "Jazz",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223060.png",
         "come_from": []
     },
     "223080": {
@@ -13834,7 +15915,7 @@
     },
     "223352": {
         "id": "223352",
-        "name": "Clock Workshop",
+        "name": "Study",
         "type": "Usable",
         "sub_type": "TravelBrochurePaster",
         "rarity": 4,
@@ -14021,6 +16102,33 @@
         "icon": "icon/item/223409.png",
         "come_from": []
     },
+    "223410": {
+        "id": "223410",
+        "name": "Mirrored Who",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223410.png",
+        "come_from": []
+    },
+    "223411": {
+        "id": "223411",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223412": {
+        "id": "223412",
+        "name": "Insatiable Vanity",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223412.png",
+        "come_from": []
+    },
     "223430": {
         "id": "223430",
         "name": "Lost (I)",
@@ -14060,6 +16168,843 @@
     "223434": {
         "id": "223434",
         "name": "Lost (V)",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223450": {
+        "id": "223450",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223451": {
+        "id": "223451",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223452": {
+        "id": "223452",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223453": {
+        "id": "223453",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223454": {
+        "id": "223454",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223455": {
+        "id": "223455",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223456": {
+        "id": "223456",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223457": {
+        "id": "223457",
+        "name": "",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/Icon_Testmaterial01.png",
+        "come_from": []
+    },
+    "223500": {
+        "id": "223500",
+        "name": "Theme Park Guide",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223500.png",
+        "come_from": []
+    },
+    "223501": {
+        "id": "223501",
+        "name": "Best Buddies (I)",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223501.png",
+        "come_from": []
+    },
+    "223502": {
+        "id": "223502",
+        "name": "Best Buddies (II)",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223502.png",
+        "come_from": []
+    },
+    "223503": {
+        "id": "223503",
+        "name": "Gaseous Laughter",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223503.png",
+        "come_from": []
+    },
+    "223504": {
+        "id": "223504",
+        "name": "3... 2... 1... Action!",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223504.png",
+        "come_from": []
+    },
+    "223505": {
+        "id": "223505",
+        "name": "No Open Flames Allowed",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223505.png",
+        "come_from": []
+    },
+    "223506": {
+        "id": "223506",
+        "name": "\"Philanthropist\"",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223506.png",
+        "come_from": []
+    },
+    "223507": {
+        "id": "223507",
+        "name": "Penacony City Mob",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223507.png",
+        "come_from": []
+    },
+    "223508": {
+        "id": "223508",
+        "name": "Hamster Speedrun",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223508.png",
+        "come_from": []
+    },
+    "223509": {
+        "id": "223509",
+        "name": "Limousine Cinema",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223509.png",
+        "come_from": []
+    },
+    "223531": {
+        "id": "223531",
+        "name": "Clockie's Quote",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223532": {
+        "id": "223532",
+        "name": "Brother Hanu's Quote",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223533": {
+        "id": "223533",
+        "name": "Hamster Ball Knight's Quote",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223534": {
+        "id": "223534",
+        "name": "Boss Stone's Quote",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223600": {
+        "id": "223600",
+        "name": "City Sandpit: Entrance",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223600.png",
+        "come_from": []
+    },
+    "223601": {
+        "id": "223601",
+        "name": "City Sandpit: Foundation",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223601.png",
+        "come_from": []
+    },
+    "223602": {
+        "id": "223602",
+        "name": "City Sandpit: Building Complex",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223602.png",
+        "come_from": []
+    },
+    "223603": {
+        "id": "223603",
+        "name": "City Sandpit: Advertisement",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223603.png",
+        "come_from": []
+    },
+    "223604": {
+        "id": "223604",
+        "name": "City Sandpit: SoulGlad",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223604.png",
+        "come_from": []
+    },
+    "223605": {
+        "id": "223605",
+        "name": "City Sandpit: Booth",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223605.png",
+        "come_from": []
+    },
+    "223606": {
+        "id": "223606",
+        "name": "City Sandpit: Force of Evil",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223606.png",
+        "come_from": []
+    },
+    "223607": {
+        "id": "223607",
+        "name": "City Sandpit: Drunk \"Little\" Bird",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223607.png",
+        "come_from": []
+    },
+    "223631": {
+        "id": "223631",
+        "name": "Conclusion of the 3rd Round of Inspection: Failed",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223632": {
+        "id": "223632",
+        "name": "Conclusion of the 8th Round of Inspection: Failed",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223633": {
+        "id": "223633",
+        "name": "Conclusion of the 11th Round of Inspection: Failed",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223634": {
+        "id": "223634",
+        "name": "Conclusion of the 20th Round of Inspection: Failed",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223700": {
+        "id": "223700",
+        "name": "Oak",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223700.png",
+        "come_from": []
+    },
+    "223701": {
+        "id": "223701",
+        "name": "Alfalfa",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223701.png",
+        "come_from": []
+    },
+    "223702": {
+        "id": "223702",
+        "name": "Nightingale",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223702.png",
+        "come_from": []
+    },
+    "223703": {
+        "id": "223703",
+        "name": "Bloodhound",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223703.png",
+        "come_from": []
+    },
+    "223704": {
+        "id": "223704",
+        "name": "Iris",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223704.png",
+        "come_from": []
+    },
+    "223705": {
+        "id": "223705",
+        "name": "Mr. Aideen",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223705.png",
+        "come_from": []
+    },
+    "223706": {
+        "id": "223706",
+        "name": "Oti Alfalfa",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223706.png",
+        "come_from": []
+    },
+    "223707": {
+        "id": "223707",
+        "name": "Glaux",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223707.png",
+        "come_from": []
+    },
+    "223708": {
+        "id": "223708",
+        "name": "Hamz",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223708.png",
+        "come_from": []
+    },
+    "223709": {
+        "id": "223709",
+        "name": "Hanunue",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223709.png",
+        "come_from": []
+    },
+    "223710": {
+        "id": "223710",
+        "name": "Lesley Dean",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223710.png",
+        "come_from": []
+    },
+    "223711": {
+        "id": "223711",
+        "name": "Nameless Hero",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223711.png",
+        "come_from": []
+    },
+    "223712": {
+        "id": "223712",
+        "name": "Robin",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223712.png",
+        "come_from": []
+    },
+    "223713": {
+        "id": "223713",
+        "name": "Maeven Ellis",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223713.png",
+        "come_from": []
+    },
+    "223714": {
+        "id": "223714",
+        "name": "Gopher Wood",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223714.png",
+        "come_from": []
+    },
+    "223715": {
+        "id": "223715",
+        "name": "Famous Five Origamists",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223715.png",
+        "come_from": []
+    },
+    "223731": {
+        "id": "223731",
+        "name": "Oak Family Teachings",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223732": {
+        "id": "223732",
+        "name": "Alfalfa Family Teachings",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223733": {
+        "id": "223733",
+        "name": "Nightingale Family Teachings",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223734": {
+        "id": "223734",
+        "name": "Bloodhound Family Teachings",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223735": {
+        "id": "223735",
+        "name": "Iris Family Teachings",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223800": {
+        "id": "223800",
+        "name": "Graffiti 1",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223800.png",
+        "come_from": []
+    },
+    "223801": {
+        "id": "223801",
+        "name": "Graffiti 2",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223801.png",
+        "come_from": []
+    },
+    "223802": {
+        "id": "223802",
+        "name": "Graffiti 3",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223802.png",
+        "come_from": []
+    },
+    "223803": {
+        "id": "223803",
+        "name": "Streetside Repose",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223803.png",
+        "come_from": []
+    },
+    "223804": {
+        "id": "223804",
+        "name": "Watchmaker's Hat",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223804.png",
+        "come_from": []
+    },
+    "223805": {
+        "id": "223805",
+        "name": "Mikhail's Slumber",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223805.png",
+        "come_from": []
+    },
+    "223806": {
+        "id": "223806",
+        "name": "The Existence of God",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223806.png",
+        "come_from": []
+    },
+    "223807": {
+        "id": "223807",
+        "name": "Old Friend",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223807.png",
+        "come_from": []
+    },
+    "223808": {
+        "id": "223808",
+        "name": "Slumbertown",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223808.png",
+        "come_from": []
+    },
+    "223809": {
+        "id": "223809",
+        "name": "The Essense of Dreams",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223809.png",
+        "come_from": []
+    },
+    "223811": {
+        "id": "223811",
+        "name": "Lost Diary: Soldier",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223812": {
+        "id": "223812",
+        "name": "Lost Diary: Dancer",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223813": {
+        "id": "223813",
+        "name": "Lost Diary: Vagrant",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223814": {
+        "id": "223814",
+        "name": "Lost Diary: Affluent Man",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223901": {
+        "id": "223901",
+        "name": "On Set",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223901.png",
+        "come_from": []
+    },
+    "223902": {
+        "id": "223902",
+        "name": "Brand Ambassador",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223902.png",
+        "come_from": []
+    },
+    "223903": {
+        "id": "223903",
+        "name": "Action!",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223903.png",
+        "come_from": []
+    },
+    "223904": {
+        "id": "223904",
+        "name": "Sponsor",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223904.png",
+        "come_from": []
+    },
+    "223905": {
+        "id": "223905",
+        "name": "Base Camp",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223905.png",
+        "come_from": []
+    },
+    "223906": {
+        "id": "223906",
+        "name": "Lonely Giant",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223906.png",
+        "come_from": []
+    },
+    "223907": {
+        "id": "223907",
+        "name": "Festival's Starting Point",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223907.png",
+        "come_from": []
+    },
+    "223908": {
+        "id": "223908",
+        "name": "The Birth of a Superstar",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/223908.png",
+        "come_from": []
+    },
+    "223911": {
+        "id": "223911",
+        "name": "Foxian Contestant's Note",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223912": {
+        "id": "223912",
+        "name": "Masked Fool Contestant's Note",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "223913": {
+        "id": "223913",
+        "name": "Knight of Beauty Contestant's Note",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "224001": {
+        "id": "224001",
+        "name": "All-Seeing Eye",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224001.png",
+        "come_from": []
+    },
+    "224002": {
+        "id": "224002",
+        "name": "Intermission",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224002.png",
+        "come_from": []
+    },
+    "224003": {
+        "id": "224003",
+        "name": "Where Starlight Congregate",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224003.png",
+        "come_from": []
+    },
+    "224004": {
+        "id": "224004",
+        "name": "Program List",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224004.png",
+        "come_from": []
+    },
+    "224005": {
+        "id": "224005",
+        "name": "Dancer 1",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224005.png",
+        "come_from": []
+    },
+    "224006": {
+        "id": "224006",
+        "name": "Dancer 2",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224006.png",
+        "come_from": []
+    },
+    "224007": {
+        "id": "224007",
+        "name": "Dancer 3",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224007.png",
+        "come_from": []
+    },
+    "224008": {
+        "id": "224008",
+        "name": "Tomorrow in Harmonious Chords",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224008.png",
+        "come_from": []
+    },
+    "224009": {
+        "id": "224009",
+        "name": "Present Inebriated in Revelry",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224009.png",
+        "come_from": []
+    },
+    "224010": {
+        "id": "224010",
+        "name": "Past Confined and Caged",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/224010.png",
+        "come_from": []
+    },
+    "224011": {
+        "id": "224011",
+        "name": "Dress Rehearsal (I)",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "224012": {
+        "id": "224012",
+        "name": "Dress Rehearsal (II)",
+        "type": "Usable",
+        "sub_type": "TravelBrochurePaster",
+        "rarity": 4,
+        "icon": "icon/item/TBComStickIcon.png",
+        "come_from": []
+    },
+    "224013": {
+        "id": "224013",
+        "name": "Dress Rehearsal (III)",
         "type": "Usable",
         "sub_type": "TravelBrochurePaster",
         "rarity": 4,
@@ -16029,6 +18974,15 @@
         "icon": "icon/item/281001.png",
         "come_from": []
     },
+    "281005": {
+        "id": "281005",
+        "name": "Tips",
+        "type": "Virtual",
+        "sub_type": "Virtual",
+        "rarity": 4,
+        "icon": "icon/item/281005.png",
+        "come_from": []
+    },
     "281012": {
         "id": "281012",
         "name": "",
@@ -16045,6 +18999,69 @@
         "sub_type": "Virtual",
         "rarity": 3,
         "icon": "icon/item/281013.png",
+        "come_from": []
+    },
+    "281014": {
+        "id": "281014",
+        "name": "Ordinary Dice",
+        "type": "Virtual",
+        "sub_type": "Virtual",
+        "rarity": 3,
+        "icon": "icon/item/281014.png",
+        "come_from": []
+    },
+    "281015": {
+        "id": "281015",
+        "name": "Trailblaze Funds",
+        "type": "Virtual",
+        "sub_type": "Virtual",
+        "rarity": 3,
+        "icon": "icon/item/281015.png",
+        "come_from": []
+    },
+    "281016": {
+        "id": "281016",
+        "name": "Remote Dice",
+        "type": "Virtual",
+        "sub_type": "Virtual",
+        "rarity": 3,
+        "icon": "icon/item/281016.png",
+        "come_from": []
+    },
+    "281017": {
+        "id": "281017",
+        "name": "Reroll Coin",
+        "type": "Virtual",
+        "sub_type": "Virtual",
+        "rarity": 3,
+        "icon": "icon/item/281017.png",
+        "come_from": []
+    },
+    "281019": {
+        "id": "281019",
+        "name": "Raccoon Tokens",
+        "type": "Virtual",
+        "sub_type": "Virtual",
+        "rarity": 3,
+        "icon": "icon/item/281019.png",
+        "come_from": []
+    },
+    "281020": {
+        "id": "281020",
+        "name": "Directorial Experience",
+        "type": "Virtual",
+        "sub_type": "Virtual",
+        "rarity": 3,
+        "icon": "icon/item/270001.png",
+        "come_from": []
+    },
+    "281021": {
+        "id": "281021",
+        "name": "Dreamjoy Memoir Film Reel",
+        "type": "Virtual",
+        "sub_type": "Virtual",
+        "rarity": 3,
+        "icon": "icon/item/281001.png",
         "come_from": []
     },
     "300002": {
@@ -16081,6 +19098,15 @@
         "sub_type": "ForceOpitonalGift",
         "rarity": 4,
         "icon": "icon/item/300020.png",
+        "come_from": []
+    },
+    "300021": {
+        "id": "300021",
+        "name": "Sparkle's Wondrous Pack",
+        "type": "Usable",
+        "sub_type": "Gift",
+        "rarity": 4,
+        "icon": "icon/item/300021.png",
         "come_from": []
     },
     "300031": {
@@ -16182,6 +19208,15 @@
         "icon": "icon/item/300201.png",
         "come_from": []
     },
+    "300202": {
+        "id": "300202",
+        "name": "Credbits",
+        "type": "Usable",
+        "sub_type": "Gift",
+        "rarity": 3,
+        "icon": "icon/item/2.png",
+        "come_from": []
+    },
     "309001": {
         "id": "309001",
         "name": "Fateful Crossings: Aetherium Wars",
@@ -16194,6 +19229,15 @@
     "309002": {
         "id": "309002",
         "name": "Fateful Crossings: Hanu's Prison Break",
+        "type": "Usable",
+        "sub_type": "ForceOpitonalGift",
+        "rarity": 4,
+        "icon": "icon/item/309001.png",
+        "come_from": []
+    },
+    "309003": {
+        "id": "309003",
+        "name": "Fateful Crossings: Vignettes in a Cup",
         "type": "Usable",
         "sub_type": "ForceOpitonalGift",
         "rarity": 4,
@@ -17085,6 +20129,18 @@
             "Dreamscape Sales Store"
         ]
     },
+    "403011": {
+        "id": "403011",
+        "name": "Scare Box",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 4,
+        "icon": "icon/item/403011.png",
+        "come_from": [
+            "Omni-Synthesizer",
+            "Kirk"
+        ]
+    },
     "404004": {
         "id": "404004",
         "name": "Recipe: Comfort Food",
@@ -17706,6 +20762,15 @@
         "icon": "icon/item/404001.png",
         "come_from": []
     },
+    "407011": {
+        "id": "407011",
+        "name": "Recipe: Scare Box",
+        "type": "Usable",
+        "sub_type": "Formula",
+        "rarity": 4,
+        "icon": "icon/item/404001.png",
+        "come_from": []
+    },
     "408001": {
         "id": "408001",
         "name": "Trash",
@@ -18019,7 +21084,7 @@
     },
     "408417": {
         "id": "408417",
-        "name": "Looking Toward A Bright Future",
+        "name": "Bright Future",
         "type": "Usable",
         "sub_type": "Food",
         "rarity": 2,
@@ -18037,6 +21102,50 @@
         "icon": "icon/item/408418.png",
         "come_from": [
             "Dreamscape Sales Store"
+        ]
+    },
+    "408419": {
+        "id": "408419",
+        "name": "Halovian Winged Burger",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 2,
+        "icon": "icon/item/408419.png",
+        "come_from": [
+            "Jessie's Snack"
+        ]
+    },
+    "408420": {
+        "id": "408420",
+        "name": "Delusion Blocks",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 2,
+        "icon": "icon/item/408420.png",
+        "come_from": [
+            "Kirk"
+        ]
+    },
+    "408421": {
+        "id": "408421",
+        "name": "\"Hollow Bird\" Toy",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 2,
+        "icon": "icon/item/408421.png",
+        "come_from": [
+            "Kirk"
+        ]
+    },
+    "408422": {
+        "id": "408422",
+        "name": "Authentic Sousa Juice",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 2,
+        "icon": "icon/item/408422.png",
+        "come_from": [
+            "Jessie's Snack"
         ]
     },
     "408601": {
@@ -18171,7 +21280,7 @@
     },
     "408613": {
         "id": "408613",
-        "name": "Crackling Champagne",
+        "name": "Pika White Grape Soda",
         "type": "Usable",
         "sub_type": "Food",
         "rarity": 3,
@@ -18244,6 +21353,94 @@
         "icon": "icon/item/408619.png",
         "come_from": [
             "Dreamjoy Fashion Store"
+        ]
+    },
+    "408620": {
+        "id": "408620",
+        "name": "Dreamville Special",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 3,
+        "icon": "icon/item/408620.png",
+        "come_from": [
+            "Dreamville-Themed Restaurant"
+        ]
+    },
+    "408621": {
+        "id": "408621",
+        "name": "Sweet Dreams Holographic Ticket",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 3,
+        "icon": "icon/item/408622.png",
+        "come_from": [
+            "Dreamville-Themed Restaurant"
+        ]
+    },
+    "408622": {
+        "id": "408622",
+        "name": "Odd Gummy Candy",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 3,
+        "icon": "icon/item/408621.png",
+        "come_from": [
+            "Dreamville-Themed Restaurant"
+        ]
+    },
+    "408623": {
+        "id": "408623",
+        "name": "Origami Family Bucket",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 3,
+        "icon": "icon/item/408623.png",
+        "come_from": [
+            "Dreamville-Themed Restaurant"
+        ]
+    },
+    "408624": {
+        "id": "408624",
+        "name": "Polychromatic Sourness",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 3,
+        "icon": "icon/item/408624.png",
+        "come_from": [
+            "Jessie's Snack"
+        ]
+    },
+    "408625": {
+        "id": "408625",
+        "name": "Unsolvable Cube",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 3,
+        "icon": "icon/item/408625.png",
+        "come_from": [
+            "Kirk"
+        ]
+    },
+    "408626": {
+        "id": "408626",
+        "name": "Broken String's Roar",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 3,
+        "icon": "icon/item/408626.png",
+        "come_from": [
+            "Auto Band"
+        ]
+    },
+    "408627": {
+        "id": "408627",
+        "name": "Soundless Satisfaction",
+        "type": "Usable",
+        "sub_type": "Food",
+        "rarity": 3,
+        "icon": "icon/item/408627.png",
+        "come_from": [
+            "Auto Band"
         ]
     },
     "408801": {
