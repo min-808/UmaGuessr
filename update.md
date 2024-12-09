@@ -8,7 +8,7 @@ descriptions.json - Get new file and add this:
     "0": {
         "id": "0",
         "title": "None",
-        "desc": "None"
+        "desc": "N/A"
     }
 
 Get new:

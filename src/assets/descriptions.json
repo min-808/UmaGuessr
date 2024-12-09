@@ -12,17 +12,17 @@
     "10003": {
         "id": "10003",
         "title": "Destruction",
-        "desc": "The path presided over by the Aeon Nanook.\nReckless, wrathful, and destructive actions are manifestations of the path of Destruction."
+        "desc": "The path presided over by the Aeon Nanook.\nReckless, wrathful, and destructive actions are manifestations of the Path of Destruction."
     },
     "10004": {
         "id": "10004",
         "title": "The Hunt",
-        "desc": "The path presided over by the Aeon Lan.\nDecisive, ruthless, and vengeful actions are manifestations of the path of The Hunt."
+        "desc": "The path presided over by the Aeon Lan.\nDecisive, ruthless, and vengeful actions are manifestations of the Path of The Hunt."
     },
     "10005": {
         "id": "10005",
         "title": "Erudition",
-        "desc": "The path presided over by the Aeon Nous.\nThoughtful, logical, and strategic actions are manifestations of the path of Nous."
+        "desc": "The path presided over by the Aeon Nous.\nThoughtful, logical, and strategic actions are manifestations of the Path of Erudition."
     },
     "10006": {
         "id": "10006",
@@ -32,17 +32,17 @@
     "10007": {
         "id": "10007",
         "title": "Nihility",
-        "desc": "The path presided over by the Aeon IX.\nSlothful, exhausted, and meaningless actions are manifestations of the path of Nihility."
+        "desc": "The path presided over by the Aeon IX.\nSlothful, exhausted, and meaningless actions are manifestations of the Path of Nihility."
     },
     "10008": {
         "id": "10008",
         "title": "Preservation",
-        "desc": "The path presided over by the Aeon Qlipoth.\nPatient, sacrificial, and protective actions are manifestations of the path of Preservation."
+        "desc": "The path presided over by the Aeon Qlipoth.\nPatient, sacrificial, and protective actions are manifestations of the Path of Preservation."
     },
     "10009": {
         "id": "10009",
         "title": "Abundance",
-        "desc": "The path presided over by the Aeon Yaoshi.\nSelfless, altruistic, and healing actions are manifestations of the path of Abundance."
+        "desc": "The path presided over by the Aeon Yaoshi.\nSelfless, altruistic, and healing actions are manifestations of the Path of Abundance."
     },
     "10010": {
         "id": "10010",
@@ -182,7 +182,7 @@
     "10037": {
         "id": "10037",
         "title": "Lan",
-        "desc": "The Xianzhou call THEM the Reignbow Arbiter. THEY are an Aeon that presides over the Path of The Hunt.\nTHEY wander endlessly between worlds to eradicate the abominations created by the Aeon of Abundance."
+        "desc": "The Cruising Aeon known as the Reignbow Arbiter by the Xianzhou, presiding over the Path of The Hunt.\nTHEY roams endlessly between worlds to eradicate the abominations created by the Aeon of Abundance."
     },
     "10038": {
         "id": "10038",
@@ -227,7 +227,7 @@
     "10046": {
         "id": "10046",
         "title": "The Swarm",
-        "desc": "The clone army of the \"Swarm King\" Tayzzyronth.\nWith the sole purpose of \"propagation,\" it invades various planets in the universe — similar to a locust swarm."
+        "desc": "The clone army of the \"Imperator Insectorum\" Tayzzyronth.\nWith the sole purpose of \"propagation,\" it invades various planets in the universe — similar to a locust swarm."
     },
     "10047": {
         "id": "10047",
@@ -272,7 +272,7 @@
     "10055": {
         "id": "10055",
         "title": "The Mourning Actors",
-        "desc": "Those who firmly resist the path of Elation.\nThey advocate for abstinence and penance to dilute the temptation of elation.\nTheir powers come from blessings of the Aeon of Elation, Aha."
+        "desc": "Those who firmly resist the Path of Elation.\nThey advocate for abstinence and penance to dilute the temptation of elation.\nTheir powers come from blessings of the Aeon of Elation, Aha."
     },
     "10056": {
         "id": "10056",
@@ -417,7 +417,7 @@
     "10084": {
         "id": "10084",
         "title": "Long",
-        "desc": "The deceased ancient Aeon who presided over the Path of Permanence.\nThey used to appear in the form of a giant dragon. They left behind a large number of descendants known as Long's Scions."
+        "desc": "The deceased ancient Aeon who presided over the Path of Permanence.\nTHEY used to appear in the form of a giant dragon. THEY left behind a large number of descendants known as Long's Scions."
     },
     "10085": {
         "id": "10085",
@@ -452,7 +452,7 @@
     "10091": {
         "id": "10091",
         "title": "Basic ATK",
-        "desc": "Use a character's Basic ATK to attack an enemy and recover Skill Points."
+        "desc": "Use a character's Basic ATK to attack enemy targets and recover Skill Points."
     },
     "10092": {
         "id": "10092",
@@ -652,7 +652,7 @@
     "10131": {
         "id": "10131",
         "title": "Topaz",
-        "desc": "Senior Manager of the Strategic Investment Department in the Interastral Peace Corporation, and leader of the Special Debts Picket Team.\nAlready a member of the \"Ten Stonehearts\" at a young age, Topaz's core stone is the \"topaz of debt retrieval.\"\nShe and Numby — her partner — are traversing the cosmos together, chasing down various debts and liabilities that negatively influence the IPC's commercial ventures."
+        "desc": "Senior Manager of the Strategic Investment Department in the Interastral Peace Corporation, and leader of the Special Debts Picket Team.\nAlready a member of the \"Ten Stonehearts\" at a young age, Topaz's Cornerstone is the \"topaz of debt retrieval.\"\nShe and Numby — her partner — are traversing the cosmos together, chasing down various debts and liabilities that negatively influence the IPC's commercial ventures."
     },
     "10132": {
         "id": "10132",
@@ -687,7 +687,7 @@
     "10138": {
         "id": "10138",
         "title": "Argenti",
-        "desc": "A classic knight of the \"Knights of Beauty\" who is piously seeking his missing Aeon Idrila the \"Beauty.\"\nForthright and candid, he wanders the cosmos espousing the virtues of Idrila's good name."
+        "desc": "A paragon knight of the Knights of Beauty who is piously seeking his missing Aeon, Idrila the Beauty.\nForthright and candid, he wanders the cosmos espousing the virtues of Idrila's good name."
     },
     "10139": {
         "id": "10139",
@@ -767,7 +767,7 @@
     "10155": {
         "id": "10155",
         "title": "Gallagher",
-        "desc": "A disheveled bartender and a security officer from the Bloodhound Family.\nA local of Penacony, he possesses an exceptional knowledge base, although he rarely mentions it to others."
+        "desc": "A disheveled drinksmith and a security officer from the Bloodhound Family.\nA local of Penacony, he possesses an exceptional knowledge base, although he rarely mentions it to others."
     },
     "10156": {
         "id": "10156",
@@ -797,7 +797,7 @@
     "10161": {
         "id": "10161",
         "title": "Sigonia",
-        "desc": "An unannexed sector located at the convergence of the Dnies, Pruthian, and Dorneau systems.\nCelestial objects within this sector constantly endure the relentless assault of stellar winds and stray celestial bodies, resulting in an exceptionally harsh climate on the surface of its planets."
+        "desc": "An unclaimed sector located at the convergence of the Dnies, Pruthian, and Dorneau systems.\nCelestial objects within this sector constantly endure the relentless assault of stellar winds and stray celestial bodies, resulting in an exceptionally harsh climate on the surface of its planets."
     },
     "10162": {
         "id": "10162",
@@ -876,7 +876,7 @@
     },
     "10177": {
         "id": "10177",
-        "title": "\"The Watchmaker\"",
+        "title": "Watchmaker",
         "desc": "The legendary tycoon of Penacony, Mikhail Char Legwork. A former Nameless.\nHe spent his life battling the villains lurking within The Family, and on his deathbed, he extended an invitation to the entire Cosmos, all to fulfill his unfinished business."
     },
     "10178": {
@@ -897,7 +897,7 @@
     "10181": {
         "id": "10181",
         "title": "\"Something Unto Death\"",
-        "desc": "The memetic lifeform \"Dormancy\", fabricated by Gallagher via borrowing the power of Enigmata. It assists the residents of Dreamflux Reef in traveling to and from the sweet dream.\nIt is often misconstrued as a manifestation of people's fears of \"death\" and \"murder.\""
+        "desc": "The memetic lifeform \"Dormancy,\" fabricated by Gallagher via borrowing the power of Enigmata. It assists the residents of Dreamflux Reef in traveling to and from the sweet dream.\nIt is often misconstrued as a manifestation of people's fears of \"death\" and \"murder.\""
     },
     "10182": {
         "id": "10182",
@@ -918,6 +918,126 @@
         "id": "10185",
         "title": "Penacony Grand Theater",
         "desc": "The magnificent and opulent Grand Theater.\nBuilt by The Family, it is a colossal structure designed after the ancient prisons, serving as the stage for the present-day Charmony Festival."
+    },
+    "10186": {
+        "id": "10186",
+        "title": "Radiant Feldspar",
+        "desc": "A luxury airship crafted by The Family, touring the ocean of memoria, once temporarily halted for some reason."
+    },
+    "10200": {
+        "id": "10200",
+        "title": "Luminary Wardance Ceremony",
+        "desc": "A traditional Xianzhou Alliance festival and martial arts tournament established to commemorate the moments of salvation granted by the Reignbow Arbiter and the Cloud Knights.\nWarriors from all worlds are invited to compete as peers."
+    },
+    "10201": {
+        "id": "10201",
+        "title": "Feixiao",
+        "desc": "The Arbiter-General of the Xianzhou Yaoqing. Referred to as the Merlin's Claw.\nDecisive like lightning and always doing what is right, she has demonstrated outstanding military success through her martial prowess."
+    },
+    "10202": {
+        "id": "10202",
+        "title": "Jiaoqiu",
+        "desc": "An advisor under Feixiao. Responsible for her food and health.\nTo him, a medicine-boiling cauldron is no different from a hotpot on a stove, and the ingredients of meals are also no different from medication..."
+    },
+    "10203": {
+        "id": "10203",
+        "title": "Yunli",
+        "desc": "A Zhuming swordmaster visiting the Xianzhou Luofu. General Huaiyan's beloved adopted granddaughter.\nShe offers no pretenses for warriors who are lacking in virtue and love to claim the weapons of her defeated foes."
+    },
+    "10204": {
+        "id": "10204",
+        "title": "Huaiyan",
+        "desc": "The Arbiter-General who governs the Xianzhou Zhuming. Referred to as the Flaming Heart.\nAs an individual bearing an elderly visage, the general stands as an oddity among the ever-youthful people of the Xianzhou."
+    },
+    "10205": {
+        "id": "10205",
+        "title": "Moze",
+        "desc": "An aide under Feixiao. He is in charge of intelligence and security.\nAs a hidden blade, his presence is rarely perceived, appearing only when he is needed."
+    },
+    "10206": {
+        "id": "10206",
+        "title": "Hoolay",
+        "desc": "A formidable opponent of the Xianzhou people. A Brood Lord of borisin.\nDefeated 700 hundred years ago, he has been held in the Shackling Prison, condemned to eternal torment."
+    },
+    "10210": {
+        "id": "10210",
+        "title": "Yaoguang",
+        "desc": "The Arbiter-General of the Xianzhou Yuque, known as the Seer Strategist, oversees its military discipline.\nA non-martial general rarely seen in person within the Alliance, constantly operating from the shadows and divining for the Marshal."
+    },
+    "10211": {
+        "id": "10211",
+        "title": "Deca-Light Reflection Barrier",
+        "desc": "The divination matrix constructed by the Xianzhou Yuque.\nIt is said to operate on principles similar to the Matrix of Prescience Ultima, with its computational scriptures and inspiration derived from the Wisdomwalker, Nous."
+    },
+    "10212": {
+        "id": "10212",
+        "title": "Skysplitter",
+        "desc": "The venue for the Xianzhou Luofu's Luminary Wardance, repurposed from a retired large fighter jet.\nWhen the ceremonial cannons roar, invited warriors from different worlds will gather here to compete."
+    },
+    "10213": {
+        "id": "10213",
+        "title": "The Shackling Prison",
+        "desc": "The prison system used in the Xianzhou Alliance to incarcerate and suppress criminals.\nThe Shackling Prison on the Xianzhou Luofu is jointly constructed by the Xianzhou natives and the Vidyadhara, buried deep within the delves and beneath the abyssal waters."
+    },
+    "10214": {
+        "id": "10214",
+        "title": "Borisin",
+        "desc": "The frenzied hunters among the stars, the Xianzhou Alliance's mortal enemy, and the most powerful and prosperous faction among the Denizens of Abundance.\nThe borisin, resembling giant upright wolves, are brutal and fierce, respecting only strength. They have raided planets, depleted resources, and destroyed numerous civilizations."
+    },
+    "10215": {
+        "id": "10215",
+        "title": "Battle of the Fanghu",
+        "desc": "The turning point of the Third Denizens of Abundance War. Under the light of the demonic planet, the Abominations of Abundance, led by the borisin, nearly overran the Xianzhou Fanghu multiple times.\nThanks to countless Xianzhou soldiers sacrificing themselves on the front lines, the Cloudpeer Telescope successfully transmitted a message, summoning the Reignbow and turning the tide of the battle."
+    },
+    "10216": {
+        "id": "10216",
+        "title": "\"Crimson Moon\"",
+        "desc": "The plaguemark that was devoured and passed down the generations by gladiators at the ceremony to determine the borisin's Warhead — A \"heart\" akin to a sanguineous full moon.\n\"Consume the prey to grow stronger.\" This is the ultimate secret of the borisin's immortality, the fundamental reason for their enduring strength."
+    },
+    "10217": {
+        "id": "10217",
+        "title": "\"Flying Aureus\"",
+        "desc": "The spirit granted by the Reignbow Arbiter, a beast of divine speed hidden within the flesh of \"The Merlin's Claw\" Feixiao. \nThe eyes of mortals cannot perceive it. Only in the fleeting moment when beings at death's door are briefly frozen in time can the gazes of mere humans witness its descent.\nFor Feixiao, it is the arrow that guides her actions, the death that pursues and devours her life, and the prey she is chasing throughout her existence."
+    },
+    "10220": {
+        "id": "10220",
+        "title": "Rappa",
+        "desc": "A peculiar girl who appears in Penacony like a flashbang at the darkest hour of night, identifying herself as a ninja and attributing everything in the world to \"ninjutsu.\"\nShe roams the dreamlands of the Mappou world, upholding justice with a singular focus on hunting down the villain known as Evil Ninja Osaru."
+    },
+    "10221": {
+        "id": "10221",
+        "title": "Rappa",
+        "desc": "The Galaxy Ranger, who refers to herself as Dazzling Ninja, became infected with a memetic virus due to an atavistic experiment, causing her to perceive everything in the world in terms of \"ninja.\"\nTo settle the past of blood and tears, and to follow the Dazzling way of the ninja, she is dedicated to hunting down the villain \"Evil Ninja Osaru,\" known to others as Dr. Primitive."
+    },
+    "10222": {
+        "id": "10222",
+        "title": "Dr. Primitive",
+        "desc": "Member #64 of the Genius Society, a scientist who has committed numerous crimes against humanity, identity unknown.\nHe caused universal chaos with his atavistic experiments and has since become an enemy of the Galaxy Rangers. His current whereabouts remain unknown."
+    },
+    "10223": {
+        "id": "10223",
+        "title": "AtaviSearch Forest",
+        "desc": "A fanatical research group composed of scholars who revere Dr. Primitive. This obsessive faction of humans and apes follows the steps of their idol and strives to spread atavistic experiments throughout the cosmos."
+    },
+    "10224": {
+        "id": "10224",
+        "title": "Penacony Paperfold University College",
+        "desc": "Penacony's famous college, located in the Moment of Sol. The cradle of outstanding talents that continuously sends the light and heat of knowledge within and outside the Dreamscape."
+    },
+    "10225": {
+        "id": "10225",
+        "title": "Sunday",
+        "desc": "The former head of the Oak Family and the elder brother of Robin.\nAfter the upheaval of the Charmony Festival was quelled, he bid farewell to Order and his homeland, boarding the Astral Express in search of a new path."
+    },
+    "10226": {
+        "id": "10226",
+        "title": "Tingyun",
+        "desc": "Amicassador of the Xianzhou Luofu's Sky-Faring Commission.\nAfter a devastating encounter with a Lord Ravager, she was left broken in both body and spirit, only to be saved by a genius, turning misfortune into blessing, and reentering the fray."
+    },
+    "10227": {
+        "id": "10227",
+        "title": "\"Shush\"",
+        "desc": "The drink-mixing robot on the Astral Express, who fancies itself witty and humorous.\nCreated several Amber Eras ago, it was gradually forgotten.\nIt was restored by the Void Archives after the Express set off again."
     },
     "20000": {
         "id": "20000",
@@ -944,6 +1064,31 @@
         "title": "Switching to Aventurine's POV...",
         "desc": "Aventurine seems convinced that he has obtained some key clues and victory is at hand. However, can he really last until the moment he climbs onto Clock Studios Theme Park's stage?"
     },
+    "20006": {
+        "id": "20006",
+        "title": "Switching to Topaz's POV...",
+        "desc": "Meanwhile, Topaz boards a certain luxurious airship in Penacony, awaiting the beginning of an important meeting..."
+    },
+    "20007": {
+        "id": "20007",
+        "title": "Switching to Jade's POV...",
+        "desc": "The meeting with Oti Alfalfa didn't start smoothly. Jade and Topaz are currently aboard the Radiant Feldspar discussing the strategy for the second half..."
+    },
+    "20008": {
+        "id": "20008",
+        "title": "Switching to Firefly's POV...",
+        "desc": "At this moment, a dexterous \"stowaway\" also boards the Radiant Feldspar..."
+    },
+    "20011": {
+        "id": "20011",
+        "title": "Switching to March 7th's POV...",
+        "desc": "With the encouragement of General Huaiyan — deliberate or accidental notwithstanding — March 7th seized the unexpected opportunity to learn the art of Xianzhou swordsmanship and to perform in the Wardance ceremony..."
+    },
+    "20012": {
+        "id": "20012",
+        "title": "Switching to Jiaoqiu's POV...",
+        "desc": "Dispatched by the general of the Yaoqing, Jiaoqiu and Moze enter The Shackling Prison to visit Hoolay, the borisin Warhead imprisoned there..."
+    },
     "20013": {
         "id": "20013",
         "title": "Currently getting Dr. Ratio to help...",
@@ -952,7 +1097,7 @@
     "20014": {
         "id": "20014",
         "title": "Jade",
-        "desc": "A senior manager in the IPC Strategic Investment Department and one of the Ten Stonehearts. Her Cornerstone is \"Jade of Credit.\""
+        "desc": "A senior manager in the IPC's Strategic Investment Department and one of the Ten Stonehearts. Her Cornerstone is \"Jade of Credit.\""
     },
     "20015": {
         "id": "20015",
@@ -1002,7 +1147,7 @@
     "20026": {
         "id": "20026",
         "title": "Switching to Robin's POV...?",
-        "desc": "Penacony falls into temporary chaos due to the commotion at the Theme Mark, and Robin(?) decides to use this opportunity to distribute her little gift..."
+        "desc": "Penacony falls into temporary chaos due to the commotion at the Theme Park, and Robin(?) decides to use this opportunity to distribute her little gift..."
     },
     "20027": {
         "id": "20027",
@@ -1014,10 +1159,59 @@
         "title": "Switching to Robin's POV...",
         "desc": "Robin and Sunday decide to convince Gopher Wood, the Dreammaster, and their former benefactor — Hopefully, all goes well..."
     },
+    "20051": {
+        "id": "20051",
+        "title": "Switching to Lingsha's POV...",
+        "desc": "In The Shackling Prison, Lingsha, Dan Heng, and Jing Yuan are trying to discern clues from the borisin's attacks..."
+    },
+    "20052": {
+        "id": "20052",
+        "title": "Switching to Jiaoqiu's POV...",
+        "desc": "Falling into the hands of the borisin, Jiaoqiu is trying to find a chance to survive... but it is not his own chance that he seeks."
+    },
+    "20053": {
+        "id": "20053",
+        "title": "Switching to March 7th's POV...",
+        "desc": "On Huaiyan's orders, March 7th and Yunli board the Skysplitter, participating in the Wardance Ceremony as scheduled..."
+    },
+    "20054": {
+        "id": "20054",
+        "title": "Switching to Feixiao's POV...",
+        "desc": "\"Surround three and leave one.\" The Merlin's Claw initiates the hunt against the pack of wolves..."
+    },
+    "20055": {
+        "id": "20055",
+        "title": "Switching to Yunli's POV...",
+        "desc": "On the Skysplitter, the atmosphere of an impending storm makes Yunli anxious and uneasy..."
+    },
+    "20056": {
+        "id": "20056",
+        "title": "Switching to March 7th's POV...",
+        "desc": "March 7th senses the signs of impending danger — the moment to test her swordplay has finally arrived..."
+    },
+    "20057": {
+        "id": "20057",
+        "title": "Switching to Lingsha's POV...",
+        "desc": "In Scalegorge Waterscape, Dan Heng and Lingsha are scheduled to meet with the Vidyadhara Preceptors..."
+    },
+    "20058": {
+        "id": "20058",
+        "title": "Switching to Boothill's set...",
+        "desc": "Unbeknownst to everyone, the cosmic cowboy who became uncontactable is currently lurking in the shadows of the Dreamscape..."
+    },
+    "20059": {
+        "id": "20059",
+        "title": "Switching to Sunday's POV...",
+        "desc": "It's not just the guests who return to this beautiful dream —There is also the dream's \"master\"..."
+    },
+    "20060": {
+        "id": "20060",
+        "title": "Switching to Sunday's POV...",
+        "desc": "The ascetic still gazes back at who they used to be, and the most weighty part of that identity will finally be parted..."
+    },
     "0": {
         "id": "0",
         "title": "None",
-        "desc": "None"
+        "desc": "N/A"
     }
-
 }

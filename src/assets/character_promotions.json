@@ -10877,6 +10877,2064 @@
             []
         ]
     },
+    "1218": {
+        "id": "1218",
+        "values": [
+            {
+                "hp": {
+                    "base": 184.8,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 81.84,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 69.3,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 258.72,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 114.576,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 97.02,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 332.64,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 147.312,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 124.74,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 406.56,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 180.048,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 152.46,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 480.48,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 212.784,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 180.18,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 554.4,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 245.52,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 207.9,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 628.32,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 278.256,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 235.62,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "113001",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "113001",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "113002",
+                    "num": 6
+                },
+                {
+                    "id": "110422",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "113002",
+                    "num": 9
+                },
+                {
+                    "id": "110422",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "113003",
+                    "num": 6
+                },
+                {
+                    "id": "110422",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "113003",
+                    "num": 9
+                },
+                {
+                    "id": "110422",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
+    "1220": {
+        "id": "1220",
+        "values": [
+            {
+                "hp": {
+                    "base": 142.56,
+                    "step": 7.128
+                },
+                "atk": {
+                    "base": 81.84,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 52.8,
+                    "step": 2.64
+                },
+                "spd": {
+                    "base": 112,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 199.584,
+                    "step": 7.128
+                },
+                "atk": {
+                    "base": 114.576,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 73.92,
+                    "step": 2.64
+                },
+                "spd": {
+                    "base": 112,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 256.608,
+                    "step": 7.128
+                },
+                "atk": {
+                    "base": 147.312,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 95.04,
+                    "step": 2.64
+                },
+                "spd": {
+                    "base": 112,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 313.632,
+                    "step": 7.128
+                },
+                "atk": {
+                    "base": 180.048,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 116.16,
+                    "step": 2.64
+                },
+                "spd": {
+                    "base": 112,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 370.656,
+                    "step": 7.128
+                },
+                "atk": {
+                    "base": 212.784,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 137.28,
+                    "step": 2.64
+                },
+                "spd": {
+                    "base": 112,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 427.68,
+                    "step": 7.128
+                },
+                "atk": {
+                    "base": 245.52,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 158.4,
+                    "step": 2.64
+                },
+                "spd": {
+                    "base": 112,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 484.704,
+                    "step": 7.128
+                },
+                "atk": {
+                    "base": 278.256,
+                    "step": 4.092
+                },
+                "def": {
+                    "base": 179.52,
+                    "step": 2.64
+                },
+                "spd": {
+                    "base": 112,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "113011",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "113011",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "113012",
+                    "num": 6
+                },
+                {
+                    "id": "110425",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "113012",
+                    "num": 9
+                },
+                {
+                    "id": "110425",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "113013",
+                    "num": 6
+                },
+                {
+                    "id": "110425",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "113013",
+                    "num": 9
+                },
+                {
+                    "id": "110425",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
+    "1221": {
+        "id": "1221",
+        "values": [
+            {
+                "hp": {
+                    "base": 184.8,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 92.4,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 62.7,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 94,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 258.72,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 129.36,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 87.78,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 94,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 332.64,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 166.32,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 112.86,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 94,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 406.56,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 203.28,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 137.94,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 94,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 480.48,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 240.24,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 163.02,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 94,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 554.4,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 277.2,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 188.1,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 94,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 628.32,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 314.16,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 213.18,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 94,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "113011",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "113011",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "113012",
+                    "num": 6
+                },
+                {
+                    "id": "110421",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "113012",
+                    "num": 9
+                },
+                {
+                    "id": "110421",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "113013",
+                    "num": 6
+                },
+                {
+                    "id": "110421",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "113013",
+                    "num": 9
+                },
+                {
+                    "id": "110421",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
+    "1222": {
+        "id": "1222",
+        "values": [
+            {
+                "hp": {
+                    "base": 184.8,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 92.4,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 59.4,
+                    "step": 2.97
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 258.72,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 129.36,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 83.16,
+                    "step": 2.97
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 332.64,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 166.32,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 106.92,
+                    "step": 2.97
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 406.56,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 203.28,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 130.68,
+                    "step": 2.97
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 480.48,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 240.24,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 154.44,
+                    "step": 2.97
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 554.4,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 277.2,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 178.2,
+                    "step": 2.97
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 628.32,
+                    "step": 9.24
+                },
+                "atk": {
+                    "base": 314.16,
+                    "step": 4.62
+                },
+                "def": {
+                    "base": 201.96,
+                    "step": 2.97
+                },
+                "spd": {
+                    "base": 98,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "113001",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "113001",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "113002",
+                    "num": 6
+                },
+                {
+                    "id": "110422",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "113002",
+                    "num": 9
+                },
+                {
+                    "id": "110422",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "113003",
+                    "num": 6
+                },
+                {
+                    "id": "110422",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "113003",
+                    "num": 9
+                },
+                {
+                    "id": "110422",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
+    "1223": {
+        "id": "1223",
+        "values": [
+            {
+                "hp": {
+                    "base": 110.4,
+                    "step": 5.52
+                },
+                "atk": {
+                    "base": 81.6,
+                    "step": 4.08
+                },
+                "def": {
+                    "base": 48,
+                    "step": 2.4
+                },
+                "spd": {
+                    "base": 111,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 154.56,
+                    "step": 5.52
+                },
+                "atk": {
+                    "base": 114.24,
+                    "step": 4.08
+                },
+                "def": {
+                    "base": 67.2,
+                    "step": 2.4
+                },
+                "spd": {
+                    "base": 111,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 198.72,
+                    "step": 5.52
+                },
+                "atk": {
+                    "base": 146.88,
+                    "step": 4.08
+                },
+                "def": {
+                    "base": 86.4,
+                    "step": 2.4
+                },
+                "spd": {
+                    "base": 111,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 242.88,
+                    "step": 5.52
+                },
+                "atk": {
+                    "base": 179.52,
+                    "step": 4.08
+                },
+                "def": {
+                    "base": 105.6,
+                    "step": 2.4
+                },
+                "spd": {
+                    "base": 111,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 287.04,
+                    "step": 5.52
+                },
+                "atk": {
+                    "base": 212.16,
+                    "step": 4.08
+                },
+                "def": {
+                    "base": 124.8,
+                    "step": 2.4
+                },
+                "spd": {
+                    "base": 111,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 331.2,
+                    "step": 5.52
+                },
+                "atk": {
+                    "base": 244.8,
+                    "step": 4.08
+                },
+                "def": {
+                    "base": 144,
+                    "step": 2.4
+                },
+                "spd": {
+                    "base": 111,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 375.36,
+                    "step": 5.52
+                },
+                "atk": {
+                    "base": 277.44,
+                    "step": 4.08
+                },
+                "def": {
+                    "base": 163.2,
+                    "step": 2.4
+                },
+                "spd": {
+                    "base": 111,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 3200
+                },
+                {
+                    "id": "113011",
+                    "num": 4
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 6400
+                },
+                {
+                    "id": "113011",
+                    "num": 8
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 12800
+                },
+                {
+                    "id": "113012",
+                    "num": 5
+                },
+                {
+                    "id": "110424",
+                    "num": 2
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 32000
+                },
+                {
+                    "id": "113012",
+                    "num": 8
+                },
+                {
+                    "id": "110424",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 64000
+                },
+                {
+                    "id": "113013",
+                    "num": 5
+                },
+                {
+                    "id": "110424",
+                    "num": 15
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 128000
+                },
+                {
+                    "id": "113013",
+                    "num": 7
+                },
+                {
+                    "id": "110424",
+                    "num": 28
+                }
+            ],
+            []
+        ]
+    },
+    "1224": {
+        "id": "1224",
+        "values": [
+            {
+                "hp": {
+                    "base": 144,
+                    "step": 7.2
+                },
+                "atk": {
+                    "base": 76.8,
+                    "step": 3.84
+                },
+                "def": {
+                    "base": 60,
+                    "step": 3
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 201.6,
+                    "step": 7.2
+                },
+                "atk": {
+                    "base": 107.52,
+                    "step": 3.84
+                },
+                "def": {
+                    "base": 84,
+                    "step": 3
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 259.2,
+                    "step": 7.2
+                },
+                "atk": {
+                    "base": 138.24,
+                    "step": 3.84
+                },
+                "def": {
+                    "base": 108,
+                    "step": 3
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 316.8,
+                    "step": 7.2
+                },
+                "atk": {
+                    "base": 168.96,
+                    "step": 3.84
+                },
+                "def": {
+                    "base": 132,
+                    "step": 3
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 374.4,
+                    "step": 7.2
+                },
+                "atk": {
+                    "base": 199.68,
+                    "step": 3.84
+                },
+                "def": {
+                    "base": 156,
+                    "step": 3
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 432,
+                    "step": 7.2
+                },
+                "atk": {
+                    "base": 230.4,
+                    "step": 3.84
+                },
+                "def": {
+                    "base": 180,
+                    "step": 3
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 489.6,
+                    "step": 7.2
+                },
+                "atk": {
+                    "base": 261.12,
+                    "step": 3.84
+                },
+                "def": {
+                    "base": 204,
+                    "step": 3
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 3200
+                },
+                {
+                    "id": "111011",
+                    "num": 4
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 6400
+                },
+                {
+                    "id": "111011",
+                    "num": 8
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 12800
+                },
+                {
+                    "id": "111012",
+                    "num": 5
+                },
+                {
+                    "id": "110403",
+                    "num": 2
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 32000
+                },
+                {
+                    "id": "111012",
+                    "num": 8
+                },
+                {
+                    "id": "110403",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 64000
+                },
+                {
+                    "id": "111013",
+                    "num": 5
+                },
+                {
+                    "id": "110403",
+                    "num": 15
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 128000
+                },
+                {
+                    "id": "111013",
+                    "num": 7
+                },
+                {
+                    "id": "110403",
+                    "num": 28
+                }
+            ],
+            []
+        ]
+    },
+    "1225": {
+        "id": "1225",
+        "values": [
+            {
+                "hp": {
+                    "base": 153.12,
+                    "step": 7.656
+                },
+                "atk": {
+                    "base": 79.2,
+                    "step": 3.96
+                },
+                "def": {
+                    "base": 75.9,
+                    "step": 3.795
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 214.368,
+                    "step": 7.656
+                },
+                "atk": {
+                    "base": 110.88,
+                    "step": 3.96
+                },
+                "def": {
+                    "base": 106.26,
+                    "step": 3.795
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 275.616,
+                    "step": 7.656
+                },
+                "atk": {
+                    "base": 142.56,
+                    "step": 3.96
+                },
+                "def": {
+                    "base": 136.62,
+                    "step": 3.795
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 336.864,
+                    "step": 7.656
+                },
+                "atk": {
+                    "base": 174.24,
+                    "step": 3.96
+                },
+                "def": {
+                    "base": 166.98,
+                    "step": 3.795
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 398.112,
+                    "step": 7.656
+                },
+                "atk": {
+                    "base": 205.92,
+                    "step": 3.96
+                },
+                "def": {
+                    "base": 197.34,
+                    "step": 3.795
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 459.36,
+                    "step": 7.656
+                },
+                "atk": {
+                    "base": 237.6,
+                    "step": 3.96
+                },
+                "def": {
+                    "base": 227.7,
+                    "step": 3.795
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 520.608,
+                    "step": 7.656
+                },
+                "atk": {
+                    "base": 269.28,
+                    "step": 3.96
+                },
+                "def": {
+                    "base": 258.06,
+                    "step": 3.795
+                },
+                "spd": {
+                    "base": 102,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "113001",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "113001",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "113002",
+                    "num": 6
+                },
+                {
+                    "id": "110412",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "113002",
+                    "num": 9
+                },
+                {
+                    "id": "110412",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "113003",
+                    "num": 6
+                },
+                {
+                    "id": "110412",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "113003",
+                    "num": 9
+                },
+                {
+                    "id": "110412",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
     "1301": {
         "id": "1301",
         "values": [
@@ -13523,6 +15581,300 @@
             []
         ]
     },
+    "1310": {
+        "id": "1310",
+        "values": [
+            {
+                "hp": {
+                    "base": 110.88,
+                    "step": 5.544
+                },
+                "atk": {
+                    "base": 71.28,
+                    "step": 3.564
+                },
+                "def": {
+                    "base": 105.6,
+                    "step": 5.28
+                },
+                "spd": {
+                    "base": 104,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 155.232,
+                    "step": 5.544
+                },
+                "atk": {
+                    "base": 99.792,
+                    "step": 3.564
+                },
+                "def": {
+                    "base": 147.84,
+                    "step": 5.28
+                },
+                "spd": {
+                    "base": 104,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 199.584,
+                    "step": 5.544
+                },
+                "atk": {
+                    "base": 128.304,
+                    "step": 3.564
+                },
+                "def": {
+                    "base": 190.08,
+                    "step": 5.28
+                },
+                "spd": {
+                    "base": 104,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 243.936,
+                    "step": 5.544
+                },
+                "atk": {
+                    "base": 156.816,
+                    "step": 3.564
+                },
+                "def": {
+                    "base": 232.32,
+                    "step": 5.28
+                },
+                "spd": {
+                    "base": 104,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 288.288,
+                    "step": 5.544
+                },
+                "atk": {
+                    "base": 185.328,
+                    "step": 3.564
+                },
+                "def": {
+                    "base": 274.56,
+                    "step": 5.28
+                },
+                "spd": {
+                    "base": 104,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 332.64,
+                    "step": 5.544
+                },
+                "atk": {
+                    "base": 213.84,
+                    "step": 3.564
+                },
+                "def": {
+                    "base": 316.8,
+                    "step": 5.28
+                },
+                "spd": {
+                    "base": 104,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 376.992,
+                    "step": 5.544
+                },
+                "atk": {
+                    "base": 242.352,
+                    "step": 3.564
+                },
+                "def": {
+                    "base": 359.04,
+                    "step": 5.28
+                },
+                "spd": {
+                    "base": 104,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 125,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "114011",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "114011",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "114012",
+                    "num": 6
+                },
+                {
+                    "id": "110422",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "114012",
+                    "num": 9
+                },
+                {
+                    "id": "110422",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "114013",
+                    "num": 6
+                },
+                {
+                    "id": "110422",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "114013",
+                    "num": 9
+                },
+                {
+                    "id": "110422",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
     "1312": {
         "id": "1312",
         "values": [
@@ -13817,6 +16169,594 @@
             []
         ]
     },
+    "1313": {
+        "id": "1313",
+        "values": [
+            {
+                "hp": {
+                    "base": 168.96,
+                    "step": 8.448
+                },
+                "atk": {
+                    "base": 87.12,
+                    "step": 4.356
+                },
+                "def": {
+                    "base": 72.6,
+                    "step": 3.63
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 236.544,
+                    "step": 8.448
+                },
+                "atk": {
+                    "base": 121.968,
+                    "step": 4.356
+                },
+                "def": {
+                    "base": 101.64,
+                    "step": 3.63
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 304.128,
+                    "step": 8.448
+                },
+                "atk": {
+                    "base": 156.816,
+                    "step": 4.356
+                },
+                "def": {
+                    "base": 130.68,
+                    "step": 3.63
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 371.712,
+                    "step": 8.448
+                },
+                "atk": {
+                    "base": 191.664,
+                    "step": 4.356
+                },
+                "def": {
+                    "base": 159.72,
+                    "step": 3.63
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 439.296,
+                    "step": 8.448
+                },
+                "atk": {
+                    "base": 226.512,
+                    "step": 4.356
+                },
+                "def": {
+                    "base": 188.76,
+                    "step": 3.63
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 506.88,
+                    "step": 8.448
+                },
+                "atk": {
+                    "base": 261.36,
+                    "step": 4.356
+                },
+                "def": {
+                    "base": 217.8,
+                    "step": 3.63
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 574.464,
+                    "step": 8.448
+                },
+                "atk": {
+                    "base": 296.208,
+                    "step": 4.356
+                },
+                "def": {
+                    "base": 246.84,
+                    "step": 3.63
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 100,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "114011",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "114011",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "114012",
+                    "num": 6
+                },
+                {
+                    "id": "110427",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "114012",
+                    "num": 9
+                },
+                {
+                    "id": "110427",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "114013",
+                    "num": 6
+                },
+                {
+                    "id": "110427",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "114013",
+                    "num": 9
+                },
+                {
+                    "id": "110427",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
+    "1314": {
+        "id": "1314",
+        "values": [
+            {
+                "hp": {
+                    "base": 147.84,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 89.76,
+                    "step": 4.488
+                },
+                "def": {
+                    "base": 69.3,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 103,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 206.976,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 125.664,
+                    "step": 4.488
+                },
+                "def": {
+                    "base": 97.02,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 103,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 266.112,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 161.568,
+                    "step": 4.488
+                },
+                "def": {
+                    "base": 124.74,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 103,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 325.248,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 197.472,
+                    "step": 4.488
+                },
+                "def": {
+                    "base": 152.46,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 103,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 384.384,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 233.376,
+                    "step": 4.488
+                },
+                "def": {
+                    "base": 180.18,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 103,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 443.52,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 269.28,
+                    "step": 4.488
+                },
+                "def": {
+                    "base": 207.9,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 103,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 502.656,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 305.184,
+                    "step": 4.488
+                },
+                "def": {
+                    "base": 235.62,
+                    "step": 3.465
+                },
+                "spd": {
+                    "base": 103,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "114001",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "114001",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "114002",
+                    "num": 6
+                },
+                {
+                    "id": "110426",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "114002",
+                    "num": 9
+                },
+                {
+                    "id": "110426",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "114003",
+                    "num": 6
+                },
+                {
+                    "id": "110426",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "114003",
+                    "num": 9
+                },
+                {
+                    "id": "110426",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
     "1315": {
         "id": "1315",
         "values": [
@@ -14105,6 +17045,300 @@
                 },
                 {
                     "id": "110421",
+                    "num": 35
+                }
+            ],
+            []
+        ]
+    },
+    "1317": {
+        "id": "1317",
+        "values": [
+            {
+                "hp": {
+                    "base": 147.84,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 97.68,
+                    "step": 4.884
+                },
+                "def": {
+                    "base": 62.7,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 206.976,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 136.752,
+                    "step": 4.884
+                },
+                "def": {
+                    "base": 87.78,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 266.112,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 175.824,
+                    "step": 4.884
+                },
+                "def": {
+                    "base": 112.86,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 325.248,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 214.896,
+                    "step": 4.884
+                },
+                "def": {
+                    "base": 137.94,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 384.384,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 253.968,
+                    "step": 4.884
+                },
+                "def": {
+                    "base": 163.02,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 443.52,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 293.04,
+                    "step": 4.884
+                },
+                "def": {
+                    "base": 188.1,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            },
+            {
+                "hp": {
+                    "base": 502.656,
+                    "step": 7.392
+                },
+                "atk": {
+                    "base": 332.112,
+                    "step": 4.884
+                },
+                "def": {
+                    "base": 213.18,
+                    "step": 3.135
+                },
+                "spd": {
+                    "base": 96,
+                    "step": 0
+                },
+                "taunt": {
+                    "base": 75,
+                    "step": 0
+                },
+                "crit_rate": {
+                    "base": 0.05,
+                    "step": 0
+                },
+                "crit_dmg": {
+                    "base": 0.5,
+                    "step": 0
+                }
+            }
+        ],
+        "materials": [
+            [
+                {
+                    "id": "2",
+                    "num": 4000
+                },
+                {
+                    "id": "114001",
+                    "num": 5
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 8000
+                },
+                {
+                    "id": "114001",
+                    "num": 10
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 16000
+                },
+                {
+                    "id": "114002",
+                    "num": 6
+                },
+                {
+                    "id": "110427",
+                    "num": 3
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 40000
+                },
+                {
+                    "id": "114002",
+                    "num": 9
+                },
+                {
+                    "id": "110427",
+                    "num": 7
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 80000
+                },
+                {
+                    "id": "114003",
+                    "num": 6
+                },
+                {
+                    "id": "110427",
+                    "num": 20
+                }
+            ],
+            [
+                {
+                    "id": "2",
+                    "num": 160000
+                },
+                {
+                    "id": "114003",
+                    "num": 9
+                },
+                {
+                    "id": "110427",
                     "num": 35
                 }
             ],
