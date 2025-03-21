@@ -31,7 +31,7 @@ new CommandHandler({
     client,
     commandsPath: path.join(__dirname, 'commands'),
     eventsPath: path.join(__dirname, 'events'),
-    testServer: process.env.GUILD_ID
+    //testServer: process.env.GUILD_ID
 });
 
 const commandPath = path.join(__dirname, 'commands')
