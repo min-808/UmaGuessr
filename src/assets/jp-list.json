@@ -27,7 +27,7 @@
     "id": "bamboo_memory",
     "proper": "Bamboo Memory",
     "names": ["bamboo memory", "bamboomemory"],
-    "images": ["bamboomemory1.jpg", "bamboomemory2.jpg", "bamboomemory3.jpg"]
+    "images": ["bamboomemory1.jpg", "bamboomemory2.jpg"]
     },
     {
     "id": "belno_light",
@@ -363,7 +363,7 @@
     "id": "yaeno_muteki",
     "proper": "Yaeno Muteki",
     "names": ["yaeno muteki", "yaenomuteki"],
-    "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg"]
+    "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg"]
     },
     {
     "id": "yukino_bijin",
