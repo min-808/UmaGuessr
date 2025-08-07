@@ -10,7 +10,7 @@ const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4
 const gameState = new Map()
 const activeChannels = new Set()
 
-const initialBlur = 70 + 1
+const initialBlur = 60 + 1
 let initialPointsJP;
 let minusPointsJP;
 
@@ -34,20 +34,20 @@ module.exports = {
             list = require('../../src/assets/global-list.json')
             type = "Global"
 
-            initialPointsJP = 14 + 1
+            initialPointsJP = 12 + 1
             minusPointsJP = 2
         } else if (message.content.toLowerCase().includes("j")) {
             list = require('../../src/assets/jp-list.json')
             type = "JP"
 
-            initialPointsJP = 21 + 1
-            minusPointsJP = 3
+            initialPointsJP = 24 + 1
+            minusPointsJP = 4
         } else {
             list = require('../../src/assets/jp-list.json')
             type = "JP"
 
-            initialPointsJP = 21 + 1
-            minusPointsJP = 3
+            initialPointsJP = 24 + 1
+            minusPointsJP = 4
         }
 
         const chooseChar = Math.floor(Math.random() * list.length)

@@ -25,7 +25,7 @@ module.exports = {
                         "**__How to Play__**" + "\n" +
                         "- Start the game by using either `!uma` for guessing characters from the JP server, or `!uma g` for characters from the Global server" + "\n" +
                         "- You will have **60** seconds to guess the character, and pressing the `Unblur` button will slightly unblur the image" + "\n" +
-                        "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (22 points for JP, 15 for Global)" + "\n" +
+                        "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (25 points for JP, 13 for Global)" + "\n" +
                         "- However, every time the unblur button is pressed, you lose points. If all the unblur hints are used, you'll only gain 1 point for guessing the uma correctly" + "\n" +
                         "- Also, capitalization and spacing doesn't matter. `Seiun Sky`, `seiun sky`, and `seiunsky` are all valid answers" + "\n\n" +
                         "**__Nicknames__**" + "\n" +
@@ -49,6 +49,7 @@ module.exports = {
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +
                         "`!leaderboard (points/wins/daily)`" + " - " + "Global leaderboards" + "\n" +
+                        "`!daily`" + " - " + "Claim your daily 75 points" + "\n" +
                         "\n" + 
                         "**__Misc.__**" + "\n" +
                         "`!help`" + " - " + "Pulls up the help menu.\n- Use `!help uma` for more information about the game" + "\n" +
