@@ -30,6 +30,12 @@
     "images": ["bamboomemory1.jpg", "bamboomemory2.jpg", "bamboomemory3.jpg"]
     },
     {
+    "id": "belno_light",
+    "proper": "Belno Light",
+    "names": ["belno light", "belnolight"],
+    "images": ["belnolight1.jpg, belnolight2.jpg, belnolight3.jpg, belnolight4.jpg, belnolight5.jpg"]
+    },
+    {
     "id": "biko_pegasus",
     "proper": "Biko Pegasus",
     "names": ["biko pegasus", "bikopegasus"],
@@ -76,6 +82,12 @@
     "proper": "Fine Motion",
     "names": ["fine motion", "finemotion"],
     "images": ["finemotion1.jpg", "finemotion2.jpg", "finemotion3.jpg"]
+    },
+    {
+    "id": "fujimasa_march",
+    "proper": "Fujimasa March",
+    "names": ["fujimasa march", "fujimasamarch"],
+    "images": ["fujimasamarch1.jpg", "fujimasamarch2.jpg", "fujimasamarch3.jpg", "fujimasamarch4.jpg"]
     },
     {
     "id": "fuji_kiseki",
@@ -238,6 +250,12 @@
     "proper": "No Reason",
     "names": ["no reason", "noreason"],
     "images": ["noreason1.jpg", "noreason2.jpg", "noreason3.jpg", "noreason4.jpg"]
+    },
+    {
+    "id": "norn_ace",
+    "proper": "Norn Ace",
+    "names": ["norn ace", "nornace"],
+    "images": ["nornace1.jpg", "nornace2.jpg", "nornace3.jpg", "nornace4.jpg"]
     },
     {
     "id": "orfevre",
