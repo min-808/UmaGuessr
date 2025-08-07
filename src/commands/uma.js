@@ -165,6 +165,18 @@ module.exports = {
                 time: 60_000
             });
 
+            setTimeout(() => {
+                if (gameState.has(sentMsg.id)) {
+                    sentMsg.channel.send("30 seconds left");
+                }
+            }, 30_000);
+
+            setTimeout(() => {
+                if (gameState.has(sentMsg.id)) {
+                    sentMsg.channel.send("10 seconds left");
+                }
+            }, 50_000);
+
             messageCollector.on('collect', async (msg) => {
                 const state = gameState.get(sentMsg.id);
                 if (!state) return;
@@ -254,3 +266,6 @@ module.exports = {
         }
     }
 };
+
+module.exports.gameState = gameState
+module.exports.activeChannels

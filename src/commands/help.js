@@ -44,7 +44,7 @@ module.exports = {
                         name: "\n",
                         value: 
                         "**__Game__**" + "\n" +
-                        "`!uma`" + " - " + "Play the uma guessing game (**JP** server default)" + "\n" +
+                        "`!uma`" + " - " + "Play the game (**JP** server default)" + "\n" +
                         "`!uma g`" + " - " + "Play the game (**Global** server characters only)" + "\n\n" +
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +
