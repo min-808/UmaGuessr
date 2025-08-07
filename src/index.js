@@ -74,7 +74,7 @@ client.on('ready', async () => {
     client.user.setActivity('Umamusume: Pretty Derby', { type: 'PLAYING' }); 
     setUptime();
 
-    cron.schedule('3 1 * * *', () => {
+    cron.schedule('0 0 * * *', () => {
     resetDaily()
     }, {
         timezone: 'Pacific/Honolulu'
