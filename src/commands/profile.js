@@ -38,6 +38,12 @@ module.exports = {
                 }
             });
 
+            const allUsers = await ids.find({}, { projection: { discord_id: 1, points: 1 } })
+                .sort({ points: -1 })
+                .toArray();
+
+            const rank = allUsers.findIndex(entry => entry.discord_id.toString() === discordID.toString()) + 1;
+
             const { wins, points, streak, points_today, wins_today } = data;
 
             embed.spliceFields(0, 1, {
@@ -47,9 +53,13 @@ module.exports = {
 
             embed.addFields(
                 {
+                    name: "__Rank__",
+                    value: `Rank **${rank}**`,
+                    inline: true
+                },
+                {
                     name: "__All Time__",
                     value: `Total correct guesses: **${wins}**\nTotal points: **${points}**`,
-                    inline: true
                 },
                 {
                     name: "\n",
@@ -57,11 +67,7 @@ module.exports = {
                 },
                 {
                     name: "__Today__",
-                    value: `Correct guesses today: **${wins_today}**`,
-                },
-                {
-                    name: "\n",
-                    value: `Points earned today: **${points_today}**`,
+                    value: `Correct guesses today: **${wins_today}**\nPoints earned today: **${points_today}**`,
                 }
             );
 
