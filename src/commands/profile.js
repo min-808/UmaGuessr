@@ -32,11 +32,13 @@ module.exports = {
                 projection: {
                     wins: 1,
                     points: 1,
-                    streak: 1
+                    streak: 1,
+                    points_today: 1,
+                    wins_today: 1,
                 }
             });
 
-            const { wins, points, streak } = data;
+            const { wins, points, streak, points_today, wins_today } = data;
 
             embed.spliceFields(0, 1, {
                 name: "\n",
@@ -45,17 +47,25 @@ module.exports = {
 
             embed.addFields(
                 {
-                    name: "\n",
-                    value: `Total Correct Guesses: **${wins}**`,
+                    name: "__All Time__",
+                    value: `Total correct guesses: **${wins}**`,
                     inline: true
                 },
                 {
                     name: "\n",
-                    value: `Total Points: **${points}**`,
+                    value: `Total points: **${points}**`,
                 },
                 {
                     name: "\n",
-                    value: `Current Streak: **${streak}**`,
+                    value: "\n",
+                },
+                {
+                    name: "__Today__",
+                    value: `Correct guesses today: **${wins_today}**`,
+                },
+                {
+                    name: "\n",
+                    value: `Points earned today: **${points_today}**`,
                 }
             );
 
