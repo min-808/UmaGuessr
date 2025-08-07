@@ -8,6 +8,8 @@ const setup = require('../../firstinit');
 const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
 const gameState = new Map()
+const activeChannels = new Set()
+
 const initialBlur = 70 + 1
 let initialPointsJP;
 let minusPointsJP;
@@ -16,6 +18,14 @@ module.exports = {
     name: 'uma',
     description: 'Start an uma guessing game',
     run: async ({ message }) => {
+
+        const channelID = message.channel.id;
+
+        if (activeChannels.has(channelID)) {
+            return
+        }
+
+        activeChannels.add(channelID);
 
         let list;
         let type;
@@ -204,6 +214,7 @@ module.exports = {
                     });
 
                     gameState.delete(sentMsg.id)
+                    activeChannels.delete(channelID)
 
                     await client.close();
                 }
@@ -229,6 +240,7 @@ module.exports = {
                     });
 
                     gameState.delete(sentMsg.id);
+                    activeChannels.delete(channelID);
 
                     await client.close();
                 }
@@ -237,6 +249,7 @@ module.exports = {
         } catch (err) {
             console.error(err);
             message.channel.send("Something went wrong.");
+            activeChannels.delete(channelID);
             await client.close()
         }
     }
