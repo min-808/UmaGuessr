@@ -71,6 +71,7 @@ client.on('messageCreate', async message => {
 
 client.on('ready', async () => {
     console.log(`${client.user.tag} is online.`);
+    client.user.setActivity('Umamusume: Pretty Derby', { type: 'PLAYING' }); 
     setUptime();
 
     cron.schedule('0 0 * * *', () => { // Daily reset at 11pm HST (UTC-10)
