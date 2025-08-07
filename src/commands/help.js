@@ -48,6 +48,7 @@ module.exports = {
                         "`!uma g`" + " - " + "Play the game (**Global** server characters only)" + "\n\n" +
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +
+                        "`!leaderboard (points/wins/daily)`" + " - " + "Check the global leaderboards" + "\n" +
                         "\n" + 
                         "**__Misc.__**" + "\n" +
                         "`!help`" + " - " + "Pulls up the help menu.\n- Use `!help uma` for more information about the uma guessing game" + "\n" +
