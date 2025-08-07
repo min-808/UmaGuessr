@@ -41,10 +41,10 @@ module.exports = {
 
             var writeTime;
 
-            const sec = Math.floor((getNewTime - getOldTime) / (1000))
-            const mins = Math.floor((getNewTime - getOldTime) / (1000 * 60))
-            const hours = Math.floor((getNewTime - getOldTime) / (1000 * 60 * 60))
-            const days = Math.floor((getNewTime - getOldTime) / (1000 * 60 * 60 * 24))
+            let sec = Math.floor((getNewTime - getOldTime) / (1000))
+            let mins = Math.floor((getNewTime - getOldTime) / (1000 * 60))
+            let hours = Math.floor((getNewTime - getOldTime) / (1000 * 60 * 60))
+            let days = Math.floor((getNewTime - getOldTime) / (1000 * 60 * 60 * 24))
 
             if ((getNewTime - getOldTime) < 60_000) { // Seconds -> Minutes -> Hours -> Days
                 writeTime = `${sec.toFixed(0)} seconds`

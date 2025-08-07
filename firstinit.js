@@ -18,6 +18,7 @@ module.exports = {
             points: 0,
             points_today: 0,
             wins_today: 0,
+            daily_timer: 0
         }
     
         const result = await ids.insertOne(doc);
