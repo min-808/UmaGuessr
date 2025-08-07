@@ -44,19 +44,21 @@ module.exports = {
             var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
             var pastTime = toParseUserUID['daily_timer']
 
-            let sec = Math.floor((currentTime - pastTime) / (1000))
-            let mins = Math.floor((currentTime - pastTime) / (1000 * 60))
-            let hours = Math.floor((currentTime - pastTime) / (1000 * 60 * 60))
-            let days = Math.floor((currentTime - pastTime) / (1000 * 60 * 60 * 24))
+            let remaining = (pastTime + 86_400_000) - currentTime; // time LEFT, not time passed
 
-            if ((currentTime - pastTime) < 60_000) { // Seconds -> Minutes -> Hours -> Days
-                writeTime = `${sec.toFixed(0)} seconds`
-            } else if ((currentTime - pastTime) < 3_600_000) {
-                writeTime = `${mins.toFixed(0)} minutes and ${(sec - (mins * 60)).toFixed(0)} seconds`
-            } else if ((currentTime - pastTime) < 86_400_000) {
-                writeTime = `${hours.toFixed(0)} hours, ${(mins - (hours * 60)).toFixed(0)} minutes, and ${(sec - (mins * 60)).toFixed(0)} seconds`
+            let sec = Math.floor(remaining / 1000);
+            let mins = Math.floor(remaining / (1000 * 60));
+            let hours = Math.floor(remaining / (1000 * 60 * 60));
+            let days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+
+            if (remaining < 60_000) {
+                writeTime = `${sec.toFixed(0)} seconds`;
+            } else if (remaining < 3_600_000) {
+                writeTime = `${mins.toFixed(0)} minutes and ${(sec - (mins * 60)).toFixed(0)} seconds`;
+            } else if (remaining < 86_400_000) {
+                writeTime = `${hours.toFixed(0)} hours, ${(mins - (hours * 60)).toFixed(0)} minutes, and ${(sec - (mins * 60)).toFixed(0)} seconds`;
             } else {
-                writeTime = `${days.toFixed(0)} days`
+                writeTime = `${days.toFixed(0)} days`;
             }
             
             // If you can't claim daily yet
