@@ -1,154 +1,48 @@
-require('dotenv').config(); // accesses .env file anywhere
+require('dotenv').config();
 
 const { Client, IntentsBitField, Collection } = require('discord.js');
 const mongoose = require('mongoose');
-const { CommandHandler } = require('djs-commander');
+const fs = require('fs');
 const path = require('path');
-const fs = require('node:fs');
-var { MongoClient } = require('mongodb');
-const cron = require('node-cron')
-
-const CharacterAI = require('node_characterai');
-const characterAI = new CharacterAI();
-
-const missionSheet = require('../src/assets/missions.json')
+const cron = require('node-cron');
+const { MongoClient } = require('mongodb');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
+const prefix = '!';
+
 const client = new Client({
-    intents: [ // a set of permissions that the bot can use to access a set of events
+    intents: [
         IntentsBitField.Flags.Guilds,
-        IntentsBitField.Flags.GuildMembers,
         IntentsBitField.Flags.GuildMessages,
-        IntentsBitField.Flags.MessageContent
-    ]
+        IntentsBitField.Flags.MessageContent,
+        IntentsBitField.Flags.GuildMembers,
+    ],
 });
 
 client.commands = new Collection();
 
-
-new CommandHandler({
-    client,
-    commandsPath: path.join(__dirname, 'commands'),
-    eventsPath: path.join(__dirname, 'events'),
-    //testServer: process.env.GUILD_ID
-});
-
-const commandPath = path.join(__dirname, 'commands')
-
-const commandFiles = fs.readdirSync(commandPath).filter(file => file.endsWith('.js'));
+const commandFiles = fs.readdirSync(path.join(__dirname, 'commands')).filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-    const filePath = path.join(commandPath, file)
-    const command = require(filePath)
-
-    client.commands.set(command.data.name, command)
+    const command = require(`./commands/${file}`);
+    client.commands.set(command.name, command);
 }
 
-async function setUptime() {
-    var currentTime = Date.now()
-
+async function resetDaily() {
     var client = new MongoClient(uri)
 
-    var database = client.db("economy")
-    var ids = database.collection("uptime")
-
-    await ids.updateOne({}, {
-        $set: {
-            time: currentTime
-        }
-    })
-}
-
-async function replenishPower() {
-    var client = new MongoClient(uri)
-
-    var database = client.db("economy");
-    var ids = database.collection("inventories")
-    
-    var howMany = await ids.countDocuments()
+    var database = client.db("uma");
+    var ids = database.collection("stats")
 
     var currentDate = new Date()
     var currentTime = currentDate.toLocaleTimeString('en-US')
 
-    console.log(`[${currentTime}] - There are ${howMany} documents. Updating trailblaze power...`)
-
-    await ids.updateMany(
-        { $expr: { $lt: ["$trailblaze_power", "$max_trailblaze_power"] } }, 
-        { $inc: { trailblaze_power: 1 } }
-    )
-
-    await client.close()
-}
-
-async function resetDailies() {
-    var client = new MongoClient(uri)
-
-    var database = client.db("economy");
-    var ids = database.collection("inventories")
-
-    var currentDate = new Date()
-    var currentTime = currentDate.toLocaleTimeString('en-US')
-
-    console.log(`[${currentTime}] - Resetting daily missions...`)
-
-    // Randomize missions
-
-    var missions = []
-
-    while (missions.length < 5) {
-        var randomNum = Math.floor(Math.random() * Object.keys(missionSheet).length) // Grabs a random id
-        if (missions.indexOf(randomNum) == -1) { // Ensures uniqueness
-            missions.push(randomNum)
-        }
-    }
+    console.log(`[${currentTime}] - Resetting daily points/wins...`)
 
     const update = {
         $set: {
-            'missions': [
-                { 
-                    "id": missionSheet[missions[0]]['id'],
-                    "description": missionSheet[missions[0]]['description'],
-                    "reward": 75,
-                    "exp_reward": 290,
-                    "completed": false,
-                    "completed_symbol": "❌"
-                },
-                { 
-                    "id": missionSheet[missions[1]]['id'],
-                    "description": missionSheet[missions[1]]['description'],
-                    "reward": 75,
-                    "exp_reward": 290,
-                    "completed": false,
-                    "completed_symbol": "❌"
-                },
-                { 
-                    "id": missionSheet[missions[2]]['id'],
-                    "description": missionSheet[missions[2]]['description'],
-                    "reward": 75,
-                    "exp_reward": 290,
-                    "completed": false,
-                    "completed_symbol": "❌"
-                },
-                { 
-                    "id": missionSheet[missions[3]]['id'],
-                    "description": missionSheet[missions[3]]['description'],
-                    "reward": 75,
-                    "exp_reward": 290,
-                    "completed": false,
-                    "completed_symbol": "❌"
-                },
-                { 
-                    "id": missionSheet[missions[4]]['id'],
-                    "description": missionSheet[missions[4]]['description'],
-                    "reward": 75,
-                    "exp_reward": 290,
-                    "completed": false,
-                    "completed_symbol": "❌"
-                },
-            ],
-            missions_completed: false,
-            trailblaze_power_used_today: 0,
-            missions_claimed: false,
+            points_today: 0,
+            wins_today: 0,
         }
 
     }
@@ -158,48 +52,50 @@ async function resetDailies() {
     await client.close()
 }
 
-client.on('ready', async () => { // When the bot turns on
+client.on('messageCreate', async message => {
+    if (!message.content.startsWith(prefix) || message.author.bot) return;
 
-    setUptime()
+    const args = message.content.slice(prefix.length).trim().split(/ +/);
+    const cmdName = args.shift().toLowerCase();
 
-    // Initialize Cron scheduler
-    cron.schedule('*/6 * * * *', () => { // 240 power every 24 hours
-        replenishPower()
-    })
+    const command = client.commands.get(cmdName);
+    if (!command) return;
 
-    cron.schedule('0 23 * * *', () => { // Daily reset at 11pm HST (UTC-10)
-        resetDailies()
-    })
-})
-
-client.on('interactionCreate', async interaction => { // interactions within slash commands
-
-    if (interaction.isChatInputCommand()) { // boolean
-        console.log(`@${interaction.user.username}: /${interaction.commandName}`)
-    }
-
-    if (interaction.isAutocomplete()) {
-        const command = interaction.client.commands.get(interaction.commandName)
-
-        if (!command) {
-            return;
-        }
-
-        try {
-            await command.autocomplete(interaction)
-        } catch (err) {
-            return;
-        }
+    try {
+        await command.run({ message, args, client });
+    } catch (err) {
+        console.error(err);
+        message.reply("There was an error executing that command.");
     }
 });
+
+client.on('ready', async () => {
+    console.log(`${client.user.tag} is online.`);
+    setUptime();
+
+    cron.schedule('0 0 * * *', () => { // Daily reset at 11pm HST (UTC-10)
+        resetDaily()
+    })
+
+    // const channel = await client.channels.fetch('895794176682242088');
+    // await channel.send('a');
+});
+
+async function setUptime() {
+    const client = new MongoClient(uri);
+    const database = client.db("economy");
+    const ids = database.collection("uptime");
+    await ids.updateOne({}, { $set: { time: Date.now() } });
+    await client.close();
+}
 
 (async () => {
     try {
         mongoose.set('strictQuery', false);
         await mongoose.connect(process.env.MONGODB_URI);
-        console.log("Connected to Database.")
+        console.log("Connected to Database.");
 
-        client.login(process.env.TOKEN)
+        client.login(process.env.TOKEN);
     } catch (error) {
         console.log(`Error: ${error}`);
     }

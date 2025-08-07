@@ -4,7 +4,7 @@ module.exports = (client) => {
     console.log(`${client.user.tag} is online.`)
 
     client.user.setActivity({
-        name: "Honkai: Star Rail",
+        name: "sup",
         type: ActivityType.Playing,
     })
     

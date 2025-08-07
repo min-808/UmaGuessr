@@ -1,107 +1,94 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require('discord.js')
+const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require('discord.js');
 
-module.exports = async (interaction, pages, time = 60 * 1000) => {
+module.exports = async (message, pages, time = 60 * 1000) => {
     try {
-        if (!interaction || !pages || !pages > 0) throw new Error("invalid arguments");
-
-        await interaction.deferReply();
+        if (!message || !Array.isArray(pages) || pages.length === 0)
+            throw new Error("invalid arguments");
 
         if (pages.length === 1) {
-            return await interaction.editReply({
+            return await message.edit({
                 embeds: pages,
                 components: [],
-                fetchReply: true
-            })
+                content: null
+            });
         }
 
         const front = new ButtonBuilder()
             .setCustomId('front')
             .setEmoji('⏮')
             .setStyle(ButtonStyle.Primary)
-            .setDisabled(true)
+            .setDisabled(true);
 
         const prev = new ButtonBuilder()
             .setCustomId('prev')
             .setEmoji('⬅')
             .setStyle(ButtonStyle.Primary)
-            .setDisabled(true)
+            .setDisabled(true);
 
         const next = new ButtonBuilder()
             .setCustomId('next')
-            .setEmoji('➡')
-            .setStyle(ButtonStyle.Primary)
-        
+            .setEmoji('➡️')
+            .setStyle(ButtonStyle.Primary);
+
         const end = new ButtonBuilder()
             .setCustomId('end')
             .setEmoji('⏭')
-            .setStyle(ButtonStyle.Primary)
+            .setStyle(ButtonStyle.Primary);
 
-        const buttons = new ActionRowBuilder().addComponents([front, prev, next, end])
+        const row = new ActionRowBuilder().addComponents(front, prev, next, end);
         let index = 0;
 
-        const msg = await interaction.editReply({
+        const msg = await message.edit({
             embeds: [pages[index]],
-            components: [buttons],
+            components: [row],
+            content: null,
             fetchReply: true
-        })
+        });
 
-        const mc = await msg.createMessageComponentCollector({
+        const collector = msg.createMessageComponentCollector({
             componentType: ComponentType.Button,
-            time,
-        })
+            time
+        });
 
-        mc.on('collect', async (i) => {
-            if (i.user.id !== interaction.user.id) return await i.reply({ content: 'You are not allowed to do this', ephemeral: true })
+        collector.on('collect', async (i) => {
 
             await i.deferUpdate();
 
-            if (i.customId == 'prev') {
-                if (index > 0) {
-                    index--
-                } 
-            } else if (i.customId == 'front') {
-                index = 0;
-            } else if (i.customId == 'next') {
-                if (index < pages.length - 1) {
-                    index++;
-                }
-            } else if (i.customId == 'end') {
-                index = pages.length - 1
+            switch (i.customId) {
+                case 'front':
+                    index = 0;
+                    break;
+                case 'prev':
+                    if (index > 0) index--;
+                    break;
+                case 'next':
+                    if (index < pages.length - 1) index++;
+                    break;
+                case 'end':
+                    index = pages.length - 1;
+                    break;
             }
 
-            if (index == 0) {
-                prev.setDisabled(true)
-                front.setDisabled(true)
-            } else {
-                prev.setDisabled(false)
-                front.setDisabled(false)
-            }
-
-            if (index == pages.length - 1) {
-                next.setDisabled(true)
-                end.setDisabled(true)
-            } else {
-                next.setDisabled(false)
-                end.setDisabled(false)
-            }
+            front.setDisabled(index === 0);
+            prev.setDisabled(index === 0);
+            next.setDisabled(index === pages.length - 1);
+            end.setDisabled(index === pages.length - 1);
 
             await msg.edit({
                 embeds: [pages[index]],
-                components: [buttons]
-            })
+                components: [row]
+            });
 
-            mc.resetTimer()
+            collector.resetTimer();
+        });
 
-            mc.on('end', async () => {
-                await msg.edit({
-                    embeds: [pages[index]],
-                    components: []
-                })
-            })
-
-            return msg
-        })
+        collector.on('end', async () => {
+            await msg.edit({
+                embeds: [pages[index]],
+                components: []
+            });
+        });
     } catch (e) {
-        console.log(e)
+        console.log(e);
     }
-}
+};

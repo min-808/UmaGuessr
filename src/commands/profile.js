@@ -1,199 +1,71 @@
-var { SlashCommandBuilder, EmbedBuilder, AttachmentBuilder } = require('discord.js');
-var { MongoClient } = require("mongodb");
-
-const charSheet = require('../../src/assets/characters.json')
-const LCSheet = require('../../src/assets/light_cones.json')
-const TLSheet = require('../../src/assets/tl.json')
-const areaSheet = require('../../src/assets/areas.json')
+const { EmbedBuilder, AttachmentBuilder } = require('discord.js');
+const { MongoClient } = require("mongodb");
 
 const setup = require('../../firstinit');
-const checkLevel = require('../../check-level');
 
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
+const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
+
+const img = "eat"
 
 module.exports = {
-    data: new SlashCommandBuilder()
-    .setName('profile')
-    .setDescription('Shows your bot game stats'),
+    name: 'profile',
+    description: 'Show your bot game stats.',
+    run: async ({ message }) => {
+        const file = new AttachmentBuilder(`src/assets/${img}.png`);
+        const user = message.author;
 
-    run: ({ interaction }) => {
-             
-        (async () => { // run, and if an error occurs, you can catch it
+        const embed = new EmbedBuilder()
+            .setColor('LightGrey')
+            .setThumbnail(`attachment://${img}.png`)
+            .addFields({ name: "\n", value: `\n` });
 
-            await interaction.deferReply();
+        try {
+            const client = new MongoClient(uri);
+            const database = client.db("uma");
+            const ids = database.collection("stats");
+            const discordID = BigInt(user.id);
 
-            const file = new AttachmentBuilder('src/assets/peppy.png');
+            const count = await ids.countDocuments({ discord_id: discordID });
+            if (count < 1) await setup.init(discordID, "uma", "stats");
 
-            // Placeholder embed for now
-            var testEmbed = new EmbedBuilder()
-            .setColor(0x9a7ee7)
-            .setThumbnail("attachment://peppy.png")
-            .addFields(
+            const data = await ids.findOne({ discord_id: discordID }, {
+                projection: {
+                    wins: 1,
+                    points: 1,
+                    streak: 1
+                }
+            });
+
+            const { wins, points, streak } = data;
+
+            embed.spliceFields(0, 1, {
+                name: "\n",
+                value: `**${user.username}'s Profile**`
+            });
+
+            embed.addFields(
                 {
                     name: "\n",
-                    value: "\n"
+                    value: `Total Correct Guesses: **${wins}**`,
+                    inline: true
                 },
-            )
-
-            try {
-
-                var client = new MongoClient(uri)
-
-                var database = client.db("economy");
-                var ids = database.collection("inventories")
-                var discordID = BigInt(interaction.user.id)
-
-                // Check how many documents are in the query (discord_id)
-                var counter = await ids.countDocuments({discord_id: discordID})
-
-                if (counter < 1) {
-                    // If document not found, make a new database entry, do this for all economy commands
-                    await setup.init(discordID, "economy", "inventories")
-                }
-                var options = {
-                    projection: {
-                        jade_count: 1,
-                        credits: 1,
-                        exp_material: 1,
-                        trailblaze_power: 1,
-                        fuel: 1,
-                        level: 1,
-                        exp: 1,
-                        rewards: 1,
-                        characters: 1,
-                        inventory: 1,
-                        missions: 1,
-                        missions_completed: 1,
-                        assignment_level: 1,
-                        trailblaze_power_used_today: 1,
-                    }
-                }
-
-                // Then get the first thing that matches the discord id, and options is the query from before
-                var levelSuccess = await checkLevel.checker(discordID, "economy", "inventories")
-                var finalCheck = await ids.findOne({discord_id: discordID}, options)
-
-                var jade_count = finalCheck['jade_count']
-                var credits = finalCheck['credits']
-                var exp_material = finalCheck['exp_material']
-                var trailblaze_power = finalCheck['trailblaze_power']
-                var fuel = finalCheck['fuel']
-                var level = finalCheck['level']
-                var exp = finalCheck['exp']
-                var characters = finalCheck['characters']
-                var inventory = finalCheck['inventory']
-                var assignmentLevel = finalCheck['assignment_level']
-                var currentRewardLevel = finalCheck['rewards']
-                var TPUsedToday = finalCheck['trailblaze_power_used_today']
-
-                var amountOf5 = 0
-                var amountOf4 = 0
-                var amountOf3 = 0
-
-                for (var i = 0; i < Object.keys(characters).length; i++) {
-                    if (charSheet[Object.keys(characters)[i]]['rarity'] == 5) {
-                        amountOf5++;
-                    } else if (charSheet[Object.keys(characters)[i]]['rarity'] == 4) {
-                        amountOf4++;
-                    } else {
-                        amountOf3++
-                    }
-                }
-
-                for (var i = 0; i < Object.keys(inventory).length; i++) {
-                    if (LCSheet[Object.keys(inventory)[i]]['rarity'] == 5) {
-                        amountOf5++
-                    } else if (LCSheet[Object.keys(inventory)[i]]['rarity'] == 4) {
-                        amountOf4++
-                    } else {
-                        amountOf3++
-                    }
-                }
-
-                const response = await fetch(`https://discord.com/api/v10/users/${discordID}`, {
-                            headers: {
-                                'Authorization': 'Bot ' + (process.env.TOKEN)
-                            }
-                        })
-    
-                var parse = await response.json()
-                var returnedUsername = String(parse?.["username"])
-                
-                testEmbed.spliceFields(0, 1,
-                    {
-                        name: "\n",
-                        value: `**${returnedUsername}'s Profile**`
-                    })
-
-                testEmbed.addFields({
+                {
                     name: "\n",
-                    value: `Trailblaze Level **${level}**
-EXP to Next Level **${exp}**/${TLSheet[level]["next_exp"]}\n
-**${amountOf5}** Five Stars
-**${amountOf4}** Four Stars
-**${amountOf3}** Three Stars\n
-Highest Planet: **${areaSheet[assignmentLevel]['name']}**
-Power Used Today: **${TPUsedToday}**\n`,
-                    inline: true
-                })
-
-                testEmbed.addFields({
+                    value: `Total Points: **${points}**`,
+                },
+                {
                     name: "\n",
-                    value: `**${jade_count}** Stellar Jade\n**${credits}** Credits\n**${exp_material}** EXP Material\n\n**${trailblaze_power}**/240 Trailblaze Power\n**${fuel}** Fuel`,
-                    inline: true
-                })
-
-                var getMissions = finalCheck['missions']
-
-                var addMissionID = []
-
-                for (var i = 0; i < 5; i++) {
-                    addMissionID.push(getMissions[i]["id"])
+                    value: `Current Streak: **${streak}**`,
                 }
+            );
 
-                if ((addMissionID.includes(6)) && (getMissions[addMissionID.indexOf(6)]["completed"] == false)) { // id for profile mission
-                    var mission = `missions.${addMissionID.indexOf(6)}.completed`
-                    var missionSymbol = `missions.${addMissionID.indexOf(6)}.completed_symbol`
+            await message.channel.send({ embeds: [embed], files: [file] });
 
-                    const setTrue = {
-                        $set: {
-                            [mission]: true,
-                            [missionSymbol]: "✅",
-                        },
-                        $inc: {
-                            jade_count: 75,
-                            exp: 290,
-                        }
-                    }
-
-                    await ids.updateOne({discord_id: discordID}, setTrue)
-                }
-
-                if (currentRewardLevel < level) {
-                    testEmbed.setFooter({text: "You can claim Trailblaze Level rewards with /rewards"})
-                }
-
-                interaction.editReply({ embeds: [testEmbed], files: [file] });
-
-                if (levelSuccess) {
-                    var levelEmbed = new EmbedBuilder()
-                    .setColor(0x9a7ee7)
-                    .addFields(
-                        {
-                            name: "\n",
-                            value: "Your Trailblaze Level increased!\n\nClaim rewards with **/rewards** or check your level with **/profile**"
-                        },
-                    )
-                    await interaction.channel.send({ embeds: [levelEmbed] })
-                }
-
-                await client.close()
-
-                } catch (error) {
-                    console.log(`There was an error: ${error.stack}`)
-                    interaction.editReply({ content: "Something broke!"})
-                    await client.close()
-                }
-        })();
+            await client.close();
+        } catch (err) {
+            console.error(err);
+            message.channel.send("Something went wrong while retrieving your profile.");
+            await client.close()
+        }
     }
-}
+};

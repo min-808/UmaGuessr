@@ -1,74 +1,74 @@
-var { SlashCommandBuilder, EmbedBuilder } = require('discord.js');
-var { MongoClient } = require("mongodb");
-
-const setup = require('../../firstinit');
+var { EmbedBuilder } = require('discord.js');
+const { MongoClient } = require('mongodb');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
-    data: new SlashCommandBuilder()
-    .setName('uptime')
-    .setDescription('Get bot uptime'),
+    name: 'uptime',
+    description: 'Get bot uptime',
 
-    run: ({ interaction }) => {
-             
-        (async () => { // run, and if an error occurs, you can catch it
+    run: async ({ message }) => {
 
-            await interaction.deferReply();
+        var embed = new EmbedBuilder()
+        .setColor('LightGrey')
+        .addFields(
+            {
+                name: "\n",
+                value: "\n"
+            },
+        )
 
-            // Placeholder embed for now
-            var testEmbed = new EmbedBuilder()
-            .setColor(0x9a7ee7)
-            .addFields(
+        try {
+
+            var client = new MongoClient(uri)
+
+            var database = client.db("economy");
+            var ids = database.collection("uptime")
+
+            // Check how many documents are in the query (discord_id)
+
+            var options = {
+                projection: {
+                    time: 1
+                }
+            }
+
+            // Then get the first thing that matches the discord id, and options is the query from before
+            var toParseUserUID = await ids.findOne({}, options);
+            var getOldTime = toParseUserUID['time']
+
+            var getNewTime = Date.now()
+
+            var writeTime;
+
+            const sec = Math.floor((getNewTime - getOldTime) / (1000))
+            const mins = Math.floor((getNewTime - getOldTime) / (1000 * 60))
+            const hours = Math.floor((getNewTime - getOldTime) / (1000 * 60 * 60))
+            const days = Math.floor((getNewTime - getOldTime) / (1000 * 60 * 60 * 24))
+
+            if ((getNewTime - getOldTime) < 60_000) { // Seconds -> Minutes -> Hours -> Days
+                writeTime = `${sec.toFixed(0)} seconds`
+            } else if ((getNewTime - getOldTime) < 3_600_000) {
+                writeTime = `${mins.toFixed(0)} minutes and ${(sec - (mins * 60)).toFixed(0)} seconds`
+            } else if ((getNewTime - getOldTime) < 86_400_000) {
+                writeTime = `${hours.toFixed(0)} hours, ${(mins - (hours * 60)).toFixed(0)} minutes, and ${(sec - (mins * 60)).toFixed(0)} seconds`
+            } else {
+                writeTime = `${days.toFixed(0)} days`
+            }
+            
+            embed.spliceFields(0, 1,
                 {
                     name: "\n",
-                    value: "\n"
-                },
-            )
+                    value: `The bot has been up for **${writeTime}**`
+                })
 
-            try {
+            await message.channel.send({ embeds: [embed] });
+            await client.close()
 
-                var client = new MongoClient(uri)
-
-                var database = client.db("economy");
-                var ids = database.collection("uptime")
-
-                // Check how many documents are in the query (discord_id)
-
-                var options = {
-                    projection: {
-                        time: 1
-                    }
-                }
-
-                // Then get the first thing that matches the discord id, and options is the query from before
-                var toParseUserUID = await ids.findOne({}, options);
-                var getOldTime = toParseUserUID['time']
-
-                var getNewTime = Date.now()
-
-                var writeTime;
-
-                if ((getNewTime - getOldTime) < 86_000_000) { // Display as hours if the time is less than one day, else display as days
-                    writeTime = `${((getNewTime - getOldTime) / (1000 * 60 * 60)).toFixed(1)} hours`
-                } else {
-                    writeTime = `${((getNewTime - getOldTime) / (1000 * 60 * 60 * 24)).toFixed(1)} days`
-                }
-                
-                testEmbed.spliceFields(0, 1,
-                    {
-                        name: "\n",
-                        value: `The bot has been up for **${writeTime}**`
-                    })
-
-                interaction.editReply({ embeds: [testEmbed] });
-                await client.close()
-
-                } catch (error) {
-                    console.log(`There was an error: ${error.stack}`)
-                    interaction.editReply({ content: "Something broke!"})
-                    await client.close()
-                }
-        })();
+        } catch (error) {
+            console.log(`There was an error: ${error.stack}`)
+            message.edit({ content: "Something broke!"})
+            await client.close()
+        }
     }
 }

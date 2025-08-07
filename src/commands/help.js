@@ -1,53 +1,65 @@
-const { SlashCommandBuilder, AttachmentBuilder, EmbedBuilder } = require('discord.js');
+const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
+
+const img = "oguri"
 
 module.exports = {
-    data: new SlashCommandBuilder()
-    .setName('help')
-    .setDescription('Shows all available commands'),
+    name: 'help',
+    description: 'Shows all available commands',
     
-    run: ({ interaction }) => {
+    run: async ({ message }) => {
 
-        const file = new AttachmentBuilder('src/assets/thinking.png');
+        const file = new AttachmentBuilder(`src/assets/${img}.png`);
 
-        const testEmbed = new EmbedBuilder()
-            .setColor(0x9a7ee7)
-            .setTitle("Commands")
-            .setTimestamp()
-            .setThumbnail("attachment://thinking.png")
-            .addFields( // Be wary that this is very close to the character limit and could error
-                {
-                    name: "\n",
-                    value: 
-                    "**__Game__**" + "\n" +
-                    "`/profile`" + " - " + "Returns information about the player" + "\n" + 
-                    "`/register`" + " - " + "Allows you to register your UID to the bot" + "\n" +
-                    "`/info`" + " - " + "Returns information about a character" + "\n" + 
-                    "\n" + 
-                    "**__Fun__**" + "\n" +
-                    "`/wish`" + " - " + "Wish for characters with HSR rates" + "\n" + 
-                    "`/pity`" + " - " + "See your 4/5 star pities" + "\n" + 
-                    "`/balance`" + " - " + "Check your jades, exp, credits, and power" + "\n" + 
-                    "`/daily`" + " - " + "Get 1000 stellar jade every 24 hours" + "\n" +
-                    "`/missions`" + " - " + "Check your daily missions" + "\n" +
-                    "`/bonus`" + " - " + "Get a one-time bonus of 4000 jade" + "\n" +
-                    "`/characters`" + " - " + "Shows your owned characters" + "\n" + 
-                    "`/inventory`" + " - " + "Shows your owned light cones" + "\n" + 
-                    "`/equip`" + " - " + "Put light cones on your characters" + "\n" + 
-                    "`/unequip`" + " - " + "Remove light cones from your characters" + "\n" + 
-                    "`/assignment`" + " - " + "Go on assignments with your characters" + "\n" + 
-                    "`/unlock`" + " - " + "Spend credits to unlock new planets" + "\n" + 
-                    "`/fuel`" + " - " + "Spend fuel to get trailblaze power" + "\n" + 
-                    "`/calyx`" + " - " + "Enter every 2 hours to obtain free exp and credits" + "\n" + 
-                    "\n" + 
-                    "**__Misc.__**" + "\n" +
-                    "`/help`" + " - " + "Brings up the help menu" + "\n" +
-                    "`/chat`" + " - " + "Talk with character.ai characters" + "\n" +
-                    "`/math`" + " - " + "Does simple math" + "\n" + 
-                    "`/ping`" + " - " + "Pong!" + "\n"
-                },
-            )
-            .setFooter({ text: "Uses the MiHoMo API | Data from StarRailRes & Dimbreath" })
+        let embed;
 
-        interaction.reply({ embeds: [testEmbed], files: [file] });
+        if (message.content.toLowerCase().includes("uma")) {
+            embed = new EmbedBuilder()
+                .setColor('LightGrey')
+                .setTitle("Uma Guessing Game Help")
+                .setTimestamp()
+                .setThumbnail(`attachment://${img}.png`)
+                .addFields(
+                    {
+                        name: "\n",
+                        value: 
+                        "**__How to Play__**" + "\n" +
+                        "- Start the game by using either `!uma` for guessing characters from the JP server, or `!uma g` for characters from the Global server" + "\n" +
+                        "- You will have **60** seconds to guess the character, and pressing the `Unblur` button will slightly unblur the image" + "\n" +
+                        "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (22 points for JP, 15 for Global)" + "\n" +
+                        "- However, every time the unblur button is pressed, you lose points. If all the unblur hints are used, you'll only gain 1 point for guessing the uma correctly" + "\n" +
+                        "- Also, capitalization and spacing doesn't matter. `Seiun Sky`, `seiun sky`, and `seiunsky` are all valid answers" + "\n\n" +
+                        "**__Nicknames__**" + "\n" +
+                        "- Note that some umas have nicknames that can be accepted as valid answers: Mambo, Fuku, CB, and TM are a few examples" + "\n" +
+                        "- Additionally, umas that share a family name can be guessed with just their first names (McQueen, Ryan)" + "\n"
+                    },
+                )
+        } else {
+            embed = new EmbedBuilder()
+                .setColor('LightGrey')
+                .setTitle("Commands")
+                .setTimestamp()
+                .setThumbnail(`attachment://${img}.png`)
+                .addFields(
+                    {
+                        name: "\n",
+                        value: 
+                        "**__Game__**" + "\n" +
+                        "`!uma`" + " - " + "Play the uma guessing game (**JP** server default)" + "\n" +
+                        "`!uma g`" + " - " + "Play the game (**Global** server characters only)" + "\n\n" +
+                        "**__Profile__**" + "\n" +
+                        "`!profile`" + " - " + "Check your profile" + "\n" +
+                        "\n" + 
+                        "**__Misc.__**" + "\n" +
+                        "`!help`" + " - " + "Pulls up the help menu.\n- Use `!help uma` for more information about the uma guessing game" + "\n" +
+                        "`!uptime`" + " - " + "Bot uptime" + "\n" +
+                        "`!help`" + " - " + "Brings up the help menu" + "\n" +
+                        "`!ping`" + " - " + "Pong!"
+                    },
+                )
+        }
+
+        
+
+        await message.channel.send({ embeds: [embed], files: [file] });
     }
 }
