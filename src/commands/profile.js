@@ -53,8 +53,8 @@ module.exports = {
 
             embed.addFields(
                 {
-                    name: `Rank **${rank}**`,
-                    value: `\n`,
+                    name: `__Rank__`,
+                    value: `${rank}`,
                     inline: true
                 },
                 {
