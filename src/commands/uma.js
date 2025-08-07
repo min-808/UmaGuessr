@@ -22,7 +22,7 @@ module.exports = {
         const channelID = message.channel.id;
 
         if (activeChannels.has(channelID)) {
-            return
+            return message.channelID.send("a game is running brochado");
         }
 
         activeChannels.add(channelID);
