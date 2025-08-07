@@ -1,6 +1,8 @@
 var { EmbedBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
+const img = "oguri"
+
 const setup = require('../../firstinit');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
@@ -10,6 +12,9 @@ module.exports = {
     description: 'Claim your daily points',
 
     run: async ({ message }) => {
+
+        const file = new AttachmentBuilder(`src/assets/${img}.png`);
+
         const user = message.author;
 
         const embed = new EmbedBuilder()
@@ -56,7 +61,7 @@ module.exports = {
             
             // If you can't claim daily yet
             if ((pastTime += 86_400_000) >= currentTime) {
-                testEmbed.spliceFields(0, 1,
+                embed.spliceFields(0, 1,
                     {
                         name: "\n",
                         value: `You can claim again in **${writeTime}**`
@@ -74,15 +79,15 @@ module.exports = {
 
                 await ids.updateOne({discord_id: discordID}, updateValues)
                 
-                testEmbed.spliceFields(0, 1, {
+                embed.spliceFields(0, 1, {
                     name: "\n",
                     value: `You claimed your daily **75** points`
                 })
 
-                testEmbed.setTimestamp();
+                embed.setTimestamp();
             }
 
-            await message.channel.send({ embeds: [testEmbed] });
+            await message.channel.send({ embeds: [embed], files: [file] });
 
             await client.close()
         } catch (error) {
