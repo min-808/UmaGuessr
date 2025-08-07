@@ -78,6 +78,9 @@ client.on('ready', async () => {
         resetDaily()
     })
 
+    var currentTime = Date.now();
+    console.log("The time is " + currentTime)
+
     // const channel = await client.channels.fetch('895794176682242088');
     // await channel.send('a');
 });
