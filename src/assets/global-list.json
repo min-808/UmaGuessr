@@ -110,7 +110,7 @@
   {
     "id": "rice_shower",
     "proper": "Rice Shower",
-    "names": ["rice shower", "riceshower"],
+    "names": ["rice shower", "riceshower", "rice"],
     "images": ["riceshower1.jpg", "riceshower2.jpg", "riceshower3.jpg", "riceshower4.jpg"]
   },
   {
@@ -128,7 +128,7 @@
   {
     "id": "special_week",
     "proper": "Special Week",
-    "names": ["special week", "specialweek"],
+    "names": ["special week", "specialweek", "spe"],
     "images": ["specialweek1.jpg", "specialweek2.jpg", "specialweek3.jpg", "specialweek4.jpg"]
   },
   {
