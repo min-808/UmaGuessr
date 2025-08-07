@@ -74,12 +74,11 @@ client.on('ready', async () => {
     client.user.setActivity('Umamusume: Pretty Derby', { type: 'PLAYING' }); 
     setUptime();
 
-    cron.schedule('0 0 * * *', () => { // Daily reset at 11pm HST (UTC-10)
-        resetDaily()
+    cron.schedule('3 1 * * *', () => {
+    resetDaily()
+    }, {
+        timezone: 'Pacific/Honolulu'
     })
-
-    var currentTime = Date.now();
-    console.log("The time is " + currentTime)
 
     // const channel = await client.channels.fetch('895794176682242088');
     // await channel.send('a');
