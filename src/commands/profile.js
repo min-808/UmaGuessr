@@ -48,12 +48,8 @@ module.exports = {
             embed.addFields(
                 {
                     name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**`,
+                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**`,
                     inline: true
-                },
-                {
-                    name: "\n",
-                    value: `Total points: **${points}**`,
                 },
                 {
                     name: "\n",
