@@ -52,7 +52,7 @@ module.exports = {
                 minusPointsJP = 4
             }
 
-            const chooseChar = Math.floor(Math.random() * list.length)
+            var chooseChar = Math.floor(Math.random() * list.length)
             var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
 
             chooseChar = 23
