@@ -68,7 +68,7 @@
   {
     "id": "matikanefukukitaru",
     "proper": "Matikanefukukitaru",
-    "names": ["matikanefukukitaru", "fuku"],
+    "names": ["matikanefukukitaru", "fuku", "fukukitaru"],
     "images": ["matikanefukukitaru1.jpg", "matikanefukukitaru2.jpg", "matikanefukukitaru3.jpg"]
   },
   {
@@ -96,6 +96,12 @@
     "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg", "mihonobourbon3.jpg", "mihonobourbon4.jpg"]
   },
   {
+    "id": "narita_taishin",
+    "proper": "Narita Taishin",
+    "names": ["narita taishin", "naritataishin", "taishin"],
+    "images": ["naritataishin1.jpg", "naritataishin2.jpg", "naritataishin3.jpg", "naritataishin4.jpg"]
+  },
+  {
     "id": "nice_nature",
     "proper": "Nice Nature",
     "names": ["nice nature", "nicenature", "nature"],
@@ -104,7 +110,7 @@
   {
     "id": "oguri_cap",
     "proper": "Oguri Cap",
-    "names": ["oguri cap", "oguricap", "oguri"],
+    "names": ["oguri cap", "oguricap", "oguri", "ogurin", "fatty"],
     "images": ["oguricap1.jpg", "oguricap2.jpg", "oguricap3.jpg", "oguricap4.jpg"]
   },
   {

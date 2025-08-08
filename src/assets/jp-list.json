@@ -8,7 +8,7 @@
     {
     "id": "air_shakur",
     "proper": "Air Shakur",
-    "names": ["air shakur", "airshakur", "groove"],
+    "names": ["air shakur", "airshakur", "shakur"],
     "images": ["airshakur1.jpg", "airshakur2.jpg", "airshakur3.jpg"]
     },
     {
@@ -222,12 +222,6 @@
     "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg"]
     },
     {
-      "id": "narita_taishin",
-      "proper": "Narita Taishin",
-      "names": ["narita taishin", "naritataishin", "taishin"],
-      "images": ["naritataishin1.jpg", "naritataishin2.jpg", "naritataishin3.jpg", "naritataishin4.jpg"]
-    },
-    {
     "id": "narita_top_road",
     "proper": "Narita Top Road",
     "names": ["narita top road", "naritatoproad", "toproad"],
@@ -254,7 +248,7 @@
     {
     "id": "norn_ace",
     "proper": "Norn Ace",
-    "names": ["norn ace", "nornace"],
+    "names": ["norn ace", "nornace", "norn"],
     "images": ["nornace1.jpg", "nornace2.jpg", "nornace3.jpg", "nornace4.jpg"]
     },
     {
@@ -372,8 +366,8 @@
     "images": ["yukinobijin1.jpg", "yukinobijin2.jpg", "yukinobijin3.jpg", "yukinobijin4.jpg"]
     },
     {
-    "id": "zennorobroy",
-    "proper": "Zennorobroy",
+    "id": "zenno Rob Roy",
+    "proper": "Zenno Rob Roy",
     "names": ["zennorobroy"],
     "images": ["zennorobroy1.jpg", "zennorobroy2.jpg", "zennorobroy3.jpg", "zennorobroy4.jpg"]
     }
