@@ -2,67 +2,67 @@
   {
     "id": "agnes_tachyon",
     "proper": "Agnes Tachyon",
-    "names": ["agnes tachyon", "agnestachyon", "tachyon"],
+    "names": ["agnestachyon", "tachyon"],
     "images": ["agnestachyon1.jpg", "agnestachyon2.jpg", "agnestachyon3.jpg", "agnestachyon4.jpg"]
   },
   {
     "id": "air_groove",
     "proper": "Air Groove",
-    "names": ["air groove", "airgroove", "groove"],
+    "names": ["airgroove", "groove"],
     "images": ["airgroove1.jpg", "airgroove2.jpg", "airgroove3.jpg"]
   },
   {
     "id": "biwa_hayahide",
     "proper": "Biwa Hayahide",
-    "names": ["biwa hayahide", "biwahayahide"],
+    "names": ["biwahayahide", "hayahide", "biwa"],
     "images": ["biwahayahide1.jpg", "biwahayahide2.jpg", "biwahayahide3.jpg"]
   },
   {
     "id": "curren_chan",
     "proper": "Curren Chan",
-    "names": ["curren chan", "currenchan"],
+    "names": ["currenchan", "curren"],
     "images": ["currenchan1.jpg", "currenchan2.jpg", "currenchan3.jpg", "currenchan4.jpg"]
   },
   {
     "id": "daiwa_scarlet",
     "proper": "Daiwa Scarlet",
-    "names": ["daiwa scarlet", "daiwascarlet"],
+    "names": ["daiwascarlet", "daiwa", "scarlet"],
     "images": ["daiwascarlet1.jpg", "daiwascarlet2.jpg", "daiwascarlet3.jpg", "daiwascarlet4.jpg"]
   },
   {
     "id": "el_condor_pasa",
     "proper": "El Condor Pasa",
-    "names": ["el condor pasa", "elcondorpasa", "el"],
+    "names": ["elcondorpasa", "el"],
     "images": ["elcondorpasa1.jpg", "elcondorpasa2.jpg", "elcondorpasa3.jpg", "elcondorpasa4.jpg"]
   },
   {
     "id": "gold_ship",
     "proper": "Gold Ship",
-    "names": ["gold ship", "goldship", "golshi"],
+    "names": ["goldship", "golshi"],
     "images": ["goldship1.jpg", "goldship2.jpg", "goldship3.jpg"]
   },
   {
     "id": "grass_wonder",
     "proper": "Grass Wonder",
-    "names": ["grass wonder", "grasswonder"],
+    "names": ["grasswonder", "grass"],
     "images": ["grasswonder1.jpg", "grasswonder2.jpg", "grasswonder3.jpg"]
   },
   {
     "id": "haru_urara",
     "proper": "Haru Urara",
-    "names": ["haru urara", "haruurara"],
+    "names": ["haruurara", "urara"],
     "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg"]
   },
   {
     "id": "king_halo",
     "proper": "King Halo",
-    "names": ["king halo", "kinghalo"],
+    "names": ["kinghalo", "king"],
     "images": ["kinghalo1.jpg", "kinghalo2.jpg", "kinghalo3.jpg", "kinghalo4.jpg"]
   },
   {
     "id": "maruzensky",
     "proper": "Maruzensky",
-    "names": ["maruzensky"],
+    "names": ["maruzensky", "maruzen"],
     "images": ["maruzensky1.jpg", "maruzensky2.jpg", "maruzensky3.jpg"]
   },
   {
@@ -74,97 +74,97 @@
   {
     "id": "mayano_top_gun",
     "proper": "Mayano Top Gun",
-    "names": ["mayano top gun", "mayanotopgun"],
+    "names": ["mayanotopgun", "mayano", "maya"],
     "images": ["mayanotopgun1.jpg", "mayanotopgun2.jpg", "mayanotopgun3.jpg"]
   },
   {
     "id": "mejiro_mcqueen",
     "proper": "Mejiro McQueen",
-    "names": ["mejiro mcqueen", "mejiromcqueen", "mcqueen"],
+    "names": ["mejiromcqueen", "mcqueen", "mac"],
     "images": ["mejiromcqueen1.jpg", "mejiromcqueen2.jpg", "mejiromcqueen3.jpg"]
   },
   {
     "id": "mejiro_ryan",
     "proper": "Mejiro Ryan",
-    "names": ["mejiro ryan", "mejiroryan", "ryan"],
+    "names": ["mejiroryan", "ryan"],
     "images": ["mejiroryan1.jpg", "mejiroryan2.jpg", "mejiroryan3.jpg"]
   },
   {
     "id": "mihono_bourbon",
     "proper": "Mihono Bourbon",
-    "names": ["mihono bourbon", "mihonobourbon"],
+    "names": ["mihonobourbon", "bourbon"],
     "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg", "mihonobourbon3.jpg", "mihonobourbon4.jpg"]
   },
   {
     "id": "narita_taishin",
     "proper": "Narita Taishin",
-    "names": ["narita taishin", "naritataishin", "taishin"],
+    "names": ["naritataishin", "taishin"],
     "images": ["naritataishin1.jpg", "naritataishin2.jpg", "naritataishin3.jpg", "naritataishin4.jpg"]
   },
   {
     "id": "nice_nature",
     "proper": "Nice Nature",
-    "names": ["nice nature", "nicenature", "nature"],
+    "names": ["nicenature", "nature"],
     "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg", "nicenature4.jpg"]
   },
   {
     "id": "oguri_cap",
     "proper": "Oguri Cap",
-    "names": ["oguri cap", "oguricap", "oguri", "ogurin", "fatty"],
+    "names": ["oguricap", "oguri", "ogurin", "fatty"],
     "images": ["oguricap1.jpg", "oguricap2.jpg", "oguricap3.jpg", "oguricap4.jpg"]
   },
   {
     "id": "rice_shower",
     "proper": "Rice Shower",
-    "names": ["rice shower", "riceshower", "rice"],
+    "names": ["riceshower", "rice"],
     "images": ["riceshower1.jpg", "riceshower2.jpg", "riceshower3.jpg", "riceshower4.jpg"]
   },
   {
     "id": "sakura_bakushin_o",
     "proper": "Sakura Bakushin O",
-    "names": ["sakura bakushin o", "sakurabakushino", "bakushin"],
+    "names": ["sakurabakushino", "bakushin", "bakushino"],
     "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg", "sakurabakushino3.jpg"]
   },
   {
     "id": "silence_suzuka",
     "proper": "Silence Suzuka",
-    "names": ["silence suzuka", "silencesuzuka"],
+    "names": ["silencesuzuka", "suzuka"],
     "images": ["silencesuzuka1.jpg", "silencesuzuka2.jpg", "silencesuzuka3.jpg", "silencesuzuka4.jpg"]
   },
   {
     "id": "special_week",
     "proper": "Special Week",
-    "names": ["special week", "specialweek", "spe", "spe-chan", "spechan"],
+    "names": ["specialweek", "spe", "spe-chan", "spechan", "special"],
     "images": ["specialweek1.jpg", "specialweek2.jpg", "specialweek3.jpg", "specialweek4.jpg"]
   },
   {
     "id": "super_creek",
     "proper": "Super Creek",
-    "names": ["super creek", "supercreek"],
+    "names": ["supercreek", "creek"],
     "images": ["supercreek1.jpg", "supercreek2.jpg", "supercreek3.jpg"]
   },
   {
     "id": "symboli_rudolf",
     "proper": "Symboli Rudolf",
-    "names": ["symbolirudolf"],
+    "names": ["symbolirudolf", "rudolf"],
     "images": ["symbolirudolf1.jpg", "symbolirudolf2.jpg", "symbolirudolf3.jpg", "symbolirudolf4.jpg"]
   },
   {
     "id": "taiki_shuttle",
     "proper": "Taiki Shuttle",
-    "names": ["taiki shuttle", "taikishuttle"],
+    "names": ["taikishuttle", "taiki"],
     "images": ["taikishuttle1.jpg", "taikishuttle2.jpg", "taikishuttle3.jpg"]
   },
   {
     "id": "tm_opera_o",
     "proper": "TM Opera O",
-    "names": ["tm opera o", "tmoperao", "tm", "tm opera", "t.m.operao"],
+    "names": ["tmoperao", "tm", "tmopera", "t.m.operao", "ope", "operao", "t.m.", "t.m"],
     "images": ["tmoperao1.jpg", "tmoperao2.jpg", "tmoperao3.jpg", "tmoperao4.jpg", "tmoperao5.jpg"]
   },
   {
     "id": "tokai_teio",
     "proper": "Tokai Teio",
-    "names": ["tokai teio", "tokaiteio"],
+    "names": ["tokaiteio", "teio"],
     "images": ["tokaiteio1.jpg", "tokaiteio2.jpg", "tokaiteio3.jpg", "tokaiteio4.jpg"]
   },
   {
@@ -176,7 +176,7 @@
   {
     "id": "winning_ticket",
     "proper": "Winning Ticket",
-    "names": ["winning ticket", "winningticket"],
+    "names": ["winningticket", "ticket"],
     "images": ["winningticket1.jpg", "winningticket2.jpg", "winningticket3.jpg"]
   }
 ]
