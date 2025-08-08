@@ -128,7 +128,7 @@
   {
     "id": "special_week",
     "proper": "Special Week",
-    "names": ["special week", "specialweek", "spe"],
+    "names": ["special week", "specialweek", "spe", "spe-chan", "spechan"],
     "images": ["specialweek1.jpg", "specialweek2.jpg", "specialweek3.jpg", "specialweek4.jpg"]
   },
   {
