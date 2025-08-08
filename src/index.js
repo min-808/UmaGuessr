@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { Client, IntentsBitField, Collection } = require('discord.js');
+const { Client, IntentsBitField, Collection, ActivityType } = require('discord.js');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const path = require('path');
@@ -71,7 +71,8 @@ client.on('messageCreate', async message => {
 
 client.on('ready', async () => {
     console.log(`${client.user.tag} is online.`);
-    client.user.setActivity('Umamusume: Pretty Derby', { type: 'PLAYING' }); 
+    client.user.setActivity('!help | !uma', { type: ActivityType.Playing }); 
+
     setUptime();
 
     cron.schedule('0 0 * * *', () => {

@@ -53,6 +53,8 @@ module.exports = {
         const chooseChar = Math.floor(Math.random() * list.length)
         var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
 
+        chooseImg = list[23]["images"][3]
+
         const image = await Jimp.read(path.join(__dirname, `../assets/guessing/${chooseImg}`))
 
         image.pixelate(initialBlur)
@@ -232,7 +234,7 @@ module.exports = {
                 }
             })
 
-            messageCollector.on('end', async (collected, reason) => {
+            messageCollector.on('end', async (collected, reason) => { // No one got it right
                 if (reason === 'time') {
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
@@ -244,6 +246,8 @@ module.exports = {
                     const timeoutEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://timeout.png')
                         .setFooter({ text: `Time's up! The correct answer was ${state.proper}` });
+
+                    await msg.channel.send(`Nobody got it right. The answer was **${state.proper}**`);
 
                     await sentMsg.edit({
                         embeds: [timeoutEmbed],
