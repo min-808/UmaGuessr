@@ -234,7 +234,7 @@ module.exports = {
                 }
             })
 
-            messageCollector.on('end', async (collected, reason) => { // No one got it right
+            messageCollector.on('end', async (collected, reason, msg) => { // No one got it right
                 if (reason === 'time') {
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;

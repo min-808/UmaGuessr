@@ -52,7 +52,7 @@ module.exports = {
                         "`!daily`" + " - " + "Claim your daily 75 points" + "\n" +
                         "\n" + 
                         "**__Misc.__**" + "\n" +
-                        "`!help`" + " - " + "Pulls up the help menu.\n- Use `!help uma` for more information about the game" + "\n" +
+                        "`!help`" + " - " + "Pulls up the help menu\n- Use `!help uma` for more information about the game" + "\n" +
                         "`!uptime`" + " - " + "Bot uptime" + "\n" +
                         "`!help`" + " - " + "Brings up the help menu" + "\n" +
                         "`!ping`" + " - " + "Pong!"
