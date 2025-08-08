@@ -44,10 +44,10 @@ module.exports = {
                         name: "\n",
                         value: 
                         "**__Game__**" + "\n" +
-                        "`!uma`" + " - " + "Play the game (**JP** server default)" + "\n" +
+                        "`!uma (g/j)`" + " - " + "Play the game (default is **JP** server)\n-(**g** - Global, **j** - Japan)**" + "\n" +
                         "`!uma g`" + " - " + "Play the game (**Global** server characters only)" + "\n" +
                         "`!skip`" + " - " + "Skip the current character" + "\n" +
-                        "`!set (g/j)`" + " - " + "Set your default region (**g** - Global, **j** - Japan)" + "\n" +
+                        "`!set (g/j)`" + " - " + "Set your default region" + "\n" +
                         "`!daily`" + " - " + "Claim your daily 75 points" + "\n\n" +
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +

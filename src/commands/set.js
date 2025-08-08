@@ -42,7 +42,7 @@ module.exports = {
             } else if (message.content.toLowerCase().includes("jp")) {
                 newType = 'jp'
                 proper = "JP"
-                await message.channel.send("Game region default set to " + `**${proper}**` + ".\nThe `!uma` command will now automatically default to this region")
+                await message.channel.send("Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region")
             } else {
                 newType = oldType
                 await message.channel.send(`Invalid region. Please choose ` + "`g` or `jp`")

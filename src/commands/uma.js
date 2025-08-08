@@ -53,31 +53,31 @@ module.exports = {
             let list;
             let type;
 
-            if (data["type"] === 'jp') {
-                list = require('../../src/assets/jp-list.json')
-                type = "JP"
-
-                initialPointsJP = 24 + 1
-                minusPointsJP = 4
-            } else if (data["type"] === 'g') {
+            if (message.content.toLowerCase().includes("g")) {
                 list = require('../../src/assets/global-list.json')
                 type = "Global"
 
                 initialPointsJP = 12 + 1
                 minusPointsJP = 2
-            } else {
-                if (message.content.toLowerCase().includes("g")) {
-                    list = require('../../src/assets/global-list.json')
-                    type = "Global"
+            } else if (message.content.toLowerCase().includes("j")) {
+                list = require('../../src/assets/jp-list.json')
+                type = "JP"
 
-                    initialPointsJP = 12 + 1
-                    minusPointsJP = 2
-                } else if (message.content.toLowerCase().includes("j")) {
+                initialPointsJP = 24 + 1
+                minusPointsJP = 4
+            } else {
+                if (data["type"] === 'jp') {
                     list = require('../../src/assets/jp-list.json')
                     type = "JP"
 
                     initialPointsJP = 24 + 1
                     minusPointsJP = 4
+                } else if (data["type"] === 'g') {
+                    list = require('../../src/assets/global-list.json')
+                    type = "Global"
+
+                    initialPointsJP = 12 + 1
+                    minusPointsJP = 2
                 } else {
                     list = require('../../src/assets/jp-list.json')
                     type = "JP"
