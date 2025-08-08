@@ -45,11 +45,13 @@ module.exports = {
                         value: 
                         "**__Game__**" + "\n" +
                         "`!uma`" + " - " + "Play the game (**JP** server default)" + "\n" +
-                        "`!uma g`" + " - " + "Play the game (**Global** server characters only)" + "\n\n" +
+                        "`!uma g`" + " - " + "Play the game (**Global** server characters only)" + "\n" +
+                        "`!skip`" + " - " + "Skip the current character" + "\n" +
+                        "`!set (g/j)`" + " - " + "Set your region (g - Global, j - Japan)" + "\n" +
+                        "`!daily`" + " - " + "Claim your daily 75 points" + "\n\n" +
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +
                         "`!leaderboard (points/wins/daily)`" + " - " + "Global leaderboards" + "\n" +
-                        "`!daily`" + " - " + "Claim your daily 75 points" + "\n" +
                         "\n" + 
                         "**__Misc.__**" + "\n" +
                         "`!help`" + " - " + "Pulls up the help menu\n- Use `!help uma` for more information about the game" + "\n" +

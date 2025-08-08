@@ -177,11 +177,37 @@ module.exports = {
                 }
             }, 50_000);
 
-            messageCollector.on('collect', async (msg) => {
+            messageCollector.on('collect', async (msg) => { // Collect guesses
                 const state = gameState.get(sentMsg.id);
                 if (!state) return;
 
                 const userGuess = msg.content.trim().toLowerCase()
+
+                if ((userGuess === '!skip') && (msg.author.id === user.id)) {
+                    messageCollector.stop()
+                    collector.stop()
+
+                    const finalImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
+                    const finalBuffer = await finalImage.getBufferAsync(Jimp.MIME_PNG);
+                    const file = new AttachmentBuilder(finalBuffer, { name: 'skipped.png' });
+
+                    const skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                        .setImage('attachment://skipped.png')
+                        .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
+
+                    await sentMsg.channel.send(`Character skipped. The answer was **${state.proper}**`);
+
+                    await sentMsg.edit({
+                        embeds: [skippedEmbed],
+                        files: [file],
+                        components: []
+                    });
+
+                    gameState.delete(sentMsg.id);
+                    activeChannels.delete(channelID);
+                    await client.close();
+                    return
+                }
 
                 if (state.values.includes(userGuess)) { // Got it right
                     messageCollector.stop()
