@@ -90,6 +90,9 @@ module.exports = {
             var chooseChar = Math.floor(Math.random() * list.length)
             var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
 
+            chooseChar = 23
+            chooseImg = list[chooseChar]["images"][2]
+
             const image = await Jimp.read(path.join(__dirname, `../assets/guessing/${chooseImg}`))
 
             image.pixelate(initialBlur)
@@ -194,7 +197,7 @@ module.exports = {
                 const state = gameState.get(sentMsg.id);
                 if (!state) return;
 
-                const userGuess = msg.content.trim().toLowerCase()
+                const userGuess = msg.content.trim().toLowerCase().replace(/\s+/g, '')
 
                 if ((userGuess === '!skip') && (msg.author.id === user.id)) {
                     messageCollector.stop()
