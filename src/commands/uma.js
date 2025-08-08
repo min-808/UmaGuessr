@@ -87,11 +87,11 @@ module.exports = {
                 }
             }
 
-            var chooseChar = Math.floor(Math.random() * list.length)
-            var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
+            // var chooseChar = Math.floor(Math.random() * list.length)
+            // var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
 
-            chooseChar = 25
-            chooseImg = list[chooseChar]["images"][2]
+            var chooseChar = 23
+            var chooseImg = list[chooseChar]["images"][2]
 
             const image = await Jimp.read(path.join(__dirname, `../assets/guessing/${chooseImg}`))
 
