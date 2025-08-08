@@ -234,7 +234,7 @@ module.exports = {
                 }
             })
 
-            messageCollector.on('end', async (collected, reason, msg) => { // No one got it right
+            messageCollector.on('end', async (collected, reason) => { // No one got it right
                 if (reason === 'time') {
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
@@ -247,7 +247,7 @@ module.exports = {
                         .setImage('attachment://timeout.png')
                         .setFooter({ text: `Time's up! The correct answer was ${state.proper}` });
 
-                    await msg.channel.send(`Nobody got it right. The answer was **${state.proper}**`);
+                    await sentMsg.channel.send(`Nobody got it right. The answer was **${state.proper}**`);
 
                     await sentMsg.edit({
                         embeds: [timeoutEmbed],
