@@ -55,9 +55,6 @@ module.exports = {
             var chooseChar = Math.floor(Math.random() * list.length)
             var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
 
-            chooseChar = 23
-            chooseImg = list[23]["images"][3]
-
             const image = await Jimp.read(path.join(__dirname, `../assets/guessing/${chooseImg}`))
 
             image.pixelate(initialBlur)
@@ -141,7 +138,6 @@ module.exports = {
                         const newHintsUsed = state.hintsUsed + 1
                         const newPoints = state.points - minusPointsJP
 
-                        // Reload original image
                         const newImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
                         newImage.pixelate(newBlurLevel);
                         const newBuffer = await newImage.getBufferAsync(Jimp.MIME_PNG);
