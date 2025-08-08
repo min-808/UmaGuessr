@@ -5,7 +5,7 @@ const setup = require('../../firstinit');
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
-    name: 'type',
+    name: 'set',
     description: `Change the region you default to for the guessing game`,
 
     run: async ({ message }) => {
