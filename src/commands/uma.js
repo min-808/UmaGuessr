@@ -27,56 +27,57 @@ module.exports = {
 
         activeChannels.add(channelID);
 
-        let list;
-        let type;
-
-        if (message.content.toLowerCase().includes("g")) {
-            list = require('../../src/assets/global-list.json')
-            type = "Global"
-
-            initialPointsJP = 12 + 1
-            minusPointsJP = 2
-        } else if (message.content.toLowerCase().includes("j")) {
-            list = require('../../src/assets/jp-list.json')
-            type = "JP"
-
-            initialPointsJP = 24 + 1
-            minusPointsJP = 4
-        } else {
-            list = require('../../src/assets/jp-list.json')
-            type = "JP"
-
-            initialPointsJP = 24 + 1
-            minusPointsJP = 4
-        }
-
-        const chooseChar = Math.floor(Math.random() * list.length)
-        var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
-
-        chooseImg = list[23]["images"][3]
-
-        const image = await Jimp.read(path.join(__dirname, `../assets/guessing/${chooseImg}`))
-
-        image.pixelate(initialBlur)
-        const buffer = await image.getBufferAsync(Jimp.MIME_PNG);
-
-        const file = new AttachmentBuilder(buffer, { name: 'blurred.png' })
-        const user = message.author;
-        
-        const hint = new ButtonBuilder()
-            .setCustomId('hint')
-            .setLabel('Unblur')
-            .setStyle(ButtonStyle.Primary);
-
-        const row = new ActionRowBuilder()
-			.addComponents(hint)
-
-        const embed = new EmbedBuilder()
-            .setTitle(`Guess the Uma`)
-            .setImage('attachment://blurred.png')
-            .setColor('LightGrey')
-
         try {
+
+            let list;
+            let type;
+
+            if (message.content.toLowerCase().includes("g")) {
+                list = require('../../src/assets/global-list.json')
+                type = "Global"
+
+                initialPointsJP = 12 + 1
+                minusPointsJP = 2
+            } else if (message.content.toLowerCase().includes("j")) {
+                list = require('../../src/assets/jp-list.json')
+                type = "JP"
+
+                initialPointsJP = 24 + 1
+                minusPointsJP = 4
+            } else {
+                list = require('../../src/assets/jp-list.json')
+                type = "JP"
+
+                initialPointsJP = 24 + 1
+                minusPointsJP = 4
+            }
+
+            const chooseChar = Math.floor(Math.random() * list.length)
+            var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
+
+            chooseImg = list[23]["images"][3]
+
+            const image = await Jimp.read(path.join(__dirname, `../assets/guessing/${chooseImg}`))
+
+            image.pixelate(initialBlur)
+            const buffer = await image.getBufferAsync(Jimp.MIME_PNG);
+
+            const file = new AttachmentBuilder(buffer, { name: 'blurred.png' })
+            const user = message.author;
+            
+            const hint = new ButtonBuilder()
+                .setCustomId('hint')
+                .setLabel('Unblur')
+                .setStyle(ButtonStyle.Primary);
+
+            const row = new ActionRowBuilder()
+                .addComponents(hint)
+
+            const embed = new EmbedBuilder()
+                .setTitle(`Guess the Uma`)
+                .setImage('attachment://blurred.png')
+                .setColor('LightGrey')
+
             const client = new MongoClient(uri);
 
             const database = client.db("uma");
