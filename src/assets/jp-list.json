@@ -332,7 +332,7 @@
     {
     "id": "tsurumaru_tsuyoshi",
     "proper": "Tsurumaru Tsuyoshi",
-    "names": "tsurumarutsuyoshi", "tsurumaru", "tsuyoshi"],
+    "names": ["tsurumarutsuyoshi", "tsurumaru", "tsuyoshi"],
     "images": ["tsurumarutsuyoshi1.jpg", "tsurumarutsuyoshi2.jpg", "tsurumarutsuyoshi3.jpg"]
     },
     {
