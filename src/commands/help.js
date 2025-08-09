@@ -44,7 +44,7 @@ module.exports = {
                         name: "\n",
                         value: 
                         "**__Game__**" + "\n" +
-                        "`!uma (g/j)`" + " - " + "Play the game (default is **JP** server)\n(**g** - Global, **j** - Japan)**" + "\n" +
+                        "`!uma (g/j)`" + " - " + "Play the game (default is **JP** server)\n(**g** - Global, **j** - Japan)" + "\n" +
                         "`!uma g`" + " - " + "Play the game (**Global** server characters only)" + "\n" +
                         "`!skip`" + " - " + "Skip the current character" + "\n" +
                         "`!set (g/j)`" + " - " + "Set your default region" + "\n" +
