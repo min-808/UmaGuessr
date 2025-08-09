@@ -89,6 +89,17 @@ module.exports = {
 
             var chooseChar = Math.floor(Math.random() * list.length)
             var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
+            var umaName = list[chooseChar]['id']
+
+            const countCollection = database.collection("count")
+
+            await countCollection.updateOne(
+                { name: umaName },
+                { $inc: { count: 1 } },
+                { upsert: true }
+            )
+
+            // const top = await countCollection.find().sort({ count: -1 }).limit(5).toArray() <- logic for determining top # umas chosen
 
             // var chooseChar = 24
             // var chooseImg = list[chooseChar]["images"][2]
