@@ -17,6 +17,7 @@ let minusPointsJP;
 module.exports = {
     name: 'uma',
     description: 'Start an uma guessing game',
+    aliases: ['u'],
     run: async ({ message }) => {
 
         const channelID = message.channel.id;
