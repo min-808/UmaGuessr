@@ -52,6 +52,7 @@ module.exports = {
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +
                         "`!lb (points/wins/daily)`" + " - " + "Global leaderboards" + "\n" +
+                        "`!char (uma name)`" + " - " + "Look at an uma's profile" + "\n" +
                         "\n" + 
                         "**__Misc.__**" + "\n" +
                         "`!help`" + " - " + "Pulls up the help menu\n- Use `!help uma` for more information about the game" + "\n" +
