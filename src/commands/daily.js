@@ -18,6 +18,7 @@ module.exports = {
         const user = message.author;
 
         const embed = new EmbedBuilder()
+            .setTitle('Daily')
             .setColor('LightGrey')
             .setThumbnail(`attachment://${img}.png`)
             .addFields({ name: "\n", value: `\n` });
@@ -85,8 +86,6 @@ module.exports = {
                     name: "\n",
                     value: `You claimed your daily **75** points`
                 })
-
-                embed.setTimestamp();
             }
 
             await message.channel.send({ embeds: [embed], files: [file] });

@@ -17,7 +17,6 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
             .setThumbnail(`attachment://${img}.png`)
-            .addFields({ name: "\n", value: `\n` });
 
         try {
             const client = new MongoClient(uri);
@@ -86,10 +85,7 @@ module.exports = {
                 writeTime = `${days.toFixed(0)} days`
             }
 
-            embed.spliceFields(0, 1, {
-                name: "\n",
-                value: `**Bot Stats**`
-            });
+            embed.setTitle(`**Bot Stats**`)
 
             embed.addFields(
                 {

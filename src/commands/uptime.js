@@ -10,13 +10,14 @@ module.exports = {
     run: async ({ message }) => {
 
         var embed = new EmbedBuilder()
-        .setColor('LightGrey')
-        .addFields(
-            {
-                name: "\n",
-                value: "\n"
-            },
-        )
+            .setColor('LightGrey')
+            .setTitle('Uptime')
+            .addFields(
+                {
+                    name: "\n",
+                    value: "\n"
+                },
+            )
 
         try {
 

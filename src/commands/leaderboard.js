@@ -79,7 +79,7 @@ module.exports = {
 
             for (let i = 0; i < pages; i++) {
                 const embed = new EmbedBuilder()
-                    .setDescription(`**Leaderboard (${proper}) | Page (${i + 1}/${pages})**`)
+                    .setTitle(`**Leaderboard (${proper})  |  Page (${i + 1}/${pages})**`)
                     .setColor('LightGrey')
 
                 for (let j = 0; j < showPerPage && listOfDocuments.length > 0; j++) {

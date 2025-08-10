@@ -17,7 +17,6 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
             .setThumbnail(`attachment://${img}.png`)
-            .addFields({ name: "\n", value: `\n` });
 
         try {
             const client = new MongoClient(uri);
@@ -46,10 +45,7 @@ module.exports = {
 
             const { wins, points, streak, points_today, wins_today } = data;
 
-            embed.spliceFields(0, 1, {
-                name: "\n",
-                value: `**${user.username}'s Profile**`
-            });
+            embed.setTitle(`**${user.username}'s Profile**`)
 
             embed.addFields(
                 {
