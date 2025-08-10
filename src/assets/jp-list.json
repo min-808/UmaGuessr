@@ -4,21 +4,21 @@
     "number": 5191,
     "proper": "Admire Vega",
     "names": ["admirevega", "ayabe", "ayave", "vega"],
-    "images": ["admirevega1.jpg", "admirevega2.jpg", "admirevega3.jpg", "admirevega4.jpg"]
+    "images": ["admirevega1.jpg", "admirevega2.jpg", "admirevega3.jpg", "admirevega4.jpg", "admirevega5.jpg", "admirevega6.jpg"]
     },
     {
     "id": "air_shakur",
     "number": 5225,
     "proper": "Air Shakur",
     "names": ["airshakur", "shakur", "shaka"],
-    "images": ["airshakur1.jpg", "airshakur2.jpg", "airshakur3.jpg"]
+    "images": ["airshakur1.jpg", "airshakur2.jpg", "airshakur3.jpg", "airshakur4.jpg", "airshakur5.jpg"]
     },
     {
     "id": "agnes_digital",
     "number": 5033,
     "proper": "Agnes Digital",
     "names": ["agnesdigital", "digital", "digitan"],
-    "images": ["agnesdigital1.jpg", "agnesdigital2.jpg", "agnesdigital3.jpg"]
+    "images": ["agnesdigital1.jpg", "agnesdigital2.jpg", "agnesdigital3.jpg", "agnesdigital4.jpg", "agnesdigital5.jpg"]
     },
     {
     "id": "aston_machan",
@@ -32,7 +32,7 @@
     "number": 5416,
     "proper": "Bamboo Memory",
     "names": ["bamboomemory", "bamboo"],
-    "images": ["bamboomemory1.jpg", "bamboomemory2.jpg"]
+    "images": ["bamboomemory1.jpg", "bamboomemory2.jpg", "bamboomemory3.jpg", "bamboomemory4.jpg", "bamboomemory5.jpg"]
     },
     {
     "id": "belno_light",
@@ -46,14 +46,14 @@
     "number": 5428,
     "proper": "Biko Pegasus",
     "names": ["bikopegasus", "biko"],
-    "images": ["bikopegasus1.jpg", "bikopegasus2.jpg", "bikopegasus3.jpg"]
+    "images": ["bikopegasus1.jpg", "bikopegasus2.jpg", "bikopegasus3.jpg", "bikopegasus4.jpg", "bikopegasus5.jpg"]
     },
     {
     "id": "cheval_grand",
     "number": 7520,
     "proper": "Cheval Grand",
     "names": ["chevalgrand", "cheval"],
-    "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg"]
+    "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg"]
     },
     {
     "id": "copano_rickey",
@@ -74,49 +74,49 @@
     "number": 10373,
     "proper": "Dream Journey",
     "names": ["dreamjourney", "dura"],
-    "images": ["dreamjourney1.jpg", "dreamjourney2.jpg", "dreamjourney3.jpg"]
+    "images": ["dreamjourney1.jpg", "dreamjourney2.jpg", "dreamjourney3.jpg", "dreamjourney4.jpg", "dreamjourney5.jpg", "dreamjourney6.jpg"]
     },
     {
     "id": "duramente",
     "number": 9928,
     "proper": "Duramente",
     "names": ["duramente"],
-    "images": ["duramente1.jpg", "duramente2.jpg", "duramente3.jpg", "duramente4.jpg"]
+    "images": ["duramente1.jpg", "duramente2.jpg", "duramente3.jpg", "duramente4.jpg", "duramente5.jpg", "duramente6.jpg"]
     },
     {
     "id": "eishin_flash",
     "number": 5236,
     "proper": "Eishin Flash",
     "names": ["eishinflash", "flash"],
-    "images": ["eishinflash1.jpg", "eishinflash2.jpg", "eishinflash3.jpg", "eishinflash4.jpg"]
+    "images": ["eishinflash1.jpg", "eishinflash2.jpg", "eishinflash3.jpg", "eishinflash4.jpg", "eishinflash5.jpg", "eishinflash6.jpg"]
     },
     {
     "id": "fine_motion",
     "number": 5066,
     "proper": "Fine Motion",
     "names": ["finemotion", "fine"],
-    "images": ["finemotion1.jpg", "finemotion2.jpg", "finemotion3.jpg"]
+    "images": ["finemotion1.jpg", "finemotion2.jpg", "finemotion3.jpg", "finemotion4.jpg", "finemotion5.jpg"]
     },
     {
     "id": "fujimasa_march",
     "number": 0,
     "proper": "Fujimasa March",
     "names": ["fujimasamarch", "march"],
-    "images": ["fujimasamarch1.jpg", "fujimasamarch2.jpg", "fujimasamarch3.jpg", "fujimasamarch4.jpg"]
+    "images": ["fujimasamarch1.jpg", "fujimasamarch2.jpg", "fujimasamarch3.jpg", "fujimasamarch4.jpg", "fujimasamarch5.jpg"]
     },
     {
     "id": "fuji_kiseki",
     "number": 4868,
     "proper": "Fuji Kiseki",
     "names": ["fujikiseki", "fuji"],
-    "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg"]
+    "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg", "fujikiseki4.jpg", "fujikiseki5.jpg"]
     },
     {
     "id": "gentildonna",
     "number": 10337,
     "proper": "Gentildonna",
     "names": ["gentildonna"],
-    "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg"]
+    "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg", "gentildonna4.jpg", "gentildonna5.jpg"]
     },
     {
     "id": "gold_city",
@@ -130,21 +130,21 @@
     "number": 5134,
     "proper": "Hishi Akebono",
     "names": ["hishiakebono", "akebono", "bono"],
-    "images": ["hishiakebono1.jpg", "hishiakebono2.jpg", "hishiakebono3.jpg"]
+    "images": ["hishiakebono1.jpg", "hishiakebono2.jpg", "hishiakebono3.jpg", "hishiakebono4.jpg", "hishiakebono5.jpg"]
     },
     {
     "id": "hishi_amazon",
     "number": 4951,
     "proper": "Hishi Amazon",
     "names": ["hishiamazon", "hishiama", "amazon"],
-    "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg"]
+    "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg", "hishiamazon4.jpg", "hishiamazon5.jpg"]
     },
     {
     "id": "ikuno_dictus",
     "number": 5554,
     "proper": "Ikuno Dictus",
     "names": ["ikunodictus", "ikuno"],
-    "images": ["ikunodictus1.jpg", "ikunodictus2.jpg", "ikunodictus3.jpg"]
+    "images": ["ikunodictus1.jpg", "ikunodictus2.jpg", "ikunodictus3.jpg", "ikunodictus4.jpg", "ikunodictus5.jpg"]
     },
     {
     "id": "inari_one",
@@ -172,28 +172,28 @@
     "number": 5258,
     "proper": "Kawakami Princess",
     "names": ["kawakamiprincess", "kawakami"],
-    "images": ["kawakamiprincess1.jpg", "kawakamiprincess2.jpg", "kawakamiprincess3.jpg"]
+    "images": ["kawakamiprincess1.jpg", "kawakamiprincess2.jpg", "kawakamiprincess3.jpg", "kawakamiprincess4.jpg", "kawakamiprincess5.jpg"]
     },
     {
     "id": "kitasan_black",
     "number": 5603,
     "proper": "Kitasan Black",
     "names": ["kitasanblack", "kitasan"],
-    "images": ["kitasanblack1.jpg", "kitasanblack2.jpg", "kitasanblack3.jpg", "kitasanblack4.jpg"]
+    "images": ["kitasanblack1.jpg", "kitasanblack2.jpg", "kitasanblack3.jpg", "kitasanblack4.jpg", "kitasanblack5.jpg", "kitasanblack6.jpg"]
     },
     {
     "id": "manhattan_cafe",
     "number": 5100,
     "proper": "Manhattan Cafe",
     "names": ["manhattancafe", "cafe"],
-    "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg", "manhattancafe4.jpg"]
+    "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg", "manhattancafe4.jpg", "manhattancafe5.jpg", "manhattancafe6.jpg"]
     },
     {
     "id": "marvelous_sunday",
     "number": 5440,
     "proper": "Marvelous Sunday",
     "names": ["marveloussunday", "marvelous", "marve"],
-    "images": ["marveloussunday1.jpg", "marveloussunday2.jpg", "marveloussunday3.jpg", "marveloussunday4.jpg"]
+    "images": ["marveloussunday1.jpg", "marveloussunday2.jpg", "marveloussunday3.jpg", "marveloussunday4.jpg", "marveloussunday5.jpg"]
     },
     {
     "id": "matikanetannhauser",
@@ -207,7 +207,7 @@
     "number": 5463,
     "proper": "Meisho Doto",
     "names": ["meishodoto", "doto", "dotopi"],
-    "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg", "meishodoto4.jpg"]
+    "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg", "meishodoto4.jpg", "meishodoto5.jpg"]
     },
     {
     "id": "mejiro_ardan",
@@ -235,7 +235,7 @@
     "number": 5564,
     "proper": "Mejiro Palmer",
     "names": ["mejiropalmer", "palmer"],
-    "images": ["mejiropalmer1.jpg", "mejiropalmer2.jpg", "mejiropalmer3.jpg"]
+    "images": ["mejiropalmer1.jpg", "mejiropalmer2.jpg", "mejiropalmer3.jpg", "mejiropalmer4.jpg", "mejiropalmer5.jpg"]
     },
     {
     "id": "mr_cb",
@@ -256,105 +256,105 @@
     "number": 4997,
     "proper": "Narita Brian",
     "names": ["naritabrian", "brian"],
-    "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg"]
+    "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg", "naritabrian4.jpg", "naritabrian5.jpg"]
     },
     {
     "id": "narita_top_road",
     "number": 7426,
     "proper": "Narita Top Road",
     "names": ["naritatoproad", "toproad"],
-    "images": ["naritatoproad1.jpg", "naritatoproad2.jpg", "naritatoproad3.jpg"]
+    "images": ["naritatoproad1.jpg", "naritatoproad2.jpg", "naritatoproad3.jpg", "naritatoproad4.jpg", "naritatoproad5.jpg"]
     },
     {
     "id": "neo_universe",
     "number": 8730,
     "proper": "Neo Universe",
     "names": ["neouniverse", "universe", "yuni"],
-    "images": ["neouniverse1.jpg", "neouniverse2.jpg", "neouniverse3.jpg"]
+    "images": ["neouniverse1.jpg", "neouniverse2.jpg", "neouniverse3.jpg", "neouniverse4.jpg", "neouniverse5.jpg", "neouniverse6.jpg"]
     },
     {
     "id": "nishino_flower",
     "number": 5393,
     "proper": "Nishino Flower",
     "names": ["nishinoflower", "flower"],
-    "images": ["nishinoflower1.jpg", "nishinoflower2.jpg"]
+    "images": ["nishinoflower1.jpg", "nishinoflower2.jpg", "nishinoflower3.jpg"]
     },
     {
     "id": "no_reason",
     "number": 10302,
     "proper": "No Reason",
     "names": ["noreason"],
-    "images": ["noreason1.jpg", "noreason2.jpg", "noreason3.jpg", "noreason4.jpg"]
+    "images": ["noreason1.jpg", "noreason2.jpg", "noreason3.jpg", "noreason4.jpg", "noreason5.jpg", "noreason6.jpg"]
     },
     {
     "id": "norn_ace",
     "number": 0,
     "proper": "Norn Ace",
     "names": ["nornace", "norn"],
-    "images": ["nornace1.jpg", "nornace2.jpg", "nornace3.jpg", "nornace4.jpg"]
+    "images": ["nornace1.jpg", "nornace2.jpg", "nornace3.jpg", "nornace4.jpg", "nornace5.jpg", "nornace6.jpg"]
     },
     {
     "id": "orfevre",
     "number": 10325,
     "proper": "Orfevre",
     "names": ["orfevre"],
-    "images": ["orfevre1.jpg", "orfevre2.jpg", "orfevre3.jpg", "orfevre4.jpg"]
+    "images": ["orfevre1.jpg", "orfevre2.jpg", "orfevre3.jpg", "orfevre4.jpg", "orfevre5.jpg", "orfevre6.jpg"]
     },
     {
     "id": "sakura_chiyono_o",
     "number": 5509,
     "proper": "Sakura Chiyono O",
     "names": ["sakurachiyonoo", "sakurachiyono", "chiyono", "chiyonoo", "chiyo"],
-    "images": ["sakurachiyonoo1.jpg", "sakurachiyonoo2.jpg", "sakurachiyonoo3.jpg", "sakurachiyonoo4.jpg"]
+    "images": ["sakurachiyonoo1.jpg", "sakurachiyonoo2.jpg", "sakurachiyonoo3.jpg", "sakurachiyonoo4.jpg", "sakurachiyonoo5.jpg"]
     },
     {
     "id": "sakura_laurel",
     "number": 7515,
     "proper": "Sakura Laurel",
     "names": ["sakuralaurel", "laurel"],
-    "images": ["sakuralaurel1.jpg", "sakuralaurel2.jpg", "sakuralaurel3.jpg"]
+    "images": ["sakuralaurel1.jpg", "sakuralaurel2.jpg", "sakuralaurel3.jpg", "sakuralaurel4.jpg", "sakuralaurel5.jpg"]
     },
     {
     "id": "satono_crown",
     "number": 7519,
     "proper": "Satono Crown",
     "names": ["satonocrown", "crown", "kura"],
-    "images": ["satonocrown1.jpg", "satonocrown2.jpg", "satonocrown3.jpg"]
+    "images": ["satonocrown1.jpg", "satonocrown2.jpg", "satonocrown3.jpg", "satonocrown4.jpg", "satonocrown5.jpg"]
     },
     {
     "id": "satono_diamond",
     "number": 5593,
     "proper": "Satono Diamond",
     "names": ["satonodiamond", "diamond", "dia", "diachan", "dia-chan"],
-    "images": ["satonodiamond1.jpg", "satonodiamond2.jpg", "satonodiamond3.jpg", "satonodiamond4.jpg"]
+    "images": ["satonodiamond1.jpg", "satonodiamond2.jpg", "satonodiamond3.jpg", "satonodiamond4.jpg", "satonodiamond5.jpg"]
     },
     {
     "id": "seiun_sky",
     "number": 5044,
     "proper": "Seiun Sky",
     "names": ["seiunsky", "sky", "sei"],
-    "images": ["seiunsky1.jpg", "seiunsky2.jpg", "seiunsky3.jpg"]
+    "images": ["seiunsky1.jpg", "seiunsky2.jpg", "seiunsky3.jpg", "seiunsky4.jpg", "seiunsky5.jpg"]
     },
     {
     "id": "sirius_symboli",
     "number": 5519,
     "proper": "Sirius Symboli",
     "names": ["siriussymboli", "sirius"],
-    "images": ["siriussymboli1.jpg", "siriussymboli2.jpg", "siriussymboli3.jpg", "siriussymboli4.jpg"]
+    "images": ["siriussymboli1.jpg", "siriussymboli2.jpg", "siriussymboli3.jpg", "siriussymboli4.jpg", "siriussymboli5.jpg"]
     },
     {
     "id": "smart_falcon",
     "number": 5337,
     "proper": "Smart Falcon",
     "names": ["smartfalcon", "falko", "falcon"],
-    "images": ["smartfalcon1.jpg", "smartfalcon2.jpg", "smartfalcon3.jpg"]
+    "images": ["smartfalcon1.jpg", "smartfalcon2.jpg", "smartfalcon3.jpg", "smartfalcon4.jpg", "smartfalcon5.jpg"]
     },
     {
     "id": "sweep_tosho",
     "number": 5314,
     "proper": "Sweep Tosho",
     "names": ["sweeptosho", "sweepy"],
-    "images": ["sweeptosho1.jpg", "sweeptosho2.jpg", "sweeptosho3.jpg", "sweeptosho4.jpg"]
+    "images": ["sweeptosho1.jpg", "sweeptosho2.jpg", "sweeptosho3.jpg", "sweeptosho4.jpg", "sweeptosho5.jpg"]
     },
     {
     "id": "symboli_kris_s",
@@ -368,35 +368,35 @@
     "number": 5055,
     "proper": "Tamamo Cross",
     "names": ["tamamocross", "tamamo", "tama"],
-    "images": ["tamamocross1.jpg", "tamamocross2.jpg", "tamamocross3.jpg", "tamamocross4.jpg"]
+    "images": ["tamamocross1.jpg", "tamamocross2.jpg", "tamamocross3.jpg", "tamamocross4.jpg", "tamamocross5.jpg"]
     },
     {
     "id": "tanino_gimlet",
     "number": 7731,
     "proper": "Tanino Gimlet",
     "names": ["taninogimlet", "gimlet"],
-    "images": ["taninogimlet1.jpg", "taninogimlet2.jpg", "taninogimlet3.jpg"]
+    "images": ["taninogimlet1.jpg", "taninogimlet2.jpg", "taninogimlet3.jpg", "taninogimlet4.jpg", "taninogimlet5.jpg", "taninogimlet6.jpg"]
     },
     {
     "id": "tosen_jordan",
     "number": 5360,
     "proper": "Tosen Jordan",
     "names": ["tosenjordan", "jordan"],
-    "images": ["tosenjordan1.jpg", "tosenjordan2.jpg", "tosenjordan3.jpg", "tosenjordan4.jpg"]
+    "images": ["tosenjordan1.jpg", "tosenjordan2.jpg", "tosenjordan3.jpg", "tosenjordan4.jpg", "tosenjordan5.jpg", "tosenjordan6.jpg", "tosenjordan7.jpg"]
     },
     {
     "id": "tsurumaru_tsuyoshi",
     "number": 7553,
     "proper": "Tsurumaru Tsuyoshi",
     "names": ["tsurumarutsuyoshi", "tsurumaru", "tsuyoshi"],
-    "images": ["tsurumarutsuyoshi1.jpg", "tsurumarutsuyoshi2.jpg", "tsurumarutsuyoshi3.jpg"]
+    "images": ["tsurumarutsuyoshi1.jpg", "tsurumarutsuyoshi2.jpg", "tsurumarutsuyoshi3.jpg", "tsurumarutsuyoshi4.jpg", "tsurumarutsuyoshi5.jpg"]
     },
     {
     "id": "twin_turbo",
     "number": 5584,
     "proper": "Twin Turbo",
     "names": ["twinturbo", "turbo"],
-    "images": ["twinturbo1.jpg", "twinturbo2.jpg", "twinturbo3.jpg", "twinturbo4.jpg"]
+    "images": ["twinturbo1.jpg", "twinturbo2.jpg", "twinturbo3.jpg", "twinturbo4.jpg", "twinturbo5.jpg", "twinturbo6.jpg"]
     },
     {
     "id": "verxina",
@@ -410,27 +410,27 @@
     "number": 10013,
     "proper": "Vivlos",
     "names": ["vivlos"],
-    "images": ["vivlos1.jpg", "vivlos2.jpg", "vivlos3.jpg", "vivlos4.jpg"]
+    "images": ["vivlos1.jpg", "vivlos2.jpg", "vivlos3.jpg", "vivlos4.jpg", "vivlos5.jpg", "vivlos6.jpg"]
     },
     {
     "id": "yaeno_muteki",
     "number": 5535,
     "proper": "Yaeno Muteki",
-    "names": ["yaenomuteki"],
-    "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg"]
+    "names": ["yaenomuteki", "yaeno", "muteki"],
+    "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg", "yaenomuteki5.jpg", "yaenomuteki6.jpg"]
     },
     {
     "id": "yukino_bijin",
     "number": 5145,
     "proper": "Yukino Bijin",
     "names": ["yukinobijin"],
-    "images": ["yukinobijin1.jpg", "yukinobijin2.jpg", "yukinobijin3.jpg", "yukinobijin4.jpg"]
+    "images": ["yukinobijin1.jpg", "yukinobijin2.jpg", "yukinobijin3.jpg", "yukinobijin4.jpg", "yukinobijin5.jpg", "yukinobijin6.jpg"]
     },
     {
     "id": "zenno_rob_roy",
     "number": 5348,
     "proper": "Zenno Rob Roy",
     "names": ["zennorobroy", "zenno rob roy", "zenno", "rob roy"],
-    "images": ["zennorobroy1.jpg", "zennorobroy2.jpg", "zennorobroy3.jpg", "zennorobroy4.jpg"]
+    "images": ["zennorobroy1.jpg", "zennorobroy2.jpg", "zennorobroy3.jpg", "zennorobroy4.jpg", "zennorobroy5.jpg", "zennorobroy6.jpg"]
     }
 ]

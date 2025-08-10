@@ -9,6 +9,7 @@ const img = "eat"
 
 module.exports = {
     name: 'profile',
+    aliases: ['p'],
     description: 'Show your bot game stats',
     run: async ({ message }) => {
         const file = new AttachmentBuilder(`src/assets/${img}.png`);
