@@ -24,6 +24,11 @@ module.exports = {
                     found = true
                     var id = bothLists[i]["number"]
 
+                    if (id == 0) {
+                        found = false
+                        break
+                    }
+
                     const fetch = (await import("node-fetch")).default
                     const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
                     const data = await res.json()
@@ -46,7 +51,7 @@ module.exports = {
                         },
                         {
                             name: `Profile`,
-                            value: `Height: ${data['height']}cm\nWeight: ${data['weight']}\nResidence: ${data['residence']}\nWeaknesses: ${data['weaknesses']}`,
+                            value: `Height: ${data['height']}cm\nWeight: ${data['weight']}\nMeasurements: B${data['size_b']} - H${data['size_h']} - W${data['size_w']}\nResidence: ${data['residence']}\nWeaknesses: ${data['weaknesses']}`,
                         },
                         {
                             name: `Facts`,
