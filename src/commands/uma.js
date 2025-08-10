@@ -91,12 +91,16 @@ module.exports = {
             var chooseChar = Math.floor(Math.random() * list.length)
             var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
             var umaName = list[chooseChar]['id']
+            var umaProper = list[chooseChar]['proper']
 
             const countCollection = database.collection("count")
 
             await countCollection.updateOne(
                 { name: umaName },
-                { $inc: { count: 1 } },
+                { 
+                    $inc: { count: 1 },
+                    $set: { proper: umaProper }
+                },
                 { upsert: true }
             )
 

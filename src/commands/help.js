@@ -51,10 +51,11 @@ module.exports = {
                         "`!daily`" + " - " + "Claim your daily 75 points" + "\n\n" +
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +
-                        "`!leaderboard (points/wins/daily)`" + " - " + "Global leaderboards" + "\n" +
+                        "`!lb (points/wins/daily)`" + " - " + "Global leaderboards" + "\n" +
                         "\n" + 
                         "**__Misc.__**" + "\n" +
                         "`!help`" + " - " + "Pulls up the help menu\n- Use `!help uma` for more information about the game" + "\n" +
+                        "`!stats`" + " - " + "Bot stats" + "\n" +
                         "`!uptime`" + " - " + "Bot uptime" + "\n" +
                         "`!help`" + " - " + "Brings up the help menu" + "\n" +
                         "`!ping`" + " - " + "Pong!"

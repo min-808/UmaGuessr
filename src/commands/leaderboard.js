@@ -15,10 +15,10 @@ module.exports = {
         let type;
         let proper;
 
-        if (message.content.toLowerCase().includes("wins")) {
+        if (message.content.toLowerCase().includes("wins") || message.content.toLowerCase().includes("w")) {
             type = "wins"
             proper = "Total Wins"
-        } else if (message.content.toLowerCase().includes("daily")) {
+        } else if (message.content.toLowerCase().includes("daily") || message.content.toLowerCase().includes("d")) {
             type = "points_today"
             proper = "Points Today"
         } else {
