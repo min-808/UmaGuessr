@@ -1,15 +1,16 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require('discord.js');
 
-module.exports = async (message, pages, time = 60 * 1000) => {
+module.exports = async (message, pages, time = 75 * 1000) => {
     try {
         if (!message || !Array.isArray(pages) || pages.length === 0)
             throw new Error("invalid arguments");
 
         if (pages.length === 1) {
             return await message.edit({
-                embeds: pages,
+                embeds: [pages[index].embed],
                 components: [],
-                content: null
+                content: null,
+                ...(pages[index].file ? { files: [{ attachment: pages[index].file }] } : {})
             });
         }
 
@@ -39,10 +40,11 @@ module.exports = async (message, pages, time = 60 * 1000) => {
         let index = 0;
 
         const msg = await message.edit({
-            embeds: [pages[index]],
+            embeds: [pages[index].embed],
             components: [row],
             content: null,
-            fetchReply: true
+            fetchReply: true,
+            ...(pages[index].file ? { files: [{ attachment: pages[index].file }] } : {})
         });
 
         const collector = msg.createMessageComponentCollector({
@@ -75,8 +77,9 @@ module.exports = async (message, pages, time = 60 * 1000) => {
             end.setDisabled(index === pages.length - 1);
 
             await msg.edit({
-                embeds: [pages[index]],
-                components: [row]
+                embeds: [pages[index].embed],
+                components: [row],
+                ...(pages[index].file ? { files: [{ attachment: pages[index].file }] } : {})
             });
 
             collector.resetTimer();
@@ -84,8 +87,9 @@ module.exports = async (message, pages, time = 60 * 1000) => {
 
         collector.on('end', async () => {
             await msg.edit({
-                embeds: [pages[index]],
-                components: []
+                embeds: [pages[index].embed],
+                components: [],
+                ...(pages[index].file ? { files: [{ attachment: pages[index].file }] } : {})
             });
         });
     } catch (e) {

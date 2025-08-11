@@ -92,7 +92,10 @@ module.exports = {
                 }
 
                 embed.setFooter({ text: `There are ${permaSize} players` });
-                embeds.push(embed);
+                embeds.push({
+                    embed: embed,
+
+                })
             }
 
             await buttonPagination(sent, embeds);

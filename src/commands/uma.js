@@ -118,7 +118,7 @@ module.exports = {
             
             const hint = new ButtonBuilder()
                 .setCustomId('hint')
-                .setLabel('Unblur')
+                .setLabel('Hint')
                 .setStyle(ButtonStyle.Primary);
 
             const row = new ActionRowBuilder()

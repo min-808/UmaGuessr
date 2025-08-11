@@ -41,12 +41,12 @@ module.exports = {
                     embed.addFields(
                         {
                             name: `Description`,
-                            value: `${data['slogan'] ?? 'N/A'}`,
+                            value: data['slogan'] ?? 'N/A',
                             inline: true
                         },
                         {
                             name: `Nicknames`,
-                            value: bothLists[i]["names"].join(', '),
+                            value: bothLists[i]["names"].join(', ') ?? 'N/A',
                             inline: true
                         },
                         {
@@ -59,33 +59,32 @@ module.exports = {
                         },
                     )
 
-                    /*
-                    var embeds = []
+                    var embeds = [];
 
                     for (let j = 0; j < bothLists[i]["images"].length; j++) {
-                        const fileName = bothLists[i]["images"][j]
-                        const imgPath = path.join(__dirname, `../assets/guessing/${fileName}`)
+                        const fileName = bothLists[i]["images"][j];
+                        const imgPath = path.join(__dirname, `../assets/guessing/${fileName}`);
 
-                        const imageEmbed = new EmbedBuilder()
-                        const attachment = new AttachmentBuilder(imgPath).setName(fileName)
-                        imageEmbed.setImage(`attachment://${fileName}`)
-                        embeds.push(imageEmbed)
+                        const pageEmbed = EmbedBuilder.from(embed).setImage(`attachment://${fileName}`) // create copy
+
+                        embeds.push({
+                            embed: pageEmbed,
+                            file: imgPath
+                        });
                     }
 
+                    const sent = await message.channel.send({ content: "Loading character profile..." });
                     await buttonPagination(sent, embeds);
-                    */
+
                     break
                 }
             }
 
             if (!found) {
-                embed.spliceFields(0, 1, {
-                    name: "**Unable to find character**",
-                    value: `\n`
-                });
+                await message.channel.send("**Unable to find character**")
+                return
             }
 
-            await message.channel.send({ embeds: [embed] });
         } catch (err) {
             console.error(err);
             message.channel.send("Something went wrong while retrieving the character.");
