@@ -291,10 +291,9 @@ module.exports = {
                 }
             })
 
-            messageCollector.on('end', async (reason) => { // No one got it right
+            messageCollector.on('end', async (collected, reason) => { // No one got it right
                 if (reason === 'time') {
                     const state = gameState.get(sentMsg.id);
-
                     if (!state) return;
 
                     const finalImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
