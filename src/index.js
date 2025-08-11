@@ -9,7 +9,7 @@ const { MongoClient } = require('mongodb');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
-const prefix = '!';
+const prefix = '$';
 
 const client = new Client({
     intents: [
@@ -37,7 +37,7 @@ async function resetDaily() {
     var currentDate = new Date()
     var currentTime = currentDate.toLocaleTimeString('en-US')
 
-    console.log(`[${currentTime}] - Resetting daily points/wins...`)
+    console.log(`[${currentTime}] - Resetting dailies...`)
 
     const update = {
         $set: {
