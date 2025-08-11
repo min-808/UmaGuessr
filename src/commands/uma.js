@@ -215,7 +215,7 @@ module.exports = {
 
                 const userGuess = msg.content.trim().toLowerCase().replace(/\s+/g, '')
 
-                if ((userGuess === '!skip') && (msg.author.id === user.id)) {
+                if ((userGuess === '!skip') && (msg.author.id === user.id)) { // Skipped
                     messageCollector.stop()
                     collector.stop()
 
@@ -297,7 +297,7 @@ module.exports = {
 
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
-                    
+
                     if (!state) return;
 
                     const finalImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
