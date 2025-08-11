@@ -295,9 +295,6 @@ module.exports = {
                 if (reason === 'time') {
                     const state = gameState.get(sentMsg.id);
 
-                    gameState.delete(sentMsg.id);
-                    activeChannels.delete(channelID);
-
                     if (!state) return;
 
                     const finalImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
@@ -315,6 +312,9 @@ module.exports = {
                         files: [file],
                         components: []
                     });
+
+                    gameState.delete(sentMsg.id);
+                    activeChannels.delete(channelID);
 
                     await client.close();
                 }
