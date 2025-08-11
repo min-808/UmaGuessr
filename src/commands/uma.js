@@ -219,6 +219,9 @@ module.exports = {
                     messageCollector.stop()
                     collector.stop()
 
+                    gameState.delete(sentMsg.id);
+                    activeChannels.delete(channelID);
+
                     const finalImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
                     const finalBuffer = await finalImage.getBufferAsync(Jimp.MIME_PNG);
                     const file = new AttachmentBuilder(finalBuffer, { name: 'skipped.png' });
@@ -235,8 +238,6 @@ module.exports = {
                         components: []
                     });
 
-                    gameState.delete(sentMsg.id);
-                    activeChannels.delete(channelID);
                     await client.close();
                     return
                 }
@@ -244,6 +245,9 @@ module.exports = {
                 if (state.values.includes(userGuess)) { // Got it right
                     messageCollector.stop()
                     collector.stop()
+
+                    gameState.delete(sentMsg.id);
+                    activeChannels.delete(channelID);
 
                     authorID = BigInt(msg.author.id);
                     count = await ids.countDocuments({ discord_id: authorID });
@@ -283,16 +287,17 @@ module.exports = {
                         files: [file]
                     });
 
-                    gameState.delete(sentMsg.id)
-                    activeChannels.delete(channelID)
-
                     await client.close();
                 }
             })
 
-            messageCollector.on('end', async (collected, reason) => { // No one got it right
+            messageCollector.on('end', async (reason) => { // No one got it right
                 if (reason === 'time') {
                     const state = gameState.get(sentMsg.id);
+
+                    gameState.delete(sentMsg.id);
+                    activeChannels.delete(channelID);
+                    
                     if (!state) return;
 
                     const finalImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
@@ -310,9 +315,6 @@ module.exports = {
                         files: [file],
                         components: []
                     });
-
-                    gameState.delete(sentMsg.id);
-                    activeChannels.delete(channelID);
 
                     await client.close();
                 }
