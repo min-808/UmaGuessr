@@ -1,6 +1,5 @@
 const { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, ComponentType } = require('discord.js');
 const { MongoClient } = require("mongodb");
-const Jimp = require("jimp")
 const path = require("path")
 const fs = require('fs')
 

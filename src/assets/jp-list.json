@@ -343,13 +343,6 @@
     "images": ["siriussymboli1.jpg", "siriussymboli2.jpg", "siriussymboli3.jpg", "siriussymboli4.jpg", "siriussymboli5.jpg"]
     },
     {
-    "id": "smart_falcon",
-    "number": 5337,
-    "proper": "Smart Falcon",
-    "names": ["smartfalcon", "falko", "falcon"],
-    "images": ["smartfalcon1.jpg", "smartfalcon2.jpg", "smartfalcon3.jpg", "smartfalcon4.jpg", "smartfalcon5.jpg"]
-    },
-    {
     "id": "sweep_tosho",
     "number": 5314,
     "proper": "Sweep Tosho",
