@@ -6,6 +6,7 @@ const fs = require('fs');
 const path = require('path');
 const cron = require('node-cron');
 const { MongoClient } = require('mongodb');
+const { buildCache } = require("./cache-images.js");
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -100,6 +101,8 @@ async function setUptime() {
         mongoose.set('strictQuery', false);
         await mongoose.connect(process.env.MONGODB_URI);
         console.log("Connected to Database.");
+
+        await buildCache();
 
         client.login(process.env.TOKEN);
     } catch (error) {

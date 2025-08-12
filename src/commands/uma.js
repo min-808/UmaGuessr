@@ -2,6 +2,7 @@ const { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBu
 const { MongoClient } = require("mongodb");
 const Jimp = require("jimp")
 const path = require("path")
+const fs = require('fs')
 
 const setup = require('../../firstinit');
 
@@ -22,6 +23,8 @@ module.exports = {
 
         const channelID = message.channel.id;
         const user = message.author;
+        const cacheDir = path.join(__dirname, "../assets/cache");
+        const originDir = path.join(__dirname, "../assets/guessing");
 
         if (activeChannels.has(channelID)) {
             return message.channel.send("a game is running brochado");
@@ -108,13 +111,9 @@ module.exports = {
 
             // var chooseChar = 24
             // var chooseImg = list[chooseChar]["images"][2]
+            const imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`);
 
-            const image = await Jimp.read(path.join(__dirname, `../assets/guessing/${chooseImg}`))
-
-            image.pixelate(initialBlur)
-            const buffer = await image.getBufferAsync(Jimp.MIME_PNG);
-
-            const file = new AttachmentBuilder(buffer, { name: 'blurred.png' })
+            const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' })
             
             const hint = new ButtonBuilder()
                 .setCustomId('hint')
@@ -126,7 +125,7 @@ module.exports = {
 
             const embed = new EmbedBuilder()
                 .setTitle(`Guess the Uma`)
-                .setImage('attachment://blurred.png')
+                .setImage('attachment://blurred.jpg')
                 .setColor('LightGrey')
 
             embed.setDescription(`Started by ${user}\n\nServer: ${type}`)
@@ -154,25 +153,23 @@ module.exports = {
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
 
-                    if (state.blurLevel == 1) {
-                        const newImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
-                        const newBuffer = await newImage.getBufferAsync(Jimp.MIME_PNG);
+                    if (state.blurLevel == 1) { // if all hints have been used
 
-                        const newFile = new AttachmentBuilder(newBuffer, { name: 'original.png' });
+                        const imagePath = path.join(originDir, `${chooseImg}`);
+                        const newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
+
                         const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                            .setImage('attachment://original.png')
+                            .setImage('attachment://original.jpg')
 
                         await interaction.update({
                             files: [newFile], embeds: [updatedEmbed], components: [row]
                         });
-                    } else {
+                    } else { // Use a hint, go down a blur level
                         const newBlurLevel = state.blurLevel - 10
                         const newHintsUsed = state.hintsUsed + 1
                         const newPoints = state.points - minusPointsJP
 
-                        const newImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
-                        newImage.pixelate(newBlurLevel);
-                        const newBuffer = await newImage.getBufferAsync(Jimp.MIME_PNG);
+                        const newPath = path.join(cacheDir, `${newBlurLevel}-${state.imageName}`);
 
                         gameState.set(sentMsg.id, {
                             ...state,
@@ -181,9 +178,9 @@ module.exports = {
                             points: newPoints
                         })
 
-                        const newFile = new AttachmentBuilder(newBuffer, { name: 'blurred.png' });
+                        const newFile = new AttachmentBuilder(fs.readFileSync(newPath), { name: 'blurred.jpg' });
                         const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                            .setImage('attachment://blurred.png')
+                            .setImage('attachment://blurred.jpg')
 
                         await interaction.update({
                             files: [newFile], embeds: [updatedEmbed], components: [row]
@@ -222,12 +219,11 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
-                    const finalImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
-                    const finalBuffer = await finalImage.getBufferAsync(Jimp.MIME_PNG);
-                    const file = new AttachmentBuilder(finalBuffer, { name: 'skipped.png' });
+                    const imagePath = path.join(originDir, `${chooseImg}`);
+                    const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
 
                     const skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                        .setImage('attachment://skipped.png')
+                        .setImage('attachment://skipped.jpg')
                         .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
 
                     await sentMsg.channel.send(`Character skipped. The answer was **${state.proper}**`);
@@ -249,7 +245,7 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
-                    authorID = BigInt(msg.author.id);
+                    var authorID = BigInt(msg.author.id);
                     count = await ids.countDocuments({ discord_id: authorID });
 
                     if (count < 1) await setup.init(authorID, "uma", "stats");
@@ -274,12 +270,11 @@ module.exports = {
                     await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points} points)*
                         \nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*`);
 
-                    const fullImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
-                    const fullBuffer = await fullImage.getBufferAsync(Jimp.MIME_PNG);
-                    const file = new AttachmentBuilder(fullBuffer, { name: 'revealed.png' });
+                    const imagePath = path.join(originDir, `${chooseImg}`);
+                    const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
 
                     const revealedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                        .setImage('attachment://revealed.png')
+                        .setImage('attachment://revealed.jpg')
                         .setFooter({ text: `Guessed by ${msg.author.username}, used ${state.hintsUsed} hints` });
 
                     await sentMsg.edit({
@@ -296,12 +291,11 @@ module.exports = {
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
 
-                    const finalImage = await Jimp.read(path.join(__dirname, `../assets/guessing/${state.imageName}`));
-                    const finalBuffer = await finalImage.getBufferAsync(Jimp.MIME_PNG);
-                    const file = new AttachmentBuilder(finalBuffer, { name: 'timeout.png' });
+                    const imagePath = path.join(originDir, `${chooseImg}`);
+                    const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'timeout.jpg' })
 
                     const timeoutEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                        .setImage('attachment://timeout.png')
+                        .setImage('attachment://timeout.jpg')
                         .setFooter({ text: `Time's up! The correct answer was ${state.proper}` });
 
                     await sentMsg.channel.send(`Nobody got it right. The answer was **${state.proper}**`);
