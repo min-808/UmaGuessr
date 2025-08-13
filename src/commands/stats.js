@@ -3,13 +3,13 @@ const { MongoClient } = require("mongodb");
 
 const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
-const img = "eat"
+const img = "stats"
 
 module.exports = {
     name: 'stats',
     description: 'Show the bot stats',
     run: async ({ message }) => {
-        const file = new AttachmentBuilder(`src/assets/${img}.png`);
+        const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
         const user = message.author;
         var globalList = require('../../src/assets/global-list.json')
         var JPList = require('../../src/assets/jp-list.json')

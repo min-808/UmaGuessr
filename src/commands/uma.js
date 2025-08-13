@@ -211,7 +211,7 @@ module.exports = {
 
                 const userGuess = msg.content.trim().toLowerCase().replace(/\s+/g, '')
 
-                if ((userGuess === '!skip') && (msg.author.id === user.id)) { // Skipped
+                if (((userGuess === '!skip') || (userGuess === '!s')) && (msg.author.id === user.id)) { // Skipped
                     messageCollector.stop()
                     collector.stop()
 

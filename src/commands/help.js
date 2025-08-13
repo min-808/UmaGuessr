@@ -1,6 +1,6 @@
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 
-const img = "oguri"
+const img = "help"
 
 module.exports = {
     name: 'help',
@@ -8,7 +8,7 @@ module.exports = {
     
     run: async ({ message }) => {
 
-        const file = new AttachmentBuilder(`src/assets/${img}.png`);
+        const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
 
         let embed;
 

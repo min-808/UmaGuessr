@@ -1,7 +1,7 @@
 var { EmbedBuilder, AttachmentBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
-const img = "oguri"
+const img = "daily"
 
 const setup = require('../../firstinit');
 
@@ -13,7 +13,7 @@ module.exports = {
 
     run: async ({ message }) => {
 
-        const file = new AttachmentBuilder(`src/assets/${img}.png`);
+        const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
 
         const user = message.author;
 

@@ -5,14 +5,14 @@ const setup = require('../../firstinit');
 
 const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
-const img = "eat"
+const img = "profile"
 
 module.exports = {
     name: 'profile',
     aliases: ['p'],
     description: 'Show your bot game stats',
     run: async ({ message }) => {
-        const file = new AttachmentBuilder(`src/assets/${img}.png`);
+        const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
         const user = message.author;
 
         const embed = new EmbedBuilder()
