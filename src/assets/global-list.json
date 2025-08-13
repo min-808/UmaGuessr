@@ -45,7 +45,7 @@
     "id": "gold_ship",
     "number": 4891,
     "proper": "Gold Ship",
-    "names": ["goldship", "golshi"],
+    "names": ["goldship", "golshi", "goldshi"],
     "images": ["goldship1.jpg", "goldship2.jpg", "goldship3.jpg", "goldship4.jpg", "goldship5.jpg"]
   },
   {
@@ -108,7 +108,7 @@
     "id": "mihono_bourbon",
     "number": 5111,
     "proper": "Mihono Bourbon",
-    "names": ["mihonobourbon", "bourbon"],
+    "names": ["mihonobourbon", "bourbon", "mihono"],
     "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg", "mihonobourbon3.jpg", "mihonobourbon4.jpg", "mihonobourbon5.jpg", "mihonobourbon6.jpg"]
   },
   {
