@@ -22,8 +22,8 @@ module.exports = {
             type = "points_today"
             proper = "Points Today"
         } else if (message.content.toLowerCase().includes("streak") || message.content.toLowerCase().includes("s") || message.content.toLowerCase().includes("streaks")) {
-            type = "streak"
-            proper = "Streak"
+            type = "top_streak"
+            proper = "Top Streak"
         } else {
             type = "points"
             proper = "Total Points"
@@ -44,6 +44,7 @@ module.exports = {
                     streak: 1,
                     points_today: 1,
                     wins_today: 1,
+                    top_streak: 1,
                 }
             };
 
