@@ -14,7 +14,7 @@ module.exports = {
 
         embed = new EmbedBuilder()
             .setColor('LightGrey')
-            .setTitle("Commands")
+            .setTitle("Vote")
             .setThumbnail(`attachment://${img}.png`)
             .addFields(
                 {
