@@ -95,6 +95,8 @@ module.exports = {
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
 
+            console.log(`debug: ${umaProper}`)
+
             const countCollection = database.collection("count")
 
             await countCollection.updateOne(
@@ -138,6 +140,7 @@ module.exports = {
                 proper: list[chooseChar]["proper"],
                 points: initialPointsJP,
                 hintsUsed: 0,
+                startTime: Date.now(),
             })
 
             // const filter = (i) => i.user.id === message.author.id
@@ -225,7 +228,7 @@ module.exports = {
                         .setImage('attachment://skipped.jpg')
                         .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
 
-                    await sentMsg.channel.send(`Character skipped. The answer was **${state.proper}**`);
+                    await sentMsg.channel.send(`Skipped, the answer was **${state.proper}**`);
 
                     await sentMsg.edit({
                         embeds: [skippedEmbed],
@@ -244,10 +247,32 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
-                    var authorID = BigInt(msg.author.id);
+                    var authorID = BigInt(msg.author.id); // ID of the person who got it right
+                    
                     count = await ids.countDocuments({ discord_id: authorID });
+                    if (count < 1) await setup.init(authorID, "uma", "stats"); // Make document in case
 
-                    if (count < 1) await setup.init(authorID, "uma", "stats");
+                    var broadSearch = await ids.findOne({ discord_id: authorID })
+
+                    if (authorID == discordID) { // Increment streak by one
+                        await ids.updateOne({ discord_id: discordID }, {
+                            $inc: {
+                                streak: 1,
+                            }
+                        });
+                    } else { // someone else answered that's not the initial message sender
+                        await ids.updateOne({ discord_id: discordID }, {
+                            $set: {
+                                streak: 0,
+                            }
+                        });
+
+                        await ids.updateOne({ discord_id: authorID }, {
+                            $inc: {
+                                streak: 1,
+                            }
+                        });
+                    }
 
                     const addPoints = {
                         $inc: {
@@ -258,23 +283,22 @@ module.exports = {
                         }
                     }
 
-                    await ids.updateOne({ discord_id: authorID }, addPoints);
-                    var broadSearch = await ids.findOne({ discord_id: authorID });
+                    await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
 
-                    var pointCount = broadSearch["points"]
-                    var winCount = broadSearch["wins"]
-                    var dailyPointCount = broadSearch["points_today"]
-                    var dailyWinCount = broadSearch["wins_today"]
+                    var pointCount = broadSearch["points"] + state.points
+                    var winCount = broadSearch["wins"] + 1
+                    var dailyPointCount = broadSearch["points_today"] + state.points
+                    var dailyWinCount = broadSearch["wins_today"] + 1
+                    var streakCount = broadSearch["streak"] + 1
 
-                    await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points} points)*
-                        \nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*`);
+                    await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points} points)*\n\nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*\n\nCurrent Streak: **${streakCount}**`);
 
                     const imagePath = path.join(originDir, `${chooseImg}`);
                     const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
 
                     const revealedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://revealed.jpg')
-                        .setFooter({ text: `Guessed by ${msg.author.username}, used ${state.hintsUsed} hints` });
+                        .setFooter({ text: `Guessed by ${msg.author.username} in ${((Date.now() - state.startTime) / 1000).toFixed(2)}s, used ${state.hintsUsed} hints` });
 
                     await sentMsg.edit({
                         embeds: [revealedEmbed],
