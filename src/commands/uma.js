@@ -247,7 +247,7 @@ module.exports = {
                     return
                 }
 
-                if (state.values.includes(userGuess) || state.ids.includes(userGuess)) { // Got it right
+                if (state.values.includes(userGuess) || state.ids.includes == userGuess) { // Got it right
                     messageCollector.stop()
                     collector.stop()
 
