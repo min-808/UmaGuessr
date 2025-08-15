@@ -60,7 +60,7 @@ module.exports = {
                 },
                 {
                     name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**`,
+                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nCurrent streak: **${streak}**`,
                 },
                 {
                     name: "\n",
