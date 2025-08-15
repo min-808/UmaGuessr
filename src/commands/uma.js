@@ -137,6 +137,7 @@ module.exports = {
                 blurLevel: initialBlur,
                 imageName: chooseImg,
                 values: list[chooseChar]["names"],
+                ids: list[chooseChar]["number"],
                 proper: list[chooseChar]["proper"],
                 points: initialPointsJP,
                 hintsUsed: 0,
@@ -246,7 +247,7 @@ module.exports = {
                     return
                 }
 
-                if (state.values.includes(userGuess)) { // Got it right
+                if (state.values.includes(userGuess) || state.ids.includes(userGuess)) { // Got it right
                     messageCollector.stop()
                     collector.stop()
 
@@ -260,13 +261,22 @@ module.exports = {
 
                     var broadSearch = await ids.findOne({ discord_id: authorID })
 
+                    let currentStreak = broadSearch["streak"]
+                    let topStreak = broadSearch["top_streak"]
+                    let newStreak = currentStreak + 1
+
                     if (authorID == discordID) { // Increment streak by one
+
                         await ids.updateOne({ discord_id: discordID }, {
+                            $set: {
+                                top_streak: Math.max(newStreak, topStreak),
+                            },
                             $inc: {
                                 streak: 1,
                             }
                         });
-                    } else { // someone else answered that's not the initial message sender
+
+                    } else { // someone else answered that's not the initial message sender, goodbye streak
                         await ids.updateOne({ discord_id: discordID }, {
                             $set: {
                                 streak: 0,
@@ -274,6 +284,9 @@ module.exports = {
                         });
 
                         await ids.updateOne({ discord_id: authorID }, {
+                            $set: {
+                                top_streak: Math.max(newStreak, topStreak),
+                            },
                             $inc: {
                                 streak: 1,
                             }

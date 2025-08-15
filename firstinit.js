@@ -20,6 +20,7 @@ module.exports = {
             wins_today: 0,
             daily_timer: 0,
             type: 'x',
+            top_streak: 0,
         }
     
         const result = await ids.insertOne(doc);

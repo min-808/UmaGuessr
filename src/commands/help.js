@@ -48,7 +48,8 @@ module.exports = {
                         "`!set (g/j)`" + " - " + "Set your default region" + "\n" +
                         "- (**g** - Global, **j** - Japan)" + "\n" +
                         "`!skip`" + " - " + "Skip the current character" + "\n" +
-                        "`!daily`" + " - " + "Claim your daily 75 points" + "\n\n" +
+                        "`!daily`" + " - " + "Claim your daily 75 points" + "\n" +
+                        "`!vote`" + " - " + "coming soon" + "\n\n" +
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +
                         "`!lb (points/wins/daily)`" + " - " + "Global leaderboards" + "\n" +
