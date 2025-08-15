@@ -221,6 +221,12 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
+                    await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
+                        $set: {
+                            streak: 0,
+                        }
+                    });
+
                     const imagePath = path.join(originDir, `${chooseImg}`);
                     const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
 
