@@ -352,7 +352,7 @@ module.exports = {
 
                     const revealedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://revealed.jpg')
-                        .setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s, used ${state.hintsUsed} hints` });
+                        .setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)} sec, used ${state.hintsUsed} hints` });
 
                     await sentMsg.edit({
                         embeds: [revealedEmbed],
