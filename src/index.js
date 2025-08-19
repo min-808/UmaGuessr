@@ -12,6 +12,9 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 
 const prefix = '!';
 
+const cooldowns = new Map()
+const COOLDOWN = 3000
+
 const client = new Client({
     intents: [
         IntentsBitField.Flags.Guilds,
@@ -63,6 +66,17 @@ client.on('messageCreate', async message => {
     client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(cmdName)) // incl aliases
 
     if (!command) return;
+
+    const now = Date.now()
+    const userId = message.author.id
+    const cooldownUntil = cooldowns.get(userId)
+
+    if ((cooldownUntil && now < cooldownUntil) && (userId != "236186510326628353")) { // wait the cooldown
+        const remaining = ((cooldownUntil - now) / 1000).toFixed(1)
+        return message.channel.send(`Wait **${remaining}** seconds before sending another command`)
+    }
+
+    cooldowns.set(userId, now + COOLDOWN)
 
     try {
         await command.run({ message, args, client });
