@@ -11,7 +11,7 @@ module.exports = {
     name: 'profile',
     aliases: ['p'],
     description: 'Show your bot game stats',
-    run: async ({ message }) => {
+    run: async ({ message, args, client }) => {
         const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
         const user = message.author;
 
@@ -23,10 +23,22 @@ module.exports = {
             const client = new MongoClient(uri);
             const database = client.db("uma");
             const ids = database.collection("stats");
-            const discordID = BigInt(user.id);
+            var discordID = BigInt(user.id);
 
             const count = await ids.countDocuments({ discord_id: discordID });
             if (count < 1) await setup.init(discordID, "uma", "stats");
+
+            if (args.length > 0) {
+                if (message.mentions.users.size > 0) { // if it's a mention
+                    discordID = BigInt(message.mentions.users.first().id)
+                    console.log(discordID)
+                } else if (/^\d{17,19}$/.test(args[0])) { // possibly just an id?, regex fuckery (number between 17 and 19 digits incl)
+                    discordID = BigInt(args[0])
+                } else { // not a number with 17-19 digits, so random string
+                    message.channel.send(`Invalid Discord ID provided`)
+                    return
+                }
+            }
 
             const data = await ids.findOne({ discord_id: discordID }, {
                 projection: {
@@ -39,6 +51,20 @@ module.exports = {
                     quickest_answer: 1,
                 }
             });
+
+            if (!data) { // Checker for random string
+              message.channel.send(`Invalid Discord ID provided, or user has not played yet`)
+              return
+            }
+
+            const response = await fetch(`https://discord.com/api/v10/users/${discordID}`, { // find username
+                headers: {
+                    'Authorization': 'Bot ' + process.env.TOKEN
+                }
+            });
+
+            const parse = await response.json();
+            let player = String(parse?.username ?? 'Unknown');
 
             const allUsers = await ids.find({}, { projection: { discord_id: 1, points: 1 } })
                 .sort({ points: -1 })
@@ -56,7 +82,7 @@ module.exports = {
                 quickest = `${(quickest_answer / 1000).toFixed(2)} sec`
             }
 
-            embed.setTitle(`**${user.username}'s Profile**`)
+            embed.setTitle(`**${player}'s Profile**`)
 
             embed.addFields(
                 {
@@ -70,7 +96,7 @@ module.exports = {
                 },
                 {
                     name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nQuickest answer: **${quickest}**`,
+                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nFastest answer: **${quickest}**`,
                 },
                 {
                     name: "\n",
