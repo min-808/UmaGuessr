@@ -113,8 +113,14 @@ module.exports = {
                     value: "\n",
                 },
                 {
-                    name: "__Top Umas__",
+                    name: "__Top 5 Umas__",
                     value: `1. **${sortedUmas[0]["proper"]}** (${sortedUmas[0]["count"]})\n2. **${sortedUmas[1]["proper"]}** (${sortedUmas[1]["count"]})\n3. **${sortedUmas[2]["proper"]}** (${sortedUmas[2]["count"]})\n4. **${sortedUmas[3]["proper"]}** (${sortedUmas[3]["count"]})\n5. **${sortedUmas[4]["proper"]}** (${sortedUmas[4]["count"]})`,
+                    inline: true,
+                },
+                {
+                    name: "__Bottom 5 Umas__",
+                    value: `1. **${sortedUmas[sortedUmas.length - 1]["proper"]}** (${sortedUmas[sortedUmas.length - 1]["count"]})\n2. **${sortedUmas[sortedUmas.length - 2]["proper"]}** (${sortedUmas[sortedUmas.length - 2]["count"]})\n3. **${sortedUmas[sortedUmas.length - 3]["proper"]}** (${sortedUmas[sortedUmas.length - 3]["count"]})\n4. **${sortedUmas[sortedUmas.length - 4]["proper"]}** (${sortedUmas[sortedUmas.length - 4]["count"]})\n5. **${sortedUmas[sortedUmas.length - 5]["proper"]}** (${sortedUmas[sortedUmas.length - 5]["count"]})`,
+                    inline: true,
                 },
                 {
                     name: "\n",
