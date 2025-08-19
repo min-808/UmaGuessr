@@ -35,6 +35,7 @@ module.exports = {
         } else {
             type = "points"
             proper = "Total Points"
+            countType = type
         }
 
 
