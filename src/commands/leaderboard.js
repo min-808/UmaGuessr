@@ -14,19 +14,24 @@ module.exports = {
 
         let type;
         let proper;
+        let countType;
 
         if (message.content.toLowerCase().includes("wins") || message.content.toLowerCase().includes("w")) {
             type = "wins"
             proper = "Total Wins"
+            countType = type
         } else if (message.content.toLowerCase().includes("daily") || message.content.toLowerCase().includes("d")) {
             type = "points_today"
             proper = "Points Today"
+            countType = type
         } else if (message.content.toLowerCase().includes("streak") || message.content.toLowerCase().includes("s") || message.content.toLowerCase().includes("streaks")) {
             type = "top_streak"
             proper = "Top Streak"
+            countType = type
         } else if (message.content.toLowerCase().includes("time") || message.content.toLowerCase().includes("t") || message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q")) {
             type = "quickest_answer"
             proper = "Quickest Answer"
+            countType = "sec"
         } else {
             type = "points"
             proper = "Total Points"
@@ -48,15 +53,23 @@ module.exports = {
                     points_today: 1,
                     wins_today: 1,
                     top_streak: 1,
+                    quickest_answer: 1,
                 }
             };
 
             const selectedOption = type
-            const countType = proper
 
             let listOfDocuments = await ids.find({}, options).toArray();
 
-            listOfDocuments.sort((a, b) => b[selectedOption] - a[selectedOption]);
+            if (selectedOption === "quickest_answer") { // smallest first
+                listOfDocuments.sort((a, b) => {
+                    let aTime = a[selectedOption] === 0 ? Infinity : a[selectedOption];
+                    let bTime = b[selectedOption] === 0 ? Infinity : b[selectedOption];
+                    return aTime - bTime;
+                });
+            } else {
+                listOfDocuments.sort((a, b) => b[selectedOption] - a[selectedOption]);
+            }
 
             for (let doc of listOfDocuments) {
                 const foundID = doc.discord_id;
@@ -83,6 +96,7 @@ module.exports = {
             let totalCount = 1;
             let pages = Math.ceil(listOfDocuments.length / showPerPage);
             const embeds = [];
+            let displayValue;
 
             for (let i = 0; i < pages; i++) {
                 const embed = new EmbedBuilder()
@@ -91,9 +105,16 @@ module.exports = {
 
                 for (let j = 0; j < showPerPage && listOfDocuments.length > 0; j++) {
                     const entry = listOfDocuments.shift();
+
+                    if (selectedOption == "quickest_answer" && entry[selectedOption] == 0) {
+                        displayValue = 'n/a'
+                        countType = ''
+                    } else {
+                        displayValue = (entry[selectedOption] / 1000).toFixed(2)
+                    }
                     embed.addFields({
                         name: "",
-                        value: `${totalCount}. **${entry.discord_id}** - ${entry[selectedOption]} ${countType}`
+                        value: `${totalCount}. **${entry.discord_id}** - ${displayValue} ${countType}`
                     });
                     totalCount++;
                 }

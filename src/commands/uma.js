@@ -281,15 +281,25 @@ module.exports = {
 
                     var broadSearch = await ids.findOne({ discord_id: authorID })
 
-                    let currentStreak = broadSearch["streak"]
                     let topStreak = broadSearch["top_streak"]
-                    let newStreak = currentStreak + 1
+                    let newStreak = broadSearch["streak"] + 1
+                    
+                    let topTime = broadSearch["quickest_answer"]
+                    let timeAnswered = Date.now() - state.startTime
+                    let newQuickest;
 
-                    if (authorID == discordID) { // Increment streak by one
+                    if (topTime == 0) { // If someone has a quickest answer of 0s, which shouldn't be possible (aka new users)
+                        newQuickest = timeAnswered
+                    } else {
+                        newQuickest = Math.min(timeAnswered, topTime)
+                    }
+
+                    if (authorID == discordID) { // Increment streak of the answerer by one
 
                         await ids.updateOne({ discord_id: discordID }, {
                             $set: {
                                 top_streak: Math.max(newStreak, topStreak),
+                                quickest_answer: newQuickest
                             },
                             $inc: {
                                 streak: 1,
@@ -306,6 +316,7 @@ module.exports = {
                         await ids.updateOne({ discord_id: authorID }, {
                             $set: {
                                 top_streak: Math.max(newStreak, topStreak),
+                                quickest_answer: newQuickest
                             },
                             $inc: {
                                 streak: 1,
@@ -337,7 +348,7 @@ module.exports = {
 
                     const revealedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://revealed.jpg')
-                        .setFooter({ text: `Guessed by ${msg.author.username} in ${((Date.now() - state.startTime) / 1000).toFixed(2)}s, used ${state.hintsUsed} hints` });
+                        .setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s, used ${state.hintsUsed} hints` });
 
                     await sentMsg.edit({
                         embeds: [revealedEmbed],
