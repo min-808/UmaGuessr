@@ -21,6 +21,7 @@ module.exports = {
             daily_timer: 0,
             type: 'x',
             top_streak: 0,
+            quickest_answer: 0,
         }
     
         const result = await ids.insertOne(doc);

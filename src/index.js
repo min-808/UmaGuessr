@@ -10,7 +10,7 @@ const { buildCache } = require("./cache-images.js");
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
-const prefix = '!';
+const prefix = '$';
 
 const client = new Client({
     intents: [

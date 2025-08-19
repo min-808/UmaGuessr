@@ -36,6 +36,7 @@ module.exports = {
                     points_today: 1,
                     wins_today: 1,
                     top_streak: 1,
+                    quickest_answer: 1,
                 }
             });
 
@@ -45,7 +46,7 @@ module.exports = {
 
             const rank = allUsers.findIndex(entry => entry.discord_id.toString() === discordID.toString()) + 1;
 
-            const { wins, points, streak, points_today, wins_today, top_streak } = data;
+            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer } = data;
 
             embed.setTitle(`**${user.username}'s Profile**`)
 
@@ -61,7 +62,7 @@ module.exports = {
                 },
                 {
                     name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nCurrent streak: **${streak}**`,
+                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nCurrent streak: **${streak}**\nQuickest answer: **${quickest_answer}**ms`,
                 },
                 {
                     name: "\n",

@@ -41,7 +41,11 @@ module.exports = {
                 await message.channel.send("Game region default set to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region")
             } else if (message.content.toLowerCase().includes("j")) {
                 newType = 'j'
-                proper = "JP"
+                proper = "Japan"
+                await message.channel.send("Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region")
+            } else if (message.content.toLowerCase().includes("a")) {
+                newType = 'a'
+                proper = "All"
                 await message.channel.send("Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region")
             } else {
                 newType = oldType

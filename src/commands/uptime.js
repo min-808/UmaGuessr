@@ -54,7 +54,7 @@ module.exports = {
             } else if ((getNewTime - getOldTime) < 86_400_000) {
                 writeTime = `${hours.toFixed(0)} hours, ${(mins - (hours * 60)).toFixed(0)} minutes, and ${(sec - (mins * 60)).toFixed(0)} seconds`
             } else {
-                writeTime = `${days.toFixed(0)} days`
+                writeTime = `${days.toFixed(0)} days and ${hours.toFixed(0)} hours`
             }
             
             embed.spliceFields(0, 1,

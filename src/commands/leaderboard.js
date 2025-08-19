@@ -24,6 +24,9 @@ module.exports = {
         } else if (message.content.toLowerCase().includes("streak") || message.content.toLowerCase().includes("s") || message.content.toLowerCase().includes("streaks")) {
             type = "top_streak"
             proper = "Top Streak"
+        } else if (message.content.toLowerCase().includes("time") || message.content.toLowerCase().includes("t") || message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q")) {
+            type = "quickest_answer"
+            proper = "Quickest Answer"
         } else {
             type = "points"
             proper = "Total Points"

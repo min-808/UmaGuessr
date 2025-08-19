@@ -50,10 +50,12 @@ module.exports = {
                     points_today: 1,
                     wins_today: 1,
                     type: 1,
+                    quickest_answer: 1,
                 }
             });
 
             let list;
+            let list2;
             let type;
 
             if (message.content.toLowerCase().includes("g")) {
@@ -64,29 +66,47 @@ module.exports = {
                 minusPointsJP = 2
             } else if (message.content.toLowerCase().includes("j")) {
                 list = require('../../src/assets/jp-list.json')
-                type = "JP"
+                type = "Japan"
 
                 initialPointsJP = 24 + 1
                 minusPointsJP = 4
-            } else {
-                if (data["type"] === 'jp') {
-                    list = require('../../src/assets/jp-list.json')
-                    type = "JP"
+            } else if (message.content.toLowerCase().includes("a")) {
+                list = require('../../src/assets/global-list.json')
+                list2 = require('../../src/assets/jp-list.json')
+                list = list.concat(list2)
+                type = "All"
 
-                    initialPointsJP = 24 + 1
-                    minusPointsJP = 4
-                } else if (data["type"] === 'g') {
+                initialPointsJP = 30 + 1
+                minusPointsJP = 5
+            } else { // Just the normal !uma command, check their type
+                if (data["type"] === 'g') {
                     list = require('../../src/assets/global-list.json')
                     type = "Global"
 
                     initialPointsJP = 12 + 1
                     minusPointsJP = 2
-                } else {
+                } else if (data["type"] === 'jp') {
                     list = require('../../src/assets/jp-list.json')
-                    type = "JP"
+                    type = "Japan"
 
                     initialPointsJP = 24 + 1
                     minusPointsJP = 4
+                } else if (data["type"] === 'a') {
+                    list = require('../../src/assets/global-list.json')
+                    list2 = require('../../src/assets/jp-list.json')
+                    list = list.concat(list2)
+                    type = "All"
+
+                    initialPointsJP = 30 + 1
+                    minusPointsJP = 5
+                } else { // Defaults to all chars if no args + no type set
+                    list = require('../../src/assets/global-list.json')
+                    list2 = require('../../src/assets/jp-list.json')
+                    list = list.concat(list2)
+                    type = "All"
+
+                    initialPointsJP = 30 + 1
+                    minusPointsJP = 5
                 }
             }
 

@@ -13,6 +13,7 @@ module.exports = {
         const user = message.author;
         var globalList = require('../../src/assets/global-list.json')
         var JPList = require('../../src/assets/jp-list.json')
+        var allList = globalList.concat(JPList)
 
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
@@ -47,6 +48,7 @@ module.exports = {
 
             const globalPicsCount = globalList.reduce((sum, item) => sum + item.images.length, 0)
             const JPPicsCount = JPList.reduce((sum, item) => sum + item.images.length, 0)
+            const allPicsCount = allList.reduce((sum, item) => sum + item.images.length, 0)
 
             const totalPoints = data.reduce((sum, item) => sum + item.points, 0)
             const totalWins = data.reduce((sum, item) => sum + item.wins, 0)
@@ -82,7 +84,7 @@ module.exports = {
             } else if ((getNewTime - getOldTime) < 86_400_000) {
                 writeTime = `${hours.toFixed(0)} hours, ${(mins - (hours * 60)).toFixed(0)} minutes, and ${(sec - (mins * 60)).toFixed(0)} seconds`
             } else {
-                writeTime = `${days.toFixed(0)} days`
+                writeTime = `${days.toFixed(0)} days and ${hours.toFixed(0)} hours`
             }
 
             embed.setTitle(`**Bot Stats**`)
@@ -90,12 +92,12 @@ module.exports = {
             embed.addFields(
                 {
                     name: `__Uma Count__`,
-                    value: `**${globalList.length}** (Global)\n**${JPList.length}** (JP)`,
+                    value: `**${allList.length}** (All)\n**${globalList.length}** (Global)\n**${JPList.length}** (JP)`,
                     inline: true
                 },
                 {
                     name: `__Uma Pictures Count__`,
-                    value: `**${globalPicsCount}** (Global)\n**${JPPicsCount}** (JP)`,
+                    value: `**${allPicsCount}** (All)\n**${globalPicsCount}** (Global)\n**${JPPicsCount}** (JP)`,
                     inline: true
                 },
                 {
