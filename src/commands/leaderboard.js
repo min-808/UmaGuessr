@@ -28,9 +28,9 @@ module.exports = {
             type = "top_streak"
             proper = "Top Streak"
             countType = "streak"
-        } else if (message.content.toLowerCase().includes("time") || message.content.toLowerCase().includes("t") || message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q")) {
+        } else if (message.content.toLowerCase().includes("time") || message.content.toLowerCase().includes("t") || message.content.toLowerCase().includes("fast") || message.content.toLowerCase().includes("f") || message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q")) {
             type = "quickest_answer"
-            proper = "Quickest Answer"
+            proper = "Fastest Answer"
             countType = "sec"
         } else {
             type = "points"
@@ -83,11 +83,7 @@ module.exports = {
 
                 const parse = await response.json();
                 let returnedUsername = String(parse?.username ?? 'Unknown');
-                let returnedDiscriminator = String(parse?.discriminator ?? '');
-
-                if (returnedDiscriminator !== '0') {
-                    returnedUsername += `#${returnedDiscriminator}`;
-                }
+                // removed discriminators check since they were phased out
 
                 doc.discord_id = returnedUsername;
             }
