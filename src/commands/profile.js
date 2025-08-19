@@ -48,6 +48,14 @@ module.exports = {
 
             const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer } = data;
 
+            let quickest;
+            
+            if (quickest_answer == 0) {
+                quickest = 'n/a'
+            } else {
+                quickest = `${(quickest_answer / 1000).toFixed(2)} sec`
+            }
+
             embed.setTitle(`**${user.username}'s Profile**`)
 
             embed.addFields(
@@ -62,7 +70,7 @@ module.exports = {
                 },
                 {
                     name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nQuickest answer: **${(quickest_answer / 1000).toFixed(2)} sec**`,
+                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nQuickest answer: **${quickest}**`,
                 },
                 {
                     name: "\n",
