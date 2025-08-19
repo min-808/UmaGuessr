@@ -344,7 +344,7 @@ module.exports = {
                     await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points} points)*\n\nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*\n\nCurrent Streak: **${streakCount}**`);
 
                     if ((newQuickest < topTime) || (topTime == 0)) { // send special message for new quickest time
-                        await msg.channel.send(`You have a new quickest answer time of **${(newQuickest / 1000).toFixed(2)}** sec!`);
+                        await msg.channel.send(`You have a new fastest answer time of **${(newQuickest / 1000).toFixed(2)}** sec!`);
                     }
                     
                     const imagePath = path.join(originDir, `${chooseImg}`);
