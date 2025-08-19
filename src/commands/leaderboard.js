@@ -111,8 +111,10 @@ module.exports = {
                         countType = ''
                     } else if (selectedOption == "quickest_answer" && entry[selectedOption] != 0) {
                         displayValue = (entry[selectedOption] / 1000).toFixed(2)
+                    } else {
+                        displayValue = entry[selectedOption]
                     }
-                    
+
                     embed.addFields({
                         name: "",
                         value: `${totalCount}. **${entry.discord_id}** - ${displayValue} ${countType}`
