@@ -22,6 +22,8 @@ module.exports = {
             type: 'x',
             top_streak: 0,
             quickest_answer: 0,
+            inventory: [],
+            times: [],
         }
     
         const result = await ids.insertOne(doc);

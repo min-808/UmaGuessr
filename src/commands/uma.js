@@ -330,6 +330,10 @@ module.exports = {
                             wins: 1,
                             points_today: state.points,
                             wins_today: 1,
+
+                        },
+                        $push: {
+                            times: timeAnswered,
                         }
                     }
 

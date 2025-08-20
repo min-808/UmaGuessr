@@ -49,6 +49,8 @@ module.exports = {
                     wins_today: 1,
                     top_streak: 1,
                     quickest_answer: 1,
+                    times: 1,
+                    inventory: 1,
                 }
             });
 
@@ -72,14 +74,18 @@ module.exports = {
 
             const rank = allUsers.findIndex(entry => entry.discord_id.toString() === discordID.toString()) + 1;
 
-            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer } = data;
+            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times } = data;
 
             let quickest;
+            let avg;
             
             if (quickest_answer == 0) {
                 quickest = 'n/a'
+                avg = 'n/a'
             } else {
                 quickest = `${(quickest_answer / 1000).toFixed(2)} sec`
+                const sum = times.reduce((a, b) => a + b, 0)
+                avg = `${(((sum / times.length) || 0) / 1000).toFixed(2)} sec`
             }
 
             embed.setTitle(`**${player}'s Profile**`)
@@ -96,7 +102,7 @@ module.exports = {
                 },
                 {
                     name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nFastest answer: **${quickest}**`,
+                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nFastest answer: **${quickest}**\nAverage answer time: **${avg}**`,
                 },
                 {
                     name: "\n",
