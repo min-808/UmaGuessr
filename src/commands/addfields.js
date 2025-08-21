@@ -33,12 +33,14 @@ module.exports = {
                 {}, // match all documents
                 {
                   $set: {
-                    "inventory": [],
-                    "times": [],
-                  },
+                    "daily_streak": 0,
+                  }
+                  /*
+                  ,
                   $unset: {
                     "stats": ""
                   }
+                  */
                 }
               );
 

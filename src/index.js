@@ -39,7 +39,7 @@ async function resetDaily() {
     var ids = database.collection("stats")
 
     var currentDate = new Date()
-    var currentTime = currentDate.toLocaleTimeString('en-US')
+    var currentTime = currentDate.toLocaleTimeString( 'en-US', {timeZone: 'Pacific/Honolulu'} )
 
     console.log(`[${currentTime}] - Resetting dailies...`)
 

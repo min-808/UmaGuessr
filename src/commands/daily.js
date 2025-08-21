@@ -9,6 +9,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 
 module.exports = {
     name: 'daily',
+    aliases: ['d'],
     description: 'Claim your daily points',
 
     run: async ({ message }) => {
@@ -31,6 +32,9 @@ module.exports = {
             var ids = database.collection("stats")
             var discordID = BigInt(user.id)
 
+            var brokenStreak = false
+            var pts = 75
+
             const count = await ids.countDocuments({ discord_id: discordID });
             if (count < 1) await setup.init(discordID, "uma", "stats");
 
@@ -39,11 +43,17 @@ module.exports = {
                     _id: 0,
                     points: 1,
                     daily_timer: 1,
+                    daily_streak: 1,
                 }
             }
 
             var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
             var pastTime = toParseUserUID['daily_timer']
+            var dailyStreak = toParseUserUID['daily_streak']
+
+            if (pastTime + 172_800_000 < currentTime) {
+                brokenStreak = true
+            }
 
             let remaining = (pastTime + 86_400_000) - currentTime; // time LEFT, not time passed
 
@@ -71,21 +81,69 @@ module.exports = {
                     })
 
             } else { // You can claim
-                const updateValues = {
-                    $inc: {
-                        points: 75,
-                    },
-                    $set: {
-                        daily_timer: currentTime
+                var updateValues;
+
+                if (brokenStreak) { // Reset streak
+                    console.log("broken streak")
+                    dailyStreak = 1
+                    updateValues = {
+                        $inc: {
+                            points: pts,
+                        },
+                        $set: {
+                            daily_timer: currentTime,
+                            daily_streak: 1
+                        }
+                    }
+                } else {
+                    switch (dailyStreak) {
+                        case 0:
+                            pts = 75
+                            break
+                        case 1:
+                            pts = 85
+                            break
+                        case 2:
+                            pts = 100
+                            break
+                        case 3:
+                            pts = 120
+                            break
+                        case 4:
+                            pts = 150
+                            break
+                        case 5:
+                            pts = 180
+                            break
+                        case 6:
+                            pts = 220
+                            break
+                        default:
+                            pts = 220
+                            break
+                    }
+
+                    dailyStreak += 1
+                    
+                    updateValues = {
+                        $inc: {
+                            points: pts,
+                            daily_streak: 1,
+                        },
+                        $set: {
+                            daily_timer: currentTime
+                        }
                     }
                 }
-
+                
                 await ids.updateOne({discord_id: discordID}, updateValues)
                 
                 embed.spliceFields(0, 1, {
                     name: "\n",
-                    value: `You claimed your daily **75** points`
+                    value: `You claimed your daily **${pts}** points`
                 })
+
+                embed.setFooter({ text: `Daily streak: ${dailyStreak} days` });
             }
 
             await message.channel.send({ embeds: [embed], files: [file] });

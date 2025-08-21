@@ -4,6 +4,7 @@ const img = "help"
 
 module.exports = {
     name: 'help',
+    aliases: ['h'],
     description: 'Shows all available commands',
     
     run: async ({ message, args }) => {
@@ -65,8 +66,8 @@ module.exports = {
                         "`!uma (a/j/g)`" + " - " + "Play the game (default is 'all')" + "\n" +
                         "`!set (a/j/g)`" + " - " + "Set your default region (all, jp, global)" + "\n" +
                         "`!skip`" + " - " + "Skip the current character" + "\n" +
-                        "`!daily`" + " - " + "Claim your daily 75 points" + "\n" +
-                        "`!vote`" + " - " + "coming soon" + "\n\n" +
+                        "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
+                        "`!vote`" + " - " + "Coming soon" + "\n\n" +
                         "**__Profile__**" + "\n" +
                         "`!profile`" + " - " + "Check your profile" + "\n" +
                         "`!lb (points/wins/daily/streak/time)`" + " - " + "Global leaderboards" + "\n" +
