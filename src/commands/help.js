@@ -82,8 +82,6 @@ module.exports = {
                 )
         }
 
-        
-
         await message.channel.send({ embeds: [embed], files: [file] });
     }
 }

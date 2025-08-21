@@ -116,7 +116,7 @@ module.exports = {
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
 
-            console.log(`debug: ${umaProper}`)
+            console.log(`debug: ${umaProper} (${type})`)
 
             const countCollection = database.collection("count")
 

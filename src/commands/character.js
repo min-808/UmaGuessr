@@ -46,7 +46,7 @@ module.exports = {
                         },
                         {
                             name: `Nicknames`,
-                            value: bothLists[i]["names"].join(', ') ?? 'N/A',
+                            value: bothLists[i]["names"].slice(1).join(', ') || 'N/A',
                             inline: true
                         },
                         {
