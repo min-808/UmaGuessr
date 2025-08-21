@@ -111,6 +111,7 @@ module.exports = {
             }
 
             var chooseChar = Math.floor(Math.random() * list.length)
+            // chooseChar = 19
             var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
@@ -267,7 +268,7 @@ module.exports = {
                     return
                 }
 
-                if (state.values.includes(userGuess) || state.ids.includes == userGuess) { // Got it right
+                if (state.values.includes(userGuess) || state.ids == userGuess) { // Got it right
                     messageCollector.stop()
                     collector.stop()
 
