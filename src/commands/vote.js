@@ -4,6 +4,7 @@ const img = "vote"
 
 module.exports = {
     name: 'vote',
+    aliases: ['v'],
     description: 'Vote for the bot',
     
     run: async ({ message }) => {

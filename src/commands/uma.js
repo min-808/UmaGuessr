@@ -26,7 +26,7 @@ module.exports = {
         const originDir = path.join(__dirname, "../assets/guessing");
 
         if (activeChannels.has(channelID)) {
-            return message.channel.send("a game is running brochado");
+            return message.channel.send("A game is running");
         }
 
         activeChannels.add(channelID);
