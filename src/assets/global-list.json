@@ -112,6 +112,13 @@
     "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg", "mihonobourbon3.jpg", "mihonobourbon4.jpg", "mihonobourbon5.jpg", "mihonobourbon6.jpg"]
   },
   {
+    "id": "narita_brian",
+    "number": 4997,
+    "proper": "Narita Brian",
+    "names": ["naritabrian", "brian"],
+    "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg", "naritabrian4.jpg", "naritabrian5.jpg"]
+  },
+  {
     "id": "narita_taishin",
     "number": 5382,
     "proper": "Narita Taishin",
