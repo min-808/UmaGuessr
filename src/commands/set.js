@@ -8,7 +8,7 @@ module.exports = {
     name: 'set',
     description: `Change the region you default to for the guessing game`,
 
-    run: async ({ message }) => {
+    run: async ({ message, args }) => {
 
         const user = message.author;
 
@@ -47,9 +47,13 @@ module.exports = {
                 newType = 'a'
                 proper = "All"
                 await message.channel.send("Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region")
+            } else if (args == 0) {
+                await message.channel.send("Use this command to set the region the `!uma` command will default to when you begin a game\n\n`!set a` for umas from both JP and Global\n`!set j` for umas from only the JP server\n`!set g` for umas from only the Global server")
+                return
             } else {
                 newType = oldType
-                await message.channel.send(`Invalid region. Please choose ` + "`g` or `j`")
+                await message.channel.send(`Invalid region. Please choose ` + "`a`, `j`, or `g`")
+                return
             }
 
             const changeType = {
