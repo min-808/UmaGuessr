@@ -28,9 +28,9 @@ module.exports = {
             type = "top_streak"
             proper = "Top Streak"
             countType = "streak"
-        } else if (message.content.toLowerCase().includes("time") || message.content.toLowerCase().includes("t") || message.content.toLowerCase().includes("fast") || message.content.toLowerCase().includes("f") || message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q")) {
-            type = "quickest_answer"
-            proper = "Fastest Answer"
+        } else if (message.content.toLowerCase().includes("time") || message.content.toLowerCase().includes("t")) {
+            type = "times"
+            proper = "Average Answer Time"
             countType = "sec"
         } else {
             type = "points"
@@ -54,7 +54,8 @@ module.exports = {
                     points_today: 1,
                     wins_today: 1,
                     top_streak: 1,
-                    quickest_answer: 1,
+                    times: 1,
+                    quickest_time: 1,
                 }
             };
 
@@ -62,11 +63,15 @@ module.exports = {
 
             let listOfDocuments = await ids.find({}, options).toArray();
 
-            if (selectedOption === "quickest_answer") { // smallest first
+            if (selectedOption === "times") { // smallest avg first
                 listOfDocuments.sort((a, b) => {
-                    let aTime = a[selectedOption] === 0 ? Infinity : a[selectedOption];
-                    let bTime = b[selectedOption] === 0 ? Infinity : b[selectedOption];
-                    return aTime - bTime;
+                    let aTimes = Array.isArray(a.times) && a.times.length > 0 ? a.times : [Infinity];
+                    let bTimes = Array.isArray(b.times) && b.times.length > 0 ? b.times : [Infinity];
+
+                    let aAvg = aTimes.reduce((sum, t) => sum + t, 0) / aTimes.length;
+                    let bAvg = bTimes.reduce((sum, t) => sum + t, 0) / bTimes.length;
+
+                    return aAvg - bAvg;
                 });
             } else {
                 listOfDocuments.sort((a, b) => b[selectedOption] - a[selectedOption]);
@@ -103,11 +108,15 @@ module.exports = {
                 for (let j = 0; j < showPerPage && listOfDocuments.length > 0; j++) {
                     const entry = listOfDocuments.shift();
 
-                    if (selectedOption == "quickest_answer" && entry[selectedOption] == 0) {
-                        displayValue = 'n/a'
-                        countType = ''
-                    } else if (selectedOption == "quickest_answer" && entry[selectedOption] != 0) {
-                        displayValue = (entry[selectedOption] / 1000).toFixed(2)
+                    if (selectedOption == "times") {
+                        if (!Array.isArray(entry.times) || entry.times.length === 0) {
+                            displayValue = 'n/a'
+                            countType = ''
+                        } else {
+                          const avg = entry.times.reduce((sum, t) => sum + t, 0) / entry.times.length;
+                          displayValue = (avg / 1000).toFixed(2)
+                          countType = "sec"
+                        }
                     } else {
                         displayValue = entry[selectedOption]
                     }
