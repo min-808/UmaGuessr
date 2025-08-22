@@ -63,7 +63,7 @@ module.exports = {
                         name: "\n",
                         value: 
                         "**__Game__**" + "\n" +
-                        "`!uma (a/j/g)`" + " - " + "Play the game (default is 'all')" + "\n" +
+                        "`!uma (a/j/g)`" + " - " + "Play the game (region default is 'all')" + "\n" +
                         "`!set (a/j/g)`" + " - " + "Set your default region (all, jp, global)" + "\n" +
                         "`!skip`" + " - " + "Skip the current character" + "\n" +
                         "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
@@ -78,7 +78,8 @@ module.exports = {
                         "`!help uma`" + " - " + "Information about the game" + "\n" +
                         "`!stats`" + " - " + "Bot stats" + "\n" +
                         "`!uptime`" + " - " + "Bot uptime" + "\n" +
-                        "`!ping`" + " - " + "Pong!"
+                        "`!ping`" + " - " + "Pong!" + "\n" + "\n" +
+                        "Note that not all the JP umas have been added to the bot. Use !missing to see the umas that have yet to be added"
                     },
                 )
         }

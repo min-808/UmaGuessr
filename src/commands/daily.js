@@ -2,6 +2,7 @@ var { EmbedBuilder, AttachmentBuilder } = require('discord.js');
 var { MongoClient } = require("mongodb");
 
 const img = "daily"
+const badImg = "n_daily"
 
 const setup = require('../../firstinit');
 
@@ -14,7 +15,7 @@ module.exports = {
 
     run: async ({ message }) => {
 
-        const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
+        var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
 
         const user = message.author;
 
@@ -74,6 +75,9 @@ module.exports = {
             
             // If you can't claim daily yet
             if ((pastTime + 86_400_000) >= currentTime) {
+                file = new AttachmentBuilder(`src/assets/command_images/${badImg}.png`)
+
+                embed.setThumbnail(`attachment://${badImg}.png`)
                 embed.spliceFields(0, 1,
                     {
                         name: "\n",
