@@ -38,6 +38,8 @@ module.exports = {
                     embed.setTitle(`**${data['name_en']}**`)
                     embed.setDescription(`*"${data['profile']}"*`)
 
+                    console.log(data)
+
                     embed.addFields(
                         {
                             name: `Description`,
@@ -55,7 +57,7 @@ module.exports = {
                         },
                         {
                             name: `Facts`,
-                            value: `Ears: ${data['ears_fact'] ?? 'N/A'}\nFamily: ${data['family_fact'] ?? 'N/A'}`,
+                            value: `Ears: ${data['ears_fact'] ?? 'N/A'}\nTail: ${data['tail_fact'] ?? 'N/A'}\nFamily: ${data['family_fact'] ?? 'N/A'}`,
                         },
                     )
 
