@@ -38,8 +38,6 @@ module.exports = {
                     embed.setTitle(`**${data['name_en']}**`)
                     embed.setDescription(`*"${data['profile']}"*`)
 
-                    console.log(data)
-
                     embed.addFields(
                         {
                             name: `Description`,

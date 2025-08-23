@@ -32,6 +32,10 @@ module.exports = {
             type = "times"
             proper = "Average Answer Time"
             countType = "sec"
+        } else if (message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q") || message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q") || message.content.toLowerCase().includes("fast") || message.content.toLowerCase().includes("f")) {
+            type = "quickest_answer"
+            proper = "Fastest Answer Time"
+            countType = "sec"
         } else {
             type = "points"
             proper = "Total Points"
@@ -55,7 +59,7 @@ module.exports = {
                     wins_today: 1,
                     top_streak: 1,
                     times: 1,
-                    quickest_time: 1,
+                    quickest_answer: 1,
                 }
             };
 
@@ -63,18 +67,25 @@ module.exports = {
 
             let listOfDocuments = await ids.find({}, options).toArray();
 
-            if (selectedOption === "times") { // smallest avg first
+            if (selectedOption == "times") { // smallest avg first
                 listOfDocuments.sort((a, b) => {
-                    let aTimes = Array.isArray(a.times) && a.times.length > 0 ? a.times : [Infinity];
-                    let bTimes = Array.isArray(b.times) && b.times.length > 0 ? b.times : [Infinity];
+                    let aTimes = Array.isArray(a.times) && a.times.length > 0 ? a.times : [Infinity]
+                    let bTimes = Array.isArray(b.times) && b.times.length > 0 ? b.times : [Infinity]
 
-                    let aAvg = aTimes.reduce((sum, t) => sum + t, 0) / aTimes.length;
-                    let bAvg = bTimes.reduce((sum, t) => sum + t, 0) / bTimes.length;
+                    let aAvg = aTimes.reduce((sum, t) => sum + t, 0) / aTimes.length
+                    let bAvg = bTimes.reduce((sum, t) => sum + t, 0) / bTimes.length
 
-                    return aAvg - bAvg;
-                });
+                    return aAvg - bAvg
+                })
+            } else if (selectedOption == "quickest_answer") {
+                listOfDocuments.sort((a, b) => {
+                    let aTime = a[selectedOption] === 0 ? Infinity : a[selectedOption]
+                    let bTime = b[selectedOption] === 0 ? Infinity : b[selectedOption]
+
+                    return aTime - bTime
+                })
             } else {
-                listOfDocuments.sort((a, b) => b[selectedOption] - a[selectedOption]);
+                listOfDocuments.sort((a, b) => b[selectedOption] - a[selectedOption])
             }
 
             for (let doc of listOfDocuments) {
@@ -116,6 +127,14 @@ module.exports = {
                           const avg = entry.times.reduce((sum, t) => sum + t, 0) / entry.times.length;
                           displayValue = (avg / 1000).toFixed(2)
                           countType = "sec"
+                        }
+                    } else if (selectedOption == "quickest_answer") {
+                        if (entry.quickest_answer === 0) {
+                                displayValue = 'n/a'
+                                countType = ''
+                        } else {
+                            displayValue = (entry.quickest_answer / 1000).toFixed(2)
+                            countType = "sec"
                         }
                     } else {
                         displayValue = entry[selectedOption]
