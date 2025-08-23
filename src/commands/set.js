@@ -1,6 +1,8 @@
 var { MongoClient } = require("mongodb");
+const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 
 const setup = require('../../firstinit');
+const img = 'set'
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -10,7 +12,14 @@ module.exports = {
 
     run: async ({ message, args }) => {
 
-        const user = message.author;
+        const user = message.author
+
+        var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`)
+
+        const embed = new EmbedBuilder()
+            .setColor('LightGrey')
+            .setThumbnail(`attachment://${img}.png`)
+            .setTitle(`Set`)
 
         try {
             var client = new MongoClient(uri)
@@ -38,22 +47,51 @@ module.exports = {
             if (message.content.toLowerCase().includes("g")) {
                 newType = 'g'
                 proper = 'Global'
-                await message.channel.send("Game region default set to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region")
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: "Game region default set to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
+                    inline: true
+                })
             } else if (message.content.toLowerCase().includes("j")) {
                 newType = 'j'
                 proper = "Japan"
-                await message.channel.send("Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region")
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
+                    inline: true
+                })
             } else if (message.content.toLowerCase().includes("a")) {
                 newType = 'a'
                 proper = "All"
-                await message.channel.send("Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region")
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
+                    inline: true
+                })
             } else if (args == 0) {
-                await message.channel.send("Use this command to set the region the `!uma` command will default to when you begin a game\n\n`!set a` for umas from both JP and Global\n`!set j` for umas from only the JP server\n`!set g` for umas from only the Global server")
-                return
+                newType = oldType
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: "Use this command to set the region the `!uma` command will default to when you begin a game\n\n`!set a` for umas from both JP and Global\n`!set j` for umas from only the JP server\n`!set g` for umas from only the Global server",
+                    inline: true
+                })
             } else {
                 newType = oldType
-                await message.channel.send(`Invalid region. Please choose ` + "`a`, `j`, or `g`")
-                return
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: `Invalid region. Please choose ` + "`a`, `j`, or `g`",
+                    inline: true
+                })
             }
 
             const changeType = {
@@ -61,6 +99,8 @@ module.exports = {
                     type: newType
                 }
             }
+
+            await message.channel.send({ embeds: [embed], files: [file] });
 
             await ids.updateOne({ discord_id: discordID }, changeType);
             await client.close()

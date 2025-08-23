@@ -42,7 +42,6 @@ module.exports = {
             countType = type
         }
 
-
         const client = new MongoClient(uri);
         try {
             const database = client.db("uma");
