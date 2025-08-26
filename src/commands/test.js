@@ -5,7 +5,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 const { EmbedBuilder } = require('discord.js');
 
 module.exports = {
-    name: 'addfields',
+    name: 'test',
     description: 'admin command',
     
     run: async ({ message, client }) => {
@@ -15,43 +15,19 @@ module.exports = {
       if (message.author.id == "236186510326628353") {
         embed = new EmbedBuilder()
             .setColor('LightGrey')
-            .setTitle("addfields - admin")
+            .setTitle("test - admin")
             .addFields(
                 {
                     name: "\n",
                     value: 
-                    "done"
+                    "test"
                 },
             )
 
           try {
-            var client = new MongoClient(uri)
-            var database = client.db("uma");
-            var ids = database.collection("stats")
-
-              const result = await ids.updateMany(
-                {}, // match all documents
-                {
-                  $set: {
-                    "votes": 0,
-                  }
-                  /*
-                  ,
-                  $unset: {
-                    "stats": ""
-                  }
-                  */
-                }
-              );
-
-              console.log(`Updated ${result.modifiedCount} documents.`);
-
               client.users.fetch('236186510326628353').then((user) => { user.send('hi') })
             } catch (err) {
               console.error(err);
-            } finally {
-              await client.close();
-
             }
           } else {
           embed = new EmbedBuilder()
