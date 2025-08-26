@@ -68,14 +68,15 @@ module.exports = {
 
             if (selectedOption == "times") { // smallest avg first
                 listOfDocuments.sort((a, b) => {
-                    let aTimes = Array.isArray(a.times) && a.times.length > 0 ? a.times : [Infinity]
-                    let bTimes = Array.isArray(b.times) && b.times.length > 0 ? b.times : [Infinity]
+                // If not an array, empty, or too short (< 5), replace with [Infinity]
+                let aTimes = Array.isArray(a.times) && a.times.length >= 5 ? a.times : [Infinity]
+                let bTimes = Array.isArray(b.times) && b.times.length >= 5 ? b.times : [Infinity]
 
-                    let aAvg = aTimes.reduce((sum, t) => sum + t, 0) / aTimes.length
-                    let bAvg = bTimes.reduce((sum, t) => sum + t, 0) / bTimes.length
+                let aAvg = aTimes.reduce((sum, t) => sum + t, 0) / aTimes.length
+                let bAvg = bTimes.reduce((sum, t) => sum + t, 0) / bTimes.length
 
-                    return aAvg - bAvg
-                })
+                return aAvg - bAvg
+            })
             } else if (selectedOption == "quickest_answer") {
                 listOfDocuments.sort((a, b) => {
                     let aTime = a[selectedOption] === 0 ? Infinity : a[selectedOption]
@@ -119,7 +120,7 @@ module.exports = {
                     const entry = listOfDocuments.shift();
 
                     if (selectedOption == "times") {
-                        if (!Array.isArray(entry.times) || entry.times.length === 0) {
+                        if (!Array.isArray(entry.times) || entry.times.length === 0 || entry.times.length < 5) {
                             displayValue = 'n/a'
                             countType = ''
                         } else {

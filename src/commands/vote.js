@@ -20,8 +20,7 @@ module.exports = {
             .addFields(
                 {
                     name: "\n",
-                    value: 
-                    "coming soon :)"
+                    value: "coming soon :)"
                 },
             )
 

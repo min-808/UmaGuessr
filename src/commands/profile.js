@@ -79,13 +79,16 @@ module.exports = {
             let quickest;
             let avg;
             
-            if (quickest_answer == 0) {
+            if (quickest_answer == 0 && times.length < 5) { // Nothing
                 quickest = 'n/a'
-                avg = 'n/a'
+                avg = '**n/a**'
+            } else if (quickest_answer != 0 && times.length < 5) { // A few guesses
+                quickest = `${(quickest_answer / 1000).toFixed(2)} sec`
+                avg = `**n/a**\n\\- *(Play ${5 - times.length} more games to get an average)*`
             } else {
                 quickest = `${(quickest_answer / 1000).toFixed(2)} sec`
                 const sum = times.reduce((a, b) => a + b, 0)
-                avg = `${(((sum / times.length) || 0) / 1000).toFixed(2)} sec`
+                avg = `**${(((sum / times.length) || 0) / 1000).toFixed(2)} sec**`
             }
 
             embed.setTitle(`**${player}'s Profile**`)
@@ -102,7 +105,7 @@ module.exports = {
                 },
                 {
                     name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nFastest answer: **${quickest}**\nAverage answer time: **${avg}**`,
+                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nFastest answer: **${quickest}**\nAverage answer time: ${avg}`,
                 },
                 {
                     name: "\n",
