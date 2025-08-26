@@ -74,7 +74,7 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
-            } else if (args == 0) {
+            } else if (args == 0) { // No args
                 newType = oldType
 
                 embed.addFields(
@@ -83,7 +83,7 @@ module.exports = {
                     value: "Use this command to set the region the `!uma` command will default to when you begin a game\n\n`!set a` for umas from both JP and Global\n`!set j` for umas from only the JP server\n`!set g` for umas from only the Global server",
                     inline: true
                 })
-            } else {
+            } else { // Invalid region
                 newType = oldType
 
                 embed.addFields(

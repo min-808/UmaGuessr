@@ -99,14 +99,12 @@ module.exports = {
 
                     initialPointsJP = 30 + 1
                     minusPointsJP = 5
-                } else { // Defaults to all chars if no args + no type set
+                } else { // Defaults to global if no args + no type set
                     list = require('../../src/assets/global-list.json')
-                    list2 = require('../../src/assets/jp-list.json')
-                    list = list.concat(list2)
-                    type = "All"
+                    type = "Global"
 
-                    initialPointsJP = 30 + 1
-                    minusPointsJP = 5
+                    initialPointsJP = 12 + 1
+                    minusPointsJP = 2
                 }
             }
 
@@ -116,7 +114,7 @@ module.exports = {
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
 
-            console.log(`debug: ${umaProper} (${type})`)
+            console.log(`debug: ${umaProper} (${type}/${data["type"]})`)
 
             const countCollection = database.collection("count")
 

@@ -63,7 +63,7 @@ module.exports = {
                         name: "\n",
                         value: 
                         "**__Game__**" + "\n" +
-                        "`!uma (a/j/g)`" + " - " + "Play the game (region default is 'all')" + "\n" +
+                        "`!uma (a/j/g)`" + " - " + "Play the game (default region is Global)" + "\n" +
                         "`!set (a/j/g)`" + " - " + "Set your default region (all, jp, global)" + "\n" +
                         "`!skip`" + " - " + "Skip the current character" + "\n" +
                         "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
