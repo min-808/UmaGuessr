@@ -18,7 +18,7 @@ module.exports = {
     name: 'uma',
     description: 'Start an uma guessing game',
     aliases: ['u'],
-    run: async ({ message }) => {
+    run: async ({ message, client }) => {
 
         const channelID = message.channel.id;
         const user = message.author;
@@ -33,14 +33,14 @@ module.exports = {
 
         try {
 
-            const client = new MongoClient(uri);
+            const client_db = new MongoClient(uri);
 
-            const database = client.db("uma");
+            const database = client_db.db("uma");
             const ids = database.collection("stats");
             let discordID = BigInt(user.id);
 
             let count = await ids.countDocuments({ discord_id: discordID });
-            if (count < 1) await setup.init(discordID, "uma", "stats");
+            if (count < 1) await setup.init(discordID, "uma", "stats", client);
 
             const data = await ids.findOne({ discord_id: discordID }, {
                 projection: {
@@ -264,7 +264,7 @@ module.exports = {
                         components: []
                     });
 
-                    await client.close();
+                    await client_db.close();
                     return
                 }
 
@@ -278,7 +278,7 @@ module.exports = {
                     var authorID = BigInt(msg.author.id); // ID of the person who got it right
                     
                     count = await ids.countDocuments({ discord_id: authorID });
-                    if (count < 1) await setup.init(authorID, "uma", "stats"); // Make document in case
+                    if (count < 1) await setup.init(authorID, "uma", "stats", client); // Make document in case
 
                     var broadSearch = await ids.findOne({ discord_id: authorID })
 
@@ -364,7 +364,7 @@ module.exports = {
                         files: [file]
                     });
 
-                    await client.close();
+                    await client_db.close();
                 }
             })
 
@@ -391,7 +391,7 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
-                    await client.close();
+                    await client_db.close();
                 }
             })
 
@@ -399,7 +399,7 @@ module.exports = {
             console.error(err);
             message.channel.send("Something went wrong.");
             activeChannels.delete(channelID);
-            await client.close()
+            await client_db.close()
         }
     }
 };

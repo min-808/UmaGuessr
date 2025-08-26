@@ -13,7 +13,7 @@ module.exports = {
     aliases: ['d'],
     description: 'Claim your daily points',
 
-    run: async ({ message }) => {
+    run: async ({ message, client }) => {
 
         var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
 
@@ -28,8 +28,8 @@ module.exports = {
         try {
             var currentTime = Date.now();
 
-            var client = new MongoClient(uri)
-            var database = client.db("uma");
+            var client_db = new MongoClient(uri)
+            var database = client_db.db("uma");
             var ids = database.collection("stats")
             var discordID = BigInt(user.id)
 
@@ -37,7 +37,7 @@ module.exports = {
             var pts = 75
 
             const count = await ids.countDocuments({ discord_id: discordID });
-            if (count < 1) await setup.init(discordID, "uma", "stats");
+            if (count < 1) await setup.init(discordID, "uma", "stats", client);
 
             var options = {
                 projection: {
@@ -152,11 +152,11 @@ module.exports = {
 
             await message.channel.send({ embeds: [embed], files: [file] });
 
-            await client.close()
+            await client_db.close()
         } catch (error) {
             console.log(`There was an error: ${error.stack}`)
             interaction.editReply({ content: "Something broke!"})
-            await client.close()
+            await client_db.close()
         }
     }
 }

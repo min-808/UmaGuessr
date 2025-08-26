@@ -20,13 +20,13 @@ module.exports = {
             .setThumbnail(`attachment://${img}.png`)
 
         try {
-            const client = new MongoClient(uri);
-            const database = client.db("uma");
+            const client_db = new MongoClient(uri);
+            const database = client_db.db("uma");
             const ids = database.collection("stats");
             var discordID = BigInt(user.id);
 
             const count = await ids.countDocuments({ discord_id: discordID });
-            if (count < 1) await setup.init(discordID, "uma", "stats");
+            if (count < 1) await setup.init(discordID, "uma", "stats", client);
 
             if (args.length > 0) {
                 if (message.mentions.users.size > 0) { // if it's a mention
@@ -127,11 +127,11 @@ module.exports = {
 
             await message.channel.send({ embeds: [embed], files: [file] });
 
-            await client.close();
+            await client_db.close();
         } catch (err) {
             console.error(err);
             message.channel.send("Something went wrong while retrieving your profile.");
-            await client.close()
+            await client_db.close()
         }
     }
 };

@@ -10,7 +10,7 @@ module.exports = {
     name: 'set',
     description: `Change the region you default to for the guessing game`,
 
-    run: async ({ message, args }) => {
+    run: async ({ message, args, client }) => {
 
         const user = message.author
 
@@ -22,8 +22,8 @@ module.exports = {
             .setTitle(`Set`)
 
         try {
-            var client = new MongoClient(uri)
-            var database = client.db("uma");
+            var client_db = new MongoClient(uri)
+            var database = client_db.db("uma");
             var ids = database.collection("stats")
             var discordID = BigInt(user.id)
             
@@ -32,7 +32,7 @@ module.exports = {
             var proper;
 
             const count = await ids.countDocuments({ discord_id: discordID });
-            if (count < 1) await setup.init(discordID, "uma", "stats");
+            if (count < 1) await setup.init(discordID, "uma", "stats", client);
 
             var options = {
                 projection: {
@@ -103,11 +103,11 @@ module.exports = {
             await message.channel.send({ embeds: [embed], files: [file] });
 
             await ids.updateOne({ discord_id: discordID }, changeType);
-            await client.close()
+            await client_db.close()
         } catch (error) {
             console.log(`There was an error: ${error.stack}`)
             interaction.editReply({ content: "Something broke!"})
-            await client.close()
+            await client_db.close()
         }
     }
 }
