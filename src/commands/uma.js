@@ -18,7 +18,7 @@ module.exports = {
     name: 'uma',
     description: 'Start an uma guessing game',
     aliases: ['u'],
-    run: async ({ message, client }) => {
+    run: async ({ message, client, args }) => {
 
         const channelID = message.channel.id;
         const user = message.author;
@@ -58,40 +58,19 @@ module.exports = {
             let list2;
             let type;
 
-            if (message.content.toLowerCase().includes("g")) {
-                list = require('../../src/assets/global-list.json')
-                type = "Global"
-
-                initialPointsJP = 12 + 1
-                minusPointsJP = 2
-            } else if (message.content.toLowerCase().includes("j")) {
-                list = require('../../src/assets/jp-list.json')
-                type = "Japan"
-
-                initialPointsJP = 24 + 1
-                minusPointsJP = 4
-            } else if (message.content.toLowerCase().includes("a")) {
-                list = require('../../src/assets/global-list.json')
-                list2 = require('../../src/assets/jp-list.json')
-                list = list.concat(list2)
-                type = "All"
-
-                initialPointsJP = 30 + 1
-                minusPointsJP = 5
-            } else { // Just the normal !uma command, check their type
-                if (data["type"] === 'g') {
+            if ((args.length > 0) && ((args[0].toLowerCase().includes("g")) || (args[0].toLowerCase().includes("global")))) {
                     list = require('../../src/assets/global-list.json')
                     type = "Global"
 
                     initialPointsJP = 12 + 1
                     minusPointsJP = 2
-                } else if (data["type"] === 'jp') {
+                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("j")) || (args[0].toLowerCase().includes("jp")))) {
                     list = require('../../src/assets/jp-list.json')
                     type = "Japan"
 
                     initialPointsJP = 24 + 1
                     minusPointsJP = 4
-                } else if (data["type"] === 'a') {
+                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("a")) || (args[0].toLowerCase().includes("all")))) {
                     list = require('../../src/assets/global-list.json')
                     list2 = require('../../src/assets/jp-list.json')
                     list = list.concat(list2)
@@ -99,14 +78,36 @@ module.exports = {
 
                     initialPointsJP = 30 + 1
                     minusPointsJP = 5
-                } else { // Defaults to global if no args + no type set
-                    list = require('../../src/assets/global-list.json')
-                    type = "Global"
+                } else { // Just the normal !uma command, check their type
+                    if (data["type"] === 'g') {
+                        list = require('../../src/assets/global-list.json')
+                        type = "Global"
 
-                    initialPointsJP = 12 + 1
-                    minusPointsJP = 2
+                        initialPointsJP = 12 + 1
+                        minusPointsJP = 2
+                    } else if (data["type"] === 'jp') {
+                        list = require('../../src/assets/jp-list.json')
+                        type = "Japan"
+
+                        initialPointsJP = 24 + 1
+                        minusPointsJP = 4
+                    } else if (data["type"] === 'a') {
+                        list = require('../../src/assets/global-list.json')
+                        list2 = require('../../src/assets/jp-list.json')
+                        list = list.concat(list2)
+                        type = "All"
+
+                        initialPointsJP = 30 + 1
+                        minusPointsJP = 5
+                    } else { // Defaults to global if no args + no type set
+                        list = require('../../src/assets/global-list.json')
+                        type = "Global"
+
+                        initialPointsJP = 12 + 1
+                        minusPointsJP = 2
+                    }
                 }
-            }
+            
 
             var chooseChar = Math.floor(Math.random() * list.length)
             // chooseChar = 19
