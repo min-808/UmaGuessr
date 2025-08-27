@@ -12,7 +12,7 @@ const { Webhook } = require('@top-gg/sdk')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
-const prefix = '$';
+const prefix = '!';
 
 const cooldowns = new Map()
 const votes = new Set()
