@@ -41,7 +41,8 @@ module.exports = {
                     "Fenomeno\n" +
                     "Loves Only You\n" +
                     "Chrono Genesis\n" +
-                    "Fusaichi Pandora\n"
+                    "Fusaichi Pandora\n" +
+                    "Still in Love\n"
                 }
             )
 
