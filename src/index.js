@@ -18,9 +18,11 @@ const cooldowns = new Map()
 const votes = new Set()
 const COOLDOWN = 3000
 
+/*
 const app = express()
 const PORT = 3000
 const webhook = new Webhook(process.env.TOPGG_WEBHOOK_TOKEN)
+*/
 
 const client = new Client({
     intents: [
@@ -125,6 +127,8 @@ async function setUptime() {
 
         await buildCache();
 
+        /*
+
         app.post("/dblwebhook", webhook.listener(vote => {
             console.log(`test: so ${vote.type}`)
             votes.add(vote.user)
@@ -137,6 +141,8 @@ async function setUptime() {
         app.listen(PORT, () => {
             console.log(`Express server running on port ${PORT}`)
         })
+
+        */
 
         client.login(process.env.TOKEN);
     } catch (error) {
