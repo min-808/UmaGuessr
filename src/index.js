@@ -12,7 +12,7 @@ const { Webhook } = require('@top-gg/sdk')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
-const prefix = '!';
+const prefix = '$';
 
 const cooldowns = new Map()
 const votes = new Set()
@@ -91,7 +91,6 @@ client.on('messageCreate', async message => {
         await command.run({ message, args, client });
     } catch (err) {
         console.error(err);
-        message.reply("There was an error executing that command.");
     }
 });
 
