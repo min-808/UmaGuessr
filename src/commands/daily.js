@@ -154,9 +154,19 @@ module.exports = {
 
             await client_db.close()
         } catch (error) {
-            console.log(`There was an error: ${error.stack}`)
-            interaction.editReply({ content: "Something broke!"})
-            await client_db.close()
+            console.log(error.rawError.message) // log error
+
+            try {
+                await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
+            } catch (error) {
+                console.log(`Unable to send message: ${error.rawError.message}`)
+            }
+        } finally {
+            try {
+                await client_db.close()
+            } catch {
+                console.log("Couldn't close the connection")
+            }
         }
     }
 }

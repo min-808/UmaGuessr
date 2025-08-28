@@ -10,7 +10,8 @@ module.exports = {
     
     run: async ({ message, client }) => {
 
-      let embed;
+      try {
+          let embed;
 
       if (message.author.id == "236186510326628353") {
         embed = new EmbedBuilder()
@@ -43,5 +44,20 @@ module.exports = {
       }
 
         await message.channel.send({ embeds: [embed] });
+      } catch (error) {
+            console.log(error.rawError.message) // log error
+
+            try {
+                await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
+            } catch (error) {
+                console.log(`Unable to send message: ${error.rawError.message}`)
+            }
+        } finally {
+            try {
+                await client_db.close()
+            } catch {
+                console.log("Couldn't close the connection")
+            }
+        }
     }
 }

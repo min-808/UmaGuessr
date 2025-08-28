@@ -4,10 +4,26 @@ module.exports = {
 
     run: async ({ message }) => {
 
-        const sent = await message.channel.send("Pinging...")
-        const ping = sent.createdTimestamp - message.createdTimestamp
+        try {
+            const sent = await message.channel.send("Pinging...")
+            const ping = sent.createdTimestamp - message.createdTimestamp
 
-        sent.edit(`:ping_pong: ${ping}ms`)
+            sent.edit(`:ping_pong: ${ping}ms`)
+        } catch (error) {
+            console.log(error.rawError.message) // log error
+
+            try {
+                await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
+            } catch (error) {
+                console.log(`Unable to send message: ${error.rawError.message}`)
+            }
+        } finally {
+            try {
+                await client_db.close()
+            } catch {
+                console.log("Couldn't close the connection")
+            }
+        }
     }
     
 }

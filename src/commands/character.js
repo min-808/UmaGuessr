@@ -85,9 +85,20 @@ module.exports = {
                 return
             }
 
-        } catch (err) {
-            console.error(err);
-            message.channel.send("Something went wrong while retrieving the character.");
+        } catch (error) {
+            console.log(error.rawError.message) // log error
+
+            try {
+                await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
+            } catch (error) {
+                console.log(`Unable to send message: ${error.rawError.message}`)
+            }
+        } finally {
+            try {
+                await client_db.close()
+            } catch {
+                console.log("Couldn't close the connection")
+            }
         }
     }
 };

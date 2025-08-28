@@ -7,11 +7,10 @@ const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4
 module.exports = {
     name: 'leaderboard',
     aliases: ['lb'],
-    description: 'The global leaderboard sorted by wish count',
+    description: 'The global leaderboard sorted by point count',
 
     run: async ({ message }) => {
-        const sent = await message.channel.send({ content: 'Fetching leaderboard, please wait...' });
-
+        try {
         let type;
         let proper;
         let countType;
@@ -43,7 +42,6 @@ module.exports = {
         }
 
         const client = new MongoClient(uri);
-        try {
             const database = client.db("uma");
             const ids = database.collection("stats");
 
@@ -153,13 +151,25 @@ module.exports = {
 
                 })
             }
+            const sent = await message.channel.send({ content: 'Fetching leaderboard, please wait...' });
 
             await buttonPagination(sent, embeds);
+            
+
         } catch (error) {
-            console.error(`There was an error: ${error.stack}`);
-            await sent.edit({ content: "Something broke while building the leaderboard." });
+            console.log(error.rawError.message) // log error
+
+            try {
+                await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
+            } catch (error) {
+                console.log(`Unable to send message: ${error.rawError.message}`)
+            }
         } finally {
-            await client.close();
+            try {
+                await client_db.close()
+            } catch {
+                console.log("Couldn't close the connection")
+            }
         }
     }
 }
