@@ -164,12 +164,6 @@ module.exports = {
             } catch (error) {
                 console.log(`Unable to send message: ${error.rawError.message}`)
             }
-        } finally {
-            try {
-                await client_db.close()
-            } catch {
-                console.log("Couldn't close the connection")
-            }
         }
     }
 }
