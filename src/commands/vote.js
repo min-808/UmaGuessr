@@ -46,7 +46,7 @@ module.exports = {
                 .addFields(
                     {
                         name: "\n",
-                        value: `**Vote for the bot here!**\nhttps://top.gg/bot/1400050839544008804/vote\n\nVote rewards are currently **WIP**\n\n~~You can vote twice a day, and you'll get a Director's Fan as a reward for doing so. The Director's Fan can be activated with \`!boost\` to start a 1.5x point multiplier for 5 minutes\n\nYou can check your inventory and see your current items with \`!inventory\`~~`
+                        value: `**Vote for the bot here!**\nhttps://top.gg/bot/1400050839544008804/vote\n\nVote rewards are currently **WIP**, but feel free to vote to support us :)\n\n~~You can vote twice a day, and you'll get a Director's Fan as a reward for doing so. The Director's Fan can be activated with \`!boost\` to start a 1.5x point multiplier for 5 minutes\n\nYou can check your inventory and see your current items with \`!inventory\`~~`
                     },
                 )
 

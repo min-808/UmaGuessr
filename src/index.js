@@ -19,6 +19,7 @@ const votes = new Set()
 const COOLDOWN = 3000
 
 const app = express()
+app.use(express.json())
 const PORT = 3000
 const webhook = new Webhook(process.env.TOPGG_WEBHOOK_TOKEN)
 
