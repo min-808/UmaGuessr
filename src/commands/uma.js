@@ -115,7 +115,7 @@ module.exports = {
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
 
-            console.log(`debug: ${umaProper} (${type}/${data["type"]})`)
+            console.log(`debug: ${discordID} - ${umaProper} (${type}/${data["type"]})`)
 
             const countCollection = database.collection("count")
 
