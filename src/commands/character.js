@@ -8,9 +8,15 @@ module.exports = {
     description: 'Show character information',
     run: async ({ message }) => {
         try {
+            var sources = require('../../src/assets/sources/sources.json')
+
             var globalList = require('../../src/assets/global-list.json')
             var JPList = require('../../src/assets/jp-list.json')
             var bothLists = globalList.concat(JPList)
+
+            bothLists.sort((a, b) => 
+                a.proper.toLowerCase().localeCompare(b.proper.toLowerCase())
+            );
 
             var charToSearch = message.content.slice(message.content.indexOf(' ') + 1).trim().toLowerCase().replace(/\s+/g, '')
             let found = false
@@ -65,7 +71,9 @@ module.exports = {
                         const fileName = bothLists[i]["images"][j];
                         const imgPath = path.join(__dirname, `../assets/guessing/${fileName}`);
 
-                        const pageEmbed = EmbedBuilder.from(embed).setImage(`attachment://${fileName}`) // create copy
+                        let artistName = sources[i]['artworks'][j]['artist'] ?? 'N/A'
+                        let artistLink = sources[i]['artworks'][j]['external_urls'][0] ?? 'N/A'
+                        const pageEmbed = EmbedBuilder.from(embed).setImage(`attachment://${fileName}`).setFooter({ text: `Artist: ${artistName}` }) // create copy
 
                         embeds.push({
                             embed: pageEmbed,
