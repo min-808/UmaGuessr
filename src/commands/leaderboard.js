@@ -9,29 +9,29 @@ module.exports = {
     aliases: ['lb'],
     description: 'The global leaderboard sorted by point count',
 
-    run: async ({ message }) => {
+    run: async ({ message, args }) => {
         try {
         let type;
         let proper;
         let countType;
 
-        if (message.content.toLowerCase().includes("wins") || message.content.toLowerCase().includes("w")) {
+        if ((args.length > 0) && ((args[0].toLowerCase().includes("w")) || (args[0].toLowerCase().includes("wins")))) {
             type = "wins"
             proper = "Total Wins"
             countType = type
-        } else if (message.content.toLowerCase().includes("daily") || message.content.toLowerCase().includes("d")) {
+        } else if ((args.length > 0) && ((args[0].toLowerCase().includes("d")) || (args[0].toLowerCase().includes("daily")))) {
             type = "points_today"
             proper = "Points Today"
             countType = "points"
-        } else if (message.content.toLowerCase().includes("streak") || message.content.toLowerCase().includes("s") || message.content.toLowerCase().includes("streaks")) {
+        } else if ((args.length > 0) && ((args[0].toLowerCase().includes("s")) || (args[0].toLowerCase().includes("streak")) || (args[0].toLowerCase().includes("streaks")))) {
             type = "top_streak"
             proper = "Top Streak"
             countType = "streak"
-        } else if (message.content.toLowerCase().includes("time") || message.content.toLowerCase().includes("t")) {
+        } else if ((args.length > 0) && ((args[0].toLowerCase().includes("t")) || (args[0].toLowerCase().includes("time")))) {
             type = "times"
             proper = "Average Answer Time"
             countType = "sec"
-        } else if (message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q") || message.content.toLowerCase().includes("quick") || message.content.toLowerCase().includes("q") || message.content.toLowerCase().includes("fast") || message.content.toLowerCase().includes("f")) {
+        } else if ((args.length > 0) && ((args[0].toLowerCase().includes("q")) || (args[0].toLowerCase().includes("quick")) || (args[0].toLowerCase().includes("f")) || (args[0].toLowerCase().includes("fast")))) {
             type = "quickest_answer"
             proper = "Fastest Answer Time"
             countType = "sec"

@@ -44,7 +44,7 @@ module.exports = {
             var broadSearch = await ids.findOne({ discord_id: discordID })
             oldType = broadSearch["type"]
 
-            if (message.content.toLowerCase().includes("g")) {
+            if ((args.length > 0) && ((args[0].toLowerCase().includes("g")) || (args[0].toLowerCase().includes("gl")) || (args[0].toLowerCase().includes("global")))) {
                 newType = 'g'
                 proper = 'Global'
 
@@ -54,7 +54,7 @@ module.exports = {
                     value: "Game region default set to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
-            } else if (message.content.toLowerCase().includes("j")) {
+            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("j")) || (args[0].toLowerCase().includes("jp")) || (args[0].toLowerCase().includes("japan")))) {
                 newType = 'j'
                 proper = "Japan"
 
@@ -64,7 +64,7 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
-            } else if (message.content.toLowerCase().includes("a")) {
+            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("a")) || (args[0].toLowerCase().includes("all")))) {
                 newType = 'a'
                 proper = "All"
 
