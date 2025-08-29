@@ -14,21 +14,20 @@ module.exports = {
             var JPList = require('../../src/assets/jp-list.json')
             var bothLists = globalList.concat(JPList)
 
-            bothLists.sort((a, b) => 
-                a.proper.toLowerCase().localeCompare(b.proper.toLowerCase())
-            );
-
             var charToSearch = message.content.slice(message.content.indexOf(' ') + 1).trim().toLowerCase().replace(/\s+/g, '')
             let found = false
+            var id
+            var charName
 
             const embed = new EmbedBuilder()
                 .setColor('LightGrey')
                 .addFields({ name: "\n", value: `\n` })
 
-            for (let i = 0; i < bothLists.length; i++) {
+            for (let i = 0; i < bothLists.length; i++) { // We are looping through both lists to find a matching uma that holds a nickname passed in through charToSearch
                 if (bothLists[i]["names"].includes(charToSearch)) { // This will take a while :/
                     found = true
-                    var id = bothLists[i]["number"]
+                    id = bothLists[i]["number"]
+                    charName = bothLists[i]["id"]
 
                     if (id == 0) {
                         found = false
@@ -39,10 +38,10 @@ module.exports = {
                     const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
                     const data = await res.json()
 
-                    embed.setThumbnail(data['thumb_img']);
-                    embed.setColor(data['color_main'])
-                    embed.setTitle(`**${data['name_en']}**`)
-                    embed.setDescription(`*"${data['profile']}"*`)
+                    embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/xeLjrlm.png') // fallback on backup image
+                    embed.setColor(data['color_main'] ?? 'LightGrey')
+                    embed.setTitle(`**${data['name_en'] ?? 'N/A'}**`)
+                    embed.setDescription(`*"${data['profile'] ?? 'N/A'}"*`)
 
                     embed.addFields(
                         {
@@ -67,12 +66,25 @@ module.exports = {
 
                     var embeds = [];
 
-                    for (let j = 0; j < bothLists[i]["images"].length; j++) {
-                        const fileName = bothLists[i]["images"][j];
-                        const imgPath = path.join(__dirname, `../assets/guessing/${fileName}`);
+                    const arr = sources.find(item => item.id == charName)
 
-                        let artistName = sources[i]['artworks'][j]['artist'] ?? 'N/A'
-                        let artistLink = sources[i]['artworks'][j]['external_urls'][0] ?? 'N/A'
+                    for (let j = 0; j < bothLists[i]["images"].length; j++) { // Going through how many images there are
+                        var artistName
+                        var artistLink
+
+                        const fileName = bothLists[i]["images"][j]
+                        const imgPath = path.join(__dirname, `../assets/guessing/${fileName}`)
+
+                        console.log(arr)
+
+                        if (arr) {
+                            artistName = arr.artworks[j]["artist"] ?? 'N/A'
+                            artistLink = arr.artworks[j]["external_urls"][0] ?? 'N/A'
+                        } else {
+                            artistName = "Not found"
+                            artistLink = "Not found"
+                        }
+
                         const pageEmbed = EmbedBuilder.from(embed).setImage(`attachment://${fileName}`).setFooter({ text: `Artist: ${artistName}` }) // create copy
 
                         embeds.push({

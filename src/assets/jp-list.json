@@ -1,48 +1,48 @@
 [
     {
-    "id": "admire_vega",
+    "id": "admirevega",
     "number": 5191,
     "proper": "Admire Vega",
     "names": ["admirevega", "ayabe", "ayave", "vega", "アドマイヤベガ", "アヤベ"],
     "images": ["admirevega1.jpg", "admirevega2.jpg", "admirevega3.jpg", "admirevega4.jpg", "admirevega5.jpg", "admirevega6.jpg"]
     },
     {
-    "id": "air_shakur",
+    "id": "airshakur",
     "number": 5225,
     "proper": "Air Shakur",
     "names": ["airshakur", "shakur", "shaka", "エアシャカール", "シャカ"],
     "images": ["airshakur1.jpg", "airshakur2.jpg", "airshakur3.jpg", "airshakur4.jpg", "airshakur5.jpg"]
     },
     {
-    "id": "agnes_digital",
+    "id": "agnesdigital",
     "number": 5033,
     "proper": "Agnes Digital",
     "names": ["agnesdigital", "digital", "digitan", "アグネスデジタル", "デジタル"],
     "images": ["agnesdigital1.jpg", "agnesdigital2.jpg", "agnesdigital3.jpg", "agnesdigital4.jpg", "agnesdigital5.jpg"]
     },
     {
-    "id": "aston_machan",
+    "id": "astonmachan",
     "number": 7518,
     "proper": "Aston Machan",
     "names": ["astonmachan", "machan", "aston", "アストンマーチャン", "マーちゃん"],
     "images": ["astonmachan1.jpg", "astonmachan2.jpg", "astonmachan3.jpg", "astonmachan4.jpg"]
     },
     {
-    "id": "bamboo_memory",
+    "id": "bamboomemory",
     "number": 5416,
     "proper": "Bamboo Memory",
     "names": ["bamboomemory", "bamboo", "memory", "バンブーメモリー"],
     "images": ["bamboomemory1.jpg", "bamboomemory2.jpg", "bamboomemory3.jpg", "bamboomemory4.jpg", "bamboomemory5.jpg"]
     },
     {
-    "id": "belno_light",
+    "id": "belnolight",
     "number": 0,
     "proper": "Belno Light",
     "names": ["belnolight", "bernolight", "belno", "berno", "ベルノライト"],
     "images": ["belnolight1.jpg", "belnolight2.jpg", "belnolight3.jpg", "belnolight4.jpg", "belnolight5.jpg"]
     },
     {
-    "id": "biko_pegasus",
+    "id": "bikopegasus",
     "number": 5428,
     "proper": "Biko Pegasus",
     "names": ["bikopegasus", "biko", "pegasus", "ビコーペガサス", "ビコー"],
@@ -56,49 +56,49 @@
     "images": ["cesario1.jpg", "cesario2.jpg", "cesario3.jpg", "cesario4.jpg", "cesario5.jpg", "cesario6.jpg"]
     },
     {
-    "id": "cheval_grand",
+    "id": "chevalgrand",
     "number": 7520,
     "proper": "Cheval Grand",
     "names": ["chevalgrand", "cheval", "grand", "chevacchi", "シュヴァルグラン", "シュヴァル"],
     "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg"]
     },
     {
-    "id": "chrono_genesis",
+    "id": "chronogenesis",
     "number": 10387,
     "proper": "Chrono Genesis",
     "names": ["chronogenesis", "chrono", "クロノジェネシス"],
     "images": ["chronogenesis1.jpg", "chronogenesis2.jpg", "chronogenesis3.jpg", "chronogenesis4.jpg", "chronogenesis5.jpg", "chronogenesis6.jpg"]
     },
     {
-    "id": "copano_rickey",
+    "id": "copanorickey",
     "number": 7732,
     "proper": "Copano Rickey",
     "names": ["copanorickey", "rickey", "copano", "コパノリッキー", "リッキー"],
     "images": ["copanorickey1.jpg", "copanorickey2.jpg", "copanorickey3.jpg", "copanorickey4.jpg", "copanorickey5.jpg"]
     },
     {
-    "id": "daiichi_ruby",
+    "id": "daiichiruby",
     "number": 7947,
     "proper": "Daiichi Ruby",
     "names": ["daiichiruby", "daiichi", "ruby", "ダイイチルビー", "ダイイチ", "ルビー"],
     "images": ["daiichiruby1.jpg", "daiichiruby2.jpg", "daiichiruby3.jpg", "daiichiruby4.jpg", "daiichiruby5.jpg"]
     },
     {
-    "id": "daitaku_helios",
+    "id": "daitakuhelios",
     "number": 5574,
     "proper": "Daitaku Helios",
     "names": ["daitakuhelios", "helios", "daitaku", "ダイタクヘリオス", "ヘリオス"],
     "images": ["daitakuhelios1.jpg", "daitakuhelios2.jpg", "daitakuhelios3.jpg", "daitakuhelios4.jpg", "daitakuhelios5.jpg"]
     },
     {
-    "id": "dantsu_flame",
+    "id": "dantsuflame",
     "number": 10291,
     "proper": "Dantsu Flame",
     "names": ["dantsuflame", "flame", "dantsu", "ダンツフレーム"],
     "images": ["dantsuflame1.jpg", "dantsuflame2.jpg", "dantsuflame3.jpg", "dantsuflame4.jpg", "dantsuflame5.jpg"]
     },
     {
-    "id": "dream_journey",
+    "id": "dreamjourney",
     "number": 10373,
     "proper": "Dream Journey",
     "names": ["dreamjourney", "dura", "dream", "ドリームジャーニー"],
@@ -119,7 +119,7 @@
     "images": ["durandal1.jpg", "durandal2.jpg", "durandal3.jpg", "durandal4.jpg", "durandal5.jpg", "durandal6.jpg"]
     },
     {
-    "id": "eishin_flash",
+    "id": "eishinflash",
     "number": 5236,
     "proper": "Eishin Flash",
     "names": ["eishinflash", "flash", "eishin", "エイシンフラッシュ", "フラッシュ"],
@@ -133,21 +133,21 @@
     "images": ["fenomeno1.jpg", "fenomeno2.jpg", "fenomeno3.jpg", "fenomeno4.jpg", "fenomeno5.jpg", "fenomeno6.jpg"]
     },
     {
-    "id": "fine_motion",
+    "id": "finemotion",
     "number": 5066,
     "proper": "Fine Motion",
     "names": ["finemotion", "fine", "ファインモーション", "ファイン"],
     "images": ["finemotion1.jpg", "finemotion2.jpg", "finemotion3.jpg", "finemotion4.jpg", "finemotion5.jpg"]
     },
     {
-    "id": "fujimasa_march",
+    "id": "fujimasamarch",
     "number": 0,
     "proper": "Fujimasa March",
     "names": ["fujimasamarch", "march", "fujimasa", "フジマサマーチ"],
     "images": ["fujimasamarch1.jpg", "fujimasamarch2.jpg", "fujimasamarch3.jpg", "fujimasamarch4.jpg", "fujimasamarch5.jpg"]
     },
     {
-    "id": "fuji_kiseki",
+    "id": "fujikiseki",
     "number": 4868,
     "proper": "Fuji Kiseki",
     "names": ["fujikiseki", "fuji", "kiseki", "フジキセキ", "フジ"],
@@ -161,98 +161,98 @@
     "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg", "gentildonna4.jpg", "gentildonna5.jpg"]
     },
     {
-    "id": "gold_city",
+    "id": "goldcity",
     "number": 5269,
     "proper": "Gold City",
     "names": ["goldcity", "city", "ゴールドシチー", "シチー"],
     "images": ["goldcity1.jpg", "goldcity2.jpg", "goldcity3.jpg", "goldcity4.jpg", "goldcity5.jpg"]
     },
     {
-    "id": "hishi_akebono",
+    "id": "hishiakebono",
     "number": 5134,
     "proper": "Hishi Akebono",
     "names": ["hishiakebono", "akebono", "bono", "ヒシアケボノ", "アケボノ", "ボノ"],
     "images": ["hishiakebono1.jpg", "hishiakebono2.jpg", "hishiakebono3.jpg", "hishiakebono4.jpg", "hishiakebono5.jpg"]
     },
     {
-    "id": "hishi_amazon",
+    "id": "hishiamazon",
     "number": 4951,
     "proper": "Hishi Amazon",
     "names": ["hishiamazon", "hishiama", "amazon", "ヒシアマゾン", "ヒシアマ"],
     "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg", "hishiamazon4.jpg", "hishiamazon5.jpg"]
     },
     {
-    "id": "hishi_miracle",
+    "id": "hishimiracle",
     "number": 8739,
     "proper": "Hishi Miracle",
     "names": ["hishimiracle", "miracle", "mirako", "ヒシミラクル", "ミラ子"],
     "images": ["hishimiracle1.jpg", "hishimiracle2.jpg", "hishimiracle3.jpg", "hishimiracle4.jpg", "hishimiracle5.jpg", "hishimiracle6.jpg"]
     },
     {
-    "id": "hokko_tarumae",
+    "id": "hokkotarumae",
     "number": 7878,
     "proper": "Hokko Tarumae",
     "names": ["hokkotarumae", "hokko", "tarumae", "ホッコータルマエ", "ホッコー", "タルマエ"],
     "images": ["hokkotarumae1.jpg", "hokkotarumae2.jpg", "hokkotarumae3.jpg", "hokkotarumae4.jpg", "hokkotarumae5.jpg", "hokkotarumae6.jpg"]
     },
     {
-    "id": "ikuno_dictus",
+    "id": "ikunodictus",
     "number": 5554,
     "proper": "Ikuno Dictus",
     "names": ["ikunodictus", "ikuno", "ikutus", "イクノディクタス", "イクノ"],
     "images": ["ikunodictus1.jpg", "ikunodictus2.jpg", "ikunodictus3.jpg", "ikunodictus4.jpg", "ikunodictus5.jpg"]
     },
     {
-    "id": "inari_one",
+    "id": "inarione",
     "number": 5202,
     "proper": "Inari One",
     "names": ["inarione", "inari", "イナリワン", "イナリ"],
     "images": ["inarione1.jpg", "inarione2.jpg", "inarione3.jpg", "inarione4.jpg"]
     },
     {
-    "id": "ines_fujin",
+    "id": "inesfujin",
     "number": 5168,
     "proper": "Ines Fujin",
     "names": ["inesfujin", "ines", "fujin", "アイネスフウジン", "アイネス"],
     "images": ["inesfujin1.jpg", "inesfujin2.jpg", "inesfujin3.jpg", "inesfujin4.jpg"]
     },
     {
-    "id": "jungle_pocket",
+    "id": "junglepocket",
     "number": 8707,
     "proper": "Jungle Pocket",
     "names": ["junglepocket", "pokke", "pocket", "jungle", "ジャングルポケット", "ポケッ", "ポケット"],
     "images": ["junglepocket1.jpg", "junglepocket2.jpg", "junglepocket3.jpg", "junglepocket4.jpg"]
     },
     {
-    "id": "kawakami_princess",
+    "id": "kawakamiprincess",
     "number": 5258,
     "proper": "Kawakami Princess",
     "names": ["kawakamiprincess", "kawakami", "カワカミプリンセス", "カワカミ"],
     "images": ["kawakamiprincess1.jpg", "kawakamiprincess2.jpg", "kawakamiprincess3.jpg", "kawakamiprincess4.jpg", "kawakamiprincess5.jpg"]
     },
     {
-    "id": "kitasan_black",
+    "id": "kitasanblack",
     "number": 5603,
     "proper": "Kitasan Black",
     "names": ["kitasanblack", "kitasan", "キタサンブラック", "キタサン"],
     "images": ["kitasanblack1.jpg", "kitasanblack2.jpg", "kitasanblack3.jpg", "kitasanblack4.jpg", "kitasanblack5.jpg", "kitasanblack6.jpg"]
     },
     {
-    "id": "ks_miracle",
+    "id": "ksmiracle",
     "number": 7948,
     "proper": "K.S. Miracle",
     "names": ["ksmiracle", "k.s.miracle", "ks", "k.s.", "k.s", "keichan", "ケイエスミラクル", "ミラクル", "ミラ", "ケイちゃん"],
     "images": ["ksmiracle1.jpg", "ksmiracle2.jpg", "ksmiracle3.jpg", "ksmiracle4.jpg", "ksmiracle5.jpg", "ksmiracle6.jpg"]
     },
     {
-    "id": "manhattan_cafe",
+    "id": "manhattancafe",
     "number": 5100,
     "proper": "Manhattan Cafe",
     "names": ["manhattancafe", "cafe", "マンハッタンカフェ", "カフェ"],
     "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg", "manhattancafe4.jpg", "manhattancafe5.jpg", "manhattancafe6.jpg"]
     },
     {
-    "id": "marvelous_sunday",
+    "id": "marveloussunday",
     "number": 5440,
     "proper": "Marvelous Sunday",
     "names": ["marveloussunday", "marvelous", "marve", "マーベラスサンデー", "マーベラス", "マベ"],
@@ -266,91 +266,91 @@
     "images": ["matikanetannhauser1.jpg", "matikanetannhauser2.jpg", "matikanetannhauser3.jpg", "matikanetannhauser4.jpg", "matikanetannhauser5.jpg"]
     },
     {
-    "id": "meisho_doto",
+    "id": "meishodoto",
     "number": 5463,
     "proper": "Meisho Doto",
     "names": ["meishodoto", "doto", "dotopi", "meisho", "メイショウドトウ", "ドトウ"],
     "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg", "meishodoto4.jpg", "meishodoto5.jpg"]
     },
     {
-    "id": "mejiro_ardan",
+    "id": "mejiroardan",
     "number": 5528,
     "proper": "Mejiro Ardan",
     "names": ["mejiroardan", "ardan", "メジロアルダン", "アルダン"],
     "images": ["mejiroardan1.jpg", "mejiroardan2.jpg", "mejiroardan3.jpg", "mejiroardan4.jpg", "mejiroardan5.jpg"]
     },
     {
-    "id": "mejiro_bright",
+    "id": "mejirobright",
     "number": 7260,
     "proper": "Mejiro Bright",
     "names": ["mejirobright", "bright", "メジロブライト", "ブライト"],
     "images": ["mejirobright1.jpg", "mejirobright2.jpg", "mejirobright3.jpg", "mejirobright4.jpg"]
     },
     {
-    "id": "mejiro_dober",
+    "id": "mejirodober",
     "number": 5474,
     "proper": "Mejiro Dober",
     "names": ["mejirodober", "dober", "ber", "メジロドーベル", "ドーベル", "ベル"],
     "images": ["mejirodober1.jpg", "mejirodober2.jpg", "mejirodober3.jpg", "mejirodober4.jpg", "mejirodober5.jpg"]
     },
     {
-    "id": "mejiro_palmer",
+    "id": "mejiropalmer",
     "number": 5564,
     "proper": "Mejiro Palmer",
     "names": ["mejiropalmer", "palmer", "メジロパーマー", "パーマー"],
     "images": ["mejiropalmer1.jpg", "mejiropalmer2.jpg", "mejiropalmer3.jpg", "mejiropalmer4.jpg", "mejiropalmer5.jpg"]
     },
     {
-    "id": "mejiro_ramonu",
+    "id": "mejiroramonu",
     "number": 8332,
     "proper": "Mejiro Ramonu",
     "names": ["mejiroramonu", "ramonu", "メジロラモーヌ", "ラモーヌ"],
     "images": ["mejiroramonu1.jpg", "mejiroramonu2.jpg", "mejiroramonu3.jpg", "mejiroramonu4.jpg", "mejiroramonu5.jpg", "mejiroramonu6.jpg"]
     },
     {
-    "id": "mr_cb",
+    "id": "mrcb",
     "number": 5623,
     "proper": "Mr. C.B.",
     "names": ["mrcb", "cb", "mr.cb", "mr.c.b.", "c.b.", "c.b", "ミスターシービー", "シービー"],
     "images": ["mrcb1.jpg", "mrcb2.jpg", "mrcb3.jpg", "mrcb4.jpg"]
     },
     {
-    "id": "nakayama_festa",
+    "id": "nakayamafesta",
     "number": 5371,
     "proper": "Nakayama Festa",
     "names": ["nakayamafesta", "nakayama", "festa", "ナカヤマフェスタ", "ナカヤマ"],
     "images": ["nakayamafesta1.jpg", "nakayamafesta2.jpg", "nakayamafesta3.jpg", "nakayamafesta4.jpg"]
     },
     {
-    "id": "narita_top_road",
+    "id": "naritatoproad",
     "number": 7426,
     "proper": "Narita Top Road",
     "names": ["naritatoproad", "toproad", "ntr", "ナリタトップロード", "トップロード"],
     "images": ["naritatoproad1.jpg", "naritatoproad2.jpg", "naritatoproad3.jpg", "naritatoproad4.jpg", "naritatoproad5.jpg"]
     },
     {
-    "id": "neo_universe",
+    "id": "neouniverse",
     "number": 8730,
     "proper": "Neo Universe",
     "names": ["neouniverse", "universe", "yuni", "neo", "ネオユニヴァース", "ユニヴァース", "ユニ"],
     "images": ["neouniverse1.jpg", "neouniverse2.jpg", "neouniverse3.jpg", "neouniverse4.jpg", "neouniverse5.jpg", "neouniverse6.jpg"]
     },
     {
-    "id": "nishino_flower",
+    "id": "nishinoflower",
     "number": 5393,
     "proper": "Nishino Flower",
     "names": ["nishinoflower", "flower", "nishino", "ニシノフラワー", "フラワー"],
     "images": ["nishinoflower1.jpg", "nishinoflower2.jpg", "nishinoflower3.jpg"]
     },
     {
-    "id": "no_reason",
+    "id": "noreason",
     "number": 10302,
     "proper": "No Reason",
     "names": ["noreason", "ノーリーズン"],
     "images": ["noreason1.jpg", "noreason2.jpg", "noreason3.jpg", "noreason4.jpg", "noreason5.jpg", "noreason6.jpg"]
     },
     {
-    "id": "norn_ace",
+    "id": "nornace",
     "number": 0,
     "proper": "Norn Ace",
     "names": ["nornace", "norn", "ノルンエース", "ノルン"],
@@ -364,105 +364,105 @@
     "images": ["orfevre1.jpg", "orfevre2.jpg", "orfevre3.jpg", "orfevre4.jpg", "orfevre5.jpg", "orfevre6.jpg"]
     },
     {
-    "id": "sakura_chiyono_o",
+    "id": "sakurachiyonoo",
     "number": 5509,
     "proper": "Sakura Chiyono O",
     "names": ["sakurachiyonoo", "sakurachiyono", "chiyono", "chiyonoo", "chiyo", "サクラチヨノオー", "チヨノオー", "チヨ"],
     "images": ["sakurachiyonoo1.jpg", "sakurachiyonoo2.jpg", "sakurachiyonoo3.jpg", "sakurachiyonoo4.jpg", "sakurachiyonoo5.jpg"]
     },
     {
-    "id": "sakura_laurel",
+    "id": "sakuralaurel",
     "number": 7515,
     "proper": "Sakura Laurel",
     "names": ["sakuralaurel", "laurel", "サクラローレル", "ローレル"],
     "images": ["sakuralaurel1.jpg", "sakuralaurel2.jpg", "sakuralaurel3.jpg", "sakuralaurel4.jpg", "sakuralaurel5.jpg"]
     },
     {
-    "id": "satono_crown",
+    "id": "satonocrown",
     "number": 7519,
     "proper": "Satono Crown",
     "names": ["satonocrown", "crown", "kura", "サトノクラウン", "クラウン", "クラ"],
     "images": ["satonocrown1.jpg", "satonocrown2.jpg", "satonocrown3.jpg", "satonocrown4.jpg", "satonocrown5.jpg"]
     },
     {
-    "id": "satono_diamond",
+    "id": "satonodiamond",
     "number": 5593,
     "proper": "Satono Diamond",
     "names": ["satonodiamond", "diamond", "dia", "diachan", "dia-chan", "サトノダイヤモンド", "ダイヤ"],
     "images": ["satonodiamond1.jpg", "satonodiamond2.jpg", "satonodiamond3.jpg", "satonodiamond4.jpg", "satonodiamond5.jpg"]
     },
     {
-    "id": "seiun_sky",
+    "id": "seiunsky",
     "number": 5044,
     "proper": "Seiun Sky",
     "names": ["seiunsky", "sky", "sei", "seiun", "セイウンスカイ", "スカイ", "セイ"],
     "images": ["seiunsky1.jpg", "seiunsky2.jpg", "seiunsky3.jpg", "seiunsky4.jpg", "seiunsky5.jpg"]
     },
     {
-    "id": "sirius_symboli",
+    "id": "siriussymboli",
     "number": 5519,
     "proper": "Sirius Symboli",
     "names": ["siriussymboli", "sirius", "シリウスシンボリ", "シリウス"],
     "images": ["siriussymboli1.jpg", "siriussymboli2.jpg", "siriussymboli3.jpg", "siriussymboli4.jpg", "siriussymboli5.jpg"]
     },
     {
-    "id": "sounds_of_earth",
+    "id": "soundsofearth",
     "number": 9808,
     "proper": "Sounds of Earth",
     "names": ["soundsofearth", "earth", "sounds", "サウンズオブアース", "アース", "サウンズ"],
     "images": ["soundsofearth1.jpg", "soundsofearth2.jpg", "soundsofearth3.jpg", "soundsofearth4.jpg", "soundsofearth5.jpg", "soundsofearth6.jpg"]
     },
     {
-    "id": "still_in_love",
+    "id": "stillinlove",
     "number": 10313,
     "proper": "Still in Love",
     "names": ["stillinlove", "still", "スティルインラブ", "スティル"],
     "images": ["stillinlove1.jpg", "stillinlove2.jpg", "stillinlove3.jpg", "stillinlove4.jpg", "stillinlove5.jpg", "stillinlove6.jpg", "stillinlove7.jpg"]
     },
     {
-    "id": "sweep_tosho",
+    "id": "sweeptosho",
     "number": 5314,
     "proper": "Sweep Tosho",
     "names": ["sweeptosho", "sweepy", "sweep", "tosho", "スイープトウショウ", "スイープ", "スイーピー"],
     "images": ["sweeptosho1.jpg", "sweeptosho2.jpg", "sweeptosho3.jpg", "sweeptosho4.jpg", "sweeptosho5.jpg"]
     },
     {
-    "id": "symboli_kris_s",
+    "id": "symbolikriss",
     "number": 7730,
     "proper": "Symboli Kris S",
     "names": ["symbolikriss", "kris s", "kris", "シンボリクリスエス", "クリスエス", "クリス"],
     "images": ["symbolikriss1.jpg", "symbolikriss2.jpg", "symbolikriss3.jpg", "symbolikriss4.jpg", "symbolikriss5.jpg"]
     },
     {
-    "id": "tamamo_cross",
+    "id": "tamamocross",
     "number": 5055,
     "proper": "Tamamo Cross",
     "names": ["tamamocross", "tamamo", "tama", "タマモクロス", "タマモ", "タマ"],
     "images": ["tamamocross1.jpg", "tamamocross2.jpg", "tamamocross3.jpg", "tamamocross4.jpg", "tamamocross5.jpg"]
     },
     {
-    "id": "tanino_gimlet",
+    "id": "taninogimlet",
     "number": 7731,
     "proper": "Tanino Gimlet",
     "names": ["taninogimlet", "gimlet", "tanino", "タニノギムレット"],
     "images": ["taninogimlet1.jpg", "taninogimlet2.jpg", "taninogimlet3.jpg", "taninogimlet4.jpg", "taninogimlet5.jpg", "taninogimlet6.jpg"]
     },
     {
-    "id": "tosen_jordan",
+    "id": "tosenjordan",
     "number": 5360,
     "proper": "Tosen Jordan",
     "names": ["tosenjordan", "jordan", "tosen", "トーセンジョーダン"],
     "images": ["tosenjordan1.jpg", "tosenjordan2.jpg", "tosenjordan3.jpg", "tosenjordan4.jpg", "tosenjordan5.jpg", "tosenjordan6.jpg", "tosenjordan7.jpg"]
     },
     {
-    "id": "tsurumaru_tsuyoshi",
+    "id": "tsurumarutsuyoshi",
     "number": 7553,
     "proper": "Tsurumaru Tsuyoshi",
     "names": ["tsurumarutsuyoshi", "tsurumaru", "tsuyoshi", "ツルマルツヨシ"],
     "images": ["tsurumarutsuyoshi1.jpg", "tsurumarutsuyoshi2.jpg", "tsurumarutsuyoshi3.jpg", "tsurumarutsuyoshi4.jpg", "tsurumarutsuyoshi5.jpg"]
     },
     {
-    "id": "twin_turbo",
+    "id": "twinturbo",
     "number": 5584,
     "proper": "Twin Turbo",
     "names": ["twinturbo", "turbo", "ツインターボ"],
@@ -483,42 +483,42 @@
     "images": ["vivlos1.jpg", "vivlos2.jpg", "vivlos3.jpg", "vivlos4.jpg", "vivlos5.jpg", "vivlos6.jpg"]
     },
     {
-    "id": "win_variation",
+    "id": "winvariation",
     "number": 10348,
     "proper": "Win Variation",
     "names": ["winvariation", "win", "ウインバリアシオン", "ウイン"],
     "images": ["winvariation1.jpg", "winvariation2.jpg", "winvariation3.jpg", "winvariation4.jpg", "winvariation5.jpg"]
     },
     {
-    "id": "wonder_acute",
+    "id": "wonderacute",
     "number": 7879,
     "proper": "Wonder Acute",
     "names": ["wonderacute", "acute", "ワンダーアキュート", "アキュート"],
     "images": ["wonderacute1.jpg", "wonderacute2.jpg", "wonderacute3.jpg", "wonderacute4.jpg", "wonderacute5.jpg", "wonderacute6.jpg"]
     },
     {
-    "id": "yaeno_muteki",
+    "id": "yaenomuteki",
     "number": 5535,
     "proper": "Yaeno Muteki",
     "names": ["yaenomuteki", "yaeno", "muteki", "ヤエノムテキ"],
     "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg", "yaenomuteki5.jpg", "yaenomuteki6.jpg"]
     },
     {
-    "id": "yamanin_zephyr",
+    "id": "yamaninzephyr",
     "number": 7517,
     "proper": "Yamanin Zephyr",
     "names": ["yamaninzephyr", "yamanin", "zephyr", "ヤマニンゼファー", "ヤマニン", "ゼファー"],
     "images": ["yamaninzephyr1.jpg", "yamaninzephyr2.jpg", "yamaninzephyr3.jpg", "yamaninzephyr4.jpg", "yamaninzephyr5.jpg", "yamaninzephyr6.jpg"]
     },
     {
-    "id": "yukino_bijin",
+    "id": "yukinobijin",
     "number": 5145,
     "proper": "Yukino Bijin",
     "names": ["yukinobijin", "yukino", "bijin", "ユキノビジン"],
     "images": ["yukinobijin1.jpg", "yukinobijin2.jpg", "yukinobijin3.jpg", "yukinobijin4.jpg", "yukinobijin5.jpg", "yukinobijin6.jpg"]
     },
     {
-    "id": "zenno_rob_roy",
+    "id": "zennorobroy",
     "number": 5348,
     "proper": "Zenno Rob Roy",
     "names": ["zennorobroy", "zenno rob roy", "zenno", "rob roy", "ゼンノロブロイ"],
