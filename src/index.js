@@ -64,6 +64,63 @@ async function resetDaily() {
     await client.close()
 }
 
+async function refreshUsernames() {
+
+    try {
+
+        const client = new MongoClient(uri);
+        const database = client.db("uma");
+        const ids = database.collection("stats");
+
+        const options = {
+            projection: {
+                _id: 0,
+                discord_id: 1,
+                username: 1,
+            }
+        }
+
+        let listOfDocuments = await ids.find({}, options).toArray();
+
+        for (let doc of listOfDocuments) {
+            const foundID = doc.discord_id;
+
+            const response = await fetch(`https://discord.com/api/v10/users/${foundID}`, {
+                headers: {
+                    'Authorization': 'Bot ' + process.env.TOKEN
+                }
+            });
+
+            const parse = await response.json();
+            let returnedUsername = String(parse?.username ?? 'Unknown');
+            // removed discriminators check since they were phased out
+
+            if (doc.username != returnedUsername) { // only update if the username changes
+
+                updateValues = {
+                    $set: {
+                        username: returnedUsername,
+                    }
+                }
+
+                await ids.updateOne({discord_id: doc.discord_id}, updateValues)
+
+                console.log(`updated usernames: ${doc.discord_id} - ${returnedUsername}`)
+            }
+        }
+
+        console.log("Usernames updated")
+    } catch (error) {
+        console.log(error.rawError.message) // log error
+
+        try {
+            await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
+        } catch (error) {
+            console.log(`Unable to send message: ${error.rawError.message}`)
+        }
+    }
+}
+
 client.on('messageCreate', async message => {
     if (!message.content.startsWith(prefix) || message.author.bot) return;
 
@@ -133,6 +190,8 @@ async function setUptime() {
         app.listen(PORT, () => {
             console.log(`Express server running on port ${PORT}`)
         })
+
+        refreshUsernames().catch(console.error);
 
         client.login(process.env.TOKEN);
     } catch (error) {

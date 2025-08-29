@@ -11,6 +11,8 @@ module.exports = {
 
     run: async ({ message, args }) => {
         try {
+            const sent = await message.channel.send({ content: 'Fetching leaderboard, please wait...' });
+            
         let type;
         let proper;
         let countType;
@@ -41,7 +43,7 @@ module.exports = {
             countType = type
         }
 
-        const client = new MongoClient(uri);
+            const client = new MongoClient(uri);
             const database = client.db("uma");
             const ids = database.collection("stats");
 
@@ -49,6 +51,7 @@ module.exports = {
                 projection: {
                     _id: 0,
                     discord_id: 1,
+                    username: 1,
                     points: 1,
                     wins: 1,
                     streak: 1,
@@ -86,6 +89,9 @@ module.exports = {
                 listOfDocuments.sort((a, b) => b[selectedOption] - a[selectedOption])
             }
 
+            /*
+
+            // This process takes forever, scrapped to cache usernames
             for (let doc of listOfDocuments) {
                 const foundID = doc.discord_id;
 
@@ -101,6 +107,7 @@ module.exports = {
 
                 doc.discord_id = returnedUsername;
             }
+            */
 
             const permaSize = listOfDocuments.length;
             const showPerPage = 5;
@@ -140,7 +147,7 @@ module.exports = {
 
                     embed.addFields({
                         name: "",
-                        value: `${totalCount}. **${entry.discord_id}** - ${displayValue} ${countType}`
+                        value: `${totalCount}. **${entry.username}** - ${displayValue} ${countType}`
                     });
                     totalCount++;
                 }
@@ -151,10 +158,8 @@ module.exports = {
 
                 })
             }
-            const sent = await message.channel.send({ content: 'Fetching leaderboard, please wait...' });
 
             await buttonPagination(sent, embeds);
-            
 
         } catch (error) {
             console.log(error.rawError.message) // log error

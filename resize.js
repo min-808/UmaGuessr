@@ -3,10 +3,10 @@ const path = require("path");
 const Jimp = require("jimp");
 
 // Change this to your image folder
-const inputFolder = "C:/Users/kenda/Desktop/resizes";
-const outputFolder = "C:/Users/kenda/Desktop/resizes_out";
+const inputFolder = "C:/Users/kenda/Desktop/test_size";
+const outputFolder = "C:/Users/kenda/Desktop/test_size";
 
-const maxWidth = 500;
+const maxWidth = 850;
 
 // Ensure output folder exists
 if (!fs.existsSync(outputFolder)) {

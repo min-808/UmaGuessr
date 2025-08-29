@@ -34,7 +34,7 @@ module.exports = {
                 {}, // match all documents
                 {
                   $set: {
-                    "votes": 0,
+                    "username": "",
                   }
                   /*
                   ,
@@ -46,8 +46,6 @@ module.exports = {
               );
 
               console.log(`Updated ${result.modifiedCount} documents.`);
-
-              client.users.fetch('236186510326628353').then((user) => { user.send('hi') })
             } catch (err) {
               console.error(err);
             } finally {
@@ -76,12 +74,6 @@ module.exports = {
                 await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
             } catch (error) {
                 console.log(`Unable to send message: ${error.rawError.message}`)
-            }
-        } finally {
-            try {
-                await client_db.close()
-            } catch {
-                console.log("Couldn't close the connection")
             }
         }
     }
