@@ -11,6 +11,15 @@ module.exports = {
         var database = client_db.db(db);
         var ids = database.collection(collection)
 
+        const response = await fetch(`https://discord.com/api/v10/users/${id}`, {
+                headers: {
+                    'Authorization': 'Bot ' + process.env.TOKEN
+                }
+            });
+
+        const parse = await response.json();
+        let returnedUsername = String(parse?.username ?? 'Unknown');
+
         const doc = {
             discord_id: id,
             wins: 0,
@@ -25,20 +34,12 @@ module.exports = {
             inventory: [],
             times: [],
             votes: 0,
+            username: returnedUsername,
         }
     
         const result = await ids.insertOne(doc);
 
-        console.log(`A new entry was inserted with the _id: ${result.insertedId}`);
-
-        const response = await fetch(`https://discord.com/api/v10/users/${id}`, {
-            headers: {
-                'Authorization': 'Bot ' + process.env.TOKEN
-            }
-        });
-
-        const parse = await response.json();
-        let returnedUsername = String(parse?.username ?? 'Unknown');
+        console.log(`A new entry was inserted with the _id: ${result.insertedId}. Username: ${returnedUsername}, ID: ${id}`);
 
         client.users.fetch('236186510326628353').then((user) => { user.send(`User **${returnedUsername}** has registered`) }) 
         // send me a msg when a new user signs up
