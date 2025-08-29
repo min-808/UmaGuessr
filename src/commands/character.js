@@ -75,8 +75,6 @@ module.exports = {
                         const fileName = bothLists[i]["images"][j]
                         const imgPath = path.join(__dirname, `../assets/guessing/${fileName}`)
 
-                        console.log(arr)
-
                         if (arr) {
                             artistName = arr.artworks[j]["artist"] ?? 'N/A'
                             artistLink = arr.artworks[j]["external_urls"][0] ?? 'N/A'

@@ -51,6 +51,7 @@ module.exports = {
                     wins_today: 1,
                     type: 1,
                     quickest_answer: 1,
+                    username: 1,
                 }
             });
 
@@ -115,7 +116,7 @@ module.exports = {
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
 
-            console.log(`debug: ${discordID} - ${umaProper} (${type}/${data["type"]})`)
+            console.log(`debug: ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'})`)
 
             const countCollection = database.collection("count")
 
@@ -235,7 +236,7 @@ module.exports = {
 
                 const userGuess = msg.content.trim().toLowerCase().replace(/\s+/g, '')
 
-                if (((userGuess === '!skip') || (userGuess === '!s')) && (msg.author.id === user.id)) { // Skipped
+                if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s')) && (msg.author.id === user.id)) { // Skipped
                     messageCollector.stop()
                     collector.stop()
 

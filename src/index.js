@@ -156,12 +156,12 @@ client.on('ready', async () => {
 
     await setUptime();
 
-    cron.schedule('40 22 * * *', async () => {
+    cron.schedule('0 0 * * *', async () => {
         try {
             await refreshUsernames()
             await resetDaily()
         } catch (error) {
-            console.error('Error in daily cron job:', err);
+            console.error('Error in daily scheduled job:', err);
         }
     }, {
         timezone: 'Pacific/Honolulu'
