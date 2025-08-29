@@ -81,7 +81,7 @@ async function refreshUsernames() {
         }
 
         let listOfDocuments = await ids.find({}, options).toArray();
-
+        
         for (let doc of listOfDocuments) {
             const foundID = doc.discord_id;
 
@@ -154,10 +154,15 @@ client.on('ready', async () => {
     console.log(`${client.user.tag} is online.`);
     client.user.setActivity('!help | !uma', { type: ActivityType.Playing }); 
 
-    setUptime();
+    await setUptime();
 
-    cron.schedule('0 0 * * *', () => {
-    resetDaily()
+    cron.schedule('0 0 * * *', async () => {
+        try {
+            await refreshUsernames()
+            await resetDaily()
+        } catch (error) {
+            console.error('Error in daily cron job:', err);
+        }
     }, {
         timezone: 'Pacific/Honolulu'
     })
@@ -190,8 +195,6 @@ async function setUptime() {
         app.listen(PORT, () => {
             console.log(`Express server running on port ${PORT}`)
         })
-
-        refreshUsernames().catch(console.error);
 
         client.login(process.env.TOKEN);
     } catch (error) {
