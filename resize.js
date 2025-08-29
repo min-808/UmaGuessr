@@ -24,13 +24,17 @@ fs.readdir(inputFolder, (err, files) => {
       const imagePath = path.join(inputFolder, file);
       const image = await Jimp.read(imagePath);
 
+      // Resize if needed
       if (image.bitmap.width > maxWidth) {
         image.resize(maxWidth, Jimp.AUTO);
       }
 
-      const outputPath = path.join(outputFolder, file);
-      await image.writeAsync(outputPath);
-      console.log(`Resized ${file}`);
+      // Convert to JPG if not already
+      const baseName = path.parse(file).name; // filename without extension
+      const outputPath = path.join(outputFolder, `${baseName}.jpg`);
+      await image.quality(90).writeAsync(outputPath); // set quality to 90
+
+      console.log(`Processed ${file} -> ${baseName}.jpg`);
     } catch (err) {
       console.error(`Failed to process ${file}:`, err);
     }

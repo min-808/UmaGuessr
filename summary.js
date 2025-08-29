@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const Jimp = require("jimp");
 
-const inputFolder = "C:/Users/kenda/Desktop/Code/Bots/uma/src/assets/guessing";
+const inputFolder = "C:/Users/kenda/Desktop/test_size";
 
 const widthStats = {};
 const extensionCounts = {};

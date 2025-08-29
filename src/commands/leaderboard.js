@@ -17,23 +17,23 @@ module.exports = {
         let proper;
         let countType;
 
-        if ((args.length > 0) && ((args[0].toLowerCase().includes("w")) || (args[0].toLowerCase().includes("wins")))) {
+        if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("w")) || (args[0].toLowerCase().includes("wins")))) {
             type = "wins"
             proper = "Total Wins"
             countType = type
-        } else if ((args.length > 0) && ((args[0].toLowerCase().includes("d")) || (args[0].toLowerCase().includes("daily")))) {
+        } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("d")) || (args[0].toLowerCase().includes("daily")))) {
             type = "points_today"
             proper = "Points Today"
             countType = "points"
-        } else if ((args.length > 0) && ((args[0].toLowerCase().includes("s")) || (args[0].toLowerCase().includes("streak")) || (args[0].toLowerCase().includes("streaks")))) {
+        } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("s")) || (args[0].toLowerCase().includes("streak")) || (args[0].toLowerCase().includes("streaks")))) {
             type = "top_streak"
             proper = "Top Streak"
             countType = "streak"
-        } else if ((args.length > 0) && ((args[0].toLowerCase().includes("t")) || (args[0].toLowerCase().includes("time")))) {
+        } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("t")) || (args[0].toLowerCase().includes("time")))) {
             type = "times"
             proper = "Average Answer Time"
             countType = "sec"
-        } else if ((args.length > 0) && ((args[0].toLowerCase().includes("q")) || (args[0].toLowerCase().includes("quick")) || (args[0].toLowerCase().includes("f")) || (args[0].toLowerCase().includes("fast")))) {
+        } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("q")) || (args[0].toLowerCase().includes("quick")) || (args[0].length == 1 && args[0].toLowerCase().includes("f")) || (args[0].toLowerCase().includes("fast")))) {
             type = "quickest_answer"
             proper = "Fastest Answer Time"
             countType = "sec"
@@ -91,7 +91,7 @@ module.exports = {
 
             /*
 
-            // This process takes forever, scrapped to cache usernames
+            // This process takes forever, scrapped to cache usernames in daily cron job instead
             for (let doc of listOfDocuments) {
                 const foundID = doc.discord_id;
 

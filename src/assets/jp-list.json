@@ -49,6 +49,13 @@
     "images": ["bikopegasus1.jpg", "bikopegasus2.jpg", "bikopegasus3.jpg", "bikopegasus4.jpg", "bikopegasus5.jpg"]
     },
     {
+    "id": "cesario",
+    "number": 10176,
+    "proper": "Cesario",
+    "names": ["cesario", "シーザリオ"],
+    "images": ["cesario1.jpg", "cesario2.jpg", "cesario3.jpg", "cesario4.jpg", "cesario5.jpg", "cesario6.jpg"]
+    },
+    {
     "id": "cheval_grand",
     "number": 7520,
     "proper": "Cheval Grand",
@@ -56,11 +63,25 @@
     "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg"]
     },
     {
+    "id": "chrono_genesis",
+    "number": 10387,
+    "proper": "Chrono Genesis",
+    "names": ["chronogenesis", "chrono", "クロノジェネシス"],
+    "images": ["chronogenesis1.jpg", "chronogenesis2.jpg", "chronogenesis3.jpg", "chronogenesis4.jpg", "chronogenesis5.jpg", "chronogenesis6.jpg"]
+    },
+    {
     "id": "copano_rickey",
     "number": 7732,
     "proper": "Copano Rickey",
     "names": ["copanorickey", "rickey", "copano", "コパノリッキー", "リッキー"],
     "images": ["copanorickey1.jpg", "copanorickey2.jpg", "copanorickey3.jpg", "copanorickey4.jpg", "copanorickey5.jpg"]
+    },
+    {
+    "id": "daiichi_ruby",
+    "number": 7947,
+    "proper": "Daiichi Ruby",
+    "names": ["daiichiruby", "daiichi", "ruby", "ダイイチルビー", "ダイイチ", "ルビー"],
+    "images": ["daiichiruby1.jpg", "daiichiruby2.jpg", "daiichiruby3.jpg", "daiichiruby4.jpg", "daiichiruby5.jpg"]
     },
     {
     "id": "daitaku_helios",
@@ -91,11 +112,25 @@
     "images": ["duramente1.jpg", "duramente2.jpg", "duramente3.jpg", "duramente4.jpg", "duramente5.jpg", "duramente6.jpg"]
     },
     {
+    "id": "durandal",
+    "number": 10371,
+    "proper": "Durandal",
+    "names": ["durandal", "デュランダル"],
+    "images": ["durandal1.jpg", "durandal2.jpg", "durandal3.jpg", "durandal4.jpg", "durandal5.jpg", "durandal6.jpg"]
+    },
+    {
     "id": "eishin_flash",
     "number": 5236,
     "proper": "Eishin Flash",
     "names": ["eishinflash", "flash", "eishin", "エイシンフラッシュ", "フラッシュ"],
     "images": ["eishinflash1.jpg", "eishinflash2.jpg", "eishinflash3.jpg", "eishinflash4.jpg", "eishinflash5.jpg", "eishinflash6.jpg"]
+    },
+    {
+    "id": "fenomeno",
+    "number": 10392,
+    "proper": "Fenomeno",
+    "names": ["fenomeno", "meno", "mamechin", "フェノーメノ", "メノ", "マメちん"],
+    "images": ["fenomeno1.jpg", "fenomeno2.jpg", "fenomeno3.jpg", "fenomeno4.jpg", "fenomeno5.jpg", "fenomeno6.jpg"]
     },
     {
     "id": "fine_motion",
@@ -147,6 +182,20 @@
     "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg", "hishiamazon4.jpg", "hishiamazon5.jpg"]
     },
     {
+    "id": "hishi_miracle",
+    "number": 8739,
+    "proper": "Hishi Miracle",
+    "names": ["hishimiracle", "miracle", "mirako", "ヒシミラクル", "ミラ子"],
+    "images": ["hishimiracle1.jpg", "hishimiracle2.jpg", "hishimiracle3.jpg", "hishimiracle4.jpg", "hishimiracle5.jpg", "hishimiracle6.jpg"]
+    },
+    {
+    "id": "hokko_tarumae",
+    "number": 7878,
+    "proper": "Hokko Tarumae",
+    "names": ["hokkotarumae", "hokko", "tarumae", "ホッコータルマエ", "ホッコー", "タルマエ"],
+    "images": ["hokkotarumae1.jpg", "hokkotarumae2.jpg", "hokkotarumae3.jpg", "hokkotarumae4.jpg", "hokkotarumae5.jpg", "hokkotarumae6.jpg"]
+    },
+    {
     "id": "ikuno_dictus",
     "number": 5554,
     "proper": "Ikuno Dictus",
@@ -187,6 +236,13 @@
     "proper": "Kitasan Black",
     "names": ["kitasanblack", "kitasan", "キタサンブラック", "キタサン"],
     "images": ["kitasanblack1.jpg", "kitasanblack2.jpg", "kitasanblack3.jpg", "kitasanblack4.jpg", "kitasanblack5.jpg", "kitasanblack6.jpg"]
+    },
+    {
+    "id": "ks_miracle",
+    "number": 7948,
+    "proper": "K.S. Miracle",
+    "names": ["ksmiracle", "ks", "k.s.", "k.s", "keichan", "ケイエスミラクル", "ミラクル", "ミラ", "ケイちゃん"],
+    "images": ["ksmiracle1.jpg", "ksmiracle2.jpg", "ksmiracle3.jpg", "ksmiracle4.jpg", "ksmiracle5.jpg", "ksmiracle6.jpg"]
     },
     {
     "id": "manhattan_cafe",
@@ -243,6 +299,13 @@
     "proper": "Mejiro Palmer",
     "names": ["mejiropalmer", "palmer", "メジロパーマー", "パーマー"],
     "images": ["mejiropalmer1.jpg", "mejiropalmer2.jpg", "mejiropalmer3.jpg", "mejiropalmer4.jpg", "mejiropalmer5.jpg"]
+    },
+    {
+    "id": "mejiro_ramonu",
+    "number": 8332,
+    "proper": "Mejiro Ramonu",
+    "names": ["mejiroramonu", "ramonu", "メジロラモーヌ", "ラモーヌ"],
+    "images": ["mejiroramonu1.jpg", "mejiroramonu2.jpg", "mejiroramonu3.jpg", "mejiroramonu4.jpg", "mejiroramonu5.jpg", "mejiroramonu6.jpg"]
     },
     {
     "id": "mr_cb",
@@ -343,6 +406,20 @@
     "images": ["siriussymboli1.jpg", "siriussymboli2.jpg", "siriussymboli3.jpg", "siriussymboli4.jpg", "siriussymboli5.jpg"]
     },
     {
+    "id": "sounds_of_earth",
+    "number": 9808,
+    "proper": "Sounds of Earth",
+    "names": ["soundsofearth", "earth", "sounds", "サウンズオブアース", "アース", "サウンズ"],
+    "images": ["soundsofearth1.jpg", "soundsofearth2.jpg", "soundsofearth3.jpg", "soundsofearth4.jpg", "soundsofearth5.jpg", "soundsofearth6.jpg"]
+    },
+    {
+    "id": "still_in_love",
+    "number": 10313,
+    "proper": "Still in Love",
+    "names": ["stillinlove", "still", "スティルインラブ", "スティル"],
+    "images": ["stillinlove1.jpg", "stillinlove2.jpg", "stillinlove3.jpg", "stillinlove4.jpg", "stillinlove5.jpg", "stillinlove6.jpg", "stillinlove7.jpg"]
+    },
+    {
     "id": "sweep_tosho",
     "number": 5314,
     "proper": "Sweep Tosho",
@@ -406,11 +483,32 @@
     "images": ["vivlos1.jpg", "vivlos2.jpg", "vivlos3.jpg", "vivlos4.jpg", "vivlos5.jpg", "vivlos6.jpg"]
     },
     {
+    "id": "win_variation",
+    "number": 10348,
+    "proper": "Win Variation",
+    "names": ["winvariation", "win", "ウインバリアシオン", "ウイン"],
+    "images": ["winvariation1.jpg", "winvariation2.jpg", "winvariation3.jpg", "winvariation4.jpg", "winvariation5.jpg"]
+    },
+    {
+    "id": "wonder_acute",
+    "number": 7879,
+    "proper": "Wonder Acute",
+    "names": ["wonderacute", "acute", "ワンダーアキュート", "アキュート"],
+    "images": ["wonderacute1.jpg", "wonderacute2.jpg", "wonderacute3.jpg", "wonderacute4.jpg", "wonderacute5.jpg", "wonderacute6.jpg"]
+    },
+    {
     "id": "yaeno_muteki",
     "number": 5535,
     "proper": "Yaeno Muteki",
     "names": ["yaenomuteki", "yaeno", "muteki", "ヤエノムテキ"],
     "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg", "yaenomuteki5.jpg", "yaenomuteki6.jpg"]
+    },
+    {
+    "id": "yamanin_zephyr",
+    "number": 7517,
+    "proper": "Yamanin Zephyr",
+    "names": ["yamaninzephyr", "yamanin", "zephyr", "ヤマニンゼファー", "ヤマニン", "ゼファー"],
+    "images": ["yamaninzephyr1.jpg", "yamaninzephyr2.jpg", "yamaninzephyr3.jpg", "yamaninzephyr4.jpg", "yamaninzephyr5.jpg", "yamaninzephyr6.jpg"]
     },
     {
     "id": "yukino_bijin",

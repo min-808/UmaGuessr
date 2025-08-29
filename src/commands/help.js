@@ -72,7 +72,7 @@ module.exports = {
                             "`!vote`" + " - " + "Coming soon" + "\n\n" +
                             "**__Profile__**" + "\n" +
                             "`!profile`" + " - " + "Check your profile" + "\n" +
-                            "`!lb (points/wins/daily/streak/time)`" + " - " + "Global leaderboards" + "\n" +
+                            "`!lb (points/wins/daily/streak/time/fast)`" + " - " + "Global leaderboards" + "\n" +
                             "`!char (uma name)`" + " - " + "View an uma's profile" + "\n" +
                             "\n" + 
                             "**__Misc.__**" + "\n" +
