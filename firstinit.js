@@ -17,8 +17,15 @@ module.exports = {
                 }
             });
 
-        const parse = await response.json();
-        let returnedUsername = String(parse?.username ?? 'Unknown');
+        const parse = await response.json()
+        let retUsername = String(parse?.username ?? 'Unknown')
+        let retDiscriminator = String(parse?.discriminator ?? 'Unknown')
+        
+        if (retDiscriminator == '0') {
+          retDiscriminator = ""
+        } else {
+          retDiscriminator = "#" + retDiscriminator
+        }
 
         const doc = {
             discord_id: id,
@@ -34,14 +41,14 @@ module.exports = {
             inventory: [],
             times: [],
             votes: 0,
-            username: returnedUsername,
+            username: retUsername + retDiscriminator,
         }
     
         const result = await ids.insertOne(doc);
 
-        console.log(`A new entry was inserted with the _id: ${result.insertedId}. Username: ${returnedUsername}, ID: ${id}`);
+        console.log(`A new entry was inserted with the _id: ${result.insertedId}. Username: ${retUsername + retDiscriminator}, ID: ${id}`);
 
-        client.users.fetch('236186510326628353').then((user) => { user.send(`User **${returnedUsername}** has registered`) }) 
+        client.users.fetch('236186510326628353').then((user) => { user.send(`User **${retUsername + retDiscriminator}** has registered`) }) 
         // send me a msg when a new user signs up
     }
 }

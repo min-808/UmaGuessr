@@ -92,20 +92,27 @@ async function refreshUsernames() {
             });
 
             const parse = await response.json();
-            let returnedUsername = String(parse?.username ?? 'Unknown');
-            // removed discriminators check since they were phased out
+            let retUsername = String(parse?.username ?? 'Unknown')
+            let retDiscriminator = String(parse?.discriminator ?? 'Unknown')
+            // allowing discriminators due to bots/apps still having them
 
-            if (doc.username != returnedUsername) { // only update if the username changes
+            if (retDiscriminator == '0') {
+              retDiscriminator = "";
+            } else {
+              retDiscriminator = "#" + retDiscriminator
+            }
+
+            if ((doc.username) != (retUsername + retDiscriminator)) { // only update if the username/discriminator changes
 
                 updateValues = {
                     $set: {
-                        username: returnedUsername,
+                        username: retUsername + retDiscriminator,
                     }
                 }
 
                 await ids.updateOne({discord_id: doc.discord_id}, updateValues)
 
-                console.log(`updated usernames: ${doc.discord_id} - ${returnedUsername}`)
+                console.log(`updated usernames: ${doc.discord_id} - ${retUsername}`)
             }
         }
 
