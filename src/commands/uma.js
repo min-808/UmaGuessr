@@ -22,8 +22,11 @@ module.exports = {
 
         const channelID = message.channel.id;
         const user = message.author;
-        const cacheDir = path.join(__dirname, "../assets/cache");
-        const originDir = path.join(__dirname, "../assets/guessing");
+        const cacheDir = path.join(__dirname, "../assets/cache")
+        const originDir = path.join(__dirname, "../assets/guessing")
+
+
+        var d = new Date();
 
         if (activeChannels.has(channelID)) {
             return message.channel.send("A game is currently running");
@@ -116,7 +119,7 @@ module.exports = {
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
 
-            console.log(`debug: ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'})`)
+            console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'})`)
 
             const countCollection = database.collection("count")
 
@@ -295,6 +298,9 @@ module.exports = {
                         newQuickest = Math.min(timeAnswered, topTime)
                     }
 
+                    // Initial message sender is discordID
+                    // Answerer is authorID
+
                     if (authorID == discordID) { // Increment streak of the answerer by one
 
                         await ids.updateOne({ discord_id: discordID }, {
@@ -369,7 +375,7 @@ module.exports = {
             })
 
             messageCollector.on('end', async (collected, reason) => { // No one got it right
-                if (reason === 'time') {
+                if (reason === 'time') { // Also reset the streak of the user who sent it
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
 
@@ -390,6 +396,12 @@ module.exports = {
 
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
+
+                    await ids.updateOne({ discord_id: discordID }, {
+                        $set: {
+                            streak: 0
+                        }
+                    });
 
                     await client_db.close();
                 }

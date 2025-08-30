@@ -30,11 +30,29 @@ module.exports = {
             var database = client.db("uma");
             var ids = database.collection("stats")
 
+            const user = message.author;
+            var discordID = BigInt(user.id)
+
+            const response = await fetch(`https://discord.com/api/v10/users/${discordID}`, {
+                headers: {
+                    'Authorization': 'Bot ' + process.env.TOKEN
+                }
+            });
+
+            const parse = await response.json();
+
+            let returnedUsername = String(parse?.username ?? 'Unknown');
+            let returnedDiscriminator = String(parse?.discriminator ?? 'Unknown')
+
+            if (returnedDiscriminator === "0") {
+              returnedDiscriminator = "";
+            }
+
               const result = await ids.updateMany(
-                {}, // match all documents
+                { }, // match all documents
                 {
                   $set: {
-                    "username": "",
+                    username: ""
                   }
                   /*
                   ,
@@ -48,6 +66,13 @@ module.exports = {
               console.log(`Updated ${result.modifiedCount} documents.`);
             } catch (err) {
               console.error(err);
+
+              embed.setThumbnail(`attachment://${badImg}.png`)
+                embed.spliceFields(0, 1,
+                    {
+                        name: "\n",
+                        value: `error`
+                    })
             } finally {
               await client.close();
 
