@@ -8,7 +8,7 @@ const img = "stats"
 module.exports = {
     name: 'stats',
     description: 'Show the bot stats',
-    run: async ({ message }) => {
+    run: async ({ message, client }) => {
         const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
         const user = message.author;
         var globalList = require('../../src/assets/global-list.json')
@@ -20,9 +20,9 @@ module.exports = {
             .setThumbnail(`attachment://${img}.png`)
 
         try {
-            const client = new MongoClient(uri);
-            const database = client.db("uma");
-            const otherDatabase = client.db("economy");
+            const client_db = new MongoClient(uri);
+            const database = client_db.db("uma");
+            const otherDatabase = client_db.db("economy");
 
             const ids = database.collection("stats");
             const umaStats = database.collection("count");
@@ -113,6 +113,20 @@ module.exports = {
                     value: "\n",
                 },
                 {
+                    name: "__Total Players__",
+                    value: `${data.length}`,
+                    inline: true
+                },
+                {
+                    name: "__Total Servers__",
+                    value: `${client.guilds.cache.size ?? 'N/A'}`,
+                    inline: true
+                },
+                {
+                    name: "\n",
+                    value: "\n",
+                },
+                {
                     name: "__Top 5 Umas__",
                     value: `1. **${sortedUmas[0]["proper"]}** (${sortedUmas[0]["count"]})\n2. **${sortedUmas[1]["proper"]}** (${sortedUmas[1]["count"]})\n3. **${sortedUmas[2]["proper"]}** (${sortedUmas[2]["count"]})\n4. **${sortedUmas[3]["proper"]}** (${sortedUmas[3]["count"]})\n5. **${sortedUmas[4]["proper"]}** (${sortedUmas[4]["count"]})`,
                     inline: true,
@@ -134,7 +148,7 @@ module.exports = {
 
             await message.channel.send({ embeds: [embed], files: [file] });
 
-            await client.close();
+            await client_db.close();
         } catch (error) {
             console.log(error.rawError.message) // log error
 
