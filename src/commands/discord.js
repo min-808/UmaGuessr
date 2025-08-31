@@ -22,7 +22,7 @@ module.exports = {
                 .addFields(
                     {
                         name: "\n",
-                        value: `**Join the Discord Server!**\nhttps://discord.gg/d4rH6ycdbc`
+                        value: `**Join the Discord Server for updates!**\nhttps://discord.gg/d4rH6ycdbc`
                     },
                 )
 

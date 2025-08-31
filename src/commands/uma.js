@@ -10,7 +10,7 @@ const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4
 const gameState = new Map()
 const activeChannels = new Set()
 
-const initialBlur = 60 + 1
+const initialBlur = 50 + 1
 let initialPointsJP;
 let minusPointsJP;
 
@@ -66,49 +66,49 @@ module.exports = {
                     list = require('../../src/assets/global-list.json')
                     type = "Global"
 
-                    initialPointsJP = 12 + 1
-                    minusPointsJP = 2
+                    initialPointsJP = 15 + 1
+                    minusPointsJP = 3
                 } else if ((args.length > 0) && ((args[0].toLowerCase().includes("j")) || (args[0].toLowerCase().includes("jp")))) {
                     list = require('../../src/assets/jp-list.json')
                     type = "Japan"
 
-                    initialPointsJP = 24 + 1
-                    minusPointsJP = 4
+                    initialPointsJP = 25 + 1
+                    minusPointsJP = 5
                 } else if ((args.length > 0) && ((args[0].toLowerCase().includes("a")) || (args[0].toLowerCase().includes("all")))) {
                     list = require('../../src/assets/global-list.json')
                     list2 = require('../../src/assets/jp-list.json')
                     list = list.concat(list2)
                     type = "All"
 
-                    initialPointsJP = 30 + 1
-                    minusPointsJP = 5
+                    initialPointsJP = 35 + 1
+                    minusPointsJP = 7
                 } else { // Just the normal !uma command, check their type
                     if (data["type"] === 'g') {
                         list = require('../../src/assets/global-list.json')
                         type = "Global"
 
-                        initialPointsJP = 12 + 1
-                        minusPointsJP = 2
+                        initialPointsJP = 15 + 1
+                        minusPointsJP = 3
                     } else if (data["type"] === 'jp') {
                         list = require('../../src/assets/jp-list.json')
                         type = "Japan"
 
-                        initialPointsJP = 24 + 1
-                        minusPointsJP = 4
+                        initialPointsJP = 25 + 1
+                        minusPointsJP = 5
                     } else if (data["type"] === 'a') {
                         list = require('../../src/assets/global-list.json')
                         list2 = require('../../src/assets/jp-list.json')
                         list = list.concat(list2)
                         type = "All"
 
-                        initialPointsJP = 30 + 1
-                        minusPointsJP = 5
+                        initialPointsJP = 35 + 1
+                        minusPointsJP = 7
                     } else { // Defaults to global if no args + no type set
                         list = require('../../src/assets/global-list.json')
                         type = "Global"
 
-                        initialPointsJP = 12 + 1
-                        minusPointsJP = 2
+                        initialPointsJP = 15 + 1
+                        minusPointsJP = 3
                     }
                 }
             
@@ -134,9 +134,7 @@ module.exports = {
 
             // const top = await countCollection.find().sort({ count: -1 }).limit(5).toArray() <- logic for determining top # umas chosen
 
-            // var chooseChar = 24
-            // var chooseImg = list[chooseChar]["images"][2]
-            const imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`);
+            const imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // so like, 51-image_name(num).jpg
 
             const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' })
             
@@ -182,7 +180,7 @@ module.exports = {
 
                     if (state.blurLevel == 1) { // if all hints have been used
 
-                        const imagePath = path.join(originDir, `${chooseImg}`);
+                        const imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
                         const newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
 
                         const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])

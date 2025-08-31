@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const Jimp = require("jimp");
 
-const inputFolder = "C:/Users/kenda/Desktop/test_size";
+const inputFolder = "C:/Users/kenda/Desktop/sources";
 
 const widthStats = {};
 const extensionCounts = {};
@@ -51,7 +51,7 @@ fs.readdir(inputFolder, async (err, files) => {
     .sort((a, b) => b[1].count - a[1].count)
     .forEach(([width, { count, files }]) => {
       console.log(`${width}px - ${count} picture${count !== 1 ? "s" : ""}`);
-      if (count <= 5) {
+      if (count <= 12) {
         files.forEach(f => console.log(`   - ${f}`));
       }
     });

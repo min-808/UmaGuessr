@@ -5,7 +5,7 @@ const fs = require("fs");
 const guessDir = path.join(__dirname, "../src/assets/guessing");
 const cacheDir = path.join(__dirname, "../src/assets/cache");
 
-const BLUR_LEVELS = [61, 51, 41, 31, 21, 11, 1];
+const BLUR_LEVELS = [51, 41, 31, 21, 11, 1];
 
 async function buildCache() {
     if (!fs.existsSync(cacheDir)) {
