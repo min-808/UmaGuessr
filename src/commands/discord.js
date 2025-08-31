@@ -17,12 +17,12 @@ module.exports = {
 
             embed = new EmbedBuilder()
                 .setColor('LightGrey')
-                .setTitle("Discord")
+                .setTitle("Join the Discord Server!")
                 .setThumbnail(`attachment://${img}.png`)
                 .addFields(
                     {
                         name: "\n",
-                        value: `**Join the Discord Server for updates!**\nhttps://discord.gg/d4rH6ycdbc`
+                        value: `Stay updated on changes, ask questions, and share suggestions :)\n\nhttps://discord.gg/d4rH6ycdbc`
                     },
                 )
 

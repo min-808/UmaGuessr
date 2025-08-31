@@ -40,8 +40,10 @@ module.exports = {
             quickest_answer: 0,
             inventory: [],
             times: [],
+            daily_streak: 0,
             votes: 0,
             username: retUsername + retDiscriminator,
+            vote_timer: 0,
         }
     
         const result = await ids.insertOne(doc);

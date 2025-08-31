@@ -52,7 +52,7 @@ module.exports = {
                 { }, // match all documents
                 {
                   $set: {
-                    username: ""
+                    vote_timer: 0
                   }
                   /*
                   ,

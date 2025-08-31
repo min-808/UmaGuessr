@@ -88,7 +88,7 @@ module.exports = {
                 var updateValues;
 
                 if (brokenStreak) { // Reset streak
-                    console.log("broken streak")
+                    console.log("daily streak broken")
                     dailyStreak = 1
                     updateValues = {
                         $inc: {
