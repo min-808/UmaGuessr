@@ -28,6 +28,7 @@ module.exports = {
                     found = true
                     id = bothLists[i]["number"]
                     charName = bothLists[i]["id"]
+                    properName = bothLists[i]["proper"]
 
                     if (id == 0) {
                         found = false
@@ -40,7 +41,7 @@ module.exports = {
 
                     embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/xeLjrlm.png') // fallback on backup image
                     embed.setColor(data['color_main'] ?? 'LightGrey')
-                    embed.setTitle(`**${data['name_en'] ?? 'N/A'}**`)
+                    embed.setTitle(`**${properName ?? 'N/A'}**`) // grab from bothlists instead of api
                     embed.setDescription(`*"${data['profile'] ?? 'N/A'}"*`)
 
                     embed.addFields(
