@@ -11,14 +11,15 @@ const gameState = new Map()
 const activeChannels = new Set()
 
 const initialBlur = 50 + 1
-let initialPointsJP;
-let minusPointsJP;
 
 module.exports = {
     name: 'uma',
     description: 'Start an uma guessing game',
     aliases: ['u'],
     run: async ({ message, client, args }) => {
+
+        let initialPointsJP;
+        let minusPointsJP;
 
         const channelID = message.channel.id;
         const user = message.author;
