@@ -26,7 +26,6 @@ module.exports = {
         const cacheDir = path.join(__dirname, "../assets/cache")
         const originDir = path.join(__dirname, "../assets/guessing")
 
-
         var d = new Date();
 
         if (activeChannels.has(channelID)) {
@@ -56,6 +55,7 @@ module.exports = {
                     type: 1,
                     quickest_answer: 1,
                     username: 1,
+                    vote_timer: 1,
                 }
             });
 
@@ -112,6 +112,13 @@ module.exports = {
                         minusPointsJP = 3
                     }
                 }
+
+            var voteTimer = data['vote_timer']
+
+            if (voteTimer + 300_000 > Date.now()) { // Checks for streaks
+                initialPointsJP = Math.floor(initialPointsJP * 1.5);
+                minusPointsJP = Math.floor(minusPointsJP * 1.5);
+            }
             
 
             var chooseChar = Math.floor(Math.random() * list.length)

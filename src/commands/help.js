@@ -69,7 +69,8 @@ module.exports = {
                             "`!set (a/j/g)`" + " - " + "Set your default region (**a**ll, **j**p, **g**lobal)" + "\n" +
                             "`!skip`" + " - " + "Skip the current character" + "\n" +
                             "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
-                            "`!vote`" + " - " + "Coming soon" + "\n\n" +
+                            "`!vote`" + " - " + "Vote to obtain a 1.5x point multiplier for 5 minutes" + "\n" +
+                            "`!redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n\n" +
                             "**__Profile__**" + "\n" +
                             "`!profile`" + " - " + "Check your profile" + "\n" +
                             "`!lb (points/wins/daily/streak/time/fast)`" + " - " + "Global leaderboards" + "\n" +

@@ -7,9 +7,9 @@ const setup = require('../../firstinit');
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
-    name: 'vote',
-    aliases: ['vote', 'v'],
-    description: 'Vote for the bot',
+    name: 'redeem',
+    aliases: ['redeem', 'r'],
+    description: 'Redeem your vote reward',
     
     run: async ({ message }) => {
 
@@ -44,11 +44,8 @@ module.exports = {
             const data = await response.json()
 
             var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-
+            var voteCount = toParseUserUID['votes']
             var voteTimer = toParseUserUID['vote_timer']
-
-            let multRemaining = (voteTimer + 300_000) - currentTime; // time LEFT, not time passed
-            let voteRemaining = (voteTimer + 43_200_000) - currentTime
 
             let embed;
 
@@ -57,42 +54,58 @@ module.exports = {
                 .setTitle("Vote")
                 .setThumbnail(`attachment://${img}.png`)
 
+            let multRemaining = (voteTimer + 300_000) - currentTime; // time LEFT, not time passed
+            let voteRemaining = (voteTimer + 43_200_000) - currentTime
+
             if (data["voted"]) { // if voted in the past 12 hours and the point multiplier has not been activated
-                if (voteTimer + 43_200_000 < currentTime) { // if voted in past 12 and the multiplier hasn't been activated
+                if (voteTimer + 43_200_000 < currentTime) {
                     embed.setTitle("Thanks for Voting!")
                     embed.addFields(
                         {
                             name: "\n",
-                            value: "Use the `!redeem` command to start your 5-minute 1.5x point multiplier!"
+                            value: `A **1.5x point multiplier** has been activated for the next **5 minutes**`
                         },
                     )
-                } else if (voteTimer + 300_000 > currentTime) { // if voted in past 12 hours and the multiplier is active
-                    embed.setTitle("Vote Multiplier Active")
-                    embed.addFields(
+
+                    await ids.updateOne({ discord_id: discordID }, { $set: { vote_timer: currentTime }, $inc: { votes: 1 } });
+                } else if (voteTimer + 300_000 > currentTime) { // if voted in the past 12 hours and the point multiplier is active (send how much time left in multiplier)
+                    embed.setTitle("Point Multiplier Active")
+
+                    if (multRemaining < 60_000) {
+                        embed.addFields(
                         {
                             name: "\n",
-                            value: "Your **1.5x point multiplier** is currently active!"
+                            value: `Your **1.5x point multiplier** is currently active\n\nRemaining time: **${((Math.floor(multRemaining / 1000)) - ((Math.floor(multRemaining / (1000 * 60))) * 60)).toFixed(0)} seconds**`
                         },
-                    )
+                        )
+
+                    } else {
+                        embed.addFields(
+                        {
+                            name: "\n",
+                            value: `Your **1.5x point multiplier** is currently active\n\nRemaining time: **${(Math.floor(multRemaining / (1000 * 60))).toFixed(0)} minutes and ${((Math.floor(multRemaining / 1000)) - ((Math.floor(multRemaining / (1000 * 60))) * 60)).toFixed(0)} seconds**`
+                        },
+                        )
+                    }
                 } else if (voteTimer + 300_000 < currentTime) { // if voted in the past 12 hours and the point multiplier expired (just send how much time left till vote)
                     embed.setTitle("Vote Multiplier Expired")
 
                     embed.addFields(
                         {
                             name: "\n",
-                            value: `Your **1.5x point multiplier** expired\nYou can vote again in **${Math.floor(((voteRemaining)) / (1000 * 60 * 60)).toFixed(0)} hours** and **${Math.floor((voteRemaining % (1000 * 60 * 60)) / (1000 * 60))} minutes**\n\nhttps://top.gg/bot/1400050839544008804/vote`
+                            value: `Your **1.5x point multiplier** expired\n\nVote again in ${Math.floor(((voteRemaining)) / (1000 * 60 * 60)).toFixed(0)} hours`
                         },
                     )
                     
                 }
-            } else { // haven't voted for the bot
+            } else { // hasn't voted in the past 12 hours, send msg
                 embed.setTitle("Vote for the bot here!")
-                embed.addFields(
-                    {
-                        name: "\n",
-                        value: "https://top.gg/bot/1400050839544008804/vote\n\nAs a thanks for voting, you'll be given a **5-minute 1.5x point multiplier**! To activate the reward, please use the `!redeem` command\n\nYou can vote up to **two times** a day to support our bot <3"
-                    },
-                )
+                    embed.addFields(
+                        {
+                            name: "\n",
+                            value: "You don't have a point multiplier to redeem right now!\n\n**Vote for the bot here!**\nhttps://top.gg/bot/1400050839544008804/vote"
+                        },
+                    )
             }
             
             await message.channel.send({ embeds: [embed], files: [file] });
