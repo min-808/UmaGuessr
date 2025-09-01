@@ -50,7 +50,7 @@ module.exports = {
 
         console.log(`A new entry was inserted with the _id: ${result.insertedId}. Username: ${retUsername + retDiscriminator}, ID: ${id}`);
 
-        client.users.fetch('236186510326628353').then((user) => { user.send(`User **${retUsername + retDiscriminator}** has registered`) }) 
+        client.channels.fetch('1410434305858994249').then((channel) => { channel.send(`User **${retUsername + retDiscriminator}** has registered`) }).catch(console.error)
         // send me a msg when a new user signs up
     }
 }

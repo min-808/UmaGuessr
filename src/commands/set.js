@@ -55,7 +55,7 @@ module.exports = {
                     inline: true
                 })
             } else if ((args.length > 0) && ((args[0].toLowerCase().includes("j")) || (args[0].toLowerCase().includes("jp")) || (args[0].toLowerCase().includes("japan")))) {
-                newType = 'j'
+                newType = 'jp'
                 proper = "Japan"
 
                 embed.addFields(
