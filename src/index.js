@@ -165,7 +165,7 @@ client.on('ready', async () => {
 
     cron.schedule('0 0 * * *', async () => {
         try {
-            await refreshUsernames()
+            // await refreshUsernames()
             await resetDaily()
         } catch (error) {
             console.error('Error in daily scheduled job:', err);
