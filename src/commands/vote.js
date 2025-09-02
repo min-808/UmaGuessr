@@ -8,7 +8,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 
 module.exports = {
     name: 'vote',
-    aliases: ['vote', 'v'],
+    aliases: ['v'],
     description: 'Vote for the bot',
     
     run: async ({ message }) => {

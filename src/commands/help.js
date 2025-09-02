@@ -69,7 +69,7 @@ module.exports = {
                             "`!set (a/j/g)`" + " - " + "Set your default region (**a**ll, **j**p, **g**lobal)" + "\n" +
                             "`!skip`" + " - " + "Skip the current character" + "\n" +
                             "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
-                            "`!vote`" + " - " + "Vote to obtain a 1.5x point multiplier for 5 minutes" + "\n" +
+                            "`!vote`" + " - " + "Pull up the bot's vote link" + "\n" +
                             "`!redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n\n" +
                             "**__Profile__**" + "\n" +
                             "`!profile`" + " - " + "Check your profile" + "\n" +
@@ -80,6 +80,7 @@ module.exports = {
                             "`!help`" + " - " + "Command information" + "\n" +
                             "`!help uma`" + " - " + "Information about the game" + "\n" +
                             "`!discord`" + " - " + "Join the Discord server" + "\n" +
+                            "`!prefix/!pref`" + " - " + "Set a server-wide prefix for the bot" + "\n" +
                             "`!stats`" + " - " + "Bot stats" + "\n" +
                             "`!uptime`" + " - " + "Bot uptime" + "\n" +
                             "`!ping`" + " - " + "Pong!" + "\n" + "\n" +

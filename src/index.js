@@ -30,6 +30,7 @@ const client = new Client({
     ],
 });
 
+client.prefixCache = prefixCache
 client.commands = new Collection();
 
 const commandFiles = fs.readdirSync(path.join(__dirname, 'commands')).filter(file => file.endsWith('.js'));
@@ -125,6 +126,20 @@ async function refreshUsernames() {
     }
 }
 
+async function loadPrefixes() {
+    const client = new MongoClient(uri);
+    const database = client.db("uma");
+    const prefixes = database.collection("prefixes");
+
+    const all = await prefixes.find({}).toArray();
+    for (const entry of all) {
+        prefixCache.set(entry.server_id, entry.prefix);
+    }
+
+    await client.close();
+    console.log("Prefixes cached:", prefixCache.size);
+}
+
 async function getPrefix(guildId) { // This will be called everytime a potential message is sent
     if (prefixCache.has(guildId)) { // This will first check the cache to see if the server has a prefix set
         return prefixCache.get(guildId) // If so, return the prefix
@@ -216,7 +231,7 @@ async function setUptime() {
         console.log("Connected to Database.");
 
         await buildCache();
-        await 
+        await loadPrefixes();
 
         client.login(process.env.TOKEN);
     } catch (error) {

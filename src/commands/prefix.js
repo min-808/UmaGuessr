@@ -1,17 +1,16 @@
 var { MongoClient } = require("mongodb");
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 
-const setup = require('../../firstinit');
-const img = 'set'
+const img = 'prefix'
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 module.exports = {
     name: 'prefix',
     description: `Change the bot prefix for your server`,
+    aliases: ['pref'],
 
     run: async ({ message, args, client }) => {
-
         const user = message.author
 
         var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`)
@@ -22,90 +21,47 @@ module.exports = {
             .setTitle(`Prefix`)
 
         try {
-            var client_db = new MongoClient(uri)
-            var database = client_db.db("uma");
-            var ids = database.collection("stats")
-            var discordID = BigInt(user.id)
-            
-            var newType;
-            var oldType;
-            var proper;
+            if (!message.member.permissions.has("Administrator")) {
+                embed.addFields({
+                    name: '\n',
+                    value: "You need **Administrator** permission to set the prefix"
+                })
+                await message.channel.send({ embeds: [embed], files: [file] });
 
-            const count = await ids.countDocuments({ discord_id: discordID });
-            if (count < 1) await setup.init(discordID, "uma", "stats", client);
+                return
+            } else {
+                var client_db = new MongoClient(uri)
+                var database = client_db.db("uma");
+                var ids = database.collection("prefixes")
 
-            var options = {
-                projection: {
-                    _id: 0,
-                    type: 1,
+                if (args.length < 1) {
+                    embed.addFields({
+                        name: '\n',
+                        value: "Please provide a new prefix"
+                    })
+                } else {
+                    if (args[0].length > 4) {
+                        embed.addFields({
+                            name: '\n',
+                            value: "Prefixes cannot be longer than **4 characters**"
+                        })
+                    } else {
+                        var newPrefix = args[0]
+                        await ids.updateOne({ server_id: message.guild.id }, { $set: { prefix: newPrefix }}, { upsert: true })
+                        client.prefixCache.set(message.guild.id, newPrefix)
+
+                        embed.addFields({
+                            name: '\n',
+                            value: `Successfully changed prefix to \`${newPrefix}\``
+                        })
+                    }
                 }
+
+                await message.channel.send({ embeds: [embed], files: [file] });
+                await client_db.close()
             }
-
-            var broadSearch = await ids.findOne({ discord_id: discordID })
-            oldType = broadSearch["type"]
-
-            if ((args.length > 0) && ((args[0].toLowerCase().includes("g")) || (args[0].toLowerCase().includes("gl")) || (args[0].toLowerCase().includes("global")))) {
-                newType = 'g'
-                proper = 'Global'
-
-                embed.addFields(
-                {
-                    name: `\n`,
-                    value: "Game region default set to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
-                    inline: true
-                })
-            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("j")) || (args[0].toLowerCase().includes("jp")) || (args[0].toLowerCase().includes("japan")))) {
-                newType = 'jp'
-                proper = "Japan"
-
-                embed.addFields(
-                {
-                    name: `\n`,
-                    value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
-                    inline: true
-                })
-            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("a")) || (args[0].toLowerCase().includes("all")))) {
-                newType = 'a'
-                proper = "All"
-
-                embed.addFields(
-                {
-                    name: `\n`,
-                    value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
-                    inline: true
-                })
-            } else if (args == 0) { // No args
-                newType = oldType
-
-                embed.addFields(
-                {
-                    name: `\n`,
-                    value: "Use this command to set the region the `!uma` command will default to when you begin a game\n\n`!set a` for umas from both JP and Global\n`!set j` for umas from only the JP server\n`!set g` for umas from only the Global server",
-                    inline: true
-                })
-            } else { // Invalid region
-                newType = oldType
-
-                embed.addFields(
-                {
-                    name: `\n`,
-                    value: `Invalid region. Please choose ` + "`a`, `j`, or `g`",
-                    inline: true
-                })
-            }
-
-            const changeType = {
-                $set: {
-                    type: newType
-                }
-            }
-
-            await message.channel.send({ embeds: [embed], files: [file] });
-
-            await ids.updateOne({ discord_id: discordID }, changeType);
-            await client_db.close()
         } catch (error) {
-            console.log(error.rawError.message) // log error
+            console.log(error) // log error
 
             try {
                 await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
