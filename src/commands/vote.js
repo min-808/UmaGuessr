@@ -63,7 +63,7 @@ module.exports = {
                     embed.addFields(
                         {
                             name: "\n",
-                            value: "Use the `!redeem` command to start your 5-minute 1.5x point multiplier!"
+                            value: "Use the `!redeem` command to start your **5-minute 1.5x point multiplier!**"
                         },
                     )
                 } else if (voteTimer + 300_000 > currentTime) { // if voted in past 12 hours and the multiplier is active

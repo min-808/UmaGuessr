@@ -127,7 +127,10 @@ module.exports = {
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
 
-            console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'})`)
+
+            client.channels.fetch('1412306508221513729').then((channel) => { channel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} started a game`) }).catch(console.error)
+
+            console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} started a game with the correct answer being ${umaProper}`)
 
             const countCollection = database.collection("count")
 
@@ -249,6 +252,10 @@ module.exports = {
                     messageCollector.stop()
                     collector.stop()
 
+                    client.channels.fetch('1412306508221513729').then((channel) => { channel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`) }).catch(console.error)
+
+                    console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
+
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
@@ -281,21 +288,25 @@ module.exports = {
                     messageCollector.stop()
                     collector.stop()
 
-                    gameState.delete(sentMsg.id);
-                    activeChannels.delete(channelID);
+                    let timeAnswered = Date.now() - state.startTime
 
                     var authorID = BigInt(msg.author.id); // ID of the person who got it right
+                    var broadSearch = await ids.findOne({ discord_id: authorID })
+
+                    client.channels.fetch('1412306508221513729').then((channel) => { channel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`) }).catch(console.error)
+
+                    console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
+
+                    gameState.delete(sentMsg.id);
+                    activeChannels.delete(channelID);
                     
                     count = await ids.countDocuments({ discord_id: authorID });
                     if (count < 1) await setup.init(authorID, "uma", "stats", client); // Make document in case
-
-                    var broadSearch = await ids.findOne({ discord_id: authorID })
 
                     let topStreak = broadSearch["top_streak"]
                     let newStreak = broadSearch["streak"] + 1
                     
                     let topTime = broadSearch["quickest_answer"]
-                    let timeAnswered = Date.now() - state.startTime
                     let newQuickest;
 
                     if (topTime == 0) { // If someone has a quickest answer of 0s, which shouldn't be possible (aka new users)
@@ -384,6 +395,10 @@ module.exports = {
                 if (reason === 'time') { // Also reset the streak of the user who sent it
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
+
+                    client.channels.fetch('1412306508221513729').then((channel) => { channel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - No one answered, with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`) }).catch(console.error)
+
+                    console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - No one answered, with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
 
                     const imagePath = path.join(originDir, `${chooseImg}`);
                     const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'timeout.jpg' })

@@ -89,7 +89,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: `Invalid region. Please choose ` + "`a`, `j`, or `g`",
+                    value: `Invalid region. Please choose ` + "`a`, `jp`, or `g`",
                     inline: true
                 })
             }
