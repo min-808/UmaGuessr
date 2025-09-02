@@ -7,21 +7,19 @@ const path = require('path');
 const cron = require('node-cron');
 const { MongoClient } = require('mongodb');
 const { buildCache } = require("./cache-images.js");
-const express = require('express')
-const { Webhook } = require('@top-gg/sdk')
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
-const prefix = '!';
-
+const prefixCache = new Map()
 const cooldowns = new Map()
 const votes = new Set()
 const COOLDOWN = 3000
 
-const app = express()
-app.use(express.json())
-const PORT = 3000
-const webhook = new Webhook(process.env.TOPGG_WEBHOOK_TOKEN)
+const exemptUsers = new Set([
+  "236186510326628353", // min
+  "343908475245559820", // someone
+  "329497108157562880" // kekai
+])
 
 const client = new Client({
     intents: [
@@ -65,7 +63,6 @@ async function resetDaily() {
 }
 
 async function refreshUsernames() {
-
     try {
 
         const client = new MongoClient(uri);
@@ -128,8 +125,34 @@ async function refreshUsernames() {
     }
 }
 
+async function getPrefix(guildId) { // This will be called everytime a potential message is sent
+    if (prefixCache.has(guildId)) { // This will first check the cache to see if the server has a prefix set
+        return prefixCache.get(guildId) // If so, return the prefix
+    }
+
+    // If not, find the prefix
+    const client = new MongoClient(uri)
+    const database = client.db("uma")
+    const prefixes = database.collection("prefixes")
+
+    const result = await prefixes.findOne({ server_id: guildId })
+    await client.close()
+
+    const prefix = result?.prefix || "!" // Default to '!'
+    prefixCache.set(guildId, prefix) // Put it in the cache for fast access next time
+    return prefix
+}
+
 client.on('messageCreate', async message => {
-    if (!message.content.startsWith(prefix) || message.author.bot) return;
+    if (message.author.bot) {
+      return;
+    }
+
+    const prefix = message.guild ? await getPrefix(message.guild.id) : "!"
+
+    if (!message.content.startsWith(prefix)) {
+      return;
+    }
 
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const cmdName = args.shift().toLowerCase();
@@ -143,7 +166,7 @@ client.on('messageCreate', async message => {
     const userId = message.author.id
     const cooldownUntil = cooldowns.get(userId)
 
-    if ((cooldownUntil && now < cooldownUntil) && (userId != "236186510326628353")) { // wait the cooldown
+    if ((cooldownUntil && now < cooldownUntil) && (!exemptUsers.has(userId))) { // wait the cooldown
         const remaining = ((cooldownUntil - now) / 1000).toFixed(1)
         return message.channel.send(`Wait **${remaining}** seconds before sending another command`)
     }
@@ -193,15 +216,7 @@ async function setUptime() {
         console.log("Connected to Database.");
 
         await buildCache();
-
-        app.post("/dblwebhook", webhook.listener(vote => {
-            console.log(`test: so ${vote.type}`)
-            votes.add(vote.user)
-        }))
-        
-        app.listen(PORT, () => {
-            console.log(`Express server running on port ${PORT}`)
-        })
+        await 
 
         client.login(process.env.TOKEN);
     } catch (error) {
