@@ -185,7 +185,8 @@ module.exports = {
             });
 
             collector.on('collect', async (interaction) => { // Everytime the hint button is pressed
-                if (interaction.customId === 'hint') {
+              try {
+                    if (interaction.customId === 'hint') {
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
 
@@ -224,6 +225,9 @@ module.exports = {
                     }
                     
                 }
+              } catch (err) {
+                console.log("Collection error: ", err)
+              }
             })
 
             const messageCollector = sentMsg.channel.createMessageCollector({
@@ -429,15 +433,17 @@ module.exports = {
             })
 
         } catch (error) {
-            console.log(error.rawError.message) // log error
-            activeChannels.delete(channelID);
+          const msg = error?.rawError?.message || error?.message || String(error);
+          console.error("Main uma error:", msg);
 
-            try {
-                await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
-            } catch (error) {
-                console.log(`Unable to send message: ${error.rawError.message}`)
-            }
-        }
+          try {
+              await message.channel.send(
+                  `Unable to send embed: **${msg}**\n\nPlease check the bot's permissions and try again`
+              );
+          } catch (sendErr) {
+              console.error("Unable to send error message:", sendErr?.message || sendErr);
+          }
+      }
     }
 };
 

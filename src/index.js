@@ -116,13 +116,7 @@ async function refreshUsernames() {
 
         console.log("Usernames updated")
     } catch (error) {
-        console.log(error.rawError.message) // log error
-
-        try {
-            await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
-        } catch (error) {
-            console.log(`Unable to send message: ${error.rawError.message}`)
-        }
+        console.error("Refreshing usernames error:", error);
     }
 }
 

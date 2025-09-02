@@ -92,13 +92,16 @@ module.exports = {
             await message.channel.send({ embeds: [embed], files: [file] });
 
         } catch (error) {
-            console.log(error.rawError.message) // log error
+            const msg = error?.rawError?.message || error?.message || String(error);
+            console.error("Main uma error:", msg);
 
             try {
-                await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
-            } catch (error) {
-                console.log(`Unable to send message: ${error.rawError.message}`)
+                await message.channel.send(
+                    `Unable to send embed: **${msg}**\n\nPlease check the bot's permissions and try again`
+                );
+            } catch (sendErr) {
+                console.error("Unable to send error message:", sendErr?.message || sendErr);
             }
-            }
+        }
     }
 }
