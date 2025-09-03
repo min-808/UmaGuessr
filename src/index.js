@@ -3,6 +3,7 @@ require('dotenv').config();
 const { Client, IntentsBitField, Collection, ActivityType } = require('discord.js');
 const mongoose = require('mongoose');
 const fs = require('fs');
+const util = require('util')
 const path = require('path');
 const cron = require('node-cron');
 const { MongoClient } = require('mongodb');
@@ -14,6 +15,29 @@ const prefixCache = new Map()
 const cooldowns = new Map()
 const votes = new Set()
 const COOLDOWN = 3000
+
+// save error logs
+const logFile = fs.createWriteStream(path.join(__dirname, 'bot.log'), { flags: 'a' });
+
+function writeLog(type, msg) {
+  const time = new Date().toISOString();
+  const out = `[${time}] [${type}] ${msg}\n`;
+  logFile.write(out);
+  process.stdout.write(out);
+}
+
+// Override console.log and console.error
+console.log = (...args) => writeLog('INFO', args.map(a => a instanceof Error ? a.stack : a).join(' '));
+console.error = (...args) => writeLog('ERROR', args.map(a => a instanceof Error ? a.stack : a).join(' '));
+
+// Catch truly uncaught crashes
+process.on('uncaughtException', (err) => {
+  writeLog('UNCAUGHT_EXCEPTION', err.stack || err);
+});
+
+process.on('unhandledRejection', (reason, p) => {
+  writeLog('UNHANDLED_REJECTION', reason?.stack || reason);
+});
 
 const exemptUsers = new Set([
   "236186510326628353", // min

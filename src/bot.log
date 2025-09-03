@@ -1,0 +1,147 @@
+[2025-09-03T19:26:50.802Z] [INFO] Connected to Database.
+[2025-09-03T19:26:50.803Z] [INFO] Caching 628 images...
+[2025-09-03T19:26:51.061Z] [INFO] Image cache built
+[2025-09-03T19:26:51.733Z] [INFO] Prefixes cached: 2
+[2025-09-03T19:26:52.900Z] [INFO] uma testing#6223 is online.
+[2025-09-03T19:27:17.762Z] [INFO] (09:27:16 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:27:17.830Z] [ERROR] (node:7832) ExperimentalWarning: buffer.File is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2025-09-03T19:27:19.162Z] [INFO] (09:27:16 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 0.675 sec, 16/16 points
+[2025-09-03T19:28:12.636Z] [INFO] (09:28:11 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:28:13.304Z] [ERROR] Image file error: Error: ENOENT: no such file or directory, open 'C:\Users\kenda\Desktop\Code\Bots\uma\src\assets\cache\51-elcondorpasa3.jpg'
+    at Object.openSync (node:fs:603:3)
+    at Object.readFileSync (node:fs:471:35)
+    at Object.run (C:\Users\kenda\Desktop\Code\Bots\uma\src\commands\uma.js:158:55)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async Client.<anonymous> (C:\Users\kenda\Desktop\Code\Bots\uma\src\index.js:201:9) {
+  errno: -4058,
+  syscall: 'open',
+  code: 'ENOENT',
+  path: 'C:\\Users\\kenda\\Desktop\\Code\\Bots\\uma\\src\\assets\\cache\\51-elcondorpasa3.jpg'
+}
+[2025-09-03T19:28:53.799Z] [INFO] Connected to Database.
+[2025-09-03T19:28:53.801Z] [INFO] Caching 628 images...
+[2025-09-03T19:28:54.069Z] [INFO] Image cache built
+[2025-09-03T19:28:54.748Z] [INFO] Prefixes cached: 2
+[2025-09-03T19:28:55.781Z] [INFO] uma testing#6223 is online.
+[2025-09-03T19:28:59.706Z] [INFO] (09:28:58 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:28:59.788Z] [ERROR] (node:10752) ExperimentalWarning: buffer.File is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2025-09-03T19:29:02.386Z] [INFO] (09:28:58 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 1.955 sec, 16/16 points
+[2025-09-03T19:31:45.742Z] [INFO] (09:31:44 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:31:48.443Z] [INFO] (09:31:44 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 2.048 sec, 16/16 points
+[2025-09-03T19:33:10.038Z] [INFO] (09:33:08 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:33:15.430Z] [INFO] (09:33:08 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 4.744 sec, 16/16 points
+[2025-09-03T19:33:20.547Z] [INFO] (09:33:19 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:33:24.928Z] [INFO] (09:33:19 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 1 hints, 3.538 sec, 13/16 points
+[2025-09-03T19:33:38.399Z] [INFO] (09:33:37 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:33:42.207Z] [INFO] (09:33:37 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 1 hints, 3.107 sec, 13/16 points
+[2025-09-03T19:33:51.008Z] [INFO] (09:33:49 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:33:54.680Z] [INFO] (09:33:49 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 3.137 sec, 16/16 points
+[2025-09-03T19:35:57.618Z] [UNHANDLED_REJECTION] DiscordAPIError[10008]: Unknown Message
+    at handleErrors (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\@discordjs\rest\dist\index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\@discordjs\rest\dist\index.js:1128:23)
+    at async SequentialHandler.queueRequest (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\@discordjs\rest\dist\index.js:959:14)
+    at async _REST.request (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\@discordjs\rest\dist\index.js:1272:22)
+    at async GuildMessageManager.edit (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\discord.js\src\managers\MessageManager.js:188:15)
+    at async MessageCollector.<anonymous> (C:\Users\kenda\Desktop\Code\Bots\uma\src\commands\uma.js:420:21)
+[2025-09-03T19:46:14.939Z] [INFO] Connected to Database.
+[2025-09-03T19:46:14.940Z] [INFO] Caching 628 images...
+[2025-09-03T19:46:15.191Z] [INFO] Image cache built
+[2025-09-03T19:46:15.857Z] [INFO] Prefixes cached: 2
+[2025-09-03T19:46:16.997Z] [INFO] uma testing#6223 is online.
+[2025-09-03T19:46:26.971Z] [INFO] (09:46:25 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:46:27.039Z] [ERROR] (node:15240) ExperimentalWarning: buffer.File is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2025-09-03T19:46:29.087Z] [INFO] (09:46:25 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 1.473 sec, 16/16 points
+[2025-09-03T19:46:34.027Z] [INFO] (09:46:32 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:46:35.858Z] [INFO] (09:46:32 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 0.972 sec, 16/16 points
+[2025-09-03T19:46:53.104Z] [INFO] (09:46:51 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:46:53.392Z] [ERROR] Image file error: Error: ENOENT: no such file or directory, open 'C:\Users\kenda\Desktop\Code\Bots\uma\src\assets\cache\51-elcondorpasa3.jpg'
+[2025-09-03T19:48:39.498Z] [INFO] Connected to Database.
+[2025-09-03T19:48:39.499Z] [INFO] Caching 628 images...
+[2025-09-03T19:48:40.195Z] [INFO] Image cache built
+[2025-09-03T19:48:40.868Z] [INFO] Prefixes cached: 2
+[2025-09-03T19:48:41.802Z] [INFO] uma testing#6223 is online.
+[2025-09-03T19:48:52.327Z] [INFO] Connected to Database.
+[2025-09-03T19:48:52.328Z] [INFO] Caching 628 images...
+[2025-09-03T19:48:52.586Z] [INFO] Image cache built
+[2025-09-03T19:48:53.274Z] [INFO] Prefixes cached: 2
+[2025-09-03T19:48:54.281Z] [INFO] uma testing#6223 is online.
+[2025-09-03T19:48:56.707Z] [INFO] (09:48:55 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:48:56.776Z] [ERROR] (node:3492) ExperimentalWarning: buffer.File is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2025-09-03T19:49:01.298Z] [INFO] (09:48:55 AM): waitaamin - El Condor Pasa (Global/x/no args) - Skipped with 0 hints, 3.716 sec, 0/16 points
+[2025-09-03T19:49:08.559Z] [INFO] (09:49:07 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:49:11.328Z] [INFO] (09:49:07 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 1.998 sec, 16/16 points
+[2025-09-03T19:49:16.927Z] [INFO] (09:49:15 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T19:49:16.987Z] [ERROR] Main uma error: ENOENT: no such file or directory, open 'C:\Users\kenda\Desktop\Code\Bots\uma\src\assets\cache\51-elcondorpasa3.jpg'
+[2025-09-03T19:54:51.046Z] [UNHANDLED_REJECTION] DiscordAPIError[10008]: Unknown Message
+    at handleErrors (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\@discordjs\rest\dist\index.js:727:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async SequentialHandler.runRequest (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\@discordjs\rest\dist\index.js:1128:23)
+    at async SequentialHandler.queueRequest (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\@discordjs\rest\dist\index.js:959:14)
+    at async _REST.request (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\@discordjs\rest\dist\index.js:1272:22)
+    at async GuildMessageManager.edit (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\discord.js\src\managers\MessageManager.js:188:15)
+    at async MessageCollector.<anonymous> (C:\Users\kenda\Desktop\Code\Bots\uma\src\commands\uma.js:410:21)
+[2025-09-03T20:02:33.062Z] [UNHANDLED_REJECTION] ReferenceError: writeLog is not defined
+    at console.log (C:\Users\kenda\Desktop\Code\Bots\uma\src\index.js:28:28)
+    at C:\Users\kenda\Desktop\Code\Bots\uma\src\index.js:256:17
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-09-03T20:02:45.693Z] [INFO] Connected to Database.
+[2025-09-03T20:02:45.694Z] [INFO] Caching 628 images...
+[2025-09-03T20:02:46.420Z] [INFO] Image cache built
+[2025-09-03T20:02:47.112Z] [INFO] Prefixes cached: 2
+[2025-09-03T20:02:48.606Z] [INFO] uma testing#6223 is online.
+[2025-09-03T20:02:57.845Z] [INFO] (10:02:56 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T20:02:57.911Z] [ERROR] (node:15472) ExperimentalWarning: buffer.File is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2025-09-03T20:03:05.255Z] [INFO] (10:02:56 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 2 hints, 6.687 sec, 10/16 points
+[2025-09-03T20:03:10.491Z] [INFO] (10:03:09 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T20:03:13.206Z] [ERROR] Image file error: Error: ENOENT: no such file or directory, open 'C:\Users\kenda\Desktop\Code\Bots\uma\src\assets\cache\41-elcondorpasa3.jpg'
+    at Object.openSync (node:fs:603:3)
+    at Object.readFileSync (node:fs:471:35)
+    at InteractionCollector.<anonymous> (C:\Users\kenda\Desktop\Code\Bots\uma\src\commands\uma.js:240:68)
+    at InteractionCollector.emit (node:events:526:35)
+    at InteractionCollector.handleCollect (C:\Users\kenda\Desktop\Code\Bots\uma\node_modules\discord.js\src\structures\interfaces\Collector.js:133:14)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+[2025-09-03T20:03:18.997Z] [INFO] (10:03:17 AM): waitaamin started a game with the correct answer being El Condor Pasa
+[2025-09-03T20:03:22.326Z] [INFO] (10:03:17 AM): waitaamin - El Condor Pasa (Global/x/no args) - Answered by waitaamin with 0 hints, 2.604 sec, 16/16 points
+[2025-09-03T20:05:21.026Z] [INFO] Connected to Database.
+[2025-09-03T20:05:21.027Z] [INFO] Caching 628 images...
+[2025-09-03T20:05:21.738Z] [INFO] Image cache built
+[2025-09-03T20:05:22.408Z] [INFO] Prefixes cached: 2
+[2025-09-03T20:05:23.420Z] [INFO] uma testing#6223 is online.
+[2025-09-03T20:05:29.884Z] [INFO] Connected to Database.
+[2025-09-03T20:05:29.885Z] [INFO] Caching 628 images...
+[2025-09-03T20:05:30.172Z] [INFO] Image cache built
+[2025-09-03T20:05:32.574Z] [INFO] Connected to Database.
+[2025-09-03T20:05:32.576Z] [INFO] Caching 628 images...
+[2025-09-03T20:05:32.825Z] [INFO] Image cache built
+[2025-09-03T20:05:33.521Z] [INFO] Prefixes cached: 2
+[2025-09-03T20:05:34.883Z] [INFO] uma testing#6223 is online.
+[2025-09-03T20:06:46.127Z] [INFO] Connected to Database.
+[2025-09-03T20:06:46.129Z] [INFO] Caching 628 images...
+[2025-09-03T20:06:46.396Z] [INFO] Image cache built
+[2025-09-03T20:06:47.065Z] [INFO] Prefixes cached: 2
+[2025-09-03T20:06:49.998Z] [INFO] Connected to Database.
+[2025-09-03T20:06:50.000Z] [INFO] Caching 628 images...
+[2025-09-03T20:06:50.248Z] [INFO] Image cache built
+[2025-09-03T20:06:50.972Z] [INFO] Prefixes cached: 2
+[2025-09-03T20:06:52.198Z] [INFO] uma testing#6223 is online.
+[2025-09-03T20:07:10.412Z] [INFO] (10:07:09 AM): waitaamin started a game with the correct answer being Symboli Rudolf
+[2025-09-03T20:07:10.481Z] [ERROR] (node:22940) ExperimentalWarning: buffer.File is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+[2025-09-03T20:07:14.301Z] [INFO] (10:07:09 AM): waitaamin - Symboli Rudolf (Global/x/no args) - Answered by waitaamin with 0 hints, 2.451 sec, 16/16 points
+[2025-09-03T20:07:17.355Z] [INFO] (10:07:16 AM): waitaamin started a game with the correct answer being Taiki Shuttle
+[2025-09-03T20:07:25.398Z] [INFO] (10:07:16 AM): waitaamin - Taiki Shuttle (Global/x/no args) - Answered by waitaamin with 3 hints, 7.178 sec, 7/16 points
+[2025-09-03T20:07:27.879Z] [INFO] (10:07:26 AM): waitaamin started a game with the correct answer being Gold Ship
+[2025-09-03T20:07:40.547Z] [INFO] (10:07:26 AM): waitaamin - Gold Ship (Global/x/no args) - Skipped with 5 hints, 11.864 sec, 0/16 points
+[2025-09-03T20:07:43.076Z] [INFO] (10:07:42 AM): waitaamin started a game with the correct answer being Tokai Teio
+[2025-09-03T20:07:45.186Z] [INFO] (10:07:42 AM): waitaamin - Tokai Teio (Global/x/no args) - Skipped with 0 hints, 0.862 sec, 0/16 points
+[2025-09-03T20:11:13.341Z] [INFO] Connected to Database.
+[2025-09-03T20:11:13.342Z] [INFO] Caching 628 images...
+[2025-09-03T20:11:13.648Z] [INFO] Image cache built
+[2025-09-03T20:11:14.318Z] [INFO] Prefixes cached: 2
+[2025-09-03T20:11:15.309Z] [INFO] uma testing#6223 is online.

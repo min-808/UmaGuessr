@@ -127,8 +127,14 @@ module.exports = {
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
 
-
-            client.channels.fetch('1412306508221513729').then((channel) => { channel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} started a game`) }).catch(console.error)
+            try {
+                const logChannel = await client.channels.fetch('1412306508221513729');
+                if (logChannel) {
+                    await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} started a game with the correct answer being ${umaProper}`)
+                }
+            } catch (err) {
+                console.error("Log channel fetch/send error:", err);
+            }
 
             console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} started a game with the correct answer being ${umaProper}`)
 
@@ -145,9 +151,17 @@ module.exports = {
 
             // const top = await countCollection.find().sort({ count: -1 }).limit(5).toArray() <- logic for determining top # umas chosen
 
-            const imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // so like, 51-image_name(num).jpg
+            // so like, 51-image_name(num).jpg
 
-            const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' })
+            try {
+                var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
+                var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
+            } catch (err) {
+                await message.channel.send('There was an error with the image. Skipped');
+                console.error('Image file error:', err);
+                // Optionally clean up gameState/activeChannels here
+                return;
+            }
             
             const hint = new ButtonBuilder()
                 .setCustomId('hint')
@@ -192,8 +206,16 @@ module.exports = {
 
                     if (state.blurLevel == 1) { // if all hints have been used
 
-                        const imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
-                        const newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
+                        try {
+                            var imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
+                            var newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
+                        } catch (err) {
+                            await message.channel.send('There was an error with the image. Skipped');
+                            console.error('Image file error:', err);
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
 
                         const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                             .setImage('attachment://original.jpg')
@@ -206,8 +228,6 @@ module.exports = {
                         const newHintsUsed = state.hintsUsed + 1
                         const newPoints = state.points - minusPointsJP
 
-                        const newPath = path.join(cacheDir, `${newBlurLevel}-${state.imageName}`);
-
                         gameState.set(sentMsg.id, {
                             ...state,
                             blurLevel: newBlurLevel,
@@ -215,7 +235,17 @@ module.exports = {
                             points: newPoints
                         })
 
-                        const newFile = new AttachmentBuilder(fs.readFileSync(newPath), { name: 'blurred.jpg' });
+                        try {
+                            var newPath = path.join(cacheDir, `${newBlurLevel}-${state.imageName}`);
+                            var newFile = new AttachmentBuilder(fs.readFileSync(newPath), { name: 'blurred.jpg' });
+                        } catch (err) {
+                            await message.channel.send('There was an error with the image. Skipped');
+                            console.error('Image file error:', err);
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
+
                         const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                             .setImage('attachment://blurred.jpg')
 
@@ -256,7 +286,14 @@ module.exports = {
                     messageCollector.stop()
                     collector.stop()
 
-                    client.channels.fetch('1412306508221513729').then((channel) => { channel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`) }).catch(console.error)
+                    try {
+                        const logChannel = await client.channels.fetch('1412306508221513729');
+                        if (logChannel) {
+                            await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
+                        }
+                    } catch (err) {
+                        console.error("Log channel fetch/send error:", err);
+                    }
 
                     console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
 
@@ -269,8 +306,16 @@ module.exports = {
                         }
                     });
 
-                    const imagePath = path.join(originDir, `${chooseImg}`);
-                    const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
+                    try {
+                        var imagePath = path.join(originDir, `${chooseImg}`);
+                        var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
+                    } catch (err) {
+                        await message.channel.send('There was an error with the image. Skipped');
+                        console.error('Image file error:', err);
+                        gameState.delete(sentMsg.id);
+                        activeChannels.delete(channelID);
+                        return;
+                    }
 
                     const skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://skipped.jpg')
@@ -297,7 +342,14 @@ module.exports = {
                     var authorID = BigInt(msg.author.id); // ID of the person who got it right
                     var broadSearch = await ids.findOne({ discord_id: authorID })
 
-                    client.channels.fetch('1412306508221513729').then((channel) => { channel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`) }).catch(console.error)
+                    try {
+                        const logChannel = await client.channels.fetch('1412306508221513729');
+                        if (logChannel) {
+                            await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
+                        }
+                    } catch (err) {
+                        console.error("Log channel fetch/send error:", err);
+                    }
 
                     console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
 
@@ -379,8 +431,16 @@ module.exports = {
                         await msg.channel.send(`You have a new fastest answer time of **${(newQuickest / 1000).toFixed(2)}** sec!`);
                     }
                     
-                    const imagePath = path.join(originDir, `${chooseImg}`);
-                    const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
+                    try {
+                        var imagePath = path.join(originDir, `${chooseImg}`);
+                        var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
+                    } catch (err) {
+                        await message.channel.send('There was an error with the image. Skipped');
+                        console.error('Image file error:', err);
+                        gameState.delete(sentMsg.id);
+                        activeChannels.delete(channelID);
+                        return;
+                    }
 
                     const revealedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://revealed.jpg')
@@ -400,12 +460,27 @@ module.exports = {
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
 
-                    client.channels.fetch('1412306508221513729').then((channel) => { channel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - No one answered, with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`) }).catch(console.error)
+                    try {
+                        const logChannel = await client.channels.fetch('1412306508221513729');
+                        if (logChannel) {
+                            await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - No one answered, with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
+                        }
+                    } catch (err) {
+                        console.error("Log channel fetch/send error:", err);
+                    }
 
                     console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - No one answered, with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
 
-                    const imagePath = path.join(originDir, `${chooseImg}`);
-                    const file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'timeout.jpg' })
+                    try {
+                        var imagePath = path.join(originDir, `${chooseImg}`);
+                        var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'timeout.jpg' })
+                    } catch (err) {
+                        await message.channel.send('There was an error with the image. Skipped');
+                        console.error('Image file error:', err);
+                        gameState.delete(sentMsg.id);
+                        activeChannels.delete(channelID);
+                        return;
+                    }
 
                     const timeoutEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://timeout.jpg')
@@ -436,13 +511,15 @@ module.exports = {
           const msg = error?.rawError?.message || error?.message || String(error);
           console.error("Main uma error:", msg);
 
-          try {
-              await message.channel.send(
-                  `Unable to send embed: **${msg}**\n\nPlease check the bot's permissions and try again`
-              );
-          } catch (sendErr) {
-              console.error("Unable to send error message:", sendErr?.message || sendErr);
-          }
+          if (error?.rawError?.message) {
+            try {
+                await message.channel.send(
+                    `Unable to send embed: **${msg}**\n\nPlease check the bot's permissions and try again`
+                );
+            } catch (sendErr) {
+                console.error("Unable to send error message:", sendErr?.message || sendErr);
+            }
+        }
       }
     }
 };
