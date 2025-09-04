@@ -134,6 +134,7 @@ module.exports = {
                 }
             } catch (err) {
                 console.error("Log channel fetch/send error:", err);
+
                 activeChannels.delete(channelID); // get rid of the game so they can play again
                 return;
             }
@@ -161,7 +162,8 @@ module.exports = {
             } catch (err) {
                 await message.channel.send('There was an error with the image. Skipped');
                 console.error('Image file error:', err);
-                // Optionally clean up gameState/activeChannels here
+                
+                activeChannels.delete(channelID); // get rid of the game so they can play again
                 return;
             }
             
