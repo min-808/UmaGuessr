@@ -134,6 +134,8 @@ module.exports = {
                 }
             } catch (err) {
                 console.error("Log channel fetch/send error:", err);
+                activeChannels.delete(channelID); // get rid of the game so they can play again
+                return;
             }
 
             console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} started a game with the correct answer being ${umaProper}`)
@@ -180,7 +182,7 @@ module.exports = {
 
             const sentMsg = await message.channel.send({ files: [file], components: [row], embeds: [embed] })
 
-            gameState.set(sentMsg.id, {
+            gameState.set(sentMsg.id, { // the start of the gameState set
                 blurLevel: initialBlur,
                 imageName: chooseImg,
                 values: list[chooseChar]["names"],
@@ -212,6 +214,7 @@ module.exports = {
                         } catch (err) {
                             await message.channel.send('There was an error with the image. Skipped');
                             console.error('Image file error:', err);
+
                             gameState.delete(sentMsg.id);
                             activeChannels.delete(channelID);
                             return;
@@ -241,6 +244,7 @@ module.exports = {
                         } catch (err) {
                             await message.channel.send('There was an error with the image. Skipped');
                             console.error('Image file error:', err);
+
                             gameState.delete(sentMsg.id);
                             activeChannels.delete(channelID);
                             return;
@@ -257,6 +261,10 @@ module.exports = {
                 }
               } catch (err) {
                 console.log("Collection error: ", err)
+
+                gameState.delete(sentMsg.id);
+                activeChannels.delete(channelID);
+                return;
               }
             })
 
@@ -282,7 +290,7 @@ module.exports = {
 
                 const userGuess = msg.content.trim().toLowerCase().replace(/\s+/g, '')
 
-                if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s')) && (msg.author.id === user.id)) { // Skipped
+                if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s')) && (msg.author.id === user.id)) { // Skipped. Note that to skip, you have to be the author of the message, so this should work ok
                     messageCollector.stop()
                     collector.stop()
 
@@ -293,6 +301,10 @@ module.exports = {
                         }
                     } catch (err) {
                         console.error("Log channel fetch/send error:", err);
+
+                        gameState.delete(sentMsg.id);
+                        activeChannels.delete(channelID);
+                        return;
                     }
 
                     console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
@@ -312,6 +324,7 @@ module.exports = {
                     } catch (err) {
                         await message.channel.send('There was an error with the image. Skipped');
                         console.error('Image file error:', err);
+
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
                         return;
@@ -340,6 +353,10 @@ module.exports = {
                     let timeAnswered = Date.now() - state.startTime
 
                     var authorID = BigInt(msg.author.id); // ID of the person who got it right
+
+                    count = await ids.countDocuments({ discord_id: authorID });
+                    if (count < 1) await setup.init(authorID, "uma", "stats", client); // Make document in case
+
                     var broadSearch = await ids.findOne({ discord_id: authorID })
 
                     try {
@@ -349,15 +366,16 @@ module.exports = {
                         }
                     } catch (err) {
                         console.error("Log channel fetch/send error:", err);
+
+                        gameState.delete(sentMsg.id);
+                        activeChannels.delete(channelID);
+                        return;
                     }
 
                     console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
 
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
-                    
-                    count = await ids.countDocuments({ discord_id: authorID });
-                    if (count < 1) await setup.init(authorID, "uma", "stats", client); // Make document in case
 
                     let topStreak = broadSearch["top_streak"]
                     let newStreak = broadSearch["streak"] + 1
@@ -437,6 +455,7 @@ module.exports = {
                     } catch (err) {
                         await message.channel.send('There was an error with the image. Skipped');
                         console.error('Image file error:', err);
+
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
                         return;
@@ -455,7 +474,7 @@ module.exports = {
                 }
             })
 
-            messageCollector.on('end', async (collected, reason) => { // No one got it right
+            messageCollector.on('end', async (collected, reason) => { // No one got it right. Again, the command sender should have a registered entry so this should work
                 if (reason === 'time') { // Also reset the streak of the user who sent it
                     const state = gameState.get(sentMsg.id);
                     if (!state) return;
@@ -467,6 +486,10 @@ module.exports = {
                         }
                     } catch (err) {
                         console.error("Log channel fetch/send error:", err);
+
+                        gameState.delete(sentMsg.id);
+                        activeChannels.delete(channelID);
+                        return;
                     }
 
                     console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - No one answered, with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
@@ -477,6 +500,7 @@ module.exports = {
                     } catch (err) {
                         await message.channel.send('There was an error with the image. Skipped');
                         console.error('Image file error:', err);
+
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
                         return;
@@ -507,9 +531,12 @@ module.exports = {
                 }
             })
 
-        } catch (error) {
+        } catch (error) { // Catch errors in the initial block
           const msg = error?.rawError?.message || error?.message || String(error);
           console.error("Main uma error:", msg);
+
+          gameState.delete(sentMsg.id); // Should be safe to delete, no exceptions can be raised
+          activeChannels.delete(channelID);
 
           if (error?.rawError?.message) {
             try {
