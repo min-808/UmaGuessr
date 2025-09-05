@@ -23,7 +23,6 @@ module.exports = {
                         "Transcend\n" +
                         "Rhein Kraft\n" +
                         "North Flight\n" +
-                        "Calstone Light O\n" +
                         "Bubble Gum Fellow\n" +
                         "Air Messiah\n" +
                         "Furioso\n" +
