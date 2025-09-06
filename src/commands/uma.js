@@ -115,7 +115,7 @@ module.exports = {
 
             var voteTimer = data['vote_timer']
 
-            if (voteTimer + 300_000 > Date.now()) { // Checks for streaks
+            if (voteTimer + 300_000 > Date.now()) { // Checks for multiplier
                 initialPointsJP = Math.floor(initialPointsJP * 1.5);
                 minusPointsJP = Math.floor(minusPointsJP * 1.5);
             }

@@ -200,7 +200,7 @@ client.on('messageCreate', async message => {
     const cooldownUntil = cooldowns.get(userId)
 
     if ((cooldownUntil && now < cooldownUntil) && (!exemptUsers.has(userId))) { // wait the cooldown
-        const remaining = ((cooldownUntil - now) / 1000).toFixed(1)
+        const remaining = ((cooldownUntil - now) / 1000).toFixed(2)
         return message.channel.send(`Wait **${remaining}** seconds before sending another command`)
     }
 
@@ -224,7 +224,7 @@ client.on('ready', async () => {
             // await refreshUsernames()
             await resetDaily()
         } catch (error) {
-            console.error('Error in daily scheduled job:', err);
+            console.error('Error in daily scheduled job:', error);
         }
     }, {
         timezone: 'Pacific/Honolulu'

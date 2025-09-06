@@ -25,10 +25,18 @@ module.exports = {
                             name: "\n",
                             value:
                             "**__How to Play__**" + "\n" +
-                            "- Start the game by using either `!uma a` for guessing characters from both JP and Global servers, `!uma j` for characters only from the JP server, or `!uma g` for characters only from the Global server" + "\n" +
-                            "- Use `!set (a/j/g)` to set the region you want the `!uma` command to default to" + "\n" +
+                            "- Start the game with the command `!uma` or `!u`, and guess the uma by sending their name in the chat" + "\n" +
+                            "- There are some extra parameters to specify which region you'd like to play on (no parameters will default to Global):" + "\n" +
+                            "**-** `!uma a` for guessing characters from both JP and Global servers" + "\n" +
+                            "**-** `!uma j` for characters only from the JP server" + "\n" +
+                            "**-** `!uma g` for characters only from the Global server" + "\n\n\n"
+                        },
+                        {
+                            name: "\n",
+                            value:
+                            "\n- Use `!set (a/j/g)` to set the region you want the `!uma` command to default to" + "\n" +
                             "- You will have **60** seconds to guess the character, and pressing the `Hint` button will slightly unblur the image" + "\n" +
-                            "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (31 points for All, 25 points for JP, 13 for Global)" + "\n" +
+                            "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (**36** points for All, **26** points for JP, **16** for Global)" + "\n" +
                             "- However, every time the unblur button is pressed, you lose points. If all the unblur hints are used, you'll only gain 1 point for guessing the uma correctly" + "\n" +
                             "- Capitalization and spacing doesn't matter, but spelling does. `Seiun Sky`, `seiun sky`, and `seiunsky` are all valid answers"
                         },
@@ -37,14 +45,17 @@ module.exports = {
                             value:
                             "**__Nicknames__**" + "\n" +
                             "- Note that some umas have nicknames that can be accepted as valid answers: Machitan, Fuku, CB, and TM are a few examples" + "\n" +
-                            "- Additionally, umas that share a family name can be guessed with just their first names (McQueen, Ryan, etc.)"
+                            "- Additionally, umas that share a family name can be guessed with just their first names (McQueen, Ryan, etc.)" + "\n" +
+                            "- You can also guess their names in Japanese"
                         },
                         {
                             name: "\n",
                             value:
-                            "**__Streaks__**" + "\n" +
+                            "**__Streaks and Multipliers__**" + "\n" +
                             "- If you use the `!uma` command and guess the uma correctly, you'll increase your streak" + "\n" +
-                            "- However, if you use `!skip`, the timer runs out, or another person correctly guesses the uma before you, your streak will reset to 0"
+                            "- However, if you use `!skip`, the timer runs out, or another person correctly guesses the uma before you, your streak will reset to 0" + "\n" +
+                            "- By voting on the bot with `!vote` and using the `!redeem` command, you'll start a **5-minute 1.5x point multiplier**" + "\n" +
+                            "- Note that you can vote up to two times a day (once every 12 hours)"
                         },
                         {
                             name: "\n",
