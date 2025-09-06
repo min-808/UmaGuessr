@@ -122,7 +122,7 @@ module.exports = {
             
 
             var chooseChar = Math.floor(Math.random() * list.length)
-            // chooseChar = 39
+            // chooseChar = 19
             var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']

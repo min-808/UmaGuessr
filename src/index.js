@@ -87,6 +87,32 @@ async function resetDaily() {
     await client.close()
 }
 
+async function pushServerCount() {
+    try {
+        const count = {
+            server_count: client.guilds.cache.size
+        }
+
+        const response = await fetch(`https://top.gg/api/bots/${process.env.CLIENT_ID}/stats`, {
+            method: 'POST',
+            headers: {
+                'Authorization': process.env.TOPGG_WEBHOOK_TOKEN,
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(count)
+        });
+
+        if (response.ok) {
+            console.log("Updated top.gg server count: " + client.guilds.cache.size)
+        } else {
+            console.log("Unable to update top.gg server count. Status: " + response.status)
+        }
+    } catch (error) {
+        console.error("Updating top.gg server count error:", error);
+    }
+    
+}
+
 async function refreshUsernames() {
     try {
 
@@ -222,7 +248,8 @@ client.on('ready', async () => {
     cron.schedule('0 0 * * *', async () => {
         try {
             // await refreshUsernames()
-            await resetDaily()
+            await resetDaily();
+            await pushServerCount();
         } catch (error) {
             console.error('Error in daily scheduled job:', error);
         }
