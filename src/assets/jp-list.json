@@ -399,13 +399,6 @@
     "images": ["satonodiamond1.jpg", "satonodiamond2.jpg", "satonodiamond3.jpg", "satonodiamond4.jpg", "satonodiamond5.jpg"]
     },
     {
-    "id": "seiunsky",
-    "number": 5044,
-    "proper": "Seiun Sky",
-    "names": ["seiunsky", "sky", "sei", "seiun", "セイウンスカイ", "スカイ", "セイ"],
-    "images": ["seiunsky1.jpg", "seiunsky2.jpg", "seiunsky3.jpg", "seiunsky4.jpg", "seiunsky5.jpg"]
-    },
-    {
     "id": "siriussymboli",
     "number": 5519,
     "proper": "Sirius Symboli",

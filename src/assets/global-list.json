@@ -154,6 +154,13 @@
     "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg", "sakurabakushino3.jpg", "sakurabakushino4.jpg", "sakurabakushino5.jpg", "sakurabakushino6.jpg", "sakurabakushino7.jpg"]
   },
   {
+    "id": "seiunsky",
+    "number": 5044,
+    "proper": "Seiun Sky",
+    "names": ["seiunsky", "sky", "sei", "seiun", "セイウンスカイ", "スカイ", "セイ"],
+    "images": ["seiunsky1.jpg", "seiunsky2.jpg", "seiunsky3.jpg", "seiunsky4.jpg", "seiunsky5.jpg"]
+  },
+  {
     "id": "silencesuzuka",
     "number": 4536,
     "proper": "Silence Suzuka",
