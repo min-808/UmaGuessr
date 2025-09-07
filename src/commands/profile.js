@@ -48,6 +48,7 @@ module.exports = {
             if (userProvided) { // username case
                 data = await ids.findOne({ username: userProvided }, {
                     projection: {
+                        discord_id: 1,
                         wins: 1,
                         points: 1,
                         streak: 1,
@@ -67,6 +68,7 @@ module.exports = {
                 }
 
                 userProvided = data["username"]
+                discordID = data['discord_id']
             } else { // ID case
                 data = await ids.findOne({ discord_id: discordID }, {
                     projection: {
