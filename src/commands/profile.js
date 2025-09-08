@@ -27,6 +27,7 @@ module.exports = {
             var discordID = BigInt(user.id);
 
             var userProvided
+            var d
 
             const count = await ids.countDocuments({ discord_id: discordID });
             if (count < 1) await setup.init(discordID, "uma", "stats", client);
@@ -70,6 +71,7 @@ module.exports = {
 
                 userProvided = data["username"]
                 discordID = data['discord_id']
+                d = new Date(data['signup'])
             } else { // ID case
                 data = await ids.findOne({ discord_id: discordID }, {
                     projection: {
@@ -93,7 +95,11 @@ module.exports = {
                 }
 
                 userProvided = data["username"]
+                d = new Date(data['signup'])
             }
+
+            const utcDate = `${(d.getUTCMonth() + 1).toString().padStart(2, '0')}/${d.getUTCDate().toString().padStart(2,'0')}/${d.getUTCFullYear()}`;
+            const utcTime = `${d.getUTCHours().toString().padStart(2,'0')}:${d.getUTCMinutes().toString().padStart(2,'0')}:${d.getUTCSeconds().toString().padStart(2,'0')}`;
 
             const allUsers = await ids.find({}, { projection: { discord_id: 1, points: 1 } })
                 .sort({ points: -1 })
@@ -152,9 +158,9 @@ module.exports = {
                 }
             );
 
-            embed.setFooter({ text: signup })
+            embed.setFooter({ text: `Signed up on ${utcDate} at ${utcTime} UTC` })
 
-            await message.channel.send({ embeds: [embed], files: [file] });
+            await message.channel.send({ embeds: [embed], files: [file] })
 
             await client_db.close();
         } catch (error) {
