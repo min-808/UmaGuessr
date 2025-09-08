@@ -115,7 +115,6 @@ async function pushServerCount() {
 
 async function refreshUsernames() {
     try {
-
         const client = new MongoClient(uri);
         const database = client.db("uma");
         const ids = database.collection("stats");
@@ -131,6 +130,7 @@ async function refreshUsernames() {
         let listOfDocuments = await ids.find({}, options).toArray();
         
         for (let doc of listOfDocuments) {
+            await new Promise(resolve => setTimeout(resolve, 800)) // add delay to respect rate limits
             const foundID = doc.discord_id;
 
             const response = await fetch(`https://discord.com/api/v10/users/${foundID}`, {
@@ -160,7 +160,7 @@ async function refreshUsernames() {
 
                 await ids.updateOne({discord_id: doc.discord_id}, updateValues)
 
-                console.log(`updated usernames: ${doc.discord_id} - ${retUsername}`)
+                console.log(`Updated usernames: ${doc.discord_id} - ${retUsername}`)
             }
         }
 
@@ -247,7 +247,7 @@ client.on('ready', async () => {
 
     cron.schedule('0 0 * * *', async () => {
         try {
-            // await refreshUsernames()
+            await refreshUsernames();
             await resetDaily();
             await pushServerCount();
         } catch (error) {
