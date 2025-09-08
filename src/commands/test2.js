@@ -63,10 +63,10 @@ module.exports = {
 
             console.log(`Found registration: ${username} at ${signupDate}`);
 
-            //await collection.updateOne(
-              //{ username: username },
-              //{ $set: { signup: signupDate } }
-            //);
+            await collection.updateOne(
+              { username: username },
+              { $set: { signup: signupDate } }
+            );
           }
             } catch (err) {
               console.error(err);
