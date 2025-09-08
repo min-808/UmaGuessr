@@ -33,26 +33,11 @@ module.exports = {
             const user = message.author;
             var discordID = BigInt(user.id)
 
-            const response = await fetch(`https://discord.com/api/v10/users/${discordID}`, {
-                headers: {
-                    'Authorization': 'Bot ' + process.env.TOKEN
-                }
-            });
-
-            const parse = await response.json();
-
-            let returnedUsername = String(parse?.username ?? 'Unknown');
-            let returnedDiscriminator = String(parse?.discriminator ?? 'Unknown')
-
-            if (returnedDiscriminator === "0") {
-              returnedDiscriminator = "";
-            }
-
               const result = await ids.updateMany(
                 { }, // match all documents
                 {
                   $set: {
-                    vote_timer: 0
+                    signup: ""
                   }
                   /*
                   ,

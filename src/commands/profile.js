@@ -59,6 +59,7 @@ module.exports = {
                         times: 1,
                         inventory: 1,
                         username: 1,
+                        signup: 1,
                     }
                 });
 
@@ -82,6 +83,7 @@ module.exports = {
                         times: 1,
                         inventory: 1,
                         username: 1,
+                        signup: 1,
                     }
                 });
 
@@ -99,7 +101,7 @@ module.exports = {
 
             const rank = allUsers.findIndex(entry => entry.discord_id.toString() === discordID.toString()) + 1;
 
-            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times } = data;
+            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, signup } = data;
 
             let quickest;
             let avg;
@@ -149,6 +151,8 @@ module.exports = {
                     value: `Top streak: **${top_streak}**\nCurrent streak: **${streak}**`,
                 }
             );
+
+            embed.setFooter({ text: signup })
 
             await message.channel.send({ embeds: [embed], files: [file] });
 

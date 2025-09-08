@@ -10,6 +10,7 @@ module.exports = {
 
         var database = client_db.db(db);
         var ids = database.collection(collection)
+        const date = new Date()
 
         const response = await fetch(`https://discord.com/api/v10/users/${id}`, {
                 headers: {
@@ -44,6 +45,7 @@ module.exports = {
             votes: 0,
             username: retUsername + retDiscriminator,
             vote_timer: 0,
+            signup: date.toISOString(),
         }
     
         const result = await ids.insertOne(doc);
