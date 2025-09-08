@@ -18,21 +18,21 @@ module.exports = {
 
             embed = new EmbedBuilder()
                 .setColor('LightGrey')
-                .setTitle("List of Umas")
+                .setTitle("List of Umas (# of pics)")
                 .addFields(
                     {
                         name: "__Global__",
-                        value: globalList.map(c => c.proper).join("\n") || "N/A",
+                        value: globalList.map(c => `${c.proper} **(${c.images.length})**`).join("\n") || "N/A",
                         inline: true
                     },
                     {
                         name: "__Japan__",
-                        value: firstHalfJP.map(c => c.proper).join("\n") || "N/A",
+                        value: firstHalfJP.map(c => `${c.proper} **(${c.images.length})**`).join("\n") || "N/A",
                         inline: true
                     },
                     {
                         name: "​",
-                        value: secondHalfJP.map(c => c.proper).join("\n") || "N/A",
+                        value: secondHalfJP.map(c => `${c.proper} **(${c.images.length})**`).join("\n") || "N/A",
                         inline: true
                     },
                 )

@@ -117,7 +117,7 @@ module.exports = {
                 avg = '**n/a**'
             } else if (quickest_answer != 0 && times.length < 5) { // A few guesses
                 quickest = `${(quickest_answer / 1000).toFixed(2)} sec`
-                avg = `**n/a**\n\\- *(Correctly guess ${5 - times.length} more times to get an average)*`
+                avg = `**n/a**\n\\- *(Correctly guess ${5 - times.length} more times to get an average time)*`
             } else {
                 quickest = `${(quickest_answer / 1000).toFixed(2)} sec`
                 const sum = times.reduce((a, b) => a + b, 0)
