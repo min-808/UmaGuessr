@@ -158,7 +158,7 @@ module.exports = {
                 }
             );
 
-            embed.setFooter({ text: `First played on ${utcDate} at ${utcTime} UTC` })
+            embed.setFooter({ text: `Joined on ${utcDate} at ${utcTime} UTC` })
 
             await message.channel.send({ embeds: [embed], files: [file] })
 
