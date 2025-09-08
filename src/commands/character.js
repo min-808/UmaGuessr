@@ -18,6 +18,7 @@ module.exports = {
             let found = false
             var id
             var charName
+            var region
 
             const embed = new EmbedBuilder()
                 .setColor('LightGrey')
@@ -33,6 +34,22 @@ module.exports = {
                     if (id == 0) {
                         found = false
                         break
+                    }
+
+                    // Made it here, so the char was found. Locate in which list it was found in
+
+                    for (let j = 0; j < globalList.length; j++) {
+                        if (globalList[j]["number"] == id) {
+                            region = "Global"
+                            break
+                        }
+                    }
+
+                    for (let h = 0; h < JPList.length; h++) {
+                        if (JPList[h]["number"] == id) {
+                            region = "Japan"
+                            break
+                        }
                     }
 
                     const fetch = (await import("node-fetch")).default
@@ -62,6 +79,10 @@ module.exports = {
                         {
                             name: `Facts`,
                             value: `Ears: ${data['ears_fact'] ?? 'N/A'}\nTail: ${data['tail_fact'] ?? 'N/A'}\nFamily: ${data['family_fact'] ?? 'N/A'}`,
+                        },
+                        {
+                            name: `Region`,
+                            value: `${region}`,
                         },
                     )
 
