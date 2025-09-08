@@ -56,7 +56,7 @@ module.exports = {
                     const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
                     const data = await res.json()
 
-                    embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/xeLjrlm.png') // fallback on backup image
+                    embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/sZgfUKW.png') // fallback on backup image
                     embed.setColor(data['color_main'] ?? 'LightGrey')
                     embed.setTitle(`**${properName ?? 'N/A'}**`) // grab from bothlists instead of api
                     embed.setDescription(`*"${data['profile'] ?? 'N/A'}"*`)

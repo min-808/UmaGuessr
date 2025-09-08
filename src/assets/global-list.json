@@ -227,7 +227,7 @@
     "id": "winningticket",
     "number": 5213,
     "proper": "Winning Ticket",
-    "names": ["winningticket", "ticket", "ウイニングチケット", "チケゾー"],
+    "names": ["winningticket", "ticket", "tickezo", "ウイニングチケット", "チケゾー"],
     "images": ["winningticket1.jpg", "winningticket2.jpg", "winningticket3.jpg", "winningticket4.jpg", "winningticket5.jpg", "winningticket6.jpg", "winningticket7.jpg"]
   }
 ]

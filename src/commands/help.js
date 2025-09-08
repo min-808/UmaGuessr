@@ -81,11 +81,13 @@ module.exports = {
                             "`!skip`" + " - " + "Skip the current character" + "\n" +
                             "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
                             "`!vote`" + " - " + "Pull up the bot's vote link" + "\n" +
-                            "`!redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n\n" +
+                            "`!redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n" +
+                            "\n" +
                             "**__Profile__**" + "\n" +
-                            "`!profile`" + " - " + "Check your profile" + "\n" +
+                            "`!profile (username/id)`" + " - " + "Check a player's profile" + "\n" +
                             "`!lb (points/wins/daily/streak/time/fast)`" + " - " + "Global leaderboards" + "\n" +
                             "`!char (uma name)`" + " - " + "View an uma's profile" + "\n" +
+                            "`!charlist`" + " - " + "View the current list of umas in the bot" + "\n" +
                             "\n" + 
                             "**__Misc.__**" + "\n" +
                             "`!help`" + " - " + "Command information" + "\n" +
