@@ -1,12 +1,22 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require('discord.js');
 
-module.exports = async (message, pages, time = 75 * 1000) => {
+module.exports = async (source, pages, time = 75 * 1000) => {
     try {
-        if (!message || !Array.isArray(pages) || pages.length === 0)
+        if (!source || !Array.isArray(pages) || pages.length === 0)
             throw new Error("invalid arguments");
 
+        const edit = async (content) => { // helper function. can be either message or interaction
+            if (source.editReply) { // interaction
+                return await source.editReply(content);
+            } else if (source.edit) { // message
+                return await source.edit(content);
+            } else {
+                throw new Error("Invalid source for pagination");
+            }
+        };
+
         if (pages.length === 1) {
-            return await message.edit({
+            return await edit({
                 embeds: [pages[index].embed],
                 components: [],
                 content: null,
@@ -39,7 +49,7 @@ module.exports = async (message, pages, time = 75 * 1000) => {
         const row = new ActionRowBuilder().addComponents(front, prev, next, end);
         let index = 0;
 
-        const msg = await message.edit({
+        const msg = await edit({
             embeds: [pages[index].embed],
             components: [row],
             content: null,
@@ -76,7 +86,7 @@ module.exports = async (message, pages, time = 75 * 1000) => {
             next.setDisabled(index === pages.length - 1);
             end.setDisabled(index === pages.length - 1);
 
-            await msg.edit({
+            await edit({
                 embeds: [pages[index].embed],
                 components: [row],
                 ...(pages[index].file ? { files: [{ attachment: pages[index].file }] } : {})
@@ -86,7 +96,7 @@ module.exports = async (message, pages, time = 75 * 1000) => {
         });
 
         collector.on('end', async () => {
-            await msg.edit({
+            await edit({
                 embeds: [pages[index].embed],
                 components: [],
                 ...(pages[index].file ? { files: [{ attachment: pages[index].file }] } : {})
