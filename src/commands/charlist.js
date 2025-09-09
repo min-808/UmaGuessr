@@ -3,7 +3,7 @@ const { EmbedBuilder } = require('discord.js');
 module.exports = {
     name: 'charlist',
     aliases: ['characterlist', 'clist', 'cl'],
-    description: 'Shows all umas that have been added to the bot',
+    description: 'Shows all umas that have been added to the bot and their picture counts',
     
     run: async ({ message }) => {
 
