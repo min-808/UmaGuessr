@@ -292,7 +292,7 @@ module.exports = {
 
                 const userGuess = msg.content.trim().toLowerCase().replace(/\s+/g, '')
 
-                if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s')) && (msg.author.id === user.id)) { // Skipped. Note that to skip, you have to be the author of the message, so this should work ok
+                if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s') || (userGuess === 'skip')) && (msg.author.id === user.id)) { // Skipped. Note that to skip, you have to be the author of the message, so this should work ok
                     messageCollector.stop()
                     collector.stop()
 

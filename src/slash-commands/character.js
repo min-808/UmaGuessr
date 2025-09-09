@@ -95,6 +95,11 @@ module.exports = {
 
                     const fetch = (await import("node-fetch")).default
                     const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
+
+                    if (!res.ok) {
+                            console.error(`API returned ${res.status}: ${res.statusText}`);
+                            return interaction.editReply(`Error fetching character data`);
+                    }
                     const data = await res.json()
 
                     embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/sZgfUKW.png') // fallback on backup image
