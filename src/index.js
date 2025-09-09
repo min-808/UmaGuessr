@@ -48,30 +48,42 @@ const exemptUsers = new Set([
 
 const client = new Client({
     intents: [
+        IntentsBitField.Flags.Guilds,             // required for guild-related events
+        IntentsBitField.Flags.GuildMessages,      // required for messageCreate in guilds
         IntentsBitField.Flags.MessageContent,
     ],
 });
 
 client.prefixCache = prefixCache
 
-client.commands = new Collection();
-
+client.prefixCommands = new Collection();
+client.slashCommands = new Collection();
 
 new CommandHandler({
     client,
-    commandsPath: path.join(__dirname, 'commands-2'),
-    testServer: process.env.GUILD_ID
+    commandsPath: path.join(__dirname, 'slash-commands'),
+    // testServer: process.env.GUILD_ID
 });
 
-const commandPath = path.join(__dirname, 'commands-2')
+const prefixCommandPath = path.join(__dirname, 'commands')
+const slashCommandPath = path.join(__dirname, 'slash-commands')
+const prefixCommandFiles = fs.readdirSync(prefixCommandPath).filter(file => file.endsWith('.js'));
+const slashCommandFiles = fs.readdirSync(slashCommandPath).filter(file => file.endsWith('.js'));
 
-const commandFiles = fs.readdirSync(commandPath).filter(file => file.endsWith('.js'));
-for (const file of commandFiles) {
-    const filePath = path.join(commandPath, file)
-    const command = require(filePath)
+for (const file of prefixCommandFiles) {
+    const command = require(path.join(prefixCommandPath, file));
 
-    client.commands.set(command.data.name, command)
+    client.prefixCommands.set(command.name, command);
 }
+
+for (const file of slashCommandFiles) {
+    const command = require(path.join(slashCommandPath, file))
+
+    client.slashCommands.set(command.name, command)
+}
+
+console.table(client.prefixCommands)
+console.table(client.slashCommands)
 
 async function resetDaily() {
     var client = new MongoClient(uri)
@@ -226,8 +238,8 @@ client.on('messageCreate', async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/);
     const cmdName = args.shift().toLowerCase();
 
-    const command = client.commands.get(cmdName) ||
-    client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(cmdName)) // incl aliases
+    const command = client.prefixCommands.get(cmdName) ||
+    client.prefixCommands.find(cmd => cmd.aliases && cmd.aliases.includes(cmdName)) // incl aliases
 
     if (!command) return;
 
@@ -250,16 +262,18 @@ client.on('messageCreate', async message => {
 });
 
 client.on('interactionCreate', async (interaction) => {
-    if (!interaction.isChatInputCommand()) return;
+    if (interaction.isAutocomplete()) {
+        const command = interaction.client.slashCommands.get(interaction.commandName)
 
-    const command = client.commands.get(interaction.commandName);
-    if (!command) return;
+        if (!command || !command.autocomplete) {
+            return;
+        }
 
-    try {
-        await command.execute({ interaction, client });
-    } catch (err) {
-        console.error(err);
-        await interaction.reply({ content: "There was an error executing this command.", ephemeral: true });
+        try {
+            await command.autocomplete(interaction)
+        } catch (err) {
+            return;
+        }
     }
 });
 
