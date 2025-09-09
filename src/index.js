@@ -8,6 +8,7 @@ const path = require('path');
 const cron = require('node-cron');
 const { MongoClient } = require('mongodb');
 const { buildCache } = require("./cache-images.js");
+const { CommandHandler } = require('djs-commander');
 
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
@@ -47,20 +48,29 @@ const exemptUsers = new Set([
 
 const client = new Client({
     intents: [
-        IntentsBitField.Flags.Guilds,
-        IntentsBitField.Flags.GuildMessages,
         IntentsBitField.Flags.MessageContent,
-        IntentsBitField.Flags.GuildMembers,
     ],
 });
 
 client.prefixCache = prefixCache
+
 client.commands = new Collection();
 
-const commandFiles = fs.readdirSync(path.join(__dirname, 'commands')).filter(file => file.endsWith('.js'));
+
+new CommandHandler({
+    client,
+    commandsPath: path.join(__dirname, 'commands-2'),
+    testServer: process.env.GUILD_ID
+});
+
+const commandPath = path.join(__dirname, 'commands-2')
+
+const commandFiles = fs.readdirSync(commandPath).filter(file => file.endsWith('.js'));
 for (const file of commandFiles) {
-    const command = require(`./commands/${file}`);
-    client.commands.set(command.name, command);
+    const filePath = path.join(commandPath, file)
+    const command = require(filePath)
+
+    client.commands.set(command.data.name, command)
 }
 
 async function resetDaily() {
@@ -236,6 +246,20 @@ client.on('messageCreate', async message => {
         await command.run({ message, args, client });
     } catch (err) {
         console.error(err);
+    }
+});
+
+client.on('interactionCreate', async (interaction) => {
+    if (!interaction.isChatInputCommand()) return;
+
+    const command = client.commands.get(interaction.commandName);
+    if (!command) return;
+
+    try {
+        await command.execute({ interaction, client });
+    } catch (err) {
+        console.error(err);
+        await interaction.reply({ content: "There was an error executing this command.", ephemeral: true });
     }
 });
 

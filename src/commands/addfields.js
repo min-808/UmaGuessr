@@ -33,11 +33,26 @@ module.exports = {
             const user = message.author;
             var discordID = BigInt(user.id)
 
+            const response = await fetch(`https://discord.com/api/v10/users/${discordID}`, {
+                headers: {
+                    'Authorization': 'Bot ' + process.env.TOKEN
+                }
+            });
+
+            const parse = await response.json();
+
+            let returnedUsername = String(parse?.username ?? 'Unknown');
+            let returnedDiscriminator = String(parse?.discriminator ?? 'Unknown')
+
+            if (returnedDiscriminator === "0") {
+              returnedDiscriminator = "";
+            }
+
               const result = await ids.updateMany(
                 { }, // match all documents
                 {
                   $set: {
-                    signup: ""
+                    vote_timer: 0
                   }
                   /*
                   ,
@@ -78,13 +93,16 @@ module.exports = {
         await message.channel.send({ embeds: [embed] });
 
       } catch (error) {
-            console.log(error.rawError.message) // log error
+          const msg = error?.rawError?.message || error?.message || String(error);
+          console.error("Main uma error:", msg);
 
-            try {
-                await message.channel.send(`Unable to send embed: **${error.rawError.message}**\n\nPlease check the bot's permissions and try again`)
-            } catch (error) {
-                console.log(`Unable to send message: ${error.rawError.message}`)
-            }
-        }
+          try {
+              await message.channel.send(
+                  `Unable to send embed: **${msg}**\n\nPlease check the bot's permissions and try again`
+              );
+          } catch (sendErr) {
+              console.error("Unable to send error message:", sendErr?.message || sendErr);
+          }
+      }
     }
 }
