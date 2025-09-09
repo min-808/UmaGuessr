@@ -109,7 +109,8 @@ module.exports = {
                             "`/stats`" + " - " + "Bot stats" + "\n" +
                             "`/uptime`" + " - " + "Bot uptime" + "\n" +
                             "`/ping`" + " - " + "Pong!" + "\n" + "\n" +
-                            "Note that not all the JP umas have been added to the bot. Use ``/missing`` to see the umas that have yet to be added"
+                            "Note that not all the JP umas have been added to the bot. Use ``/missing`` to see the umas that have yet to be added" + "\n" + "\n" +
+                            "Privacy Policy: http://bit.ly/4mahOph"
                         },
                     )
             }
