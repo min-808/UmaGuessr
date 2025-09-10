@@ -103,7 +103,7 @@ module.exports = {
                         const imgPath = path.join(__dirname, `../assets/guessing/${fileName}`)
 
                         if (arr) {
-                            artistName = arr.artworks[j]["artist"] ?? 'N/A'
+                            artistName = arr.artworks[j]["artist"] ?? 'Support Card'
                             artistLink = arr.artworks[j]["external_urls"][0] ?? 'N/A'
                         } else {
                             artistName = "Not found"
