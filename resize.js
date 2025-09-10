@@ -3,7 +3,7 @@ const path = require("path");
 const Jimp = require("jimp");
 
 // Change this to your image folder
-const inputFolder = "C:/Users/kenda/Downloads/upscale_results";
+const inputFolder = "C:/Users/kenda/Downloads/our little secret2 normalized size";
 const outputFolder = inputFolder
 
 const maxWidth = 850;
