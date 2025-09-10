@@ -554,4 +554,4 @@ module.exports = {
 };
 
 module.exports.gameState = gameState
-module.exports.activeChannels
+module.exports.activeChannels = activeChannels

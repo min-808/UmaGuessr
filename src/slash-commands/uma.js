@@ -7,8 +7,7 @@ const setup = require('../../firstinit');
 
 const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
-const gameState = new Map()
-const activeChannels = new Set()
+const { gameState, activeChannels } = require('../commands/uma.js');
 
 const initialBlur = 50 + 1
 
@@ -574,6 +573,3 @@ module.exports = {
         }
     }
 };
-
-module.exports.gameState = gameState
-module.exports.activeChannels
