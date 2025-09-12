@@ -151,7 +151,7 @@ module.exports = {
                             artistLink = "Not found"
                         }
 
-                        const pageEmbed = EmbedBuilder.from(embed).setImage(`attachment://${fileName}`).setFooter({ text: `Artist: ${artistName}` }) // create copy
+                        const pageEmbed = EmbedBuilder.from(embed).setImage(`attachment://${fileName}`).setFooter({ text: `Artist: ${artistName} // (#${j + 1})` }) // create copy
 
                         embeds.push({
                             embed: pageEmbed,

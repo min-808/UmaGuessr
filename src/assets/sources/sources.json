@@ -4995,6 +4995,33 @@
         "service": "danbooru",
         "illustration_id": "9450419",
         "artist": "aoi (07aoi15)"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=91404606"
+        ],
+        "service": "pixiv",
+        "member_id": "2684143",
+        "illustration_id": "91404606",
+        "artist": "秋月"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9325283",
+          "https://gelbooru.com/index.php?page=post&s=view&id=11955571"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9325283",
+        "artist": "suzukatore"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9727874",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12384915"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9727874",
+        "artist": "franz2543"
       }
     ]
   },
