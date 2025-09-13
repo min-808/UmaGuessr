@@ -14,8 +14,11 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 
 const prefixCache = new Map()
 const cooldowns = new Map()
-const votes = new Set()
 const COOLDOWN = 3000
+
+var globalList = require('./assets/global-list.json')
+var JPList = require('./assets/jp-list.json')
+var combinedList = globalList.concat(JPList)
 
 // save error logs
 const logFile = fs.createWriteStream(path.join(__dirname, 'bot.log'), { flags: 'a' });
@@ -84,6 +87,10 @@ for (const file of slashCommandFiles) {
 
 console.table(client.prefixCommands)
 console.table(client.slashCommands)
+
+// importing commands to top.gg
+// const commandsArray = [...client.slashCommands.values()].map(cmd => cmd.data.toJSON());
+// console.log(JSON.stringify(commandsArray, null, 2));
 
 async function resetDaily() {
     var client = new MongoClient(uri)
@@ -224,6 +231,32 @@ async function getPrefix(guildId) { // This will be called everytime a potential
     return prefix
 }
 
+function checkImages(data, folderPath) {
+    const expectedImages = new Set();
+    data.forEach(obj => {
+        obj.images.forEach(img => expectedImages.add(img));
+    });
+
+    const actualImages = new Set(fs.readdirSync(folderPath));
+
+    const missing = [...expectedImages].filter(img => !actualImages.has(img));
+
+    const extras = [...actualImages].filter(img => !expectedImages.has(img));
+
+    if (missing.length === 0 && extras.length === 0) {
+        console.log("Image check: All images are accounted for");
+    } else {
+        if (missing.length > 0) {
+            console.log("Image check: Missing images (listed in JSON but not found in folder):");
+            console.log(missing.join('\n'));
+        }
+        if (extras.length > 0) {
+            console.log("Image check: Extra images (in folder but not listed in JSON):");
+            console.log(extras.join('\n'));
+        }
+    }
+}
+
 client.on('messageCreate', async message => {
     if (message.author.bot) {
       return;
@@ -315,6 +348,8 @@ async function setUptime() {
 
         await buildCache();
         await loadPrefixes();
+
+        checkImages(combinedList, path.join(__dirname, "./assets/guessing"))
 
         client.login(process.env.TOKEN);
     } catch (error) {

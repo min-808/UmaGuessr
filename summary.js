@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const Jimp = require("jimp");
 
-const inputFolder = "C:/Users/kenda/Desktop/sources2";
+const inputFolder = "C:/Users/kenda/Downloads/happy meek";
 
 const widthStats = {};
 const extensionCounts = {};
