@@ -4,7 +4,7 @@
     "number": 5191,
     "proper": "Admire Vega",
     "names": ["admirevega", "ayabe", "ayave", "vega", "アドマイヤベガ", "アヤベ"],
-    "images": ["admirevega1.jpg", "admirevega2.jpg", "admirevega3.jpg", "admirevega4.jpg", "admirevega5.jpg", "admirevega6.jpg"]
+    "images": ["admirevega1.jpg", "admirevega2.jpg", "admirevega3.jpg", "admirevega4.jpg", "admirevega5.jpg", "admirevega6.jpg", "admirevega7.jpg"]
     },
     {
     "id": "airmessiah",
@@ -88,7 +88,7 @@
     "number": 7520,
     "proper": "Cheval Grand",
     "names": ["chevalgrand", "cheval", "grand", "chevacchi", "シュヴァルグラン", "シュヴァル"],
-    "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg", "chevalgrand6.jpg", "chevalgrand7.jpg"]
+    "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg", "chevalgrand6.jpg", "chevalgrand7.jpg", "chevalgrand8.jpg", "chevalgrand9.jpg", "chevalgrand10.jpg"]
     },
     {
     "id": "chronogenesis",
@@ -193,14 +193,14 @@
     "number": 10377,
     "proper": "Fusaichi Pandora",
     "names": ["fusaichipandora", "fusaichi", "pandora", "フサイチパンドラ", "フサイチ", "パンドラ"],
-    "images": ["fusaichipandora1.jpg", "fusaichipandora2.jpg", "fusaichipandora3.jpg", "fusaichipandora4.jpg", "fusaichipandora5.jpg", "fusaichipandora6.jpg", "fusaichipandora7.jpg", "fusaichipandora8.jpg", "fusaichipandora9.jpg"]
+    "images": ["fusaichipandora1.jpg", "fusaichipandora2.jpg", "fusaichipandora3.jpg", "fusaichipandora4.jpg", "fusaichipandora5.jpg", "fusaichipandora6.jpg", "fusaichipandora7.jpg", "fusaichipandora8.jpg"]
     },
     {
     "id": "gentildonna",
     "number": 10337,
     "proper": "Gentildonna",
     "names": ["gentildonna", "ジェンティルドンナ"],
-    "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg", "gentildonna4.jpg", "gentildonna5.jpg"]
+    "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg", "gentildonna4.jpg", "gentildonna5.jpg", "gentildonna6.jpg"]
     },
     {
     "id": "goldcity",
@@ -326,7 +326,7 @@
     "number": 5544,
     "proper": "Matikanetannhauser",
     "names": ["matikanetannhauser", "matikanetannhäuser", "mambo", "tannhauser", "machitan", "omachi", "マチカネタンホイザ", "タンホイザ", "マチタン", "おマチ"],
-    "images": ["matikanetannhauser1.jpg", "matikanetannhauser2.jpg", "matikanetannhauser3.jpg", "matikanetannhauser4.jpg", "matikanetannhauser5.jpg"]
+    "images": ["matikanetannhauser1.jpg", "matikanetannhauser2.jpg", "matikanetannhauser3.jpg", "matikanetannhauser4.jpg", "matikanetannhauser5.jpg", "matikanetannhauser6.jpg", "matikanetannhauser7.jpg", "matikanetannhauser8.jpg"]
     },
     {
     "id": "meishodoto",
@@ -340,7 +340,7 @@
     "number": 5528,
     "proper": "Mejiro Ardan",
     "names": ["mejiroardan", "ardan", "メジロアルダン", "アルダン"],
-    "images": ["mejiroardan1.jpg", "mejiroardan2.jpg", "mejiroardan3.jpg", "mejiroardan4.jpg", "mejiroardan5.jpg"]
+    "images": ["mejiroardan1.jpg", "mejiroardan2.jpg", "mejiroardan3.jpg", "mejiroardan4.jpg", "mejiroardan5.jpg", "mejiroardan6.jpg"]
     },
     {
     "id": "mejirobright",
@@ -396,7 +396,7 @@
     "number": 8730,
     "proper": "Neo Universe",
     "names": ["neouniverse", "universe", "yuni", "neo", "ネオユニヴァース", "ユニヴァース", "ユニ"],
-    "images": ["neouniverse1.jpg", "neouniverse2.jpg", "neouniverse3.jpg", "neouniverse4.jpg", "neouniverse5.jpg", "neouniverse6.jpg", "neouniverse7.jpg"]
+    "images": ["neouniverse1.jpg", "neouniverse2.jpg", "neouniverse3.jpg", "neouniverse4.jpg", "neouniverse5.jpg", "neouniverse6.jpg", "neouniverse7.jpg", "neouniverse8.jpg"]
     },
     {
     "id": "nishinoflower",
@@ -494,7 +494,7 @@
     "number": 10393,
     "proper": "Stay Gold",
     "names": ["staygold", "stay", "stego", "ステイゴールド", "ステゴ"],
-    "images": ["staygold1.jpg", "staygold2.jpg", "staygold3.jpg", "staygold4.jpg", "staygold5.jpg", "staygold6.jpg", "staygold7.jpg", "staygold8.jpg"]
+    "images": ["staygold1.jpg", "staygold2.jpg", "staygold3.jpg", "staygold4.jpg", "staygold5.jpg", "staygold6.jpg", "staygold7.jpg", "staygold8.jpg", "staygold9.jpg"]
     },
     {
     "id": "stillinlove",
@@ -578,7 +578,7 @@
     "number": 10013,
     "proper": "Vivlos",
     "names": ["vivlos", "ヴィブロス"],
-    "images": ["vivlos1.jpg", "vivlos2.jpg", "vivlos3.jpg", "vivlos4.jpg", "vivlos5.jpg", "vivlos6.jpg", "vivlos7.jpg", "vivlos8.jpg", "vivlos9.jpg"]
+    "images": ["vivlos1.jpg", "vivlos2.jpg", "vivlos3.jpg", "vivlos4.jpg", "vivlos5.jpg", "vivlos6.jpg", "vivlos7.jpg", "vivlos8.jpg", "vivlos9.jpg", "vivlos10.jpg"]
     },
     {
     "id": "winvariation",
