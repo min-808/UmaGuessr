@@ -184,7 +184,18 @@ module.exports = {
 
             const sentMsg = await message.channel.send({ files: [file], components: [row], embeds: [embed] })
 
-            gameState.set(sentMsg.id, { // the start of the gameState set
+            // const filter = (i) => i.user.id === message.author.id
+
+            const collector = sentMsg.createMessageComponentCollector({
+                componentType: ComponentType.Button,
+                time: 60_000
+            });
+
+            const messageCollector = sentMsg.channel.createMessageCollector({
+                time: 60_000
+            });
+            
+            gameState.set(sentMsg.id, { // the start of the gameState set w/ the first edit
                 blurLevel: initialBlur,
                 imageName: chooseImg,
                 values: list[chooseChar]["names"],
@@ -194,13 +205,6 @@ module.exports = {
                 hintsUsed: 0,
                 startTime: Date.now(),
             })
-
-            // const filter = (i) => i.user.id === message.author.id
-
-            const collector = sentMsg.createMessageComponentCollector({
-                componentType: ComponentType.Button,
-                time: 60_000
-            });
 
             collector.on('collect', async (interaction) => { // Everytime the hint button is pressed
               try {
@@ -269,10 +273,6 @@ module.exports = {
                 return;
               }
             })
-
-            const messageCollector = sentMsg.channel.createMessageCollector({
-                time: 60_000
-            });
 
             setTimeout(() => {
                 if (gameState.has(sentMsg.id)) {
@@ -348,7 +348,7 @@ module.exports = {
                     return
                 }
 
-                if (state.values.includes(userGuess) || state.ids == userGuess) { // Got it right
+                if (state.values.includes(userGuess)) { // Got it right
                     messageCollector.stop()
                     collector.stop()
 

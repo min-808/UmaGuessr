@@ -65,7 +65,7 @@ client.slashCommands = new Collection();
 new CommandHandler({
     client,
     commandsPath: path.join(__dirname, 'slash-commands'),
-    testServer: process.env.GUILD_ID
+    // testServer: process.env.GUILD_ID
 });
 
 const prefixCommandPath = path.join(__dirname, 'commands')
