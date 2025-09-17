@@ -70,6 +70,13 @@
     "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg", "haruurara4.jpg", "haruurara5.jpg", "haruurara6.jpg", "haruurara7.jpg", "haruurara8.jpg", "haruurara9.jpg", "haruurara10.jpg", "haruurara11.jpg", "haruurara12.jpg"]
   },
   {
+    "id": "hishiamazon",
+    "number": 4951,
+    "proper": "Hishi Amazon",
+    "names": ["hishiamazon", "hishiama", "amazon", "ヒシアマゾン", "ヒシアマ"],
+    "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg", "hishiamazon4.jpg", "hishiamazon5.jpg"]
+  },
+  {
     "id": "kinghalo",
     "number": 5497,
     "proper": "King Halo",

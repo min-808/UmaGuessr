@@ -224,13 +224,6 @@
     "images": ["hishiakebono1.jpg", "hishiakebono2.jpg", "hishiakebono3.jpg", "hishiakebono4.jpg", "hishiakebono5.jpg", "hishiakebono6.jpg", "hishiakebono7.jpg", "hishiakebono8.jpg"]
     },
     {
-    "id": "hishiamazon",
-    "number": 4951,
-    "proper": "Hishi Amazon",
-    "names": ["hishiamazon", "hishiama", "amazon", "ヒシアマゾン", "ヒシアマ"],
-    "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg", "hishiamazon4.jpg", "hishiamazon5.jpg"]
-    },
-    {
     "id": "hishimiracle",
     "number": 8739,
     "proper": "Hishi Miracle",
