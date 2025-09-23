@@ -23,8 +23,8 @@ module.exports = {
 
         const channelID = message.channel.id;
         const user = message.author;
-        const cacheDir = path.join(__dirname, "../assets/cache")
-        const originDir = path.join(__dirname, "../assets/guessing")
+        var cacheDir = path.join(__dirname, "../assets/cache")
+        var originDir = path.join(__dirname, "../assets/guessing")
 
         var d = new Date();
 
@@ -72,6 +72,12 @@ module.exports = {
                 } else if ((args.length > 0) && ((args[0].toLowerCase().includes("j")) || (args[0].toLowerCase().includes("jp")))) {
                     list = require('../../src/assets/jp-list.json')
                     type = "Japan"
+
+                    initialPointsJP = 25 + 1
+                    minusPointsJP = 5
+                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("h")) || (args[0].toLowerCase().includes("horse")))) {
+                    list = require('../../src/assets/horse-list.json')
+                    type = "Horse"
 
                     initialPointsJP = 25 + 1
                     minusPointsJP = 5
@@ -157,8 +163,15 @@ module.exports = {
             // so like, 51-image_name(num).jpg
 
             try {
-                var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
-                var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
+                if (type != "Horse") { // set special image directory for irl horse guessing
+                    var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
+                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
+                } else {
+                    originDir = path.join(__dirname, "../assets/horses")
+
+                    var imagePath = path.join(originDir, `${chooseImg}`); // check for existence
+                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
+                }
             } catch (err) {
                 await message.channel.send('There was an error with the image. Skipped');
                 console.error('Image file error:', err);
@@ -172,8 +185,10 @@ module.exports = {
                 .setLabel('Hint')
                 .setStyle(ButtonStyle.Primary);
 
-            const row = new ActionRowBuilder()
-                .addComponents(hint)
+            if (type != "Horse") {
+                var row = new ActionRowBuilder()
+                  .addComponents(hint)
+            }
 
             const embed = new EmbedBuilder()
                 .setTitle(`Guess the Uma`)
@@ -182,7 +197,11 @@ module.exports = {
 
             embed.setDescription(`Started by ${user}\n\nServer: ${type}`)
 
-            const sentMsg = await message.channel.send({ files: [file], components: [row], embeds: [embed] })
+            if (type != "Horse") {
+                var sentMsg = await message.channel.send({ files: [file], components: [row], embeds: [embed] })
+            } else {
+                var sentMsg = await message.channel.send({ files: [file], embeds: [embed] })
+            }
 
             // const filter = (i) => i.user.id === message.author.id
 
@@ -205,6 +224,8 @@ module.exports = {
                 hintsUsed: 0,
                 startTime: Date.now(),
             })
+
+            // No hint button interaction for horses, so this will be skipped
 
             collector.on('collect', async (interaction) => { // Everytime the hint button is pressed
               try {
