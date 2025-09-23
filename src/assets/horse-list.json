@@ -1,0 +1,240 @@
+[
+  {
+    "id": "agnestachyon",
+    "number": 5179,
+    "proper": "Agnes Tachyon",
+    "names": ["agnestachyon", "tachyon", "アグネスタキオン", "タキオン"],
+    "images": ["agnestachyon1.jpg", "agnestachyon2.jpg", "agnestachyon3.jpg"]
+  },
+  {
+    "id": "airgroove",
+    "number": 5021,
+    "proper": "Air Groove",
+    "names": ["airgroove", "groove", "エアグルーヴ"],
+    "images": ["airgroove1.jpg", "airgroove2.jpg", "airgroove3.jpg"]
+  },
+  {
+    "id": "biwahayahide",
+    "number": 5077,
+    "proper": "Biwa Hayahide",
+    "names": ["biwahayahide", "hayahide", "biwa", "ビワハヤヒデ", "ハヤヒデ"],
+    "images": ["biwahayahide1.jpg", "biwahayahide2.jpg", "biwahayahide3.jpg"]
+  },
+  {
+    "id": "currenchan",
+    "number": 5247,
+    "proper": "Curren Chan",
+    "names": ["currenchan", "curren", "chancurre", "カレンチャン", "カレン", "チャンカーレ"],
+    "images": ["currenchan1.jpg", "currenchan2.jpg", "currenchan3.jpg"]
+  },
+  {
+    "id": "daiwascarlet",
+    "number": 4915,
+    "proper": "Daiwa Scarlet",
+    "names": ["daiwascarlet", "daiwa", "scarlet", "ダイワスカーレット", "スカーレット"],
+    "images": ["daiwascarlet1.jpg", "daiwascarlet2.jpg", "daiwascarlet3.jpg"]
+  },
+  {
+    "id": "elcondorpasa",
+    "number": 4974,
+    "proper": "El Condor Pasa",
+    "names": ["elcondorpasa", "el", "エルコンドルパサー", "エル"],
+    "images": ["elcondorpasa1.jpg", "elcondorpasa2.jpg", "elcondorpasa3.jpg"]
+  },
+  {
+    "id": "goldship",
+    "number": 4891,
+    "proper": "Gold Ship",
+    "names": ["goldship", "golshi", "goldshi", "golpippi", "ゴールドシップ", "ゴルシ"],
+    "images": ["goldship1.jpg", "goldship2.jpg", "goldship3.jpg"]
+  },
+  {
+    "id": "grasswonder",
+    "number": 4939,
+    "proper": "Grass Wonder",
+    "names": ["grasswonder", "grass", "グラスワンダー", "グラス"],
+    "images": ["grasswonder1.jpg", "grasswonder2.jpg", "grasswonder3.jpg"]
+  },
+  {
+    "id": "haruurara",
+    "number": 5404,
+    "proper": "Haru Urara",
+    "names": ["haruurara", "urara", "ハルウララ", "ウララ"],
+    "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg"]
+  },
+  {
+    "id": "hishiamazon",
+    "number": 4951,
+    "proper": "Hishi Amazon",
+    "names": ["hishiamazon", "hishiama", "amazon", "ヒシアマゾン", "ヒシアマ"],
+    "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg"]
+  },
+  {
+    "id": "kinghalo",
+    "number": 5497,
+    "proper": "King Halo",
+    "names": ["kinghalo", "king", "halo", "キングヘイロー", "キング"],
+    "images": ["kinghalo1.jpg", "kinghalo2.jpg"]
+  },
+  {
+    "id": "maruzensky",
+    "number": 4844,
+    "proper": "Maruzensky",
+    "names": ["maruzensky", "maruzen", "マルゼンスキー", "マルゼン"],
+    "images": ["maruzensky1.jpg"]
+  },
+  {
+    "id": "matikanefukukitaru",
+    "number": 5451,
+    "proper": "Matikanefukukitaru",
+    "names": ["matikanefukukitaru", "fuku", "fukukitaru", "マチカネフクキタル", "フクキタル", "フク"],
+    "images": ["matikanefukukitaru1.jpg", "matikanefukukitaru2.jpg"]
+  },
+  {
+    "id": "mayanotopgun",
+    "number": 5088,
+    "proper": "Mayano Top Gun",
+    "names": ["mayanotopgun", "mayano", "maya", "マヤノトップガン", "マヤノ", "マヤ"],
+    "images": ["mayanotopgun1.jpg", "mayanotopgun2.jpg", "mayanotopgun3.jpg"]
+  },
+  {
+    "id": "mejiromcqueen",
+    "number": 4962,
+    "proper": "Mejiro McQueen",
+    "names": ["mejiromcqueen", "mcqueen", "mac", "メジロマックイーン", "マックイーン", "マック"],
+    "images": ["mejiromcqueen1.jpg", "mejiromcqueen2.jpg", "mejiromcqueen3.jpg"]
+  },
+  {
+    "id": "mejiroryan",
+    "number": 5122,
+    "proper": "Mejiro Ryan",
+    "names": ["mejiroryan", "ryan", "メジロライアン", "ライアン"],
+    "images": ["mejiroryan1.jpg"]
+  },
+  {
+    "id": "mihonobourbon",
+    "number": 5111,
+    "proper": "Mihono Bourbon",
+    "names": ["mihonobourbon", "bourbon", "mihono", "ミホノブルボン", "ブルボン"],
+    "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg"]
+  },
+  {
+    "id": "naritabrian",
+    "number": 4997,
+    "proper": "Narita Brian",
+    "names": ["naritabrian", "brian", "ナリタブライアン", "ブライアン"],
+    "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg"]
+  },
+  {
+    "id": "naritataishin",
+    "number": 5382,
+    "proper": "Narita Taishin",
+    "names": ["naritataishin", "taishin", "ナリタタイシン", "タイシン"],
+    "images": ["naritataishin1.jpg", "naritataishin2.jpg"]
+  },
+  {
+    "id": "nicenature",
+    "number": 5485,
+    "proper": "Nice Nature",
+    "names": ["nicenature", "nature", "ナイスネイチャ", "ネイチャ"],
+    "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg"]
+  },
+  {
+    "id": "oguricap",
+    "number": 4879,
+    "proper": "Oguri Cap",
+    "names": ["oguricap", "oguri", "ogurin", "fatty", "オグリキャップ", "オグリ"],
+    "images": ["oguricap1.jpg", "oguricap2.jpg", "oguricap3.jpg"]
+  },
+  {
+    "id": "riceshower",
+    "number": 5156,
+    "proper": "Rice Shower",
+    "names": ["riceshower", "rice", "ライスシャワー", "ライス"],
+    "images": ["riceshower1.jpg", "riceshower2.jpg"]
+  },
+  {
+    "id": "sakurabakushino",
+    "number": 5280,
+    "proper": "Sakura Bakushin O",
+    "names": ["sakurabakushino", "bakushin", "bakushino", "サクラバクシンオー", "バクシン", "バクシンオー"],
+    "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg"]
+  },
+  {
+    "id": "seiunsky",
+    "number": 5044,
+    "proper": "Seiun Sky",
+    "names": ["seiunsky", "sky", "sei", "seiun", "セイウンスカイ", "スカイ", "セイ"],
+    "images": ["seiunsky1.jpg", "seiunsky2.jpg", "seiunsky3.jpg"]
+  },
+  {
+    "id": "silencesuzuka",
+    "number": 4536,
+    "proper": "Silence Suzuka",
+    "names": ["silencesuzuka", "suzuka", "サイレンススズカ", "スズカ"],
+    "images": ["silencesuzuka1.jpg", "silencesuzuka2.jpg", "silencesuzuka3.jpg"]
+  },
+  {
+    "id": "smartfalcon",
+    "number": 5337,
+    "proper": "Smart Falcon",
+    "names": ["smartfalcon", "falko", "falcon", "スマートファルコン", "ファル子", "ファルコン"],
+    "images": ["smartfalcon1.jpg", "smartfalcon2.jpg", "smartfalcon3.jpg"]
+  },
+  {
+    "id": "specialweek",
+    "number": 4737,
+    "proper": "Special Week",
+    "names": ["specialweek", "spe", "spe-chan", "spechan", "special", "スペシャルウィーク", "スペ"],
+    "images": ["specialweek1.jpg", "specialweek2.jpg", "specialweek3.jpg"]
+  },
+  {
+    "id": "supercreek",
+    "number": 5325,
+    "proper": "Super Creek",
+    "names": ["supercreek", "creek", "スーパークリーク", "クリーク"],
+    "images": ["supercreek1.jpg", "supercreek2.jpg"]
+  },
+  {
+    "id": "symbolirudolf",
+    "number": 5009,
+    "proper": "Symboli Rudolf",
+    "names": ["symbolirudolf", "rudolf", "シンボリルドルフ", "ルドルフ"],
+    "images": ["symbolirudolf1.jpg", "symbolirudolf2.jpg", "symbolirudolf3.jpg"]
+  },
+  {
+    "id": "taikishuttle",
+    "number": 4927,
+    "proper": "Taiki Shuttle",
+    "names": ["taikishuttle", "taiki", "タイキシャトル", "タイキ"],
+    "images": ["taikishuttle1.jpg", "taikishuttle2.jpg"]
+  },
+  {
+    "id": "tmoperao",
+    "number": 4986,
+    "proper": "T.M. Opera O",
+    "names": ["tmoperao", "tm", "tmopera", "t.m.operao", "ope", "operao", "t.m.", "t.m", "テイエムオペラオー", "オペラオー", "オペ"],
+    "images": ["tmoperao1.jpg", "tmoperao2.jpg"]
+  },
+  {
+    "id": "tokaiteio",
+    "number": 4550,
+    "proper": "Tokai Teio",
+    "names": ["tokaiteio", "teio", "トウカイテイオー"],
+    "images": ["tokaiteio1.jpg", "tokaiteio2.jpg", "tokaiteio3.jpg"]
+  },
+  {
+    "id": "vodka",
+    "number": 4903,
+    "proper": "Vodka",
+    "names": ["vodka", "ウオッカ"],
+    "images": ["vodka1.jpg", "vodka2.jpg", "vodka3.jpg"]
+  },
+  {
+    "id": "winningticket",
+    "number": 5213,
+    "proper": "Winning Ticket",
+    "names": ["winningticket", "ticket", "tickezo", "ウイニングチケット", "チケゾー"],
+    "images": ["winningticket1.jpg", "winningticket2.jpg"]
+  }
+]
