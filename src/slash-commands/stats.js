@@ -18,7 +18,8 @@ module.exports = {
         const user = interaction.user.id;
         var globalList = require('../../src/assets/global-list.json')
         var JPList = require('../../src/assets/jp-list.json')
-        var allList = globalList.concat(JPList)
+        var irlList = require('../../src/assets/horse-list.json')
+        var allList = globalList.concat(JPList).concat(irlList)
 
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
@@ -55,6 +56,8 @@ module.exports = {
 
             const globalPicsCount = globalList.reduce((sum, item) => sum + item.images.length, 0)
             const JPPicsCount = JPList.reduce((sum, item) => sum + item.images.length, 0)
+            const irlPicsCount = irlList.reduce((sum, item) => sum + item.images.length, 0)
+
             const allPicsCount = allList.reduce((sum, item) => sum + item.images.length, 0)
 
             const totalPoints = data.reduce((sum, item) => sum + item.points, 0)
@@ -104,7 +107,7 @@ module.exports = {
                 },
                 {
                     name: `__Uma Pictures Count__`,
-                    value: `**${allPicsCount}** (All)\n**${JPPicsCount}** (Japan)\n**${globalPicsCount}** (Global)`,
+                    value: `**${allPicsCount}** (All)\n**${JPPicsCount}** (Japan)\n**${globalPicsCount}** (Global)\n**${irlPicsCount}** (IRL)`,
                     inline: true
                 },
                 {
