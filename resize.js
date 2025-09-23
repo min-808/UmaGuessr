@@ -3,7 +3,7 @@ const path = require("path");
 const Jimp = require("jimp");
 
 // Change this to your image folder
-const inputFolder = "C:/Users/kenda/Desktop/sources2";
+const inputFolder = "src/assets/horses";
 const outputFolder = inputFolder
 
 const maxWidth = 850;
