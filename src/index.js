@@ -14,7 +14,7 @@ var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g7
 
 const prefixCache = new Map()
 const cooldowns = new Map()
-const COOLDOWN = 3000
+const COOLDOWN = 2000
 
 var globalList = require('./assets/global-list.json')
 var JPList = require('./assets/jp-list.json')
@@ -65,7 +65,7 @@ client.slashCommands = new Collection();
 new CommandHandler({
     client,
     commandsPath: path.join(__dirname, 'slash-commands'),
-    // testServer: process.env.GUILD_ID
+    testServer: process.env.GUILD_ID
 });
 
 const prefixCommandPath = path.join(__dirname, 'commands')
