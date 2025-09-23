@@ -74,21 +74,21 @@
     "number": 5497,
     "proper": "King Halo",
     "names": ["kinghalo", "king", "halo", "キングヘイロー", "キング"],
-    "images": ["kinghalo1.jpg", "kinghalo2.jpg"]
+    "images": ["kinghalo1.jpg", "kinghalo2.jpg", "kinghalo3.jpg"]
   },
   {
     "id": "maruzensky",
     "number": 4844,
     "proper": "Maruzensky",
     "names": ["maruzensky", "maruzen", "マルゼンスキー", "マルゼン"],
-    "images": ["maruzensky1.jpg"]
+    "images": ["maruzensky1.jpg", "maruzensky2.jpg", "maruzensky3.jpg"]
   },
   {
     "id": "matikanefukukitaru",
     "number": 5451,
     "proper": "Matikanefukukitaru",
     "names": ["matikanefukukitaru", "fuku", "fukukitaru", "マチカネフクキタル", "フクキタル", "フク"],
-    "images": ["matikanefukukitaru1.jpg", "matikanefukukitaru2.jpg"]
+    "images": ["matikanefukukitaru1.jpg", "matikanefukukitaru2.jpg", "matikanefukukitaru3.jpg"]
   },
   {
     "id": "mayanotopgun",
@@ -109,14 +109,14 @@
     "number": 5122,
     "proper": "Mejiro Ryan",
     "names": ["mejiroryan", "ryan", "メジロライアン", "ライアン"],
-    "images": ["mejiroryan1.jpg"]
+    "images": ["mejiroryan1.jpg", "mejiroryan2.jpg", "mejiroryan3.jpg"]
   },
   {
     "id": "mihonobourbon",
     "number": 5111,
     "proper": "Mihono Bourbon",
     "names": ["mihonobourbon", "bourbon", "mihono", "ミホノブルボン", "ブルボン"],
-    "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg"]
+    "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg", "mihonobourbon3.jpg"]
   },
   {
     "id": "naritabrian",
@@ -130,7 +130,7 @@
     "number": 5382,
     "proper": "Narita Taishin",
     "names": ["naritataishin", "taishin", "ナリタタイシン", "タイシン"],
-    "images": ["naritataishin1.jpg", "naritataishin2.jpg"]
+    "images": ["naritataishin1.jpg", "naritataishin2.jpg", "naritataishin3.jpg"]
   },
   {
     "id": "nicenature",
@@ -151,14 +151,14 @@
     "number": 5156,
     "proper": "Rice Shower",
     "names": ["riceshower", "rice", "ライスシャワー", "ライス"],
-    "images": ["riceshower1.jpg", "riceshower2.jpg"]
+    "images": ["riceshower1.jpg", "riceshower2.jpg", "riceshower3.jpg"]
   },
   {
     "id": "sakurabakushino",
     "number": 5280,
     "proper": "Sakura Bakushin O",
     "names": ["sakurabakushino", "bakushin", "bakushino", "サクラバクシンオー", "バクシン", "バクシンオー"],
-    "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg"]
+    "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg", "sakurabakushino3.jpg"]
   },
   {
     "id": "seiunsky",
@@ -193,7 +193,7 @@
     "number": 5325,
     "proper": "Super Creek",
     "names": ["supercreek", "creek", "スーパークリーク", "クリーク"],
-    "images": ["supercreek1.jpg", "supercreek2.jpg"]
+    "images": ["supercreek1.jpg", "supercreek2.jpg", "supercreek3.jpg"]
   },
   {
     "id": "symbolirudolf",
@@ -207,14 +207,14 @@
     "number": 4927,
     "proper": "Taiki Shuttle",
     "names": ["taikishuttle", "taiki", "タイキシャトル", "タイキ"],
-    "images": ["taikishuttle1.jpg", "taikishuttle2.jpg"]
+    "images": ["taikishuttle1.jpg", "taikishuttle2.jpg", "taikishuttle3.jpg"]
   },
   {
     "id": "tmoperao",
     "number": 4986,
     "proper": "T.M. Opera O",
     "names": ["tmoperao", "tm", "tmopera", "t.m.operao", "ope", "operao", "t.m.", "t.m", "テイエムオペラオー", "オペラオー", "オペ"],
-    "images": ["tmoperao1.jpg", "tmoperao2.jpg"]
+    "images": ["tmoperao1.jpg", "tmoperao2.jpg", "tmoperao3.jpg"]
   },
   {
     "id": "tokaiteio",
@@ -235,6 +235,6 @@
     "number": 5213,
     "proper": "Winning Ticket",
     "names": ["winningticket", "ticket", "tickezo", "ウイニングチケット", "チケゾー"],
-    "images": ["winningticket1.jpg", "winningticket2.jpg"]
+    "images": ["winningticket1.jpg", "winningticket2.jpg", "winningticket3.jpg"]
   }
 ]
