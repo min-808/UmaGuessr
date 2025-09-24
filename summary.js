@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const Jimp = require("jimp");
 
-const inputFolder = "/Users/min/Desktop/add";
+const inputFolder = "C:/Users/kenda/Desktop/Code/Bots/uma/src/assets/horses";
 
 const widthStats = {};
 const extensionCounts = {};
