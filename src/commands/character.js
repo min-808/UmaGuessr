@@ -12,6 +12,7 @@ module.exports = {
 
             var globalList = require('../../src/assets/global-list.json')
             var JPList = require('../../src/assets/jp-list.json')
+            var otherList = require('../../src/assets/other-list.json') // for norn, belno, and march info
             var bothLists = globalList.concat(JPList)
 
             var charToSearch = message.content.slice(message.content.indexOf(' ') + 1).trim().toLowerCase().replace(/\s+/g, '')
@@ -52,14 +53,20 @@ module.exports = {
                         }
                     }
 
-                    const fetch = (await import("node-fetch")).default
-                    const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
-                    if (!res.ok) {
-                            console.error(`API returned ${res.status}: ${res.statusText}`);
-                            return message.channel.send(`Error fetching character data`);
+                    var data
+
+                    if ((id === 50000) || (id === 50001) || (id === 50002)) {
+                        data = otherList.find(item => item.id === id)
+                    } else {
+                        const fetch = (await import("node-fetch")).default
+                        const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
+                        if (!res.ok) {
+                                console.error(`API returned ${res.status}: ${res.statusText}`);
+                                return message.channel.send(`Error fetching character data`);
+                        }
+                        
+                        data = await res.json()
                     }
-                    
-                    const data = await res.json()
 
                     embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/sZgfUKW.png') // fallback on backup image
                     embed.setColor(data['color_main'] ?? 'LightGrey')

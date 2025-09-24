@@ -50,7 +50,7 @@
     },
     {
     "id": "belnolight",
-    "number": 0,
+    "number": 50001,
     "proper": "Belno Light",
     "names": ["belnolight", "bernolight", "belno", "berno", "ベルノライト"],
     "images": ["belnolight1.jpg", "belnolight2.jpg", "belnolight3.jpg", "belnolight4.jpg", "belnolight5.jpg"]
@@ -169,7 +169,7 @@
     },
     {
     "id": "fujimasamarch",
-    "number": 0,
+    "number": 50002,
     "proper": "Fujimasa March",
     "names": ["fujimasamarch", "march", "fujimasa", "フジマサマーチ"],
     "images": ["fujimasamarch1.jpg", "fujimasamarch2.jpg", "fujimasamarch3.jpg", "fujimasamarch4.jpg", "fujimasamarch5.jpg"]
@@ -407,7 +407,7 @@
     },
     {
     "id": "nornace",
-    "number": 0,
+    "number": 50000,
     "proper": "Norn Ace",
     "names": ["nornace", "norn", "ノルンエース", "ノルン"],
     "images": ["nornace1.jpg", "nornace2.jpg", "nornace3.jpg", "nornace4.jpg", "nornace5.jpg", "nornace6.jpg"]
