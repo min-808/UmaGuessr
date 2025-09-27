@@ -19,6 +19,7 @@
     "jimp": "^0.16.1",
     "mongodb": "^6.3.0",
     "mongoose": "^7.4.0",
+    "node_characterai": "^1.2.8",
     "node-cron": "^3.0.3"
   }
 }
