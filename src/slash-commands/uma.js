@@ -26,13 +26,14 @@ module.exports = {
                     { name: 'Global', value: 'g' },
                     { name: 'Japan', value: 'j' },
                     { name: 'All', value: 'a' },
+                    { name: 'IRL', value: 'h' }
                 )),
 
     run: async ({ interaction, client }) => {
 
         if (!interaction.guild) {
             return interaction.reply({
-                content: "Playing the bot in DMs will come soon:tm:.\nJoin the discord server for updates :) `/discord`",
+                content: "Playing the bot in DMs will come soon:tm:.\n\nJoin the discord server for updates :) `/discord`",
                 ephemeral: true
             });
         }
@@ -42,8 +43,8 @@ module.exports = {
 
         const channelID = interaction.channel.id;
         const user = interaction.user;
-        const cacheDir = path.join(__dirname, "../assets/cache")
-        const originDir = path.join(__dirname, "../assets/guessing")
+        var cacheDir = path.join(__dirname, "../assets/cache")
+        var originDir = path.join(__dirname, "../assets/guessing")
 
         var d = new Date();
 
@@ -97,6 +98,12 @@ module.exports = {
 
                     initialPointsJP = 25 + 1
                     minusPointsJP = 5
+                } else if (interaction.options.getString('region') == "h") {
+                    list = require('../../src/assets/horse-list.json')
+                    type = "IRL"
+
+                    initialPointsJP = 25 + 1
+                    minusPointsJP = 5
                 } else if (interaction.options.getString('region') == "a") {
                     list = require('../../src/assets/global-list.json')
                     list2 = require('../../src/assets/jp-list.json')
@@ -116,6 +123,12 @@ module.exports = {
                 } else if (data["type"] === 'jp') {
                     list = require('../../src/assets/jp-list.json')
                     type = "Japan"
+
+                    initialPointsJP = 25 + 1
+                    minusPointsJP = 5
+                } else if (data["type"] === 'h') {
+                    list = require('../../src/assets/horse-list.json')
+                    type = "IRL"
 
                     initialPointsJP = 25 + 1
                     minusPointsJP = 5
@@ -180,8 +193,15 @@ module.exports = {
             // so like, 51-image_name(num).jpg
 
             try {
-                var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
-                var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
+                if (type != "IRL") {
+                    var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
+                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
+                } else {
+                    originDir = path.join(__dirname, "../assets/horses")
+
+                    var imagePath = path.join(originDir, `${chooseImg}`); // check for existence
+                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
+                }
             } catch (err) {
                 await interaction.editReply('There was an error with the image. Skipped');
                 console.error('Image file error:', err);
@@ -195,8 +215,10 @@ module.exports = {
                 .setLabel('Hint')
                 .setStyle(ButtonStyle.Primary);
 
-            const row = new ActionRowBuilder()
-                .addComponents(hint)
+            if (type != "IRL") {
+                var row = new ActionRowBuilder()
+                  .addComponents(hint)
+            }
 
             const embed = new EmbedBuilder()
                 .setTitle(`Guess the Uma`)
@@ -205,7 +227,11 @@ module.exports = {
 
             embed.setDescription(`Started by ${user}\n\nServer: ${type}`)
 
-            var sentMsg = await interaction.editReply({ files: [file], components: [row], embeds: [embed] })
+            if (type != "IRL") {
+                var sentMsg = await interaction.editReply({ files: [file], components: [row], embeds: [embed] })
+            } else {
+                var sentMsg = await interaction.editReply({ files: [file], embeds: [embed] })
+            }
 
             // const filter = (i) => i.user.id === message.author.id
 
@@ -228,6 +254,8 @@ module.exports = {
                 hintsUsed: 0,
                 startTime: Date.now(),
             })
+
+            // No hint button interaction for horses, so this will be skipped
 
             collector.on('collect', async (buttonInteraction) => { // Everytime the hint button is pressed
               try {

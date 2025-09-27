@@ -74,13 +74,23 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
+            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("h")) || (args[0].toLowerCase().includes("horse")) || (args[0].toLowerCase().includes("i")) || (args[0].toLowerCase().includes("irl")))) {
+                newType = 'h'
+                proper = "IRL"
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
+                    inline: true
+                })
             } else if (args == 0) { // No args
                 newType = oldType
 
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: "Use this command to set the region the `!uma` command will default to when you begin a game\n\n`!set a` for umas from both JP and Global\n`!set j` for umas from only the JP server\n`!set g` for umas from only the Global server",
+                    value: "Use this command to set the region the `!uma` command will default to when you begin a game\n\n`!set a` for umas from both JP and Global\n`!set j` for umas from only the JP server\n`!set g` for umas from only the Global server\n`!set h` for the uma's IRL counterpart",
                     inline: true
                 })
             } else { // Invalid region
@@ -89,7 +99,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: `Invalid region. Please choose ` + "`a`, `jp`, or `g`",
+                    value: `Invalid region. Please choose ` + "`a`, `jp`, `g`, or `h`",
                     inline: true
                 })
             }

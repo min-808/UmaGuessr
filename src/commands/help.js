@@ -29,12 +29,13 @@ module.exports = {
                             "- There are some extra parameters to specify which region you'd like to play on (no parameters will default to Global):" + "\n" +
                             "**-** `!uma a` for guessing characters from both JP and Global servers" + "\n" +
                             "**-** `!uma j` for characters only from the JP server" + "\n" +
-                            "**-** `!uma g` for characters only from the Global server" + "\n\n\n"
+                            "**-** `!uma g` for characters only from the Global server" + "\n" +
+                            "**-** `!uma h` for the IRL horse counterpart" + "\n\n\n"
                         },
                         {
                             name: "\n",
                             value:
-                            "\n- Use `!set (a/j/g)` to set the region you want the `!uma` command to default to" + "\n" +
+                            "\n- Use `!set (a/j/g/h)` to set the region you want the `!uma` command to default to" + "\n" +
                             "- You will have **60** seconds to guess the character, and pressing the `Hint` button will slightly unblur the image" + "\n" +
                             "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (**36** points for All, **26** points for JP, **16** for Global)" + "\n" +
                             "- However, every time the unblur button is pressed, you lose points. If all the unblur hints are used, you'll only gain 1 point for guessing the uma correctly" + "\n" +
@@ -76,8 +77,8 @@ module.exports = {
                             name: "\n",
                             value: 
                             "**__Game__**" + "\n" +
-                            "`!uma (a/j/g)`" + " - " + "Play the game (default region is global)" + "\n" +
-                            "`!set (a/j/g)`" + " - " + "Set your default region (**a**ll, **j**p, **g**lobal)" + "\n" +
+                            "`!uma (a/j/g/h)`" + " - " + "Play the game (default region is global)" + "\n" +
+                            "`!set (a/j/g/h)`" + " - " + "Set your default region (**a**ll, **j**p, **g**lobal)" + "\n" +
                             "`!skip`" + " - " + "Skip the current character" + "\n" +
                             "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
                             "`!vote`" + " - " + "Pull up the bot's vote link" + "\n" +
@@ -96,8 +97,7 @@ module.exports = {
                             "`!prefix/!pref`" + " - " + "Set a server-wide prefix for the bot" + "\n" +
                             "`!stats`" + " - " + "Bot stats" + "\n" +
                             "`!uptime`" + " - " + "Bot uptime" + "\n" +
-                            "`!ping`" + " - " + "Pong!" + "\n" + "\n" +
-                            "Privacy Policy: http://bit.ly/4mahOph"
+                            "`!ping`" + " - " + "Pong!" + "\n"
                         },
                     )
             }

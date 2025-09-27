@@ -75,9 +75,9 @@ module.exports = {
 
                     initialPointsJP = 25 + 1
                     minusPointsJP = 5
-                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("h")) || (args[0].toLowerCase().includes("horse")))) {
+                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("h")) || (args[0].toLowerCase().includes("horse")) || (args[0].toLowerCase().includes("i")) || (args[0].toLowerCase().includes("irl")))) {
                     list = require('../../src/assets/horse-list.json')
-                    type = "Horse"
+                    type = "IRL"
 
                     initialPointsJP = 25 + 1
                     minusPointsJP = 5
@@ -99,6 +99,12 @@ module.exports = {
                     } else if (data["type"] === 'jp') {
                         list = require('../../src/assets/jp-list.json')
                         type = "Japan"
+
+                        initialPointsJP = 25 + 1
+                        minusPointsJP = 5
+                    } else if (data["type"] === 'h') {
+                        list = require('../../src/assets/horse-list.json')
+                        type = "IRL"
 
                         initialPointsJP = 25 + 1
                         minusPointsJP = 5
@@ -163,7 +169,7 @@ module.exports = {
             // so like, 51-image_name(num).jpg
 
             try {
-                if (type != "Horse") { // set special image directory for irl horse guessing
+                if (type != "IRL") { // set special image directory for irl horse guessing
                     var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
                     var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
                 } else {
@@ -185,7 +191,7 @@ module.exports = {
                 .setLabel('Hint')
                 .setStyle(ButtonStyle.Primary);
 
-            if (type != "Horse") {
+            if (type != "IRL") {
                 var row = new ActionRowBuilder()
                   .addComponents(hint)
             }
@@ -197,7 +203,7 @@ module.exports = {
 
             embed.setDescription(`Started by ${user}\n\nServer: ${type}`)
 
-            if (type != "Horse") {
+            if (type != "IRL") {
                 var sentMsg = await message.channel.send({ files: [file], components: [row], embeds: [embed] })
             } else {
                 var sentMsg = await message.channel.send({ files: [file], embeds: [embed] })
