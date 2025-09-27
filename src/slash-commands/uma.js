@@ -102,8 +102,8 @@ module.exports = {
                     list = require('../../src/assets/horse-list.json')
                     type = "IRL"
 
-                    initialPointsJP = 25 + 1
-                    minusPointsJP = 5
+                    initialPointsJP = 30 + 1
+                    minusPointsJP = 6
                 } else if (interaction.options.getString('region') == "a") {
                     list = require('../../src/assets/global-list.json')
                     list2 = require('../../src/assets/jp-list.json')
@@ -130,8 +130,8 @@ module.exports = {
                     list = require('../../src/assets/horse-list.json')
                     type = "IRL"
 
-                    initialPointsJP = 25 + 1
-                    minusPointsJP = 5
+                    initialPointsJP = 20 + 1
+                    minusPointsJP = 6
                 } else if (data["type"] === 'a') {
                     list = require('../../src/assets/global-list.json')
                     list2 = require('../../src/assets/jp-list.json')

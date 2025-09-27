@@ -79,8 +79,8 @@ module.exports = {
                     list = require('../../src/assets/horse-list.json')
                     type = "IRL"
 
-                    initialPointsJP = 25 + 1
-                    minusPointsJP = 5
+                    initialPointsJP = 30 + 1
+                    minusPointsJP = 6
                 } else if ((args.length > 0) && ((args[0].toLowerCase().includes("a")) || (args[0].toLowerCase().includes("all")))) {
                     list = require('../../src/assets/global-list.json')
                     list2 = require('../../src/assets/jp-list.json')
@@ -106,8 +106,8 @@ module.exports = {
                         list = require('../../src/assets/horse-list.json')
                         type = "IRL"
 
-                        initialPointsJP = 25 + 1
-                        minusPointsJP = 5
+                        initialPointsJP = 30 + 1
+                        minusPointsJP = 6
                     } else if (data["type"] === 'a') {
                         list = require('../../src/assets/global-list.json')
                         list2 = require('../../src/assets/jp-list.json')
