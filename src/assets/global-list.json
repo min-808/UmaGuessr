@@ -42,6 +42,13 @@
     "images": ["elcondorpasa1.jpg", "elcondorpasa2.jpg", "elcondorpasa3.jpg", "elcondorpasa4.jpg", "elcondorpasa5.jpg", "elcondorpasa6.jpg", "elcondorpasa7.jpg", "elcondorpasa8.jpg", "elcondorpasa9.jpg", "elcondorpasa10.jpg", "elcondorpasa11.jpg"]
   },
   {
+    "id": "fujikiseki",
+    "number": 4868,
+    "proper": "Fuji Kiseki",
+    "names": ["fujikiseki", "fuji", "kiseki", "フジキセキ", "フジ"],
+    "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg", "fujikiseki4.jpg", "fujikiseki5.jpg"]
+  },
+  {
     "id": "goldship",
     "number": 4891,
     "proper": "Gold Ship",

@@ -182,13 +182,6 @@
     "images": ["fujimasamarch1.jpg", "fujimasamarch2.jpg", "fujimasamarch3.jpg", "fujimasamarch4.jpg", "fujimasamarch5.jpg"]
     },
     {
-    "id": "fujikiseki",
-    "number": 4868,
-    "proper": "Fuji Kiseki",
-    "names": ["fujikiseki", "fuji", "kiseki", "フジキセキ", "フジ"],
-    "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg", "fujikiseki4.jpg", "fujikiseki5.jpg"]
-    },
-    {
     "id": "furioso",
     "number": 10258,
     "proper": "Furioso",
