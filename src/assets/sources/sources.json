@@ -2455,6 +2455,60 @@
         "member_id": "29619437",
         "illustration_id": "99661853",
         "artist": "乙野@C100東地区オ-33a"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=88972687"
+        ],
+        "service": "pixiv",
+        "member_id": "33824494",
+        "illustration_id": "88972687",
+        "artist": "ゐそべぇ。"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=91283198"
+        ],
+        "service": "pixiv",
+        "member_id": "40461836",
+        "illustration_id": "91283198",
+        "artist": "Xレン＠3/20新作発売"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=91339933"
+        ],
+        "service": "pixiv",
+        "member_id": "874704",
+        "illustration_id": "91339933",
+        "artist": "なたみ"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=92052051"
+        ],
+        "service": "pixiv",
+        "member_id": "33824494",
+        "illustration_id": "92052051",
+        "artist": "ゐそべぇ。"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=92031750"
+        ],
+        "service": "pixiv",
+        "member_id": "132450",
+        "illustration_id": "92031750",
+        "artist": "syuri22"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=91264614"
+        ],
+        "service": "pixiv",
+        "member_id": "29619437",
+        "illustration_id": "91264614",
+        "artist": "乙野"
       }
     ]
   },
@@ -3399,6 +3453,42 @@
         "service": "danbooru",
         "illustration_id": "9978342",
         "artist": "harakomeshi"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/7552514",
+          "https://gelbooru.com/index.php?page=post&s=view&id=10016756"
+        ],
+        "service": "danbooru",
+        "illustration_id": "7552514",
+        "artist": "fai allen"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=90959728"
+        ],
+        "service": "pixiv",
+        "member_id": "3243158",
+        "illustration_id": "90959728",
+        "artist": "kuzumochi"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=110908737"
+        ],
+        "service": "pixiv",
+        "member_id": "577853",
+        "illustration_id": "110908737",
+        "artist": "もふナマコ"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=112279491"
+        ],
+        "service": "pixiv",
+        "member_id": "1991740",
+        "illustration_id": "112279491",
+        "artist": "いぶおんけ"
       }
     ]
   },
