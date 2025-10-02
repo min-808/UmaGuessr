@@ -341,7 +341,8 @@ module.exports = {
                 const state = gameState.get(sentMsg.id);
                 if (!state) return;
 
-                const userGuess = msg.content.trim().toLowerCase().replace(/\s+/g, '')
+                const originGuess = msg.content
+                const userGuess = originGuess.trim().toLowerCase().replace(/\s+/g, '')
 
                 if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s') || (userGuess === 'skip')) && (msg.author.id === user.id)) { // Skipped. Note that to skip, you have to be the author of the message, so this should work ok
                     messageCollector.stop()
@@ -415,7 +416,7 @@ module.exports = {
                     try {
                         const logChannel = await client.channels.fetch('1412306508221513729');
                         if (logChannel) {
-                            await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${interaction.options.getString('region') ?? 'no args'}) - Answered by ${broadSearch["username"]} with "${userGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points **(slash command)**`)
+                            await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${interaction.options.getString('region') ?? 'no args'}) - Answered by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points **(slash command)**`)
                         }
                     } catch (err) {
                         console.error("Log channel fetch/send error:", err);
@@ -425,7 +426,7 @@ module.exports = {
                         return;
                     }
 
-                    console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${interaction.options.getString('region') ?? 'no args'}) - Answered by ${broadSearch["username"]} with "${userGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points **(slash command)**`)
+                    console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${interaction.options.getString('region') ?? 'no args'}) - Answered by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points **(slash command)**`)
 
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
