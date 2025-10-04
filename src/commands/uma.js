@@ -56,6 +56,7 @@ module.exports = {
                     quickest_answer: 1,
                     username: 1,
                     vote_timer: 1,
+                    strict: 1, 
                 }
             });
 
@@ -319,6 +320,7 @@ module.exports = {
 
                 const originGuess = msg.content
                 const userGuess = originGuess.trim().toLowerCase().replace(/\s+/g, '')
+                const strictGuess = originGuess.toLowerCase()
 
                 if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s') || (userGuess === 'skip')) && (msg.author.id === user.id)) { // Skipped. Note that to skip, you have to be the author of the message, so this should work ok
                     messageCollector.stop()
@@ -376,7 +378,10 @@ module.exports = {
                     return
                 }
 
-                if (state.values.includes(userGuess)) { // Got it right
+                // console.log(`ID: ${msg.author.id}\nstrict?: ${client.strictCache.get(BigInt(msg.author.id))}\nNormal guess: ${userGuess}\nStrict guess: ${strictGuess}\nstate.proper.toLowercase: ${state.proper.toLowerCase()}`)
+                
+
+                if (((client.strictCache.get(BigInt(msg.author.id)) == false) && (state.values.includes(userGuess))) || ((client.strictCache.get(BigInt(msg.author.id)) == true) && (state.proper.toLowerCase() == strictGuess))) { // Got it right
                     messageCollector.stop()
                     collector.stop()
 

@@ -13,6 +13,7 @@ const { CommandHandler } = require('djs-commander');
 var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 const prefixCache = new Map()
+const strictCache = new Map()
 const cooldowns = new Map()
 const COOLDOWN = 2000
 
@@ -58,6 +59,7 @@ const client = new Client({
 });
 
 client.prefixCache = prefixCache
+client.strictCache = strictCache
 
 client.prefixCommands = new Collection();
 client.slashCommands = new Collection();
@@ -213,6 +215,20 @@ async function loadPrefixes() {
     console.log("Prefixes cached:", prefixCache.size);
 }
 
+async function cacheStrict() {
+    const client = new MongoClient(uri);
+    const database = client.db("uma");
+    const stats = database.collection("stats");
+
+    const all = await stats.find({}).toArray();
+    for (const entry of all) {
+        strictCache.set(BigInt(entry.discord_id), entry.strict) // reminder, discord_id's are being casted as bigints here
+    }
+
+    await client.close();
+    console.log("Strict settings cached:", strictCache.size);
+}
+
 async function getPrefix(guildId) { // This will be called everytime a potential message is sent
     if (prefixCache.has(guildId)) { // This will first check the cache to see if the server has a prefix set
         return prefixCache.get(guildId) // If so, return the prefix
@@ -348,6 +364,7 @@ async function setUptime() {
 
         await buildCache();
         await loadPrefixes();
+        await cacheStrict();
 
         checkImages(combinedList, path.join(__dirname, "./assets/guessing"))
 

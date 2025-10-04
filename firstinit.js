@@ -46,11 +46,14 @@ module.exports = {
             username: retUsername + retDiscriminator,
             vote_timer: 0,
             signup: date.toISOString(),
+            strict: false,
         }
     
         const result = await ids.insertOne(doc);
 
         console.log(`A new entry was inserted with the _id: ${result.insertedId}. Username: ${retUsername + retDiscriminator}, ID: ${id}`);
+
+        client.strictCache.set(id, false) // cache their strict settings to false when a new user signs up
 
         client.channels.fetch('1410434305858994249').then((channel) => { channel.send(`User **${retUsername + retDiscriminator}** has registered`) }).catch(console.error)
         // send me a msg when a new user signs up

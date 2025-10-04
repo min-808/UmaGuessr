@@ -14,6 +14,16 @@ module.exports = {
           let embed;
 
       if (message.author.id == "236186510326628353") {
+        var client_db = new MongoClient(uri)
+        var database = client_db.db("uma");
+        var ids = database.collection("stats")
+
+        const user = message.author;
+        var discordID = BigInt(user.id)
+
+        var broadSearch = await ids.findOne({ discord_id: discordID })
+        strictType = broadSearch["strict"]
+      
         embed = new EmbedBuilder()
             .setColor('LightGrey')
             .setTitle("test - admin")
@@ -21,14 +31,10 @@ module.exports = {
                 {
                     name: "\n",
                     value: 
-                    "test"
+                    `prefix on db: ${strictType}\nprefix on cache: ${client.strictCache.get(discordID)}`
                 },
-            )
-
-            const filePath = path.join(__dirname, '../assets/voices/agnestachyon.mp3'); 
-            const attachment = new AttachmentBuilder(filePath, { name: 'voice.mp3' });
-
-            await message.channel.send({ embeds: [embed], files: [attachment] });
+              )
+            await message.channel.send({ embeds: [embed] });
           } else {
           embed = new EmbedBuilder()
             .setColor('LightGrey')
