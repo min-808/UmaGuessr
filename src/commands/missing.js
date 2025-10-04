@@ -18,7 +18,17 @@ module.exports = {
                         name: "\n",
                         value: 
                         "Espoir City\n" +
-                        "Believe\n"
+                        "Admire Groove\n" +
+                        "Believe\n" +
+                        "Blast Onepiece\n" +
+                        "Curren Bouquetd'or\n" +
+                        "Daring Heart\n" +
+                        "Daring Tact\n" +
+                        "Lucky Lilac\n" +
+                        "Royce and Royce\n" +
+                        "Sakura Chitose O\n" +
+                        "Samson Big\n"
+
                     }
                 )
 
