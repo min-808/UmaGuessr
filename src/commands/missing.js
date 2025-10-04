@@ -17,7 +17,6 @@ module.exports = {
                     {
                         name: "\n",
                         value: 
-                        "Espoir City\n" +
                         "Admire Groove\n" +
                         "Believe\n" +
                         "Blast Onepiece\n" +
