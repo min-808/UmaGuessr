@@ -36,6 +36,8 @@ module.exports = {
             const umaStats = database.collection("count");
             const grabUptime = otherDatabase.collection('stats')
 
+            const count = await ids.countDocuments({}, {})
+
             const data = await ids.find({}, {
                 projection: {
                     wins: 1,
@@ -70,7 +72,9 @@ module.exports = {
 
             var options = {
                 projection: {
-                    time: 1
+                    time: 1,
+                    players: 1,
+                    servers: 1,
                 }
             }
 
@@ -124,12 +128,12 @@ module.exports = {
                 },
                 {
                     name: "__Total Players__",
-                    value: `${data.length}`,
+                    value: `**${data.length}** *(+${count - toParseUserUID["players"]} today)*`,
                     inline: true
                 },
                 {
                     name: "__Total Servers__",
-                    value: `${client.guilds.cache.size ?? 'N/A'}`,
+                    value: `**${client.guilds.cache.size}** *(+${client.guilds.cache.size - toParseUserUID["servers"]} today)*`,
                     inline: true
                 },
                 {
