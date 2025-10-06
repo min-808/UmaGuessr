@@ -30,7 +30,7 @@ module.exports = {
             var d
 
             const count = await ids.countDocuments({ discord_id: discordID });
-            if (count < 1) await setup.init(discordID, "uma", "stats", client);
+            if (count < 1) await setup.init(discordID, "uma", "profiles", client);
 
             if (args.length > 0) {
                 if (message.mentions.users.size > 0) { // if it's a mention

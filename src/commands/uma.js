@@ -43,7 +43,7 @@ module.exports = {
             let discordID = BigInt(user.id);
 
             let count = await ids.countDocuments({ discord_id: discordID });
-            if (count < 1) await setup.init(discordID, "uma", "stats", client);
+            if (count < 1) await setup.init(discordID, "uma", "profiles", client);
 
             const data = await ids.findOne({ discord_id: discordID }, {
                 projection: {
@@ -412,7 +412,7 @@ module.exports = {
                     var authorID = BigInt(msg.author.id); // ID of the person who got it right
 
                     count = await ids.countDocuments({ discord_id: authorID });
-                    if (count < 1) await setup.init(authorID, "uma", "stats", client); // Make document in case
+                    if (count < 1) await setup.init(authorID, "uma", "profiles", client); // Make document in case
 
                     var broadSearch = await ids.findOne({ discord_id: authorID })
 

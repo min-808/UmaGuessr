@@ -28,7 +28,7 @@ module.exports = {
             var discordID = BigInt(user.id)
 
             const count = await ids.countDocuments({ discord_id: discordID });
-            if (count < 1) await setup.init(discordID, "uma", "stats", client);
+            if (count < 1) await setup.init(discordID, "uma", "profiles", client);
 
             var options = {
                 projection: {
