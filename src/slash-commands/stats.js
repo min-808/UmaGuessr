@@ -30,11 +30,11 @@ module.exports = {
             
             const client_db = new MongoClient(uri);
             const database = client_db.db("uma");
-            const otherDatabase = client_db.db("economy");
+            const otherDatabase = client_db.db("uma");
 
-            const ids = database.collection("stats");
+            const ids = database.collection("profiles");
             const umaStats = database.collection("count");
-            const grabUptime = otherDatabase.collection('uptime')
+            const grabUptime = otherDatabase.collection('stats')
 
             const data = await ids.find({}, {
                 projection: {

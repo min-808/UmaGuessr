@@ -98,7 +98,7 @@ async function resetDaily() {
     var client = new MongoClient(uri)
 
     var database = client.db("uma");
-    var ids = database.collection("stats")
+    var ids = database.collection("profiles")
 
     var currentDate = new Date()
     var currentTime = currentDate.toLocaleTimeString( 'en-US', {timeZone: 'Pacific/Honolulu'} )
@@ -148,7 +148,7 @@ async function refreshUsernames() {
     try {
         const client = new MongoClient(uri);
         const database = client.db("uma");
-        const ids = database.collection("stats");
+        const ids = database.collection("profiles");
 
         const options = {
             projection: {
@@ -218,7 +218,7 @@ async function loadPrefixes() {
 async function cacheStrict() {
     const client = new MongoClient(uri);
     const database = client.db("uma");
-    const stats = database.collection("stats");
+    const stats = database.collection("profiles");
 
     const all = await stats.find({}).toArray();
     for (const entry of all) {
@@ -350,8 +350,8 @@ client.on('ready', async () => {
 
 async function setUptime() {
     const client = new MongoClient(uri);
-    const database = client.db("economy");
-    const ids = database.collection("uptime");
+    const database = client.db("uma");
+    const ids = database.collection("stats");
     await ids.updateOne({}, { $set: { time: Date.now() } });
     await client.close();
 }

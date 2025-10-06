@@ -23,8 +23,8 @@ module.exports = {
 
             var client = new MongoClient(uri)
 
-            var database = client.db("economy");
-            var ids = database.collection("uptime")
+            var database = client.db("uma");
+            var ids = database.collection("stats")
 
             // Check how many documents are in the query (discord_id)
 

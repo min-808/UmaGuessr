@@ -28,7 +28,7 @@ module.exports = {
           try {
             var client = new MongoClient(uri)
             var database = client.db("uma");
-            var ids = database.collection("stats")
+            var ids = database.collection("profiles")
 
             const user = message.author;
             var discordID = BigInt(user.id)
@@ -52,7 +52,7 @@ module.exports = {
                 { }, // match all documents
                 {
                   $set: {
-                    vote_timer: 0
+                    strict: false
                   }
                   /*
                   ,

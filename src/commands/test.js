@@ -16,7 +16,7 @@ module.exports = {
       if (message.author.id == "236186510326628353") {
         var client_db = new MongoClient(uri)
         var database = client_db.db("uma");
-        var ids = database.collection("stats")
+        var ids = database.collection("profiles")
 
         const user = message.author;
         var discordID = BigInt(user.id)

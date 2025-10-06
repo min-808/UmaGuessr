@@ -60,7 +60,7 @@ module.exports = {
 
             const client = new MongoClient(uri);
             const database = client.db("uma");
-            const ids = database.collection("stats");
+            const ids = database.collection("profiles");
 
             const options = {
                 projection: {

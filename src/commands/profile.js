@@ -23,7 +23,7 @@ module.exports = {
         try {
             var client_db = new MongoClient(uri);
             const database = client_db.db("uma");
-            const ids = database.collection("stats");
+            const ids = database.collection("profiles");
             var discordID = BigInt(user.id);
 
             var userProvided

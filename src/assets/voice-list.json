@@ -1,0 +1,247 @@
+[
+  {
+    "id": "agnestachyon",
+    "number": 5179,
+    "proper": "Agnes Tachyon",
+    "names": ["agnestachyon", "tachyon", "アグネスタキオン", "タキオン"],
+    "images": ["agnestachyon.mp3"]
+  },
+  {
+    "id": "airgroove",
+    "number": 5021,
+    "proper": "Air Groove",
+    "names": ["airgroove", "groove", "エアグルーヴ"],
+    "images": ["airgroove.mp3"]
+  },
+  {
+    "id": "biwahayahide",
+    "number": 5077,
+    "proper": "Biwa Hayahide",
+    "names": ["biwahayahide", "hayahide", "biwa", "ビワハヤヒデ", "ハヤヒデ"],
+    "images": ["biwahayahide.mp3"]
+  },
+  {
+    "id": "currenchan",
+    "number": 5247,
+    "proper": "Curren Chan",
+    "names": ["currenchan", "curren", "chancurre", "カレンチャン", "カレン", "チャンカーレ"],
+    "images": ["currenchan.mp3"]
+  },
+  {
+    "id": "daiwascarlet",
+    "number": 4915,
+    "proper": "Daiwa Scarlet",
+    "names": ["daiwascarlet", "daiwa", "scarlet", "ダイワスカーレット", "スカーレット"],
+    "images": ["daiwascarlet.mp3"]
+  },
+  {
+    "id": "elcondorpasa",
+    "number": 4974,
+    "proper": "El Condor Pasa",
+    "names": ["elcondorpasa", "el", "エルコンドルパサー", "エル"],
+    "images": ["elcondorpasa.mp3"]
+  },
+  {
+    "id": "goldship",
+    "number": 4891,
+    "proper": "Gold Ship",
+    "names": ["goldship", "golshi", "goldshi", "golpippi", "ゴールドシップ", "ゴルシ"],
+    "images": ["goldship.mp3"]
+  },
+  {
+    "id": "grasswonder",
+    "number": 4939,
+    "proper": "Grass Wonder",
+    "names": ["grasswonder", "grass", "グラスワンダー", "グラス"],
+    "images": ["grasswonder.mp3"]
+  },
+  {
+    "id": "happymeek",
+    "number": 5632,
+    "proper": "Happy Meek",
+    "names": ["happymeek", "meek", "ハッピーミーク", "ミーク"],
+    "images": ["happymeek.mp3"]
+  },
+  {
+    "id": "haruurara",
+    "number": 5404,
+    "proper": "Haru Urara",
+    "names": ["haruurara", "urara", "ハルウララ", "ウララ"],
+    "images": ["haruurara.mp3"]
+  },
+  {
+    "id": "hishiamazon",
+    "number": 4951,
+    "proper": "Hishi Amazon",
+    "names": ["hishiamazon", "hishiama", "amazon", "ヒシアマゾン", "ヒシアマ"],
+    "images": ["hishiamazon.mp3"]
+  },
+  {
+    "id": "kinghalo",
+    "number": 5497,
+    "proper": "King Halo",
+    "names": ["kinghalo", "king", "halo", "キングヘイロー", "キング"],
+    "images": ["kinghalo.mp3"]
+  },
+  {
+    "id": "maruzensky",
+    "number": 4844,
+    "proper": "Maruzensky",
+    "names": ["maruzensky", "maruzen", "マルゼンスキー", "マルゼン"],
+    "images": ["maruzensky.mp3"]
+  },
+  {
+    "id": "matikanefukukitaru",
+    "number": 5451,
+    "proper": "Matikanefukukitaru",
+    "names": ["matikanefukukitaru", "fuku", "fukukitaru", "マチカネフクキタル", "フクキタル", "フク"],
+    "images": ["matikanefukukitaru.mp3"]
+  },
+  {
+    "id": "mayanotopgun",
+    "number": 5088,
+    "proper": "Mayano Top Gun",
+    "names": ["mayanotopgun", "mayano", "maya", "マヤノトップガン", "マヤノ", "マヤ"],
+    "images": ["mayanotopgun.mp3"]
+  },
+  {
+    "id": "mejiromcqueen",
+    "number": 4962,
+    "proper": "Mejiro McQueen",
+    "names": ["mejiromcqueen", "mcqueen", "mac", "メジロマックイーン", "マックイーン", "マック"],
+    "images": ["mejiromcqueen.mp3"]
+  },
+  {
+    "id": "mejiroryan",
+    "number": 5122,
+    "proper": "Mejiro Ryan",
+    "names": ["mejiroryan", "ryan", "メジロライアン", "ライアン"],
+    "images": ["mejiroryan.mp3"]
+  },
+  {
+    "id": "mihonobourbon",
+    "number": 5111,
+    "proper": "Mihono Bourbon",
+    "names": ["mihonobourbon", "bourbon", "mihono", "ミホノブルボン", "ブルボン"],
+    "images": ["mihonobourbon.mp3"]
+  },
+  {
+    "id": "naritabrian",
+    "number": 4997,
+    "proper": "Narita Brian",
+    "names": ["naritabrian", "brian", "ナリタブライアン", "ブライアン"],
+    "images": ["naritabrian.mp3"]
+  },
+  {
+    "id": "naritataishin",
+    "number": 5382,
+    "proper": "Narita Taishin",
+    "names": ["naritataishin", "taishin", "ナリタタイシン", "タイシン"],
+    "images": ["naritataishin.mp3"]
+  },
+  {
+    "id": "nicenature",
+    "number": 5485,
+    "proper": "Nice Nature",
+    "names": ["nicenature", "nature", "ナイスネイチャ", "ネイチャ"],
+    "images": ["nicenature.mp3"]
+  },
+  {
+    "id": "oguricap",
+    "number": 4879,
+    "proper": "Oguri Cap",
+    "names": ["oguricap", "oguri", "ogurin", "fatty", "オグリキャップ", "オグリ"],
+    "images": ["oguricap.mp3"]
+  },
+  {
+    "id": "riceshower",
+    "number": 5156,
+    "proper": "Rice Shower",
+    "names": ["riceshower", "rice", "ライスシャワー", "ライス"],
+    "images": ["riceshower.mp3"]
+  },
+  {
+    "id": "sakurabakushino",
+    "number": 5280,
+    "proper": "Sakura Bakushin O",
+    "names": ["sakurabakushino", "bakushin", "bakushino", "サクラバクシンオー", "バクシン", "バクシンオー"],
+    "images": ["sakurabakushino.mp3"]
+  },
+  {
+    "id": "seiunsky",
+    "number": 5044,
+    "proper": "Seiun Sky",
+    "names": ["seiunsky", "sky", "sei", "seiun", "セイウンスカイ", "スカイ", "セイ"],
+    "images": ["seiunsky.mp3"]
+  },
+  {
+    "id": "silencesuzuka",
+    "number": 4536,
+    "proper": "Silence Suzuka",
+    "names": ["silencesuzuka", "suzuka", "サイレンススズカ", "スズカ"],
+    "images": ["silencesuzuka.mp3"]
+  },
+  {
+    "id": "smartfalcon",
+    "number": 5337,
+    "proper": "Smart Falcon",
+    "names": ["smartfalcon", "falko", "falcon", "スマートファルコン", "ファル子", "ファルコン"],
+    "images": ["smartfalcon.mp3"]
+  },
+  {
+    "id": "specialweek",
+    "number": 4737,
+    "proper": "Special Week",
+    "names": ["specialweek", "spe", "spe-chan", "spechan", "special", "スペシャルウィーク", "スペ"],
+    "images": ["specialweek.mp3"]
+  },
+  {
+    "id": "supercreek",
+    "number": 5325,
+    "proper": "Super Creek",
+    "names": ["supercreek", "creek", "スーパークリーク", "クリーク"],
+    "images": ["supercreek.mp3"]
+  },
+  {
+    "id": "symbolirudolf",
+    "number": 5009,
+    "proper": "Symboli Rudolf",
+    "names": ["symbolirudolf", "rudolf", "シンボリルドルフ", "ルドルフ"],
+    "images": ["symbolirudolf.mp3"]
+  },
+  {
+    "id": "taikishuttle",
+    "number": 4927,
+    "proper": "Taiki Shuttle",
+    "names": ["taikishuttle", "taiki", "タイキシャトル", "タイキ"],
+    "images": ["taikishuttle.mp3"]
+  },
+  {
+    "id": "tmoperao",
+    "number": 4986,
+    "proper": "T.M. Opera O",
+    "names": ["tmoperao", "tm", "tmopera", "t.m.operao", "ope", "operao", "t.m.", "t.m", "テイエムオペラオー", "オペラオー", "オペ"],
+    "images": ["tmoperao.mp3"]
+  },
+  {
+    "id": "tokaiteio",
+    "number": 4550,
+    "proper": "Tokai Teio",
+    "names": ["tokaiteio", "teio", "トウカイテイオー"],
+    "images": ["tokaiteio.mp3"]
+  },
+  {
+    "id": "vodka",
+    "number": 4903,
+    "proper": "Vodka",
+    "names": ["vodka", "ウオッカ"],
+    "images": ["vodka.mp3"]
+  },
+  {
+    "id": "winningticket",
+    "number": 5213,
+    "proper": "Winning Ticket",
+    "names": ["winningticket", "ticket", "tickezo", "ウイニングチケット", "チケゾー"],
+    "images": ["winningticket.mp3"]
+  }
+]

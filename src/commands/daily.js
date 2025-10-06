@@ -30,7 +30,7 @@ module.exports = {
 
             var client_db = new MongoClient(uri)
             var database = client_db.db("uma");
-            var ids = database.collection("stats")
+            var ids = database.collection("profiles")
             var discordID = BigInt(user.id)
 
             var brokenStreak = false
