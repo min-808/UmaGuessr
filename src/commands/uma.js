@@ -165,7 +165,7 @@ module.exports = {
             await countCollection.updateOne(
                 { name: umaName },
                 { 
-                    $inc: { count: 1 },
+                    $inc: { count: 1, old_count: 1 },
                     $set: { proper: umaProper }
                 },
                 { upsert: true }
@@ -408,6 +408,17 @@ module.exports = {
                     collector.stop()
 
                     let timeAnswered = Date.now() - state.startTime
+
+                    const countCollection = database.collection("count")
+
+                    await countCollection.updateOne(
+                        { name: umaName },
+                        { 
+                            $inc: { wins: 1 },
+                            $set: { proper: umaProper }
+                        },
+                        { upsert: true }
+                    )
 
                     var authorID = BigInt(msg.author.id); // ID of the person who got it right
 

@@ -41,13 +41,20 @@ module.exports = {
                 }
             }).toArray()
 
-            const sortedUmas = await umaStats.find({}, {
+            const sortedUmas = await umaStats.find({ count: { $gt: 100 } }, {
                 projection: {
                     name: 1,
                     proper: 1,
                     count: 1,
+                    wins: 1,
                 }
-            }).sort({ count: -1 }).toArray()
+            }).toArray();
+
+            sortedUmas.sort((a, b) => {
+                const aRate = a.count ? a.wins / a.count : 0
+                const bRate = b.count ? b.wins / b.count : 0
+                return bRate - aRate
+            });
 
             const globalPicsCount = globalList.reduce((sum, item) => sum + item.images.length, 0)
             const JPPicsCount = JPList.reduce((sum, item) => sum + item.images.length, 0)
@@ -94,6 +101,16 @@ module.exports = {
                 writeTime = `${days.toFixed(0)} days and ${(hours - (days * 24)).toFixed(0)} hours`
             }
 
+            const top5 = sortedUmas.slice(0, 5).map((uma, i) => {
+                const winRate = uma.count ? (uma.wins / uma.count * 100).toFixed(2) : "0.00";
+                return `${i + 1}. **${uma.proper}** (${winRate}%)`;
+            }).join("\n");
+
+            const bot5 = sortedUmas.slice(-5).reverse().map((uma, i) => {
+                const winRate = uma.count ? (uma.wins / uma.count * 100).toFixed(2) : "0.00";
+                return `${i + 1}. **${uma.proper}** (${winRate}%)`;
+            }).join("\n");
+
             embed.setTitle(`**Bot Stats**`)
 
             embed.addFields(
@@ -134,13 +151,13 @@ module.exports = {
                     value: "\n",
                 },
                 {
-                    name: "__Top 5 Umas__",
-                    value: `1. **${sortedUmas[0]["proper"]}** (${sortedUmas[0]["count"]})\n2. **${sortedUmas[1]["proper"]}** (${sortedUmas[1]["count"]})\n3. **${sortedUmas[2]["proper"]}** (${sortedUmas[2]["count"]})\n4. **${sortedUmas[3]["proper"]}** (${sortedUmas[3]["count"]})\n5. **${sortedUmas[4]["proper"]}** (${sortedUmas[4]["count"]})`,
+                    name: "__Top 5 Uma WinRate%__",
+                    value: top5,
                     inline: true,
                 },
                 {
-                    name: "__Bottom 5 Umas__",
-                    value: `1. **${sortedUmas[sortedUmas.length - 1]["proper"]}** (${sortedUmas[sortedUmas.length - 1]["count"]})\n2. **${sortedUmas[sortedUmas.length - 2]["proper"]}** (${sortedUmas[sortedUmas.length - 2]["count"]})\n3. **${sortedUmas[sortedUmas.length - 3]["proper"]}** (${sortedUmas[sortedUmas.length - 3]["count"]})\n4. **${sortedUmas[sortedUmas.length - 4]["proper"]}** (${sortedUmas[sortedUmas.length - 4]["count"]})\n5. **${sortedUmas[sortedUmas.length - 5]["proper"]}** (${sortedUmas[sortedUmas.length - 5]["count"]})`,
+                    name: "__Bottom 5 Uma WinRate%__",
+                    value: bot5,
                     inline: true,
                 },
                 {
