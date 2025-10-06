@@ -95,27 +95,37 @@ console.table(client.slashCommands)
 // console.log(JSON.stringify(commandsArray, null, 2));
 
 async function resetDaily() {
-    var client = new MongoClient(uri)
+    var client_db = new MongoClient(uri)
 
-    var database = client.db("uma");
+    var database = client_db.db("uma");
     var ids = database.collection("profiles")
+    var registerStats = database.collection("stats")
 
     var currentDate = new Date()
     var currentTime = currentDate.toLocaleTimeString( 'en-US', {timeZone: 'Pacific/Honolulu'} )
 
     console.log(`[${currentTime}] - Resetting dailies...`)
 
+    const count = await ids.countDocuments({}, {})
+
     const update = {
         $set: {
             points_today: 0,
             wins_today: 0,
         }
+    }
 
+    const registerUpdate = {
+        $set: {
+            players: count,
+            servers: client.guilds.cache.size,
+        }
     }
 
     await ids.updateMany({}, update)
+    await registerStats.updateOne({}, registerUpdate)
 
-    await client.close()
+    await client_db.close()
 }
 
 async function pushServerCount() {
@@ -332,7 +342,7 @@ client.on('ready', async () => {
 
     await setUptime();
 
-    cron.schedule('0 0 * * *', async () => {
+    cron.schedule('41 20 * * *', async () => {
         try {
             await refreshUsernames();
             await resetDaily();
