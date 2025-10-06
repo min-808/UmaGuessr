@@ -12,7 +12,9 @@ async function buildCache() {
         fs.mkdirSync(cacheDir, { recursive: true });
     }
 
-    const files = fs.readdirSync(guessDir);
+    const files = fs.readdirSync(guessDir).filter(f =>
+        /\.(jpe?g|png|bmp|webp|gif)$/i.test(f)
+    )
 
     console.log(`Caching ${files.length} images...`);
 
