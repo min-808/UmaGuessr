@@ -39,7 +39,7 @@ module.exports = {
             var client_db = new MongoClient(uri);
 
             const database = client_db.db("uma");
-            const ids = database.collection("stats");
+            const ids = database.collection("profiles");
             let discordID = BigInt(user.id);
 
             let count = await ids.countDocuments({ discord_id: discordID });
@@ -90,6 +90,12 @@ module.exports = {
 
                     initialPointsJP = 35 + 1
                     minusPointsJP = 7
+                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("v")) || (args[0].toLowerCase().includes("voice")))) {
+                    list = require('../../src/assets/voice-list.json')
+                    type = "Voice"
+
+                    initialPointsJP = 25 + 1
+                    minusPointsJP = 5
                 } else { // Just the normal !uma command, check their type
                     if (data["type"] === 'g') {
                         list = require('../../src/assets/global-list.json')
@@ -170,13 +176,18 @@ module.exports = {
             // so like, 51-image_name(num).jpg
 
             try {
-                if (type != "IRL") { // set special image directory for irl horse guessing
-                    var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
-                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
-                } else {
+                if (type == "IRL") { // set special image directory for irl horse guessing
                     originDir = path.join(__dirname, "../assets/horses")
 
                     var imagePath = path.join(originDir, `${chooseImg}`); // check for existence
+                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
+                } else if (type == "Voice") {
+                    originDir = path.join(__dirname, "../assets/voices")
+
+                    var imagePath = path.join(originDir, `${chooseImg}`); // check for existence
+                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.mp3' });
+                } else {
+                    var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
                     var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
                 }
             } catch (err) {
@@ -192,7 +203,7 @@ module.exports = {
                 .setLabel('Hint')
                 .setStyle(ButtonStyle.Primary);
 
-            if (type != "IRL") {
+            if ((type != "IRL") && (type != "Voice")) {
                 var row = new ActionRowBuilder()
                   .addComponents(hint)
             }
@@ -204,10 +215,13 @@ module.exports = {
 
             embed.setDescription(`Started by ${user}\n\nServer: ${type}`)
 
-            if (type != "IRL") {
+            if ((type != "IRL") && (type != "Voice")) {
                 var sentMsg = await message.channel.send({ files: [file], components: [row], embeds: [embed] })
+            } else if (type == "IRL") {
+                var sentMsg = await message.channel.send({ embeds: [embed], files: [file] })
             } else {
-                var sentMsg = await message.channel.send({ files: [file], embeds: [embed] })
+                var sentMsg = await message.channel.send({ embeds: [embed] })
+                await message.channel.send({ files: [file] })
             }
 
             // const filter = (i) => i.user.id === message.author.id
@@ -232,7 +246,7 @@ module.exports = {
                 startTime: Date.now(),
             })
 
-            // No hint button interaction for horses, so this will be skipped
+            // No hint button interaction for horses or voice, so this will be skipped
 
             collector.on('collect', async (interaction) => { // Everytime the hint button is pressed
               try {
@@ -368,11 +382,19 @@ module.exports = {
 
                     await sentMsg.channel.send(`Skipped, the answer was **${state.proper}**`);
 
-                    await sentMsg.edit({
-                        embeds: [skippedEmbed],
-                        files: [file],
-                        components: []
-                    });
+                    if (type == "Voice") {
+                        await sentMsg.edit({
+                            embeds: [skippedEmbed],
+                            files: [],
+                            components: []
+                        });
+                    } else {
+                        await sentMsg.edit({
+                            embeds: [skippedEmbed],
+                            files: [file],
+                            components: []
+                        });
+                    }
 
                     await client_db.close();
                     return
@@ -487,6 +509,11 @@ module.exports = {
                     try {
                         var imagePath = path.join(originDir, `${chooseImg}`);
                         var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
+
+                        if (type == "Voice") {
+                            var imagePath = path.join(originDir, `${chooseImg}`);
+                            var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.mp3' })
+                        }
                     } catch (err) {
                         await message.channel.send('There was an error with the image. Skipped');
                         console.error('Image file error:', err);
@@ -500,10 +527,19 @@ module.exports = {
                         .setImage('attachment://revealed.jpg')
                         .setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s | Used ${state.hintsUsed} hints` });
 
-                    await sentMsg.edit({
-                        embeds: [revealedEmbed],
-                        files: [file]
-                    });
+                    if (type == "Voice") {
+                        await sentMsg.edit({
+                            embeds: [revealedEmbed],
+                            files: [],
+                            components: []
+                        });
+                    } else {
+                        await sentMsg.edit({
+                            embeds: [revealedEmbed],
+                            files: [file],
+                            components: []
+                        });
+                    }
 
                     await client_db.close();
                 }
@@ -532,6 +568,11 @@ module.exports = {
                     try {
                         var imagePath = path.join(originDir, `${chooseImg}`);
                         var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'timeout.jpg' })
+
+                        if (type == "Voice") {
+                            var imagePath = path.join(originDir, `${chooseImg}`);
+                            var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'timeout.mp3' })
+                        }
                     } catch (err) {
                         await message.channel.send('There was an error with the image. Skipped');
                         console.error('Image file error:', err);
@@ -547,11 +588,19 @@ module.exports = {
 
                     await sentMsg.channel.send(`Nobody got it right. The answer was **${state.proper}**`);
 
-                    await sentMsg.edit({
-                        embeds: [timeoutEmbed],
-                        files: [file],
-                        components: []
-                    });
+                    if (type == "Voice") {
+                        await sentMsg.edit({
+                            embeds: [timeoutEmbed],
+                            files: [],
+                            components: []
+                        });
+                    } else {
+                        await sentMsg.edit({
+                            embeds: [timeoutEmbed],
+                            files: [file],
+                            components: []
+                        });
+                    }
 
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
