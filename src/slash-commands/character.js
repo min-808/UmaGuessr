@@ -167,7 +167,6 @@ module.exports = {
                     }
 
                     await buttonPagination(sent, embeds);
-
                     break
                 }
             }
