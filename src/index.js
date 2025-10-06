@@ -342,7 +342,7 @@ client.on('ready', async () => {
 
     await setUptime();
 
-    cron.schedule('41 20 * * *', async () => {
+    cron.schedule('0 0 * * *', async () => {
         try {
             await refreshUsernames();
             await resetDaily();
