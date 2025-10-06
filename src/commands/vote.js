@@ -4,8 +4,6 @@ var { MongoClient } = require("mongodb");
 const img = "vote"
 const setup = require('../../firstinit');
 
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
-
 module.exports = {
     name: 'vote',
     aliases: ['v'],
@@ -16,7 +14,7 @@ module.exports = {
         const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
 
         try {
-            var client_db = new MongoClient(uri)
+            var client_db = new MongoClient(process.env.MONGODB_URI)
             var database = client_db.db("uma")
             var ids = database.collection("profiles")
             var discordID = BigInt(message.author.id)

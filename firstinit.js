@@ -1,12 +1,11 @@
 // Make sure to client.close after using this function, cuz it doesn't close here
 
 var { MongoClient } = require("mongodb");
-
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
+require('dotenv').config();
 
 module.exports = {
     init: async function(id, db, collection, client) {
-        var client_db = new MongoClient(uri)
+        var client_db = new MongoClient(process.env.MONGODB_URI)
 
         var database = client_db.db(db);
         var ids = database.collection(collection)

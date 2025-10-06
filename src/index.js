@@ -10,7 +10,7 @@ const { MongoClient } = require('mongodb');
 const { buildCache } = require("./cache-images.js");
 const { CommandHandler } = require('djs-commander');
 
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
+// var process.env.MONGODB_URI = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 
 const prefixCache = new Map()
 const strictCache = new Map()
@@ -87,15 +87,15 @@ for (const file of slashCommandFiles) {
     client.slashCommands.set(command.name, command)
 }
 
-console.table(client.prefixCommands)
-console.table(client.slashCommands)
+// console.table(client.prefixCommands)
+// console.table(client.slashCommands)
 
 // importing commands to top.gg
 // const commandsArray = [...client.slashCommands.values()].map(cmd => cmd.data.toJSON());
 // console.log(JSON.stringify(commandsArray, null, 2));
 
 async function resetDaily() {
-    var client_db = new MongoClient(uri)
+    var client_db = new MongoClient(process.env.MONGODB_process.env.MONGODB_URI)
 
     var database = client_db.db("uma");
     var ids = database.collection("profiles")
@@ -156,7 +156,7 @@ async function pushServerCount() {
 
 async function refreshUsernames() {
     try {
-        const client = new MongoClient(uri);
+        const client = new MongoClient(process.env.MONGODB_URI);
         const database = client.db("uma");
         const ids = database.collection("profiles");
 
@@ -212,7 +212,7 @@ async function refreshUsernames() {
 }
 
 async function loadPrefixes() {
-    const client = new MongoClient(uri);
+    const client = new MongoClient(process.env.MONGODB_URI);
     const database = client.db("uma");
     const prefixes = database.collection("prefixes");
 
@@ -226,7 +226,7 @@ async function loadPrefixes() {
 }
 
 async function cacheStrict() {
-    const client = new MongoClient(uri);
+    const client = new MongoClient(process.env.MONGODB_URI);
     const database = client.db("uma");
     const stats = database.collection("profiles");
 
@@ -245,7 +245,7 @@ async function getPrefix(guildId) { // This will be called everytime a potential
     }
 
     // If not, find the prefix
-    const client = new MongoClient(uri)
+    const client = new MongoClient(process.env.MONGODB_URI)
     const database = client.db("uma")
     const prefixes = database.collection("prefixes")
 
@@ -359,7 +359,7 @@ client.on('ready', async () => {
 });
 
 async function setUptime() {
-    const client = new MongoClient(uri);
+    const client = new MongoClient(process.env.MONGODB_URI);
     const database = client.db("uma");
     const ids = database.collection("stats");
     await ids.updateOne({}, { $set: { time: Date.now() } });

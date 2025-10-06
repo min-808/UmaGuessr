@@ -4,8 +4,6 @@ const { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder } = require('discor
 const setup = require('../../firstinit');
 const img = 'set'
 
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
-
 module.exports = {
     name: 'set',
     description: `Change the region you default to for the guessing game`,
@@ -36,7 +34,7 @@ module.exports = {
         try {
             await interaction.deferReply()
 
-            var client_db = new MongoClient(uri)
+            var client_db = new MongoClient(process.env.MONGODB_URI)
             var database = client_db.db("uma");
             var ids = database.collection("profiles")
             var discordID = BigInt(interaction.user.id)

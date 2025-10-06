@@ -4,8 +4,6 @@ var { MongoClient } = require("mongodb");
 const img = "vote"
 const setup = require('../../firstinit');
 
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
-
 module.exports = {
     name: 'vote',
     aliases: ['v'],
@@ -22,7 +20,7 @@ module.exports = {
         try {
             await interaction.deferReply()
 
-            var client_db = new MongoClient(uri)
+            var client_db = new MongoClient(process.env.MONGODB_URI)
             var database = client_db.db("uma")
             var ids = database.collection("profiles")
             var discordID = BigInt(interaction.user.id)

@@ -1,8 +1,6 @@
 var { EmbedBuilder } = require('discord.js');
 const { MongoClient } = require('mongodb');
 
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
-
 module.exports = {
     name: 'uptime',
     description: 'Get bot uptime',
@@ -21,7 +19,7 @@ module.exports = {
 
         try {
 
-            var client = new MongoClient(uri)
+            var client = new MongoClient(process.env.MONGODB_URI)
 
             var database = client.db("uma");
             var ids = database.collection("stats")

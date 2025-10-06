@@ -4,8 +4,6 @@ const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 const setup = require('../../firstinit');
 const img = 'strict'
 
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
-
 module.exports = {
     name: 'strict',
     description: `Toggle strict guessing mode`,
@@ -22,7 +20,7 @@ module.exports = {
             .setTitle(`\n`)
 
         try {
-            var client_db = new MongoClient(uri)
+            var client_db = new MongoClient(process.env.MONGODB_URI)
             var database = client_db.db("uma");
             var ids = database.collection("profiles")
             var discordID = BigInt(user.id)

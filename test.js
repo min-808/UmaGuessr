@@ -66,10 +66,9 @@ for (const [uma, data] of sortedStats) {
 
 
 async function saveStatsToMongo(stats) {
-    var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
 const dbName = "uma";
 const collectionName = "count";
-    const client = new MongoClient(uri);
+    const client = new MongoClient(process.env.MONGODB_URI);
 
     try {
         await client.connect();

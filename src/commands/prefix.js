@@ -3,8 +3,6 @@ const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 
 const img = 'prefix'
 
-var uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
-
 module.exports = {
     name: 'prefix',
     description: `Change the bot prefix for your server`,
@@ -30,7 +28,7 @@ module.exports = {
 
                 return
             } else {
-                var client_db = new MongoClient(uri)
+                var client_db = new MongoClient(process.env.MONGODB_URI)
                 var database = client_db.db("uma");
                 var ids = database.collection("prefixes")
 
