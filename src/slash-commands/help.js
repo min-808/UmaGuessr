@@ -100,7 +100,7 @@ module.exports = {
                             "`/profile (username/id)`" + " - " + "Check a player's profile" + "\n" +
                             "`/lb (option)`" + " - " + "Global leaderboards" + "\n" +
                             "`/char (name)`" + " - " + "View an uma's profile" + "\n" +
-                            "`/charlist`" + " - " + "View the current list of umas in the bot" + "\n" +
+                            "`/charlist (pics/winrate)`" + " - " + "View the current list of umas in the bot" + "\n" +
                             "\n" + 
                             "**__Misc.__**" + "\n" +
                             "`/help`" + " - " + "Command information" + "\n" +
