@@ -95,7 +95,7 @@ for (const file of slashCommandFiles) {
 // console.log(JSON.stringify(commandsArray, null, 2));
 
 async function resetDaily() {
-    var client_db = new MongoClient(process.env.MONGODB_process.env.MONGODB_URI)
+    var client_db = new MongoClient(process.env.MONGODB_URI)
 
     var database = client_db.db("uma");
     var ids = database.collection("profiles")
