@@ -184,12 +184,12 @@ module.exports = {
                         },
                         {
                             name: "​",
-                            value: firstThirdJP.map(c => `${c.proper} **(${c.images.length})**`).join("\n") || "N/A",
+                            value: secondThirdJP.map(c => `${c.proper} **(${c.images.length})**`).join("\n") || "N/A",
                             inline: true
                         },
                         {
                             name: "​",
-                            value: firstThirdJP.map(c => `${c.proper} **(${c.images.length})**`).join("\n") || "N/A",
+                            value: thirdThirdJP.map(c => `${c.proper} **(${c.images.length})**`).join("\n") || "N/A",
                             inline: true
                         },
                     )
