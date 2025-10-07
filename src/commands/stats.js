@@ -1,4 +1,4 @@
-const { EmbedBuilder, AttachmentBuilder } = require('discord.js');
+const { EmbedBuilder, AttachmentBuilder, REST, Routes} = require('discord.js');
 const { MongoClient } = require("mongodb");
 
 const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
@@ -30,6 +30,10 @@ module.exports = {
             const grabUptime = otherDatabase.collection('stats')
 
             const count = await ids.countDocuments({}, {})
+
+            const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
+
+            const routesResult = await rest.get(Routes.oauth2CurrentApplication());
 
             const data = await ids.find({}, {
                 projection: {
@@ -143,7 +147,7 @@ module.exports = {
                 },
                 {
                     name: "__Total Servers__",
-                    value: `**${client.guilds.cache.size}** *(+${client.guilds.cache.size - toParseUserUID["servers"]} today)*`,
+                    value: `**${routesResult.approximate_guild_count}** *(+${routesResult.approximate_guild_count - toParseUserUID["servers"]} today)*`,
                     inline: true
                 },
                 {
