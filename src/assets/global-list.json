@@ -49,6 +49,13 @@
     "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg", "fujikiseki4.jpg", "fujikiseki5.jpg", "fujikiseki6.jpg", "fujikiseki7.jpg", "fujikiseki8.jpg", "fujikiseki9.jpg", "fujikiseki10.jpg", "fujikiseki11.jpg"]
   },
   {
+    "id": "goldcity",
+    "number": 5269,
+    "proper": "Gold City",
+    "names": ["goldcity", "city", "ゴールドシチー", "シチー"],
+    "images": ["goldcity1.jpg", "goldcity2.jpg", "goldcity3.jpg", "goldcity4.jpg", "goldcity5.jpg"]
+  },
+  {
     "id": "goldship",
     "number": 4891,
     "proper": "Gold Ship",

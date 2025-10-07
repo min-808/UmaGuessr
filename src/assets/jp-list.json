@@ -203,13 +203,6 @@
     "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg", "gentildonna4.jpg", "gentildonna5.jpg", "gentildonna6.jpg", "gentildonna7.jpg", "gentildonna8.jpg"]
     },
     {
-    "id": "goldcity",
-    "number": 5269,
-    "proper": "Gold City",
-    "names": ["goldcity", "city", "ゴールドシチー", "シチー"],
-    "images": ["goldcity1.jpg", "goldcity2.jpg", "goldcity3.jpg", "goldcity4.jpg", "goldcity5.jpg"]
-    },
-    {
     "id": "granalegria",
     "number": 10389,
     "proper": "Gran Alegria",
