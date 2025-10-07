@@ -32,7 +32,6 @@ module.exports = {
             const count = await ids.countDocuments({}, {})
 
             const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
-
             const routesResult = await rest.get(Routes.oauth2CurrentApplication());
 
             const data = await ids.find({}, {

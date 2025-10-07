@@ -1,6 +1,6 @@
 require('dotenv').config();
 
-const { Client, IntentsBitField, Collection, ActivityType } = require('discord.js');
+const { Client, IntentsBitField, Collection, ActivityType, REST, Routes } = require('discord.js');
 const mongoose = require('mongoose');
 const fs = require('fs');
 const util = require('util')
@@ -108,6 +108,9 @@ async function resetDaily() {
 
     const count = await ids.countDocuments({}, {})
 
+    const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
+    const routesResult = await rest.get(Routes.oauth2CurrentApplication());
+
     const update = {
         $set: {
             points_today: 0,
@@ -118,7 +121,7 @@ async function resetDaily() {
     const registerUpdate = {
         $set: {
             players: count,
-            servers: client.guilds.cache.size,
+            servers: routesResult.approximate_guild_count,
         }
     }
 
@@ -130,8 +133,12 @@ async function resetDaily() {
 
 async function pushServerCount() {
     try {
+
+        const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
+        const routesResult = await rest.get(Routes.oauth2CurrentApplication());
+
         const count = {
-            server_count: client.guilds.cache.size
+            server_count: routesResult.approximate_guild_count
         }
 
         const response = await fetch(`https://top.gg/api/bots/${process.env.CLIENT_ID}/stats`, {
@@ -144,7 +151,7 @@ async function pushServerCount() {
         });
 
         if (response.ok) {
-            console.log("Updated top.gg server count: " + client.guilds.cache.size)
+            console.log("Updated top.gg server count: " + routesResult.approximate_guild_count)
         } else {
             console.log("Unable to update top.gg server count. Status: " + response.status)
         }
