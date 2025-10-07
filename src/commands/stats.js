@@ -30,7 +30,6 @@ module.exports = {
             const grabUptime = otherDatabase.collection('stats')
 
             const count = await ids.countDocuments({}, {})
-            await client.guilds.cache.fetch()
 
             const data = await ids.find({}, {
                 projection: {
