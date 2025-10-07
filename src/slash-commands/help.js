@@ -17,7 +17,7 @@ module.exports = {
                     { name: 'Uma', value: 'uma' },
                 )),
     
-    run: async ({ interaction, args }) => {
+    run: async ({ interaction }) => {
 
         const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
 
