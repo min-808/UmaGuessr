@@ -1,5 +1,12 @@
 [
     {
+    "id": "admiregroove",
+    "number": 10395,
+    "proper": "Admire Groove",
+    "names": ["admiregroove", "aruvu", "arubu", "アドマイヤグルーヴ", "アルーヴ"],
+    "images": ["admiregroove1.jpg", "admiregroove2.jpg", "admiregroove3.jpg", "admiregroove4.jpg", "admiregroove5.jpg", "admiregroove6.jpg", "admiregroove7.jpg", "admiregroove8.jpg"]
+    },
+    {
     "id": "admirevega",
     "number": 5191,
     "proper": "Admire Vega",
@@ -49,6 +56,13 @@
     "images": ["bamboomemory1.jpg", "bamboomemory2.jpg", "bamboomemory3.jpg", "bamboomemory4.jpg", "bamboomemory5.jpg"]
     },
     {
+    "id": "believe",
+    "number": 10375,
+    "proper": "Believe",
+    "names": ["believe", "bビリーヴ"],
+    "images": ["believe1.jpg", "believe2.jpg", "believe3.jpg", "believe4.jpg", "believe5.jpg", "believe6.jpg", "believe7.jpg"]
+    },
+    {
     "id": "belnolight",
     "number": 50001,
     "proper": "Belno Light",
@@ -61,6 +75,13 @@
     "proper": "Biko Pegasus",
     "names": ["bikopegasus", "biko", "pegasus", "ビコーペガサス", "ビコー"],
     "images": ["bikopegasus1.jpg", "bikopegasus2.jpg", "bikopegasus3.jpg", "bikopegasus4.jpg", "bikopegasus5.jpg"]
+    },
+    {
+    "id": "blastonepiece",
+    "number": 10380,
+    "proper": "Blast Onepiece",
+    "names": ["blast onepiece", "blast", "one piece", "ブラストワンピース", "ブラスト", "ワンピース"],
+    "images": ["blastonepiece1.jpg", "blastonepiece2.jpg", "blastonepiece3.jpg", "blastonepiece4.jpg", "blastonepiece5.jpg", "blastonepiece6.jpg", "blastonepiece7.jpg"]
     },
     {
     "id": "bubblegumfellow",
@@ -88,7 +109,7 @@
     "number": 7520,
     "proper": "Cheval Grand",
     "names": ["chevalgrand", "cheval", "grand", "chevacchi", "シュヴァルグラン", "シュヴァル"],
-    "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg", "chevalgrand6.jpg", "chevalgrand7.jpg", "chevalgrand8.jpg", "chevalgrand9.jpg", "chevalgrand10.jpg", "chevalgrand11.jpg", "chevalgrand12.jpg", "chevalgrand13.jpg", "chevalgrand14.jpg"]
+    "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg", "chevalgrand6.jpg", "chevalgrand7.jpg", "chevalgrand8.jpg", "chevalgrand9.jpg", "chevalgrand10.jpg", "chevalgrand11.jpg", "chevalgrand12.jpg", "chevalgrand13.jpg", "chevalgrand14.jpg", "chevalgrand15.jpg"]
     },
     {
     "id": "chronogenesis",
@@ -103,6 +124,13 @@
     "proper": "Copano Rickey",
     "names": ["copanorickey", "rickey", "copano", "コパノリッキー", "リッキー"],
     "images": ["copanorickey1.jpg", "copanorickey2.jpg", "copanorickey3.jpg", "copanorickey4.jpg", "copanorickey5.jpg"]
+    },
+    {
+    "id": "currenbouquetdor",
+    "number": 10386,
+    "proper": "Curren Bouquetd'or",
+    "names": ["currenbouquetdor", "bouquetdor", "bouquet", "カレンブーケドール", "ブーケドール", "ブーケ"],
+    "images": ["currenbouquetdor1.jpg", "currenbouquetdor2.jpg", "currenbouquetdor3.jpg", "currenbouquetdor4.jpg", "currenbouquetdor5.jpg", "currenbouquetdor6.jpg", "currenbouquetdor7.jpg", "currenbouquetdor8.jpg"]
     },
     {
     "id": "daiichiruby",
@@ -126,11 +154,25 @@
     "images": ["dantsuflame1.jpg", "dantsuflame2.jpg", "dantsuflame3.jpg", "dantsuflame4.jpg", "dantsuflame5.jpg", "dantsuflame6.jpg"]
     },
     {
+    "id": "daringheart",
+    "number": 10231,
+    "proper": "Daring Heart",
+    "names": ["daringheart", "heart", "デアリングハート", "ハート"],
+    "images": ["daringheart1.jpg", "daringheart2.jpg", "daringheart3.jpg", "daringheart4.jpg", "daringheart5.jpg", "daringheart6.jpg", "daringheart7.jpg", "daringheart8.jpg"]
+    },
+    {
+    "id": "daringtact",
+    "number": 7817,
+    "proper": "Daring Tact",
+    "names": ["daringtact", "tact", "takuto", "デアリングタクト", "タクト"],
+    "images": ["daringtact1.jpg", "daringtact2.jpg", "daringtact3.jpg", "daringtact4.jpg", "daringtact5.jpg", "daringtact6.jpg", "daringtact7.jpg", "daringtact8.jpg"]
+    },
+    {
     "id": "dreamjourney",
     "number": 10373,
     "proper": "Dream Journey",
     "names": ["dreamjourney", "dura", "dream", "ドリームジャーニー"],
-    "images": ["dreamjourney1.jpg", "dreamjourney2.jpg", "dreamjourney3.jpg", "dreamjourney4.jpg", "dreamjourney5.jpg", "dreamjourney6.jpg", "dreamjourney7.jpg", "dreamjourney8.jpg", "dreamjourney9.jpg", "dreamjourney10.jpg"]
+    "images": ["dreamjourney1.jpg", "dreamjourney2.jpg", "dreamjourney3.jpg", "dreamjourney4.jpg", "dreamjourney5.jpg", "dreamjourney6.jpg", "dreamjourney7.jpg", "dreamjourney8.jpg", "dreamjourney9.jpg", "dreamjourney10.jpg", "dreamjourney11.jpg"]
     },
     {
     "id": "duramente",
@@ -294,11 +336,18 @@
     "images": ["ksmiracle1.jpg", "ksmiracle2.jpg", "ksmiracle3.jpg", "ksmiracle4.jpg", "ksmiracle5.jpg", "ksmiracle6.jpg"]
     },
     {
+    "id": "luckylilac",
+    "number": 10390,
+    "proper": "Lucky Lilac",
+    "names": ["luckylilac", "lucky", "lilac", "lala", "ラッキー", "ライラック", "ララ"],
+    "images": ["luckylilac1.jpg", "luckylilac2.jpg", "luckylilac3.jpg", "luckylilac4.jpg", "luckylilac5.jpg", "luckylilac6.jpg", "luckylilac7.jpg", "luckylilac8.jpg", "luckylilac9.jpg"]
+    },
+    {
     "id": "manhattancafe",
     "number": 5100,
     "proper": "Manhattan Cafe",
     "names": ["manhattancafe", "cafe", "マンハッタンカフェ", "カフェ"],
-    "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg", "manhattancafe4.jpg", "manhattancafe5.jpg", "manhattancafe6.jpg", "manhattancafe7.jpg", "manhattancafe8.jpg", "manhattancafe9.jpg", "manhattancafe10.jpg", "manhattancafe11.jpg", "manhattancafe12.jpg", "manhattancafe13.jpg", "manhattancafe14.jpg", "manhattancafe15.jpg"]
+    "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg", "manhattancafe4.jpg", "manhattancafe5.jpg", "manhattancafe6.jpg", "manhattancafe7.jpg", "manhattancafe8.jpg", "manhattancafe9.jpg", "manhattancafe10.jpg", "manhattancafe11.jpg", "manhattancafe12.jpg", "manhattancafe13.jpg", "manhattancafe14.jpg", "manhattancafe15.jpg", "manhattancafe16.jpg"]
     },
     {
     "id": "marveloussunday",
@@ -427,6 +476,20 @@
     "images": ["rheinkraft1.jpg", "rheinkraft2.jpg", "rheinkraft3.jpg", "rheinkraft4.jpg", "rheinkraft5.jpg", "rheinkraft6.jpg", "rheinkraft7.jpg"]
     },
     {
+    "id": "royceandroyce",
+    "number": 10105,
+    "proper": "Royce and Royce",
+    "names": ["royceandroyce", "royce", "ロイスアンドロイス", "ロイス"],
+    "images": ["royceandroyce1.jpg", "royceandroyce2.jpg", "royceandroyce3.jpg", "royceandroyce4.jpg", "royceandroyce5.jpg", "royceandroyce6.jpg"]
+    },
+    {
+    "id": "sakurachitoseo",
+    "number": 10382,
+    "proper": "Sakura Chitose O",
+    "names": ["sakurachitoseo", "sakurachitose", "chitoseo", "chitose", "サクラチトセオー", "サクラチトセ", "チトセオー", "チトセ"],
+    "images": ["sakurachitoseo1.jpg", "sakurachitoseo2.jpg", "sakurachitoseo3.jpg", "sakurachitoseo4.jpg", "sakurachitoseo5.jpg", "sakurachitoseo6.jpg", "sakurachitoseo7.jpg", "sakurachitoseo8.jpg"]
+    },
+    {
     "id": "sakurachiyonoo",
     "number": 5509,
     "proper": "Sakura Chiyono O",
@@ -439,6 +502,13 @@
     "proper": "Sakura Laurel",
     "names": ["sakuralaurel", "laurel", "サクラローレル", "ローレル"],
     "images": ["sakuralaurel1.jpg", "sakuralaurel2.jpg", "sakuralaurel3.jpg", "sakuralaurel4.jpg", "sakuralaurel5.jpg", "sakuralaurel6.jpg", "sakuralaurel7.jpg", "sakuralaurel8.jpg"]
+    },
+    {
+    "id": "samsonbig",
+    "number": 10030,
+    "proper": "Samson Big",
+    "names": ["samsonbig", "samson", "サムソンビッグ", "サムソン"],
+    "images": ["samsonbig1.jpg", "samsonbig2.jpg", "samsonbig3.jpg", "samsonbig4.jpg", "samsonbig5.jpg", "samsonbig6.jpg", "samsonbig7.jpg", "samsonbig8.jpg"]
     },
     {
     "id": "satonocrown",
@@ -508,7 +578,7 @@
     "number": 5055,
     "proper": "Tamamo Cross",
     "names": ["tamamocross", "tamamo", "tama", "タマモクロス", "タマモ", "タマ"],
-    "images": ["tamamocross1.jpg", "tamamocross2.jpg", "tamamocross3.jpg", "tamamocross4.jpg", "tamamocross5.jpg", "tamamocross6.jpg", "tamamocross7.jpg", "tamamocross8.jpg", "tamamocross9.jpg", "tamamocross10.jpg"]
+    "images": ["tamamocross1.jpg", "tamamocross2.jpg", "tamamocross3.jpg", "tamamocross4.jpg", "tamamocross5.jpg", "tamamocross6.jpg", "tamamocross7.jpg", "tamamocross8.jpg", "tamamocross9.jpg", "tamamocross10.jpg", "tamamocross11.jpg"]
     },
     {
     "id": "tapdancecity",
