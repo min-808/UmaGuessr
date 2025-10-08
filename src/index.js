@@ -326,7 +326,7 @@ client.on('messageCreate', async message => {
         await command.run({ message, args, client });
 
         if (logChannel) {
-            await logChannel.send(`\`${message.author.username}\`: !${cmdName}`)
+            await logChannel.send(`\`${message.author.username}\`: !${cmdName + " " + args}`)
         }
     } catch (err) {
         console.error(err);
@@ -335,7 +335,8 @@ client.on('messageCreate', async message => {
 
 client.on('interactionCreate', async (interaction) => {
     if (interaction.isChatInputCommand()) { // boolean
-        await logChannel.send(`\`${interaction.user.username}\`: /${interaction.commandName}`)
+        const options = interaction.options.data
+        await logChannel.send(`\`${interaction.user.username}\`: /${interaction.commandName + " " + options.map(opt => `${opt.value}`).join(' ')}`)
     }
 
     if (interaction.isAutocomplete()) {
