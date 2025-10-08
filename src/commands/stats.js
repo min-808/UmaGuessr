@@ -14,7 +14,8 @@ module.exports = {
         var globalList = require('../../src/assets/global-list.json')
         var JPList = require('../../src/assets/jp-list.json')
         var irlList = require('../../src/assets/horse-list.json')
-        var allList = globalList.concat(JPList).concat(irlList)
+        var umasList = globalList.concat(JPList)
+        var allList = umasList.concat(irlList)
 
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
@@ -119,7 +120,7 @@ module.exports = {
             embed.addFields(
                 {
                     name: `__Uma Count__`,
-                    value: `**${allList.length}** (All)\n**${JPList.length}** (Japan)\n**${globalList.length}** (Global)`,
+                    value: `**${umasList.length}** (All)\n**${JPList.length}** (Japan)\n**${globalList.length}** (Global)`,
                     inline: true
                 },
                 {
