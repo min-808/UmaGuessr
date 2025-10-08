@@ -1,6 +1,7 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const buttonPagination = require('../../button-pagination');
 const path = require("path")
+const { MongoClient } = require("mongodb")
 
 var sources = require('../../src/assets/sources/sources.json')
 var globalList = require('../../src/assets/global-list.json')
@@ -96,6 +97,17 @@ module.exports = {
 
                     var data
 
+                    var client_db = new MongoClient(process.env.MONGODB_URI)
+                    var database = client_db.db("uma");
+                    var ids = database.collection("count")
+
+                    const umaStats = await ids.findOne({ name: charName }, {
+                        projection: {
+                            count: 1,
+                            wins: 1,
+                        }
+                    })
+
                     if ((id === 50000) || (id === 50001) || (id === 50002)) {
                         data = otherList.find(item => item.id === id)
                     } else {
@@ -134,6 +146,10 @@ module.exports = {
                             value: `Ears: ${data['ears_fact'] ?? 'N/A'}\nTail: ${data['tail_fact'] ?? 'N/A'}\nFamily: ${data['family_fact'] ?? 'N/A'}`,
                         },
                         {
+                            name: `Winrate // Times Shown`,
+                            value: `${(umaStats["wins"] / umaStats["count"] * 100).toFixed(2)}% // ${umaStats["count"]}`,
+                        },
+                        {
                             name: `Region`,
                             value: `${region}`,
                         },
@@ -167,6 +183,7 @@ module.exports = {
                     }
 
                     await buttonPagination(sent, embeds);
+                    await client_db.close()
                     break
                 }
             }

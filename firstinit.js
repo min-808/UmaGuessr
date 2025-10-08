@@ -54,7 +54,7 @@ module.exports = {
 
         client.strictCache.set(id, false) // cache their strict settings to false when a new user signs up
 
-        client.channels.fetch('1410434305858994249').then((channel) => { channel.send(`User **${retUsername + retDiscriminator}** has registered`) }).catch(console.error)
+        client.channels.fetch(process.env.REG_LOG_CHANNEL).then((channel) => { channel.send(`User **${retUsername + retDiscriminator}** has registered`) }).catch(console.error)
         // send me a msg when a new user signs up
     }
 }

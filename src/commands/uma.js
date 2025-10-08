@@ -60,6 +60,9 @@ module.exports = {
                 }
             });
 
+            var logChannel = await client.channels.fetch(process.env.UMA_LOG_CHANNEL)
+            var cmdLogChannel = await client.channels.fetch(process.env.CMD_LOG_CHANNEL) 
+
             let list;
             let list2;
             let type;
@@ -147,7 +150,6 @@ module.exports = {
             var umaProper = list[chooseChar]['proper']
 
             try {
-                const logChannel = await client.channels.fetch('1412306508221513729');
                 if (logChannel) {
                     await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` started a game with the correct answer being ${umaProper}`)
                 }
@@ -341,9 +343,9 @@ module.exports = {
                     collector.stop()
 
                     try {
-                        const logChannel = await client.channels.fetch('1412306508221513729');
-                        if (logChannel) {
+                        if (logChannel && cmdLogChannel) {
                             await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
+                            await cmdLogChannel.send(`\`${data["username"]}\`: !skip`)
                         }
                     } catch (err) {
                         console.error("Log channel fetch/send error:", err);
@@ -428,7 +430,6 @@ module.exports = {
                     var broadSearch = await ids.findOne({ discord_id: authorID })
 
                     try {
-                        const logChannel = await client.channels.fetch('1412306508221513729');
                         if (logChannel) {
                             await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
                         }
@@ -562,7 +563,6 @@ module.exports = {
                     if (!state) return;
 
                     try {
-                        const logChannel = await client.channels.fetch('1412306508221513729');
                         if (logChannel) {
                             await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - No one answered, with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
                         }

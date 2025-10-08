@@ -64,6 +64,8 @@ client.strictCache = strictCache
 client.prefixCommands = new Collection();
 client.slashCommands = new Collection();
 
+var logChannel;
+
 new CommandHandler({
     client,
     commandsPath: path.join(__dirname, 'slash-commands'),
@@ -322,12 +324,20 @@ client.on('messageCreate', async message => {
 
     try {
         await command.run({ message, args, client });
+
+        if (logChannel) {
+            await logChannel.send(`\`${message.author.username}\`: !${cmdName}`)
+        }
     } catch (err) {
         console.error(err);
     }
 });
 
 client.on('interactionCreate', async (interaction) => {
+    if (interaction.isChatInputCommand()) { // boolean
+        await logChannel.send(`\`${interaction.user.username}\`: /${interaction.commandName}`)
+    }
+
     if (interaction.isAutocomplete()) {
         const command = interaction.client.slashCommands.get(interaction.commandName)
 
@@ -347,6 +357,8 @@ client.on('ready', async () => {
     console.log(`${client.user.tag} is online.`);
     client.user.setActivity('!help | !uma', { type: ActivityType.Playing }); 
 
+    logChannel = await client.channels.fetch(process.env.CMD_LOG_CHANNEl)
+
     await setUptime();
 
     cron.schedule('0 0 * * *', async () => {
@@ -360,9 +372,6 @@ client.on('ready', async () => {
     }, {
         timezone: 'Pacific/Honolulu'
     })
-
-    // const channel = await client.channels.fetch('895794176682242088');
-    // await channel.send('a');
 });
 
 async function setUptime() {
