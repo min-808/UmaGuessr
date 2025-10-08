@@ -357,7 +357,7 @@ client.on('ready', async () => {
     console.log(`${client.user.tag} is online.`);
     client.user.setActivity('!help | !uma', { type: ActivityType.Playing }); 
 
-    logChannel = await client.channels.fetch(process.env.CMD_LOG_CHANNEl)
+    logChannel = await client.channels.fetch(process.env.CMD_LOG_CHANNEL)
 
     await setUptime();
 
