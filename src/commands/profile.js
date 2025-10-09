@@ -5,20 +5,16 @@ const setup = require('../../firstinit');
 
 const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
-const img = "profile"
-
 module.exports = {
     name: 'profile',
     aliases: ['p'],
     description: 'Show your bot game stats',
     run: async ({ message, args, client }) => {
-        const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
         const user = message.author;
         var data
 
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
-            .setThumbnail(`attachment://${img}.png`)
 
         try {
             var client_db = new MongoClient(uri);
@@ -35,7 +31,6 @@ module.exports = {
             if (args.length > 0) {
                 if (message.mentions.users.size > 0) { // if it's a mention
                     discordID = BigInt(message.mentions.users.first().id)
-                    console.log(discordID)
                 } else if (/^\d{17,19}$/.test(args[0])) { // possibly just an id?, regex fuckery (number between 17 and 19 digits incl)
                     discordID = BigInt(args[0])
                 } else if (typeof args[0] == 'string') { // not a number with 17-19 digits, so possibly a username string
@@ -97,6 +92,16 @@ module.exports = {
                 userProvided = data["username"]
                 d = new Date(data['signup'])
             }
+
+            const response = await fetch(`https://discord.com/api/v10/users/${discordID}`, {
+                    headers: {
+                        'Authorization': 'Bot ' + process.env.TOKEN
+                    }
+                });
+
+            const parse = await response.json()
+
+            embed.setThumbnail(`https://cdn.discordapp.com/avatars/${discordID}/${parse.avatar}.png`)
 
             const utcDate = `${(d.getUTCMonth() + 1).toString().padStart(2, '0')}/${d.getUTCDate().toString().padStart(2,'0')}/${d.getUTCFullYear()}`;
             const utcTime = `${d.getUTCHours().toString().padStart(2,'0')}:${d.getUTCMinutes().toString().padStart(2,'0')}:${d.getUTCSeconds().toString().padStart(2,'0')}`;
@@ -160,7 +165,7 @@ module.exports = {
 
             embed.setFooter({ text: `Joined on ${utcDate} at ${utcTime} UTC` })
 
-            await message.channel.send({ embeds: [embed], files: [file] })
+            await message.channel.send({ embeds: [embed] })
 
             await client_db.close();
         } catch (error) {

@@ -5,8 +5,6 @@ const setup = require('../../firstinit');
 
 const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
-const img = "profile"
-
 module.exports = {
     name: 'profile',
     aliases: ['p'],
@@ -22,13 +20,11 @@ module.exports = {
         ),
 
     run: async ({ interaction, client }) => {
-        const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
         const user = interaction.user;
         var data
 
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
-            .setThumbnail(`attachment://${img}.png`)
 
         try {
             await interaction.deferReply()
@@ -108,6 +104,16 @@ module.exports = {
                 d = new Date(data['signup'])
             }
 
+            const response = await fetch(`https://discord.com/api/v10/users/${discordID}`, {
+                    headers: {
+                        'Authorization': 'Bot ' + process.env.TOKEN
+                    }
+                });
+
+            const parse = await response.json()
+            
+            embed.setThumbnail(`https://cdn.discordapp.com/avatars/${discordID}/${parse.avatar}.png`)
+
             const utcDate = `${(d.getUTCMonth() + 1).toString().padStart(2, '0')}/${d.getUTCDate().toString().padStart(2,'0')}/${d.getUTCFullYear()}`;
             const utcTime = `${d.getUTCHours().toString().padStart(2,'0')}:${d.getUTCMinutes().toString().padStart(2,'0')}:${d.getUTCSeconds().toString().padStart(2,'0')}`;
 
@@ -170,7 +176,7 @@ module.exports = {
 
             embed.setFooter({ text: `Joined on ${utcDate} at ${utcTime} UTC` })
 
-            await interaction.editReply({ embeds: [embed], files: [file] })
+            await interaction.editReply({ embeds: [embed] })
 
             await client_db.close();
         } catch (error) {
