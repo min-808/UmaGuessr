@@ -64,20 +64,23 @@ module.exports = {
             };
 
             const selectedOption = type
+            var userRank
 
             let listOfDocuments = await ids.find({}, options).toArray();
 
             if (selectedOption == "times") { // smallest avg first
                 listOfDocuments.sort((a, b) => {
-                // If not an array, empty, or too short (< 5), replace with [Infinity]
-                let aTimes = Array.isArray(a.times) && a.times.length >= 5 ? a.times : [Infinity]
-                let bTimes = Array.isArray(b.times) && b.times.length >= 5 ? b.times : [Infinity]
+                    // If not an array, empty, or too short (< 5), replace with [Infinity]
+                    let aTimes = Array.isArray(a.times) && a.times.length >= 5 ? a.times : [Infinity]
+                    let bTimes = Array.isArray(b.times) && b.times.length >= 5 ? b.times : [Infinity]
 
-                let aAvg = aTimes.reduce((sum, t) => sum + t, 0) / aTimes.length
-                let bAvg = bTimes.reduce((sum, t) => sum + t, 0) / bTimes.length
+                    let aAvg = aTimes.reduce((sum, t) => sum + t, 0) / aTimes.length
+                    let bAvg = bTimes.reduce((sum, t) => sum + t, 0) / bTimes.length
 
-                return aAvg - bAvg
-            })
+                    return aAvg - bAvg
+                })
+
+                userRank = listOfDocuments.findIndex(c => c.discord_id.toString() === message.author.id.toString()) + 1
             } else if (selectedOption == "quickest_answer") {
                 listOfDocuments.sort((a, b) => {
                     let aTime = a[selectedOption] === 0 ? Infinity : a[selectedOption]
@@ -85,8 +88,11 @@ module.exports = {
 
                     return aTime - bTime
                 })
+
+                userRank = listOfDocuments.findIndex(c => c.discord_id.toString() === message.author.id.toString()) + 1
             } else {
                 listOfDocuments.sort((a, b) => b[selectedOption] - a[selectedOption])
+                userRank = listOfDocuments.findIndex(c => c.discord_id.toString() === message.author.id.toString()) + 1
             }
 
             /*
@@ -152,7 +158,7 @@ module.exports = {
                     totalCount++;
                 }
 
-                embed.setFooter({ text: `There are ${permaSize} players` });
+                embed.setFooter({ text: `You are rank #${userRank} // There are ${permaSize} players` });
                 embeds.push({
                     embed: embed,
 
