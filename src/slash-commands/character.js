@@ -147,7 +147,7 @@ module.exports = {
                         },
                         {
                             name: `Winrate // Times Shown`,
-                            value: `${(umaStats["wins"] / umaStats["count"] * 100).toFixed(2)}% // ${umaStats["count"]}`,
+                            value: `${(umaStats["wins"] / umaStats["count"] * 100).toFixed(2)}% // ${umaStats["old_count"]}`,
                         },
                         {
                             name: `Region`,
