@@ -80,7 +80,7 @@
     "id": "blastonepiece",
     "number": 10380,
     "proper": "Blast Onepiece",
-    "names": ["blast onepiece", "blast", "one piece", "ブラストワンピース", "ブラスト", "ワンピース"],
+    "names": ["blastonepiece", "blast", "onepiece", "ブラストワンピース", "ブラスト", "ワンピース"],
     "images": ["blastonepiece1.jpg", "blastonepiece2.jpg", "blastonepiece3.jpg", "blastonepiece4.jpg", "blastonepiece5.jpg", "blastonepiece6.jpg", "blastonepiece7.jpg"]
     },
     {
@@ -129,7 +129,7 @@
     "id": "currenbouquetdor",
     "number": 10386,
     "proper": "Curren Bouquetd'or",
-    "names": ["currenbouquetdor", "bouquetdor", "bouquet", "カレンブーケドール", "ブーケドール", "ブーケ"],
+    "names": ["currenbouquetd'or", "currenbouquetdor", "bouquetdor", "bouquet", "カレンブーケドール", "ブーケドール", "ブーケ"],
     "images": ["currenbouquetdor1.jpg", "currenbouquetdor2.jpg", "currenbouquetdor3.jpg", "currenbouquetdor4.jpg", "currenbouquetdor5.jpg", "currenbouquetdor6.jpg", "currenbouquetdor7.jpg", "currenbouquetdor8.jpg"]
     },
     {
@@ -570,7 +570,7 @@
     "id": "symbolikriss",
     "number": 7730,
     "proper": "Symboli Kris S",
-    "names": ["symbolikriss", "kris s", "kris", "シンボリクリスエス", "クリスエス", "クリス"],
+    "names": ["symbolikriss", "kriss", "kris", "シンボリクリスエス", "クリスエス", "クリス"],
     "images": ["symbolikriss1.jpg", "symbolikriss2.jpg", "symbolikriss3.jpg", "symbolikriss4.jpg", "symbolikriss5.jpg"]
     },
     {
@@ -675,7 +675,7 @@
     "id": "zennorobroy",
     "number": 5348,
     "proper": "Zenno Rob Roy",
-    "names": ["zennorobroy", "zenno rob roy", "zenno", "rob roy", "ゼンノロブロイ"],
+    "names": ["zennorobroy", "zenno", "robroy", "ゼンノロブロイ"],
     "images": ["zennorobroy1.jpg", "zennorobroy2.jpg", "zennorobroy3.jpg", "zennorobroy4.jpg", "zennorobroy5.jpg", "zennorobroy6.jpg"]
     }
 ]
