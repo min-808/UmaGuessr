@@ -105,6 +105,7 @@ module.exports = {
                         projection: {
                             count: 1,
                             wins: 1,
+                            old_count: 1,
                         }
                     })
 
