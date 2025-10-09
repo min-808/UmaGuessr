@@ -210,7 +210,7 @@ async function refreshUsernames() {
 
                 await ids.updateOne({discord_id: doc.discord_id}, updateValues)
 
-                console.log(`Updated usernames: ${doc.discord_id} - ${retUsername}`)
+                console.log(`Updated usernames: ${doc.discord_id} - ${doc.username} to ${retUsername}`)
             }
         }
 
