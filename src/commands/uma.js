@@ -28,13 +28,13 @@ module.exports = {
 
         var d = new Date();
 
-        if (activeChannels.has(channelID)) {
-            return message.channel.send("A game is currently running");
-        }
-
-        activeChannels.add(channelID);
-
         try {
+
+            if (activeChannels.has(channelID)) {
+                return message.channel.send("A game is currently running");
+            }
+
+            activeChannels.add(channelID);
 
             var client_db = new MongoClient(uri);
 

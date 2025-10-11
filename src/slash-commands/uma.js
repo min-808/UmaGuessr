@@ -48,13 +48,13 @@ module.exports = {
 
         var d = new Date();
 
-        if (activeChannels.has(channelID)) {
-            return interaction.reply("A game is currently running");
-        }
-
-        activeChannels.add(channelID);
-
         try {
+
+            if (activeChannels.has(channelID)) {
+                return interaction.reply("A game is currently running");
+            }
+
+            activeChannels.add(channelID);
 
             await interaction.deferReply()
 
