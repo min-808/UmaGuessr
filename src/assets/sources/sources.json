@@ -3283,6 +3283,105 @@
         ],
         "service": "danbooru",
         "illustration_id": "9670533"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=100047471"
+        ],
+        "service": "pixiv",
+        "member_id": "422418",
+        "illustration_id": "100047471",
+        "artist": "基井あゆむ"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/6892362",
+          "https://gelbooru.com/index.php?page=post&s=view&id=9250755"
+        ],
+        "service": "danbooru",
+        "illustration_id": "6892362",
+        "artist": "hasegawamorito"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=102687306"
+        ],
+        "service": "pixiv",
+        "member_id": "44306622",
+        "illustration_id": "102687306",
+        "artist": "めふやか"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=102175030"
+        ],
+        "service": "pixiv",
+        "member_id": "58953628",
+        "illustration_id": "102175030",
+        "artist": "のべる"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9885115",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12550718"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9885115",
+        "artist": "like a wasabi"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=93428133"
+        ],
+        "service": "pixiv",
+        "member_id": "33015468",
+        "illustration_id": "93428133",
+        "artist": "しのすと"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/7592238",
+          "https://gelbooru.com/index.php?page=post&s=view&id=10061235"
+        ],
+        "service": "danbooru",
+        "illustration_id": "7592238",
+        "artist": "asato (fadeless)"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=105943599"
+        ],
+        "service": "pixiv",
+        "member_id": "23022155",
+        "illustration_id": "105943599",
+        "artist": "でていう"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/5870970",
+          "https://gelbooru.com/index.php?page=post&s=view&id=7988008"
+        ],
+        "service": "danbooru",
+        "illustration_id": "5870970",
+        "artist": "herohero (higashi no dou)"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=108661959"
+        ],
+        "service": "pixiv",
+        "member_id": "23022155",
+        "illustration_id": "108661959",
+        "artist": "でていう"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/5926259",
+          "https://gelbooru.com/index.php?page=post&s=view&id=8060536"
+        ],
+        "service": "danbooru",
+        "illustration_id": "5926259",
+        "artist": "suzuho hotaru"
       }
     ]
   },

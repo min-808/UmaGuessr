@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const Jimp = require("jimp");
 
-const inputFolder = "./src/assets/new";
+const inputFolder = "C:/Users/kenda/Desktop/sources2";
 
 const widthStats = {};
 const extensionCounts = {};

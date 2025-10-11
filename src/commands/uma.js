@@ -628,7 +628,7 @@ module.exports = {
 
         } catch (error) { // Catch errors in the initial block
           const msg = error?.rawError?.message || error?.message || String(error);
-          console.error("Main uma error:", msg);
+          console.error("Main !uma error, gameState and activeChannels cleaned up:", msg);
 
           gameState.delete(sentMsg.id); // Should be safe to delete, no exceptions can be raised
           activeChannels.delete(channelID);
