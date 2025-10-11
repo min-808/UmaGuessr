@@ -25,10 +25,10 @@ var combinedList = globalList.concat(JPList)
 const logFile = fs.createWriteStream(path.join(__dirname, 'bot.log'), { flags: 'a' });
 
 function writeLog(type, msg) {
-  const time = new Date().toISOString();
-  const out = `[${time}] [${type}] ${msg}\n`;
-  logFile.write(out);
-  process.stdout.write(out);
+    const time = new Date().toISOString();
+    const out = `[${time}] [${type}] ${msg}\n`;
+    logFile.write(out);
+    process.stdout.write(out);
 }
 
 // Override console.log and console.error
@@ -37,11 +37,11 @@ console.error = (...args) => writeLog('ERROR', args.map(a => a instanceof Error 
 
 // Catch truly uncaught crashes
 process.on('uncaughtException', (err) => {
-  writeLog('UNCAUGHT_EXCEPTION', err.stack || err);
+    writeLog('UNCAUGHT_EXCEPTION', err.stack || err);
 });
 
 process.on('unhandledRejection', (reason, p) => {
-  writeLog('UNHANDLED_REJECTION', reason?.stack || reason);
+    writeLog('UNHANDLED_REJECTION', reason?.stack || reason);
 });
 
 const exemptUsers = new Set([
