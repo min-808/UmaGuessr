@@ -91,6 +91,13 @@
     "images": ["bubblegumfellow1.jpg", "bubblegumfellow2.jpg", "bubblegumfellow3.jpg", "bubblegumfellow4.jpg", "bubblegumfellow5.jpg", "bubblegumfellow6.jpg", "bubblegumfellow7.jpg", "bubblegumfellow8.jpg", "bubblegumfellow9.jpg", "bubblegumfellow10.jpg"]
     },
     {
+    "id": "buenavista",
+    "number": 10374,
+    "proper": "Buena Vista",
+    "names": ["buenavista", "buena", "vista", "ブエナビスタ", "ブエナ", "ビスタ"],
+    "images": ["buenavista1.jpg", "buenavista2.jpg", "buenavista3.jpg", "buenavista4.jpg", "buenavista5.jpg", "buenavista6.jpg", "buenavista7.jpg", "buenavista8.jpg", "buenavista9.jpg"]
+    },
+    {
     "id": "calstonelighto",
     "number": 10372,
     "proper": "Calstone Light O",
@@ -525,6 +532,13 @@
     "images": ["satonodiamond1.jpg", "satonodiamond2.jpg", "satonodiamond3.jpg", "satonodiamond4.jpg", "satonodiamond5.jpg", "satonodiamond6.jpg"]
     },
     {
+    "id": "seekingthepearl",
+    "number": 5292,
+    "proper": "Seeking the Pearl",
+    "names": ["seekingthepearl", "pearl", "シーキングザパール", "パール"],
+    "images": ["seekingthepearl1.jpg", "seekingthepearl2.jpg", "seekingthepearl3.jpg", "seekingthepearl4.jpg", "seekingthepearl5.jpg", "seekingthepearl6.jpg", "seekingthepearl7.jpg", "seekingthepearl8.jpg"]
+    },
+    {
     "id": "shinkowindy",
     "number": 5303,
     "proper": "Shinko Windy",
@@ -595,6 +609,13 @@
     "images": ["taninogimlet1.jpg", "taninogimlet2.jpg", "taninogimlet3.jpg", "taninogimlet4.jpg", "taninogimlet5.jpg", "taninogimlet6.jpg"]
     },
     {
+    "id": "tazunahayakawa",
+    "number": 5613,
+    "proper": "Tazuna Hayakawa",
+    "names": ["tazunahayakawa", "tazuna", "hayakawa", "駿川たづな", "たづな", "駿川"],
+    "images": ["tazunahayakawa1.jpg", "tazunahayakawa2.jpg", "tazunahayakawa3.jpg", "tazunahayakawa4.jpg", "tazunahayakawa5.jpg", "tazunahayakawa6.jpg", "tazunahayakawa7.jpg", "tazunahayakawa8.jpg", "tazunahayakawa9.jpg", "tazunahayakawa10.jpg"]
+    },
+    {
     "id": "tosenjordan",
     "number": 5360,
     "proper": "Tosen Jordan",
@@ -663,6 +684,13 @@
     "proper": "Yamanin Zephyr",
     "names": ["yamaninzephyr", "yamanin", "zephyr", "ヤマニンゼファー", "ヤマニン", "ゼファー"],
     "images": ["yamaninzephyr1.jpg", "yamaninzephyr2.jpg", "yamaninzephyr3.jpg", "yamaninzephyr4.jpg", "yamaninzephyr5.jpg", "yamaninzephyr6.jpg"]
+    },
+    {
+    "id": "yayoiakikawa",
+    "number": 5650,
+    "proper": "Yayoi Akikawa",
+    "names": ["yayoiakikawa", "yayoi", "akikawa", "秋川やよい", "やよい", "秋川"],
+    "images": ["yayoiakikawa1.jpg", "yayoiakikawa2.jpg", "yayoiakikawa3.jpg", "yayoiakikawa4.jpg", "yayoiakikawa5.jpg", "yayoiakikawa6.jpg", "yayoiakikawa7.jpg", "yayoiakikawa8.jpg", "yayoiakikawa9.jpg", "yayoiakikawa10.jpg"]
     },
     {
     "id": "yukinobijin",
