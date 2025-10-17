@@ -46,6 +46,7 @@ module.exports = {
             vote_timer: 0,
             signup: date.toISOString(),
             strict: false,
+            characters: {},
         }
     
         const result = await ids.insertOne(doc);

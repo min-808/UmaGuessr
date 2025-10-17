@@ -99,7 +99,7 @@ module.exports = {
                         },
                         {
                             name: `Profile`,
-                            value: `Height: ${data['height'] ?? 'N/A'}cm\nWeight: ${data['weight'] ?? 'N/A'}\nMeasurements: B${data['size_b'] ?? 'N/A'} - H${data['size_h'] ?? 'N/A'} - W${data['size_w'] ?? 'N/A'}\nResidence: ${data['residence'] ?? 'N/A'}\nStrengths: ${data['strengths'] ?? 'N/A'}\nWeaknesses: ${data['weaknesses'] ?? 'N/A'}`,
+                            value: `Height: ${data['height'] ?? '?'}cm\nWeight: ${data['weight'] ?? '?'}\nMeasurements: B${data['size_b'] ?? '?'} - H${data['size_h'] ?? '?'} - W${data['size_w'] ?? '?'}\nResidence: ${data['residence'] ?? 'N/A'}\nStrengths: ${data['strengths'] ?? 'N/A'}\nWeaknesses: ${data['weaknesses'] ?? 'N/A'}`,
                         },
                         {
                             name: `Facts`,
@@ -107,7 +107,7 @@ module.exports = {
                         },
                         {
                             name: `Winrate // Times Shown`,
-                            value: `${(umaStats["wins"] / umaStats["count"] * 100).toFixed(2)}% // ${umaStats["old_count"]}`,
+                            value: `${+((umaStats["wins"] / umaStats["count"]) * 100).toFixed(2) || 0}% // ${umaStats["old_count"]}`,
                         },
                         {
                             name: `Region`,

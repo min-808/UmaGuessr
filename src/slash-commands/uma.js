@@ -218,9 +218,15 @@ module.exports = {
                 .setLabel('Hint')
                 .setStyle(ButtonStyle.Primary);
 
+            const reveal = new ButtonBuilder()
+            .setCustomId('reveal')
+            .setLabel('Reveal')
+            .setStyle(ButtonStyle.Danger);
+
             if (type != "IRL") {
                 var row = new ActionRowBuilder()
                   .addComponents(hint)
+                  .addComponents(reveal)
             }
 
             const embed = new EmbedBuilder()
@@ -263,10 +269,79 @@ module.exports = {
             collector.on('collect', async (buttonInteraction) => { // Everytime the hint button is pressed
               try {
                     if (buttonInteraction.customId === 'hint') {
-                    const state = gameState.get(sentMsg.id);
-                    if (!state) return;
+                        let state = gameState.get(sentMsg.id);
+                        if (!state) return;
 
-                    if (state.blurLevel == 1) { // if all hints have been used
+                        if (state.blurLevel >= 11) { // if all hints have been used
+                            let newBlurLevel = state.blurLevel - 10
+                            let newHintsUsed = state.hintsUsed + 1
+                            let newPoints = state.points - minusPointsJP
+
+                            gameState.set(sentMsg.id, {
+                                ...state,
+                                blurLevel: newBlurLevel,
+                                hintsUsed: newHintsUsed,
+                                points: newPoints
+                            })
+                        }
+
+                        state = gameState.get(sentMsg.id)
+
+                        if (state.blurLevel == 1) {
+                            try {
+                                var imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
+                                var newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
+                            } catch (err) {
+                                await interaction.editReply('There was an error with the image. Skipped');
+                                console.error('Image file error:', err);
+
+                                gameState.delete(sentMsg.id);
+                                activeChannels.delete(channelID);
+                                return;
+                            }
+
+                            const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                                .setImage('attachment://original.jpg')
+
+                            await buttonInteraction.update({
+                                files: [newFile], embeds: [updatedEmbed], components: [row]
+                            });
+                        } else {
+                            try {
+                                var newPath = path.join(cacheDir, `${state.blurLevel}-${state.imageName}`);
+                                var newFile = new AttachmentBuilder(fs.readFileSync(newPath), { name: 'blurred.jpg' });
+                            } catch (err) {
+                                await interaction.editReply('There was an error with the image. Skipped');
+                                console.error('Image file error:', err);
+
+                                gameState.delete(sentMsg.id);
+                                activeChannels.delete(channelID);
+                                return;
+                            }
+
+                            const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                                .setImage('attachment://blurred.jpg')
+
+                            await buttonInteraction.update({
+                                files: [newFile], embeds: [updatedEmbed], components: [row]
+                            });
+                        }
+                    } else if (buttonInteraction.customId === 'reveal') {
+                        let state = gameState.get(sentMsg.id);
+                        if (!state) return;
+
+                        let newBlurLevel = 1
+                        let newHintsUsed = 5
+                        let newPoints = 1
+
+                        gameState.set(sentMsg.id, {
+                            ...state,
+                            blurLevel: newBlurLevel,
+                            hintsUsed: newHintsUsed,
+                            points: newPoints
+                        })
+
+                        state = gameState.get(sentMsg.id);
 
                         try {
                             var imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
@@ -286,39 +361,7 @@ module.exports = {
                         await buttonInteraction.update({
                             files: [newFile], embeds: [updatedEmbed], components: [row]
                         });
-                    } else { // Use a hint, go down a blur level
-                        const newBlurLevel = state.blurLevel - 10
-                        const newHintsUsed = state.hintsUsed + 1
-                        const newPoints = state.points - minusPointsJP
-
-                        gameState.set(sentMsg.id, {
-                            ...state,
-                            blurLevel: newBlurLevel,
-                            hintsUsed: newHintsUsed,
-                            points: newPoints
-                        })
-
-                        try {
-                            var newPath = path.join(cacheDir, `${newBlurLevel}-${state.imageName}`);
-                            var newFile = new AttachmentBuilder(fs.readFileSync(newPath), { name: 'blurred.jpg' });
-                        } catch (err) {
-                            await interaction.editReply('There was an error with the image. Skipped');
-                            console.error('Image file error:', err);
-
-                            gameState.delete(sentMsg.id);
-                            activeChannels.delete(channelID);
-                            return;
-                        }
-
-                        const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                            .setImage('attachment://blurred.jpg')
-
-                        await buttonInteraction.update({
-                            files: [newFile], embeds: [updatedEmbed], components: [row]
-                        });
                     }
-                    
-                }
               } catch (err) {
                 console.log("Collection error: ", err)
 

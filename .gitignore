@@ -3,3 +3,5 @@ node_modules
 .DS_Store
 *.log
 dbupdate.js
+push.js
+info.json
