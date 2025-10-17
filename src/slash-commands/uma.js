@@ -56,6 +56,8 @@ module.exports = {
 
             activeChannels.add(channelID);
 
+            setTimeout(() => { activeChannels.delete(channelID) }, 75 * 1000); // auto-remove after 1m 10s
+
             await interaction.deferReply()
 
             var client_db = new MongoClient(uri);
