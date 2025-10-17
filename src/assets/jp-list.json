@@ -609,13 +609,6 @@
     "images": ["taninogimlet1.jpg", "taninogimlet2.jpg", "taninogimlet3.jpg", "taninogimlet4.jpg", "taninogimlet5.jpg", "taninogimlet6.jpg"]
     },
     {
-    "id": "tazunahayakawa",
-    "number": 5613,
-    "proper": "Tazuna Hayakawa",
-    "names": ["tazunahayakawa", "tazuna", "hayakawa", "駿川たづな", "たづな", "駿川"],
-    "images": ["tazunahayakawa1.jpg", "tazunahayakawa2.jpg", "tazunahayakawa3.jpg", "tazunahayakawa4.jpg", "tazunahayakawa5.jpg", "tazunahayakawa6.jpg", "tazunahayakawa7.jpg", "tazunahayakawa8.jpg", "tazunahayakawa9.jpg", "tazunahayakawa10.jpg"]
-    },
-    {
     "id": "tosenjordan",
     "number": 5360,
     "proper": "Tosen Jordan",
@@ -684,13 +677,6 @@
     "proper": "Yamanin Zephyr",
     "names": ["yamaninzephyr", "yamanin", "zephyr", "ヤマニンゼファー", "ヤマニン", "ゼファー"],
     "images": ["yamaninzephyr1.jpg", "yamaninzephyr2.jpg", "yamaninzephyr3.jpg", "yamaninzephyr4.jpg", "yamaninzephyr5.jpg", "yamaninzephyr6.jpg"]
-    },
-    {
-    "id": "yayoiakikawa",
-    "number": 5650,
-    "proper": "Yayoi Akikawa",
-    "names": ["yayoiakikawa", "yayoi", "akikawa", "秋川やよい", "やよい", "秋川"],
-    "images": ["yayoiakikawa1.jpg", "yayoiakikawa2.jpg", "yayoiakikawa3.jpg", "yayoiakikawa4.jpg", "yayoiakikawa5.jpg", "yayoiakikawa6.jpg", "yayoiakikawa7.jpg", "yayoiakikawa8.jpg", "yayoiakikawa9.jpg", "yayoiakikawa10.jpg"]
     },
     {
     "id": "yukinobijin",
