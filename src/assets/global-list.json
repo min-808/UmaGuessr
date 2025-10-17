@@ -14,6 +14,13 @@
     "images": ["airgroove1.jpg", "airgroove2.jpg", "airgroove3.jpg", "airgroove4.jpg", "airgroove5.jpg", "airgroove6.jpg", "airgroove7.jpg", "airgroove8.jpg", "airgroove9.jpg", "airgroove10.jpg"]
   },
   {
+    "id": "akikawayayoi",
+    "number": 5650,
+    "proper": "Yayoi Akikawa",
+    "names": ["akikawayayoi", "yayoiakikawa", "yayoi", "akikawa", "northerntaste", "northern", "taste", "秋川やよい", "やよい", "秋川"],
+    "images": ["akikawayayoi1.jpg", "akikawayayoi2.jpg", "akikawayayoi3.jpg", "akikawayayoi4.jpg", "akikawayayoi5.jpg", "akikawayayoi6.jpg", "akikawayayoi7.jpg", "akikawayayoi8.jpg", "akikawayayoi9.jpg", "akikawayayoi10.jpg", "akikawayayoi11.jpg", "akikawayayoi12.jpg"]
+  },
+  {
     "id": "biwahayahide",
     "number": 5077,
     "proper": "Biwa Hayahide",
@@ -82,6 +89,13 @@
     "proper": "Haru Urara",
     "names": ["haruurara", "urara", "ハルウララ", "ウララ"],
     "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg", "haruurara4.jpg", "haruurara5.jpg", "haruurara6.jpg", "haruurara7.jpg", "haruurara8.jpg", "haruurara9.jpg", "haruurara10.jpg", "haruurara11.jpg", "haruurara12.jpg"]
+  },
+  {
+    "id": "hayakawatazuna",
+    "number": 5613,
+    "proper": "Tazuna Hayakawa",
+    "names": ["hayakawatazuna", "tazunahayakawa", "tazuna", "hayakawa", "tokinominoru", "tokino", "minoru", "駿川たづな", "たづな", "駿川"],
+    "images": ["hayakawatazuna1.jpg", "hayakawatazuna2.jpg", "hayakawatazuna3.jpg", "hayakawatazuna4.jpg", "hayakawatazuna5.jpg", "hayakawatazuna6.jpg", "hayakawatazuna7.jpg", "hayakawatazuna8.jpg", "hayakawatazuna9.jpg", "hayakawatazuna10.jpg", "hayakawatazuna11.jpg", "hayakawatazuna12.jpg", "hayakawatazuna13.jpg", "hayakawatazuna14.jpg"]
   },
   {
     "id": "hishiamazon",
@@ -231,13 +245,6 @@
     "images": ["taikishuttle1.jpg", "taikishuttle2.jpg", "taikishuttle3.jpg", "taikishuttle4.jpg", "taikishuttle5.jpg", "taikishuttle6.jpg", "taikishuttle7.jpg", "taikishuttle8.jpg", "taikishuttle9.jpg", "taikishuttle10.jpg"]
   },
   {
-    "id": "tazunahayakawa",
-    "number": 5613,
-    "proper": "Tazuna Hayakawa",
-    "names": ["tazunahayakawa", "tazuna", "hayakawa", "tokinominoru", "tokino", "minoru", "駿川たづな", "たづな", "駿川"],
-    "images": ["tazunahayakawa1.jpg", "tazunahayakawa2.jpg", "tazunahayakawa3.jpg", "tazunahayakawa4.jpg", "tazunahayakawa5.jpg", "tazunahayakawa6.jpg", "tazunahayakawa7.jpg", "tazunahayakawa8.jpg", "tazunahayakawa9.jpg", "tazunahayakawa10.jpg"]
-  },
-  {
     "id": "tmoperao",
     "number": 4986,
     "proper": "T.M. Opera O",
@@ -264,12 +271,5 @@
     "proper": "Winning Ticket",
     "names": ["winningticket", "ticket", "tickezo", "ウイニングチケット", "チケゾー"],
     "images": ["winningticket1.jpg", "winningticket2.jpg", "winningticket3.jpg", "winningticket4.jpg", "winningticket5.jpg", "winningticket6.jpg", "winningticket7.jpg", "winningticket8.jpg", "winningticket9.jpg", "winningticket10.jpg"]
-  },
-  {
-    "id": "yayoiakikawa",
-    "number": 5650,
-    "proper": "Yayoi Akikawa",
-    "names": ["yayoiakikawa", "yayoi", "akikawa", "northerntaste", "northern", "taste", "秋川やよい", "やよい", "秋川"],
-    "images": ["yayoiakikawa1.jpg", "yayoiakikawa2.jpg", "yayoiakikawa3.jpg", "yayoiakikawa4.jpg", "yayoiakikawa5.jpg", "yayoiakikawa6.jpg", "yayoiakikawa7.jpg", "yayoiakikawa8.jpg", "yayoiakikawa9.jpg", "yayoiakikawa10.jpg"]
   }
 ]
