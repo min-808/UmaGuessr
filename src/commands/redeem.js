@@ -6,7 +6,7 @@ const setup = require('../../firstinit');
 
 module.exports = {
     name: 'redeem',
-    aliases: ['redeem', 'r'],
+    aliases: ['redeem'],
     description: 'Redeem your vote reward',
     
     run: async ({ message }) => {

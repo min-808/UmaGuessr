@@ -661,6 +661,15 @@
         "service": "danbooru",
         "illustration_id": "7818638",
         "artist": "nagaburo imoni"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "Support Card"
       }
     ]
   },
@@ -762,6 +771,15 @@
         "service": "danbooru",
         "illustration_id": "9920187",
         "artist": "juri-arima"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/8935468",
+          "https://gelbooru.com/index.php?page=post&s=view&id=11540055"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8935468",
+        "artist": "maimuu"
       }
     ]
   },
@@ -1990,6 +2008,15 @@
         "member_id": "4318699",
         "illustration_id": "89199116",
         "artist": "ぽりごん。/Poligon"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/7950309",
+          "https://gelbooru.com/index.php?page=post&s=view&id=10460315"
+        ],
+        "service": "danbooru",
+        "illustration_id": "7950309",
+        "artist": "maimuu"
       }
     ]
   },
@@ -2263,6 +2290,24 @@
         "member_id": "38297201",
         "illustration_id": "112785346",
         "artist": "にんげんまめ@100日投稿中！"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9877556",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12542929"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9877556",
+        "artist": "maimuu"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/8252932",
+          "https://gelbooru.com/index.php?page=post&s=view&id=10793962"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8252932",
+        "artist": "maimuu"
       }
     ]
   },
@@ -2322,6 +2367,15 @@
         "service": "danbooru",
         "illustration_id": "9941396",
         "artist": "red hayao"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9641754",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12291942"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9641754",
+        "artist": "maimuu"
       }
     ]
   },
@@ -2750,6 +2804,15 @@
         "member_id": "4392157",
         "illustration_id": "101956993",
         "artist": "ヘロヘロ"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9221202",
+          "https://gelbooru.com/index.php?page=post&s=view&id=11844935"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9221202",
+        "artist": "maimuu"
       }
     ]
   },
@@ -3760,6 +3823,15 @@
         "service": "danbooru",
         "illustration_id": "9102749",
         "artist": "iam (tetsu0ekaki)"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9078253",
+          "https://gelbooru.com/index.php?page=post&s=view&id=11693812"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9078253",
+        "artist": "maimuu"
       }
     ]
   },
@@ -4061,6 +4133,15 @@
         "member_id": "2401597",
         "illustration_id": "89509509",
         "artist": "栗原さくら"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9931844",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12599251"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9931844",
+        "artist": "maimuu"
       }
     ]
   },
@@ -4973,6 +5054,83 @@
     ]
   },
   {
+    "id": "kiryuinaoi",
+    "artworks": [
+      {
+        "external_urls": [
+          "https://seiga.nicovideo.jp/seiga/im10853406"
+        ],
+        "service": "seiga",
+        "member_id": "16891394",
+        "illustration_id": "10853406",
+        "artist": "八百屋の売出(アルコール幻覚症)"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=89606553"
+        ],
+        "service": "pixiv",
+        "member_id": "129822",
+        "illustration_id": "89606553",
+        "artist": "ふけまち"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=91109124"
+        ],
+        "service": "pixiv",
+        "member_id": "58893646",
+        "illustration_id": "91109124",
+        "artist": "川原みなも"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=92585843"
+        ],
+        "service": "pixiv",
+        "member_id": "36372807",
+        "illustration_id": "92585843",
+        "artist": "あじfry39°"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=97799929"
+        ],
+        "service": "pixiv",
+        "member_id": "19394242",
+        "illustration_id": "97799929",
+        "artist": "那桜"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=89870608"
+        ],
+        "service": "pixiv",
+        "member_id": "5939",
+        "illustration_id": "89870608",
+        "artist": "美奈來"
+      },
+      {
+        "external_urls": [
+          "https://seiga.nicovideo.jp/seiga/im10746612"
+        ],
+        "service": "seiga",
+        "member_id": "4161699",
+        "illustration_id": "10746612",
+        "artist": "えすじぃ"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/5881034",
+          "https://gelbooru.com/index.php?page=post&s=view&id=8001241"
+        ],
+        "service": "danbooru",
+        "illustration_id": "5881034",
+        "artist": "nekoume"
+      }
+    ]
+  },
+  {
     "id": "kitasanblack",
     "artworks": [
       {
@@ -5555,6 +5713,41 @@
         "member_id": "69374642",
         "illustration_id": "91715216",
         "artist": "雪/yuki"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9740336",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12397831"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9740336",
+        "artist": "harakomeshi"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/7089422"
+        ],
+        "service": "danbooru",
+        "illustration_id": "7089422",
+        "artist": "kabechizu"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=100689363"
+        ],
+        "service": "pixiv",
+        "member_id": "79603843",
+        "illustration_id": "100689363",
+        "artist": "ユッケジャン"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=108329204"
+        ],
+        "service": "pixiv",
+        "member_id": "39252074",
+        "illustration_id": "108329204",
+        "artist": "あめぱ🍍"
       }
     ]
   },
@@ -5912,6 +6105,24 @@
         "member_id": "64155798",
         "illustration_id": "97141219",
         "artist": "絵葉ましろ"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10036761",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12709587"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10036761",
+        "artist": "maimuu"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/8935456",
+          "https://gelbooru.com/index.php?page=post&s=view&id=11540067"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8935456",
+        "artist": "maimuu"
       }
     ]
   },
@@ -6004,6 +6215,15 @@
         "member_id": "23539542",
         "illustration_id": "99092232",
         "artist": "宵森よる"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10110953",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12788168"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10110953",
+        "artist": "ame sagari"
       }
     ]
   },
@@ -6291,6 +6511,13 @@
         "member_id": "27390723",
         "illustration_id": "90396575",
         "artist": "さぼてんむし（keeha)"
+      },
+      {
+        "external_urls": [
+          "https://gelbooru.com/index.php?page=post&s=view&id=12240230"
+        ],
+        "service": "gelbooru",
+        "illustration_id": "12240230"
       }
     ]
   },
@@ -6641,6 +6868,24 @@
         "member_id": "9347563",
         "illustration_id": "90672572",
         "artist": "宮坂みやび"
+      },
+      {
+        "external_urls": [
+          "https://seiga.nicovideo.jp/seiga/im11378595"
+        ],
+        "service": "seiga",
+        "member_id": "117318234",
+        "illustration_id": "11378595",
+        "artist": "まいむぅ"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9441164",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12079023"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9441164",
+        "artist": "maimuu"
       }
     ]
   },
@@ -7875,6 +8120,33 @@
         "member_id": "25200589",
         "illustration_id": "103304337",
         "artist": "Toymark"
+      },
+      {
+        "external_urls": [
+          "https://seiga.nicovideo.jp/seiga/im11377917"
+        ],
+        "service": "seiga",
+        "member_id": "117318234",
+        "illustration_id": "11377917",
+        "artist": "まいむぅ"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9255053",
+          "https://gelbooru.com/index.php?page=post&s=view&id=11880798"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9255053",
+        "artist": "maimuu"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9941431",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12609292"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9941431",
+        "artist": "maimuu"
       }
     ]
   },
@@ -8433,6 +8705,15 @@
         "service": "danbooru",
         "illustration_id": "9777719",
         "artist": "saboten mushi"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9770485",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12429078"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9770485",
+        "artist": "maimuu"
       }
     ]
   },
@@ -9429,6 +9710,15 @@
         "service": "danbooru",
         "illustration_id": "7726578",
         "artist": "iam (tetsu0ekaki)"
+      },
+      {
+        "external_urls": [
+          "https://seiga.nicovideo.jp/seiga/im11377440"
+        ],
+        "service": "seiga",
+        "member_id": "117318234",
+        "illustration_id": "11377440",
+        "artist": "まいむぅ"
       }
     ]
   },

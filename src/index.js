@@ -47,7 +47,8 @@ process.on('unhandledRejection', (reason, p) => {
 const exemptUsers = new Set([
   "236186510326628353", // min
   "343908475245559820", // someone
-  "329497108157562880" // kekai
+  "329497108157562880", // kekai
+  "166391253439610881" // kekai's alt
 ])
 
 const client = new Client({

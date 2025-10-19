@@ -4,6 +4,8 @@ module.exports = async (source, pages, time = 75 * 1000) => {
     try {
         if (!source || !Array.isArray(pages) || pages.length === 0)
             throw new Error("invalid arguments");
+        
+        let index = 0;
 
         const edit = async (content) => { // helper function. can be either message or interaction
             if (source.editReply) { // interaction
@@ -47,7 +49,6 @@ module.exports = async (source, pages, time = 75 * 1000) => {
             .setStyle(ButtonStyle.Primary);
 
         const row = new ActionRowBuilder().addComponents(front, prev, next, end);
-        let index = 0;
 
         const msg = await edit({
             embeds: [pages[index].embed],
