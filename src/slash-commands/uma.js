@@ -451,7 +451,9 @@ module.exports = {
 
                 // console.log(`ID: ${msg.author.id}\nstrict?: ${client.strictCache.get(BigInt(msg.author.id))}\nNormal guess: ${userGuess}\nStrict guess: ${strictGuess}\nstate.proper.toLowercase: ${state.proper.toLowerCase()}`)
 
-                if (((client.strictCache.get(BigInt(msg.author.id)) == false) && (state.values.includes(userGuess))) || ((client.strictCache.get(BigInt(msg.author.id)) == true) && (state.proper.toLowerCase() == strictGuess))) { // Got it right
+                if ((((client.strictCache.get(BigInt(msg.author.id)) == false) || (client.strictCache.get(BigInt(msg.author.id)) == undefined)) &&
+                    (state.values.includes(userGuess))) || ((client.strictCache.get(BigInt(msg.author.id)) == true) && (state.proper.toLowerCase() == strictGuess))) {
+                    // Got it right
                     messageCollector.stop()
                     collector.stop()
 

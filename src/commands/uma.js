@@ -146,7 +146,7 @@ module.exports = {
             
 
             var chooseChar = Math.floor(Math.random() * list.length)
-            // chooseChar = 135
+            // chooseChar = 2
             var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
             var umaName = list[chooseChar]['id']
             var umaProper = list[chooseChar]['proper']
@@ -451,7 +451,9 @@ module.exports = {
                 // console.log(`ID: ${msg.author.id}\nstrict?: ${client.strictCache.get(BigInt(msg.author.id))}\nNormal guess: ${userGuess}\nStrict guess: ${strictGuess}\nstate.proper.toLowercase: ${state.proper.toLowerCase()}`)
                 
 
-                if (((client.strictCache.get(BigInt(msg.author.id)) == false) && (state.values.includes(userGuess))) || ((client.strictCache.get(BigInt(msg.author.id)) == true) && (state.proper.toLowerCase() == strictGuess))) { // Got it right
+                if ((((client.strictCache.get(BigInt(msg.author.id)) == false) || (client.strictCache.get(BigInt(msg.author.id)) == undefined)) &&
+                    (state.values.includes(userGuess))) || ((client.strictCache.get(BigInt(msg.author.id)) == true) && (state.proper.toLowerCase() == strictGuess))) {
+                    // Got it right
                     messageCollector.stop()
                     collector.stop()
 
