@@ -475,6 +475,14 @@ module.exports = {
                     count = await ids.countDocuments({ discord_id: authorID });
                     if (count < 1) await setup.init(authorID, "uma", "profiles", client); // Make document in case
 
+                    let addGuild = { // add their id to the guilds arr in case
+                        $addToSet: {
+                            guilds: BigInt(msg.guild.id)
+                        }
+                    }
+
+                    await ids.updateOne({ discord_id: authorID }, addGuild )
+
                     var broadSearch = await ids.findOne({ discord_id: authorID })
 
                     try {
