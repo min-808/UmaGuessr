@@ -69,25 +69,25 @@ module.exports = {
             let list2;
             let type;
 
-            if ((args.length > 0) && ((args[0].toLowerCase().includes("g")) || (args[0].toLowerCase().includes("global")))) {
+            if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "g")) || (args[0].toLowerCase().includes("global")))) {
                     list = require('../../src/assets/global-list.json')
                     type = "Global"
 
                     initialPointsJP = 15 + 1
                     minusPointsJP = 3
-                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("j")) || (args[0].toLowerCase().includes("jp")))) {
+                } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "j")) || (args[0].toLowerCase().includes("jp")) || (args[0].toLowerCase().includes("japan")))) {
                     list = require('../../src/assets/jp-list.json')
                     type = "Japan"
 
                     initialPointsJP = 25 + 1
                     minusPointsJP = 5
-                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("h")) || (args[0].toLowerCase().includes("horse")) || (args[0].toLowerCase().includes("i")) || (args[0].toLowerCase().includes("irl")))) {
+                } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "h")) || ((args[0].length == 1) && (args[0].toLowerCase() == "i")) || (args[0].toLowerCase().includes("irl")) || (args[0].toLowerCase().includes("horse")))) {
                     list = require('../../src/assets/horse-list.json')
                     type = "IRL"
 
                     initialPointsJP = 30 + 1
                     minusPointsJP = 6
-                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("a")) || (args[0].toLowerCase().includes("all")))) {
+                } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "a")) || (args[0].toLowerCase().includes("all")))) {
                     list = require('../../src/assets/global-list.json')
                     list2 = require('../../src/assets/jp-list.json')
                     list = list.concat(list2)
@@ -95,7 +95,7 @@ module.exports = {
 
                     initialPointsJP = 35 + 1
                     minusPointsJP = 7
-                } else if ((args.length > 0) && ((args[0].toLowerCase().includes("v")) || (args[0].toLowerCase().includes("voice")))) {
+                } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "v")) || (args[0].toLowerCase().includes("voice")))) {
                     list = require('../../src/assets/voice-list.json')
                     type = "Voice"
 
