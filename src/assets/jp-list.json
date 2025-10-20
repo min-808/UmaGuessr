@@ -545,6 +545,14 @@
     "rarity": 3
     },
     {
+    "id": "reddesire",
+    "number": 10396,
+    "proper": "Red Desire",
+    "names": ["reddesire", "red", "desire", "レッドディザイア", "レッド", "ディザイア"],
+    "images": ["reddesire1.jpg", "reddesire2.jpg", "reddesire3.jpg", "reddesire4.jpg", "reddesire5.jpg", "reddesire6.jpg", "reddesire7.jpg", "reddesire8.jpg", "reddesire9.jpg", "reddesire10.jpg"],
+    "rarity": 3
+    },
+    {
     "id": "rheinkraft",
     "number": 10209,
     "proper": "Rhein Kraft",
@@ -733,7 +741,7 @@
     "number": 10002,
     "proper": "Verxina",
     "names": ["verxina", "ヴィルシーナ"],
-    "images": ["verxina1.jpg", "verxina2.jpg", "verxina3.jpg", "verxina4.jpg", "verxina5.jpg", "verxina6.jpg", "verxina7.jpg", "verxina8.jpg", "verxina9.jpg", "verxina10.jpg"],
+    "images": ["verxina1.jpg", "verxina2.jpg", "verxina3.jpg", "verxina4.jpg", "verxina5.jpg", "verxina6.jpg", "verxina7.jpg", "verxina8.jpg", "verxina9.jpg", "verxina10.jpg", "verxina11.jpg"],
     "rarity": 3
     },
     {

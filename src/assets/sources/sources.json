@@ -7946,6 +7946,101 @@
     ]
   },
   {
+    "id": "reddesire",
+    "artworks": [
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10143335",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12821779"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10143335",
+        "artist": "baejimile"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "Support Card"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10143152",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12821648"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10143152",
+        "artist": "yuusen (aenka)"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10143155",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12821645"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10143155",
+        "artist": "jime asyl"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10145163",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12823666"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10145163",
+        "artist": "kisaragi shokuin"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "Support Card"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "Support Card"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10146369",
+          "https://gelbooru.com/index.php?page=post&s=view&id=12824934"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10146369",
+        "artist": "zukki (bijitaru)"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "Support Card"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "Support Card"
+      }
+    ]
+  },
+  {
     "id": "rheinkraft",
     "artworks": [
       {
@@ -10725,6 +10820,15 @@
         "service": "danbooru",
         "illustration_id": "7798876",
         "artist": "kirameki (rikukaikuu)"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9294921",
+          "https://gelbooru.com/index.php?page=post&s=view&id=11923380"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9294921",
+        "artist": "starheart"
       }
     ]
   },
