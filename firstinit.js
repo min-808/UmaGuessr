@@ -47,6 +47,7 @@ module.exports = {
             signup: date.toISOString(),
             strict: false,
             characters: {},
+            guilds: [],
         }
     
         const result = await ids.insertOne(doc);

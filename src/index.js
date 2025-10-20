@@ -326,9 +326,24 @@ client.on('messageCreate', async message => {
     try {
         await command.run({ message, args, client });
 
+        let client_db = new MongoClient(process.env.MONGODB_URI)
+        let database = client_db.db("uma");
+        let ids = database.collection("profiles")
+        let discordID = BigInt(message.author.id)
+
+        let addGuild = {
+            $addToSet: {
+                guilds: BigInt(message.guild.id)
+            }
+        }
+
+        await ids.updateOne({ discord_id: discordID }, addGuild )
+
         if (logChannel) {
             await logChannel.send(`\`${message.author.username}\`: !${cmdName + " " + args}`)
         }
+
+        await client_db.close()
     } catch (err) {
         console.error(err);
     }
@@ -337,7 +352,29 @@ client.on('messageCreate', async message => {
 client.on('interactionCreate', async (interaction) => {
     if (interaction.isChatInputCommand()) { // boolean
         const options = interaction.options.data
-        await logChannel.send(`\`${interaction.user.username}\`: /${interaction.commandName + " " + options.map(opt => `${opt.value}`).join(' ')}`)
+
+        if (interaction.guild) {
+            try {
+                let client_db = new MongoClient(process.env.MONGODB_URI)
+                let database = client_db.db("uma");
+                let ids = database.collection("profiles")
+                let discordID = BigInt(interaction.user.id)
+
+                let addGuild = {
+                    $addToSet: {
+                        guilds: BigInt(interaction.guild.id)
+                    }
+                }
+
+                await ids.updateOne({ discord_id: discordID }, addGuild )
+
+                await logChannel.send(`\`${interaction.user.username}\`: /${interaction.commandName + " " + options.map(opt => `${opt.value}`).join(' ')}`)
+
+                await client_db.close()
+            } catch (err) {
+                console.error(err);
+            }
+        }
     }
 
     if (interaction.isAutocomplete()) {

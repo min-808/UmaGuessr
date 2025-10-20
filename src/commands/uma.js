@@ -189,7 +189,7 @@ module.exports = {
                     originDir = path.join(__dirname, "../assets/voices")
 
                     var imagePath = path.join(originDir, `${chooseImg}`); // check for existence
-                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.mp3' });
+                    var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: '???.mp3' });
                 } else {
                     var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
                     var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
