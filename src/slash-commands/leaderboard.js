@@ -13,7 +13,7 @@ module.exports = {
         .setName('leaderboard')
         .setDescription('The global leaderboard sorted by point count')
         .addStringOption(option =>
-            option.setName('type')
+            option.setName('sort')
                 .setDescription('Choose how you want to sort the leaderboard')
                 .addChoices(
                     { name: 'Total Wins', value: 'wins' },
@@ -22,33 +22,44 @@ module.exports = {
                     { name: 'Average Answer Time', value: 'time' },
                     { name: 'Fastest Answer Time', value: 'fast' },
                     { name: 'Total Points', value: 'points' },
+                ))
+        .addStringOption(option =>
+            option.setName('range')
+                .setDescription('Choose between global or server leaderboards')
+                .addChoices(
+                    { name: 'Global', value: 'global' },
+                    { name: 'Server', value: 'server' },
                 )),
 
-    run: async ({ interaction, args }) => {
+    run: async ({ interaction }) => {
         try {
             const sent = await interaction.deferReply()
             
         let type;
+        let range;
         let proper;
         let countType;
 
-        if (interaction.options.getString('type') == "wins") {
+        let serverId = BigInt(interaction.guild.id)
+        let title;
+
+        if (interaction.options.getString('sort') == "wins") {
             type = "wins"
             proper = "Total Wins"
             countType = type
-        } else if (interaction.options.getString('type') == "daily") {
+        } else if (interaction.options.getString('sort') == "daily") {
             type = "points_today"
             proper = "Points Today"
             countType = "points"
-        } else if (interaction.options.getString('type') == "streak") {
+        } else if (interaction.options.getString('sort') == "streak") {
             type = "top_streak"
             proper = "Top Streak"
             countType = "streak"
-        } else if (interaction.options.getString('type') == "time") {
+        } else if (interaction.options.getString('sort') == "time") {
             type = "times"
             proper = "Average Answer Time"
             countType = "sec"
-        } else if (interaction.options.getString('type') == "fast") {
+        } else if (interaction.options.getString('sort') == "fast") {
             type = "quickest_answer"
             proper = "Fastest Answer Time"
             countType = "sec"
@@ -56,6 +67,17 @@ module.exports = {
             type = "points"
             proper = "Total Points"
             countType = type
+        }
+
+        if (interaction.options.getString('range') == "global") {
+            range = "global"
+            title = "Global"
+        } else if (interaction.options.getString('range') == "server") {
+            range = "server"
+            title = "Server"
+        } else {
+            range = "global"
+            title = "Global"
         }
 
             const client = new MongoClient(uri);
@@ -80,8 +102,13 @@ module.exports = {
 
             const selectedOption = type
             var userRank
+            let listOfDocuments
 
-            let listOfDocuments = await ids.find({}, options).toArray();
+            if (range == "global") {
+                listOfDocuments = await ids.find({}, options).toArray()
+            } else {
+                listOfDocuments = await ids.find({ guilds: serverId }, options).toArray()
+            }
 
             if (selectedOption == "times") { // smallest avg first
                 listOfDocuments.sort((a, b) => {
@@ -139,7 +166,7 @@ module.exports = {
 
             for (let i = 0; i < pages; i++) {
                 const embed = new EmbedBuilder()
-                    .setTitle(`**Leaderboard (${proper})  |  Page (${i + 1}/${pages})**`)
+                    .setTitle(`**${title} Leaderboard (${proper})  |  Page (${i + 1}/${pages})**`)
                     .setColor('LightGrey')
 
                 for (let j = 0; j < showPerPage && listOfDocuments.length > 0; j++) {
@@ -150,9 +177,9 @@ module.exports = {
                             displayValue = 'n/a'
                             countType = ''
                         } else {
-                          const avg = entry.times.reduce((sum, t) => sum + t, 0) / entry.times.length;
-                          displayValue = (avg / 1000).toFixed(2)
-                          countType = "sec"
+                            const avg = entry.times.reduce((sum, t) => sum + t, 0) / entry.times.length;
+                            displayValue = (avg / 1000).toFixed(2)
+                            countType = "sec"
                         }
                     } else if (selectedOption == "quickest_answer") {
                         if (entry.quickest_answer === 0) {

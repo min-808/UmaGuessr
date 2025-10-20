@@ -14,8 +14,12 @@ module.exports = {
             const sent = await message.channel.send({ content: 'Fetching leaderboard, please wait...' });
             
         let type;
+        let range;
         let proper;
         let countType;
+
+        let serverId = BigInt(message.guild.id)
+        let title;
 
         if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("w")) || (args[0].toLowerCase().includes("wins")))) {
             type = "wins"
@@ -43,6 +47,17 @@ module.exports = {
             countType = type
         }
 
+        if ((args.length > 1) && ((args[1].length == 1 && args[1].toLowerCase().includes("g")) || (args[1].toLowerCase().includes("global")) || (args[1].toLowerCase().includes("all")))) {
+            range = "global"
+            title = "Global"
+        } else if ((args.length > 1) && ((args[1].length == 1 && args[1].toLowerCase().includes("s")) || (args[1].toLowerCase().includes("server")) || (args[1].toLowerCase().includes("local")))) {
+            range = "server"
+            title = "Server"
+        } else {
+            range = "global"
+            title = "Global"
+        }
+
             const client = new MongoClient(uri);
             const database = client.db("uma");
             const ids = database.collection("profiles");
@@ -65,8 +80,13 @@ module.exports = {
 
             const selectedOption = type
             var userRank
+            let listOfDocuments
 
-            let listOfDocuments = await ids.find({}, options).toArray();
+            if (range == "global") {
+                listOfDocuments = await ids.find({}, options).toArray();
+            } else {
+                listOfDocuments = await ids.find({ guilds: serverId }, options).toArray();
+            }
 
             if (selectedOption == "times") { // smallest avg first
                 listOfDocuments.sort((a, b) => {
@@ -124,7 +144,7 @@ module.exports = {
 
             for (let i = 0; i < pages; i++) {
                 const embed = new EmbedBuilder()
-                    .setTitle(`**Leaderboard (${proper})  |  Page (${i + 1}/${pages})**`)
+                    .setTitle(`**${title} Leaderboard (${proper})  |  Page (${i + 1}/${pages})**`)
                     .setColor('LightGrey')
 
                 for (let j = 0; j < showPerPage && listOfDocuments.length > 0; j++) {
