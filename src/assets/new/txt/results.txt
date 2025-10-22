@@ -1,0 +1,62 @@
+
+Character: daringheart (1)
+1.
+   External URL: https://danbooru.donmai.us/post/show/10036319
+   Service: danbooru, Member ID: None, Illustration ID: 10036319, Artist: chikabe
+
+Character: gentildonna (1)
+1.
+   External URL: https://danbooru.donmai.us/post/show/10028216
+   Service: danbooru, Member ID: None, Illustration ID: 10028216, Artist: chikabe
+
+Character: maruzensky (5)
+1.
+   External URL: https://danbooru.donmai.us/post/show/10153242
+   Service: danbooru, Member ID: None, Illustration ID: 10153242, Artist: chikabe
+2.
+   External URL: https://danbooru.donmai.us/post/show/8522873
+   Service: danbooru, Member ID: None, Illustration ID: 8522873, Artist: chikabe
+3.
+   External URL: https://danbooru.donmai.us/post/show/8489722
+   Service: danbooru, Member ID: None, Illustration ID: 8489722, Artist: chikabe
+4.
+   External URL: https://danbooru.donmai.us/post/show/10119533
+   Service: danbooru, Member ID: None, Illustration ID: 10119533, Artist: chikabe
+5.
+   MISS: similarity 40.2
+
+Character: mihonobourbon (1)
+1.
+   External URL: https://danbooru.donmai.us/post/show/9585989
+   Service: danbooru, Member ID: None, Illustration ID: 9585989, Artist: period ky88
+
+Character: mrcb (2)
+1.
+   External URL: https://danbooru.donmai.us/post/show/10078921
+   Service: danbooru, Member ID: None, Illustration ID: 10078921, Artist: period ky88
+2.
+   External URL: https://danbooru.donmai.us/post/show/7210556
+   Service: danbooru, Member ID: None, Illustration ID: 7210556, Artist: kabechee
+
+Character: neouniverse (1)
+1.
+   External URL: https://danbooru.donmai.us/post/show/9323758
+   Service: danbooru, Member ID: None, Illustration ID: 9323758, Artist: period ky88
+
+Character: reddesire (3)
+1.
+   MISS: similarity 32.88
+2.
+   External URL: https://danbooru.donmai.us/post/show/10152169
+   Service: danbooru, Member ID: None, Illustration ID: 10152169, Artist: disney o626
+3.
+   MISS: similarity 40.16
+
+Character: stillinlove (1)
+1.
+   External URL: https://danbooru.donmai.us/post/show/10153614
+   Service: danbooru, Member ID: None, Illustration ID: 10153614, Artist: taromarun
+
+Character: transcend (1)
+1.
+   MISS: similarity 34.02
