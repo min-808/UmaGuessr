@@ -49,12 +49,25 @@ module.exports = {
                     points: 1,
                     daily_timer: 1,
                     daily_streak: 1,
+                    restrict: 1,
                 }
             }
 
             var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
             var pastTime = toParseUserUID['daily_timer']
             var dailyStreak = toParseUserUID['daily_streak']
+
+            if (toParseUserUID['restrict'] == true) {
+                embed.spliceFields(0, 1,
+                {
+                    name: "\n",
+                    value: `You are currently **restricted** and cannot use this command.`
+                })
+
+                await interaction.editReply({ embeds: [embed] });
+                await client_db.close()
+                return
+            }
 
             if (pastTime + 172_800_000 < currentTime) {
                 brokenStreak = true

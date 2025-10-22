@@ -97,6 +97,7 @@ module.exports = {
                 top_streak: 1,
                 times: 1,
                 quickest_answer: 1,
+                restrict: 1,
             }
         };
 
@@ -106,8 +107,10 @@ module.exports = {
 
         if (range == "global") {
             listOfDocuments = await ids.find({}, options).toArray()
+            listOfDocuments = listOfDocuments.filter(item => item.restrict != true)
         } else {
             listOfDocuments = await ids.find({ guilds: serverId }, options).toArray()
+            listOfDocuments = listOfDocuments.filter(item => item.restrict != true)
         }
 
         if (selectedOption == "times") { // smallest avg first

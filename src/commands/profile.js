@@ -56,6 +56,7 @@ module.exports = {
                         inventory: 1,
                         username: 1,
                         signup: 1,
+                        restrict: 1,
                     }
                 });
 
@@ -81,6 +82,7 @@ module.exports = {
                         inventory: 1,
                         username: 1,
                         signup: 1,
+                        restrict: 1,
                     }
                 });
 
@@ -106,14 +108,20 @@ module.exports = {
             const utcDate = `${(d.getUTCMonth() + 1).toString().padStart(2, '0')}/${d.getUTCDate().toString().padStart(2,'0')}/${d.getUTCFullYear()}`;
             const utcTime = `${d.getUTCHours().toString().padStart(2,'0')}:${d.getUTCMinutes().toString().padStart(2,'0')}:${d.getUTCSeconds().toString().padStart(2,'0')}`;
 
-            const allUsers = await ids.find({}, { projection: { discord_id: 1, points: 1 } })
+            let allUsers = await ids.find({}, { projection: { discord_id: 1, points: 1, restrict: 1, } })
                 .sort({ points: -1 })
                 .toArray();
 
-            const rank = allUsers.findIndex(entry => entry.discord_id.toString() === discordID.toString()) + 1;
+            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict } = data;
+            let rank
 
-            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, signup } = data;
-
+            if (restrict) {
+                rank = `0 **(Restricted)**`
+            } else {
+                allUsers = allUsers.filter(item => item.restrict != true)
+                rank = allUsers.findIndex(entry => entry.discord_id.toString() === discordID.toString()) + 1;
+            }
+        
             let quickest;
             let avg;
             

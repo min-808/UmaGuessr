@@ -14,11 +14,14 @@ const { CommandHandler } = require('djs-commander');
 
 const prefixCache = new Map()
 const strictCache = new Map()
+const restrictedUsers = new Map()
+
 const cooldowns = new Map()
 const COOLDOWN = 2000
 
 var globalList = require('./assets/global-list.json')
-var JPList = require('./assets/jp-list.json')
+var JPList = require('./assets/jp-list.json');
+const { strict } = require('assert');
 var combinedList = globalList.concat(JPList)
 
 // save error logs
@@ -61,6 +64,7 @@ const client = new Client({
 
 client.prefixCache = prefixCache
 client.strictCache = strictCache
+client.restrictedUsers = restrictedUsers
 
 client.prefixCommands = new Collection();
 client.slashCommands = new Collection();
@@ -243,10 +247,11 @@ async function cacheStrict() {
     const all = await stats.find({}).toArray();
     for (const entry of all) {
         strictCache.set(BigInt(entry.discord_id), entry.strict) // reminder, discord_id's are being casted as bigints here
+        restrictedUsers.set(BigInt(entry.discord_id), entry.restrict)
     }
 
     await client.close();
-    console.log("Strict settings cached:", strictCache.size);
+    console.log(`Strict settings ${strictCache.size} and Restricted users ${restrictedUsers.size} cached`);
 }
 
 async function getPrefix(guildId) { // This will be called everytime a potential message is sent

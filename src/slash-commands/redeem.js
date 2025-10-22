@@ -36,6 +36,7 @@ module.exports = {
                     inventory: 1,
                     votes: 1,
                     vote_timer: 1,
+                    restrict: 1,
                 }
             }
 
@@ -57,6 +58,18 @@ module.exports = {
                 .setColor('LightGrey')
                 .setTitle("Vote")
                 .setThumbnail(`attachment://${img}.png`)
+
+            if (toParseUserUID['restrict'] == true) {
+                embed.spliceFields(0, 1,
+                {
+                    name: "\n",
+                    value: `You are currently **restricted** and cannot use this command.`
+                })
+
+                await message.channel.send({ embeds: [embed] });
+                await client_db.close()
+                return
+            }
 
             let multRemaining = (voteTimer + 300_000) - currentTime; // time LEFT, not time passed
             let voteRemaining = (voteTimer + 43_200_000) - currentTime

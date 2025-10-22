@@ -7,3 +7,5 @@ push.js
 info.json
 add.js
 src/assets/new/
+restrict.js
+unrestrict.js

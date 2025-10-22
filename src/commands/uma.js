@@ -29,15 +29,6 @@ module.exports = {
         var d = new Date();
 
         try {
-
-            if (activeChannels.has(channelID)) {
-                return message.channel.send("A game is currently running");
-            }
-
-            activeChannels.add(channelID);
-
-            setTimeout(() => { activeChannels.delete(channelID) }, 75 * 1000); // auto-remove after 1m 10s
-
             var client_db = new MongoClient(uri);
 
             const database = client_db.db("uma");
@@ -58,9 +49,18 @@ module.exports = {
                     quickest_answer: 1,
                     username: 1,
                     vote_timer: 1,
-                    strict: 1, 
+                    strict: 1,
+                    restrict: 1,
                 }
             });
+
+            if (activeChannels.has(channelID)) {
+                return message.channel.send("A game is currently running");
+            }
+
+            activeChannels.add(channelID);
+
+            setTimeout(() => { activeChannels.delete(channelID) }, 75 * 1000); // auto-remove after 1m 10s
 
             var logChannel = await client.channels.fetch(process.env.UMA_LOG_CHANNEL)
             var cmdLogChannel = await client.channels.fetch(process.env.CMD_LOG_CHANNEL) 
@@ -267,7 +267,7 @@ module.exports = {
                         if (state.blurLevel >= 11) { // decrease hint level and blur level upon hint press, and only if the blur level is >= 11
                             let newBlurLevel = state.blurLevel - 10
                             let newHintsUsed = state.hintsUsed + 1
-                            let newPoints = state.points - minusPointsJP
+                            let newPoints = Math.max(1, state.points - minusPointsJP)
 
                             gameState.set(sentMsg.id, {
                                 ...state,
@@ -450,7 +450,6 @@ module.exports = {
 
                 // console.log(`ID: ${msg.author.id}\nstrict?: ${client.strictCache.get(BigInt(msg.author.id))}\nNormal guess: ${userGuess}\nStrict guess: ${strictGuess}\nstate.proper.toLowercase: ${state.proper.toLowerCase()}`)
                 
-
                 if ((((client.strictCache.get(BigInt(msg.author.id)) == false) || (client.strictCache.get(BigInt(msg.author.id)) == undefined)) &&
                     (state.values.includes(userGuess))) || ((client.strictCache.get(BigInt(msg.author.id)) == true) && (state.proper.toLowerCase() == strictGuess))) {
                     // Got it right
@@ -471,6 +470,10 @@ module.exports = {
                     )
 
                     var authorID = BigInt(msg.author.id); // ID of the person who got it right
+
+                    if (client.restrictedUsers.get(BigInt(msg.author.id)) == true) { // set answerer's points to 1 if they're restricted
+                        state.points = 1
+                    }
 
                     count = await ids.countDocuments({ discord_id: authorID });
                     if (count < 1) await setup.init(authorID, "uma", "profiles", client); // Make document in case
@@ -508,6 +511,8 @@ module.exports = {
                     let topTime = broadSearch["quickest_answer"]
                     let newQuickest;
 
+                    let addWins = 1
+
                     if (topTime == 0) { // If someone has a quickest answer of 0s, which shouldn't be possible (aka new users)
                         newQuickest = timeAnswered
                     } else {
@@ -518,17 +523,26 @@ module.exports = {
                     // Answerer is authorID
 
                     if (authorID == discordID) { // Increment streak of the answerer by one
-
-                        await ids.updateOne({ discord_id: discordID }, {
+                        if (client.restrictedUsers.get(authorID) == true) {
+                            await ids.updateOne({ discord_id: discordID }, {
                             $set: {
                                 top_streak: Math.max(newStreak, topStreak),
                                 quickest_answer: newQuickest
-                            },
-                            $inc: {
-                                streak: 1,
                             }
-                        });
+                            })
 
+                            addWins = 0
+                        } else {
+                            await ids.updateOne({ discord_id: discordID }, {
+                                $set: {
+                                    top_streak: Math.max(newStreak, topStreak),
+                                    quickest_answer: newQuickest
+                                },
+                                $inc: {
+                                    streak: 1,
+                                }
+                            });
+                        }
                     } else { // someone else answered that's not the initial message sender, goodbye streak
                         await ids.updateOne({ discord_id: discordID }, {
                             $set: {
@@ -536,23 +550,35 @@ module.exports = {
                             }
                         });
 
-                        await ids.updateOne({ discord_id: authorID }, {
+                        if (client.restrictedUsers.get(authorID) == true) {
+                            await ids.updateOne({ discord_id: discordID }, {
                             $set: {
                                 top_streak: Math.max(newStreak, topStreak),
                                 quickest_answer: newQuickest
-                            },
-                            $inc: {
-                                streak: 1,
                             }
-                        });
+                            })
+
+                            addWins = 0
+                        } else {
+
+                            await ids.updateOne({ discord_id: authorID }, {
+                                $set: {
+                                    top_streak: Math.max(newStreak, topStreak),
+                                    quickest_answer: newQuickest
+                                },
+                                $inc: {
+                                    streak: 1,
+                                }
+                            });
+                        }
                     }
 
                     const addPoints = {
                         $inc: {
                             points: state.points,
-                            wins: 1,
+                            wins: addWins,
                             points_today: state.points,
-                            wins_today: 1,
+                            wins_today: addWins,
 
                         },
                         $push: {
