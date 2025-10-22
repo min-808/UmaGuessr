@@ -116,7 +116,7 @@
     "id": "calstonelighto",
     "number": 10372,
     "proper": "Calstone Light O",
-    "names": ["calstone", "calstonelight", "カルストン", "カルストンライトオ", "カルストンライトオ"],
+    "names": ["calstone", "calstonelight", "lighto", "カルストン", "カルストンライトオ", "カルストンライトオ"],
     "images": ["calstonelighto1.jpg", "calstonelighto2.jpg", "calstonelighto3.jpg", "calstonelighto4.jpg", "calstonelighto5.jpg", "calstonelighto6.jpg", "calstonelighto7.jpg", "calstonelighto8.jpg", "calstonelighto9.jpg", "calstonelighto10.jpg", "calstonelighto11.jpg"],
     "rarity": 3
     },
@@ -204,7 +204,7 @@
     "id": "dreamjourney",
     "number": 10373,
     "proper": "Dream Journey",
-    "names": ["dreamjourney", "dura", "dream", "ドリームジャーニー"],
+    "names": ["dreamjourney", "dura", "dream", "journey", "ドリームジャーニー"],
     "images": ["dreamjourney1.jpg", "dreamjourney2.jpg", "dreamjourney3.jpg", "dreamjourney4.jpg", "dreamjourney5.jpg", "dreamjourney6.jpg", "dreamjourney7.jpg", "dreamjourney8.jpg", "dreamjourney9.jpg", "dreamjourney10.jpg", "dreamjourney11.jpg"],
     "rarity": 3
     },
@@ -364,7 +364,7 @@
     "id": "kawakamiprincess",
     "number": 5258,
     "proper": "Kawakami Princess",
-    "names": ["kawakamiprincess", "kawakami", "カワカミプリンセス", "カワカミ"],
+    "names": ["kawakamiprincess", "kawakami", "princess", "カワカミプリンセス", "カワカミ"],
     "images": ["kawakamiprincess1.jpg", "kawakamiprincess2.jpg", "kawakamiprincess3.jpg", "kawakamiprincess4.jpg", "kawakamiprincess5.jpg"],
     "rarity": 3
     },
@@ -380,7 +380,7 @@
     "id": "lovesonlyyou",
     "number": 10388,
     "proper": "Loves Only You",
-    "names": ["lovesonlyyou", "loves", "ラヴズオンリーユー", "ラヴズ"],
+    "names": ["lovesonlyyou", "loves", "onlyyou", "ラヴズオンリーユー", "ラヴズ"],
     "images": ["lovesonlyyou1.jpg", "lovesonlyyou2.jpg", "lovesonlyyou3.jpg", "lovesonlyyou4.jpg", "lovesonlyyou5.jpg", "lovesonlyyou6.jpg", "lovesonlyyou7.jpg", "lovesonlyyou8.jpg", "lovesonlyyou9.jpg"],
     "rarity": 3
     },
@@ -412,7 +412,7 @@
     "id": "marveloussunday",
     "number": 5440,
     "proper": "Marvelous Sunday",
-    "names": ["marveloussunday", "marvelous", "marve", "マーベラスサンデー", "マーベラス", "マベ"],
+    "names": ["marveloussunday", "marvelous", "marve", "sunday", "マーベラスサンデー", "マーベラス", "マベ"],
     "images":["marveloussunday1.jpg","marveloussunday2.jpg","marveloussunday3.jpg","marveloussunday4.jpg","marveloussunday5.jpg","marveloussunday6.jpg","marveloussunday7.jpg","marveloussunday8.jpg","marveloussunday9.jpg","marveloussunday10.jpg","marveloussunday11.jpg"],
     "rarity": 3
     },
@@ -508,7 +508,7 @@
     "id": "noreason",
     "number": 10302,
     "proper": "No Reason",
-    "names": ["noreason", "ノーリーズン"],
+    "names": ["noreason", "reason", "ノーリーズン"],
     "images":["noreason1.jpg","noreason2.jpg","noreason3.jpg","noreason4.jpg","noreason5.jpg","noreason6.jpg","noreason7.jpg","noreason8.jpg","noreason9.jpg","noreason10.jpg","noreason11.jpg","noreason12.jpg"],
     "rarity": 3
     },
@@ -652,7 +652,7 @@
     "id": "stillinlove",
     "number": 10313,
     "proper": "Still in Love",
-    "names": ["stillinlove", "still", "スティルインラブ", "スティル"],
+    "names": ["stillinlove", "still", "inlove", "スティルインラブ", "スティル"],
     "images": ["stillinlove1.jpg", "stillinlove2.jpg", "stillinlove3.jpg", "stillinlove4.jpg", "stillinlove5.jpg", "stillinlove6.jpg", "stillinlove7.jpg", "stillinlove8.jpg", "stillinlove9.jpg", "stillinlove10.jpg", "stillinlove11.jpg"],
     "rarity": 3
     },
@@ -676,7 +676,7 @@
     "id": "tamamocross",
     "number": 5055,
     "proper": "Tamamo Cross",
-    "names": ["tamamocross", "tamamo", "tama", "タマモクロス", "タマモ", "タマ"],
+    "names": ["tamamocross", "tamamo", "tama", "cross", "タマモクロス", "タマモ", "タマ"],
     "images": ["tamamocross1.jpg", "tamamocross2.jpg", "tamamocross3.jpg", "tamamocross4.jpg", "tamamocross5.jpg", "tamamocross6.jpg", "tamamocross7.jpg", "tamamocross8.jpg", "tamamocross9.jpg", "tamamocross10.jpg", "tamamocross11.jpg"],
     "rarity": 3
     },
@@ -748,7 +748,7 @@
     "id": "winvariation",
     "number": 10348,
     "proper": "Win Variation",
-    "names": ["winvariation", "win", "ウインバリアシオン", "ウイン"],
+    "names": ["winvariation", "win", "shion", "ウインバリアシオン", "ウイン"],
     "images": ["winvariation1.jpg", "winvariation2.jpg", "winvariation3.jpg", "winvariation4.jpg", "winvariation5.jpg", "winvariation6.jpg", "winvariation7.jpg", "winvariation8.jpg"],
     "rarity": 3
     },

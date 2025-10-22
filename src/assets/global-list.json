@@ -51,7 +51,7 @@
     "id": "elcondorpasa",
     "number": 4974,
     "proper": "El Condor Pasa",
-    "names": ["elcondorpasa", "el", "エルコンドルパサー", "エル"],
+    "names": ["elcondorpasa", "el", "condorpasa", "エルコンドルパサー", "エル"],
     "images": ["elcondorpasa1.jpg", "elcondorpasa2.jpg", "elcondorpasa3.jpg", "elcondorpasa4.jpg", "elcondorpasa5.jpg", "elcondorpasa6.jpg", "elcondorpasa7.jpg", "elcondorpasa8.jpg", "elcondorpasa9.jpg", "elcondorpasa10.jpg", "elcondorpasa11.jpg"],
     "rarity": 2
   },
@@ -99,7 +99,7 @@
     "id": "haruurara",
     "number": 5404,
     "proper": "Haru Urara",
-    "names": ["haruurara", "urara", "ハルウララ", "ウララ"],
+    "names": ["haruurara", "urara", "haru", "ハルウララ", "ウララ"],
     "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg", "haruurara4.jpg", "haruurara5.jpg", "haruurara6.jpg", "haruurara7.jpg", "haruurara8.jpg", "haruurara9.jpg", "haruurara10.jpg", "haruurara11.jpg", "haruurara12.jpg", "haruurara13.jpg"],
     "rarity": 1
   },
@@ -155,7 +155,7 @@
     "id": "mayanotopgun",
     "number": 5088,
     "proper": "Mayano Top Gun",
-    "names": ["mayanotopgun", "mayano", "maya", "マヤノトップガン", "マヤノ", "マヤ"],
+    "names": ["mayanotopgun", "mayano", "maya", "topgun", "マヤノトップガン", "マヤノ", "マヤ"],
     "images": ["mayanotopgun1.jpg", "mayanotopgun2.jpg", "mayanotopgun3.jpg", "mayanotopgun4.jpg", "mayanotopgun5.jpg", "mayanotopgun6.jpg", "mayanotopgun7.jpg", "mayanotopgun8.jpg", "mayanotopgun9.jpg", "mayanotopgun10.jpg", "mayanotopgun11.jpg", "mayanotopgun12.jpg", "mayanotopgun13.jpg", "mayanotopgun14.jpg", "mayanotopgun15.jpg", "mayanotopgun16.jpg"],
     "rarity": 2
   },
@@ -291,7 +291,7 @@
     "id": "taikishuttle",
     "number": 4927,
     "proper": "Taiki Shuttle",
-    "names": ["taikishuttle", "taiki", "タイキシャトル", "タイキ"],
+    "names": ["taikishuttle", "taiki", "shuttle", "タイキシャトル", "タイキ"],
     "images": ["taikishuttle1.jpg", "taikishuttle2.jpg", "taikishuttle3.jpg", "taikishuttle4.jpg", "taikishuttle5.jpg", "taikishuttle6.jpg", "taikishuttle7.jpg", "taikishuttle8.jpg", "taikishuttle9.jpg", "taikishuttle10.jpg"],
     "rarity": 3
   },
