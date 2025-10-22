@@ -588,6 +588,57 @@
         "service": "danbooru",
         "illustration_id": "6748157",
         "artist": "tamayume"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=101729241"
+        ],
+        "service": "pixiv",
+        "member_id": "18804431",
+        "illustration_id": "101729241",
+        "artist": "neri"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9251295"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9251295",
+        "artist": "toriga naku"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=100211024"
+        ],
+        "service": "pixiv",
+        "member_id": "79864211",
+        "illustration_id": "100211024",
+        "artist": "ヨシアキ"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/5546025"
+        ],
+        "service": "danbooru",
+        "illustration_id": "5546025",
+        "artist": "sorata (sorata hnkn)"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/5843444"
+        ],
+        "service": "danbooru",
+        "illustration_id": "5843444",
+        "artist": "nm222hz"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=99738398"
+        ],
+        "service": "pixiv",
+        "member_id": "18804431",
+        "illustration_id": "99738398",
+        "artist": "neri"
       }
     ]
   },
@@ -1893,6 +1944,70 @@
         "service": "danbooru",
         "illustration_id": "9985927",
         "artist": "empty gerbera"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9308708"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9308708",
+        "artist": "hard7v2"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9718641"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9718641",
+        "artist": "yusei tran"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9981942"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9981942",
+        "artist": "rakugakiraid"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9561259"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9561259",
+        "artist": "hard7v2"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9576849"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9576849",
+        "artist": "denryoku saboten"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9077606"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9077606",
+        "artist": "rikudou5521"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9625768"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9625768",
+        "artist": "murasaki himuro"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9474480"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9474480",
+        "artist": "kasumi uzuki"
       }
     ]
   },
