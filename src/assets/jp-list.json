@@ -425,14 +425,6 @@
     "rarity": 2
     },
     {
-    "id": "meishodoto",
-    "number": 5463,
-    "proper": "Meisho Doto",
-    "names": ["meishodoto", "doto", "dotopi", "meisho", "メイショウドトウ", "ドトウ"],
-    "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg", "meishodoto4.jpg", "meishodoto5.jpg", "meishodoto6.jpg", "meishodoto7.jpg", "meishodoto8.jpg", "meishodoto9.jpg", "meishodoto10.jpg", "meishodoto11.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "mejiroardan",
     "number": 5528,
     "proper": "Mejiro Ardan",
