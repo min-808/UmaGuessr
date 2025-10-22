@@ -2762,6 +2762,14 @@
         "service": "danbooru",
         "illustration_id": "7467290",
         "artist": "pilinthia"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10036319"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10036319",
+        "artist": "chikabe"
       }
     ]
   },
@@ -3959,6 +3967,14 @@
         "service": "danbooru",
         "illustration_id": "10112754",
         "artist": "inairego116"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10028216"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10028216",
+        "artist": "chikabe"
       }
     ]
   },
@@ -6181,6 +6197,47 @@
         "member_id": "39252074",
         "illustration_id": "108329204",
         "artist": "あめぱ🍍"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10153242"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10153242",
+        "artist": "chikabe"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/8522873"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8522873",
+        "artist": "chikabe"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/8489722"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8489722",
+        "artist": "chikabe"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10119533"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10119533",
+        "artist": "chikabe"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       }
     ]
   },
@@ -7511,6 +7568,14 @@
         "service": "danbooru",
         "illustration_id": "9441164",
         "artist": "maimuu"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9585989"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9585989",
+        "artist": "period ky88"
       }
     ]
   },
@@ -7594,6 +7659,22 @@
         "service": "danbooru",
         "illustration_id": "9926644",
         "artist": "masasim"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10078921"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10078921",
+        "artist": "period ky88"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/7210556"
+        ],
+        "service": "danbooru",
+        "illustration_id": "7210556",
+        "artist": "kabechee"
       }
     ]
   },
@@ -8034,6 +8115,14 @@
         "service": "danbooru",
         "illustration_id": "9965592",
         "artist": "kibihimi"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/9323758"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9323758",
+        "artist": "period ky88"
       }
     ]
   },
@@ -8873,6 +8962,32 @@
         "member_id": "1459807",
         "illustration_id": "7836030",
         "artist": "ペイジュン"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10152169"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10152169",
+        "artist": "disney o626"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       }
     ]
   },
@@ -10826,6 +10941,14 @@
         "service": "danbooru",
         "illustration_id": "10061175",
         "artist": "shin kun30"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10153614"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10153614",
+        "artist": "taromarun"
       }
     ]
   },
@@ -11990,6 +12113,15 @@
         "service": "danbooru",
         "illustration_id": "7335122",
         "artist": "tsukiyuki mike"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       }
     ]
   },
