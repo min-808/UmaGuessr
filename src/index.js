@@ -251,7 +251,7 @@ async function cacheStrict() {
     }
 
     await client.close();
-    console.log(`Strict settings ${strictCache.size} and Restricted users ${restrictedUsers.size} cached`);
+    console.log(`Strict settings (total: ${strictCache.size}) and Restricted users (total: ${restrictedUsers.size}) cached`);
 }
 
 async function getPrefix(guildId) { // This will be called everytime a potential message is sent

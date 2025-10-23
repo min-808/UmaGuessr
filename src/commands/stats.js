@@ -45,7 +45,7 @@ module.exports = {
                 }
             }).toArray()
 
-            const sortedUmas = await umaStats.find({ count: { $gt: 100 } }, {
+            let sortedUmas = await umaStats.find({ count: { $gt: 100 } }, {
                 projection: {
                     name: 1,
                     proper: 1,
@@ -59,6 +59,8 @@ module.exports = {
                 const bRate = b.count ? b.wins / b.count : 0
                 return bRate - aRate
             });
+
+            sortedUmas = sortedUmas.filter(item => item.name != "kiryuinaoi")
 
             const globalPicsCount = globalList.reduce((sum, item) => sum + item.images.length, 0)
             const JPPicsCount = JPList.reduce((sum, item) => sum + item.images.length, 0)
