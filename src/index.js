@@ -206,16 +206,19 @@ async function refreshUsernames() {
             }
 
             if ((doc.username) != (retUsername + retDiscriminator)) { // only update if the username/discriminator changes
-
-                updateValues = {
+                if (retUsername == "Unknown") {
+                    console.log(`API Error: ${doc.discord_id} - ${doc.username}`)
+                } else {
+                    updateValues = {
                     $set: {
                         username: retUsername + retDiscriminator,
+                        }
                     }
+
+                    await ids.updateOne({discord_id: doc.discord_id}, updateValues)
+
+                    console.log(`Updated usernames: ${doc.discord_id} - ${doc.username} to ${retUsername}`)
                 }
-
-                await ids.updateOne({discord_id: doc.discord_id}, updateValues)
-
-                console.log(`Updated usernames: ${doc.discord_id} - ${doc.username} to ${retUsername}`)
             }
         }
 
