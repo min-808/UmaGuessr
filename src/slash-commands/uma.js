@@ -33,7 +33,7 @@ module.exports = {
 
         if (!interaction.guild) {
             return interaction.reply({
-                content: "Please invite the bot to a server to start playing!\n\nJoin our server for updates :)\nhttps://discord.gg/d4rH6ycdbc",
+                content: "Please invite the bot to a server to start playing!\n\nJoin our Discord for updates :)\nhttps://discord.gg/d4rH6ycdbc",
                 ephemeral: true
             });
         }
