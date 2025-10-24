@@ -35,13 +35,14 @@ module.exports = {
             const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
             const routesResult = await rest.get(Routes.oauth2CurrentApplication());
 
-            const data = await ids.find({}, {
+            let data = await ids.find({}, {
                 projection: {
                     wins: 1,
                     points: 1,
                     streak: 1,
                     points_today: 1,
                     wins_today: 1,
+                    restrict: 1,
                 }
             }).toArray()
 
@@ -59,6 +60,8 @@ module.exports = {
                 const bRate = b.count ? b.wins / b.count : 0
                 return bRate - aRate
             });
+
+            data = data.filter(item => item.restrict == false)
 
             sortedUmas = sortedUmas.filter(item => item.name != "kiryuinaoi")
 
