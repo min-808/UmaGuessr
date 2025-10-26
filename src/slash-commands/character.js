@@ -1,7 +1,7 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const buttonPagination = require('../../button-pagination');
 const path = require("path")
-const { MongoClient } = require("mongodb")
+const { getMongoClient } = require('../connect-db.js');
 
 var sources = require('../../src/assets/sources/sources.json')
 var globalList = require('../../src/assets/global-list.json')
@@ -97,7 +97,7 @@ module.exports = {
 
                     var data
 
-                    var client_db = new MongoClient(process.env.MONGODB_URI)
+                    var client_db = new getMongoClient()
                     var database = client_db.db("uma");
                     var ids = database.collection("count")
 
@@ -184,7 +184,6 @@ module.exports = {
                     }
 
                     await buttonPagination(sent, embeds);
-                    await client_db.close()
                     break
                 }
             }

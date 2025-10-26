@@ -3,7 +3,7 @@ const path = require("path");
 const Jimp = require("jimp");
 
 // Change this to your image folder
-const inputFolder = "src/assets/new";
+const inputFolder = "src/assets/multi";
 const outputFolder = inputFolder
 
 const maxWidth = 850;

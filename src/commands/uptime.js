@@ -1,5 +1,5 @@
 var { EmbedBuilder } = require('discord.js');
-const { MongoClient } = require('mongodb');
+const { getMongoClient } = require('../connect-db.js');
 
 module.exports = {
     name: 'uptime',
@@ -19,8 +19,7 @@ module.exports = {
 
         try {
 
-            var client = new MongoClient(process.env.MONGODB_URI)
-
+            var client = new getMongoClient()
             var database = client.db("uma");
             var ids = database.collection("stats")
 
@@ -62,7 +61,6 @@ module.exports = {
                 })
 
             await message.channel.send({ embeds: [embed] });
-            await client.close()
 
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);

@@ -1,5 +1,4 @@
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js')
-var { MongoClient } = require("mongodb");
 
 const img = "discord"
 

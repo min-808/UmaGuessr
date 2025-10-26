@@ -1,5 +1,5 @@
 const fs = require("fs");
-const { MongoClient } = require("mongodb")
+const { getMongoClient } = require('../connect-db.js');
 require('dotenv').config();
 
 // regex patterns for the different log lines
@@ -68,7 +68,7 @@ for (const [uma, data] of sortedStats) {
 async function saveStatsToMongo(stats) {
 const dbName = "uma";
 const collectionName = "count";
-    const client = new MongoClient(process.env.MONGODB_URI);
+    const client = new getMongoClient()
 
     try {
         await client.connect();
@@ -88,8 +88,6 @@ const collectionName = "count";
         console.log("All stats saved successfully!");
     } catch (err) {
         console.error("Error saving stats to MongoDB:", err);
-    } finally {
-        await client.close();
     }
 }
 

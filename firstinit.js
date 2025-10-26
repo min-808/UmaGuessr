@@ -1,11 +1,9 @@
-// Make sure to client.close after using this function, cuz it doesn't close here
-
-var { MongoClient } = require("mongodb");
+const { getMongoClient } = require('./src/connect-db.js');
 require('dotenv').config();
 
 module.exports = {
     init: async function(id, db, collection, client) {
-        var client_db = new MongoClient(process.env.MONGODB_URI)
+        var client_db = new getMongoClient()
 
         var database = client_db.db(db);
         var ids = database.collection(collection)

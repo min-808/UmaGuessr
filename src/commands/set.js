@@ -1,4 +1,4 @@
-var { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 
 const setup = require('../../firstinit');
@@ -20,7 +20,7 @@ module.exports = {
             .setTitle(`Set`)
 
         try {
-            var client_db = new MongoClient(process.env.MONGODB_URI)
+            var client_db = new getMongoClient();
             var database = client_db.db("uma");
             var ids = database.collection("profiles")
             var discordID = BigInt(user.id)
@@ -111,7 +111,6 @@ module.exports = {
             await message.channel.send({ embeds: [embed], files: [file] });
 
             await ids.updateOne({ discord_id: discordID }, changeType);
-            await client_db.close()
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
             console.error("Main uma error:", msg);

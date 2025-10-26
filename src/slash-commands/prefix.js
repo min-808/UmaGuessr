@@ -1,4 +1,4 @@
-var { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 const { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 
 const img = 'prefix'
@@ -19,8 +19,6 @@ module.exports = {
         
 
     run: async ({ interaction, client }) => {
-        const user = interaction.user
-
         var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`)
 
         const embed = new EmbedBuilder()
@@ -48,7 +46,7 @@ module.exports = {
 
                 return
             } else {
-                var client_db = new MongoClient(process.env.MONGODB_URI)
+                var client_db = new getMongoClient()
                 var database = client_db.db("uma");
                 var ids = database.collection("prefixes")
 
@@ -76,7 +74,6 @@ module.exports = {
                 }
 
                 await interaction.editReply({ embeds: [embed], files: [file] });
-                await client_db.close()
             }
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);

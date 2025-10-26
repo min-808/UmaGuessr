@@ -1,5 +1,5 @@
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js')
-var { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 
 const img = "vote"
 const setup = require('../../firstinit');
@@ -14,7 +14,7 @@ module.exports = {
         const file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
 
         try {
-            var client_db = new MongoClient(process.env.MONGODB_URI)
+            var client_db = new getMongoClient()
             var database = client_db.db("uma")
             var ids = database.collection("profiles")
             var discordID = BigInt(message.author.id)
@@ -61,7 +61,6 @@ module.exports = {
                 })
 
                 await message.channel.send({ embeds: [embed] });
-                await client_db.close()
                 return
             }
 

@@ -1,5 +1,5 @@
 var { EmbedBuilder, AttachmentBuilder } = require('discord.js');
-var { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 
 const img = "daily"
 const badImg = "n_daily"
@@ -26,7 +26,7 @@ module.exports = {
         try {
             var currentTime = Date.now();
 
-            var client_db = new MongoClient(process.env.MONGODB_URI)
+            var client_db = new getMongoClient();
             var database = client_db.db("uma");
             var ids = database.collection("profiles")
             var discordID = BigInt(user.id)
@@ -59,7 +59,6 @@ module.exports = {
                 })
 
                 await message.channel.send({ embeds: [embed] });
-                await client_db.close()
                 return
             }
 
@@ -162,8 +161,6 @@ module.exports = {
             }
 
             await message.channel.send({ embeds: [embed], files: [file] });
-
-            await client_db.close()
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
             console.error("Main uma error:", msg);

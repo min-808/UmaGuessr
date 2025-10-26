@@ -1,7 +1,7 @@
 const { EmbedBuilder } = require('discord.js');
 const buttonPagination = require('../../button-pagination');
 const path = require("path")
-const { MongoClient } = require("mongodb")
+const { getMongoClient } = require('../connect-db.js');
 
 module.exports = {
     name: 'character',
@@ -56,7 +56,7 @@ module.exports = {
 
                     var data
 
-                    var client_db = new MongoClient(process.env.MONGODB_URI)
+                    var client_db = new getMongoClient();
                     var database = client_db.db("uma");
                     var ids = database.collection("count")
 
@@ -144,7 +144,6 @@ module.exports = {
 
                     const sent = await message.channel.send({ content: "Loading character profile..." });
                     await buttonPagination(sent, embeds);
-                    await client_db.close()
                     break
                 }
             }

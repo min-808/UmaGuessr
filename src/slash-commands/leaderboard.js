@@ -1,8 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
-const { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 const buttonPagination = require('../../button-pagination');
-
-const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
 module.exports = {
     name: 'leaderboard',
@@ -80,7 +78,7 @@ module.exports = {
             title = "Global"
         }
 
-        const client = new MongoClient(uri);
+        const client = new getMongoClient()
         const database = client.db("uma");
         const ids = database.collection("profiles");
 

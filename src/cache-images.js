@@ -5,7 +5,11 @@ const fs = require("fs");
 const guessDir = path.join(__dirname, "../src/assets/guessing");
 const cacheDir = path.join(__dirname, "../src/assets/cache");
 
+const multiDir = path.join(__dirname, "../src/assets/multi")
+const multiCacheDir = path.join(__dirname, "../src/assets/multi_cache")
+
 const BLUR_LEVELS = [51, 41, 31, 21, 11];
+const MULTI_BLUR_LEVELS = [31, 21, 11]
 
 async function buildCache() {
     if (!fs.existsSync(cacheDir)) {
@@ -16,9 +20,13 @@ async function buildCache() {
         /\.(jpe?g|png|bmp|webp|gif)$/i.test(f)
     )
 
-    console.log(`Caching ${files.length} images...`);
+    const guessFiles = fs.readdirSync(multiDir).filter(f =>
+        /\.(jpe?g|png|bmp|webp|gif)$/i.test(f)
+    )
 
-    for (const file of files) {
+    console.log(`Caching ${files.length} single images...`);
+
+    for (let file of files) {
         const srcPath = path.join(guessDir, file);
 
         for (const blur of BLUR_LEVELS) {
@@ -32,7 +40,23 @@ async function buildCache() {
         }
     }
 
-    console.log("Image cache built");
+    console.log(`Caching ${guessFiles.length} multi images...`);
+
+    for (let file of guessFiles) {
+        const srcPath = path.join(multiDir, file);
+
+        for (const blur of MULTI_BLUR_LEVELS) {
+            const cachePath = path.join(multiCacheDir, `${blur}-${file}`);
+            if (fs.existsSync(cachePath)) continue; // skip if already cached
+
+            const img = await Jimp.read(srcPath);
+            if (blur > 1) img.pixelate(blur);
+
+            await img.writeAsync(cachePath);
+        }
+    }
+
+    console.log("Image caches built");
 }
 
-module.exports = { buildCache, cacheDir, BLUR_LEVELS };
+module.exports = { buildCache };

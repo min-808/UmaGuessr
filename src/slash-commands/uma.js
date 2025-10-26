@@ -1,11 +1,9 @@
 const { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, ComponentType, SlashCommandBuilder } = require('discord.js');
-const { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 const path = require("path")
 const fs = require('fs')
 
 const setup = require('../../firstinit');
-
-const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
 const { gameState, activeChannels } = require('../commands/uma.js');
 
@@ -51,7 +49,7 @@ module.exports = {
         try {
             await interaction.deferReply()
 
-            var client_db = new MongoClient(uri);
+            var client_db = new getMongoClient()
 
             const database = client_db.db("uma");
             const ids = database.collection("profiles");
@@ -445,7 +443,6 @@ module.exports = {
                         components: []
                     });
 
-                    await client_db.close();
                     return
                 }
 
@@ -621,8 +618,6 @@ module.exports = {
                         embeds: [revealedEmbed],
                         files: [file]
                     });
-
-                    await client_db.close();
                 }
             })
 
@@ -677,8 +672,6 @@ module.exports = {
                             streak: 0
                         }
                     });
-
-                    await client_db.close();
                 }
             })
 

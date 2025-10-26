@@ -1,16 +1,14 @@
 const { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, ComponentType } = require('discord.js');
-const { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 const path = require("path")
 const fs = require('fs')
 
 const setup = require('../../firstinit');
 
-const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
-
 const gameState = new Map()
 const activeChannels = new Set()
 
-const initialBlur = 50 + 1
+var initialBlur = 50 + 1
 
 module.exports = {
     name: 'uma',
@@ -29,7 +27,7 @@ module.exports = {
         var d = new Date();
 
         try {
-            var client_db = new MongoClient(uri);
+            var client_db = new getMongoClient();
 
             const database = client_db.db("uma");
             const ids = database.collection("profiles");
@@ -101,6 +99,16 @@ module.exports = {
 
                     initialPointsJP = 25 + 1
                     minusPointsJP = 5
+                } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "m")) || (args[0].toLowerCase().includes("multi")))) {
+                    list = require('../../src/assets/global-list.json')
+                    list2 = require('../../src/assets/jp-list.json')
+                    list = list.concat(list2)
+                    
+                    type = "Multi"
+
+                    initialPointsJP = 21 + 1
+                    minusPointsJP = 7
+                    initialBlur = 30 + 1
                 } else { // Just the normal !uma command, check their type
                     if (data["type"] === 'g') {
                         list = require('../../src/assets/global-list.json')
@@ -128,6 +136,15 @@ module.exports = {
 
                         initialPointsJP = 35 + 1
                         minusPointsJP = 7
+                    } else if (data["type"] === 'm') {
+                        list = require('../../src/assets/global-list.json')
+                        list2 = require('../../src/assets/jp-list.json')
+                        list = list.concat(list2)
+                        type = "Multi"
+
+                        initialPointsJP = 21 + 1
+                        minusPointsJP = 7
+                        initialBlur = 30 + 1
                     } else { // Defaults to global if no args + no type set
                         list = require('../../src/assets/global-list.json')
                         type = "Global"
@@ -143,13 +160,47 @@ module.exports = {
                 initialPointsJP = Math.floor(initialPointsJP * 1.5);
                 minusPointsJP = Math.floor(minusPointsJP * 1.5);
             }
-            
 
-            var chooseChar = Math.floor(Math.random() * list.length)
-            // chooseChar = 2
-            var chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)]
-            var umaName = list[chooseChar]['id']
-            var umaProper = list[chooseChar]['proper']
+            var chooseChar
+            var chooseImg
+            var umaName
+            var umaProper
+            var umaNameArr
+
+            var multiSet
+            var nickArr
+            var idArr
+            var properArr
+
+            if (type == "Multi") { // handle multi case
+                cacheDir = path.join(__dirname, "../assets/multi_cache")
+                originDir = path.join(__dirname, "../assets/multi")
+
+                const folderPath = path.join(__dirname, "../../src/assets/multi/"); // change this
+                let files = fs.readdirSync(folderPath)
+
+                chooseImg = files[Math.floor(Math.random() * files.length)] // picks a random filename
+
+                umaNameArr = chooseImg.split("_") // create arr splitting across the '_'
+                umaNameArr.pop() // get rid of number and final _
+                multiSet = new Set(umaNameArr) // make set with given umas
+
+                properArr = umaNameArr.map(name => list.find(uma => uma.id == name)['proper'])
+                nickArr = umaNameArr.map(name => list.find(uma => uma.id == name)['names'])
+                idArr = umaNameArr.map(name => list.find(uma => uma.id == name)['number'])
+
+                umaName = umaNameArr.join(', ')
+                umaProper = properArr.join(', ')
+
+                console.log(umaName)
+                console.log(umaProper)
+            } else {
+                chooseChar = Math.floor(Math.random() * list.length)
+                // chooseChar = 2
+                chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)] // a filename
+                umaName = list[chooseChar]['id']
+                umaProper = list[chooseChar]['proper']
+            }
 
             try {
                 if (logChannel) {
@@ -166,14 +217,25 @@ module.exports = {
 
             const countCollection = database.collection("count")
 
-            await countCollection.updateOne(
-                { name: umaName },
-                { 
-                    $inc: { count: 1, old_count: 1 },
-                    $set: { proper: umaProper }
-                },
-                { upsert: true }
-            )
+            if (type != "Multi") {
+                await countCollection.updateOne(
+                    { name: umaName },
+                    { 
+                        $inc: { count: 1, old_count: 1 },
+                        $set: { proper: umaProper }
+                    },
+                    { upsert: true }
+                )
+            } else {
+                const bulkOps = umaNameArr.map(u => ({
+                    updateOne: {
+                        filter: { name: u },
+                        update: { $inc: { count: 1, old_count: 1 } }
+                    }
+                }));
+
+                await countCollection.bulkWrite(bulkOps);
+            }
 
             // const top = await countCollection.find().sort({ count: -1 }).limit(5).toArray() <- logic for determining top # umas chosen
 
@@ -245,16 +307,34 @@ module.exports = {
                 time: 60_000
             });
             
-            gameState.set(sentMsg.id, { // the start of the gameState set w/ the first edit
-                blurLevel: initialBlur,
-                imageName: chooseImg,
-                values: list[chooseChar]["names"],
-                ids: list[chooseChar]["number"],
-                proper: list[chooseChar]["proper"],
-                points: initialPointsJP,
-                hintsUsed: 0,
-                startTime: Date.now(),
-            })
+            if (type != "Multi") {
+                gameState.set(sentMsg.id, { // the start of the gameState set w/ the first edit
+                    blurLevel: initialBlur,
+                    imageName: chooseImg,
+                    values: list[chooseChar]["names"],
+                    ids: list[chooseChar]["number"],
+                    proper: list[chooseChar]["proper"],
+                    points: initialPointsJP,
+                    hintsUsed: 0,
+                    startTime: Date.now(),
+                })
+            } else {
+                gameState.set(sentMsg.id, { // multi gameState
+                    blurLevel: initialBlur,
+                    imageName: chooseImg,
+                    values: nickArr,
+                    ids: idArr,
+                    proper: properArr,
+                    points: initialPointsJP,
+                    hintsUsed: 0,
+                    startTime: Date.now(),
+                    multiSet: multiSet,
+                    multiSetSize: multiSet.size, // bad naming, but the initial number of chars in the image
+                    users: new Map(), // this holds user ids -> usernames
+                    pointsGathered: new Map(), // this holds user ids -> points per use
+                    processing: false // lock to prevent race condition; players answering at the same time
+                }) 
+            }
 
             // No hint button interaction for horses or voice, so this will be skipped
 
@@ -299,7 +379,7 @@ module.exports = {
                             await interaction.update({
                                 files: [newFile], embeds: [updatedEmbed], components: [row]
                             });
-                        } else { // Use a hint, go down a blur level
+                        } else { // Do image operations for going down a hint level
                             try {
                                 var newPath = path.join(cacheDir, `${state.blurLevel}-${state.imageName}`);
                                 var newFile = new AttachmentBuilder(fs.readFileSync(newPath), { name: 'blurred.jpg' });
@@ -364,6 +444,8 @@ module.exports = {
               }
             })
 
+            // timer reminders
+
             setTimeout(() => {
                 if (gameState.has(sentMsg.id)) {
                     sentMsg.channel.send("30 seconds left");
@@ -384,7 +466,7 @@ module.exports = {
                 const userGuess = originGuess.trim().toLowerCase().replace(/\s+/g, '')
                 const strictGuess = originGuess.toLowerCase()
 
-                if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s') || (userGuess === 'skip')) && (msg.author.id === user.id)) { // Skipped. Note that to skip, you have to be the author of the message, so this should work ok
+                if (((userGuess === '!skip') || (userGuess === '!s') || (userGuess === '$skip') || (userGuess === '$s') || (userGuess === 'skip')) && (msg.author.id === user.id)) { // Skipped. Note that to skip, you have to be the author of the message
                     messageCollector.stop()
                     collector.stop()
 
@@ -424,11 +506,21 @@ module.exports = {
                         return;
                     }
 
-                    const skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                    let skippedEmbed
+
+                    if (type != "Multi") {
+                        skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://skipped.jpg')
                         .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
 
-                    await sentMsg.channel.send(`Skipped, the answer was **${state.proper}**`);
+                        await sentMsg.channel.send(`Skipped, the answer was **${state.proper}**`);
+                    } else {
+                        skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                        .setImage('attachment://skipped.jpg')
+                        .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
+
+                        await sentMsg.channel.send(`Skipped, the answer was **${umaProper}**`);
+                    }
 
                     if (type == "Voice") {
                         await sentMsg.edit({
@@ -444,198 +536,342 @@ module.exports = {
                         });
                     }
 
-                    await client_db.close();
                     return
                 }
 
-                // console.log(`ID: ${msg.author.id}\nstrict?: ${client.strictCache.get(BigInt(msg.author.id))}\nNormal guess: ${userGuess}\nStrict guess: ${strictGuess}\nstate.proper.toLowercase: ${state.proper.toLowerCase()}`)
+                if (type != "Multi") { // every other gamemode except Multi
                 
-                if ((((client.strictCache.get(BigInt(msg.author.id)) == false) || (client.strictCache.get(BigInt(msg.author.id)) == undefined)) &&
-                    (state.values.includes(userGuess))) || ((client.strictCache.get(BigInt(msg.author.id)) == true) && (state.proper.toLowerCase() == strictGuess))) {
-                    // Got it right
-                    messageCollector.stop()
-                    collector.stop()
+                    if ((((client.strictCache.get(BigInt(msg.author.id)) == false) || // checker for non-strict
+                        (client.strictCache.get(BigInt(msg.author.id)) == undefined)) &&
+                        (state.values.includes(userGuess))) ||
+                            ((client.strictCache.get(BigInt(msg.author.id)) == true) && // checker for strict
+                            (state.proper.toLowerCase() == strictGuess))) {
+                        // Got it right
+                        messageCollector.stop()
+                        collector.stop()
 
-                    let timeAnswered = Date.now() - state.startTime
+                        let timeAnswered = Date.now() - state.startTime
 
-                    const countCollection = database.collection("count")
+                        const countCollection = database.collection("count")
 
-                    await countCollection.updateOne(
-                        { name: umaName },
-                        { 
-                            $inc: { wins: 1 },
-                            $set: { proper: umaProper }
-                        },
-                        { upsert: true }
-                    )
+                        await countCollection.updateOne(
+                            { name: umaName },
+                            { 
+                                $inc: { wins: 1 },
+                                $set: { proper: umaProper }
+                            },
+                            { upsert: true }
+                        )
 
-                    var authorID = BigInt(msg.author.id); // ID of the person who got it right
+                        var authorID = BigInt(msg.author.id); // ID of the person who got it right
 
-                    if (client.restrictedUsers.get(BigInt(msg.author.id)) == true) { // set answerer's points to 1 if they're restricted
-                        state.points = 1
-                    }
-
-                    count = await ids.countDocuments({ discord_id: authorID });
-                    if (count < 1) await setup.init(authorID, "uma", "profiles", client); // Make document in case
-
-                    let addGuild = { // add their id to the guilds arr in case
-                        $addToSet: {
-                            guilds: BigInt(msg.guild.id)
+                        if (client.restrictedUsers.get(BigInt(msg.author.id)) == true) { // set answerer's points to 1 if they're restricted
+                            state.points = 0
                         }
-                    }
 
-                    await ids.updateOne({ discord_id: authorID }, addGuild )
+                        count = await ids.countDocuments({ discord_id: authorID });
+                        if (count < 1) await setup.init(authorID, "uma", "profiles", client); // Make document in case
 
-                    var broadSearch = await ids.findOne({ discord_id: authorID })
-
-                    try {
-                        if (logChannel) {
-                            await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
+                        let addGuild = { // add their id to the guilds arr in case
+                            $addToSet: {
+                                guilds: BigInt(msg.guild.id)
+                            }
                         }
-                    } catch (err) {
-                        console.error("Log channel fetch/send error:", err);
+
+                        await ids.updateOne({ discord_id: authorID }, addGuild )
+
+                        var broadSearch = await ids.findOne({ discord_id: authorID })
+
+                        try {
+                            if (logChannel) {
+                                await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
+                            }
+                        } catch (err) {
+                            console.error("Log channel fetch/send error:", err);
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
+
+                        console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
 
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
-                        return;
-                    }
 
-                    console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered by ${broadSearch["username"]} with with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${state.points}/${initialPointsJP} points`)
+                        let topStreak = broadSearch["top_streak"]
+                        let newStreak = broadSearch["streak"] + 1
+                        
+                        let topTime = broadSearch["quickest_answer"]
+                        let newQuickest;
 
-                    gameState.delete(sentMsg.id);
-                    activeChannels.delete(channelID);
+                        let addWins = 1
 
-                    let topStreak = broadSearch["top_streak"]
-                    let newStreak = broadSearch["streak"] + 1
-                    
-                    let topTime = broadSearch["quickest_answer"]
-                    let newQuickest;
-
-                    let addWins = 1
-
-                    if (topTime == 0) { // If someone has a quickest answer of 0s, which shouldn't be possible (aka new users)
-                        newQuickest = timeAnswered
-                    } else {
-                        newQuickest = Math.min(timeAnswered, topTime)
-                    }
-
-                    // Initial message sender is discordID
-                    // Answerer is authorID
-
-                    if (authorID == discordID) { // Increment streak of the answerer by one
-                        if (client.restrictedUsers.get(authorID) == true) {
-                            await ids.updateOne({ discord_id: discordID }, {
-                            $set: {
-                                top_streak: Math.max(newStreak, topStreak),
-                                quickest_answer: newQuickest
-                            }
-                            })
-
-                            addWins = 0
+                        if (topTime == 0) { // If someone has a quickest answer of 0s, which shouldn't be possible (aka new users)
+                            newQuickest = timeAnswered
                         } else {
-                            await ids.updateOne({ discord_id: discordID }, {
+                            newQuickest = Math.min(timeAnswered, topTime)
+                        }
+
+                        // Initial message sender is discordID
+                        // Answerer is authorID
+
+                        if (authorID == discordID) { // Increment streak of the answerer by one
+                            if (client.restrictedUsers.get(authorID) == true) {
+                                await ids.updateOne({ discord_id: discordID }, {
                                 $set: {
                                     top_streak: Math.max(newStreak, topStreak),
                                     quickest_answer: newQuickest
-                                },
-                                $inc: {
-                                    streak: 1,
+                                }
+                                })
+
+                                addWins = 0
+                            } else {
+                                await ids.updateOne({ discord_id: discordID }, {
+                                    $set: {
+                                        top_streak: Math.max(newStreak, topStreak),
+                                        quickest_answer: newQuickest
+                                    },
+                                    $inc: {
+                                        streak: 1,
+                                    }
+                                });
+                            }
+                        } else { // someone else answered that's not the initial message sender, goodbye streak
+                            await ids.updateOne({ discord_id: discordID }, {
+                                $set: {
+                                    streak: 0,
                                 }
                             });
-                        }
-                    } else { // someone else answered that's not the initial message sender, goodbye streak
-                        await ids.updateOne({ discord_id: discordID }, {
-                            $set: {
-                                streak: 0,
-                            }
-                        });
 
-                        if (client.restrictedUsers.get(authorID) == true) {
-                            await ids.updateOne({ discord_id: discordID }, {
-                            $set: {
-                                top_streak: Math.max(newStreak, topStreak),
-                                quickest_answer: newQuickest
-                            }
-                            })
-
-                            addWins = 0
-                        } else {
-
-                            await ids.updateOne({ discord_id: authorID }, {
+                            if (client.restrictedUsers.get(authorID) == true) {
+                                await ids.updateOne({ discord_id: discordID }, {
                                 $set: {
                                     top_streak: Math.max(newStreak, topStreak),
                                     quickest_answer: newQuickest
-                                },
-                                $inc: {
-                                    streak: 1,
                                 }
-                            });
+                                })
+
+                                addWins = 0
+                            } else {
+
+                                await ids.updateOne({ discord_id: authorID }, {
+                                    $set: {
+                                        top_streak: Math.max(newStreak, topStreak),
+                                        quickest_answer: newQuickest
+                                    },
+                                    $inc: {
+                                        streak: 1,
+                                    }
+                                });
+                            }
                         }
-                    }
 
-                    const addPoints = {
-                        $inc: {
-                            points: state.points,
-                            wins: addWins,
-                            points_today: state.points,
-                            wins_today: addWins,
+                        const addPoints = {
+                            $inc: {
+                                points: state.points,
+                                wins: addWins,
+                                points_today: state.points,
+                                wins_today: addWins,
 
-                        },
-                        $push: {
-                            times: timeAnswered,
+                            },
+                            $push: {
+                                times: timeAnswered,
+                            }
                         }
-                    }
 
-                    await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
+                        await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
 
-                    var pointCount = broadSearch["points"] + state.points
-                    var winCount = broadSearch["wins"] + 1
-                    var dailyPointCount = broadSearch["points_today"] + state.points
-                    var dailyWinCount = broadSearch["wins_today"] + 1
-                    var streakCount = broadSearch["streak"] + 1
+                        var pointCount = broadSearch["points"] + state.points
+                        var winCount = broadSearch["wins"] + 1
+                        var dailyPointCount = broadSearch["points_today"] + state.points
+                        var dailyWinCount = broadSearch["wins_today"] + 1
+                        var streakCount = broadSearch["streak"] + 1
 
-                    await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points} points)*\n\nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*\n\nCurrent Streak: **${streakCount}**`);
+                        await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points} points)*\n\nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*\n\nCurrent Streak: **${streakCount}**`);
 
-                    if ((newQuickest < topTime) || (topTime == 0)) { // send special message for new quickest time
-                        await msg.channel.send(`You have a new fastest answer time of **${(newQuickest / 1000).toFixed(2)}** sec!`);
-                    }
-                    
-                    try {
-                        var imagePath = path.join(originDir, `${chooseImg}`);
-                        var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
+                        if ((newQuickest < topTime) || (topTime == 0)) { // send special message for new quickest time
+                            await msg.channel.send(`You have a new fastest answer time of **${(newQuickest / 1000).toFixed(2)}** sec!`);
+                        }
+                        
+                        try {
+                            var imagePath = path.join(originDir, `${chooseImg}`);
+                            var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
+
+                            if (type == "Voice") {
+                                var imagePath = path.join(originDir, `${chooseImg}`);
+                                var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.mp3' })
+                            }
+                        } catch (err) {
+                            await message.channel.send('There was an error with the image. Skipped');
+                            console.error('Image file error:', err);
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
+
+                        const revealedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                            .setImage('attachment://revealed.jpg')
+                            .setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s | Used ${state.hintsUsed} hints` });
 
                         if (type == "Voice") {
-                            var imagePath = path.join(originDir, `${chooseImg}`);
-                            var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.mp3' })
+                            await sentMsg.edit({
+                                embeds: [revealedEmbed],
+                                files: [],
+                                components: []
+                            });
+                        } else {
+                            await sentMsg.edit({
+                                embeds: [revealedEmbed],
+                                files: [file],
+                                components: []
+                            });
                         }
-                    } catch (err) {
-                        await message.channel.send('There was an error with the image. Skipped');
-                        console.error('Image file error:', err);
-
-                        gameState.delete(sentMsg.id);
-                        activeChannels.delete(channelID);
-                        return;
                     }
+                } else { // Run this for multi games
+                    if ((((client.strictCache.get(BigInt(msg.author.id)) == false) || 
+                    (client.strictCache.get(BigInt(msg.author.id)) == undefined)) &&
+                    (state.values.some(nameArr => nameArr.includes(userGuess))) && (state.multiSet.has(list.find(items => items.names.includes(userGuess))['id']))) ||
+                    ((client.strictCache.get(BigInt(msg.author.id)) == true) &&
+                    (state.proper.some(proper => proper.toLowerCase() === strictGuess)) && (state.multiSet.has(list.find(items => items.proper.toLowerCase() == strictGuess)['id'])))) {
 
-                    const revealedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                        .setImage('attachment://revealed.jpg')
-                        .setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s | Used ${state.hintsUsed} hints` });
+                        // Got it right
+                        while (state.processing) { // continuously check if we're processing a previous correct guess
+                            await new Promise(resolve => setTimeout(resolve, 10))
+                        }
 
-                    if (type == "Voice") {
-                        await sentMsg.edit({
-                            embeds: [revealedEmbed],
-                            files: [],
-                            components: []
-                        });
-                    } else {
-                        await sentMsg.edit({
-                            embeds: [revealedEmbed],
-                            files: [file],
-                            components: []
-                        });
+                        state.processing = true // set true for processing current guess
+
+                        let umaName = list.find((items) => items.names.includes(userGuess))?.id
+                        let umaProper = list.find(items => items.id == umaName)['proper']
+
+                        state.multiSet.delete(umaName) // get rid of it from the set so it can't be guessed anymore
+
+                        if (state.multiSet.size == 0) { // if it was the last one, found em all, stop collectors and clean up channels
+                            messageCollector.stop()
+                            collector.stop()
+                            gameState.delete(sentMsg.id)
+                            activeChannels.delete(channelID)
+                        }
+
+                        let addWins = 1
+                        let addCorrectPoints = state.points
+
+                        state.users.set(msg.author.id, msg.author.username)
+                        state.pointsGathered.set(msg.author.id, (state.pointsGathered.get(msg.author.id) ?? 0) + state.points)
+
+                        if (client.restrictedUsers.get(BigInt(msg.author.id)) == true) { // set answerer's points to 0 if they're restricted
+                            state.pointsGathered.set(msg.author.id, 0) // set back to 0 for restricted folk
+                            addWins = 0
+                            addCorrectPoints = 0
+                        }
+
+                        let timeAnswered = Date.now() - state.startTime
+                        
+                        const countCollection = database.collection("count")
+
+                        const bulkOps = umaNameArr.map(u => ({
+                            updateOne: {
+                                filter: { name: u },
+                                update: { $inc: { wins: 1 } }
+                            }
+                        }))
+
+                        await countCollection.bulkWrite(bulkOps)
+
+                        var authorID = BigInt(msg.author.id); // ID of the person who got it right
+
+                        count = await ids.countDocuments({ discord_id: authorID });
+                        if (count < 1) await setup.init(authorID, "uma", "profiles", client); // Make document in case
+
+                        let addGuild = { // add their id to the guilds arr in case
+                            $addToSet: {
+                                guilds: BigInt(msg.guild.id)
+                            }
+                        }
+
+                        await ids.updateOne({ discord_id: authorID }, addGuild )
+
+                        var broadSearch = await ids.findOne({ discord_id: authorID }) // find their profile to begin updates
+
+                        try {
+                            if (logChannel) {
+                                await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered a multi uma by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${addCorrectPoints}/${initialPointsJP} points`)
+                            }
+                        } catch (err) {
+                            console.error("Log channel fetch/send error:", err);
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
+
+                        console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered a multi uma by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${addCorrectPoints}/${initialPointsJP} points`)
+
+                        // Initial message sender is discordID
+                        // Answerer is authorID
+
+                        const addPoints = {
+                            $inc: {
+                                points: addCorrectPoints,
+                                wins: addWins,
+                                points_today: addCorrectPoints,
+                                wins_today: addWins,
+                            } /*, temporarily pause
+                            $push: {
+                                times: timeAnswered,
+                            }*/
+                        }
+
+                        await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
+
+                        var pointCount = broadSearch["points"] + addCorrectPoints
+                        var winCount = broadSearch["wins"] + 1
+                        var dailyPointCount = broadSearch["points_today"] + addCorrectPoints
+                        var dailyWinCount = broadSearch["wins_today"] + 1
+                        // temporarily paused: var streakCount = broadSearch["streak"] + 1
+                        
+                        try {
+                            var imagePath = path.join(originDir, `${chooseImg}`);
+                            var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
+                        } catch (err) {
+                            await message.channel.send('There was an error with the image. Skipped');
+                            console.error('Image file error:', err);
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            state.processing = false
+                            return;
+                        }
+                        
+                        await msg.channel.send(`Correct <@${authorID}>! (${state.multiSetSize - state.multiSet.size}/${state.multiSetSize}) ${"✅ ".repeat(state.multiSetSize - state.multiSet.size)}${"<:white_large_square_X:1431962468498018305> ".repeat(state.multiSet.size)}`)
+
+                        if (state.multiSet.size == 0) { // create summary message at the end
+                            let buildMessage = ""
+
+                            for (const [userId, points] of state.pointsGathered.entries()) {
+                                buildMessage += `<@${userId}> +${points} points\n`
+                            }
+                            await msg.channel.send(
+                                `Congratulations, you guessed all the umas in the picture!\n\n**Summary of points earned:**\n${buildMessage}`
+                            )
+                            
+                            var revealedEmbed = EmbedBuilder.from(sentMsg.embeds)
+                                .setImage("attachment://revealed.jpg")
+                                .setFooter({
+                                text: `Guessed by ${Array.from(state.users.values()).join(", ")} in ${(timeAnswered / 1000).toFixed(2)}s | Used ${state.hintsUsed} hints`,
+                                })
+                            
+                            await sentMsg.edit({
+                                embeds: [revealedEmbed],
+                                files: [file],
+                                components: [],
+                            })
+                        }
+                            
+                        state.processing = false // release at the end
                     }
-
-                    await client_db.close();
                 }
             })
 
@@ -703,8 +939,6 @@ module.exports = {
                             streak: 0
                         }
                     });
-
-                    await client_db.close();
                 }
             })
 

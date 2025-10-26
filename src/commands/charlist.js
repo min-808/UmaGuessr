@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const { MongoClient } = require('mongodb')
+const { getMongoClient } = require('../connect-db.js');
 const buttonPagination = require('../../button-pagination');
 
 module.exports = {
@@ -11,7 +11,7 @@ module.exports = {
 
         try {
 
-            var client_db = new MongoClient(process.env.MONGODB_URI)
+            var client_db = new getMongoClient();
             var database = client_db.db("uma");
             var ids = database.collection("count")
 

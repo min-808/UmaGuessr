@@ -1,4 +1,4 @@
-var { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 const { EmbedBuilder, AttachmentBuilder } = require('discord.js')
 const path = require('path');
 
@@ -12,7 +12,7 @@ module.exports = {
           let embed;
 
       if (message.author.id == "236186510326628353") {
-        var client_db = new MongoClient(process.env.MONGODB_URI)
+        var client_db = new getMongoClient()
         var database = client_db.db("uma");
         var ids = database.collection("profiles")
 

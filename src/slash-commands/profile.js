@@ -1,9 +1,7 @@
 const { EmbedBuilder, AttachmentBuilder, SlashCommandBuilder } = require('discord.js');
-const { MongoClient } = require("mongodb");
+const { getMongoClient } = require('../connect-db.js');
 
 const setup = require('../../firstinit');
-
-const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
 
 module.exports = {
     name: 'profile',
@@ -29,7 +27,7 @@ module.exports = {
         try {
             await interaction.deferReply()
 
-            var client_db = new MongoClient(uri);
+            var client_db = new getMongoClient()
             const database = client_db.db("uma");
             const ids = database.collection("profiles");
             var discordID = BigInt(user.id);
@@ -185,8 +183,6 @@ module.exports = {
             embed.setFooter({ text: `Joined on ${utcDate} at ${utcTime} UTC` })
 
             await interaction.editReply({ embeds: [embed] })
-
-            await client_db.close();
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
             console.error("Main uma error:", msg);

@@ -1,7 +1,5 @@
 const { EmbedBuilder, AttachmentBuilder, SlashCommandBuilder, REST, Routes } = require('discord.js');
-const { MongoClient } = require("mongodb");
-
-const uri = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/";
+const { getMongoClient } = require('../connect-db.js');
 
 const img = "stats"
 
@@ -29,7 +27,7 @@ module.exports = {
         try {
             await interaction.deferReply()
             
-            const client_db = new MongoClient(uri);
+            const client_db = new getMongoClient()
             const database = client_db.db("uma");
             const otherDatabase = client_db.db("uma");
 
@@ -187,8 +185,6 @@ module.exports = {
             );
 
             await interaction.editReply({ embeds: [embed], files: [file] });
-
-            await client_db.close();
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
             console.error("Main uma error:", msg);

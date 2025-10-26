@@ -6,11 +6,10 @@ const fs = require('fs');
 const util = require('util')
 const path = require('path');
 const cron = require('node-cron');
-const { MongoClient } = require('mongodb');
+const { getMongoClient } = require('./connect-db.js');
 const { buildCache } = require("./cache-images.js");
 const { CommandHandler } = require('djs-commander');
-
-// var process.env.MONGODB_URI = "mongodb+srv://min:" + process.env.MONGODB_PASS + "@discord-seele.u4g75ks.mongodb.net/"
+const { connectMongo } = require('./connect-db.js');
 
 const prefixCache = new Map()
 const strictCache = new Map()
@@ -102,7 +101,7 @@ for (const file of slashCommandFiles) {
 // console.log(JSON.stringify(commandsArray, null, 2));
 
 async function resetDaily() {
-    var client_db = new MongoClient(process.env.MONGODB_URI)
+    var client_db = new getMongoClient()
 
     var database = client_db.db("uma");
     var ids = database.collection("profiles")
@@ -134,13 +133,10 @@ async function resetDaily() {
 
     await ids.updateMany({}, update)
     await registerStats.updateOne({}, registerUpdate)
-
-    await client_db.close()
 }
 
 async function pushServerCount() {
     try {
-
         const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
         const routesResult = await rest.get(Routes.oauth2CurrentApplication());
 
@@ -170,7 +166,7 @@ async function pushServerCount() {
 
 async function refreshUsernames() {
     try {
-        const client = new MongoClient(process.env.MONGODB_URI);
+        const client = new getMongoClient()
         const database = client.db("uma");
         const ids = database.collection("profiles");
 
@@ -229,7 +225,7 @@ async function refreshUsernames() {
 }
 
 async function loadPrefixes() {
-    const client = new MongoClient(process.env.MONGODB_URI);
+    const client = new getMongoClient()
     const database = client.db("uma");
     const prefixes = database.collection("prefixes");
 
@@ -238,12 +234,11 @@ async function loadPrefixes() {
         prefixCache.set(entry.server_id, entry.prefix);
     }
 
-    await client.close();
     console.log("Prefixes cached:", prefixCache.size);
 }
 
 async function cacheStrict() {
-    const client = new MongoClient(process.env.MONGODB_URI);
+    const client = new getMongoClient()
     const database = client.db("uma");
     const stats = database.collection("profiles");
 
@@ -253,7 +248,6 @@ async function cacheStrict() {
         restrictedUsers.set(BigInt(entry.discord_id), entry.restrict)
     }
 
-    await client.close();
     console.log(`Strict settings (total: ${strictCache.size}) and Restricted users (total: ${restrictedUsers.size}) cached`);
 }
 
@@ -263,12 +257,11 @@ async function getPrefix(guildId) { // This will be called everytime a potential
     }
 
     // If not, find the prefix
-    const client = new MongoClient(process.env.MONGODB_URI)
+    const client = new getMongoClient()
     const database = client.db("uma")
     const prefixes = database.collection("prefixes")
 
     const result = await prefixes.findOne({ server_id: guildId })
-    await client.close()
 
     const prefix = result?.prefix || "!" // Default to '!'
     prefixCache.set(guildId, prefix) // Put it in the cache for fast access next time
@@ -334,7 +327,7 @@ client.on('messageCreate', async message => {
     try {
         await command.run({ message, args, client });
 
-        let client_db = new MongoClient(process.env.MONGODB_URI)
+        let client_db = new getMongoClient()
         let database = client_db.db("uma");
         let ids = database.collection("profiles")
         let discordID = BigInt(message.author.id)
@@ -350,8 +343,6 @@ client.on('messageCreate', async message => {
         if (logChannel) {
             await logChannel.send(`\`${message.author.username}\`: !${cmdName + " " + args}`)
         }
-
-        await client_db.close()
     } catch (err) {
         console.error(err);
     }
@@ -363,7 +354,7 @@ client.on('interactionCreate', async (interaction) => {
 
         if (interaction.guild) {
             try {
-                let client_db = new MongoClient(process.env.MONGODB_URI)
+                let client_db = new getMongoClient()
                 let database = client_db.db("uma");
                 let ids = database.collection("profiles")
                 let discordID = BigInt(interaction.user.id)
@@ -377,8 +368,6 @@ client.on('interactionCreate', async (interaction) => {
                 await ids.updateOne({ discord_id: discordID }, addGuild )
 
                 await logChannel.send(`\`${interaction.user.username}\`: /${interaction.commandName + " " + options.map(opt => `${opt.value}`).join(' ')}`)
-
-                await client_db.close()
             } catch (err) {
                 console.error(err);
             }
@@ -422,22 +411,23 @@ client.on('ready', async () => {
 });
 
 async function setUptime() {
-    const client = new MongoClient(process.env.MONGODB_URI);
+    const client = new getMongoClient()
     const database = client.db("uma");
     const ids = database.collection("stats");
     await ids.updateOne({}, { $set: { time: Date.now() } });
-    await client.close();
 }
 
 (async () => {
     try {
         mongoose.set('strictQuery', false);
         await mongoose.connect(process.env.MONGODB_URI);
-        console.log("Connected to Database.");
+        await connectMongo()
+        console.log("Connected to Database.")
 
-        await buildCache();
-        await loadPrefixes();
-        await cacheStrict();
+        await connectMongo()
+        await buildCache()
+        await loadPrefixes()
+        await cacheStrict()
 
         checkImages(combinedList, path.join(__dirname, "./assets/guessing"))
 
