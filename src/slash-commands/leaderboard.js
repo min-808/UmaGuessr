@@ -38,7 +38,14 @@ module.exports = {
         let proper;
         let countType;
 
-        let serverId = BigInt(interaction.guild.id)
+        let serverId
+
+        if (interaction.guild) {
+            serverId = BigInt(interaction.guild.id)
+        } else {
+            serverId = null
+        }
+
         let title;
 
         if (interaction.options.getString('sort') == "wins") {
@@ -103,7 +110,7 @@ module.exports = {
         var userRank
         let listOfDocuments
 
-        if (range == "global") {
+        if ((range == "global") || ((range == "server") && serverId == null)) {
             listOfDocuments = await ids.find({}, options).toArray()
             listOfDocuments = listOfDocuments.filter(item => item.restrict != true)
         } else {

@@ -108,7 +108,7 @@ module.exports = {
 
                     initialPointsJP = 21 + 1
                     minusPointsJP = 7
-                    initialBlur = 30 + 1
+                    initialBlur = 18 + 1
                 } else { // Just the normal !uma command, check their type
                     if (data["type"] === 'g') {
                         list = require('../../src/assets/global-list.json')
@@ -142,9 +142,9 @@ module.exports = {
                         list = list.concat(list2)
                         type = "Multi"
 
-                        initialPointsJP = 21 + 1
-                        minusPointsJP = 7
-                        initialBlur = 30 + 1
+                        initialPointsJP = 24 + 1
+                        minusPointsJP = 4
+                        initialBlur = 22 + 1
                     } else { // Defaults to global if no args + no type set
                         list = require('../../src/assets/global-list.json')
                         type = "Global"
@@ -345,7 +345,14 @@ module.exports = {
                         if (!state) return;
 
                         if (state.blurLevel >= 11) { // decrease hint level and blur level upon hint press, and only if the blur level is >= 11
-                            let newBlurLevel = state.blurLevel - 10
+                            let newBlurLevel
+
+                            if (type == "Multi") {
+                                newBlurLevel = state.blurLevel - 4
+                            } else {
+                                newBlurLevel = state.blurLevel - 10
+                            }
+
                             let newHintsUsed = state.hintsUsed + 1
                             let newPoints = Math.max(1, state.points - minusPointsJP)
 
@@ -845,7 +852,7 @@ module.exports = {
                             return;
                         }
                         
-                        await msg.channel.send(`Correct <@${authorID}>! (${state.multiSetSize - state.multiSet.size}/${state.multiSetSize}) ${"✅ ".repeat(state.multiSetSize - state.multiSet.size)}${"<:white_large_square_X:1431962468498018305> ".repeat(state.multiSet.size)}`)
+                        await msg.channel.send(`Correct <@${authorID}>! (${state.multiSetSize - state.multiSet.size}/${state.multiSetSize}) ${"✅ ".repeat(state.multiSetSize - state.multiSet.size)}${"<:white_large_square_X:1432246056187334746> ".repeat(state.multiSet.size)}`)
 
                         if (state.multiSet.size == 0) { // create summary message at the end
                             let buildMessage = ""
