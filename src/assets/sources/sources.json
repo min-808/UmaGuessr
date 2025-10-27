@@ -6699,6 +6699,32 @@
         "service": "danbooru",
         "illustration_id": "10062903",
         "artist": "l kirschblute"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/7752378"
+        ],
+        "service": "danbooru",
+        "illustration_id": "7752378",
+        "artist": "sakanaokashi"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=103464437"
+        ],
+        "service": "pixiv",
+        "member_id": "25346406",
+        "illustration_id": "103464437",
+        "artist": "ノダチ"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       }
     ]
   },
