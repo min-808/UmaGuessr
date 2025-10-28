@@ -623,7 +623,7 @@ module.exports = {
                     } else {
                         skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://skipped.jpg')
-                        .setFooter({ text: `Skipped! The correct answer was ${state.umaProper}` });
+                        .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
 
                         await sentMsg.channel.send(`Skipped, the answer was **${umaProper}**`);
                     }
@@ -1003,11 +1003,21 @@ module.exports = {
                         return;
                     }
 
-                    const timeoutEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                    let timeoutEmbed
+
+                    if (type != "Multi") {
+                        timeoutEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://timeout.jpg')
                         .setFooter({ text: `Time's up! The correct answer was ${state.proper}` });
 
-                    await sentMsg.channel.send(`Nobody got it right. The answer was **${state.proper}**`);
+                        await sentMsg.channel.send(`Nobody got it right. The answer was **${state.proper}**`);
+                    } else {
+                        timeoutEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                        .setImage('attachment://timeout.jpg')
+                        .setFooter({ text: `Time's up! The correct answer was ${umaProper}` });
+
+                        await sentMsg.channel.send(`Nobody got it right. The answer was **${umaProper}**`);
+                    }
 
                     await sentMsg.edit({
                         embeds: [timeoutEmbed],
