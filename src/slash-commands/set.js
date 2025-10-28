@@ -113,7 +113,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: "Use this command to set the region the `/uma` command will default to when you begin a game\n\n`/set All` for umas from both JP and Global\n`/set Japan` for umas from only the JP server\n`/set Global` for umas from only the Global server\n`!set m` for guessing Multiple umas\n`/set IRL` for the uma's IRL counterpart",
+                    value: "Use this command to set the region the `/uma` command will default to when you begin a game\n\n`/set Global` for umas from only the Global server\n`/set Japan` for umas from only the JP server\n`/set All` for umas from both JP and Global\n`/set IRL` for the uma's IRL (horse) counterpart\n`/set Multi` for guessing Multiple umas",
                     inline: true
                 })
             } else { // Invalid region
@@ -122,7 +122,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: `Invalid region. Please choose ` + "`a`, `jp`, `g`, 'm', or `h`",
+                    value: `Invalid region. Please choose ` + "`Global`, `Japan`, `All`, `IRL`, or `Multi`\n\nUse `/set Help` for more information",
                     inline: true
                 })
             }

@@ -27,15 +27,16 @@ module.exports = {
                             "**__How to Play__**" + "\n" +
                             "- Start the game with the command `!uma` or `!u`, and guess the uma by sending their name in the chat" + "\n" +
                             "- There are some extra parameters to specify which region you'd like to play on (no parameters will default to Global):" + "\n" +
-                            "**-** `!uma a` for guessing characters from both JP and Global servers" + "\n" +
-                            "**-** `!uma j` for characters only from the JP server" + "\n" +
                             "**-** `!uma g` for characters only from the Global server" + "\n" +
-                            "**-** `!uma h` for the IRL horse counterpart" + "\n\n\n"
+                            "**-** `!uma j` for characters only from the JP server" + "\n" +
+                            "**-** `!uma a` for guessing characters from both JP and Global servers" + "\n" +
+                            "**-** `!uma h` for guessing the uma's IRL horse counterpart" + "\n" +
+                            "**-** `!uma m` for the multi-uma guessing" + "\n\n\n"
                         },
                         {
                             name: "\n",
                             value:
-                            "\n- Use `!set (a/j/g/h)` to set the region you want the `!uma` command to default to" + "\n" +
+                            "\n- Use `!set (g/j/a/h/m)` to set the region you want the `!uma` command to default to" + "\n" +
                             "- You will have **60** seconds to guess the character, and pressing the `Hint` button will slightly unblur the image" + "\n" +
                             "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (**36** points for All, **26** points for JP, **16** for Global)" + "\n" +
                             "- However, every time the unblur button is pressed, you lose points. If all the unblur hints are used, you'll only gain 1 point for guessing the uma correctly" + "\n" +
@@ -77,8 +78,9 @@ module.exports = {
                             name: "\n",
                             value: 
                             "**__Game__**" + "\n" +
-                            "`!uma (a/j/g/h)`" + " - " + "Play the game (default region is global)" + "\n" +
-                            "`!set (a/j/g/h)`" + " - " + "Set your default region (**a**ll, **j**p, **g**lobal)" + "\n" +
+                            "`!uma`" + " - " + "Play the game (default region is global)" + "\n" +
+                            "You can also choose the game type you want to play by doing !uma and adding one of the following: **g**lobal, **j**p, **a**ll, **h**orse, **m**ulti" + "\n" +
+                            "`!set`" + " - " + "Set your default region" + "\n" +
                             "`!skip`" + " - " + "Skip the current character" + "\n" +
                             "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
                             "`!vote`" + " - " + "Pull up the bot's vote link" + "\n" +

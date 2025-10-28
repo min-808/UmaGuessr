@@ -39,15 +39,16 @@ module.exports = {
                             "**__How to Play__**" + "\n" +
                             "- Start the game with the command `/uma` or `/u`, and guess the uma by sending their name in the chat" + "\n" +
                             "- There are some extra parameters to specify which region you'd like to play on (no parameters will default to Global):" + "\n" +
-                            "**-** `/uma a` for guessing characters from both JP and Global servers" + "\n" +
-                            "**-** `/uma j` for characters only from the JP server" + "\n" +
-                            "**-** `!uma g` for characters only from the Global server" + "\n" +
-                            "**-** `!uma h` for the IRL horse counterpart" + "\n\n\n"
+                            "**-** `/uma Global` for characters only from the Global server" + "\n" +
+                            "**-** `/uma Japan` for characters only from the JP server" + "\n" +
+                            "**-** `/uma All` for guessing characters from both JP and Global servers" + "\n" +
+                            "**-** `/uma Horse` for guessing the uma's IRL horse counterpart" + "\n" +
+                            "**-** `/uma Multi` for the multi-uma guessing" + "\n\n\n"
                         },
                         {
                             name: "\n",
                             value:
-                            "\n- Use `/set (a/j/g/h)` to set the region you want the `/uma` command to default to" + "\n" +
+                            "\n- Use `/set (a/j/g/h/m)` to set the region you want the `/uma` command to default to" + "\n" +
                             "- You will have **60** seconds to guess the character, and pressing the `Hint` button will slightly unblur the image" + "\n" +
                             "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (**36** points for All, **26** points for JP, **16** for Global)" + "\n" +
                             "- However, every time the unblur button is pressed, you lose points. If all the unblur hints are used, you'll only gain 1 point for guessing the uma correctly" + "\n" +
