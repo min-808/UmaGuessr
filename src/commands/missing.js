@@ -17,8 +17,7 @@ module.exports = {
                     {
                         name: "\n",
                         value: 
-                        "Buena Vista\n" + 
-                        "Seeking the Pearl\n"
+                       "No missing characters"
                     }
                 )
 
