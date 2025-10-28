@@ -1,4 +1,6 @@
 const { EmbedBuilder, AttachmentBuilder, SlashCommandBuilder, REST, Routes } = require('discord.js');
+const path = require("path");
+const fs = require("fs");
 const { getMongoClient } = require('../connect-db.js');
 
 const img = "stats"
@@ -17,8 +19,14 @@ module.exports = {
         var globalList = require('../../src/assets/global-list.json')
         var JPList = require('../../src/assets/jp-list.json')
         var irlList = require('../../src/assets/horse-list.json')
+        var multiList = path.join(__dirname, '../../src/assets/multi/')
+
         var umasList = globalList.concat(JPList)
         var allList = umasList.concat(irlList)
+
+        const guessFiles = fs.readdirSync(multiList).filter(f =>
+            /\.(jpe?g|png|bmp|webp|gif)$/i.test(f)
+        )
 
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
@@ -73,8 +81,9 @@ module.exports = {
             const globalPicsCount = globalList.reduce((sum, item) => sum + item.images.length, 0)
             const JPPicsCount = JPList.reduce((sum, item) => sum + item.images.length, 0)
             const irlPicsCount = irlList.reduce((sum, item) => sum + item.images.length, 0)
+            const multiPicsCount = guessFiles.length
 
-            const allPicsCount = allList.reduce((sum, item) => sum + item.images.length, 0)
+            const allPicsCount = allList.reduce((sum, item) => sum + item.images.length, 0) + multiPicsCount
 
             const totalPoints = data.reduce((sum, item) => sum + item.points, 0)
             const totalWins = data.reduce((sum, item) => sum + item.wins, 0)
@@ -135,7 +144,7 @@ module.exports = {
                 },
                 {
                     name: `__Uma Pictures Count__`,
-                    value: `**${allPicsCount}** (All)\n**${JPPicsCount}** (Japan)\n**${globalPicsCount}** (Global)\n**${irlPicsCount}** (IRL)`,
+                    value: `**${allPicsCount}** (All)\n**${JPPicsCount}** (Japan)\n**${globalPicsCount}** (Global)\n**${multiPicsCount}** (Multi)\n**${irlPicsCount}** (IRL)`,
                     inline: true
                 },
                 {
