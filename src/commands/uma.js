@@ -199,9 +199,6 @@ module.exports = {
 
                     umaName = umaNameArr.join(', ')
                     umaProper = properArr.join(', ')
-
-                    console.log(umaName)
-                    console.log(umaProper)
                 } else {
                     chooseChar = Math.floor(Math.random() * list.length)
                     // chooseChar = 2
