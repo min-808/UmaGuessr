@@ -18,6 +18,7 @@ module.exports = {
                     { name: 'Global', value: 'g' },
                     { name: 'Japan', value: 'j' },
                     { name: 'All', value: 'a' },
+                    { name: 'Multi', value: 'm' },
                     { name: 'IRL', value: 'h' },
                     { name: 'Help', value: 'help' },
                 )),
@@ -96,13 +97,23 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `/uma`, it will now automatically default to this region",
                     inline: true
                 })
+            } else if (interaction.options.getString('region') == "m") {
+                newType = 'm'
+                proper = "Multi"
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `/uma`, it will now automatically default to this region",
+                    inline: true
+                })
             } else if (interaction.options.getString('region') == "help") { // No args
                 newType = oldType
 
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: "Use this command to set the region the `/uma` command will default to when you begin a game\n\n`/set All` for umas from both JP and Global\n`/set Japan` for umas from only the JP server\n`/set Global` for umas from only the Global server\n`/set IRL` for the uma's IRL counterpart",
+                    value: "Use this command to set the region the `/uma` command will default to when you begin a game\n\n`/set All` for umas from both JP and Global\n`/set Japan` for umas from only the JP server\n`/set Global` for umas from only the Global server\n`!set m` for guessing Multiple umas\n`/set IRL` for the uma's IRL counterpart",
                     inline: true
                 })
             } else { // Invalid region
@@ -111,7 +122,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: `Invalid region. Please choose ` + "`a`, `jp`, `g`, or `h`",
+                    value: `Invalid region. Please choose ` + "`a`, `jp`, `g`, 'm', or `h`",
                     inline: true
                 })
             }
