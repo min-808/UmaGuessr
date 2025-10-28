@@ -122,8 +122,8 @@ module.exports = {
 
                     type = "Multi"
 
-                    initialPointsJP = 21 + 1
-                    minusPointsJP = 7
+                    initialPointsJP = 18 + 1
+                    minusPointsJP = 6
                     initialBlur = 18 + 1
                 }
             } else { // Just the normal /uma command, check their type
@@ -159,8 +159,8 @@ module.exports = {
                     list = list.concat(list2)
                     type = "Multi"
 
-                    initialPointsJP = 21 + 1
-                    minusPointsJP = 7
+                    initialPointsJP = 18 + 1
+                    minusPointsJP = 6
                     initialBlur = 18 + 1
                 } else { // Defaults to global if no args + no type set
                     list = require('../../src/assets/global-list.json')
