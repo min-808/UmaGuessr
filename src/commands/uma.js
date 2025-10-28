@@ -105,7 +105,7 @@ module.exports = {
                     list2 = require('../../src/assets/jp-list.json')
                     list = list.concat(list2)
 
-                    umaMap = new Map(list.map(uma => [uma.id, uma.proper]));
+                    umaMap = new Map(list.map(uma => [uma.id, uma]));
                     
                     type = "Multi"
 
@@ -145,7 +145,7 @@ module.exports = {
                         list = list.concat(list2)
                         type = "Multi"
 
-                        umaMap = new Map(list.map(uma => [uma.id, uma.proper]));
+                        umaMap = new Map(list.map(uma => [uma.id, uma]));
 
                         initialPointsJP = 24 + 1
                         minusPointsJP = 4
@@ -179,16 +179,14 @@ module.exports = {
 
             try {
                 if (type == "Multi") { // handle multi case
-                    cacheDir = path.join(__dirname, "../assets/multi_cache")
-                    originDir = path.join(__dirname, "../assets/multi")
+                    cacheDir = path.join(__dirname, "../assets/multi_cache/")
+                    originDir = path.join(__dirname, "../assets/multi/")
 
-                    const folderPath = path.join(__dirname, "../../src/assets/multi/"); // change this
+                    const folderPath = path.join(__dirname, "../assets/multi/"); // change this
                     let files = fs.readdirSync(folderPath)
 
                     chooseChar = Math.floor(Math.random() * files.length)
                     chooseImg = files[chooseChar] // picks a random filename
-
-                    chooseImg = files[108]
 
                     umaNameArr = chooseImg.split("_") // create arr splitting across the '_'
                     umaNameArr.pop() // get rid of number and final _
@@ -197,6 +195,7 @@ module.exports = {
                     properArr = umaNameArr.map(name => umaMap.get(name).proper)
                     nickArr = umaNameArr.map(name => umaMap.get(name).names)
                     idArr = umaNameArr.map(name => umaMap.get(name).number)
+                    
 
                     umaName = umaNameArr.join(', ')
                     umaProper = properArr.join(', ')

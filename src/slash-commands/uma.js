@@ -7,6 +7,8 @@ const setup = require('../../firstinit');
 
 const { gameState, activeChannels } = require('../commands/uma.js');
 
+var initialBlur = 50 + 1
+
 module.exports = {
     name: 'uma',
     description: 'Start an uma guessing game',
@@ -34,7 +36,6 @@ module.exports = {
             });
         }
 
-        let initialBlur = 50 + 1
         let initialPointsJP;
         let minusPointsJP;
 
@@ -124,7 +125,7 @@ module.exports = {
 
                     initialPointsJP = 21 + 1
                     minusPointsJP = 7
-                    initialBlur = 30 + 1
+                    initialBlur = 18 + 1
                 }
             } else { // Just the normal /uma command, check their type
                 if (data["type"] === 'g') {
@@ -161,7 +162,7 @@ module.exports = {
 
                     initialPointsJP = 21 + 1
                     minusPointsJP = 7
-                    initialBlur = 30 + 1
+                    initialBlur = 18 + 1
                 } else { // Defaults to global if no args + no type set
                     list = require('../../src/assets/global-list.json')
                     type = "Global"
@@ -208,9 +209,6 @@ module.exports = {
 
                 umaName = umaNameArr.join(', ')
                 umaProper = properArr.join(', ')
-
-                console.log(umaName)
-                console.log(umaProper)
             } else {
                 chooseChar = Math.floor(Math.random() * list.length)
                 // chooseChar = 19
@@ -254,17 +252,13 @@ module.exports = {
                 await countCollection.bulkWrite(bulkOps)
             }
 
-            // const top = await countCollection.find().sort({ count: -1 }).limit(5).toArray() <- logic for determining top # umas chosen
-
-            // so like, 51-image_name(num).jpg
-
             try {
                 if (type != "IRL") {
                     var imagePath = path.join(cacheDir, `${initialBlur}-${chooseImg}`); // check for existence
                     var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
                 } else {
                     originDir = path.join(__dirname, "../assets/horses")
-
+                    
                     var imagePath = path.join(originDir, `${chooseImg}`); // check for existence
                     var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
                 }
@@ -803,7 +797,7 @@ module.exports = {
 
                         try {
                             if (logChannel) {
-                                await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered a multi uma by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${addCorrectPoints}/${initialPointsJP} points`)
+                                await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${interaction.options.getString('region')  ?? 'no args'}) - Answered a multi uma by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${addCorrectPoints}/${initialPointsJP} points`)
                             }
                         } catch (err) {
                             console.error("Log channel fetch/send error:", err);
@@ -813,7 +807,7 @@ module.exports = {
                             return;
                         }
 
-                        console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered a multi uma by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${addCorrectPoints}/${initialPointsJP} points`)
+                        console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${interaction.options.getString('region')  ?? 'no args'}) - Answered a multi uma by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${addCorrectPoints}/${initialPointsJP} points`)
 
                         // Initial message sender is discordID
                         // Answerer is authorID
