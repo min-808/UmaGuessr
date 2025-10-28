@@ -16,7 +16,7 @@ module.exports = {
 
         let initialPointsJP;
         let minusPointsJP;
-        let initialBlur = 50 + 1
+        var initialBlur = 50 + 1
 
         let umaMap
 
@@ -399,7 +399,7 @@ module.exports = {
 
                         state = gameState.get(sentMsg.id);
 
-                        if (state.blurLevel == 1) { // if all hints have been used, immediately goes here if revealed
+                        if ((state.blurLevel == 1) || (state.blurLevel == 7)) { // if all hints have been used, immediately goes here if revealed
 
                             try {
                                 var imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
@@ -444,8 +444,14 @@ module.exports = {
                         if (!state) return;
 
                         let newBlurLevel = 1
-                        let newHintsUsed = 5
+                        let newHintsUsed
                         let newPoints = 1
+
+                        if (type == "Multi") {
+                            newHintsUsed = 3
+                        } else {
+                            newHintsUsed = 5
+                        }
 
                         gameState.set(sentMsg.id, {
                             ...state,

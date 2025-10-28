@@ -7,8 +7,6 @@ const setup = require('../../firstinit');
 
 const { gameState, activeChannels } = require('../commands/uma.js');
 
-var initialBlur = 50 + 1
-
 module.exports = {
     name: 'uma',
     description: 'Start an uma guessing game',
@@ -38,6 +36,7 @@ module.exports = {
 
         let initialPointsJP;
         let minusPointsJP;
+        var initialBlur = 50 + 1
 
         const channelID = interaction.channel.id;
         const user = interaction.user;
@@ -347,16 +346,23 @@ module.exports = {
 
             // No hint button interaction for horses, so this will be skipped
 
-            collector.on('collect', async (buttonInteraction) => { // Everytime the hint button is pressed
-              try {
-                await interaction.deferUpdate();
-
+            collector.on('collect', async (buttonInteraction) => { // Everytime a button is pressed on the embed
+                try {
+                await buttonInteraction.deferUpdate();
+                
                     if (buttonInteraction.customId === 'hint') {
                         let state = gameState.get(sentMsg.id);
                         if (!state) return;
 
-                        if (state.blurLevel >= 11) { // if all hints have been used
-                            let newBlurLevel = state.blurLevel - 10
+                        if (state.blurLevel >= 11) { // decrease hint level and blur level upon hint press, and only if the blur level is >= 11
+                            let newBlurLevel
+
+                            if (type == "Multi") {
+                                newBlurLevel = state.blurLevel - 4
+                            } else {
+                                newBlurLevel = state.blurLevel - 10
+                            }
+
                             let newHintsUsed = state.hintsUsed + 1
                             let newPoints = Math.max(1, state.points - minusPointsJP)
 
@@ -368,14 +374,15 @@ module.exports = {
                             })
                         }
 
-                        state = gameState.get(sentMsg.id)
+                        state = gameState.get(sentMsg.id);
 
-                        if (state.blurLevel == 1) {
+                        if ((state.blurLevel == 1) || (state.blurLevel == 7)) { // if all hints have been used, immediately goes here if revealed
+
                             try {
                                 var imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
                                 var newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
                             } catch (err) {
-                                await interaction.editReply('There was an error with the image. Skipped');
+                                await sentMsg.channel.send('There was an error with the image. Skipped');
                                 console.error('Image file error:', err);
 
                                 gameState.delete(sentMsg.id);
@@ -386,7 +393,7 @@ module.exports = {
                             const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                                 .setImage('attachment://original.jpg')
 
-                            await buttonInteraction.update({
+                            await buttonInteraction.editReply({
                                 files: [newFile], embeds: [updatedEmbed], components: [row]
                             });
                         } else { // Do image operations for going down a hint level
@@ -394,7 +401,7 @@ module.exports = {
                                 var newPath = path.join(cacheDir, `${state.blurLevel}-${state.imageName}`);
                                 var newFile = new AttachmentBuilder(fs.readFileSync(newPath), { name: 'blurred.jpg' });
                             } catch (err) {
-                                await interaction.editReply('There was an error with the image. Skipped');
+                                await sentMsg.channel.send('There was an error with the image. Skipped');
                                 console.error('Image file error:', err);
 
                                 gameState.delete(sentMsg.id);
@@ -405,17 +412,23 @@ module.exports = {
                             const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                                 .setImage('attachment://blurred.jpg')
 
-                            await buttonInteraction.update({
+                            await buttonInteraction.editReply({
                                 files: [newFile], embeds: [updatedEmbed], components: [row]
                             });
                         }
-                    } else if (buttonInteraction.customId === 'reveal') {
+                    } else if (buttonInteraction.customId === 'unblur') {
                         let state = gameState.get(sentMsg.id);
                         if (!state) return;
 
                         let newBlurLevel = 1
-                        let newHintsUsed = 5
+                        let newHintsUsed;
                         let newPoints = 1
+
+                        if (type == "Multi") {
+                            newHintsUsed = 3
+                        } else {
+                            newHintsUsed = 5
+                        }
 
                         gameState.set(sentMsg.id, {
                             ...state,
@@ -430,7 +443,7 @@ module.exports = {
                             var imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
                             var newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
                         } catch (err) {
-                            await interaction.editReply('There was an error with the image. Skipped');
+                            await sentMsg.channel.send('There was an error with the image. Skipped');
                             console.error('Image file error:', err);
 
                             gameState.delete(sentMsg.id);
@@ -441,17 +454,96 @@ module.exports = {
                         const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                             .setImage('attachment://original.jpg')
 
-                        await buttonInteraction.update({
+                        await buttonInteraction.editReply({
                             files: [newFile], embeds: [updatedEmbed], components: [row]
                         });
+                    } else if (buttonInteraction.customId === 'skip') {
+                        if (buttonInteraction.user.id !== user.id) {
+                            await buttonInteraction.followUp({ content: "Only the game starter can skip!", flags: 64 });
+                            return
+                        }
+
+                        const state = gameState.get(sentMsg.id);
+                        if (!state) return
+
+                        messageCollector.stop()
+                        collector.stop()
+
+                        try {
+                            if (logChannel && cmdLogChannel) {
+                                await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${interaction.options.getString('region') ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
+                                await cmdLogChannel.send(`\`${data["username"]}\`: !skip`)
+                            }
+                        } catch (err) {
+                            console.error("Log channel fetch/send error:", err);
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
+
+                        console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${interaction.options.getString('region') ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
+
+                        gameState.delete(sentMsg.id);
+                        activeChannels.delete(channelID);
+
+                        await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
+                            $set: {
+                                streak: 0,
+                            }
+                        });
+
+                        try {
+                            var imagePath = path.join(originDir, `${chooseImg}`);
+                            var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
+                        } catch (err) {
+                            await sentMsg.channel.send('There was an error with the image. Skipped');
+                            console.error('Image file error:', err);
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
+
+                        let skippedEmbed
+
+                        if (type != "Multi") {
+                            skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                            .setImage('attachment://skipped.jpg')
+                            .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
+
+                            await sentMsg.channel.send(`Skipped, the answer was **${state.proper}**`);
+                        } else {
+                            skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                            .setImage('attachment://skipped.jpg')
+                            .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
+
+                            await sentMsg.channel.send(`Skipped, the answer was **${umaProper}**`);
+                        }
+
+                        if (type == "Voice") {
+                            await buttonInteraction.editReply({
+                                embeds: [skippedEmbed],
+                                files: [],
+                                components: []
+                            });
+                        } else {
+                            await buttonInteraction.editReply({
+                                embeds: [skippedEmbed],
+                                files: [file],
+                                components: []
+                            });
+                        }
+
+                        return
                     }
-              } catch (err) {
+                } catch (err) {
                 console.log("Collection error: ", err)
 
                 gameState.delete(sentMsg.id);
                 activeChannels.delete(channelID);
                 return;
-              }
+                }
             })
 
             // timer reminders
@@ -836,7 +928,7 @@ module.exports = {
                             var imagePath = path.join(originDir, `${chooseImg}`);
                             var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
                         } catch (err) {
-                            await message.channel.send('There was an error with the image. Skipped');
+                            await sentMsg.channel.send('There was an error with the image. Skipped');
                             console.error('Image file error:', err);
 
                             gameState.delete(sentMsg.id);

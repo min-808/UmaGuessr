@@ -9,7 +9,7 @@ const multiDir = path.join(__dirname, "../src/assets/multi")
 const multiCacheDir = path.join(__dirname, "../src/assets/multi_cache")
 
 const BLUR_LEVELS = [51, 41, 31, 21, 11];
-const MULTI_BLUR_LEVELS = [19, 15, 11,];
+const MULTI_BLUR_LEVELS = [19, 15, 11];
 
 async function buildCache() {
     if (!fs.existsSync(cacheDir)) {
