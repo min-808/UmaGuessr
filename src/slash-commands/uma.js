@@ -487,11 +487,13 @@ module.exports = {
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
 
-                        await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
-                            $set: {
-                                streak: 0,
+                        if (type != "Multi") {
+                            await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
+                                $set: {
+                                    streak: 0,
                             }
-                        });
+                            });
+                        }
 
                         try {
                             var imagePath = path.join(originDir, `${chooseImg}`);
@@ -590,11 +592,13 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
-                    await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
-                        $set: {
-                            streak: 0,
-                        }
-                    });
+                    if (type != "Multi") {
+                        await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped, non-multi
+                            $set: {
+                                streak: 0,
+                            }
+                        });
+                    }
 
                     try {
                         var imagePath = path.join(originDir, `${chooseImg}`);
@@ -809,7 +813,7 @@ module.exports = {
                             files: [file]
                         });
                     }
-                } else {
+                } else { // for multis
                     const foundItem = client.strictCache.get(BigInt(msg.author.id)) === true 
                     ? list.find(items => items.proper.toLowerCase() === strictGuess)
                     : list.find(items => items.names.includes(userGuess));
@@ -1014,11 +1018,13 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
-                    await ids.updateOne({ discord_id: discordID }, {
-                        $set: {
-                            streak: 0
-                        }
-                    });
+                    if (type != "Multi") {
+                        await ids.updateOne({ discord_id: discordID }, {
+                            $set: {
+                                streak: 0
+                            }
+                        });
+                    }
                 }
             })
 

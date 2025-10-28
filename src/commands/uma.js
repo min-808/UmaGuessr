@@ -510,11 +510,14 @@ module.exports = {
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
 
-                        await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
-                            $set: {
-                                streak: 0,
+                        if (type != "Multi") {
+                            await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
+                                $set: {
+                                    streak: 0,
                             }
-                        });
+                            });
+                        }
+
 
                         try {
                             var imagePath = path.join(originDir, `${chooseImg}`);
@@ -613,11 +616,13 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
-                    await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
-                        $set: {
-                            streak: 0,
+                    if (type != "Multi") {
+                        await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
+                            $set: {
+                                streak: 0,
                         }
-                    });
+                        });
+                    }
 
                     try {
                         var imagePath = path.join(originDir, `${chooseImg}`);
@@ -1071,11 +1076,14 @@ module.exports = {
                     gameState.delete(sentMsg.id);
                     activeChannels.delete(channelID);
 
-                    await ids.updateOne({ discord_id: discordID }, {
-                        $set: {
-                            streak: 0
+                    if (type != "Multi") {
+                        await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
+                            $set: {
+                                streak: 0,
                         }
-                    });
+                        });
+                    }
+
                 }
             })
 
