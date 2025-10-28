@@ -8,8 +8,6 @@ const setup = require('../../firstinit');
 const gameState = new Map()
 const activeChannels = new Set()
 
-var initialBlur = 50 + 1
-
 module.exports = {
     name: 'uma',
     description: 'Start an uma guessing game',
@@ -18,6 +16,9 @@ module.exports = {
 
         let initialPointsJP;
         let minusPointsJP;
+        let initialBlur = 50 + 1
+
+        let umaMap
 
         const channelID = message.channel.id;
         const user = message.author;
@@ -103,6 +104,8 @@ module.exports = {
                     list = require('../../src/assets/global-list.json')
                     list2 = require('../../src/assets/jp-list.json')
                     list = list.concat(list2)
+
+                    umaMap = new Map(list.map(uma => [uma.id, uma.proper]));
                     
                     type = "Multi"
 
@@ -142,9 +145,11 @@ module.exports = {
                         list = list.concat(list2)
                         type = "Multi"
 
+                        umaMap = new Map(list.map(uma => [uma.id, uma.proper]));
+
                         initialPointsJP = 24 + 1
                         minusPointsJP = 4
-                        initialBlur = 22 + 1
+                        initialBlur = 18 + 1
                     } else { // Defaults to global if no args + no type set
                         list = require('../../src/assets/global-list.json')
                         type = "Global"
@@ -172,34 +177,55 @@ module.exports = {
             var idArr
             var properArr
 
-            if (type == "Multi") { // handle multi case
-                cacheDir = path.join(__dirname, "../assets/multi_cache")
-                originDir = path.join(__dirname, "../assets/multi")
+            try {
+                if (type == "Multi") { // handle multi case
+                    cacheDir = path.join(__dirname, "../assets/multi_cache")
+                    originDir = path.join(__dirname, "../assets/multi")
 
-                const folderPath = path.join(__dirname, "../../src/assets/multi/"); // change this
-                let files = fs.readdirSync(folderPath)
+                    const folderPath = path.join(__dirname, "../../src/assets/multi/"); // change this
+                    let files = fs.readdirSync(folderPath)
 
-                chooseImg = files[Math.floor(Math.random() * files.length)] // picks a random filename
+                    chooseChar = Math.floor(Math.random() * files.length)
+                    chooseImg = files[chooseChar] // picks a random filename
 
-                umaNameArr = chooseImg.split("_") // create arr splitting across the '_'
-                umaNameArr.pop() // get rid of number and final _
-                multiSet = new Set(umaNameArr) // make set with given umas
+                    chooseImg = files[108]
 
-                properArr = umaNameArr.map(name => list.find(uma => uma.id == name)['proper'])
-                nickArr = umaNameArr.map(name => list.find(uma => uma.id == name)['names'])
-                idArr = umaNameArr.map(name => list.find(uma => uma.id == name)['number'])
+                    umaNameArr = chooseImg.split("_") // create arr splitting across the '_'
+                    umaNameArr.pop() // get rid of number and final _
+                    multiSet = new Set(umaNameArr) // make set with given umas
 
-                umaName = umaNameArr.join(', ')
-                umaProper = properArr.join(', ')
+                    properArr = umaNameArr.map(name => umaMap.get(name).proper)
+                    nickArr = umaNameArr.map(name => umaMap.get(name).names)
+                    idArr = umaNameArr.map(name => umaMap.get(name).number)
 
-                console.log(umaName)
-                console.log(umaProper)
-            } else {
-                chooseChar = Math.floor(Math.random() * list.length)
-                // chooseChar = 2
-                chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)] // a filename
-                umaName = list[chooseChar]['id']
-                umaProper = list[chooseChar]['proper']
+                    umaName = umaNameArr.join(', ')
+                    umaProper = properArr.join(', ')
+
+                    console.log(umaName)
+                    console.log(umaProper)
+                } else {
+                    chooseChar = Math.floor(Math.random() * list.length)
+                    // chooseChar = 2
+                    chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)] // a filename
+                    umaName = list[chooseChar]['id']
+                    umaProper = list[chooseChar]['proper']
+                }
+            } catch (err) {
+                await message.channel.send(`There was an error with the image. Skipped`);
+
+                try {
+                    if (logChannel) {
+                        await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): <@${BigInt("236186510326628353")}> \`${data["username"]}\` had an error with ${chooseImg}. look into this plz`)
+                    }
+                } catch (err) {
+                    console.error("Log channel fetch/send error:", err);
+
+                    activeChannels.delete(channelID)
+                    return;
+                }
+                
+                activeChannels.delete(channelID)
+                return;
             }
 
             try {
@@ -269,15 +295,21 @@ module.exports = {
                 .setLabel('Hint')
                 .setStyle(ButtonStyle.Primary);
 
-            const reveal = new ButtonBuilder()
-                .setCustomId('reveal')
-                .setLabel('Reveal')
+            const unblur = new ButtonBuilder()
+                .setCustomId('unblur')
+                .setLabel('Unblur')
+                .setStyle(ButtonStyle.Secondary);
+
+            const skip = new ButtonBuilder()
+                .setCustomId('skip')
+                .setLabel('Skip')
                 .setStyle(ButtonStyle.Danger);
 
             if ((type != "IRL") && (type != "Voice")) {
                 var row = new ActionRowBuilder()
                   .addComponents(hint)
-                  .addComponents(reveal)
+                  .addComponents(unblur)
+                  .addComponents(skip)
             }
 
             const embed = new EmbedBuilder()
@@ -340,6 +372,8 @@ module.exports = {
 
             collector.on('collect', async (interaction) => { // Everytime a button is pressed on the embed
               try {
+                await interaction.deferUpdate();
+                
                     if (interaction.customId === 'hint') {
                         let state = gameState.get(sentMsg.id);
                         if (!state) return;
@@ -383,7 +417,7 @@ module.exports = {
                             const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                                 .setImage('attachment://original.jpg')
 
-                            await interaction.update({
+                            await interaction.editReply({
                                 files: [newFile], embeds: [updatedEmbed], components: [row]
                             });
                         } else { // Do image operations for going down a hint level
@@ -402,11 +436,11 @@ module.exports = {
                             const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                                 .setImage('attachment://blurred.jpg')
 
-                            await interaction.update({
+                            await interaction.editReply({
                                 files: [newFile], embeds: [updatedEmbed], components: [row]
                             });
                         }
-                    } else if (interaction.customId === 'reveal') {
+                    } else if (interaction.customId === 'unblur') {
                         let state = gameState.get(sentMsg.id);
                         if (!state) return;
 
@@ -438,9 +472,88 @@ module.exports = {
                         const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                             .setImage('attachment://original.jpg')
 
-                        await interaction.update({
+                        await interaction.editReply({
                             files: [newFile], embeds: [updatedEmbed], components: [row]
                         });
+                    } else if (interaction.customId === 'skip') {
+                        if (interaction.user.id !== user.id) {
+                            await interaction.followUp({ content: "Only the game starter can skip!", flags: 64 });
+                            return
+                        }
+
+                        const state = gameState.get(sentMsg.id);
+                        if (!state) return
+
+                        messageCollector.stop()
+                        collector.stop()
+
+                        try {
+                            if (logChannel && cmdLogChannel) {
+                                await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
+                                await cmdLogChannel.send(`\`${data["username"]}\`: !skip`)
+                            }
+                        } catch (err) {
+                            console.error("Log channel fetch/send error:", err);
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
+
+                        console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Skipped with ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, 0/${initialPointsJP} points`)
+
+                        gameState.delete(sentMsg.id);
+                        activeChannels.delete(channelID);
+
+                        await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
+                            $set: {
+                                streak: 0,
+                            }
+                        });
+
+                        try {
+                            var imagePath = path.join(originDir, `${chooseImg}`);
+                            var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
+                        } catch (err) {
+                            await message.channel.send('There was an error with the image. Skipped');
+                            console.error('Image file error:', err);
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+                            return;
+                        }
+
+                        let skippedEmbed
+
+                        if (type != "Multi") {
+                            skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                            .setImage('attachment://skipped.jpg')
+                            .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
+
+                            await sentMsg.channel.send(`Skipped, the answer was **${state.proper}**`);
+                        } else {
+                            skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
+                            .setImage('attachment://skipped.jpg')
+                            .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
+
+                            await sentMsg.channel.send(`Skipped, the answer was **${umaProper}**`);
+                        }
+
+                        if (type == "Voice") {
+                            await interaction.editReply({
+                                embeds: [skippedEmbed],
+                                files: [],
+                                components: []
+                            });
+                        } else {
+                            await interaction.editReply({
+                                embeds: [skippedEmbed],
+                                files: [file],
+                                components: []
+                            });
+                        }
+
+                        return
                     }
               } catch (err) {
                 console.log("Collection error: ", err)
@@ -737,12 +850,11 @@ module.exports = {
                         }
                     }
                 } else { // Run this for multi games
-                    if ((((client.strictCache.get(BigInt(msg.author.id)) == false) || 
-                    (client.strictCache.get(BigInt(msg.author.id)) == undefined)) &&
-                    (state.values.some(nameArr => nameArr.includes(userGuess))) && (state.multiSet.has(list.find(items => items.names.includes(userGuess))['id']))) ||
-                    ((client.strictCache.get(BigInt(msg.author.id)) == true) &&
-                    (state.proper.some(proper => proper.toLowerCase() === strictGuess)) && (state.multiSet.has(list.find(items => items.proper.toLowerCase() == strictGuess)['id'])))) {
+                    const foundItem = client.strictCache.get(BigInt(msg.author.id)) === true 
+                        ? list.find(items => items.proper.toLowerCase() === strictGuess)
+                        : list.find(items => items.names.includes(userGuess));
 
+                    if (foundItem && state.multiSet.has(foundItem.id)) {
                         // Got it right
                         while (state.processing) { // continuously check if we're processing a previous correct guess
                             await new Promise(resolve => setTimeout(resolve, 10))
@@ -750,8 +862,21 @@ module.exports = {
 
                         state.processing = true // set true for processing current guess
 
-                        let umaName = list.find((items) => items.names.includes(userGuess))?.id
-                        let umaProper = list.find(items => items.id == umaName)['proper']
+                        let umaName = list.find((items) => items.names.includes(userGuess)).id
+                        let umaProper = list.find(items => items.id == umaName).proper
+
+                        if (!umaName || !umaProper) {
+                            console.log(umaName)
+                            console.log(umaProper)
+
+                            gameState.delete(sentMsg.id);
+                            activeChannels.delete(channelID);
+
+                            console.log("something went wrong here!")
+
+                            state.processing = false;
+                            return;
+                        }
 
                         state.multiSet.delete(umaName) // get rid of it from the set so it can't be guessed anymore
 

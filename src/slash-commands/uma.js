@@ -31,8 +31,8 @@ module.exports = {
 
         if (!interaction.guild) {
             return interaction.reply({
-                content: "Please invite the bot to a server to start playing!\n\nJoin our Discord for updates :)\nhttps://discord.gg/d4rH6ycdbc",
-                ephemeral: true
+                content: "Please invite the bot to one of your servers to start playing!\nhttps://discord.com/oauth2/authorize?client_id=1400050839544008804&permissions=414464724032&integration_type=0&scope=bot\n\nJoin our Discord for updates :)\nhttps://discord.gg/d4rH6ycdbc",
+                flags: 64
             });
         }
 
@@ -218,15 +218,21 @@ module.exports = {
                 .setLabel('Hint')
                 .setStyle(ButtonStyle.Primary);
 
-            const reveal = new ButtonBuilder()
-            .setCustomId('reveal')
-            .setLabel('Reveal')
-            .setStyle(ButtonStyle.Danger);
+            const unblur = new ButtonBuilder()
+            .setCustomId('unblur')
+            .setLabel('Unblur')
+            .setStyle(ButtonStyle.Secondary);
+
+            const skip = new ButtonBuilder()
+                .setCustomId('skip')
+                .setLabel('Skip')
+                .setStyle(ButtonStyle.Danger);
 
             if (type != "IRL") {
                 var row = new ActionRowBuilder()
                   .addComponents(hint)
-                  .addComponents(reveal)
+                  .addComponents(unblur)
+                  .addComponents(skip)
             }
 
             const embed = new EmbedBuilder()
@@ -268,6 +274,8 @@ module.exports = {
 
             collector.on('collect', async (buttonInteraction) => { // Everytime the hint button is pressed
               try {
+                await interaction.deferUpdate();
+
                     if (buttonInteraction.customId === 'hint') {
                         let state = gameState.get(sentMsg.id);
                         if (!state) return;

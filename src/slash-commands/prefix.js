@@ -31,7 +31,7 @@ module.exports = {
             if (!interaction.guild) {
                 return interaction.reply({
                     content: "This command can only be used in servers, not in DMs.",
-                    ephemeral: true
+                    flags: 64
             });
 }
 
