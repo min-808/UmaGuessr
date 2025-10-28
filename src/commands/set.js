@@ -42,7 +42,7 @@ module.exports = {
             var broadSearch = await ids.findOne({ discord_id: discordID })
             oldType = broadSearch["type"]
 
-            if ((args.length > 0) && ((args[0].toLowerCase().includes("g")) || (args[0].toLowerCase().includes("gl")) || (args[0].toLowerCase().includes("global")))) {
+            if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "g")) || (args[0].toLowerCase().includes("global")))) {
                 newType = 'g'
                 proper = 'Global'
 
@@ -52,7 +52,7 @@ module.exports = {
                     value: "Game region default set to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
-            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("j")) || (args[0].toLowerCase().includes("jp")) || (args[0].toLowerCase().includes("japan")))) {
+            } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "j")) || (args[0].toLowerCase().includes("jp")) || (args[0].toLowerCase().includes("japan")))) {
                 newType = 'jp'
                 proper = "Japan"
 
@@ -62,7 +62,7 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
-            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("a")) || (args[0].toLowerCase().includes("all")))) {
+            } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "a")) || (args[0].toLowerCase().includes("all")))) {
                 newType = 'a'
                 proper = "All"
 
@@ -72,7 +72,7 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
-            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("h")) || (args[0].toLowerCase().includes("horse")) || (args[0].toLowerCase().includes("i")) || (args[0].toLowerCase().includes("irl")))) {
+            } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "h")) || ((args[0].length == 1) && (args[0].toLowerCase() == "i")) || (args[0].toLowerCase().includes("irl")) || (args[0].toLowerCase().includes("horse")))) {
                 newType = 'h'
                 proper = "IRL"
 
@@ -82,7 +82,7 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
-            } else if ((args.length > 0) && ((args[0].toLowerCase().includes("m")) || (args[0].toLowerCase().includes("multi")))) {
+            } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "m")) || (args[0].toLowerCase().includes("multi")))) {
                 newType = 'm'
                 proper = "Multi"
 
