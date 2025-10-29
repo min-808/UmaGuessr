@@ -515,7 +515,6 @@ module.exports = {
                             });
                         }
 
-
                         try {
                             var imagePath = path.join(originDir, `${chooseImg}`);
                             var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
@@ -542,23 +541,34 @@ module.exports = {
                             .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
 
                             await sentMsg.channel.send(`Skipped, the answer was **${umaProper}**`);
-                        }
 
-                        if (type == "Voice") {
-                            await interaction.editReply({
-                                embeds: [skippedEmbed],
-                                files: [],
-                                components: []
-                            });
-                        } else {
-                            await interaction.editReply({
-                                embeds: [skippedEmbed],
-                                files: [file],
-                                components: []
-                            });
-                        }
+                            if (state.multiSetSize != state.multiSet.size) { // At least something was guessed, send point summary
+                                let buildMessage = ""
 
-                        return
+                                for (const [userId, points] of state.pointsGathered.entries()) {
+                                    buildMessage += `<@${userId}> +${points} points\n`
+                                }
+                                await sentMsg.channel.send(
+                                    `**Points earned:**\n${buildMessage}`
+                                )    
+                            }
+                            }
+
+                            if (type == "Voice") {
+                                await interaction.editReply({
+                                    embeds: [skippedEmbed],
+                                    files: [],
+                                    components: []
+                                });
+                            } else {
+                                await interaction.editReply({
+                                    embeds: [skippedEmbed],
+                                    files: [file],
+                                    components: []
+                                });
+                            }
+
+                            return
                     }
               } catch (err) {
                 console.log("Collection error: ", err)
@@ -647,6 +657,17 @@ module.exports = {
                         .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
 
                         await sentMsg.channel.send(`Skipped, the answer was **${umaProper}**`);
+
+                        if (state.multiSetSize != state.multiSet.size) { // At least something was guessed, send point summary
+                        let buildMessage = ""
+
+                        for (const [userId, points] of state.pointsGathered.entries()) {
+                            buildMessage += `<@${userId}> +${points} points\n`
+                        }
+                        await message.channel.send(
+                            `**Points earned:**\n${buildMessage}`
+                        )    
+                    }
                     }
 
                     if (type == "Voice") {
@@ -993,7 +1014,7 @@ module.exports = {
                                 buildMessage += `<@${userId}> +${points} points\n`
                             }
                             await msg.channel.send(
-                                `Congratulations, you guessed all the umas in the picture!\n\n**Summary of points earned:**\n${buildMessage}`
+                                `Congratulations, you guessed all the umas in the picture!\n\n**Points earned:**\n${buildMessage}`
                             )
                             
                             var revealedEmbed = EmbedBuilder.from(sentMsg.embeds)
@@ -1063,7 +1084,18 @@ module.exports = {
                         .setImage('attachment://timeout.jpg')
                         .setFooter({ text: `Time's up! The correct answer was ${umaProper}` });
 
-                        await sentMsg.channel.send(`Nobody got it right. The answer was **${umaProper}**`);
+                        if (state.multiSetSize != state.multiSet.size) { // At least something was guessed, send point summary
+                            let buildMessage = ""
+
+                            for (const [userId, points] of state.pointsGathered.entries()) {
+                                buildMessage += `<@${userId}> +${points} points\n`
+                            }
+                            await message.channel.send(
+                                `**Points earned:**\n${buildMessage}`
+                            )    
+                        } else {
+                            await sentMsg.channel.send(`Nobody got it right. The answer was **${umaProper}**`);
+                        }
                     }
 
                     if (type == "Voice") {
