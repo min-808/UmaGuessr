@@ -389,7 +389,7 @@ client.on('interactionCreate', async (interaction) => {
     }
 });
 
-client.on('ready', async () => {
+client.on('clientReady', async () => {
     console.log(`${client.user.tag} is online.`);
     client.user.setActivity('!help | !uma', { type: ActivityType.Playing }); 
 
