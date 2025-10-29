@@ -2,7 +2,7 @@ const fs = require("fs");
 const path = require("path");
 const Jimp = require("jimp");
 
-const inputFolder = "src/assets/multi";
+const inputFolder = "src/assets/new/multis";
 
 const widthStats = {};
 const extensionCounts = {};
