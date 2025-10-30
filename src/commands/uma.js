@@ -931,14 +931,10 @@ module.exports = {
                         
                         const countCollection = database.collection("count")
 
-                        const bulkOps = umaNameArr.map(u => ({
-                            updateOne: {
-                                filter: { name: u },
-                                update: { $inc: { wins: 1 } }
-                            }
-                        }))
-
-                        await countCollection.bulkWrite(bulkOps)
+                        await countCollection.updateOne(
+                            { name: umaName },
+                            { $inc: { wins: 1 } }
+                        );
 
                         var authorID = BigInt(msg.author.id); // ID of the person who got it right
 
