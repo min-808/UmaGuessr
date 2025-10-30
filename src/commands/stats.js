@@ -132,12 +132,12 @@ module.exports = {
             embed.addFields(
                 {
                     name: `__Uma Count__`,
-                    value: `**${umasList.length}** (All)\n**${JPList.length}** (Japan)\n**${globalList.length}** (Global)`,
+                    value: `**${umasList.length}** (Total)\n**${JPList.length}** (Japan)\n**${globalList.length}** (Global)`,
                     inline: true
                 },
                 {
                     name: `__Uma Pictures Count__`,
-                    value: `**${allPicsCount}** (All)\n**${JPPicsCount}** (Japan)\n**${globalPicsCount}** (Global)\n**${multiPicsCount}** (Multi)\n**${irlPicsCount}** (IRL)`,
+                    value: `**${allPicsCount}** (Total)\n**${JPPicsCount}** (Japan)\n**${globalPicsCount}** (Global)\n**${multiPicsCount}** (Multi)\n**${irlPicsCount}** (IRL)`,
                     inline: true
                 },
                 {
