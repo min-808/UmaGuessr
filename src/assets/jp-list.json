@@ -225,14 +225,6 @@
     "rarity": 3
     },
     {
-    "id": "eishinflash",
-    "number": 5236,
-    "proper": "Eishin Flash",
-    "names": ["eishinflash", "flash", "eishin", "エイシンフラッシュ", "フラッシュ"],
-    "images": ["eishinflash1.jpg", "eishinflash2.jpg", "eishinflash3.jpg", "eishinflash4.jpg", "eishinflash5.jpg", "eishinflash6.jpg", "eishinflash7.jpg", "eishinflash8.jpg", "eishinflash9.jpg", "eishinflash10.jpg", "eishinflash11.jpg", "eishinflash12.jpg", "eishinflash13.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "espoircity",
     "number": 10280,
     "proper": "Espoir City",
