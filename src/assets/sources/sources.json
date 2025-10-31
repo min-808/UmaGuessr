@@ -410,6 +410,14 @@
         "member_id": "1229271",
         "illustration_id": "73668184",
         "artist": "くろき"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10198825"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10198825",
+        "artist": "nanaken (qijian23092715)"
       }
     ]
   },
@@ -1829,6 +1837,14 @@
         "service": "danbooru",
         "illustration_id": "10032092",
         "artist": "asahina (asahina 0428)"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10192936"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10192936",
+        "artist": "shinmai (kyata)"
       }
     ]
   },
@@ -2122,6 +2138,15 @@
         "service": "danbooru",
         "illustration_id": "9168431",
         "artist": "o ko ge2024"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       }
     ]
   },
@@ -3102,6 +3127,15 @@
         "service": "danbooru",
         "illustration_id": "10136374",
         "artist": "a o 1016"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       }
     ]
   },
@@ -10294,6 +10328,22 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10139550"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10139550",
+        "artist": "kurumiya (krmy p)"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/8288608"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8288608",
+        "artist": "yu-muge"
       }
     ]
   },
@@ -14704,6 +14754,19 @@
         "service": "danbooru",
         "illustration_id": "8495350",
         "artist": "itosu200"
+      }
+    ]
+  },
+  {
+    "id": "tazunahayakawa",
+    "artworks": [
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10201834"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10201834",
+        "artist": "takiki"
       }
     ]
   }
