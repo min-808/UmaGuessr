@@ -313,7 +313,7 @@ module.exports = {
                 .setImage('attachment://blurred.jpg')
                 .setColor('LightGrey')
 
-            embed.setDescription(`Started by ${user}\n\nServer: ${type}`)
+            embed.setDescription(`Started by ${user}\n\nType: ${type}`)
 
             if ((type != "IRL") && (type != "Voice")) {
                 var sentMsg = await message.channel.send({ files: [file], components: [row], embeds: [embed] })

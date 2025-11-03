@@ -296,7 +296,7 @@ module.exports = {
                 .setImage('attachment://blurred.jpg')
                 .setColor('LightGrey')
 
-            embed.setDescription(`Started by ${user}\n\nServer: ${type}`)
+            embed.setDescription(`Started by ${user}\n\nType: ${type}`)
 
             if (type != "IRL") {
                 var sentMsg = await interaction.editReply({ files: [file], components: [row], embeds: [embed] })
