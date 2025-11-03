@@ -27,7 +27,7 @@ module.exports = {
                 .addFields(
                     {
                         name: "\n",
-                        value: `Stay updated on changes, ask questions, and share suggestions :)\n\nhttps://discord.gg/d4rH6ycdbc`
+                        value: `Stay updated on changes, ask questions, and share suggestions :)\n\nhttps://discord.gg/zrP5PUP3HK`
                     },
                 )
 

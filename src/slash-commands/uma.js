@@ -29,7 +29,7 @@ module.exports = {
 
         if (!interaction.guild) {
             return interaction.reply({
-                content: "Please invite the bot to one of your servers to start playing!\nhttps://discord.com/oauth2/authorize?client_id=1400050839544008804&permissions=414464724032&integration_type=0&scope=bot\n\nJoin our Discord for updates :)\nhttps://discord.gg/d4rH6ycdbc",
+                content: "Please invite the bot to one of your servers to start playing!\nhttps://discord.com/oauth2/authorize?client_id=1400050839544008804&permissions=414464724032&integration_type=0&scope=bot\n\nJoin our Discord for updates :)\nhttps://discord.gg/zrP5PUP3HK",
                 flags: 64
             });
         }
