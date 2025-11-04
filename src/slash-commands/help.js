@@ -38,20 +38,20 @@ module.exports = {
                             value:
                             "**__How to Play__**" + "\n" +
                             "- Start the game with the command `/uma` or `/u`, and guess the uma by sending their name in the chat" + "\n" +
-                            "- There are some extra parameters to specify which region you'd like to play on (no parameters will default to Global):" + "\n" +
+                            "- There are some extra parameters to specify the type you'd like to play on (no parameters will default to Global):" + "\n" +
                             "**-** `/uma Global` for characters only from the Global server" + "\n" +
                             "**-** `/uma Japan` for characters only from the JP server" + "\n" +
                             "**-** `/uma All` for guessing characters from both JP and Global servers" + "\n" +
                             "**-** `/uma Horse` for guessing the uma's IRL horse counterpart" + "\n" +
-                            "**-** `/uma Multi` for the multi-uma guessing" + "\n\n\n"
+                            "**-** `/uma Multi` for multi-uma guessing" + "\n\n\n"
                         },
                         {
                             name: "\n",
                             value:
                             "\n- Use `/set (a/j/g/h/m)` to set the region you want the `/uma` command to default to" + "\n" +
-                            "- You will have **60** seconds to guess the character, and pressing the `Hint` button will slightly unblur the image" + "\n" +
-                            "- If you manage to guess the character without using any unblur hints, you'll get the maximum number of points (**36** points for All, **26** points for JP, **16** for Global)" + "\n" +
-                            "- However, every time the unblur button is pressed, you lose points. If all the unblur hints are used, you'll only gain 1 point for guessing the uma correctly" + "\n" +
+                            "- You will have **60** seconds to guess the character, and pressing the `Hint` button will slightly reveal the image" + "\n" +
+                            "- If you manage to guess the character without using any hints, you'll get the maximum number of points (**36** points for All, **31** points for IRL, **26** points for JP, **16** for Global)" + "\n" +
+                            "- However, every time the Hint button is pressed, you lose points. If all the hints are used or the Unblur button is pressed, you'll only gain **1** point for guessing the uma correctly" + "\n" +
                             "- Capitalization and spacing doesn't matter, but spelling does. `Seiun Sky`, `seiun sky`, and `seiunsky` are all valid answers"
                         },
                         {
@@ -67,7 +67,7 @@ module.exports = {
                             value:
                             "**__Streaks and Multipliers__**" + "\n" +
                             "- If you use the `/uma` command and guess the uma correctly, you'll increase your streak" + "\n" +
-                            "- However, if you use `/skip`, the timer runs out, or another person correctly guesses the uma before you, your streak will reset to 0" + "\n" +
+                            "- However, if you skip`, the timer runs out, or another person correctly guesses the uma before you, your streak will reset to 0" + "\n" +
                             "- By voting on the bot with `/vote` and using the `/redeem` command, you'll start a **5-minute 1.5x point multiplier**" + "\n" +
                             "- Note that you can vote up to two times a day (once every 12 hours)"
                         },
@@ -75,7 +75,7 @@ module.exports = {
                             name: "\n",
                             value:
                             "**__Extra Info__**" + "\n" +
-                            "- Only the user who issued the `/uma` command can skip the current character with `/skip`" + "\n" +
+                            "- Only the user who issued the `/uma` command can skip the current character" + "\n" +
                             "- You do not lose points for taking longer to guess"
                         }
                     )
