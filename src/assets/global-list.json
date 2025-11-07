@@ -68,7 +68,7 @@
     "number": 4868,
     "proper": "Fuji Kiseki",
     "names": ["fujikiseki", "fuji", "kiseki", "フジキセキ", "フジ"],
-    "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg", "fujikiseki4.jpg", "fujikiseki5.jpg", "fujikiseki6.jpg", "fujikiseki7.jpg", "fujikiseki8.jpg", "fujikiseki9.jpg", "fujikiseki10.jpg", "fujikiseki11.jpg"],
+    "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg", "fujikiseki4.jpg", "fujikiseki5.jpg", "fujikiseki6.jpg", "fujikiseki7.jpg", "fujikiseki8.jpg", "fujikiseki9.jpg", "fujikiseki10.jpg", "fujikiseki11.jpg", "fujikiseki12.jpg"],
     "rarity": 3
   },
   {
@@ -148,7 +148,7 @@
     "number": 4844,
     "proper": "Maruzensky",
     "names": ["maruzensky", "maruzen", "マルゼンスキー", "マルゼン"],
-    "images": ["maruzensky1.jpg", "maruzensky2.jpg", "maruzensky3.jpg", "maruzensky4.jpg", "maruzensky5.jpg", "maruzensky6.jpg", "maruzensky7.jpg", "maruzensky8.jpg", "maruzensky9.jpg", "maruzensky10.jpg", "maruzensky11.jpg", "maruzensky12.jpg", "maruzensky13.jpg", "maruzensky14.jpg", "maruzensky15.jpg", "maruzensky16.jpg", "maruzensky17.jpg", "maruzensky18.jpg", "maruzensky19.jpg", "maruzensky20.jpg", "maruzensky21.jpg", "maruzensky22.jpg"],
+    "images": ["maruzensky1.jpg", "maruzensky2.jpg", "maruzensky3.jpg", "maruzensky4.jpg", "maruzensky5.jpg", "maruzensky6.jpg", "maruzensky7.jpg", "maruzensky8.jpg", "maruzensky9.jpg", "maruzensky10.jpg", "maruzensky11.jpg", "maruzensky12.jpg", "maruzensky13.jpg", "maruzensky14.jpg", "maruzensky15.jpg", "maruzensky16.jpg", "maruzensky17.jpg", "maruzensky18.jpg", "maruzensky19.jpg", "maruzensky20.jpg", "maruzensky21.jpg", "maruzensky22.jpg", "maruzensky23.jpg"],
     "rarity": 3
   },
   {
@@ -172,7 +172,7 @@
     "number": 5463,
     "proper": "Meisho Doto",
     "names": ["meishodoto", "doto", "dotopi", "meisho", "メイショウドトウ", "ドトウ"],
-    "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg", "meishodoto4.jpg", "meishodoto5.jpg", "meishodoto6.jpg", "meishodoto7.jpg", "meishodoto8.jpg", "meishodoto9.jpg", "meishodoto10.jpg", "meishodoto11.jpg"],
+    "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg", "meishodoto4.jpg", "meishodoto5.jpg", "meishodoto6.jpg", "meishodoto7.jpg", "meishodoto8.jpg", "meishodoto9.jpg", "meishodoto10.jpg", "meishodoto11.jpg", "meishodoto12.jpg", "meishodoto13.jpg"],
     "rarity": 3
   },
   {
@@ -180,7 +180,7 @@
     "number": 4962,
     "proper": "Mejiro McQueen",
     "names": ["mejiromcqueen", "mcqueen", "mac", "メジロマックイーン", "マックイーン", "マック"],
-    "images": ["mejiromcqueen1.jpg", "mejiromcqueen2.jpg", "mejiromcqueen3.jpg", "mejiromcqueen4.jpg", "mejiromcqueen5.jpg", "mejiromcqueen6.jpg", "mejiromcqueen7.jpg", "mejiromcqueen8.jpg", "mejiromcqueen9.jpg", "mejiromcqueen10.jpg", "mejiromcqueen11.jpg", "mejiromcqueen12.jpg", "mejiromcqueen13.jpg"],
+    "images": ["mejiromcqueen1.jpg", "mejiromcqueen2.jpg", "mejiromcqueen3.jpg", "mejiromcqueen4.jpg", "mejiromcqueen5.jpg", "mejiromcqueen6.jpg", "mejiromcqueen7.jpg", "mejiromcqueen8.jpg", "mejiromcqueen9.jpg", "mejiromcqueen10.jpg", "mejiromcqueen11.jpg", "mejiromcqueen12.jpg", "mejiromcqueen13.jpg", "mejiromcqueen14.jpg"],
     "rarity": 3
   },
   {
@@ -220,7 +220,7 @@
     "number": 5485,
     "proper": "Nice Nature",
     "names": ["nicenature", "nature", "natie", "ナイスネイチャ", "ネイチャ"],
-    "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg", "nicenature4.jpg", "nicenature5.jpg", "nicenature6.jpg", "nicenature7.jpg", "nicenature8.jpg", "nicenature9.jpg", "nicenature10.jpg", "nicenature11.jpg", "nicenature12.jpg", "nicenature13.jpg", "nicenature14.jpg", "nicenature15.jpg", "nicenature16.jpg", "nicenature17.jpg", "nicenature18.jpg"],
+    "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg", "nicenature4.jpg", "nicenature5.jpg", "nicenature6.jpg", "nicenature7.jpg", "nicenature8.jpg", "nicenature9.jpg", "nicenature10.jpg", "nicenature11.jpg", "nicenature12.jpg", "nicenature13.jpg", "nicenature14.jpg", "nicenature15.jpg", "nicenature16.jpg", "nicenature17.jpg", "nicenature18.jpg", "nicenature19.jpg"],
     "rarity": 1
   },
   {
@@ -228,7 +228,7 @@
     "number": 4879,
     "proper": "Oguri Cap",
     "names": ["oguricap", "oguri", "ogurin", "fatty", "オグリキャップ", "オグリ"],
-    "images": ["oguricap1.jpg", "oguricap2.jpg", "oguricap3.jpg", "oguricap4.jpg", "oguricap5.jpg", "oguricap6.jpg", "oguricap7.jpg", "oguricap8.jpg", "oguricap9.jpg", "oguricap10.jpg", "oguricap11.jpg", "oguricap12.jpg", "oguricap13.jpg", "oguricap14.jpg"],
+    "images": ["oguricap1.jpg", "oguricap2.jpg", "oguricap3.jpg", "oguricap4.jpg", "oguricap5.jpg", "oguricap6.jpg", "oguricap7.jpg", "oguricap8.jpg", "oguricap9.jpg", "oguricap10.jpg", "oguricap11.jpg", "oguricap12.jpg", "oguricap13.jpg", "oguricap14.jpg", "oguricap15.jpg", "oguricap16.jpg"],
     "rarity": 3
   },
   {
@@ -236,7 +236,7 @@
     "number": 5156,
     "proper": "Rice Shower",
     "names": ["riceshower", "rice", "ライスシャワー", "ライス"],
-    "images": ["riceshower1.jpg", "riceshower2.jpg", "riceshower3.jpg", "riceshower4.jpg", "riceshower5.jpg", "riceshower6.jpg", "riceshower7.jpg", "riceshower8.jpg", "riceshower9.jpg", "riceshower10.jpg", "riceshower11.jpg", "riceshower12.jpg", "riceshower13.jpg", "riceshower14.jpg", "riceshower15.jpg", "riceshower16.jpg", "riceshower17.jpg", "riceshower18.jpg", "riceshower19.jpg"],
+    "images": ["riceshower1.jpg", "riceshower2.jpg", "riceshower3.jpg", "riceshower4.jpg", "riceshower5.jpg", "riceshower6.jpg", "riceshower7.jpg", "riceshower8.jpg", "riceshower9.jpg", "riceshower10.jpg", "riceshower11.jpg", "riceshower12.jpg", "riceshower13.jpg", "riceshower14.jpg", "riceshower15.jpg", "riceshower16.jpg", "riceshower17.jpg", "riceshower18.jpg", "riceshower19.jpg", "riceshower20.jpg", "riceshower21.jpg"],
     "rarity": 3
   },
   {
