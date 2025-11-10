@@ -91,23 +91,29 @@ module.exports = {
                             value: 
                             "**__Game__**" + "\n" +
                             "`/uma (region)`" + " - " + "Play the game (default region is global)" + "\n" +
-                            "`/set (region)`" + " - " + "Set your default region (**a**ll, **j**p, **g**lobal)" + "\n" +
-                            "`/skip`" + " - " + "Skip the current character" + "\n" +
+                            "`/set (region)`" + " - " + "Set your default region" + "\n" +
                             "`/daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
                             "`/vote`" + " - " + "Pull up the bot's vote link" + "\n" +
-                            "`/redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n" +
-                            "\n" +
+                            "`/redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n"
+                        },
+                        {
+                            name: "\n",
+                            value:
                             "**__Profile__**" + "\n" +
-                            "`/profile (username/id)`" + " - " + "Check a player's profile" + "\n" +
-                            "`/lb (option)`" + " - " + "Global leaderboards" + "\n" +
-                            "`/char (name)`" + " - " + "View an uma's profile" + "\n" +
-                            "`/charlist (pics/winrate)`" + " - " + "View the current list of umas in the bot" + "\n" +
-                            "\n" + 
+                            "`/profile (username/user id)`" + " - " + "Check a player's profile" + "\n" +
+                            "`/leaderboard (range) (sort)`" + " - " + "Check the leaderboards" + "\n" +
+                            "`/character (name)`" + " - " + "View an uma's profile" + "\n" +
+                            "`/charlist (pics/winrate)`" + " - " + "View the current list of umas" + "\n"
+                        },
+                        {
+                            name: "\n",
+                            value:
                             "**__Misc.__**" + "\n" +
                             "`/help`" + " - " + "Command information" + "\n" +
-                            "`/help uma`" + " - " + "Information about the game" + "\n" +
+                            "`/help uma`" + " - " + "Game information" + "\n" +
                             "`/discord`" + " - " + "Join the Discord server" + "\n" +
                             "`/prefix or /pref`" + " - " + "Set a server-wide prefix for the bot" + "\n" +
+                            "`/sources`" + " - " + "Gives a link to find all image sources" + "\n" +
                             "`/stats`" + " - " + "Bot stats" + "\n" +
                             "`/uptime`" + " - " + "Bot uptime" + "\n" +
                             "`/ping`" + " - " + "Pong!" + "\n"

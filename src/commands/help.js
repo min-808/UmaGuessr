@@ -84,19 +84,28 @@ module.exports = {
                             "`!skip`" + " - " + "Skip the current character" + "\n" +
                             "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
                             "`!vote`" + " - " + "Pull up the bot's vote link" + "\n" +
-                            "`!redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n" +
-                            "\n" +
+                            "`!redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n"
+                        },
+                        {
+                            name: "\n",
+                            value:
                             "**__Profile__**" + "\n" +
-                            "`!profile (username/id)`" + " - " + "Check a player's profile" + "\n" +
-                            "`!lb (points/wins/daily/streak/time/fast)`" + " - " + "Global leaderboards" + "\n" +
+                            "`!profile (username/user id)`" + " - " + "Check a player's profile" + "\n" +
+                            "`!lb (type) global`" + " - " + "Global leaderboards" + "\n" +
+                            "`!lb (type) server`" + " - " + "Server-wide leaderboards" + "\n" +
+                            "Pick a leaderboard sorting option by replacing 'type' with one of these options: **points, wins, daily, streak, time, fast**" + "\n" +
                             "`!char (uma name)`" + " - " + "View an uma's profile" + "\n" +
-                            "`!charlist (pics/winrate)`" + " - " + "View the current list of umas in the bot" + "\n" +
-                            "\n" + 
+                            "`!charlist (pics/winrate)`" + " - " + "View the current list of umas" + "\n"
+                        },
+                        {
+                            name: "\n",
+                            value:
                             "**__Misc.__**" + "\n" +
                             "`!help`" + " - " + "Command information" + "\n" +
-                            "`!help uma`" + " - " + "Information about the game" + "\n" +
+                            "`!help uma`" + " - " + "Game information" + "\n" +
                             "`!discord`" + " - " + "Join the Discord server" + "\n" +
                             "`!prefix/!pref`" + " - " + "Set a server-wide prefix for the bot" + "\n" +
+                            "`!sources`" + " - " + "Gives a link to find all image sources" + "\n" +
                             "`!stats`" + " - " + "Bot stats" + "\n" +
                             "`!uptime`" + " - " + "Bot uptime" + "\n" +
                             "`!ping`" + " - " + "Pong!" + "\n"
