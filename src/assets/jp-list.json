@@ -236,7 +236,7 @@
     "id": "ellersliepride",
     "number": 50004,
     "proper": "Ellerslie Pride",
-    "names": ["ellersliepride", "ellerslie", "pride", "エラズリープライド", "エラズリー", "プライド"],
+    "names": ["ellersliepride", "ellerslie", "elle", "pride", "エラズリープライド", "エラズリー", "プライド"],
     "images": ["ellersliepride1.jpg", "ellersliepride2.jpg", "ellersliepride3.jpg", "ellersliepride4.jpg", "ellersliepride5.jpg"],
     "rarity": 3
     },
@@ -492,7 +492,7 @@
     "id": "moonlightlunacy",
     "number": 50007,
     "proper": "Moonlight Lunacy",
-    "names": ["moonlightlunacy", "moonlight", "lunacy", "ムーンライトルナシー", "ムーンライト", "ルナシー"],
+    "names": ["moonlightlunacy", "moonlight", "lunacy", "luna", "ムーンライトルナシー", "ムーンライト", "ルナシー"],
     "images": ["moonlightlunacy1.jpg", "moonlightlunacy2.jpg", "moonlightlunacy3.jpg", "moonlightlunacy4.jpg"],
     "rarity": 3
     },
