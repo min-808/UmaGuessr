@@ -201,7 +201,7 @@ module.exports = {
                     umaProper = properArr.join(', ')
                 } else {
                     chooseChar = Math.floor(Math.random() * list.length)
-                    // chooseChar = 2
+                    // chooseChar = 135
                     chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)] // a filename
                     umaName = list[chooseChar]['id']
                     umaProper = list[chooseChar]['proper']

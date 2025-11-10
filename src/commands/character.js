@@ -68,18 +68,20 @@ module.exports = {
                         }
                     })
 
-                    if ((id === 50000) || (id === 50001) || (id === 50002)) {
-                        data = otherList.find(item => item.id === id)
-                    } else {
-                        const fetch = (await import("node-fetch")).default
-                        const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
-                        if (!res.ok) {
-                                console.error(`API returned ${res.status}: ${res.statusText}`);
-                                return message.channel.send(`Error fetching character data`);
+                    const fetch = (await import("node-fetch")).default
+                    const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
+
+                    if (!res.ok) {
+                        data = otherList.find(item => item.id === id) // check other list
+
+                        if (!data) { // if 404 return bad
+                            console.error(`API returned ${res.status}: ${res.statusText}`);
+                            return message.channel.send(`**Error fetching character data**`);
                         }
-                        
-                        data = await res.json()
                     }
+                    
+                    // if found, use api's json
+                    data = await res.json()
 
                     embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/sZgfUKW.png') // fallback on backup image
                     embed.setColor(data['color_main'] ?? 'LightGrey')
