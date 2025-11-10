@@ -20,9 +20,10 @@ A newly introduced multi-mode is now available for those looking for a harder ch
 - Customizable server prefix (`!prefix` / `/prefix`)
 - Uma character profiles (`!char` / `/character`)
 - Total list of characters (`!cl` / `/charlist`)
+- Total list of image sources (`!sources` / `/sources`)
 
 ### To invite the bot to your server, you can use [this link](https://discord.com/oauth2/authorize?client_id=1400050839544008804&permissions=414464724032&integration_type=0&scope=bot)
 
 Additionally, [join our Discord server](https://discord.gg/zrP5PUP3HK) to keep up with updates, suggest features, request new images, and report bugs
 
-For help on any of the commands, use the `!help` or `/help` command
+For help with any of the commands, use the `!help` or `/help` command
