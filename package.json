@@ -20,6 +20,7 @@
     "mongodb": "^6.3.0",
     "mongoose": "^7.4.0",
     "node_characterai": "^1.2.8",
-    "node-cron": "^3.0.3"
+    "node-cron": "^3.0.3",
+    "obscenity": "^0.4.5"
   }
 }

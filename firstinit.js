@@ -46,7 +46,8 @@ module.exports = {
             strict: false,
             characters: {},
             guilds: [],
-            restrict: false
+            restrict: false,
+            quote: null,
         }
     
         const result = await ids.insertOne(doc);

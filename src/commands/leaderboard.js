@@ -31,7 +31,7 @@ module.exports = {
             type = "top_streak"
             proper = "Top Streak"
             countType = "streak"
-        } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("t")) || (args[0].toLowerCase().includes("time")))) {
+        } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("t")) || (args[0].toLowerCase().includes("time")) || (args[0].toLowerCase().includes("average")) || (args[0].toLowerCase().includes("avg")))) {
             type = "times"
             proper = "Average Answer Time"
             countType = "sec"

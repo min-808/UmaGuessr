@@ -55,6 +55,7 @@ module.exports = {
                         username: 1,
                         signup: 1,
                         restrict: 1,
+                        quote: 1,
                     }
                 });
 
@@ -81,6 +82,7 @@ module.exports = {
                         username: 1,
                         signup: 1,
                         restrict: 1,
+                        quote: 1,
                     }
                 });
 
@@ -110,7 +112,7 @@ module.exports = {
                 .sort({ points: -1 })
                 .toArray();
 
-            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict } = data;
+            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict, quote } = data;
             let rank
 
             if (restrict) {
@@ -137,11 +139,24 @@ module.exports = {
 
             embed.setTitle(`**${userProvided}'s Profile**`)
 
+            if (quote != null && quote.trim() !== '') {
+                embed.addFields(
+                    {
+                        name: `\n`,
+                        value: `*${quote}*`,
+                        inline: true
+                    },
+                    {
+                        name: `\n`,
+                        value: `\n`,
+                    },
+                )
+            }
+
             embed.addFields(
                 {
                     name: `__Rank__`,
                     value: `#${rank}`,
-                    inline: true
                 },
                 {
                     name: `\n`,
