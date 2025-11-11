@@ -13,7 +13,7 @@ module.exports = {
 
             var globalList = require('../../src/assets/global-list.json')
             var JPList = require('../../src/assets/jp-list.json')
-            var otherList = require('../../src/assets/other-list.json') // for norn, belno, and march info
+            var otherList = require('../../src/assets/other-list.json')
             var bothLists = globalList.concat(JPList)
 
             var charToSearch = message.content.slice(message.content.indexOf(' ') + 1).trim().toLowerCase().replace(/\s+/g, '')

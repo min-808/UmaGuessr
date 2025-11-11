@@ -30,11 +30,11 @@ module.exports = {
 
             let embed;
             let msg
-            let linkRegex = /(http|ftp|https):\/\/([\w_-]+(?:(?:\.[\w_-]+)+))([\w.,@?^=%&:\/~+#-]*[\w@?^=%&\/~+#-])/
+            let linkRegex = /https?:\/\/\S{2,}/
 
             embed = new EmbedBuilder()
                 .setColor('LightGrey')
-                .setTitle("Set Quote")
+                .setTitle("Set Profile Quote")
                 .setThumbnail(`attachment://${img}.png`)
 
             msg = args.join(' ')
@@ -48,18 +48,18 @@ module.exports = {
                 )
 
                 console.log(`Blocked: User ID ${user} tried changing their quote to: ${msg}`)
-            } else if (msg.length >= 200) {
+            } else if (msg.length > 75) {
                 embed.addFields(
                     {
                         name: "\n",
-                        value: "**Unable to set profile quote**\n\nThe text is longer than 200 characters"
+                        value: "**Unable to set profile quote**\n\nThe text is longer than 75 characters"
                     }
                 )
             } else if (msg.length == 0) {
                 embed.addFields(
                     {
                         name: "\n",
-                        value: "**Your profile quote has been reset**"
+                        value: "Your profile quote has been **reset**"
                     }
                 )
 
