@@ -62,7 +62,8 @@ module.exports = {
                         signup: 1,
                         restrict: 1,
                         quote: 1,
-                        favorite: 1,
+                        favorites: 1,
+                        max_favorites: 1,
                     }
                 });
 
@@ -90,7 +91,8 @@ module.exports = {
                         signup: 1,
                         restrict: 1,
                         quote: 1,
-                        favorite: 1,
+                        favorites: 1,
+                        max_favorites: 1,
                     }
                 });
 
@@ -120,7 +122,7 @@ module.exports = {
                 .sort({ points: -1 })
                 .toArray();
 
-            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict, quote, favorite } = data;
+            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict, quote, favorites, max_favorites } = data;
             let rankSymbol
 
             if (restrict) {
@@ -134,52 +136,52 @@ module.exports = {
             let avg;
 
             switch (true) {
-                case (points <= 100):
+                case (points < 100):
                     rankSymbol = "<:g_rank:1437691349015986228>";
                     break;
-                case (points <= 500):
+                case (points < 500):
                     rankSymbol = "<:f_rank:1437691358596042812>";
                     break;
-                case (points <= 1000):
+                case (points < 1000):
                     rankSymbol = "<:e_rank:1437691365902516244>";
                     break;
-                case (points <= 5000):
+                case (points < 5000):
                     rankSymbol = "<:d_rank:1437691373200478238>";
                     break;
-                case (points <= 10000):
+                case (points < 10000):
                     rankSymbol = "<:c_rank:1437691381618311168>";
                     break;
-                case (points <= 20000):
+                case (points < 20000):
                     rankSymbol = "<:b_rank:1437691389524574368>";
                     break;
-                case (points <= 50000):
+                case (points < 50000):
                     rankSymbol = "<:a_rank:1437691397128851559>";
                     break;
-                case (points <= 100000):
+                case (points < 100000):
                     rankSymbol = "<:s_rank:1437691404745707671>";
                     break;
-                case (points <= 250000):
+                case (points < 250000):
                     rankSymbol = "<:ss_rank:1437691411939201054>";
                     break;
-                case (points <= 300000):
+                case (points < 300000):
                     rankSymbol = "<:ug_rank:1437732889755389993>";
                     break;
-                case (points <= 375000):
+                case (points < 375000):
                     rankSymbol = "<:uf_rank:1437732891319861258>";
                     break;
-                case (points <= 475000):
+                case (points < 475000):
                     rankSymbol = "<:ue_rank:1437732958176936002>";
                     break;
-                case (points <= 600000):
+                case (points < 600000):
                     rankSymbol = "<:ud_rank:1437732960362303549>";
                     break;
-                case (points <= 750000):
+                case (points < 750000):
                     rankSymbol = "<:uc_rank:1437732961750618152>";
                     break;
-                case (points <= 950000):
+                case (points < 950000):
                     rankSymbol = "<:ub_rank:1437732963147190334>";
                     break;
-                case (points <= 1200000):
+                case (points < 1200000):
                     rankSymbol = "<:ua_rank:1437732965021913098>";
                     break;
                 default:
@@ -227,8 +229,8 @@ module.exports = {
                 )
             }
 
-            if (favorite != null) {
-                properName = bothLists.find(item => item.id == favorite)['proper']
+            if (favorites.length != 0) {
+                properName = favorites.map(item => bothLists.find(entry => entry.id == item)['proper']).join('\n')
 
                 embed.addFields(
                     {
@@ -237,7 +239,7 @@ module.exports = {
                         inline: true
                     },
                     {
-                        name: `__Favorite Uma__`,
+                        name: `__Favorite Umas (${favorites.length}/${max_favorites})__`,
                         value: `${properName}`,
                         inline: true,
                     },
@@ -254,7 +256,7 @@ module.exports = {
                         inline: true
                     },
                     {
-                        name: `__Favorite Uma__`,
+                        name: `__Favorite Umas (${favorites.length}/${max_favorites})__`,
                         value: `None set`,
                         inline: true,
                     },
@@ -267,16 +269,8 @@ module.exports = {
 
             embed.addFields(
                 {
-                    name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nFastest answer: **${quickest}**\nAverage answer time: ${avg}`
-                },
-                {
-                    name: "\n",
-                    value: "\n",
-                },
-                {
-                    name: "__Today__",
-                    value: `Correct guesses today: **${wins_today}**\nPoints earned today: **${points_today}**`,
+                    name: "__Stats__",
+                    value: `Total points: **${points}** *(+${points_today} today)*\nTotal wins: **${wins}** *(+${wins_today} today)*\nFastest answer: **${quickest}**\nAverage answer time: ${avg}`
                 },
                 {
                     name: `\n`,

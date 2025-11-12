@@ -2,6 +2,8 @@ const { RegExpMatcher, TextCensor, englishDataset, englishRecommendedTransformer
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js')
 const { getMongoClient } = require('../connect-db.js')
 
+const setup = require('../../firstinit');
+
 const matcher = new RegExpMatcher({
 	...englishDataset.build(),
 	...englishRecommendedTransformers,

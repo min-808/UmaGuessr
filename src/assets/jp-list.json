@@ -305,14 +305,6 @@
     "rarity": 3
     },
     {
-    "id": "hishiakebono",
-    "number": 5134,
-    "proper": "Hishi Akebono",
-    "names": ["hishiakebono", "akebono", "bono", "ヒシアケボノ", "アケボノ", "ボノ"],
-    "images": ["hishiakebono1.jpg", "hishiakebono2.jpg", "hishiakebono3.jpg", "hishiakebono4.jpg", "hishiakebono5.jpg", "hishiakebono6.jpg", "hishiakebono7.jpg", "hishiakebono8.jpg", "hishiakebono9.jpg", "hishiakebono10.jpg", "hishiakebono11.jpg", "hishiakebono12.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "hishimiracle",
     "number": 8739,
     "proper": "Hishi Miracle",
