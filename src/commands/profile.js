@@ -187,7 +187,7 @@ module.exports = {
                 default:
                     rankSymbol = "<:us_rank:1437732966741839872>";
                     break;
-                }
+            }
             
             if (quickest_answer == 0 && times.length < 5) { // Nothing
                 quickest = 'n/a'
@@ -239,6 +239,11 @@ module.exports = {
                         inline: true
                     },
                     {
+                        name: `\n`,
+                        value: `\n`,
+                        inline: true
+                    },
+                    {
                         name: `__Favorite Umas (${favorites.length}/${max_favorites})__`,
                         value: `${properName}`,
                         inline: true,
@@ -253,6 +258,11 @@ module.exports = {
                     {
                         name: `__Rank__`,
                         value: `#${rank} ${rankSymbol}`,
+                        inline: true
+                    },
+                    {
+                        name: `\n`,
+                        value: `\n`,
                         inline: true
                     },
                     {

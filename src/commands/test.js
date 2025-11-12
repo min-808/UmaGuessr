@@ -21,6 +21,17 @@ module.exports = {
 
         var broadSearch = await ids.findOne({ discord_id: discordID })
         strictType = broadSearch["strict"]
+
+        const options = {
+            projection: {
+                _id: 0,
+                points: 1,
+                username: 1,
+            }
+        }
+
+        let listOfDocuments = await ids.find({}, options).toArray();
+        console.log(JSON.stringify(listOfDocuments))
       
         embed = new EmbedBuilder()
             .setColor('LightGrey')
@@ -29,7 +40,7 @@ module.exports = {
                 {
                     name: "\n",
                     value: 
-                    `prefix on db: ${strictType}\nprefix on cache: ${client.strictCache.get(discordID)}`
+                    `z`
                 },
               )
             await message.channel.send({ embeds: [embed] });

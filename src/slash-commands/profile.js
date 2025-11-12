@@ -32,6 +32,12 @@ module.exports = {
             const ids = database.collection("profiles");
             var discordID = BigInt(user.id);
 
+            var globalList = require('../../src/assets/global-list.json')
+            var JPList = require('../../src/assets/jp-list.json')
+            var bothLists = globalList.concat(JPList)
+
+            let properName = "N/A"
+
             var userProvided
             var d
 
@@ -66,6 +72,9 @@ module.exports = {
                         username: 1,
                         signup: 1,
                         restrict: 1,
+                        quote: 1,
+                        favorites: 1,
+                        max_favorites: 1,
                     }
                 });
 
@@ -92,6 +101,9 @@ module.exports = {
                         username: 1,
                         signup: 1,
                         restrict: 1,
+                        quote: 1,
+                        favorites: 1,
+                        max_favorites: 1,
                     }
                 });
 
@@ -121,7 +133,7 @@ module.exports = {
                 .sort({ points: -1 })
                 .toArray();
 
-            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict } = data;
+            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict, quote, favorites, max_favorites } = data;
             let rank
 
             if (restrict) {
@@ -133,6 +145,60 @@ module.exports = {
 
             let quickest;
             let avg;
+
+            switch (true) {
+                case (points < 100):
+                    rankSymbol = "<:g_rank:1437691349015986228>";
+                    break;
+                case (points < 500):
+                    rankSymbol = "<:f_rank:1437691358596042812>";
+                    break;
+                case (points < 1000):
+                    rankSymbol = "<:e_rank:1437691365902516244>";
+                    break;
+                case (points < 5000):
+                    rankSymbol = "<:d_rank:1437691373200478238>";
+                    break;
+                case (points < 10000):
+                    rankSymbol = "<:c_rank:1437691381618311168>";
+                    break;
+                case (points < 20000):
+                    rankSymbol = "<:b_rank:1437691389524574368>";
+                    break;
+                case (points < 50000):
+                    rankSymbol = "<:a_rank:1437691397128851559>";
+                    break;
+                case (points < 100000):
+                    rankSymbol = "<:s_rank:1437691404745707671>";
+                    break;
+                case (points < 250000):
+                    rankSymbol = "<:ss_rank:1437691411939201054>";
+                    break;
+                case (points < 300000):
+                    rankSymbol = "<:ug_rank:1437732889755389993>";
+                    break;
+                case (points < 375000):
+                    rankSymbol = "<:uf_rank:1437732891319861258>";
+                    break;
+                case (points < 475000):
+                    rankSymbol = "<:ue_rank:1437732958176936002>";
+                    break;
+                case (points < 600000):
+                    rankSymbol = "<:ud_rank:1437732960362303549>";
+                    break;
+                case (points < 750000):
+                    rankSymbol = "<:uc_rank:1437732961750618152>";
+                    break;
+                case (points < 950000):
+                    rankSymbol = "<:ub_rank:1437732963147190334>";
+                    break;
+                case (points < 1200000):
+                    rankSymbol = "<:ua_rank:1437732965021913098>";
+                    break;
+                default:
+                    rankSymbol = "<:us_rank:1437732966741839872>";
+                    break;
+            }
             
             if (quickest_answer == 0 && times.length < 5) { // Nothing
                 quickest = 'n/a'
@@ -148,27 +214,84 @@ module.exports = {
 
             embed.setTitle(`**${userProvided}'s Profile**`)
 
+            if (quote != null && quote.trim() !== '') {
+                embed.addFields(
+                    {
+                        name: `\n`,
+                        value: `*${quote}*`,
+                        inline: true
+                    },
+                    {
+                        name: `\n`,
+                        value: `\n`,
+                    },
+                )
+            } else {
+                embed.addFields(
+                    {
+                        name: `\n`,
+                        value: `*No quote set*`,
+                        inline: true
+                    },
+                    {
+                        name: `\n`,
+                        value: `\n`,
+                    },
+                )
+            }
+
+            if (favorites.length != 0) {
+                properName = favorites.map(item => bothLists.find(entry => entry.id == item)['proper']).join('\n')
+
+                embed.addFields(
+                    {
+                        name: `__Rank__`,
+                        value: `#${rank} ${rankSymbol}`,
+                        inline: true
+                    },
+                    {
+                        name: `\n`,
+                        value: `\n`,
+                        inline: true
+                    },
+                    {
+                        name: `__Favorite Umas (${favorites.length}/${max_favorites})__`,
+                        value: `${properName}`,
+                        inline: true,
+                    },
+                    {
+                        name: `\n`,
+                        value: `\n`,
+                    },
+                )
+            } else {
+                embed.addFields(
+                    {
+                        name: `__Rank__`,
+                        value: `#${rank} ${rankSymbol}`,
+                        inline: true
+                    },
+                    {
+                        name: `\n`,
+                        value: `\n`,
+                        inline: true
+                    },
+                    {
+                        name: `__Favorite Umas (${favorites.length}/${max_favorites})__`,
+                        value: `None set`,
+                        inline: true,
+                    },
+                    {
+                        name: `\n`,
+                        value: `\n`,
+                    },
+                )
+            }
+
             embed.addFields(
                 {
-                    name: `__Rank__`,
-                    value: `#${rank}`,
-                    inline: true
-                },
-                {
-                    name: `\n`,
-                    value: `\n`,
-                },
-                {
-                    name: "__All Time__",
-                    value: `Total correct guesses: **${wins}**\nTotal points: **${points}**\nFastest answer: **${quickest}**\nAverage answer time: ${avg}`,
-                },
-                {
-                    name: "\n",
-                    value: "\n",
-                },
-                {
-                    name: "__Today__",
-                    value: `Correct guesses today: **${wins_today}**\nPoints earned today: **${points_today}**`,
+                    name: "__Stats__",
+                    value: `Total points: **${points}** *(+${points_today} today)*\nTotal wins: **${wins}** *(+${wins_today} today)*\nFastest answer: **${quickest}**\nAverage answer time: ${avg}`
                 },
                 {
                     name: `\n`,

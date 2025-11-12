@@ -187,7 +187,7 @@ module.exports = {
                     let files = fs.readdirSync(folderPath)
 
                     chooseChar = Math.floor(Math.random() * files.length)
-                    chooseChar = 2
+                    // chooseChar = 5
                     chooseImg = files[chooseChar] // picks a random filename
 
                     umaNameArr = chooseImg.split("_") // create arr splitting across the '_'
@@ -203,7 +203,7 @@ module.exports = {
                     umaProper = properArr.join(', ')
                 } else {
                     chooseChar = Math.floor(Math.random() * list.length)
-                    // chooseChar = 1
+                    // chooseChar = 0
                     chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)] // a filename
                     umaName = list[chooseChar]['id']
                     umaProper = list[chooseChar]['proper']
@@ -766,6 +766,7 @@ module.exports = {
 
                         if (broadSearch['favorites'].includes(umaName)) { // If they got it right and it's their fav set
                             favPoints += 15
+                            await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
                         }
 
                         // Initial message sender is discordID
@@ -837,17 +838,13 @@ module.exports = {
 
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
 
-                        var pointCount = broadSearch["points"] + state.points
+                        var pointCount = broadSearch["points"] + state.points + favPoints
                         var winCount = broadSearch["wins"] + 1
-                        var dailyPointCount = broadSearch["points_today"] + state.points
+                        var dailyPointCount = broadSearch["points_today"] + state.points + favPoints
                         var dailyWinCount = broadSearch["wins_today"] + 1
                         var streakCount = broadSearch["streak"] + 1
 
-                        await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points} points)*\n\nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*\n\nCurrent Streak: **${streakCount}**`);
-
-                        if (broadSearch['favorites'].includes(umaName)) {
-                            await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
-                        }
+                        await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points + favPoints} points)*\n\nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*\n\nCurrent Streak: **${streakCount}**`);
 
                         if ((newQuickest < topTime) || (topTime == 0)) { // send special message for new quickest time
                             await msg.channel.send(`You have a new fastest answer time of **${(newQuickest / 1000).toFixed(2)}** sec!`);
@@ -926,28 +923,6 @@ module.exports = {
                             activeChannels.delete(channelID)
                         }
 
-                        let addWins = 1
-                        let addCorrectPoints = state.points
-
-                        state.users.set(msg.author.id, msg.author.username)
-                        state.pointsGathered.set(msg.author.id, (state.pointsGathered.get(msg.author.id) ?? 0) + state.points)
-
-                        if (client.restrictedUsers.get(BigInt(msg.author.id)) == true) { // set answerer's points to 0 if they're restricted
-                            state.pointsGathered.set(msg.author.id, 0) // set back to 0 for restricted folk
-                            addWins = 0
-                            addCorrectPoints = 0
-                        }
-
-                        let timeAnswered = Date.now() - state.startTime
-                        let favPoints = 0
-                        
-                        const countCollection = database.collection("count")
-
-                        await countCollection.updateOne(
-                            { name: umaName },
-                            { $inc: { wins: 1 } }
-                        );
-
                         var authorID = BigInt(msg.author.id); // ID of the person who got it right
 
                         count = await ids.countDocuments({ discord_id: authorID });
@@ -963,6 +938,35 @@ module.exports = {
 
                         var broadSearch = await ids.findOne({ discord_id: authorID }) // find their profile to begin updates
 
+                        let favPoints = 0
+
+                        if (broadSearch['favorites'].includes(umaName)) {
+                            favPoints += 15
+                            await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
+                        }
+
+                        let addWins = 1
+                        let addCorrectPoints = state.points + favPoints
+
+                        state.users.set(msg.author.id, msg.author.username)
+                        state.pointsGathered.set(msg.author.id, (state.pointsGathered.get(msg.author.id) ?? 0) + state.points + favPoints)
+
+                        if (client.restrictedUsers.get(BigInt(msg.author.id)) == true) { // set answerer's points to 0 if they're restricted
+                            state.pointsGathered.set(msg.author.id, 0) // set back to 0 for restricted folk
+                            addWins = 0
+                            addCorrectPoints = 0
+                            favPoints = 0
+                        }
+
+                        let timeAnswered = Date.now() - state.startTime
+                        
+                        const countCollection = database.collection("count")
+
+                        await countCollection.updateOne(
+                            { name: umaName },
+                            { $inc: { wins: 1 } }
+                        );
+
                         try {
                             if (logChannel) {
                                 await logChannel.send(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): \`${data["username"]}\` - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered a multi uma by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${addCorrectPoints}/${initialPointsJP} points`)
@@ -977,18 +981,14 @@ module.exports = {
 
                         console.log(`(${d.toLocaleString("en-US", { timeZone: "Pacific/Honolulu", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true } )}): ${data["username"]} - ${umaProper} (${type}/${data["type"]}/${args[0] ?? 'no args'}) - Answered a multi uma by ${broadSearch["username"]} with "${originGuess}". ${state.hintsUsed} hints, ${(Date.now() - state.startTime) / 1000} sec, ${addCorrectPoints}/${initialPointsJP} points`)
 
-                        if (broadSearch['favorites'].includes(umaName)) {
-                            favPoints += 15
-                        }
-
                         // Initial message sender is discordID
                         // Answerer is authorID
 
                         const addPoints = {
                             $inc: {
-                                points: addCorrectPoints + favPoints,
+                                points: addCorrectPoints,
                                 wins: addWins,
-                                points_today: addCorrectPoints + favPoints,
+                                points_today: addCorrectPoints,
                                 wins_today: addWins,
                             } /*, temporarily pause
                             $push: {
@@ -1018,10 +1018,6 @@ module.exports = {
                         }
                         
                         await msg.channel.send(`Correct <@${authorID}>! (${state.multiSetSize - state.multiSet.size}/${state.multiSetSize}) ${"✅ ".repeat(state.multiSetSize - state.multiSet.size)}${"<:white_large_square_X:1432246056187334746> ".repeat(state.multiSet.size)}`)
-
-                        if (broadSearch['favorites'].includes(umaName)) {
-                            await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
-                        }
 
                         if (state.multiSet.size == 0) { // create summary message at the end
                             let buildMessage = ""
