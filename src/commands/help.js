@@ -91,11 +91,15 @@ module.exports = {
                             value:
                             "**__Profile__**" + "\n" +
                             "`!profile (username/user id)`" + " - " + "Check a player's profile" + "\n" +
+                            "`!fav (uma name)`" + " - " + "Add umas to your list of favorites" + "\n" +
+                            "`!unfav (uma name)`" + " - " + "Remove an uma from your list of favorites" + "\n" +
+                            "`!setquote (quote)`" + " - " + "Set a quote for your profile" + "\n" +
                             "`!lb (type) global`" + " - " + "Global leaderboards" + "\n" +
                             "`!lb (type) server`" + " - " + "Server-wide leaderboards" + "\n" +
                             "Pick a leaderboard sorting option by replacing 'type' with one of these options: **points, wins, daily, streak, time, fast**" + "\n" +
                             "`!char (uma name)`" + " - " + "View an uma's profile" + "\n" +
-                            "`!charlist (pics/winrate)`" + " - " + "View the current list of umas" + "\n"
+                            "`!charlist (pics/winrate)`" + " - " + "View the current list of umas" + "\n" +
+                            "`!ranks`" + " - " + "View the point rank ranges" + "\n"
                         },
                         {
                             name: "\n",

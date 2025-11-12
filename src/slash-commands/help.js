@@ -101,9 +101,13 @@ module.exports = {
                             value:
                             "**__Profile__**" + "\n" +
                             "`/profile (username/user id)`" + " - " + "Check a player's profile" + "\n" +
+                            "`/favorite (uma name)`" + " - " + "Add umas to your list of favorites" + "\n" +
+                            "`/unfavorite (uma name)`" + " - " + "Remove an uma from your list of favorites" + "\n" +
+                            "`/setquote (quote)`" + " - " + "Set a quote for your profile" + "\n" +
                             "`/leaderboard (range) (sort)`" + " - " + "Check the leaderboards" + "\n" +
                             "`/character (name)`" + " - " + "View an uma's profile" + "\n" +
-                            "`/charlist (pics/winrate)`" + " - " + "View the current list of umas" + "\n"
+                            "`/charlist (pics/winrate)`" + " - " + "View the current list of umas" + "\n" +
+                            "`/ranks`" + " - " + "View the point rank ranges" + "\n"
                         },
                         {
                             name: "\n",
