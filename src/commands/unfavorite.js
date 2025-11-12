@@ -1,10 +1,9 @@
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js')
 const { getMongoClient } = require('../connect-db.js')
-const path = require("path")
 
 const setup = require('../../firstinit');
 
-const img = "favorite"
+const img = "unfavorite"
 
 module.exports = {
     name: 'unfavorite',
@@ -12,6 +11,8 @@ module.exports = {
     description: 'Unfavorite one of the umas on your profile',
     
     run: async ({ message, args }) => {
+        var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
+
         const user = message.author
 
         try {
@@ -42,7 +43,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle(`Unfavorite an Uma`)
                 .setColor('LightGrey')
-                .addFields({ name: "\n", value: `\n` })
+                .setThumbnail(`attachment://${img}.png`)
 
             if (args.length == 0) {
                 embed.addFields(
@@ -52,7 +53,7 @@ module.exports = {
                     }
                 )
 
-                await message.channel.send({ embeds: [embed] })
+                await message.channel.send({ embeds: [embed], files: [file] })
             } else {
                 for (let i = 0; i < bothLists.length; i++) { // We are looping through both lists to find a matching uma that holds a nickname passed in through charToSearch
                     if (bothLists[i]["names"].includes(charToSearch)) { // This will take a while :/
@@ -79,7 +80,7 @@ module.exports = {
                                 { upsert: true }
                             );
 
-                            await message.channel.send({ embeds: [embed] })
+                            await message.channel.send({ embeds: [embed], files: [file] })
                             return
                         } else {
                             embed.addFields(
@@ -89,7 +90,7 @@ module.exports = {
                                 }
                             )
 
-                            await message.channel.send({ embeds: [embed] })
+                            await message.channel.send({ embeds: [embed], files: [file] })
                             return
                         }
                     }
@@ -103,7 +104,7 @@ module.exports = {
                         }
                     )
 
-                    await message.channel.send({ embeds: [embed] })
+                    await message.channel.send({ embeds: [embed], files: [file] })
                 }
             }
         } catch (error) {

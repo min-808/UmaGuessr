@@ -1,4 +1,4 @@
-const { RegExpMatcher, TextCensor, englishDataset, englishRecommendedTransformers } = require('obscenity');
+const { RegExpMatcher, englishDataset, englishRecommendedTransformers } = require('obscenity');
 const { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { getMongoClient } = require('../connect-db.js')
 
@@ -9,7 +9,7 @@ const matcher = new RegExpMatcher({
 	...englishRecommendedTransformers,
 });
 
-const img = "discord"
+const img = "setquote"
 
 module.exports = {
     name: 'setquote',
@@ -65,14 +65,14 @@ module.exports = {
                 embed.addFields(
                     {
                         name: "\n",
-                        value: "**Unable to set profile quote**\n\nThe text is longer than 75 characters"
+                        value: "Unable to set profile quote, the text is **longer than 75 characters**"
                     }
                 )
             } else if (matcher.hasMatch(interaction.options.getString('quote'))) { // bad word checker
                 embed.addFields(
                     {
                         name: "\n",
-                        value: "**Unable to set profile quote**\n\nThe text contains profanity"
+                        value: "Unable to set profile quote, the text contains **profanity**"
                     }
                 )
 
@@ -81,14 +81,14 @@ module.exports = {
                 embed.addFields(
                     {
                         name: "\n",
-                        value: "**Unable to set profile quote**\n\nThe text contains a clickable link"
+                        value: "Unable to set profile quote, the text contains a **clickable link**"
                     }
                 )
             } else {
                 embed.addFields(
                     {
                         name: "\n",
-                        value: "**Successfully changed profile quote**"
+                        value: `Successfully **changed** profile quote to:\n\n${interaction.options.getString('quote')}`
                     }
                 )
 

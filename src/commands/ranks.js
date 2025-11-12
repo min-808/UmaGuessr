@@ -1,5 +1,7 @@
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js');
 
+const img = "ranks"
+
 module.exports = {
     name: 'ranks',
     description: 'Shows the list of point ranks',
@@ -7,9 +9,12 @@ module.exports = {
     run: async ({ message }) => {
 
         try {
+            var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
+
             const embed = new EmbedBuilder()
                 .setColor('LightGrey')
                 .setTitle("Ranks")
+                .setThumbnail(`attachment://${img}.png`)
                 .addFields(
                     {
                         name: "\n",
@@ -35,7 +40,7 @@ module.exports = {
                     }
                 )
 
-            await message.channel.send({ embeds: [embed] })
+            await message.channel.send({ embeds: [embed], files: [file] })
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
             console.error("Main uma error:", msg);

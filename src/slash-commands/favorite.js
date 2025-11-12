@@ -1,6 +1,5 @@
 const { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { getMongoClient } = require('../connect-db.js')
-const path = require("path")
 
 const setup = require('../../firstinit');
 
@@ -8,7 +7,6 @@ const img = "favorite"
 
 var globalList = require('../../src/assets/global-list.json')
 var JPList = require('../../src/assets/jp-list.json')
-var otherList = require('../../src/assets/other-list.json') // for norn, belno, and march info
 var bothLists = globalList.concat(JPList)
 
 bothLists.sort((a, b) => a.proper.localeCompare(b.proper));
@@ -55,6 +53,8 @@ module.exports = {
     },
     
     run: async ({ interaction, client }) => {
+        var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
+
         const user = interaction.user
 
         try {
@@ -84,7 +84,7 @@ module.exports = {
             const embed = new EmbedBuilder()
                 .setTitle(`Set Favorite Uma`)
                 .setColor('LightGrey')
-                .addFields({ name: "\n", value: `\n` })
+                .setThumbnail(`attachment://${img}.png`)
 
             if (interaction.options.getString('character') == null) {
                 embed.addFields(
@@ -94,7 +94,7 @@ module.exports = {
                     }
                 )
 
-                await interaction.editReply({ embeds: [embed] })
+                await interaction.editReply({ embeds: [embed], files: [file] })
             } else {
                 if (getFavs['favorites'].length >= getFavs['max_favorites']) {
                     embed.addFields(
@@ -104,7 +104,7 @@ module.exports = {
                             }
                         )
 
-                        await interaction.editReply({ embeds: [embed] })
+                        await interaction.editReply({ embeds: [embed], files: [file] })
                         return
                 } else {
                     for (let i = 0; i < bothLists.length; i++) { // We are looping through both lists to find a matching uma that holds a nickname passed in through charToSearch
@@ -127,7 +127,7 @@ module.exports = {
                                     }
                                 )
 
-                                await interaction.editReply({ embeds: [embed] })
+                                await interaction.editReply({ embeds: [embed], files: [file] })
                                 return
                             } else {
                                 embed.addFields(
@@ -142,7 +142,7 @@ module.exports = {
                                     { upsert: true }
                                 );
 
-                                await interaction.editReply({ embeds: [embed] })
+                                await interaction.editReply({ embeds: [embed], files: [file] })
                                 return
                             }
                         }
@@ -156,7 +156,7 @@ module.exports = {
                             }
                         )
 
-                        await interaction.editReply({ embeds: [embed] })
+                        await interaction.editReply({ embeds: [embed], files: [file] })
                     }
                 }
             }
