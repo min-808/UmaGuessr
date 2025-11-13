@@ -4,7 +4,7 @@
     "number": 5179,
     "proper": "Agnes Tachyon",
     "names": ["agnestachyon", "tachyon", "takion", "アグネスタキオン", "タキオン"],
-    "images": ["agnestachyon1.jpg", "agnestachyon2.jpg", "agnestachyon3.jpg", "agnestachyon4.jpg", "agnestachyon5.jpg", "agnestachyon6.jpg", "agnestachyon7.jpg", "agnestachyon8.jpg", "agnestachyon9.jpg", "agnestachyon10.jpg", "agnestachyon11.jpg", "agnestachyon12.jpg", "agnestachyon13.jpg", "agnestachyon14.jpg", "agnestachyon15.jpg", "agnestachyon16.jpg", "agnestachyon17.jpg", "agnestachyon18.jpg", "agnestachyon19.jpg", "agnestachyon20.jpg", "agnestachyon21.jpg"],
+    "images": ["agnestachyon1.jpg", "agnestachyon2.jpg", "agnestachyon3.jpg", "agnestachyon4.jpg", "agnestachyon5.jpg", "agnestachyon6.jpg", "agnestachyon7.jpg", "agnestachyon8.jpg", "agnestachyon9.jpg", "agnestachyon10.jpg", "agnestachyon11.jpg", "agnestachyon12.jpg", "agnestachyon13.jpg", "agnestachyon14.jpg", "agnestachyon15.jpg", "agnestachyon16.jpg", "agnestachyon17.jpg", "agnestachyon18.jpg", "agnestachyon19.jpg", "agnestachyon20.jpg", "agnestachyon21.jpg", "agnestachyon22.jpg", "agnestachyon23.jpg", "agnestachyon24.jpg"],
     "rarity": 1
   },
   {
@@ -12,7 +12,7 @@
     "number": 5021,
     "proper": "Air Groove",
     "names": ["airgroove", "groove", "エアグルーヴ"],
-    "images": ["airgroove1.jpg", "airgroove2.jpg", "airgroove3.jpg", "airgroove4.jpg", "airgroove5.jpg", "airgroove6.jpg", "airgroove7.jpg", "airgroove8.jpg", "airgroove9.jpg", "airgroove10.jpg"],
+    "images": ["airgroove1.jpg", "airgroove2.jpg", "airgroove3.jpg", "airgroove4.jpg", "airgroove5.jpg", "airgroove6.jpg", "airgroove7.jpg", "airgroove8.jpg", "airgroove9.jpg", "airgroove10.jpg", "airgroove11.jpg"],
     "rarity": 2
   },
   {
@@ -28,7 +28,7 @@
     "number": 5077,
     "proper": "Biwa Hayahide",
     "names": ["biwahayahide", "hayahide", "biwa", "ビワハヤヒデ", "ハヤヒデ"],
-    "images": ["biwahayahide1.jpg", "biwahayahide2.jpg", "biwahayahide3.jpg", "biwahayahide4.jpg", "biwahayahide5.jpg", "biwahayahide6.jpg", "biwahayahide7.jpg", "biwahayahide8.jpg", "biwahayahide9.jpg", "biwahayahide10.jpg"],
+    "images": ["biwahayahide1.jpg", "biwahayahide2.jpg", "biwahayahide3.jpg", "biwahayahide4.jpg", "biwahayahide5.jpg", "biwahayahide6.jpg", "biwahayahide7.jpg", "biwahayahide8.jpg", "biwahayahide9.jpg", "biwahayahide10.jpg", "biwahayahide11.jpg", "biwahayahide12.jpg", "biwahayahide13.jpg", "biwahayahide14.jpg", "biwahayahide15.jpg", "biwahayahide16.jpg"],
     "rarity": 3
   },
   {
@@ -68,7 +68,7 @@
     "number": 4868,
     "proper": "Fuji Kiseki",
     "names": ["fujikiseki", "fuji", "kiseki", "フジキセキ", "フジ"],
-    "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg", "fujikiseki4.jpg", "fujikiseki5.jpg", "fujikiseki6.jpg", "fujikiseki7.jpg", "fujikiseki8.jpg", "fujikiseki9.jpg", "fujikiseki10.jpg", "fujikiseki11.jpg", "fujikiseki12.jpg"],
+    "images": ["fujikiseki1.jpg", "fujikiseki2.jpg", "fujikiseki3.jpg", "fujikiseki4.jpg", "fujikiseki5.jpg", "fujikiseki6.jpg", "fujikiseki7.jpg", "fujikiseki8.jpg", "fujikiseki9.jpg", "fujikiseki10.jpg", "fujikiseki11.jpg", "fujikiseki12.jpg", "fujikiseki13.jpg"],
     "rarity": 3
   },
   {
@@ -180,7 +180,7 @@
     "number": 5463,
     "proper": "Meisho Doto",
     "names": ["meishodoto", "doto", "dotopi", "meisho", "メイショウドトウ", "ドトウ"],
-    "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg", "meishodoto4.jpg", "meishodoto5.jpg", "meishodoto6.jpg", "meishodoto7.jpg", "meishodoto8.jpg", "meishodoto9.jpg", "meishodoto10.jpg", "meishodoto11.jpg", "meishodoto12.jpg", "meishodoto13.jpg", "meishodoto14.jpg"],
+    "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg", "meishodoto4.jpg", "meishodoto5.jpg", "meishodoto6.jpg", "meishodoto7.jpg", "meishodoto8.jpg", "meishodoto9.jpg", "meishodoto10.jpg", "meishodoto11.jpg", "meishodoto12.jpg", "meishodoto13.jpg", "meishodoto14.jpg", "meishodoto15.jpg"],
     "rarity": 3
   },
   {
@@ -204,7 +204,7 @@
     "number": 5111,
     "proper": "Mihono Bourbon",
     "names": ["mihonobourbon", "bourbon", "mihono", "ミホノブルボン", "ブルボン"],
-    "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg", "mihonobourbon3.jpg", "mihonobourbon4.jpg", "mihonobourbon5.jpg", "mihonobourbon6.jpg", "mihonobourbon7.jpg", "mihonobourbon8.jpg", "mihonobourbon9.jpg", "mihonobourbon10.jpg", "mihonobourbon11.jpg", "mihonobourbon12.jpg", "mihonobourbon13.jpg", "mihonobourbon14.jpg", "mihonobourbon15.jpg", "mihonobourbon16.jpg", "mihonobourbon17.jpg", "mihonobourbon18.jpg"],
+    "images": ["mihonobourbon1.jpg", "mihonobourbon2.jpg", "mihonobourbon3.jpg", "mihonobourbon4.jpg", "mihonobourbon5.jpg", "mihonobourbon6.jpg", "mihonobourbon7.jpg", "mihonobourbon8.jpg", "mihonobourbon9.jpg", "mihonobourbon10.jpg", "mihonobourbon11.jpg", "mihonobourbon12.jpg", "mihonobourbon13.jpg", "mihonobourbon14.jpg", "mihonobourbon15.jpg", "mihonobourbon16.jpg", "mihonobourbon17.jpg", "mihonobourbon18.jpg", "mihonobourbon19.jpg"],
     "rarity": 3
   },
   {
@@ -212,7 +212,7 @@
     "number": 4997,
     "proper": "Narita Brian",
     "names": ["naritabrian", "brian", "ナリタブライアン", "ブライアン"],
-    "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg", "naritabrian4.jpg", "naritabrian5.jpg", "naritabrian6.jpg", "naritabrian7.jpg", "naritabrian8.jpg", "naritabrian9.jpg", "naritabrian10.jpg", "naritabrian11.jpg"],
+    "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg", "naritabrian4.jpg", "naritabrian5.jpg", "naritabrian6.jpg", "naritabrian7.jpg", "naritabrian8.jpg", "naritabrian9.jpg", "naritabrian10.jpg", "naritabrian11.jpg", "naritabrian12.jpg"],
     "rarity": 3
   },
   {
@@ -252,7 +252,7 @@
     "number": 5280,
     "proper": "Sakura Bakushin O",
     "names": ["sakurabakushino", "bakushin", "bakushino", "サクラバクシンオー", "バクシン", "バクシンオー"],
-    "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg", "sakurabakushino3.jpg", "sakurabakushino4.jpg", "sakurabakushino5.jpg", "sakurabakushino6.jpg", "sakurabakushino7.jpg", "sakurabakushino8.jpg", "sakurabakushino9.jpg", "sakurabakushino10.jpg"],
+    "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg", "sakurabakushino3.jpg", "sakurabakushino4.jpg", "sakurabakushino5.jpg", "sakurabakushino6.jpg", "sakurabakushino7.jpg", "sakurabakushino8.jpg", "sakurabakushino9.jpg", "sakurabakushino10.jpg", "sakurabakushino11.jpg"],
     "rarity": 1
   },
   {
@@ -300,7 +300,7 @@
     "number": 5009,
     "proper": "Symboli Rudolf",
     "names": ["symbolirudolf", "rudolf", "シンボリルドルフ", "ルドルフ"],
-    "images": ["symbolirudolf1.jpg", "symbolirudolf2.jpg", "symbolirudolf3.jpg", "symbolirudolf4.jpg", "symbolirudolf5.jpg", "symbolirudolf6.jpg", "symbolirudolf7.jpg", "symbolirudolf8.jpg", "symbolirudolf9.jpg", "symbolirudolf10.jpg", "symbolirudolf11.jpg"],
+    "images": ["symbolirudolf1.jpg", "symbolirudolf2.jpg", "symbolirudolf3.jpg", "symbolirudolf4.jpg", "symbolirudolf5.jpg", "symbolirudolf6.jpg", "symbolirudolf7.jpg", "symbolirudolf8.jpg", "symbolirudolf9.jpg", "symbolirudolf10.jpg", "symbolirudolf11.jpg", "symbolirudolf12.jpg", "symbolirudolf13.jpg", "symbolirudolf14.jpg"],
     "rarity": 3
   },
   {
