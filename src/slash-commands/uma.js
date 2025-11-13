@@ -839,6 +839,10 @@ module.exports = {
                             .setImage('attachment://revealed.jpg')
                             .setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s | Used ${state.hintsUsed} hints` });
 
+                        if (type == "IRL") {
+                            revealedEmbed.setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s` });
+                        }
+
                         await sentMsg.edit({
                             embeds: [revealedEmbed],
                             files: [file]

@@ -187,7 +187,7 @@ module.exports = {
                     let files = fs.readdirSync(folderPath)
 
                     chooseChar = Math.floor(Math.random() * files.length)
-                    // chooseChar = 5
+                    // chooseChar = 77
                     chooseImg = files[chooseChar] // picks a random filename
 
                     umaNameArr = chooseImg.split("_") // create arr splitting across the '_'
@@ -870,6 +870,10 @@ module.exports = {
                         const revealedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                             .setImage('attachment://revealed.jpg')
                             .setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s | Used ${state.hintsUsed} hints` });
+
+                        if (type == "IRL") {
+                            revealedEmbed.setFooter({ text: `Guessed by ${msg.author.username} in ${(timeAnswered / 1000).toFixed(2)}s` });
+                        }
 
                         if (type == "Voice") {
                             await sentMsg.edit({
