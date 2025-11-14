@@ -836,6 +836,107 @@ module.exports = {
                             }
                         }
 
+                        // rank up message
+                        const oldPoints = data.points;
+                        const newPoints = data.points + state.points + favPoints;
+
+                        if (
+                            (oldPoints < 100 && newPoints >= 100) ||
+                            (oldPoints < 500 && newPoints >= 500) ||
+                            (oldPoints < 1000 && newPoints >= 1000) ||
+                            (oldPoints < 5000 && newPoints >= 5000) ||
+                            (oldPoints < 10000 && newPoints >= 10000) ||
+                            (oldPoints < 20000 && newPoints >= 20000) ||
+                            (oldPoints < 50000 && newPoints >= 50000) ||
+                            (oldPoints < 100000 && newPoints >= 100000) ||
+                            (oldPoints < 250000 && newPoints >= 250000) ||
+                            (oldPoints < 300000 && newPoints >= 300000) ||
+                            (oldPoints < 375000 && newPoints >= 375000) ||
+                            (oldPoints < 475000 && newPoints >= 475000) ||
+                            (oldPoints < 600000 && newPoints >= 600000) ||
+                            (oldPoints < 750000 && newPoints >= 750000) ||
+                            (oldPoints < 950000 && newPoints >= 950000) ||
+                            (oldPoints < 1200000 && newPoints >= 1200000)
+                        ) {
+
+                            let rankSymbol;
+                            let prevRankSymbol;
+
+                            switch (true) {
+                                case (newPoints < 100):
+                                    rankSymbol = "<:g_rank:1438093909648474162>";
+                                    break;
+                                case (newPoints < 500):
+                                    prevRankSymbol = "<:g_rank:1438093909648474162>";
+                                    rankSymbol = "<:f_rank:1438093911284519013>";
+                                    break;
+                                case (newPoints < 1000):
+                                    prevRankSymbol = "<:f_rank:1438093911284519013>";
+                                    rankSymbol = "<:e_rank:1438093913331208232>";
+                                    break;
+                                case (newPoints < 5000):
+                                    prevRankSymbol = "<:e_rank:1438093913331208232>";
+                                    rankSymbol = "<:d_rank:1438093914564464670>";
+                                    break;
+                                case (newPoints < 10000):
+                                    prevRankSymbol = "<:d_rank:1438093914564464670>";
+                                    rankSymbol = "<:c_rank:1438093915939930152>";
+                                    break;
+                                case (newPoints < 20000):
+                                    prevRankSymbol = "<:c_rank:1438093915939930152>";
+                                    rankSymbol = "<:b_rank:1438093918276419584>";
+                                    break;
+                                case (newPoints < 50000):
+                                    prevRankSymbol = "<:b_rank:1438093918276419584>";
+                                    rankSymbol = "<:a_rank:1438093920079970415>";
+                                    break;
+                                case (newPoints < 100000):
+                                    prevRankSymbol = "<:a_rank:1438093920079970415>";
+                                    rankSymbol = "<:s_rank:1438093922030190622>";
+                                    break;
+                                case (newPoints < 250000):
+                                    prevRankSymbol = "<:s_rank:1438093922030190622>";
+                                    rankSymbol = "<:ss_rank:1438093923896786975>";
+                                    break;
+                                case (newPoints < 300000):
+                                    prevRankSymbol = "<:ss_rank:1438093923896786975>";
+                                    rankSymbol = "<:ug_rank:1438093925113008138>";
+                                    break;
+                                case (newPoints < 375000):
+                                    prevRankSymbol = "<:ug_rank:1438093925113008138>";
+                                    rankSymbol = "<:uf_rank:1438093926639861770>";
+                                    break;
+                                case (newPoints < 475000):
+                                    prevRankSymbol = "<:uf_rank:1438093926639861770>";
+                                    rankSymbol = "<:ue_rank:1438093928560721980>";
+                                    break;
+                                case (newPoints < 600000):
+                                    prevRankSymbol = "<:ue_rank:1438093928560721980>";
+                                    rankSymbol = "<:ud_rank:1438093930314072084>";
+                                    break;
+                                case (newPoints < 750000):
+                                    prevRankSymbol = "<:ud_rank:1438093930314072084>";
+                                    rankSymbol = "<:uc_rank:1438093932671139901>";
+                                    break;
+                                case (newPoints < 950000):
+                                    prevRankSymbol = "<:uc_rank:1438093932671139901>";
+                                    rankSymbol = "<:ub_rank:1438093934395133973>";
+                                    break;
+                                case (newPoints < 1200000):
+                                    prevRankSymbol = "<:ub_rank:1438093934395133973>";
+                                    rankSymbol = "<:ua_rank:1438093935300841534>";
+                                    break;
+                                default:
+                                    prevRankSymbol = "<:ua_rank:1438093935300841534>";
+                                    rankSymbol = "<:us_rank:1438093937419227156>";
+                                    break;
+                            }
+
+                            await message.channel.send(
+                                `**Rank Up!** You've reached a new rank: ${prevRankSymbol} -> ${rankSymbol}`
+                            );
+                        }
+
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
 
                         var pointCount = broadSearch["points"] + state.points + favPoints
@@ -998,6 +1099,107 @@ module.exports = {
                             $push: {
                                 times: timeAnswered,
                             }*/
+                        }
+
+                        // rank up message
+                        const oldPoints = broadSearch['points'];
+                        const newPoints = broadSearch['points'] + addCorrectPoints
+
+                        if (
+                            (oldPoints < 100 && newPoints >= 100) ||
+                            (oldPoints < 500 && newPoints >= 500) ||
+                            (oldPoints < 1000 && newPoints >= 1000) ||
+                            (oldPoints < 5000 && newPoints >= 5000) ||
+                            (oldPoints < 10000 && newPoints >= 10000) ||
+                            (oldPoints < 20000 && newPoints >= 20000) ||
+                            (oldPoints < 50000 && newPoints >= 50000) ||
+                            (oldPoints < 100000 && newPoints >= 100000) ||
+                            (oldPoints < 250000 && newPoints >= 250000) ||
+                            (oldPoints < 300000 && newPoints >= 300000) ||
+                            (oldPoints < 375000 && newPoints >= 375000) ||
+                            (oldPoints < 475000 && newPoints >= 475000) ||
+                            (oldPoints < 600000 && newPoints >= 600000) ||
+                            (oldPoints < 750000 && newPoints >= 750000) ||
+                            (oldPoints < 950000 && newPoints >= 950000) ||
+                            (oldPoints < 1200000 && newPoints >= 1200000)
+                        ) {
+
+                            let rankSymbol;
+                            let prevRankSymbol;
+
+                            switch (true) {
+                                case (newPoints < 100):
+                                    rankSymbol = "<:g_rank:1438093909648474162>";
+                                    break;
+                                case (newPoints < 500):
+                                    prevRankSymbol = "<:g_rank:1438093909648474162>";
+                                    rankSymbol = "<:f_rank:1438093911284519013>";
+                                    break;
+                                case (newPoints < 1000):
+                                    prevRankSymbol = "<:f_rank:1438093911284519013>";
+                                    rankSymbol = "<:e_rank:1438093913331208232>";
+                                    break;
+                                case (newPoints < 5000):
+                                    prevRankSymbol = "<:e_rank:1438093913331208232>";
+                                    rankSymbol = "<:d_rank:1438093914564464670>";
+                                    break;
+                                case (newPoints < 10000):
+                                    prevRankSymbol = "<:d_rank:1438093914564464670>";
+                                    rankSymbol = "<:c_rank:1438093915939930152>";
+                                    break;
+                                case (newPoints < 20000):
+                                    prevRankSymbol = "<:c_rank:1438093915939930152>";
+                                    rankSymbol = "<:b_rank:1438093918276419584>";
+                                    break;
+                                case (newPoints < 50000):
+                                    prevRankSymbol = "<:b_rank:1438093918276419584>";
+                                    rankSymbol = "<:a_rank:1438093920079970415>";
+                                    break;
+                                case (newPoints < 100000):
+                                    prevRankSymbol = "<:a_rank:1438093920079970415>";
+                                    rankSymbol = "<:s_rank:1438093922030190622>";
+                                    break;
+                                case (newPoints < 250000):
+                                    prevRankSymbol = "<:s_rank:1438093922030190622>";
+                                    rankSymbol = "<:ss_rank:1438093923896786975>";
+                                    break;
+                                case (newPoints < 300000):
+                                    prevRankSymbol = "<:ss_rank:1438093923896786975>";
+                                    rankSymbol = "<:ug_rank:1438093925113008138>";
+                                    break;
+                                case (newPoints < 375000):
+                                    prevRankSymbol = "<:ug_rank:1438093925113008138>";
+                                    rankSymbol = "<:uf_rank:1438093926639861770>";
+                                    break;
+                                case (newPoints < 475000):
+                                    prevRankSymbol = "<:uf_rank:1438093926639861770>";
+                                    rankSymbol = "<:ue_rank:1438093928560721980>";
+                                    break;
+                                case (newPoints < 600000):
+                                    prevRankSymbol = "<:ue_rank:1438093928560721980>";
+                                    rankSymbol = "<:ud_rank:1438093930314072084>";
+                                    break;
+                                case (newPoints < 750000):
+                                    prevRankSymbol = "<:ud_rank:1438093930314072084>";
+                                    rankSymbol = "<:uc_rank:1438093932671139901>";
+                                    break;
+                                case (newPoints < 950000):
+                                    prevRankSymbol = "<:uc_rank:1438093932671139901>";
+                                    rankSymbol = "<:ub_rank:1438093934395133973>";
+                                    break;
+                                case (newPoints < 1200000):
+                                    prevRankSymbol = "<:ub_rank:1438093934395133973>";
+                                    rankSymbol = "<:ua_rank:1438093935300841534>";
+                                    break;
+                                default:
+                                    prevRankSymbol = "<:ua_rank:1438093935300841534>";
+                                    rankSymbol = "<:us_rank:1438093937419227156>";
+                                    break;
+                            }
+
+                            await message.channel.send(
+                                `**Rank Up!** You've reached a new rank: ${prevRankSymbol} -> ${rankSymbol}`
+                            );
                         }
 
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
