@@ -842,9 +842,11 @@ module.exports = {
 
                         let {prevRankSymbol, rankSymbol} = returnRankedMessage(oldPoints, newPoints)
 
+                        if (prevRankSymbol && rankSymbol != null) {
                             await message.channel.send(
-                                `**Rank Up!** You've reached a new rank: ${prevRankSymbol} -> ${rankSymbol}`
+                                `**Rank Up** <@${authorID}>! You've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
                             );
+                        }
 
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
 
@@ -1014,7 +1016,13 @@ module.exports = {
                         const oldPoints = broadSearch['points'];
                         const newPoints = broadSearch['points'] + addCorrectPoints
 
-                        
+                        let {prevRankSymbol, rankSymbol} = returnRankedMessage(oldPoints, newPoints)
+
+                        if (prevRankSymbol && rankSymbol != null) {
+                            await message.channel.send(
+                                `**Rank Up** <@${authorID}>! You've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
+                            );
+                        }
 
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
 

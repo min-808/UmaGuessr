@@ -91,9 +91,9 @@ function returnRankedMessage(oldPoints, newPoints) {
                 rankSymbol = "<:us_rank:1438093937419227156>";
                 return { rankSymbol, prevRankSymbol }
         }
+    } else {
+        return { rankSymbol: null, prevRankSymbol: null }
     }
-
-    return null
 }
 
 module.exports = {

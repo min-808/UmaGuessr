@@ -1,9 +1,9 @@
 const { EmbedBuilder, AttachmentBuilder, ButtonBuilder, ButtonStyle, ActionRowBuilder, ComponentType, SlashCommandBuilder } = require('discord.js');
 const { getMongoClient } = require('../connect-db.js');
+const { returnRankedMessage } = require('../misc.js');
+const setup = require('../../firstinit');
 const path = require("path")
 const fs = require('fs')
-
-const setup = require('../../firstinit');
 
 const { gameState, activeChannels } = require('../commands/uma.js');
 
@@ -809,6 +809,18 @@ module.exports = {
                             }
                         }
 
+                        // rank up message
+                        const oldPoints = data.points;
+                        const newPoints = data.points + state.points + favPoints;
+
+                        let {prevRankSymbol, rankSymbol} = returnRankedMessage(oldPoints, newPoints)
+
+                        if (prevRankSymbol && rankSymbol != null) {
+                            await msg.channel.send(
+                                `**Rank Up** <@${authorID}>! You've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
+                            );
+                        }
+
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
 
                         var pointCount = broadSearch["points"] + state.points + favPoints
@@ -957,6 +969,18 @@ module.exports = {
                             $push: {
                                 times: timeAnswered,
                             }*/
+                        }
+
+                        // rank up message
+                        const oldPoints = broadSearch['points'];
+                        const newPoints = broadSearch['points'] + addCorrectPoints
+
+                        let {prevRankSymbol, rankSymbol} = returnRankedMessage(oldPoints, newPoints)
+
+                        if (prevRankSymbol && rankSymbol != null) {
+                            await msg.channel.send(
+                                `**Rank Up** <@${authorID}>! You've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
+                            );
                         }
 
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
