@@ -96,6 +96,67 @@ function returnRankedMessage(oldPoints, newPoints) {
     }
 }
 
+function returnRankedEmote(displayValue) {
+    let rankSymbol
+
+    switch (true) {
+        case (displayValue < 100):
+            rankSymbol = "<:g_rank:1438093909648474162>";
+            break;
+        case (displayValue < 500):
+            rankSymbol = "<:f_rank:1438093911284519013>";
+            break;
+        case (displayValue < 1000):
+            rankSymbol = "<:e_rank:1438093913331208232>";
+            break;
+        case (displayValue < 5000):
+            rankSymbol = "<:d_rank:1438093914564464670>";
+            break;
+        case (displayValue < 10000):
+            rankSymbol = "<:c_rank:1438093915939930152>";
+            break;
+        case (displayValue < 20000):
+            rankSymbol = "<:b_rank:1438093918276419584>";
+            break;
+        case (displayValue < 50000):
+            rankSymbol = "<:a_rank:1438093920079970415>";
+            break;
+        case (displayValue < 100000):
+            rankSymbol = "<:s_rank:1438093922030190622>";
+            break;
+        case (displayValue < 250000):
+            rankSymbol = "<:ss_rank:1438093923896786975>";
+            break;
+        case (displayValue < 300000):
+            rankSymbol = "<:ug_rank:1438093925113008138>";
+            break;
+        case (displayValue < 375000):
+            rankSymbol = "<:uf_rank:1438093926639861770>";
+            break;
+        case (displayValue < 475000):
+            rankSymbol = "<:ue_rank:1438093928560721980>";
+            break;
+        case (displayValue < 600000):
+            rankSymbol = "<:ud_rank:1438093930314072084>";
+            break;
+        case (displayValue < 750000):
+            rankSymbol = "<:uc_rank:1438093932671139901>";
+            break;
+        case (displayValue < 950000):
+            rankSymbol = "<:ub_rank:1438093934395133973>";
+            break;
+        case (displayValue < 1200000):
+            rankSymbol = "<:ua_rank:1438093935300841534>";
+            break;
+        default:
+            rankSymbol = "<:us_rank:1438093937419227156>";
+            break;
+    }
+
+    return rankSymbol
+}
+
 module.exports = {
-    returnRankedMessage
+    returnRankedMessage,
+    returnRankedEmote
 };
