@@ -837,14 +837,14 @@ module.exports = {
                         }
 
                         // rank up message
-                        const oldPoints = data.points;
-                        const newPoints = data.points + state.points + favPoints;
+                        const oldPoints = broadSearch['points']
+                        const newPoints = broadSearch['points'] + state.points + favPoints;
 
                         let {prevRankSymbol, rankSymbol} = returnRankedMessage(oldPoints, newPoints)
 
                         if (prevRankSymbol && rankSymbol != null) {
                             await message.channel.send(
-                                `**Rank Up** <@${authorID}>! You've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
+                                `**Rank Up!!** <@${authorID}>, you've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
                             );
                         }
 
@@ -1020,7 +1020,7 @@ module.exports = {
 
                         if (prevRankSymbol && rankSymbol != null) {
                             await message.channel.send(
-                                `**Rank Up** <@${authorID}>! You've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
+                                `**Rank Up!!** <@${authorID}>, you've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
                             );
                         }
 
