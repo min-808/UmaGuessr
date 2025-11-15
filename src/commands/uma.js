@@ -764,7 +764,7 @@ module.exports = {
                             newQuickest = Math.min(timeAnswered, topTime)
                         }
 
-                        if (data['favorites'].includes(umaName)) { // If they got it right and it's their fav set
+                        if (broadSearch['favorites'].includes(umaName)) { // If they got it right and it's their fav set
                             favPoints += 15
                             await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
                         }
@@ -956,7 +956,7 @@ module.exports = {
 
                         let favPoints = 0
 
-                        if (data['favorites'].includes(umaName)) {
+                        if (broadSearch['favorites'].includes(umaName)) {
                             favPoints += 15
                             await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
                         }
