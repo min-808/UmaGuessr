@@ -6059,12 +6059,11 @@
       },
       {
         "external_urls": [
-          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=101779965"
+          "https://danbooru.donmai.us/posts/5733538"
         ],
-        "service": "pixiv",
-        "member_id": "42502535",
-        "illustration_id": "101779965",
-        "artist": "山野兄弟"
+        "service": "danbooru",
+        "illustration_id": "5733538",
+        "artist": "山野ろかみず"
       },
       {
         "external_urls": [
