@@ -4,7 +4,7 @@
     "number": 5179,
     "proper": "Agnes Tachyon",
     "names": ["agnestachyon", "tachyon", "takion", "アグネスタキオン", "タキオン"],
-    "images": ["agnestachyon1.jpg", "agnestachyon2.jpg", "agnestachyon3.jpg", "agnestachyon4.jpg", "agnestachyon5.jpg", "agnestachyon6.jpg", "agnestachyon7.jpg", "agnestachyon8.jpg", "agnestachyon9.jpg", "agnestachyon10.jpg", "agnestachyon11.jpg", "agnestachyon12.jpg", "agnestachyon13.jpg", "agnestachyon14.jpg", "agnestachyon15.jpg", "agnestachyon16.jpg", "agnestachyon17.jpg", "agnestachyon18.jpg", "agnestachyon19.jpg", "agnestachyon20.jpg", "agnestachyon21.jpg", "agnestachyon22.jpg", "agnestachyon23.jpg", "agnestachyon24.jpg"],
+    "images": ["agnestachyon1.jpg", "agnestachyon2.jpg", "agnestachyon3.jpg", "agnestachyon4.jpg", "agnestachyon5.jpg", "agnestachyon6.jpg", "agnestachyon7.jpg", "agnestachyon8.jpg", "agnestachyon9.jpg", "agnestachyon10.jpg", "agnestachyon11.jpg", "agnestachyon12.jpg", "agnestachyon13.jpg", "agnestachyon14.jpg", "agnestachyon15.jpg", "agnestachyon16.jpg", "agnestachyon17.jpg", "agnestachyon18.jpg", "agnestachyon19.jpg", "agnestachyon20.jpg", "agnestachyon21.jpg", "agnestachyon22.jpg", "agnestachyon23.jpg", "agnestachyon24.jpg", "agnestachyon25.jpg", "agnestachyon26.jpg", "agnestachyon27.jpg"],
     "rarity": 1
   },
   {
@@ -76,7 +76,7 @@
     "number": 5269,
     "proper": "Gold City",
     "names": ["goldcity", "city", "ゴールドシチー", "シチー"],
-    "images": ["goldcity1.jpg", "goldcity2.jpg", "goldcity3.jpg", "goldcity4.jpg", "goldcity5.jpg", "goldcity6.jpg", "goldcity7.jpg", "goldcity8.jpg", "goldcity9.jpg", "goldcity10.jpg", "goldcity11.jpg", "goldcity12.jpg", "goldcity13.jpg", "goldcity14.jpg", "goldcity15.jpg", "goldcity16.jpg", "goldcity17.jpg", "goldcity18.jpg"],
+    "images": ["goldcity1.jpg", "goldcity2.jpg", "goldcity3.jpg", "goldcity4.jpg", "goldcity5.jpg", "goldcity6.jpg", "goldcity7.jpg", "goldcity8.jpg", "goldcity9.jpg", "goldcity10.jpg", "goldcity11.jpg", "goldcity12.jpg", "goldcity13.jpg", "goldcity14.jpg", "goldcity15.jpg", "goldcity16.jpg", "goldcity17.jpg", "goldcity18.jpg", "goldcity19.jpg"],
     "rarity": 3
   },
   {
@@ -108,7 +108,7 @@
     "number": 5404,
     "proper": "Haru Urara",
     "names": ["haruurara", "urara", "haru", "ハルウララ", "ウララ"],
-    "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg", "haruurara4.jpg", "haruurara5.jpg", "haruurara6.jpg", "haruurara7.jpg", "haruurara8.jpg", "haruurara9.jpg", "haruurara10.jpg", "haruurara11.jpg", "haruurara12.jpg", "haruurara13.jpg", "haruurara14.jpg"],
+    "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg", "haruurara4.jpg", "haruurara5.jpg", "haruurara6.jpg", "haruurara7.jpg", "haruurara8.jpg", "haruurara9.jpg", "haruurara10.jpg", "haruurara11.jpg", "haruurara12.jpg", "haruurara13.jpg", "haruurara14.jpg", "haruurara15.jpg", "haruurara16.jpg", "haruurara17.jpg"],
     "rarity": 1
   },
   {
@@ -136,11 +136,19 @@
     "rarity": 3
   },
   {
+    "id": "kashimotoriko",
+    "number": 7078,
+    "proper": "Riko Kashimoto",
+    "names": ["rikokashimoto", "riko", "kashimoto", "樫本理子", "かしもとりこ", "かしもと", "りこ"],
+    "images": ["kashimotoriko1.jpg", "kashimotoriko2.jpg", "kashimotoriko3.jpg", "kashimotoriko4.jpg", "kashimotoriko5.jpg", "kashimotoriko6.jpg", "kashimotoriko7.jpg", "kashimotoriko8.jpg", "kashimotoriko9.jpg", "kashimotoriko10.jpg", "kashimotoriko11.jpg"],
+    "rarity": 10
+  },
+  {
     "id": "kinghalo",
     "number": 5497,
     "proper": "King Halo",
     "names": ["kinghalo", "king", "halo", "キングヘイロー", "キング"],
-    "images": ["kinghalo1.jpg", "kinghalo2.jpg", "kinghalo3.jpg", "kinghalo4.jpg", "kinghalo5.jpg", "kinghalo6.jpg", "kinghalo7.jpg", "kinghalo8.jpg", "kinghalo9.jpg", "kinghalo10.jpg", "kinghalo11.jpg", "kinghalo12.jpg"],
+    "images": ["kinghalo1.jpg", "kinghalo2.jpg", "kinghalo3.jpg", "kinghalo4.jpg", "kinghalo5.jpg", "kinghalo6.jpg", "kinghalo7.jpg", "kinghalo8.jpg", "kinghalo9.jpg", "kinghalo10.jpg", "kinghalo11.jpg", "kinghalo12.jpg", "kinghalo13.jpg"],
     "rarity": 1
   },
   {
@@ -212,7 +220,7 @@
     "number": 4997,
     "proper": "Narita Brian",
     "names": ["naritabrian", "brian", "ナリタブライアン", "ブライアン"],
-    "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg", "naritabrian4.jpg", "naritabrian5.jpg", "naritabrian6.jpg", "naritabrian7.jpg", "naritabrian8.jpg", "naritabrian9.jpg", "naritabrian10.jpg", "naritabrian11.jpg", "naritabrian12.jpg"],
+    "images": ["naritabrian1.jpg", "naritabrian2.jpg", "naritabrian3.jpg", "naritabrian4.jpg", "naritabrian5.jpg", "naritabrian6.jpg", "naritabrian7.jpg", "naritabrian8.jpg", "naritabrian9.jpg", "naritabrian10.jpg", "naritabrian11.jpg", "naritabrian12.jpg", "naritabrian13.jpg"],
     "rarity": 3
   },
   {
@@ -228,7 +236,7 @@
     "number": 5485,
     "proper": "Nice Nature",
     "names": ["nicenature", "nature", "natie", "ナイスネイチャ", "ネイチャ"],
-    "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg", "nicenature4.jpg", "nicenature5.jpg", "nicenature6.jpg", "nicenature7.jpg", "nicenature8.jpg", "nicenature9.jpg", "nicenature10.jpg", "nicenature11.jpg", "nicenature12.jpg", "nicenature13.jpg", "nicenature14.jpg", "nicenature15.jpg", "nicenature16.jpg", "nicenature17.jpg", "nicenature18.jpg", "nicenature19.jpg", "nicenature20.jpg"],
+    "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg", "nicenature4.jpg", "nicenature5.jpg", "nicenature6.jpg", "nicenature7.jpg", "nicenature8.jpg", "nicenature9.jpg", "nicenature10.jpg", "nicenature11.jpg", "nicenature12.jpg", "nicenature13.jpg", "nicenature14.jpg", "nicenature15.jpg", "nicenature16.jpg", "nicenature17.jpg", "nicenature18.jpg", "nicenature19.jpg", "nicenature20.jpg", "nicenature21.jpg"],
     "rarity": 1
   },
   {
@@ -268,7 +276,7 @@
     "number": 4536,
     "proper": "Silence Suzuka",
     "names": ["silencesuzuka", "suzuka", "サイレンススズカ", "スズカ"],
-    "images": ["silencesuzuka1.jpg", "silencesuzuka2.jpg", "silencesuzuka3.jpg", "silencesuzuka4.jpg", "silencesuzuka5.jpg", "silencesuzuka6.jpg", "silencesuzuka7.jpg", "silencesuzuka8.jpg", "silencesuzuka9.jpg", "silencesuzuka10.jpg", "silencesuzuka11.jpg", "silencesuzuka12.jpg", "silencesuzuka13.jpg", "silencesuzuka14.jpg", "silencesuzuka15.jpg"],
+    "images": ["silencesuzuka1.jpg", "silencesuzuka2.jpg", "silencesuzuka3.jpg", "silencesuzuka4.jpg", "silencesuzuka5.jpg", "silencesuzuka6.jpg", "silencesuzuka7.jpg", "silencesuzuka8.jpg", "silencesuzuka9.jpg", "silencesuzuka10.jpg", "silencesuzuka11.jpg", "silencesuzuka12.jpg", "silencesuzuka13.jpg", "silencesuzuka14.jpg", "silencesuzuka15.jpg", "silencesuzuka16.jpg", "silencesuzuka17.jpg"],
     "rarity": 3
   },
   {
@@ -324,7 +332,7 @@
     "number": 4550,
     "proper": "Tokai Teio",
     "names": ["tokaiteio", "teio", "トウカイテイオー"],
-    "images": ["tokaiteio1.jpg", "tokaiteio2.jpg", "tokaiteio3.jpg", "tokaiteio4.jpg", "tokaiteio5.jpg", "tokaiteio6.jpg", "tokaiteio7.jpg", "tokaiteio8.jpg", "tokaiteio9.jpg", "tokaiteio10.jpg", "tokaiteio11.jpg"],
+    "images": ["tokaiteio1.jpg", "tokaiteio2.jpg", "tokaiteio3.jpg", "tokaiteio4.jpg", "tokaiteio5.jpg", "tokaiteio6.jpg", "tokaiteio7.jpg", "tokaiteio8.jpg", "tokaiteio9.jpg", "tokaiteio10.jpg", "tokaiteio11.jpg", "tokaiteio12.jpg"],
     "rarity": 3
   },
   {
