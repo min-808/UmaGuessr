@@ -1,5 +1,13 @@
 [
   {
+    "id": "agnesdigital",
+    "number": 5033,
+    "proper": "Agnes Digital",
+    "names": ["agnesdigital", "digital", "digitan", "アグネスデジタル", "デジタル"],
+    "images": ["agnesdigital1.jpg", "agnesdigital2.jpg", "agnesdigital3.jpg", "agnesdigital4.jpg", "agnesdigital5.jpg", "agnesdigital6.jpg", "agnesdigital7.jpg", "agnesdigital8.jpg", "agnesdigital9.jpg", "agnesdigital10.jpg", "agnesdigital11.jpg", "agnesdigital12.jpg", "agnesdigital13.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "agnestachyon",
     "number": 5179,
     "proper": "Agnes Tachyon",

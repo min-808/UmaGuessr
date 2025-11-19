@@ -32,14 +32,6 @@
     "rarity": 3
     },
     {
-    "id": "agnesdigital",
-    "number": 5033,
-    "proper": "Agnes Digital",
-    "names": ["agnesdigital", "digital", "digitan", "アグネスデジタル", "デジタル"],
-    "images": ["agnesdigital1.jpg", "agnesdigital2.jpg", "agnesdigital3.jpg", "agnesdigital4.jpg", "agnesdigital5.jpg", "agnesdigital6.jpg", "agnesdigital7.jpg", "agnesdigital8.jpg", "agnesdigital9.jpg", "agnesdigital10.jpg", "agnesdigital11.jpg", "agnesdigital12.jpg", "agnesdigital13.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "almondeye",
     "number": 10391,
     "proper": "Almond Eye",
@@ -124,7 +116,7 @@
     "id": "cesario",
     "number": 10176,
     "proper": "Cesario",
-    "names": ["cesario", "シーザリオ"],
+    "names": ["cesario", "cesar", "シーザリオ"],
     "images": ["cesario1.jpg", "cesario2.jpg", "cesario3.jpg", "cesario4.jpg", "cesario5.jpg", "cesario6.jpg", "cesario7.jpg", "cesario8.jpg", "cesario9.jpg", "cesario10.jpg", "cesario11.jpg", "cesario12.jpg", "cesario13.jpg", "cesario14.jpg"],
     "rarity": 3
     },
