@@ -3,6 +3,7 @@ node_modules
 .DS_Store
 *.log
 dbupdate.js
+pd.js
 push.js
 info.json
 add.js
