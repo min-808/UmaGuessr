@@ -172,13 +172,6 @@ module.exports = {
                 }
             }
 
-            var voteTimer = data['vote_timer']
-
-            if (voteTimer + 300_000 > Date.now()) { // Checks for multiplier
-                initialPointsJP = Math.floor(initialPointsJP * 1.5);
-                minusPointsJP = Math.floor(minusPointsJP * 1.5);
-            }
-
             var chooseChar
             var chooseImg
             var umaName
@@ -723,6 +716,12 @@ module.exports = {
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
 
+                        let voteTimer = broadSearch['vote_timer']
+
+                        if (voteTimer + 300_000 > Date.now()) { // Checks for multiplier
+                            state.points = Math.floor(state.points * 1.5);
+                        }
+
                         let topStreak = broadSearch["top_streak"]
                         let newStreak = broadSearch["streak"] + 1
                         
@@ -913,18 +912,24 @@ module.exports = {
 
                         var broadSearch = await ids.findOne({ discord_id: authorID }) // find their profile to begin updates
 
+                        var voteTimer = broadSearch['vote_timer']
                         let favPoints = 0
+                        let addCorrectPoints = state.points
+                        let addWins = 1
+
+                        if (voteTimer + 300_000 > Date.now()) { // Checks for multiplier
+                            addCorrectPoints = Math.floor(addCorrectPoints * 1.5);
+                        }
 
                         if (broadSearch['favorites'].includes(umaName)) {
                             favPoints += 15
                             await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
                         }
 
-                        let addWins = 1
-                        let addCorrectPoints = state.points + favPoints
+                        addCorrectPoints += favPoints
 
                         state.users.set(msg.author.id, msg.author.username)
-                        state.pointsGathered.set(msg.author.id, (state.pointsGathered.get(msg.author.id) ?? 0) + state.points + favPoints)
+                        state.pointsGathered.set(msg.author.id, (state.pointsGathered.get(msg.author.id) ?? 0) + addCorrectPoints)
 
                         if (client.restrictedUsers.get(BigInt(msg.author.id)) == true) { // set answerer's points to 0 if they're restricted
                             state.pointsGathered.set(msg.author.id, 0) // set back to 0 for restricted folk
