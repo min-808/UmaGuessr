@@ -12,7 +12,7 @@
     "number": 5191,
     "proper": "Admire Vega",
     "names": ["admirevega", "ayabe", "ayave", "vega", "アドマイヤベガ", "アヤベ"],
-    "images": ["admirevega1.jpg", "admirevega2.jpg", "admirevega3.jpg", "admirevega4.jpg", "admirevega5.jpg", "admirevega6.jpg", "admirevega7.jpg", "admirevega8.jpg", "admirevega9.jpg", "admirevega10.jpg", "admirevega11.jpg"],
+    "images": ["admirevega1.jpg", "admirevega2.jpg", "admirevega3.jpg", "admirevega4.jpg", "admirevega5.jpg", "admirevega6.jpg", "admirevega7.jpg", "admirevega8.jpg", "admirevega9.jpg", "admirevega10.jpg", "admirevega11.jpg", "admirevega12.jpg"],
     "rarity": 3
     },
     {
@@ -44,7 +44,7 @@
     "number": 7518,
     "proper": "Aston Machan",
     "names": ["astonmachan", "machan", "aston", "アストンマーチャン", "マーちゃん"],
-    "images": ["astonmachan1.jpg", "astonmachan2.jpg", "astonmachan3.jpg", "astonmachan4.jpg", "astonmachan5.jpg", "astonmachan6.jpg", "astonmachan7.jpg", "astonmachan8.jpg", "astonmachan9.jpg", "astonmachan10.jpg", "astonmachan11.jpg", "astonmachan12.jpg", "astonmachan13.jpg"],
+    "images": ["astonmachan1.jpg", "astonmachan2.jpg", "astonmachan3.jpg", "astonmachan4.jpg", "astonmachan5.jpg", "astonmachan6.jpg", "astonmachan7.jpg", "astonmachan8.jpg", "astonmachan9.jpg", "astonmachan10.jpg", "astonmachan11.jpg", "astonmachan12.jpg", "astonmachan13.jpg", "astonmachan14.jpg"],
     "rarity": 3
     },
     {
@@ -101,7 +101,7 @@
     "number": 10374,
     "proper": "Buena Vista",
     "names": ["buenavista", "buena", "vista", "ブエナビスタ", "ブエナ", "ビスタ"],
-    "images": ["buenavista1.jpg", "buenavista2.jpg", "buenavista3.jpg", "buenavista4.jpg", "buenavista5.jpg", "buenavista6.jpg", "buenavista7.jpg", "buenavista8.jpg", "buenavista9.jpg"],
+    "images": ["buenavista1.jpg", "buenavista2.jpg", "buenavista3.jpg", "buenavista4.jpg", "buenavista5.jpg", "buenavista6.jpg", "buenavista7.jpg", "buenavista8.jpg", "buenavista9.jpg", "buenavista10.jpg", "buenavista11.jpg", "buenavista12.jpg", "buenavista13.jpg", "buenavista14.jpg", "buenavista15.jpg", "buenavista16.jpg"],
     "rarity": 3
     },
     {
@@ -109,7 +109,7 @@
     "number": 10372,
     "proper": "Calstone Light O",
     "names": ["calstonelighto", "calstone", "calstonelight", "lighto", "カルストン", "カルストンライトオ", "カルストンライトオ"],
-    "images": ["calstonelighto1.jpg", "calstonelighto2.jpg", "calstonelighto3.jpg", "calstonelighto4.jpg", "calstonelighto5.jpg", "calstonelighto6.jpg", "calstonelighto7.jpg", "calstonelighto8.jpg", "calstonelighto9.jpg", "calstonelighto10.jpg", "calstonelighto11.jpg", "calstonelighto12.jpg", "calstonelighto13.jpg", "calstonelighto14.jpg", "calstonelighto15.jpg", "calstonelighto16.jpg", "calstonelighto17.jpg"],
+    "images": ["calstonelighto1.jpg", "calstonelighto2.jpg", "calstonelighto3.jpg", "calstonelighto4.jpg", "calstonelighto5.jpg", "calstonelighto6.jpg", "calstonelighto7.jpg", "calstonelighto8.jpg", "calstonelighto9.jpg", "calstonelighto10.jpg", "calstonelighto11.jpg", "calstonelighto12.jpg", "calstonelighto13.jpg", "calstonelighto14.jpg", "calstonelighto15.jpg", "calstonelighto16.jpg", "calstonelighto17.jpg", "calstonelighto18.jpg", "calstonelighto19.jpg"],
     "rarity": 3
     },
     {
@@ -125,7 +125,7 @@
     "number": 7520,
     "proper": "Cheval Grand",
     "names": ["chevalgrand", "cheval", "grand", "chevacchi", "シュヴァルグラン", "シュヴァル"],
-    "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg", "chevalgrand6.jpg", "chevalgrand7.jpg", "chevalgrand8.jpg", "chevalgrand9.jpg", "chevalgrand10.jpg", "chevalgrand11.jpg", "chevalgrand12.jpg", "chevalgrand13.jpg", "chevalgrand14.jpg", "chevalgrand15.jpg", "chevalgrand16.jpg", "chevalgrand17.jpg", "chevalgrand18.jpg", "chevalgrand19.jpg", "chevalgrand20.jpg", "chevalgrand21.jpg", "chevalgrand22.jpg", "chevalgrand23.jpg", "chevalgrand24.jpg", "chevalgrand25.jpg", "chevalgrand26.jpg", "chevalgrand27.jpg", "chevalgrand28.jpg", "chevalgrand29.jpg"],
+    "images": ["chevalgrand1.jpg", "chevalgrand2.jpg", "chevalgrand3.jpg", "chevalgrand4.jpg", "chevalgrand5.jpg", "chevalgrand6.jpg", "chevalgrand7.jpg", "chevalgrand8.jpg", "chevalgrand9.jpg", "chevalgrand10.jpg", "chevalgrand11.jpg", "chevalgrand12.jpg", "chevalgrand13.jpg", "chevalgrand14.jpg", "chevalgrand15.jpg", "chevalgrand16.jpg", "chevalgrand17.jpg", "chevalgrand18.jpg", "chevalgrand19.jpg", "chevalgrand20.jpg", "chevalgrand21.jpg", "chevalgrand22.jpg", "chevalgrand23.jpg", "chevalgrand24.jpg", "chevalgrand25.jpg", "chevalgrand26.jpg", "chevalgrand27.jpg", "chevalgrand28.jpg", "chevalgrand29.jpg", "chevalgrand30.jpg", "chevalgrand31.jpg", "chevalgrand32.jpg"],
     "rarity": 3
     },
     {
@@ -133,7 +133,7 @@
     "number": 10387,
     "proper": "Chrono Genesis",
     "names": ["chronogenesis", "chrono", "クロノジェネシス"],
-    "images": ["chronogenesis1.jpg", "chronogenesis2.jpg", "chronogenesis3.jpg", "chronogenesis4.jpg", "chronogenesis5.jpg", "chronogenesis6.jpg", "chronogenesis7.jpg", "chronogenesis8.jpg", "chronogenesis9.jpg", "chronogenesis10.jpg", "chronogenesis11.jpg", "chronogenesis12.jpg", "chronogenesis13.jpg", "chronogenesis14.jpg", "chronogenesis15.jpg"],
+    "images": ["chronogenesis1.jpg", "chronogenesis2.jpg", "chronogenesis3.jpg", "chronogenesis4.jpg", "chronogenesis5.jpg", "chronogenesis6.jpg", "chronogenesis7.jpg", "chronogenesis8.jpg", "chronogenesis9.jpg", "chronogenesis10.jpg", "chronogenesis11.jpg", "chronogenesis12.jpg", "chronogenesis13.jpg", "chronogenesis14.jpg", "chronogenesis15.jpg", "chronogenesis16.jpg"],
     "rarity": 3
     },
     {
@@ -165,7 +165,7 @@
     "number": 5574,
     "proper": "Daitaku Helios",
     "names": ["daitakuhelios", "helios", "daitaku", "ダイタクヘリオス", "ヘリオス"],
-    "images": ["daitakuhelios1.jpg", "daitakuhelios2.jpg", "daitakuhelios3.jpg", "daitakuhelios4.jpg", "daitakuhelios5.jpg", "daitakuhelios6.jpg", "daitakuhelios7.jpg", "daitakuhelios8.jpg", "daitakuhelios9.jpg", "daitakuhelios10.jpg", "daitakuhelios11.jpg", "daitakuhelios12.jpg", "daitakuhelios13.jpg", "daitakuhelios14.jpg", "daitakuhelios15.jpg", "daitakuhelios16.jpg", "daitakuhelios17.jpg", "daitakuhelios18.jpg", "daitakuhelios19.jpg", "daitakuhelios20.jpg"],
+    "images": ["daitakuhelios1.jpg", "daitakuhelios2.jpg", "daitakuhelios3.jpg", "daitakuhelios4.jpg", "daitakuhelios5.jpg", "daitakuhelios6.jpg", "daitakuhelios7.jpg", "daitakuhelios8.jpg", "daitakuhelios9.jpg", "daitakuhelios10.jpg", "daitakuhelios11.jpg", "daitakuhelios12.jpg", "daitakuhelios13.jpg", "daitakuhelios14.jpg", "daitakuhelios15.jpg", "daitakuhelios16.jpg", "daitakuhelios17.jpg", "daitakuhelios18.jpg", "daitakuhelios19.jpg", "daitakuhelios20.jpg", "daitakuhelios21.jpg", "daitakuhelios22.jpg", "daitakuhelios23.jpg", "daitakuhelios24.jpg"],
     "rarity": 3
     },
     {
@@ -205,7 +205,7 @@
     "number": 10373,
     "proper": "Dream Journey",
     "names": ["dreamjourney", "dura", "dream", "journey", "ドリームジャーニー"],
-    "images": ["dreamjourney1.jpg", "dreamjourney2.jpg", "dreamjourney3.jpg", "dreamjourney4.jpg", "dreamjourney5.jpg", "dreamjourney6.jpg", "dreamjourney7.jpg", "dreamjourney8.jpg", "dreamjourney9.jpg", "dreamjourney10.jpg", "dreamjourney11.jpg", "dreamjourney12.jpg", "dreamjourney13.jpg", "dreamjourney14.jpg"],
+    "images": ["dreamjourney1.jpg", "dreamjourney2.jpg", "dreamjourney3.jpg", "dreamjourney4.jpg", "dreamjourney5.jpg", "dreamjourney6.jpg", "dreamjourney7.jpg", "dreamjourney8.jpg", "dreamjourney9.jpg", "dreamjourney10.jpg", "dreamjourney11.jpg", "dreamjourney12.jpg", "dreamjourney13.jpg", "dreamjourney14.jpg", "dreamjourney15.jpg"],
     "rarity": 3
     },
     {
@@ -285,7 +285,7 @@
     "number": 10337,
     "proper": "Gentildonna",
     "names": ["gentildonna", "donna", "ジェンティルドンナ"],
-    "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg", "gentildonna4.jpg", "gentildonna5.jpg", "gentildonna6.jpg", "gentildonna7.jpg", "gentildonna8.jpg", "gentildonna9.jpg", "gentildonna10.jpg", "gentildonna11.jpg", "gentildonna12.jpg", "gentildonna13.jpg", "gentildonna14.jpg", "gentildonna15.jpg", "gentildonna16.jpg", "gentildonna17.jpg", "gentildonna18.jpg", "gentildonna19.jpg", "gentildonna20.jpg", "gentildonna21.jpg", "gentildonna22.jpg"],
+    "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg", "gentildonna4.jpg", "gentildonna5.jpg", "gentildonna6.jpg", "gentildonna7.jpg", "gentildonna8.jpg", "gentildonna9.jpg", "gentildonna10.jpg", "gentildonna11.jpg", "gentildonna12.jpg", "gentildonna13.jpg", "gentildonna14.jpg", "gentildonna15.jpg", "gentildonna16.jpg", "gentildonna17.jpg", "gentildonna18.jpg", "gentildonna19.jpg", "gentildonna20.jpg", "gentildonna21.jpg", "gentildonna22.jpg", "gentildonna23.jpg", "gentildonna24.jpg", "gentildonna25.jpg", "gentildonna26.jpg", "gentildonna27.jpg", "gentildonna28.jpg", "gentildonna29.jpg"],
     "rarity": 3
     },
     {
@@ -365,7 +365,7 @@
     "number": 5603,
     "proper": "Kitasan Black",
     "names": ["kitasanblack", "kita", "kitasan", "キタサンブラック", "キタサン"],
-    "images": ["kitasanblack1.jpg", "kitasanblack2.jpg", "kitasanblack3.jpg", "kitasanblack4.jpg", "kitasanblack5.jpg", "kitasanblack6.jpg", "kitasanblack7.jpg", "kitasanblack8.jpg", "kitasanblack9.jpg", "kitasanblack10.jpg", "kitasanblack11.jpg", "kitasanblack12.jpg", "kitasanblack13.jpg"],
+    "images": ["kitasanblack1.jpg", "kitasanblack2.jpg", "kitasanblack3.jpg", "kitasanblack4.jpg", "kitasanblack5.jpg", "kitasanblack6.jpg", "kitasanblack7.jpg", "kitasanblack8.jpg", "kitasanblack9.jpg", "kitasanblack10.jpg", "kitasanblack11.jpg", "kitasanblack12.jpg", "kitasanblack13.jpg", "kitasanblack14.jpg"],
     "rarity": 3
     },
     {
@@ -389,7 +389,7 @@
     "number": 10390,
     "proper": "Lucky Lilac",
     "names": ["luckylilac", "lucky", "lilac", "lala", "ラッキー", "ライラック", "ララ"],
-    "images": ["luckylilac1.jpg", "luckylilac2.jpg", "luckylilac3.jpg", "luckylilac4.jpg", "luckylilac5.jpg", "luckylilac6.jpg", "luckylilac7.jpg", "luckylilac8.jpg", "luckylilac9.jpg"],
+    "images": ["luckylilac1.jpg", "luckylilac2.jpg", "luckylilac3.jpg", "luckylilac4.jpg", "luckylilac5.jpg", "luckylilac6.jpg", "luckylilac7.jpg", "luckylilac8.jpg", "luckylilac9.jpg", "luckylilac10.jpg"],
     "rarity": 3
     },
     {
@@ -397,7 +397,7 @@
     "number": 5100,
     "proper": "Manhattan Cafe",
     "names": ["manhattancafe", "cafe", "マンハッタンカフェ", "カフェ"],
-    "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg", "manhattancafe4.jpg", "manhattancafe5.jpg", "manhattancafe6.jpg", "manhattancafe7.jpg", "manhattancafe8.jpg", "manhattancafe9.jpg", "manhattancafe10.jpg", "manhattancafe11.jpg", "manhattancafe12.jpg", "manhattancafe13.jpg", "manhattancafe14.jpg", "manhattancafe15.jpg", "manhattancafe16.jpg", "manhattancafe17.jpg", "manhattancafe18.jpg", "manhattancafe19.jpg", "manhattancafe20.jpg", "manhattancafe21.jpg", "manhattancafe22.jpg", "manhattancafe23.jpg", "manhattancafe24.jpg", "manhattancafe25.jpg", "manhattancafe26.jpg", "manhattancafe27.jpg", "manhattancafe28.jpg", "manhattancafe29.jpg", "manhattancafe30.jpg", "manhattancafe31.jpg", "manhattancafe32.jpg", "manhattancafe33.jpg"],
+    "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg", "manhattancafe4.jpg", "manhattancafe5.jpg", "manhattancafe6.jpg", "manhattancafe7.jpg", "manhattancafe8.jpg", "manhattancafe9.jpg", "manhattancafe10.jpg", "manhattancafe11.jpg", "manhattancafe12.jpg", "manhattancafe13.jpg", "manhattancafe14.jpg", "manhattancafe15.jpg", "manhattancafe16.jpg", "manhattancafe17.jpg", "manhattancafe18.jpg", "manhattancafe19.jpg", "manhattancafe20.jpg", "manhattancafe21.jpg", "manhattancafe22.jpg", "manhattancafe23.jpg", "manhattancafe24.jpg", "manhattancafe25.jpg", "manhattancafe26.jpg", "manhattancafe27.jpg", "manhattancafe28.jpg", "manhattancafe29.jpg", "manhattancafe30.jpg", "manhattancafe31.jpg", "manhattancafe32.jpg", "manhattancafe33.jpg", "manhattancafe34.jpg", "manhattancafe35.jpg", "manhattancafe36.jpg", "manhattancafe37.jpg", "manhattancafe38.jpg"],
     "rarity": 3
     },
     {
@@ -493,7 +493,7 @@
     "number": 5371,
     "proper": "Nakayama Festa",
     "names": ["nakayamafesta", "nakayama", "festa", "ナカヤマフェスタ", "ナカヤマ"],
-    "images": ["nakayamafesta1.jpg", "nakayamafesta2.jpg", "nakayamafesta3.jpg", "nakayamafesta4.jpg", "nakayamafesta5.jpg", "nakayamafesta6.jpg", "nakayamafesta7.jpg", "nakayamafesta8.jpg"],
+    "images": ["nakayamafesta1.jpg", "nakayamafesta2.jpg", "nakayamafesta3.jpg", "nakayamafesta4.jpg", "nakayamafesta5.jpg", "nakayamafesta6.jpg", "nakayamafesta7.jpg", "nakayamafesta8.jpg", "nakayamafesta9.jpg", "nakayamafesta10.jpg", "nakayamafesta11.jpg"],
     "rarity": 3
     },
     {
@@ -533,7 +533,7 @@
     "number": 50000,
     "proper": "Norn Ace",
     "names": ["nornace", "norn", "ノルンエース", "ノルン"],
-    "images":["nornace1.jpg","nornace2.jpg","nornace3.jpg","nornace4.jpg","nornace5.jpg","nornace6.jpg","nornace7.jpg","nornace8.jpg","nornace9.jpg","nornace10.jpg","nornace11.jpg","nornace12.jpg","nornace13.jpg","nornace14.jpg","nornace15.jpg","nornace16.jpg","nornace17.jpg"],
+    "images": ["nornace1.jpg", "nornace2.jpg", "nornace3.jpg", "nornace4.jpg", "nornace5.jpg", "nornace6.jpg", "nornace7.jpg", "nornace8.jpg", "nornace9.jpg", "nornace10.jpg", "nornace11.jpg", "nornace12.jpg", "nornace13.jpg", "nornace14.jpg", "nornace15.jpg", "nornace16.jpg", "nornace17.jpg", "nornace18.jpg"],
     "rarity": 10
     },
     {
@@ -557,7 +557,7 @@
     "number": 10325,
     "proper": "Orfevre",
     "names": ["orfevre", "オルフェーヴル"],
-    "images": ["orfevre1.jpg", "orfevre2.jpg", "orfevre3.jpg", "orfevre4.jpg", "orfevre5.jpg", "orfevre6.jpg", "orfevre7.jpg", "orfevre8.jpg", "orfevre9.jpg", "orfevre10.jpg", "orfevre11.jpg", "orfevre12.jpg", "orfevre13.jpg", "orfevre14.jpg", "orfevre15.jpg", "orfevre16.jpg", "orfevre17.jpg", "orfevre18.jpg", "orfevre19.jpg", "orfevre20.jpg"],
+    "images": ["orfevre1.jpg", "orfevre2.jpg", "orfevre3.jpg", "orfevre4.jpg", "orfevre5.jpg", "orfevre6.jpg", "orfevre7.jpg", "orfevre8.jpg", "orfevre9.jpg", "orfevre10.jpg", "orfevre11.jpg", "orfevre12.jpg", "orfevre13.jpg", "orfevre14.jpg", "orfevre15.jpg", "orfevre16.jpg", "orfevre17.jpg", "orfevre18.jpg", "orfevre19.jpg", "orfevre20.jpg", "orfevre21.jpg"],
     "rarity": 3
     },
     {
@@ -637,7 +637,7 @@
     "number": 5593,
     "proper": "Satono Diamond",
     "names": ["satonodiamond", "diamond", "dia", "diachan", "dia-chan", "サトノダイヤモンド", "ダイヤ"],
-    "images": ["satonodiamond1.jpg", "satonodiamond2.jpg", "satonodiamond3.jpg", "satonodiamond4.jpg", "satonodiamond5.jpg", "satonodiamond6.jpg", "satonodiamond7.jpg", "satonodiamond8.jpg", "satonodiamond9.jpg", "satonodiamond10.jpg", "satonodiamond11.jpg", "satonodiamond12.jpg", "satonodiamond13.jpg", "satonodiamond14.jpg", "satonodiamond15.jpg", "satonodiamond16.jpg", "satonodiamond17.jpg", "satonodiamond18.jpg", "satonodiamond19.jpg", "satonodiamond20.jpg", "satonodiamond21.jpg", "satonodiamond22.jpg"],
+    "images": ["satonodiamond1.jpg", "satonodiamond2.jpg", "satonodiamond3.jpg", "satonodiamond4.jpg", "satonodiamond5.jpg", "satonodiamond6.jpg", "satonodiamond7.jpg", "satonodiamond8.jpg", "satonodiamond9.jpg", "satonodiamond10.jpg", "satonodiamond11.jpg", "satonodiamond12.jpg", "satonodiamond13.jpg", "satonodiamond14.jpg", "satonodiamond15.jpg", "satonodiamond16.jpg", "satonodiamond17.jpg", "satonodiamond18.jpg", "satonodiamond19.jpg", "satonodiamond20.jpg", "satonodiamond21.jpg", "satonodiamond22.jpg", "satonodiamond23.jpg", "satonodiamond24.jpg"],
     "rarity": 3
     },
     {
@@ -677,7 +677,7 @@
     "number": 10393,
     "proper": "Stay Gold",
     "names": ["staygold", "stay", "stego", "ステイゴールド", "ステゴ"],
-    "images": ["staygold1.jpg", "staygold2.jpg", "staygold3.jpg", "staygold4.jpg", "staygold5.jpg", "staygold6.jpg", "staygold7.jpg", "staygold8.jpg", "staygold9.jpg"],
+    "images": ["staygold1.jpg", "staygold2.jpg", "staygold3.jpg", "staygold4.jpg", "staygold5.jpg", "staygold6.jpg", "staygold7.jpg", "staygold8.jpg", "staygold9.jpg", "staygold10.jpg"],
     "rarity": 3
     },
     {
@@ -685,7 +685,7 @@
     "number": 10313,
     "proper": "Still in Love",
     "names": ["stillinlove", "still", "inlove", "スティルインラブ", "スティル"],
-    "images": ["stillinlove1.jpg", "stillinlove2.jpg", "stillinlove3.jpg", "stillinlove4.jpg", "stillinlove5.jpg", "stillinlove6.jpg", "stillinlove7.jpg", "stillinlove8.jpg", "stillinlove9.jpg", "stillinlove10.jpg", "stillinlove11.jpg", "stillinlove12.jpg", "stillinlove13.jpg", "stillinlove14.jpg", "stillinlove15.jpg", "stillinlove16.jpg", "stillinlove17.jpg", "stillinlove18.jpg", "stillinlove19.jpg", "stillinlove20.jpg"],
+    "images": ["stillinlove1.jpg", "stillinlove2.jpg", "stillinlove3.jpg", "stillinlove4.jpg", "stillinlove5.jpg", "stillinlove6.jpg", "stillinlove7.jpg", "stillinlove8.jpg", "stillinlove9.jpg", "stillinlove10.jpg", "stillinlove11.jpg", "stillinlove12.jpg", "stillinlove13.jpg", "stillinlove14.jpg", "stillinlove15.jpg", "stillinlove16.jpg", "stillinlove17.jpg", "stillinlove18.jpg", "stillinlove19.jpg", "stillinlove20.jpg", "stillinlove21.jpg"],
     "rarity": 3
     },
     {
@@ -701,7 +701,7 @@
     "number": 7730,
     "proper": "Symboli Kris S",
     "names": ["symbolikriss", "kriss", "kris", "シンボリクリスエス", "クリスエス", "クリス"],
-    "images":["symbolikriss1.jpg","symbolikriss2.jpg","symbolikriss3.jpg","symbolikriss4.jpg","symbolikriss5.jpg","symbolikriss6.jpg","symbolikriss7.jpg","symbolikriss8.jpg","symbolikriss9.jpg","symbolikriss10.jpg","symbolikriss11.jpg","symbolikriss12.jpg","symbolikriss13.jpg","symbolikriss14.jpg","symbolikriss15.jpg","symbolikriss16.jpg","symbolikriss17.jpg","symbolikriss18.jpg","symbolikriss19.jpg","symbolikriss20.jpg","symbolikriss21.jpg","symbolikriss22.jpg"],
+    "images": ["symbolikriss1.jpg", "symbolikriss2.jpg", "symbolikriss3.jpg", "symbolikriss4.jpg", "symbolikriss5.jpg", "symbolikriss6.jpg", "symbolikriss7.jpg", "symbolikriss8.jpg", "symbolikriss9.jpg", "symbolikriss10.jpg", "symbolikriss11.jpg", "symbolikriss12.jpg", "symbolikriss13.jpg", "symbolikriss14.jpg", "symbolikriss15.jpg", "symbolikriss16.jpg", "symbolikriss17.jpg", "symbolikriss18.jpg", "symbolikriss19.jpg", "symbolikriss20.jpg", "symbolikriss21.jpg", "symbolikriss22.jpg", "symbolikriss23.jpg"],
     "rarity": 3
     },
     {
@@ -709,7 +709,7 @@
     "number": 5055,
     "proper": "Tamamo Cross",
     "names": ["tamamocross", "tamamo", "tama", "cross", "タマモクロス", "タマモ", "タマ"],
-    "images": ["tamamocross1.jpg", "tamamocross2.jpg", "tamamocross3.jpg", "tamamocross4.jpg", "tamamocross5.jpg", "tamamocross6.jpg", "tamamocross7.jpg", "tamamocross8.jpg", "tamamocross9.jpg", "tamamocross10.jpg", "tamamocross11.jpg", "tamamocross12.jpg", "tamamocross13.jpg", "tamamocross14.jpg", "tamamocross15.jpg", "tamamocross16.jpg", "tamamocross17.jpg", "tamamocross18.jpg", "tamamocross19.jpg"],
+    "images": ["tamamocross1.jpg", "tamamocross2.jpg", "tamamocross3.jpg", "tamamocross4.jpg", "tamamocross5.jpg", "tamamocross6.jpg", "tamamocross7.jpg", "tamamocross8.jpg", "tamamocross9.jpg", "tamamocross10.jpg", "tamamocross11.jpg", "tamamocross12.jpg", "tamamocross13.jpg", "tamamocross14.jpg", "tamamocross15.jpg", "tamamocross16.jpg", "tamamocross17.jpg", "tamamocross18.jpg", "tamamocross19.jpg", "tamamocross20.jpg", "tamamocross21.jpg"],
     "rarity": 3
     },
     {
@@ -749,7 +749,7 @@
     "number": 10269,
     "proper": "Transcend",
     "names": ["transcend", "トランセンド"],
-    "images": ["transcend1.jpg", "transcend2.jpg", "transcend3.jpg", "transcend4.jpg", "transcend5.jpg", "transcend6.jpg", "transcend7.jpg", "transcend8.jpg", "transcend9.jpg"],
+    "images": ["transcend1.jpg", "transcend2.jpg", "transcend3.jpg", "transcend4.jpg", "transcend5.jpg", "transcend6.jpg", "transcend7.jpg", "transcend8.jpg", "transcend9.jpg", "transcend10.jpg"],
     "rarity": 3
     },
     {
@@ -773,7 +773,7 @@
     "number": 10002,
     "proper": "Verxina",
     "names": ["verxina", "ヴィルシーナ"],
-    "images": ["verxina1.jpg", "verxina2.jpg", "verxina3.jpg", "verxina4.jpg", "verxina5.jpg", "verxina6.jpg", "verxina7.jpg", "verxina8.jpg", "verxina9.jpg", "verxina10.jpg", "verxina11.jpg", "verxina12.jpg", "verxina13.jpg", "verxina14.jpg"],
+    "images": ["verxina1.jpg", "verxina2.jpg", "verxina3.jpg", "verxina4.jpg", "verxina5.jpg", "verxina6.jpg", "verxina7.jpg", "verxina8.jpg", "verxina9.jpg", "verxina10.jpg", "verxina11.jpg", "verxina12.jpg", "verxina13.jpg", "verxina14.jpg", "verxina15.jpg"],
     "rarity": 3
     },
     {
@@ -781,7 +781,7 @@
     "number": 10013,
     "proper": "Vivlos",
     "names": ["vivlos", "ヴィブロス"],
-    "images": ["vivlos1.jpg", "vivlos2.jpg", "vivlos3.jpg", "vivlos4.jpg", "vivlos5.jpg", "vivlos6.jpg", "vivlos7.jpg", "vivlos8.jpg", "vivlos9.jpg", "vivlos10.jpg", "vivlos11.jpg", "vivlos12.jpg", "vivlos13.jpg", "vivlos14.jpg", "vivlos15.jpg", "vivlos16.jpg", "vivlos17.jpg", "vivlos18.jpg", "vivlos19.jpg", "vivlos20.jpg"],
+    "images": ["vivlos1.jpg", "vivlos2.jpg", "vivlos3.jpg", "vivlos4.jpg", "vivlos5.jpg", "vivlos6.jpg", "vivlos7.jpg", "vivlos8.jpg", "vivlos9.jpg", "vivlos10.jpg", "vivlos11.jpg", "vivlos12.jpg", "vivlos13.jpg", "vivlos14.jpg", "vivlos15.jpg", "vivlos16.jpg", "vivlos17.jpg", "vivlos18.jpg", "vivlos19.jpg", "vivlos20.jpg", "vivlos21.jpg", "vivlos22.jpg"],
     "rarity": 3
     },
     {
@@ -805,7 +805,7 @@
     "number": 5535,
     "proper": "Yaeno Muteki",
     "names": ["yaenomuteki", "yaeno", "muteki", "ヤエノムテキ"],
-    "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg", "yaenomuteki5.jpg", "yaenomuteki6.jpg", "yaenomuteki7.jpg", "yaenomuteki8.jpg", "yaenomuteki9.jpg", "yaenomuteki10.jpg", "yaenomuteki11.jpg", "yaenomuteki12.jpg"],
+    "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg", "yaenomuteki5.jpg", "yaenomuteki6.jpg", "yaenomuteki7.jpg", "yaenomuteki8.jpg", "yaenomuteki9.jpg", "yaenomuteki10.jpg", "yaenomuteki11.jpg", "yaenomuteki12.jpg", "yaenomuteki13.jpg", "yaenomuteki14.jpg"],
     "rarity": 3
     },
     {
