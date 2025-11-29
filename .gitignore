@@ -1,12 +1,28 @@
+# env
 .env
+
+# Admin/debug commmands
+restrict.js
+unrestrict.js
+add.js
+pd.js
+push.js
+dbupdate.js
+roll.js
+collection.js
+analyze.js
+
+# Images
+/src/assets/guessing
+/src/assets/cache
+/src/assets/multi
+/src/assets/multi_cache
+/src/assets/horses
+
+src/assets/new/
+
+# etc.
 node_modules
 .DS_Store
 *.log
-dbupdate.js
-pd.js
-push.js
 info.json
-add.js
-src/assets/new/
-restrict.js
-unrestrict.js
