@@ -10,6 +10,7 @@ const { getMongoClient } = require('./connect-db.js');
 const { buildCache } = require("./cache-images.js");
 const { CommandHandler } = require('djs-commander');
 const { connectMongo } = require('./connect-db.js');
+const { exemptUsers } = require('./exemptUsers');
 
 const prefixCache = new Map()
 const strictCache = new Map()
@@ -47,13 +48,6 @@ process.on('uncaughtException', (err) => {
 process.on('unhandledRejection', (reason, p) => {
     writeLog('UNHANDLED_REJECTION', reason?.stack || reason);
 });
-
-const exemptUsers = new Set([
-  "236186510326628353", // min
-  "343908475245559820", // someone
-  "329497108157562880", // kekai
-  "166391253439610881" // kekai's alt
-])
 
 const client = new Client({
     intents: [
