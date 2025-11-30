@@ -10,7 +10,7 @@ const { getMongoClient } = require('./connect-db.js');
 const { buildCache } = require("./cache-images.js");
 const { CommandHandler } = require('djs-commander');
 const { connectMongo } = require('./connect-db.js');
-const { exemptUsers } = require('./exemptUsers');
+const exemptUsers = require('./exemptUsers');
 
 const prefixCache = new Map()
 const strictCache = new Map()
