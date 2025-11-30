@@ -18,6 +18,8 @@ const restrictedUsers = new Map()
 const cooldowns = new Map()
 const COOLDOWN = 2000
 
+const args = process.argv.slice(2)
+
 var globalList = require('./assets/global-list.json')
 var JPList = require('./assets/jp-list.json');
 const { strict } = require('assert');
@@ -73,6 +75,7 @@ var logChannel;
 new CommandHandler({
     client,
     commandsPath: path.join(__dirname, 'slash-commands'),
+    testServer: args.includes('test') ? process.env.GUILD_ID : null
     // testServer: process.env.GUILD_ID
 });
 
@@ -431,7 +434,11 @@ async function setUptime() {
 
         checkImages(combinedList, path.join(__dirname, "./assets/guessing"))
 
-        client.login(process.env.TOKEN);
+        if (args.includes('test') || args.includes('--test')) {
+            client.login(process.env.TEST_BOT)
+        } else {
+            client.login(process.env.MAIN_BOT)
+        }
     } catch (error) {
         console.log(`Error: ${error}`);
     }
