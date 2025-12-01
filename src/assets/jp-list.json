@@ -353,14 +353,6 @@
     "rarity": 3
     },
     {
-    "id": "kawakamiprincess",
-    "number": 5258,
-    "proper": "Kawakami Princess",
-    "names": ["kawakamiprincess", "kawakami", "princess", "カワカミプリンセス", "カワカミ"],
-    "images": ["kawakamiprincess1.jpg", "kawakamiprincess2.jpg", "kawakamiprincess3.jpg", "kawakamiprincess4.jpg", "kawakamiprincess5.jpg", "kawakamiprincess6.jpg", "kawakamiprincess7.jpg", "kawakamiprincess8.jpg", "kawakamiprincess9.jpg", "kawakamiprincess10.jpg", "kawakamiprincess11.jpg", "kawakamiprincess12.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "kitasanblack",
     "number": 5603,
     "proper": "Kitasan Black",
