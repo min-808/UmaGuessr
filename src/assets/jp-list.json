@@ -35,7 +35,7 @@
     "id": "almondeye",
     "number": 10391,
     "proper": "Almond Eye",
-    "names": ["almondeye", "almond", "アーモンドアイ", "アーモンド"],
+    "names": ["almondeye", "almond", "eye", "ai", "アーモンドアイ", "アーモンド"],
     "images": ["almondeye1.jpg", "almondeye2.jpg", "almondeye3.jpg", "almondeye4.jpg", "almondeye5.jpg", "almondeye6.jpg", "almondeye7.jpg", "almondeye8.jpg", "almondeye9.jpg", "almondeye10.jpg", "almondeye11.jpg", "almondeye12.jpg", "almondeye13.jpg", "almondeye14.jpg"],
     "rarity": 3
     },
@@ -51,7 +51,7 @@
     "id": "bamboomemory",
     "number": 5416,
     "proper": "Bamboo Memory",
-    "names": ["bamboomemory", "bamboo", "memory", "バンブーメモリー"],
+    "names": ["bamboomemory", "bamboo", "memory", "bamemo", "バンブーメモリー"],
     "images":["bamboomemory1.jpg","bamboomemory2.jpg","bamboomemory3.jpg","bamboomemory4.jpg","bamboomemory5.jpg","bamboomemory6.jpg","bamboomemory7.jpg","bamboomemory8.jpg","bamboomemory9.jpg","bamboomemory10.jpg"],
     "rarity": 3
     },
@@ -204,7 +204,7 @@
     "id": "dreamjourney",
     "number": 10373,
     "proper": "Dream Journey",
-    "names": ["dreamjourney", "dura", "dream", "journey", "ドリームジャーニー"],
+    "names": ["dreamjourney", "dream", "journey", "dorija", "jani", "drejo", "ドリームジャーニー"],
     "images": ["dreamjourney1.jpg", "dreamjourney2.jpg", "dreamjourney3.jpg", "dreamjourney4.jpg", "dreamjourney5.jpg", "dreamjourney6.jpg", "dreamjourney7.jpg", "dreamjourney8.jpg", "dreamjourney9.jpg", "dreamjourney10.jpg", "dreamjourney11.jpg", "dreamjourney12.jpg", "dreamjourney13.jpg", "dreamjourney14.jpg", "dreamjourney15.jpg"],
     "rarity": 3
     },
@@ -212,7 +212,7 @@
     "id": "duramente",
     "number": 9928,
     "proper": "Duramente",
-    "names": ["duramente", "ドゥラメンテ", "ドゥラ"],
+    "names": ["duramente", "dura", "ドゥラメンテ", "ドゥラ"],
     "images":["duramente1.jpg","duramente2.jpg","duramente3.jpg","duramente4.jpg","duramente5.jpg","duramente6.jpg","duramente7.jpg","duramente8.jpg","duramente9.jpg","duramente10.jpg","duramente11.jpg","duramente12.jpg","duramente13.jpg","duramente14.jpg"],
     "rarity": 3
     },
@@ -284,7 +284,7 @@
     "id": "gentildonna",
     "number": 10337,
     "proper": "Gentildonna",
-    "names": ["gentildonna", "donna", "ジェンティルドンナ"],
+    "names": ["gentildonna", "donna", "gentil", "ジェンティルドンナ"],
     "images": ["gentildonna1.jpg", "gentildonna2.jpg", "gentildonna3.jpg", "gentildonna4.jpg", "gentildonna5.jpg", "gentildonna6.jpg", "gentildonna7.jpg", "gentildonna8.jpg", "gentildonna9.jpg", "gentildonna10.jpg", "gentildonna11.jpg", "gentildonna12.jpg", "gentildonna13.jpg", "gentildonna14.jpg", "gentildonna15.jpg", "gentildonna16.jpg", "gentildonna17.jpg", "gentildonna18.jpg", "gentildonna19.jpg", "gentildonna20.jpg", "gentildonna21.jpg", "gentildonna22.jpg", "gentildonna23.jpg", "gentildonna24.jpg", "gentildonna25.jpg", "gentildonna26.jpg", "gentildonna27.jpg", "gentildonna28.jpg", "gentildonna29.jpg"],
     "rarity": 3
     },
@@ -380,7 +380,7 @@
     "id": "luckylilac",
     "number": 10390,
     "proper": "Lucky Lilac",
-    "names": ["luckylilac", "lucky", "lilac", "lala", "ラッキー", "ライラック", "ララ"],
+    "names": ["luckylilac", "lucky", "lilac", "lala", "lalala", "ラッキー", "ライラック", "ララ"],
     "images": ["luckylilac1.jpg", "luckylilac2.jpg", "luckylilac3.jpg", "luckylilac4.jpg", "luckylilac5.jpg", "luckylilac6.jpg", "luckylilac7.jpg", "luckylilac8.jpg", "luckylilac9.jpg", "luckylilac10.jpg"],
     "rarity": 3
     },
@@ -388,7 +388,7 @@
     "id": "marveloussunday",
     "number": 5440,
     "proper": "Marvelous Sunday",
-    "names": ["marveloussunday", "marvelous", "marve", "sunday", "マーベラスサンデー", "マーベラス", "マベ"],
+    "names": ["marveloussunday", "marvelous", "marve", "mabe", "sunday", "マーベラスサンデー", "マーベラス", "マベ"],
     "images":["marveloussunday1.jpg","marveloussunday2.jpg","marveloussunday3.jpg","marveloussunday4.jpg","marveloussunday5.jpg","marveloussunday6.jpg","marveloussunday7.jpg","marveloussunday8.jpg","marveloussunday9.jpg","marveloussunday10.jpg","marveloussunday11.jpg"],
     "rarity": 3
     },
@@ -484,7 +484,7 @@
     "id": "naritatoproad",
     "number": 7426,
     "proper": "Narita Top Road",
-    "names": ["naritatoproad", "toproad", "ntr", "ナリタトップロード", "トップロード"],
+    "names": ["naritatoproad", "toproad", "ntr", "topuro", "ナリタトップロード", "トップロード"],
     "images":["naritatoproad1.jpg","naritatoproad2.jpg","naritatoproad3.jpg","naritatoproad4.jpg","naritatoproad5.jpg","naritatoproad6.jpg","naritatoproad7.jpg","naritatoproad8.jpg","naritatoproad9.jpg","naritatoproad10.jpg","naritatoproad11.jpg","naritatoproad12.jpg","naritatoproad13.jpg"],
     "rarity": 3
     },
@@ -540,7 +540,7 @@
     "id": "orfevre",
     "number": 10325,
     "proper": "Orfevre",
-    "names": ["orfevre", "オルフェーヴル"],
+    "names": ["orfevre", "oru", "orfe", "orfy", "オルフェーヴル"],
     "images": ["orfevre1.jpg", "orfevre2.jpg", "orfevre3.jpg", "orfevre4.jpg", "orfevre5.jpg", "orfevre6.jpg", "orfevre7.jpg", "orfevre8.jpg", "orfevre9.jpg", "orfevre10.jpg", "orfevre11.jpg", "orfevre12.jpg", "orfevre13.jpg", "orfevre14.jpg", "orfevre15.jpg", "orfevre16.jpg", "orfevre17.jpg", "orfevre18.jpg", "orfevre19.jpg", "orfevre20.jpg", "orfevre21.jpg"],
     "rarity": 3
     },
@@ -620,7 +620,7 @@
     "id": "satonodiamond",
     "number": 5593,
     "proper": "Satono Diamond",
-    "names": ["satonodiamond", "diamond", "dia", "diachan", "dia-chan", "サトノダイヤモンド", "ダイヤ"],
+    "names": ["satonodiamond", "diamond", "dia", "diachan", "dia-chan", "daiya", "サトノダイヤモンド", "ダイヤ"],
     "images": ["satonodiamond1.jpg", "satonodiamond2.jpg", "satonodiamond3.jpg", "satonodiamond4.jpg", "satonodiamond5.jpg", "satonodiamond6.jpg", "satonodiamond7.jpg", "satonodiamond8.jpg", "satonodiamond9.jpg", "satonodiamond10.jpg", "satonodiamond11.jpg", "satonodiamond12.jpg", "satonodiamond13.jpg", "satonodiamond14.jpg", "satonodiamond15.jpg", "satonodiamond16.jpg", "satonodiamond17.jpg", "satonodiamond18.jpg", "satonodiamond19.jpg", "satonodiamond20.jpg", "satonodiamond21.jpg", "satonodiamond22.jpg", "satonodiamond23.jpg", "satonodiamond24.jpg"],
     "rarity": 3
     },

@@ -83,7 +83,7 @@
     "id": "goldcity",
     "number": 5269,
     "proper": "Gold City",
-    "names": ["goldcity", "city", "ゴールドシチー", "シチー"],
+    "names": ["goldcity", "city", "shichi", "ゴールドシチー", "シチー"],
     "images": ["goldcity1.jpg", "goldcity2.jpg", "goldcity3.jpg", "goldcity4.jpg", "goldcity5.jpg", "goldcity6.jpg", "goldcity7.jpg", "goldcity8.jpg", "goldcity9.jpg", "goldcity10.jpg", "goldcity11.jpg", "goldcity12.jpg", "goldcity13.jpg", "goldcity14.jpg", "goldcity15.jpg", "goldcity16.jpg", "goldcity17.jpg", "goldcity18.jpg", "goldcity19.jpg", "goldcity20.jpg", "goldcity21.jpg"],
     "rarity": 3
   },
@@ -139,7 +139,7 @@
     "id": "hishiamazon",
     "number": 4951,
     "proper": "Hishi Amazon",
-    "names": ["hishiamazon", "hishiama", "amazon", "ヒシアマゾン", "ヒシアマ"],
+    "names": ["hishiamazon", "hishiama", "amazon", "ama", "ヒシアマゾン", "ヒシアマ"],
     "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg", "hishiamazon4.jpg", "hishiamazon5.jpg", "hishiamazon6.jpg", "hishiamazon7.jpg", "hishiamazon8.jpg", "hishiamazon9.jpg", "hishiamazon10.jpg", "hishiamazon11.jpg", "hishiamazon12.jpg"],
     "rarity": 3
   },
@@ -259,7 +259,7 @@
     "id": "nicenature",
     "number": 5485,
     "proper": "Nice Nature",
-    "names": ["nicenature", "nature", "natie", "ナイスネイチャ", "ネイチャ"],
+    "names": ["nicenature", "nature", "natie", "neicha", "ナイスネイチャ", "ネイチャ"],
     "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg", "nicenature4.jpg", "nicenature5.jpg", "nicenature6.jpg", "nicenature7.jpg", "nicenature8.jpg", "nicenature9.jpg", "nicenature10.jpg", "nicenature11.jpg", "nicenature12.jpg", "nicenature13.jpg", "nicenature14.jpg", "nicenature15.jpg", "nicenature16.jpg", "nicenature17.jpg", "nicenature18.jpg", "nicenature19.jpg", "nicenature20.jpg", "nicenature21.jpg", "nicenature22.jpg", "nicenature23.jpg"],
     "rarity": 1
   },
@@ -307,7 +307,7 @@
     "id": "smartfalcon",
     "number": 5337,
     "proper": "Smart Falcon",
-    "names": ["smartfalcon", "falko", "falcon", "スマートファルコン", "ファル子", "ファルコン"],
+    "names": ["smartfalcon", "falcon", "falko", "falco", "faruko", "スマートファルコン", "ファル子", "ファルコン"],
     "images": ["smartfalcon1.jpg", "smartfalcon2.jpg", "smartfalcon3.jpg", "smartfalcon4.jpg", "smartfalcon5.jpg", "smartfalcon6.jpg", "smartfalcon7.jpg", "smartfalcon8.jpg", "smartfalcon9.jpg", "smartfalcon10.jpg", "smartfalcon11.jpg", "smartfalcon12.jpg"],
     "rarity": 3
   },
