@@ -16,16 +16,6 @@ module.exports = {
                 }
             });
 
-        const parse = await response.json()
-        let retUsername = String(parse?.username ?? 'Unknown')
-        let retDiscriminator = String(parse?.discriminator ?? 'Unknown')
-        
-        if (retDiscriminator == '0') {
-          retDiscriminator = ""
-        } else {
-          retDiscriminator = "#" + retDiscriminator
-        }
-
         const value = await counter.findOneAndUpdate(
             { },
             { $inc: { user_id: 1 } },
@@ -33,6 +23,16 @@ module.exports = {
         )
 
         const newInternalId = value.user_id;
+
+        const parse = await response.json()
+        let retUsername = String(parse?.username ?? 'user')
+        let retDiscriminator = String(parse?.discriminator ?? 'Unknown')
+        
+        if (retDiscriminator == '0') {
+          retDiscriminator = ""
+        } else {
+          retDiscriminator = "#" + newInternalId
+        }
 
         const doc = {
             discord_id: id,
