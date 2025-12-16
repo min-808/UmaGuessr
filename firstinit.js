@@ -7,6 +7,7 @@ module.exports = {
 
         var database = client_db.db(db);
         var ids = database.collection(collection)
+        var counter = database.collection("id_counter")
         const date = new Date()
 
         const response = await fetch(`https://discord.com/api/v10/users/${id}`, {
@@ -24,6 +25,14 @@ module.exports = {
         } else {
           retDiscriminator = "#" + retDiscriminator
         }
+
+        const value = await counter.findOneAndUpdate(
+            { },
+            { $inc: { user_id: 1 } },
+            { returnDocument: 'after', upsert: true }
+        )
+
+        const newInternalId = value.user_id;
 
         const doc = {
             discord_id: id,
@@ -50,6 +59,7 @@ module.exports = {
             quote: null,
             favorites: [],
             max_favorites: 3,
+            id: newInternalId,
         }
     
         const result = await ids.insertOne(doc);
@@ -58,7 +68,7 @@ module.exports = {
 
         client.strictCache.set(id, false) // cache their strict settings to false when a new user signs up
 
-        client.channels.fetch(process.env.REG_LOG_CHANNEL).then((channel) => { channel.send(`User **${retUsername + retDiscriminator}** has registered`) }).catch(console.error)
+        client.channels.fetch(process.env.REG_LOG_CHANNEL).then((channel) => { channel.send(`User **${retUsername + retDiscriminator}** has registered (#${newInternalId})`) }).catch(console.error)
         // send me a msg when a new user signs up
     }
 }

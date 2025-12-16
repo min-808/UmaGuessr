@@ -52,7 +52,7 @@ module.exports = {
                 {
                     name: "\n",
                     value: 
-                    "you can't do this"
+                    "you can't do that"
                 },
             )
 
