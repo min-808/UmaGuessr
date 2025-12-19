@@ -721,14 +721,6 @@
     "rarity": 3
     },
     {
-    "id": "tosenjordan",
-    "number": 5360,
-    "proper": "Tosen Jordan",
-    "names": ["tosenjordan", "jordan", "tosen", "トーセンジョーダン"],
-    "images": ["tosenjordan1.jpg", "tosenjordan2.jpg", "tosenjordan3.jpg", "tosenjordan4.jpg", "tosenjordan5.jpg", "tosenjordan6.jpg", "tosenjordan7.jpg", "tosenjordan8.jpg", "tosenjordan9.jpg", "tosenjordan10.jpg", "tosenjordan11.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "transcend",
     "number": 10269,
     "proper": "Transcend",
