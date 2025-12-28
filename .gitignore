@@ -4,10 +4,12 @@
 # Admin/debug commmands
 restrict.js
 unrestrict.js
-add.js
 pd.js
 push.js
 dbupdate.js
+
+# Non server-side
+add.js
 roll.js
 collection.js
 analyze.js
@@ -21,8 +23,9 @@ analyze.js
 
 src/assets/new/
 
+/src/assets/info.json
+
 # etc.
 node_modules
 .DS_Store
 *.log
-info.json
