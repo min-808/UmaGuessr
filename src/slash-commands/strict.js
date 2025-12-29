@@ -19,7 +19,7 @@ module.exports = {
         const embed = new EmbedBuilder()
             .setColor('LightGrey')
             .setThumbnail(`attachment://${img}.png`)
-            .setTitle(`\n`)
+            .setTitle(`Strict`)
 
         try {
             await interaction.deferReply()

@@ -37,10 +37,10 @@ module.exports = {
 
             await interaction.deferReply()
 
-            if (!interaction.member.permissions.has("Administrator")) {
+            if ((!interaction.member.permissions.has("Administrator")) && (!interaction.member.permissions.has("ManageGuild"))) {
                 embed.addFields({
                     name: '\n',
-                    value: "You need **Administrator** permission to set the prefix"
+                    value: "You need the **Administrator** or **Manage Server** permission to set the prefix"
                 })
                 await interaction.editReply({ embeds: [embed], files: [file] });
 

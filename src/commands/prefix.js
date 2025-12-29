@@ -19,10 +19,10 @@ module.exports = {
             .setTitle(`Prefix`)
 
         try {
-            if (!message.member.permissions.has("Administrator")) {
+            if ((!message.member.permissions.has("Administrator")) && (!message.member.permissions.has("ManageGuild"))) {
                 embed.addFields({
                     name: '\n',
-                    value: "You need **Administrator** permission to set the prefix"
+                    value: "You need the **Administrator** or **Manage Server** permission to set the prefix"
                 })
                 await message.channel.send({ embeds: [embed], files: [file] });
 
