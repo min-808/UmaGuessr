@@ -175,13 +175,23 @@ module.exports = {
                 if (type == "Multi") { // handle multi case
                     cacheDir = path.join(__dirname, "../assets/multi_cache/")
                     originDir = path.join(__dirname, "../assets/multi/")
+                    filterList = require('../../src/assets/filter-list.json')
 
-                    const folderPath = path.join(__dirname, "../assets/multi/"); // change this
+                    const folderPath = path.join(__dirname, "../assets/multi/")
                     let files = fs.readdirSync(folderPath)
 
-                    chooseChar = Math.floor(Math.random() * files.length)
+                    let filterEntry = filterList.find(f => f.id == "multi")?.images ?? [] // default to empty array if not found
+                    let availImages
+
+                    if ((client.filterCache.get(message.guild.id) == true) || (client.filterCache.get(message.guild.id) == undefined)) {
+                        availImages = files.filter(image => !filterEntry.includes(image))
+                    } else {
+                        availImages = files
+                    }
+
+                    chooseChar = Math.floor(Math.random() * availImages.length)
                     // chooseChar = 77
-                    chooseImg = files[chooseChar] // picks a random filename
+                    chooseImg = availImages[chooseChar] // picks a random filename
 
                     umaNameArr = chooseImg.split("_") // create arr splitting across the '_'
                     umaNameArr.pop() // get rid of number and final _
@@ -190,16 +200,27 @@ module.exports = {
                     properArr = umaNameArr.map(name => umaMap.get(name).proper)
                     nickArr = umaNameArr.map(name => umaMap.get(name).names)
                     idArr = umaNameArr.map(name => umaMap.get(name).number)
-                    
 
                     umaName = umaNameArr.join(', ')
                     umaProper = properArr.join(', ')
                 } else {
+                    filterList = require('../../src/assets/filter-list.json')
                     chooseChar = Math.floor(Math.random() * list.length)
-                    // chooseChar = 0
-                    chooseImg = list[chooseChar]["images"][Math.floor(Math.random() * list[chooseChar]["images"].length)] // a filename
-                    umaName = list[chooseChar]['id']
-                    umaProper = list[chooseChar]['proper']
+                    // chooseChar = 43
+
+                    let chooseCharObj = list[chooseChar] // finds the obj corresponding to the index (e.g. taikishuttle)
+                    let filterEntry = filterList.find(f => f.id == chooseCharObj.id)?.images ?? [] // default to empty array if not found
+
+                    if (type != "IRL" && ((client.filterCache.get(message.guild.id) == true) || (client.filterCache.get(message.guild.id) == undefined))) {
+                        availImages = chooseCharObj['images'].filter(image => !filterEntry.includes(image))
+                    } else { // for IRL/voice
+                        availImages = chooseCharObj['images']
+                    }
+
+                    chooseImg = availImages[Math.floor(Math.random() * availImages.length)] // a filename
+
+                    umaName = chooseCharObj['id']
+                    umaProper = chooseCharObj['proper']
                 }
             } catch (err) {
                 await message.channel.send(`There was an error with the image. Skipped`);
@@ -298,9 +319,14 @@ module.exports = {
 
             if ((type != "IRL") && (type != "Voice")) {
                 var row = new ActionRowBuilder()
-                  .addComponents(hint)
-                  .addComponents(unblur)
-                  .addComponents(skip)
+                    .addComponents(hint)
+                    .addComponents(unblur)
+                    .addComponents(skip)
+            }
+
+            if (type == "IRL") {
+                var row = new ActionRowBuilder()
+                    .addComponents(skip)
             }
 
             const embed = new EmbedBuilder()
@@ -311,9 +337,9 @@ module.exports = {
             embed.setDescription(`Started by ${user}\n\nType: ${type}`)
 
             if ((type != "IRL") && (type != "Voice")) {
-                var sentMsg = await message.channel.send({ files: [file], components: [row], embeds: [embed] })
+                var sentMsg = await message.channel.send({ embeds: [embed],  components: [row], files: [file] })
             } else if (type == "IRL") {
-                var sentMsg = await message.channel.send({ embeds: [embed], files: [file] })
+                var sentMsg = await message.channel.send({ embeds: [embed], components: [row], files: [file] })
             } else {
                 var sentMsg = await message.channel.send({ embeds: [embed] })
                 await message.channel.send({ files: [file] })
