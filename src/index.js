@@ -14,6 +14,7 @@ const exemptUsers = require('./exemptUsers');
 
 const prefixCache = new Map()
 const strictCache = new Map()
+const filterCache = new Map()
 const restrictedUsers = new Map()
 
 const cooldowns = new Map()
@@ -59,6 +60,7 @@ const client = new Client({
 
 client.prefixCache = prefixCache
 client.strictCache = strictCache
+client.filterCache = filterCache
 client.restrictedUsers = restrictedUsers
 
 client.prefixCommands = new Collection();
@@ -232,6 +234,19 @@ async function loadPrefixes() {
     }
 
     console.log("Prefixes cached:", prefixCache.size);
+}
+
+async function loadFilters() {
+    const client = new getMongoClient()
+    const database = client.db("uma");
+    const filters = database.collection("filters");
+
+    const all = await filters.find({}).toArray();
+    for (const entry of all) {
+        filterCache.set(entry.server_id, entry.filter);
+    }
+
+    console.log("Filters cached:", filterCache.size);
 }
 
 async function cacheStrict() {
@@ -424,6 +439,7 @@ async function setUptime() {
         await connectMongo()
         await buildCache()
         await loadPrefixes()
+        await loadFilters()
         await cacheStrict()
 
         checkImages(combinedList, path.join(__dirname, "./assets/guessing"))
