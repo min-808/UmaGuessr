@@ -417,14 +417,6 @@
     "rarity": 3
     },
     {
-    "id": "mejirodober",
-    "number": 5474,
-    "proper": "Mejiro Dober",
-    "names": ["mejirodober", "dober", "ber", "メジロドーベル", "ドーベル", "ベル"],
-    "images":["mejirodober1.jpg","mejirodober2.jpg","mejirodober3.jpg","mejirodober4.jpg","mejirodober5.jpg","mejirodober6.jpg","mejirodober7.jpg","mejirodober8.jpg","mejirodober9.jpg","mejirodober10.jpg","mejirodober11.jpg","mejirodober12.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "mejiropalmer",
     "number": 5564,
     "proper": "Mejiro Palmer",
