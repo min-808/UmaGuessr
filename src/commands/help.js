@@ -82,6 +82,7 @@ module.exports = {
                             "You can also choose the game type you want to play by doing !uma and adding one of the following: **g**lobal, **j**p, **a**ll, **h**orse, **m**ulti" + "\n" +
                             "`!set`" + " - " + "Set your default region" + "\n" +
                             "`!skip`" + " - " + "Skip the current character" + "\n" +
+                            "`!filter`" + " - " + "Toggle the content filter" + "\n" +
                             "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
                             "`!vote`" + " - " + "Pull up the bot's vote link" + "\n" +
                             "`!redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n"

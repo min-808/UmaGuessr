@@ -92,6 +92,7 @@ module.exports = {
                             "**__Game__**" + "\n" +
                             "`/uma (region)`" + " - " + "Play the game (default region is global)" + "\n" +
                             "`/set (region)`" + " - " + "Set your default region" + "\n" +
+                            "`/filter`" + " - " + "Toggle the content filter" + "\n" +
                             "`/daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
                             "`/vote`" + " - " + "Pull up the bot's vote link" + "\n" +
                             "`/redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n"
