@@ -14,6 +14,8 @@ roll.js
 collection.js
 analyze.js
 
+sort-filter.js
+
 # Images
 /src/assets/guessing
 /src/assets/cache
