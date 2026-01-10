@@ -8248,6 +8248,15 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       }
     ]
   },
@@ -16994,15 +17003,6 @@
         "service": "danbooru",
         "illustration_id": "9849877",
         "artist": "iam (tetsu0ekaki)"
-      },
-      {
-        "external_urls": [
-          "n/a"
-        ],
-        "service": "n/a",
-        "member_id": "n/a",
-        "illustration_id": "n/a",
-        "artist": "n/a"
       },
       {
         "external_urls": [
