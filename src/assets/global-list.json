@@ -67,9 +67,17 @@
     "id": "elcondorpasa",
     "number": 4974,
     "proper": "El Condor Pasa",
-    "names": ["elcondorpasa", "el", "condorpasa", "エルコンドルパサー", "エル"],
+    "names": ["elcondorpasa", "el", "condorpasa", "pasa", "エルコンドルパサー", "エル"],
     "images": ["elcondorpasa1.jpg", "elcondorpasa2.jpg", "elcondorpasa3.jpg", "elcondorpasa4.jpg", "elcondorpasa5.jpg", "elcondorpasa6.jpg", "elcondorpasa7.jpg", "elcondorpasa8.jpg", "elcondorpasa9.jpg", "elcondorpasa10.jpg", "elcondorpasa11.jpg"],
     "rarity": 2
+  },
+  {
+    "id": "finemotion",
+    "number": 5066,
+    "proper": "Fine Motion",
+    "names": ["finemotion", "fine", "ファインモーション", "ファイン"],
+    "images":["finemotion1.jpg","finemotion2.jpg","finemotion3.jpg","finemotion4.jpg","finemotion5.jpg","finemotion6.jpg","finemotion7.jpg","finemotion8.jpg","finemotion9.jpg","finemotion10.jpg","finemotion11.jpg","finemotion12.jpg","finemotion13.jpg"],
+    "rarity": 3
   },
   {
     "id": "fujikiseki",
