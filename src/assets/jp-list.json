@@ -345,6 +345,14 @@
     "rarity": 3
     },
     {
+    "id": "kiseki",
+    "number": 10400,
+    "proper": "Kiseki",
+    "names": ["kiseki", "キセキ"],
+    "images": ["kiseki1.jpg", "kiseki2.jpg", "kiseki3.jpg", "kiseki4.jpg", "kiseki5.jpg", "kiseki6.jpg", "kiseki7.jpg", "kiseki8.jpg", "kiseki9.jpg", "kiseki10.jpg", "kiseki11.jpg", "kiseki12.jpg", "kiseki13.jpg", "kiseki14.jpg"],
+    "rarity": 3
+    },
+    {
     "id": "kitasanblack",
     "number": 5603,
     "proper": "Kitasan Black",
