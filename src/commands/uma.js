@@ -206,7 +206,7 @@ module.exports = {
                 } else {
                     filterList = require('../../src/assets/filter-list.json')
                     chooseChar = Math.floor(Math.random() * list.length)
-                    // chooseChar = 43
+                    // chooseChar = 0
 
                     let chooseCharObj = list[chooseChar] // finds the obj corresponding to the index (e.g. taikishuttle)
                     let filterEntry = filterList.find(f => f.id == chooseCharObj.id)?.images ?? [] // default to empty array if not found

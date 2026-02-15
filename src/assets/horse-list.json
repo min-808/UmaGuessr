@@ -3,7 +3,7 @@
     "id": "agnestachyon",
     "number": 5179,
     "proper": "Agnes Tachyon",
-    "names": ["agnestachyon", "tachyon", "アグネスタキオン", "タキオン"],
+    "names": ["agnestachyon", "tachyon", "takion", "アグネスタキオン", "タキオン"],
     "images": ["agnestachyon1.jpg", "agnestachyon2.jpg", "agnestachyon3.jpg"]
   },
   {
@@ -38,7 +38,7 @@
     "id": "elcondorpasa",
     "number": 4974,
     "proper": "El Condor Pasa",
-    "names": ["elcondorpasa", "el", "エルコンドルパサー", "エル"],
+    "names": ["elcondorpasa", "condorpas", "pasa", "el", "エルコンドルパサー", "エル"],
     "images": ["elcondorpasa1.jpg", "elcondorpasa2.jpg", "elcondorpasa3.jpg"]
   },
   {
@@ -59,14 +59,14 @@
     "id": "haruurara",
     "number": 5404,
     "proper": "Haru Urara",
-    "names": ["haruurara", "urara", "ハルウララ", "ウララ"],
+    "names": ["haruurara", "haru", "urara", "ハルウララ", "ウララ"],
     "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg"]
   },
   {
     "id": "hishiamazon",
     "number": 4951,
     "proper": "Hishi Amazon",
-    "names": ["hishiamazon", "hishiama", "amazon", "ヒシアマゾン", "ヒシアマ"],
+    "names": ["hishiamazon", "hishiama", "amazon", "ama", "ヒシアマゾン", "ヒシアマ"],
     "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg"]
   },
   {
@@ -80,7 +80,7 @@
     "id": "maruzensky",
     "number": 4844,
     "proper": "Maruzensky",
-    "names": ["maruzensky", "maruzen", "マルゼンスキー", "マルゼン"],
+    "names": ["maruzensky", "maruzen", "maru", "マルゼンスキー", "マルゼン"],
     "images": ["maruzensky1.jpg", "maruzensky2.jpg", "maruzensky3.jpg"]
   },
   {
@@ -94,7 +94,7 @@
     "id": "mayanotopgun",
     "number": 5088,
     "proper": "Mayano Top Gun",
-    "names": ["mayanotopgun", "mayano", "maya", "マヤノトップガン", "マヤノ", "マヤ"],
+    "names": ["mayanotopgun", "mayano", "topgun", "maya", "マヤノトップガン", "マヤノ", "マヤ"],
     "images": ["mayanotopgun1.jpg", "mayanotopgun2.jpg", "mayanotopgun3.jpg"]
   },
   {
@@ -136,7 +136,7 @@
     "id": "nicenature",
     "number": 5485,
     "proper": "Nice Nature",
-    "names": ["nicenature", "nature", "ナイスネイチャ", "ネイチャ"],
+    "names": ["nicenature", "nature", "natie", "neicha", "ナイスネイチャ", "ネイチャ"],
     "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg"]
   },
   {
@@ -178,7 +178,7 @@
     "id": "smartfalcon",
     "number": 5337,
     "proper": "Smart Falcon",
-    "names": ["smartfalcon", "falko", "falcon", "スマートファルコン", "ファル子", "ファルコン"],
+    "names": ["smartfalcon", "falko", "falco", "faruko", "falcon", "スマートファルコン", "ファル子", "ファルコン"],
     "images": ["smartfalcon1.jpg", "smartfalcon2.jpg", "smartfalcon3.jpg"]
   },
   {
@@ -206,7 +206,7 @@
     "id": "taikishuttle",
     "number": 4927,
     "proper": "Taiki Shuttle",
-    "names": ["taikishuttle", "taiki", "タイキシャトル", "タイキ"],
+    "names": ["taikishuttle", "taiki", "shuttle", "タイキシャトル", "タイキ"],
     "images": ["taikishuttle1.jpg", "taikishuttle2.jpg", "taikishuttle3.jpg"]
   },
   {
