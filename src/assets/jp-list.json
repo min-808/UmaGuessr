@@ -577,14 +577,6 @@
     "rarity": 3
     },
     {
-    "id": "sakurachiyonoo",
-    "number": 5509,
-    "proper": "Sakura Chiyono O",
-    "names": ["sakurachiyonoo", "sakurachiyono", "chiyono", "chiyonoo", "chiyo", "サクラチヨノオー", "チヨノオー", "チヨ"],
-    "images": ["sakurachiyonoo1.jpg", "sakurachiyonoo2.jpg", "sakurachiyonoo3.jpg", "sakurachiyonoo4.jpg", "sakurachiyonoo5.jpg", "sakurachiyonoo6.jpg", "sakurachiyonoo7.jpg", "sakurachiyonoo8.jpg", "sakurachiyonoo9.jpg", "sakurachiyonoo10.jpg", "sakurachiyonoo11.jpg", "sakurachiyonoo12.jpg", "sakurachiyonoo13.jpg", "sakurachiyonoo14.jpg", "sakurachiyonoo15.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "sakuralaurel",
     "number": 7515,
     "proper": "Sakura Laurel",
@@ -749,7 +741,7 @@
     "number": 10348,
     "proper": "Win Variation",
     "names": ["winvariation", "win", "shion", "ウインバリアシオン", "ウイン"],
-    "images": ["winvariation1.jpg", "winvariation2.jpg", "winvariation3.jpg", "winvariation4.jpg", "winvariation5.jpg", "winvariation6.jpg", "winvariation7.jpg", "winvariation8.jpg", "winvariation9.jpg", "winvariation10.jpg", "winvariation11.jpg", "winvariation12.jpg", "winvariation13.jpg", "winvariation14.jpg"],
+    "images": ["winvariation1.jpg", "winvariation2.jpg", "winvariation3.jpg", "winvariation4.jpg", "winvariation5.jpg", "winvariation6.jpg", "winvariation7.jpg", "winvariation8.jpg", "winvariation9.jpg", "winvariation10.jpg", "winvariation11.jpg", "winvariation12.jpg", "winvariation13.jpg", "winvariation14.jpg", "winvariation15.jpg"],
     "rarity": 3
     },
     {

@@ -190,7 +190,7 @@
     "names": ["manhattancafe", "cafe", "マンハッタンカフェ", "カフェ"],
     "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg", "manhattancafe4.jpg", "manhattancafe5.jpg", "manhattancafe6.jpg", "manhattancafe7.jpg", "manhattancafe8.jpg", "manhattancafe9.jpg", "manhattancafe10.jpg", "manhattancafe11.jpg", "manhattancafe12.jpg", "manhattancafe13.jpg", "manhattancafe14.jpg", "manhattancafe15.jpg", "manhattancafe16.jpg", "manhattancafe17.jpg", "manhattancafe18.jpg", "manhattancafe19.jpg", "manhattancafe20.jpg", "manhattancafe21.jpg", "manhattancafe22.jpg", "manhattancafe23.jpg", "manhattancafe24.jpg", "manhattancafe25.jpg", "manhattancafe26.jpg", "manhattancafe27.jpg", "manhattancafe28.jpg", "manhattancafe29.jpg", "manhattancafe30.jpg", "manhattancafe31.jpg", "manhattancafe32.jpg", "manhattancafe33.jpg", "manhattancafe34.jpg", "manhattancafe35.jpg", "manhattancafe36.jpg", "manhattancafe37.jpg", "manhattancafe38.jpg"],
     "rarity": 3
-},
+  },
   {
     "id": "maruzensky",
     "number": 4844,
@@ -302,6 +302,14 @@
     "names": ["sakurabakushino", "bakushin", "bakushino", "サクラバクシンオー", "バクシン", "バクシンオー"],
     "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg", "sakurabakushino3.jpg", "sakurabakushino4.jpg", "sakurabakushino5.jpg", "sakurabakushino6.jpg", "sakurabakushino7.jpg", "sakurabakushino8.jpg", "sakurabakushino9.jpg", "sakurabakushino10.jpg", "sakurabakushino11.jpg"],
     "rarity": 1
+  },
+  {
+    "id": "sakurachiyonoo",
+    "number": 5509,
+    "proper": "Sakura Chiyono O",
+    "names": ["sakurachiyonoo", "sakurachiyono", "chiyono", "chiyonoo", "chiyo", "サクラチヨノオー", "チヨノオー", "チヨ"],
+    "images": ["sakurachiyonoo1.jpg", "sakurachiyonoo2.jpg", "sakurachiyonoo3.jpg", "sakurachiyonoo4.jpg", "sakurachiyonoo5.jpg", "sakurachiyonoo6.jpg", "sakurachiyonoo7.jpg", "sakurachiyonoo8.jpg", "sakurachiyonoo9.jpg", "sakurachiyonoo10.jpg", "sakurachiyonoo11.jpg", "sakurachiyonoo12.jpg", "sakurachiyonoo13.jpg", "sakurachiyonoo14.jpg", "sakurachiyonoo15.jpg"],
+    "rarity": 3
   },
   {
     "id": "seiunsky",
