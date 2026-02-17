@@ -7385,6 +7385,15 @@
         "member_id": "1399900",
         "illustration_id": "99763259",
         "artist": "ののの"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=137773223"
+        ],
+        "service": "pixiv",
+        "member_id": "30471729",
+        "illustration_id": "137773223",
+        "artist": "gokulism"
       }
     ]
   },
@@ -10589,6 +10598,14 @@
         "member_id": "85383788",
         "illustration_id": "n/a",
         "artist": "ぽんぽち"
+      },
+      {
+        "external_urls": [
+          "https://x.com/to_magical/status/2022408957848096863"
+        ],
+        "service": "twitter",
+        "illustration_id": "2022408957848096863",
+        "artist": "nminmi0343"
       }
     ]
   },
@@ -12026,6 +12043,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10576394"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10576394",
+        "artist": "doktahzaki"
       }
     ]
   },
@@ -12363,6 +12388,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/to_magical/status/2011423852166078839"
+        ],
+        "service": "twitter",
+        "illustration_id": "2011423852166078839",
+        "artist": "to_magical"
       }
     ]
   },
@@ -14205,6 +14238,14 @@
         "member_id": "90377442",
         "illustration_id": "104688533",
         "artist": "ヲル・レ・ロ"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10681133"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10681133",
+        "artist": "0ha_x"
       }
     ]
   },
@@ -14603,6 +14644,14 @@
         "member_id": "289193",
         "illustration_id": "470190",
         "artist": "モリッチ"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Marghe_Bita/status/2020499954163417152"
+        ],
+        "service": "twitter",
+        "illustration_id": "2020499954163417152",
+        "artist": "marghe_bita"
       }
     ]
   },
@@ -15937,6 +15986,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/post/show/10746033"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10746033",
+        "artist": "dafvkydbwep"
       }
     ]
   },
