@@ -24,10 +24,12 @@ sort-filter.js
 /src/assets/horses
 
 src/assets/new/
+src/assets/news/
 
 /src/assets/info.json
 
 # etc.
+package-lock.json
 node_modules
 .DS_Store
 *.log
