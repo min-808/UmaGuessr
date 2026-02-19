@@ -156,7 +156,68 @@ function returnRankedEmote(displayValue) {
     return rankSymbol
 }
 
+function returnRankedRole(displayValue) {
+    let rankSymbol
+
+    switch (true) {
+        case (displayValue < 100):
+            rankSymbol = "1465241245403316398";
+            break;
+        case (displayValue < 500):
+            rankSymbol = "1465241244782428322";
+            break;
+        case (displayValue < 1000):
+            rankSymbol = "1465241243801092281";
+            break;
+        case (displayValue < 5000):
+            rankSymbol = "1465241243289124961";
+            break;
+        case (displayValue < 10000):
+            rankSymbol = "1465241242823692338";
+            break;
+        case (displayValue < 20000):
+            rankSymbol = "1465241145574555709";
+            break;
+        case (displayValue < 50000):
+            rankSymbol = "1465241139719442462";
+            break;
+        case (displayValue < 100000):
+            rankSymbol = "1465241139060670464";
+            break;
+        case (displayValue < 250000):
+            rankSymbol = "1465241138410557583";
+            break;
+        case (displayValue < 300000):
+            rankSymbol = "1473792886914027755";
+            break;
+        case (displayValue < 375000):
+            rankSymbol = "1465241138079207517";
+            break;
+        case (displayValue < 475000):
+            rankSymbol = "1465241137571823711";
+            break;
+        case (displayValue < 600000):
+            rankSymbol = "1465241136527442042";
+            break;
+        case (displayValue < 750000):
+            rankSymbol = "1465241136468856893";
+            break;
+        case (displayValue < 950000):
+            rankSymbol = "1465241135793307708";
+            break;
+        case (displayValue < 1200000):
+            rankSymbol = "1465241129174831125";
+            break;
+        default:
+            rankSymbol = "1465241057842298901";
+            break;
+    }
+
+    return rankSymbol
+}
+
 module.exports = {
     returnRankedMessage,
-    returnRankedEmote
+    returnRankedEmote,
+    returnRankedRole
 };

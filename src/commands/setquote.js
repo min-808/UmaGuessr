@@ -40,6 +40,7 @@ module.exports = {
                 .setThumbnail(`attachment://${img}.png`)
 
             msg = args.join(' ')
+            let newlineCount = (msg.match(/\n/g) || []).length;
 
             if (matcher.hasMatch(msg)) { // bad word checker
                 embed.addFields(
@@ -74,6 +75,13 @@ module.exports = {
                     {
                         name: "\n",
                         value: "Unable to set profile quote, the text contains a **clickable link**"
+                    }
+                )
+            } else if (newlineCount > 10) {
+                embed.addFields(
+                    {
+                        name: "\n",
+                        value: "Unable to set profile quote, the text has more than **10 newlines**"
                     }
                 )
             } else {

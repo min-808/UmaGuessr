@@ -436,7 +436,6 @@ async function setUptime() {
         await connectMongo()
         console.log("Connected to Database.")
 
-        await connectMongo()
         await buildCache()
         await loadPrefixes()
         await loadFilters()
