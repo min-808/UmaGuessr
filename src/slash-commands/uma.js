@@ -1048,6 +1048,7 @@ module.exports = {
                                             components: []
                                         })
 
+                                        console.log("Play again button hit, starting new game...")
                                         startGame(interaction, client, false)
                                     }
                                 } catch (err) {
@@ -1278,6 +1279,7 @@ module.exports = {
                                                 components: []
                                             })
 
+                                            console.log("Play again button hit, starting new game...")
                                             startGame(interaction, client, false)
                                         }
                                     } catch (err) {
