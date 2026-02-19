@@ -1037,6 +1037,7 @@ module.exports = {
                             });
 
                             playAgainCollector.on('collect', async (playButtonInteraction) => { // When the play again button is hit
+                                await playButtonInteraction.deferUpdate();
                                 playAgainCollector.stop()
 
                                 try {                                
@@ -1048,8 +1049,8 @@ module.exports = {
                                             components: []
                                         })
 
-                                        console.log("Play again button hit, starting new game...")
-                                        startGame(interaction, client, false)
+                                        console.log(`Play again button hit by ${playButtonInteraction.user.tag}, starting new ${type} game...`)
+                                        await startGame(interaction, client, false)
                                     }
                                 } catch (err) {
                                     playAgainCollector.stop()
@@ -1268,6 +1269,7 @@ module.exports = {
                                 });
 
                                 playAgainCollector.on('collect', async (playButtonInteraction) => { // When the play again button is hit
+                                    await playButtonInteraction.deferUpdate();
                                     playAgainCollector.stop()
 
                                     try {                                
@@ -1279,8 +1281,8 @@ module.exports = {
                                                 components: []
                                             })
 
-                                            console.log("Play again button hit, starting new game...")
-                                            startGame(interaction, client, false)
+                                            console.log(`Play again button hit by ${playButtonInteraction.user.tag}, starting new ${type} game...`)
+                                            await startGame(interaction, client, false)
                                         }
                                     } catch (err) {
                                         playAgainCollector.stop()
