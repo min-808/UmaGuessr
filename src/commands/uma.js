@@ -14,6 +14,9 @@ module.exports = {
     aliases: ['u'],
     run: async ({ message, client, args }) => {
 
+        startGame(message, client, args)
+
+        async function startGame(message, client, args) {
         let initialPointsJP;
         let minusPointsJP;
         var initialBlur = 50 + 1
@@ -54,8 +57,48 @@ module.exports = {
                 }
             });
 
+            var errorEmbed = new EmbedBuilder()
+                .setTitle("\n")
+                .addFields({
+                    name: "\n",
+                    value: `There was an error with the image. Skipped`
+                })
+                .setColor("LightGrey")
+
+            var favEmbed = new EmbedBuilder()
+                .setTitle("\n")
+                .addFields({
+                    name: "\n",
+                    value: ':star: You guessed one of your **favorite** umas! *(+15 points)*'
+                })
+                .setColor("LightGrey")
+
+            var reminder30 = new EmbedBuilder()
+                .setTitle("\n")
+                .addFields({
+                    name: "\n",
+                    value: `30 seconds left`
+                })
+                .setColor("LightGrey")
+
+            var reminder10 = new EmbedBuilder()
+                .setTitle("\n")
+                .addFields({
+                    name: "\n",
+                    value: `10 seconds left`
+                })
+                .setColor("LightGrey")
+
             if (activeChannels.has(channelID)) {
-                return message.channel.send("A game is currently running");
+                var runningEmbed = new EmbedBuilder()
+                    .setTitle("\n")
+                    .addFields({
+                        name: "\n",
+                        value: `A game is currently running`
+                    })
+                    .setColor("LightGrey")
+
+                return message.channel.send({ embeds: [runningEmbed] });
             }
 
             activeChannels.add(channelID);
@@ -223,7 +266,7 @@ module.exports = {
                     umaProper = chooseCharObj['proper']
                 }
             } catch (err) {
-                await message.channel.send(`There was an error with the image. Skipped`);
+                await message.channel.send({ embeds: [errorEmbed] });
 
                 try {
                     if (logChannel) {
@@ -295,7 +338,7 @@ module.exports = {
                     var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'blurred.jpg' });
                 }
             } catch (err) {
-                await message.channel.send('There was an error with the image. Skipped');
+                await message.channel.send({ embeds: [errorEmbed] });
                 console.error('Image file error:', err);
                 
                 activeChannels.delete(channelID); // get rid of the game so they can play again
@@ -317,6 +360,11 @@ module.exports = {
                 .setLabel('Skip')
                 .setStyle(ButtonStyle.Danger);
 
+            const playAgain = new ButtonBuilder()
+                .setCustomId('play_again')
+                .setLabel("Play Again")
+                .setStyle(ButtonStyle.Primary)
+
             if ((type != "IRL") && (type != "Voice")) {
                 var row = new ActionRowBuilder()
                     .addComponents(hint)
@@ -328,6 +376,9 @@ module.exports = {
                 var row = new ActionRowBuilder()
                     .addComponents(skip)
             }
+
+            var playAgainRow = new ActionRowBuilder()
+                .addComponents(playAgain)
 
             const embed = new EmbedBuilder()
                 .setTitle(`Guess the Uma`)
@@ -423,7 +474,7 @@ module.exports = {
                                 var imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
                                 var newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
                             } catch (err) {
-                                await message.channel.send('There was an error with the image. Skipped');
+                                await message.channel.send({ embeds: [errorEmbed] });
                                 console.error('Image file error:', err);
 
                                 gameState.delete(sentMsg.id);
@@ -442,7 +493,7 @@ module.exports = {
                                 var newPath = path.join(cacheDir, `${state.blurLevel}-${state.imageName}`);
                                 var newFile = new AttachmentBuilder(fs.readFileSync(newPath), { name: 'blurred.jpg' });
                             } catch (err) {
-                                await message.channel.send('There was an error with the image. Skipped');
+                                await message.channel.send({ embeds: [errorEmbed] });
                                 console.error('Image file error:', err);
 
                                 gameState.delete(sentMsg.id);
@@ -484,7 +535,7 @@ module.exports = {
                             var imagePath = path.join(originDir, `${chooseImg}`); // fallback to default image
                             var newFile = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'original.jpg' })
                         } catch (err) {
-                            await message.channel.send('There was an error with the image. Skipped');
+                            await message.channel.send({ embeds: [errorEmbed] });
                             console.error('Image file error:', err);
 
                             gameState.delete(sentMsg.id);
@@ -540,7 +591,7 @@ module.exports = {
                             var imagePath = path.join(originDir, `${chooseImg}`);
                             var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
                         } catch (err) {
-                            await message.channel.send('There was an error with the image. Skipped');
+                            await message.channel.send({ embeds: [errorEmbed] });
                             console.error('Image file error:', err);
 
                             gameState.delete(sentMsg.id);
@@ -552,16 +603,32 @@ module.exports = {
 
                         if (type != "Multi") {
                             skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                            .setImage('attachment://skipped.jpg')
-                            .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
+                                .setImage('attachment://skipped.jpg')
+                                .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
 
-                            await sentMsg.channel.send(`Skipped, the answer was **${state.proper}**`);
+                            let skippedMsgEmbed = new EmbedBuilder()
+                                .setTitle("\n")
+                                .addFields({
+                                    name: "\n",
+                                    value: `Skipped, the answer was **${state.proper}**`
+                                })
+                                .setColor('LightGrey')
+
+                            await sentMsg.channel.send({ embeds: [skippedMsgEmbed] });
                         } else {
                             skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                            .setImage('attachment://skipped.jpg')
-                            .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
+                                .setImage('attachment://skipped.jpg')
+                                .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
 
-                            await sentMsg.channel.send(`Skipped, the answer was **${umaProper}**`);
+                            let skippedMsgEmbed = new EmbedBuilder()
+                                .setTitle("\n")
+                                .addFields({
+                                    name: "\n",
+                                    value: `Skipped, the answer was **${umaProper}**`
+                                })
+                                .setColor('LightGrey')
+
+                            await sentMsg.channel.send({ embeds: [skippedMsgEmbed] });
 
                             if (state.multiSetSize != state.multiSet.size) { // At least something was guessed, send point summary
                                 let buildMessage = ""
@@ -569,9 +636,16 @@ module.exports = {
                                 for (const [userId, points] of state.pointsGathered.entries()) {
                                     buildMessage += `<@${userId}> +${points} points\n`
                                 }
-                                await sentMsg.channel.send(
-                                    `**Points earned:**\n${buildMessage}`
-                                )    
+
+                                var summaryEmbed = new EmbedBuilder()
+                                    .setTitle("\n")
+                                    .addFields({
+                                        name: "\n",
+                                        value: `**Points earned:**\n${buildMessage}`
+                                    })
+                                    .setColor('LightGrey')
+
+                                await sentMsg.channel.send({ embeds: [summaryEmbed] });
                             }
                             }
 
@@ -604,13 +678,13 @@ module.exports = {
 
             setTimeout(() => {
                 if (gameState.has(sentMsg.id)) {
-                    sentMsg.channel.send("30 seconds left");
+                    sentMsg.channel.send({ embeds: [reminder30] });
                 }
             }, 30_000);
 
             setTimeout(() => {
                 if (gameState.has(sentMsg.id)) {
-                    sentMsg.channel.send("10 seconds left");
+                    sentMsg.channel.send({ embeds: [reminder10] });
                 }
             }, 50_000);
 
@@ -656,7 +730,7 @@ module.exports = {
                         var imagePath = path.join(originDir, `${chooseImg}`);
                         var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'skipped.jpg' })
                     } catch (err) {
-                        await message.channel.send('There was an error with the image. Skipped');
+                        await message.channel.send({ embeds: [errorEmbed] });
                         console.error('Image file error:', err);
 
                         gameState.delete(sentMsg.id);
@@ -668,16 +742,32 @@ module.exports = {
 
                     if (type != "Multi") {
                         skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                        .setImage('attachment://skipped.jpg')
-                        .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
+                            .setImage('attachment://skipped.jpg')
+                            .setFooter({ text: `Skipped! The correct answer was ${state.proper}` });
 
-                        await sentMsg.channel.send(`Skipped, the answer was **${state.proper}**`);
+                        var skippedMsgEmbed = new EmbedBuilder()
+                            .setTitle("\n")
+                            .addFields({
+                                name: "\n",
+                                value: `Skipped, the answer was **${state.proper}**`
+                            })
+                            .setColor('LightGrey')
+
+                        await sentMsg.channel.send({ embeds: [skippedMsgEmbed] });
                     } else {
                         skippedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                        .setImage('attachment://skipped.jpg')
-                        .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
+                            .setImage('attachment://skipped.jpg')
+                            .setFooter({ text: `Skipped! The correct answer was ${umaProper}` });
 
-                        await sentMsg.channel.send(`Skipped, the answer was **${umaProper}**`);
+                        var skippedMsgEmbed = new EmbedBuilder()
+                            .setTitle("\n")
+                            .addFields({
+                                name: "\n",
+                                value: `Skipped, the answer was **${umaProper}**`
+                            })
+                            .setColor('LightGrey')
+
+                        await sentMsg.channel.send({ embeds: [skippedMsgEmbed] });
 
                         if (state.multiSetSize != state.multiSet.size) { // At least something was guessed, send point summary
                         let buildMessage = ""
@@ -685,9 +775,16 @@ module.exports = {
                         for (const [userId, points] of state.pointsGathered.entries()) {
                             buildMessage += `<@${userId}> +${points} points\n`
                         }
-                        await message.channel.send(
-                            `**Points earned:**\n${buildMessage}`
-                        )    
+
+                        var summaryEmbed = new EmbedBuilder()
+                            .setTitle("\n")
+                            .addFields({
+                                name: "\n",
+                                value: `**Points earned:**\n${buildMessage}`
+                            })
+                            .setColor('LightGrey')
+
+                        await message.channel.send({ embeds: [summaryEmbed] });    
                     }
                     }
 
@@ -791,7 +888,7 @@ module.exports = {
 
                         if (broadSearch['favorites'].includes(umaName)) { // If they got it right and it's their fav set
                             favPoints += 15
-                            await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
+                            await msg.channel.send( {embeds: [favEmbed]} )
                         }
 
                         // Initial message sender is discordID
@@ -868,9 +965,15 @@ module.exports = {
                         let {prevRankSymbol, rankSymbol} = returnRankedMessage(oldPoints, newPoints)
 
                         if (prevRankSymbol && rankSymbol != null) {
-                            await message.channel.send(
-                                `**Rank Up!!** <@${authorID}>, you've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
-                            );
+                            let rankUpEmbed = new EmbedBuilder()
+                                .setTitle("\n")
+                                .addFields({
+                                    name: "\n",
+                                    value: `**Rank Up!!** <@${authorID}>, you've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
+                                })
+                                .setColor('LightGrey')
+
+                            await message.channel.send({ embeds: [rankUpEmbed] });
                         }
 
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
@@ -881,10 +984,26 @@ module.exports = {
                         var dailyWinCount = broadSearch["wins_today"] + 1
                         var streakCount = broadSearch["streak"] + 1
 
-                        await msg.channel.send(`Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points + favPoints} points)*\n\nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*\n\nCurrent Streak: **${streakCount}**`);
+                        var correctEmbed = new EmbedBuilder()
+                            .setTitle("\n")
+                            .addFields({
+                                name: "\n",
+                                value: `Correct <@${authorID}>! The answer was **${state.proper}** *(+${state.points + favPoints} points)*\n\nYour total points: **${pointCount}** *(${dailyPointCount} today)*\nYour total correct guesses: **${winCount}** *(${dailyWinCount} today)*\n\nCurrent Streak: **${streakCount}**`
+                            })
+                            .setColor('LightGrey')
+
+                        let playAgainMsg = await message.channel.send({ embeds: [correctEmbed],  components: [playAgainRow] })
 
                         if ((newQuickest < topTime) || (topTime == 0)) { // send special message for new quickest time
-                            await msg.channel.send(`You have a new fastest answer time of **${(newQuickest / 1000).toFixed(2)}** sec!`);
+                            let fastestEmbed = new EmbedBuilder()
+                            .setTitle("\n")
+                            .addFields({
+                                name: "\n",
+                                value: `You have a new fastest answer time of **${(newQuickest / 1000).toFixed(2)}** sec!`
+                            })
+                            .setColor('LightGrey')
+
+                            await msg.channel.send({ embeds: [fastestEmbed] });
                         }
                         
                         try {
@@ -896,7 +1015,7 @@ module.exports = {
                                 var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.mp3' })
                             }
                         } catch (err) {
-                            await message.channel.send('There was an error with the image. Skipped');
+                            await message.channel.send({ embeds: [errorEmbed] });
                             console.error('Image file error:', err);
 
                             gameState.delete(sentMsg.id);
@@ -925,6 +1044,41 @@ module.exports = {
                                 components: []
                             });
                         }
+
+                        const playAgainCollector = playAgainMsg.createMessageComponentCollector({
+                            componentType: ComponentType.Button,
+                            time: 20_000
+                        });
+
+                        playAgainCollector.on('collect', async (interaction) => { // When the play again button is hit
+                            playAgainCollector.stop()
+
+                            try {                                
+                                if (interaction.customId === 'play_again') {
+                                    playAgainCollector.stop()
+
+                                    await playAgainMsg.edit({
+                                        embeds: [correctEmbed],
+                                        components: []
+                                    })
+
+                                    startGame(message, client, args)
+                                }
+                            } catch (err) {
+                                playAgainCollector.stop()
+                                console.log("Play again collection error: ", err)
+                            }
+                        })
+
+                        playAgainCollector.on('end', async (collected, reason) => {
+                            if (reason === 'time') {
+                                await playAgainMsg.edit({
+                                    embeds: [correctEmbed],
+                                    components: []
+                                })
+                            }
+                        })
+                    
                     }
                 } else { // Run this for multi games, got it right
                     const foundItem = client.strictCache.get(BigInt(msg.author.id)) === true 
@@ -990,7 +1144,7 @@ module.exports = {
 
                         if (broadSearch['favorites'].includes(umaName)) {
                             favPoints += 15
-                            await msg.channel.send(':star: You guessed one of your **favorite** umas! *(+15 points)*')
+                            await msg.channel.send({ embeds: [favEmbed] })
                         }
 
                         addCorrectPoints += favPoints
@@ -1050,9 +1204,15 @@ module.exports = {
                         let {prevRankSymbol, rankSymbol} = returnRankedMessage(oldPoints, newPoints)
 
                         if (prevRankSymbol && rankSymbol != null) {
-                            await message.channel.send(
-                                `**Rank Up!!** <@${authorID}>, you've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
-                            );
+                            let rankUpEmbed = new EmbedBuilder()
+                                .setTitle("\n")
+                                .addFields({
+                                    name: "\n",
+                                    value: `**Rank Up!!** <@${authorID}>, you've reached a new rank: ${prevRankSymbol} **->** ${rankSymbol}`
+                                })
+                                .setColor('LightGrey')
+
+                            await message.channel.send({ embeds: [rankUpEmbed] });
                         }
 
                         await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
@@ -1067,7 +1227,7 @@ module.exports = {
                             var imagePath = path.join(originDir, `${chooseImg}`);
                             var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'revealed.jpg' })
                         } catch (err) {
-                            await message.channel.send('There was an error with the image. Skipped');
+                            await message.channel.send({ embeds: [errorEmbed] });
                             console.error('Image file error:', err);
 
                             gameState.delete(sentMsg.id);
@@ -1075,8 +1235,16 @@ module.exports = {
                             state.processing = false
                             return;
                         }
+
+                        var correctMultiEmbed = new EmbedBuilder()
+                            .setTitle("\n")
+                            .addFields({
+                                name: "\n",
+                                value: `Correct <@${authorID}>! (${state.multiSetSize - state.multiSet.size}/${state.multiSetSize}) ${"✅ ".repeat(state.multiSetSize - state.multiSet.size)}${"<:white_large_square_X:1432246056187334746> ".repeat(state.multiSet.size)}`
+                            })
+                            .setColor('LightGrey')
                         
-                        await msg.channel.send(`Correct <@${authorID}>! (${state.multiSetSize - state.multiSet.size}/${state.multiSetSize}) ${"✅ ".repeat(state.multiSetSize - state.multiSet.size)}${"<:white_large_square_X:1432246056187334746> ".repeat(state.multiSet.size)}`)
+                        await msg.channel.send({ embeds: [correctMultiEmbed] })
 
                         if (state.multiSet.size == 0) { // create summary message at the end
                             let buildMessage = ""
@@ -1084,9 +1252,16 @@ module.exports = {
                             for (const [userId, points] of state.pointsGathered.entries()) {
                                 buildMessage += `<@${userId}> +${points} points\n`
                             }
-                            await msg.channel.send(
-                                `Congratulations, you guessed all the umas in the picture!\n\n**Points earned:**\n${buildMessage}`
-                            )
+
+                            var summaryEmbed = new EmbedBuilder()
+                                .setTitle("\n")
+                                .addFields({
+                                    name: "\n",
+                                    value: `Congratulations, you guessed all the umas in the picture!\n\n**Points earned:**\n${buildMessage}`
+                                })
+                                .setColor('LightGrey')
+
+                            let playAgainMsg = await msg.channel.send({ embeds: [summaryEmbed], components: [playAgainRow] })
                             
                             var revealedEmbed = EmbedBuilder.from(sentMsg.embeds)
                                 .setImage("attachment://revealed.jpg")
@@ -1099,7 +1274,41 @@ module.exports = {
                                 files: [file],
                                 components: [],
                             })
-                        }
+
+                            const playAgainCollector = playAgainMsg.createMessageComponentCollector({
+                                componentType: ComponentType.Button,
+                                time: 20_000
+                            });
+
+                            playAgainCollector.on('collect', async (interaction) => { // When the play again button is hit
+                                playAgainCollector.stop()
+
+                                try {                                
+                                    if (interaction.customId === 'play_again') {
+                                        playAgainCollector.stop()
+
+                                        await playAgainMsg.edit({
+                                            embeds: [summaryEmbed],
+                                            components: []
+                                        })
+
+                                        startGame(message, client, args)
+                                    }
+                                } catch (err) {
+                                    playAgainCollector.stop()
+                                    console.log("Play again collection error: ", err)
+                                }
+                            })
+
+                            playAgainCollector.on('end', async (collected, reason) => {
+                                if (reason === 'time') {
+                                    await playAgainMsg.edit({
+                                        embeds: [summaryEmbed],
+                                        components: []
+                                    })
+                                }
+                            })
+                            }
                             
                         state.processing = false // release at the end
                     }
@@ -1134,7 +1343,7 @@ module.exports = {
                             var file = new AttachmentBuilder(fs.readFileSync(imagePath), { name: 'timeout.mp3' })
                         }
                     } catch (err) {
-                        await message.channel.send('There was an error with the image. Skipped');
+                        await message.channel.send({ embeds: [errorEmbed] });
                         console.error('Image file error:', err);
 
                         gameState.delete(sentMsg.id);
@@ -1146,10 +1355,18 @@ module.exports = {
 
                     if (type != "Multi") {
                         timeoutEmbed = EmbedBuilder.from(sentMsg.embeds[0])
-                        .setImage('attachment://timeout.jpg')
-                        .setFooter({ text: `Time's up! The correct answer was ${state.proper}` });
+                            .setImage('attachment://timeout.jpg')
+                            .setFooter({ text: `Time's up! The correct answer was ${state.proper}` });
 
-                        await sentMsg.channel.send(`Nobody got it right. The answer was **${state.proper}**`);
+                        let timesUpEmbed = new EmbedBuilder()
+                            .setTitle("\n")
+                            .addFields({
+                                name: "\n",
+                                value: `Nobody got it right. The answer was **${state.proper}**`
+                            })
+                            .setColor('LightGrey')
+
+                        await sentMsg.channel.send({ embeds: [timesUpEmbed] });
                     } else {
                         timeoutEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                         .setImage('attachment://timeout.jpg')
@@ -1161,11 +1378,26 @@ module.exports = {
                             for (const [userId, points] of state.pointsGathered.entries()) {
                                 buildMessage += `<@${userId}> +${points} points\n`
                             }
-                            await message.channel.send(
-                                `**Points earned:**\n${buildMessage}`
-                            )    
+
+                            var summaryEmbed = new EmbedBuilder()
+                                .setTitle("\n")
+                                .addFields({
+                                    name: "\n",
+                                    value: `**Points earned:**\n${buildMessage}`
+                                })
+                                .setColor('LightGrey')
+
+                            await message.channel.send({ embeds: [summaryEmbed] });
                         } else {
-                            await sentMsg.channel.send(`Nobody got it right. The answer was **${umaProper}**`);
+                            var noneEmbed = new EmbedBuilder()
+                            .setTitle("\n")
+                            .addFields({
+                                name: "\n",
+                                value: `Nobody got it right. The answer was **${umaProper}**`
+                            })
+                            .setColor('LightGrey')
+
+                            await sentMsg.channel.send({ embeds: [noneEmbed] });
                         }
                     }
 
@@ -1213,7 +1445,8 @@ module.exports = {
                 console.error("Unable to send error message:", sendErr?.message || sendErr);
             }
         }
-      }
+        }
+        }
     }
 };
 
