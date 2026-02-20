@@ -14,9 +14,9 @@ module.exports = {
     aliases: ['u'],
     run: async ({ message, client, args }) => {
 
-        startGame(message, client, args)
+        startGame(message, client, args, null)
 
-        async function startGame(message, client, args) {
+        async function startGame(message, client, args, buttonUser = null) {
             let initialPointsJP;
             let minusPointsJP;
             var initialBlur = 50 + 1
@@ -24,7 +24,14 @@ module.exports = {
             let umaMap
 
             const channelID = message.channel.id;
-            const user = message.author;
+            let user
+
+            if (buttonUser == null) {
+                user = message.author;
+            } else {
+                user = buttonUser;
+            }
+
             var cacheDir = path.join(__dirname, "../assets/cache")
             var originDir = path.join(__dirname, "../assets/guessing")
 
@@ -1064,7 +1071,7 @@ module.exports = {
                                         })
 
                                         console.log(`Play again button hit by ${interaction.user.tag}, starting new ${type} game...`)
-                                        await startGame(message, client, args)
+                                        await startGame(message, client, args, interaction.user)
                                     }
                                 } catch (err) {
                                     playAgainCollector.stop()
@@ -1296,7 +1303,7 @@ module.exports = {
                                             })
 
                                             console.log(`Play again button hit by ${interaction.user.tag}, starting new ${type} game...`)
-                                            await startGame(message, client, args)
+                                            await startGame(message, client, args, interaction.user)
                                         }
                                     } catch (err) {
                                         playAgainCollector.stop()

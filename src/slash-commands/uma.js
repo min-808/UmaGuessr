@@ -28,9 +28,9 @@ module.exports = {
 
     run: async ({ interaction, client }) => {
 
-        startGame(interaction, client, true)
+        startGame(interaction, client, true, null)
 
-        async function startGame(interaction, client, initial = false) {
+        async function startGame(interaction, client, initial = false, buttonUser = null) {
 
             if (!interaction.guild) {
                 return interaction.reply({
@@ -46,7 +46,14 @@ module.exports = {
             let umaMap
 
             const channelID = interaction.channel.id;
-            const user = interaction.user;
+            let user
+
+            if (buttonUser == null) {
+                user = interaction.user;
+            } else {
+                user = buttonUser;
+            }
+
             var cacheDir = path.join(__dirname, "../assets/cache")
             var originDir = path.join(__dirname, "../assets/guessing")
 
@@ -1050,7 +1057,7 @@ module.exports = {
                                         })
 
                                         console.log(`Play again button hit by ${playButtonInteraction.user.tag}, starting new ${type} game...`)
-                                        await startGame(interaction, client, false)
+                                        await startGame(interaction, client, false, playButtonInteraction.user)
                                     }
                                 } catch (err) {
                                     playAgainCollector.stop()
@@ -1282,7 +1289,7 @@ module.exports = {
                                             })
 
                                             console.log(`Play again button hit by ${playButtonInteraction.user.tag}, starting new ${type} game...`)
-                                            await startGame(interaction, client, false)
+                                            await startGame(interaction, client, false, playButtonInteraction.user)
                                         }
                                     } catch (err) {
                                         playAgainCollector.stop()
