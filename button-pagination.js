@@ -1,6 +1,6 @@
 const { ActionRowBuilder, ButtonBuilder, ButtonStyle, ComponentType } = require('discord.js');
 
-module.exports = async (source, pages, time = 75 * 1000) => {
+module.exports = async (source, pages, current, time = 75 * 1000) => {
     try {
         if (!source || !Array.isArray(pages) || pages.length === 0)
             throw new Error("invalid arguments");
@@ -38,6 +38,11 @@ module.exports = async (source, pages, time = 75 * 1000) => {
             .setStyle(ButtonStyle.Primary)
             .setDisabled(true);
 
+        const mid = new ButtonBuilder()
+            .setCustomId('current')
+            .setEmoji('⏹️')
+            .setStyle(ButtonStyle.Primary)
+
         const next = new ButtonBuilder()
             .setCustomId('next')
             .setEmoji('➡️')
@@ -48,7 +53,7 @@ module.exports = async (source, pages, time = 75 * 1000) => {
             .setEmoji('⏭')
             .setStyle(ButtonStyle.Primary);
 
-        const row = new ActionRowBuilder().addComponents(front, prev, next, end);
+        const row = new ActionRowBuilder().addComponents(front, prev, mid, next, end);
 
         const msg = await edit({
             embeds: [pages[index].embed],
@@ -73,6 +78,9 @@ module.exports = async (source, pages, time = 75 * 1000) => {
                     break;
                 case 'prev':
                     if (index > 0) index--;
+                    break;
+                case 'current':
+                    index = current;
                     break;
                 case 'next':
                     if (index < pages.length - 1) index++;

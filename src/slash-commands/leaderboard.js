@@ -219,7 +219,7 @@ module.exports = {
             })
         }
 
-        await buttonPagination(sent, embeds);
+        await buttonPagination(sent, embeds, Math.floor((userRank - 1) / 5));
 
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
