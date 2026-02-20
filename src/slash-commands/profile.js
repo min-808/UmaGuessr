@@ -1,4 +1,4 @@
-const { EmbedBuilder, AttachmentBuilder, SlashCommandBuilder } = require('discord.js');
+const { EmbedBuilder, AttachmentBuilder, SlashCommandBuilder, escapeMarkdown } = require('discord.js');
 const { getMongoClient } = require('../connect-db.js');
 
 const setup = require('../../firstinit');
@@ -212,7 +212,7 @@ module.exports = {
                 avg = `**${(((sum / times.length) || 0) / 1000).toFixed(2)} sec**`
             }
 
-            embed.setTitle(`**${userProvided}'s Profile**`)
+            embed.setTitle(`**${escapeMarkdown(userProvided)}'s Profile**`)
 
             if (quote != null && quote.trim() !== '') {
                 embed.addFields(

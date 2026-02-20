@@ -1,4 +1,4 @@
-const { EmbedBuilder } = require('discord.js');
+const { EmbedBuilder, escapeMarkdown } = require('discord.js');
 const { getMongoClient } = require('../connect-db.js');
 const buttonPagination = require('../../button-pagination');
 const { returnRankedEmote } = require('../misc.js');
@@ -177,7 +177,7 @@ module.exports = {
 
                 embed.addFields({
                     name: "",
-                    value: `${totalCount}. ${rankSymbol} **${entry.username}** - ${displayValue} ${countType}`
+                    value: `${totalCount}. ${rankSymbol} **${escapeMarkdown(entry.username)}** - ${displayValue} ${countType}`
                 });
 
                 totalCount++;
