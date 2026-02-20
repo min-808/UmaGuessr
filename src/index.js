@@ -180,7 +180,7 @@ async function refreshUsernames() {
         let listOfDocuments = await ids.find({}, options).toArray();
         
         for (let doc of listOfDocuments) {
-            await new Promise(resolve => setTimeout(resolve, 800)) // add delay to respect rate limits
+            await new Promise(resolve => setTimeout(resolve, 2000)) // add delay to respect rate limits
             const foundID = doc.discord_id;
 
             const response = await fetch(`https://discord.com/api/v10/users/${foundID}`, {
