@@ -1,3 +1,7 @@
 const { buildCache } = require("./src/cache-images.js");
 
-await buildCache()
+async function run() {
+  await buildCache();
+}
+
+run()
