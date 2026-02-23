@@ -60,6 +60,7 @@ module.exports = {
             favorites: [],
             max_favorites: 3,
             user_id: newInternalId,
+            sample: [],
         }
     
         const result = await ids.insertOne(doc);
