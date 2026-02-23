@@ -1,6 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder } = require('discord.js');
 const { getMongoClient } = require('../connect-db.js');
-const buttonPagination = require('../../button-pagination');
+const buttonPagination = require('../../pagination-button');
 
 module.exports = {
     name: 'charlist',

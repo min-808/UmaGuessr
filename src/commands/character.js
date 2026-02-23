@@ -1,5 +1,5 @@
 const { EmbedBuilder } = require('discord.js');
-const buttonPagination = require('../../button-pagination');
+const buttonPagination = require('../../pagination-button');
 const path = require("path")
 const { getMongoClient } = require('../connect-db.js');
 
@@ -78,10 +78,9 @@ module.exports = {
                             console.error(`API returned ${res.status}: ${res.statusText}`);
                             return message.channel.send(`**Error fetching character data**`);
                         }
+                    } else {
+                        data = await res.json()
                     }
-                    
-                    // if found, use api's json
-                    data = await res.json()
 
                     embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/sZgfUKW.png') // fallback on backup image
                     embed.setColor(data['color_main'] ?? 'LightGrey')

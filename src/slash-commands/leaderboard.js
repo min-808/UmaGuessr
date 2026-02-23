@@ -1,6 +1,6 @@
 const { EmbedBuilder, SlashCommandBuilder, escapeMarkdown } = require('discord.js');
 const { getMongoClient } = require('../connect-db.js');
-const buttonPagination = require('../../button-pagination');
+const buttonPagination = require('../../pagination-lb');
 const { returnRankedEmote } = require('../misc.js');
 
 module.exports = {
