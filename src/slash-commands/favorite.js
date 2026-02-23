@@ -6,7 +6,8 @@ const setup = require('../../firstinit');
 const img = "favorite"
 
 var globalList = require('../../src/assets/global-list.json')
-var JPList = require('../../src/assets/jp-list.json')
+var JPList = require('../../src/assets/jp-list.json');
+const { get } = require('mongoose');
 var bothLists = globalList.concat(JPList)
 
 bothLists.sort((a, b) => a.proper.localeCompare(b.proper));
@@ -87,12 +88,21 @@ module.exports = {
                 .setThumbnail(`attachment://${img}.png`)
 
             if (interaction.options.getString('character') == null) {
-                embed.addFields(
-                    {
-                        name: "\n",
-                        value: `Your favorite umas are: **${getFavs['favorites'].map(item => bothLists.find(entry => entry.id == item)['proper']).join(', ')}**`
-                    }
-                )
+                if (getFavs['favorites'].length == 0) {
+                    embed.addFields(
+                        {
+                            name: "\n",
+                            value: `You have no umas in your favorites.\n\nTo add, do \`/fav (uma name)\`\nTo remove, do \`/unfav (uma name)\``
+                        }
+                    )
+                } else {
+                    embed.addFields(
+                        {
+                            name: "\n",
+                            value: `Your favorite umas are: **${getFavs['favorites'].map(item => bothLists.find(entry => entry.id == item)['proper']).join(', ')}**`
+                        }
+                    )
+                }
 
                 await interaction.editReply({ embeds: [embed], files: [file] })
             } else {

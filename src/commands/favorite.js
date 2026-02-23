@@ -47,12 +47,21 @@ module.exports = {
                 .setThumbnail(`attachment://${img}.png`)
 
             if (args.length == 0) {
-                embed.addFields(
-                    {
-                        name: "\n",
-                        value: `Your favorite umas are: **${getFavs['favorites'].map(item => bothLists.find(entry => entry.id == item)['proper']).join(', ')}**`
-                    }
-                )
+                if (getFavs['favorites'].length == 0) {
+                    embed.addFields(
+                        {
+                            name: "\n",
+                            value: `You have no umas in your favorites.\n\nTo add, do \`!fav (uma name)\`\nTo remove, do \`!unfav (uma name)\``
+                        }
+                    )
+                } else {
+                    embed.addFields(
+                        {
+                            name: "\n",
+                            value: `Your favorite umas are: \n\n**${getFavs['favorites'].map(item => bothLists.find(entry => entry.id == item)['proper']).join('\n')}**`
+                        }
+                    )
+                }
 
                 await message.channel.send({ embeds: [embed], files: [file] })
             } else {

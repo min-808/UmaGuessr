@@ -61,6 +61,7 @@ module.exports = {
                         strict: 1,
                         restrict: 1,
                         favorites: 1,
+                        sample: 1,
                     }
                 });
 
@@ -77,6 +78,14 @@ module.exports = {
                     .addFields({
                         name: "\n",
                         value: ':star: You guessed one of your **favorite** umas! *(+15 points)*'
+                    })
+                    .setColor("LightGrey")
+
+                var sampleEmbed = new EmbedBuilder()
+                    .setTitle("\n")
+                    .addFields({
+                        name: "\n",
+                        value: ':star: You guessed one of your **favorite** umas! *(+0 points)*'
                     })
                     .setColor("LightGrey")
 
@@ -163,6 +172,18 @@ module.exports = {
                         initialPointsJP = 18 + 1
                         minusPointsJP = 6
                         initialBlur = 18 + 1
+                    } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "s")) || (args[0].toLowerCase().includes("sample")))) {
+                        list = require('../../src/assets/global-list.json')
+                        list2 = require('../../src/assets/jp-list.json')
+                        list = list.concat(list2)
+
+                        const sampledUmas = new Set(data["sample"])
+                        list = list.filter(uma => sampledUmas.has(uma.id))
+
+                        type = "Sample"
+
+                        initialPointsJP = 0
+                        minusPointsJP = 0
                     } else { // Just the normal !uma command, check their type
                         if (data["type"] === 'g') {
                             list = require('../../src/assets/global-list.json')
@@ -201,6 +222,18 @@ module.exports = {
                             initialPointsJP = 18 + 1
                             minusPointsJP = 6
                             initialBlur = 18 + 1
+                        } else if (data["type"] === 's') {
+                            list = require('../../src/assets/global-list.json')
+                            list2 = require('../../src/assets/jp-list.json')
+                            list = list.concat(list2)
+
+                            const sampledUmas = new Set(data["sample"])
+                            list = list.filter(uma => sampledUmas.has(uma.id))
+
+                            type = "Sample"
+
+                            initialPointsJP = 0
+                            minusPointsJP = 0
                         } else { // Defaults to global if no args + no type set
                             list = require('../../src/assets/global-list.json')
                             type = "Global"
@@ -257,6 +290,20 @@ module.exports = {
                         filterList = require('../../src/assets/filter-list.json')
                         chooseChar = Math.floor(Math.random() * list.length)
                         // chooseChar = 0
+
+                        if (list.length == 0) {
+                            var noSampleUmas = new EmbedBuilder()
+                                .setTitle("\n")
+                                .addFields({
+                                    name: "\n",
+                                    value: `You have no umas in your sample list, ending game`
+                                })
+                                .setColor("LightGrey")
+
+                            await message.channel.send({ embeds: [noSampleUmas] })
+                            activeChannels.delete(channelID);
+                            return;
+                        }
 
                         let chooseCharObj = list[chooseChar] // finds the obj corresponding to the index (e.g. taikishuttle)
                         let filterEntry = filterList.find(f => f.id == chooseCharObj.id)?.images ?? [] // default to empty array if not found
@@ -894,8 +941,12 @@ module.exports = {
                             }
 
                             if (broadSearch['favorites'].includes(umaName)) { // If they got it right and it's their fav set
-                                favPoints += 15
-                                await msg.channel.send( {embeds: [favEmbed]} )
+                                if (type != "Sample") {
+                                    favPoints += 15
+                                    await msg.channel.send( {embeds: [favEmbed]} )
+                                } else {
+                                    await msg.channel.send( {embeds: [sampleEmbed]} )
+                                }
                             }
 
                             // Initial message sender is discordID
@@ -1152,8 +1203,12 @@ module.exports = {
                             }
 
                             if (broadSearch['favorites'].includes(umaName)) {
-                                favPoints += 15
-                                await msg.channel.send({ embeds: [favEmbed] })
+                                if (type != "Sample") {
+                                    favPoints += 15
+                                    await msg.channel.send( {embeds: [favEmbed]} )
+                                } else {
+                                    await msg.channel.send( {embeds: [sampleEmbed]} )
+                                }
                             }
 
                             addCorrectPoints += favPoints

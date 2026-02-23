@@ -92,6 +92,16 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
                     inline: true
                 })
+            } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "s")) || (args[0].toLowerCase().includes("sample")))) {
+                newType = 's'
+                proper = "Sample"
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `!uma`, it will now automatically default to this region",
+                    inline: true
+                })
             } else if (args == 0) { // No args
                 newType = oldType
 
@@ -107,7 +117,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: `Invalid region. Please choose ` + "`g`, `j`, `a`, `h`, or `m`",
+                    value: `Invalid region. Please choose ` + "`Global`, `Japan`, `All`, `Horse`, `Multi`, or `Sample`",
                     inline: true
                 })
             }

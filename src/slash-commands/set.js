@@ -20,6 +20,7 @@ module.exports = {
                     { name: 'All', value: 'a' },
                     { name: 'Multi', value: 'm' },
                     { name: 'IRL', value: 'h' },
+                    { name: 'Sample', value: 's' },
                     { name: 'Help', value: 'help' },
                 )),
 
@@ -107,6 +108,16 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `/uma`, it will now automatically default to this region",
                     inline: true
                 })
+            } else if (interaction.options.getString('region') == "s") {
+                newType = 's'
+                proper = "Sample"
+
+                embed.addFields(
+                {
+                    name: `\n`,
+                    value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `/uma`, it will now automatically default to this region",
+                    inline: true
+                })
             } else if (interaction.options.getString('region') == "help") { // No args
                 newType = oldType
 
@@ -122,7 +133,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: `Invalid region. Please choose ` + "`Global`, `Japan`, `All`, `IRL`, or `Multi`\n\nUse `/set Help` for more information",
+                    value: `Invalid region. Please choose ` + "`Global`, `Japan`, `All`, `IRL`, `Multi`, or `Sample`\n\nUse `/set Help` for more information",
                     inline: true
                 })
             }
