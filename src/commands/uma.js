@@ -353,14 +353,16 @@ module.exports = {
                 const countCollection = database.collection("count")
 
                 if (type != "Multi") {
-                    await countCollection.updateOne(
-                        { name: umaName },
-                        { 
-                            $inc: { count: 1, old_count: 1 },
-                            $set: { proper: umaProper }
-                        },
-                        { upsert: true }
-                    )
+                    if (type != "Sample") {
+                        await countCollection.updateOne(
+                            { name: umaName },
+                            { 
+                                $inc: { count: 1, old_count: 1 },
+                                $set: { proper: umaProper }
+                            },
+                            { upsert: true }
+                        )
+                    }
                 } else {
                     const bulkOps = umaNameArr.map(u => ({
                         updateOne: {
@@ -633,7 +635,7 @@ module.exports = {
                             gameState.delete(sentMsg.id);
                             activeChannels.delete(channelID);
 
-                            if (type != "Multi") {
+                            if ((type != "Multi") || (type != "Sample")) {
                                 await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
                                     $set: {
                                         streak: 0,
@@ -772,7 +774,7 @@ module.exports = {
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
 
-                        if (type != "Multi") {
+                        if ((type != "Multi") || (type != "Sample")) {
                             await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
                                 $set: {
                                     streak: 0,
@@ -875,14 +877,16 @@ module.exports = {
 
                             const countCollection = database.collection("count")
 
-                            await countCollection.updateOne(
-                                { name: umaName },
-                                { 
-                                    $inc: { wins: 1 },
-                                    $set: { proper: umaProper }
-                                },
-                                { upsert: true }
-                            )
+                            if (type != "Sample") {
+                                await countCollection.updateOne(
+                                    { name: umaName },
+                                    { 
+                                        $inc: { wins: 1 },
+                                        $set: { proper: umaProper }
+                                    },
+                                    { upsert: true }
+                                )
+                            }
 
                             var authorID = BigInt(msg.author.id); // ID of the person who got it right
 
@@ -953,53 +957,48 @@ module.exports = {
                             // Answerer is authorID
 
                             if (authorID == discordID) { // Increment streak of the answerer by one
-                                if (client.restrictedUsers.get(authorID) == true) {
-                                    await ids.updateOne({ discord_id: discordID }, {
-                                    $set: {
-                                        top_streak: Math.max(newStreak, topStreak),
-                                        quickest_answer: newQuickest
-                                    }
-                                    })
-
+                                if (client.restrictedUsers.get(authorID) == true) { // don't add new streak or time
                                     addWins = 0
-                                } else {
+                                } else { // not restricted and not playing sample
+                                    if (type != "Sample") {
+                                        await ids.updateOne({ discord_id: discordID }, {
+                                            $set: {
+                                                top_streak: Math.max(newStreak, topStreak),
+                                                quickest_answer: newQuickest
+                                            },
+                                            $inc: {
+                                                streak: 1,
+                                            }
+                                        });
+                                    } else {
+                                        addWins = 0
+                                    }
+                                }
+                            } else { // someone else answered that's not the initial message sender, goodbye streak
+                                if (type != "Sample") {
                                     await ids.updateOne({ discord_id: discordID }, {
                                         $set: {
-                                            top_streak: Math.max(newStreak, topStreak),
-                                            quickest_answer: newQuickest
-                                        },
-                                        $inc: {
-                                            streak: 1,
+                                            streak: 0,
                                         }
                                     });
                                 }
-                            } else { // someone else answered that's not the initial message sender, goodbye streak
-                                await ids.updateOne({ discord_id: discordID }, {
-                                    $set: {
-                                        streak: 0,
-                                    }
-                                });
 
                                 if (client.restrictedUsers.get(authorID) == true) {
-                                    await ids.updateOne({ discord_id: discordID }, {
-                                    $set: {
-                                        top_streak: Math.max(newStreak, topStreak),
-                                        quickest_answer: newQuickest
-                                    }
-                                    })
-
                                     addWins = 0
                                 } else {
-
-                                    await ids.updateOne({ discord_id: authorID }, {
-                                        $set: {
-                                            top_streak: Math.max(newStreak, topStreak),
-                                            quickest_answer: newQuickest
-                                        },
-                                        $inc: {
-                                            streak: 1,
-                                        }
-                                    });
+                                    if (type != "Sample") {
+                                        await ids.updateOne({ discord_id: authorID }, {
+                                            $set: {
+                                                top_streak: Math.max(newStreak, topStreak),
+                                                quickest_answer: newQuickest
+                                            },
+                                            $inc: {
+                                                streak: 1,
+                                            }
+                                        });
+                                    } else {
+                                        addWins = 0
+                                    }
                                 }
                             }
 
@@ -1010,11 +1009,10 @@ module.exports = {
                                     points_today: state.points + favPoints,
                                     wins_today: addWins,
 
-                                },
-                                $push: {
-                                    times: timeAnswered,
                                 }
                             }
+
+                            if (type != "Sample") addPoints.$push = { times: timeAnswered };
 
                             // rank up message
                             const oldPoints = broadSearch['points']
@@ -1037,10 +1035,10 @@ module.exports = {
                             await ids.updateOne({ discord_id: authorID }, addPoints); // update happens, i don't wanna do another findOne so we'll add the points dynamically
 
                             var pointCount = broadSearch["points"] + state.points + favPoints
-                            var winCount = broadSearch["wins"] + 1
+                            var winCount = broadSearch["wins"] + (type != "Sample" ? 1 : 0)
                             var dailyPointCount = broadSearch["points_today"] + state.points + favPoints
-                            var dailyWinCount = broadSearch["wins_today"] + 1
-                            var streakCount = broadSearch["streak"] + 1
+                            var dailyWinCount = broadSearch["wins_today"] + (type != "Sample" ? 1 : 0)
+                            var streakCount = broadSearch["streak"] + (type != "Sample" ? 1 : 0)
 
                             var correctEmbed = new EmbedBuilder()
                                 .setTitle("\n")
@@ -1052,7 +1050,7 @@ module.exports = {
 
                             let playAgainMsg = await message.channel.send({ embeds: [correctEmbed],  components: [playAgainRow] })
 
-                            if ((newQuickest < topTime) || (topTime == 0)) { // send special message for new quickest time
+                            if (((newQuickest < topTime) || (topTime == 0)) && (type != "Sample")) { // send special message for new quickest time
                                 let fastestEmbed = new EmbedBuilder()
                                 .setTitle("\n")
                                 .addFields({
@@ -1484,7 +1482,7 @@ module.exports = {
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
 
-                        if (type != "Multi") {
+                        if ((type != "Multi") || (type != "Sample")) {
                             await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
                                 $set: {
                                     streak: 0,

@@ -4,7 +4,7 @@ const buttonPagination = require('../../button-pagination');
 
 module.exports = {
     name: 'charlist',
-    aliases: ['characterlist', 'clist', 'cl'],
+    aliases: ['characterlist', 'clist', 'cl', 'characters'],
     description: 'Shows all umas that have been added to the bot and their picture counts',
     
     run: async ({ message, args }) => {
