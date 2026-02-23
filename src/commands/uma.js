@@ -579,7 +579,7 @@ module.exports = {
                             let newPoints
 
                             if (type == "Sample") {
-                                newPoints == 0
+                                newPoints = 0
                             } else {
                                 newPoints = 1
                             }
