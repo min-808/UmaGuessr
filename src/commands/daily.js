@@ -62,11 +62,11 @@ module.exports = {
                 return
             }
 
-            if (pastTime + 172_800_000 < currentTime) {
+            if (pastTime + 169_200_000 < currentTime) {
                 brokenStreak = true
             }
 
-            let remaining = (pastTime + 86_400_000) - currentTime; // time LEFT, not time passed
+            let remaining = (pastTime + 84_600_000) - currentTime; // time LEFT, not time passed
 
             let sec = Math.floor(remaining / 1000);
             let mins = Math.floor(remaining / (1000 * 60));
@@ -77,14 +77,14 @@ module.exports = {
                 writeTime = `${sec.toFixed(0)} seconds`;
             } else if (remaining < 3_600_000) {
                 writeTime = `${mins.toFixed(0)} minutes and ${(sec - (mins * 60)).toFixed(0)} seconds`;
-            } else if (remaining < 86_400_000) {
+            } else if (remaining < 84_600_000) {
                 writeTime = `${hours.toFixed(0)} hours, ${(mins - (hours * 60)).toFixed(0)} minutes, and ${(sec - (mins * 60)).toFixed(0)} seconds`;
             } else {
                 writeTime = `${days.toFixed(0)} days`;
             }
             
             // If you can't claim daily yet
-            if ((pastTime + 86_400_000) >= currentTime) {
+            if ((pastTime + 84_600_000) >= currentTime) {
                 file = new AttachmentBuilder(`src/assets/command_images/${badImg}.png`)
 
                 embed.setThumbnail(`attachment://${badImg}.png`)
