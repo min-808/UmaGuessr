@@ -512,7 +512,13 @@ module.exports = {
                                 }
 
                                 let newHintsUsed = state.hintsUsed + 1
-                                let newPoints = Math.max(1, state.points - minusPointsJP)
+                                let newPoints
+
+                                if (type == "Sample") {
+                                    newPoints = 0
+                                } else {
+                                    newPoints = Math.max(1, state.points - minusPointsJP)
+                                }
 
                                 gameState.set(sentMsg.id, {
                                     ...state,
@@ -570,7 +576,13 @@ module.exports = {
 
                             let newBlurLevel = 1
                             let newHintsUsed
-                            let newPoints = 1
+                            let newPoints
+
+                            if (type == "Sample") {
+                                newPoints == 0
+                            } else {
+                                newPoints = 1
+                            }
 
                             if (type == "Multi") {
                                 newHintsUsed = 3
