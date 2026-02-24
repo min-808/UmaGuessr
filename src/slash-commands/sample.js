@@ -1,12 +1,12 @@
 const { AttachmentBuilder, EmbedBuilder, SlashCommandBuilder } = require('discord.js')
 const { getMongoClient } = require('../connect-db.js')
 
-const setup = require('../../firstinit');
+const setup = require('../../firstinit.js');
 
-const img = "sample"
+const img = "practice"
 
-var globalList = require('../../src/assets/global-list.json')
-var JPList = require('../../src/assets/jp-list.json')
+var globalList = require('../assets/global-list.json')
+var JPList = require('../assets/jp-list.json')
 var bothLists = globalList.concat(JPList)
 
 bothLists.sort((a, b) => a.proper.localeCompare(b.proper));
@@ -27,16 +27,16 @@ filteredChoices = newChoices.filter(function(item, pos) {
 var choices = filteredChoices
 
 module.exports = {
-    name: 'sample',
-    aliases: ['samples', 'samp'],
-    description: 'Set sample umas to practice',
+    name: 'practice',
+    aliases: ['practice', 'prac'],
+    description: 'Add umas to your practice list',
 
     data: new SlashCommandBuilder()
-        .setName('sample')
-        .setDescription('Set sample umas to practice')
+        .setName('practice')
+        .setDescription('Add umas to your practice list')
         .addStringOption(option =>
             option.setName('option')
-                .setDescription('Choose to add or remove an uma from your sample list')
+                .setDescription('Choose to add or remove an uma from your practice list')
                 .setRequired(false)
                 .addChoices(
                     { name: 'Add', value: 'add' },
@@ -44,7 +44,7 @@ module.exports = {
                 )
         .addStringOption(option =>
             option.setName('character')
-                .setDescription('Enter an uma to add to your sample list')
+                .setDescription('Enter an uma to add to your practice list')
                 .setRequired(false)
                 .setAutocomplete(true)),
 
@@ -89,7 +89,7 @@ module.exports = {
             })
 
             const embed = new EmbedBuilder()
-                .setTitle(`Add Sample Umas`)
+                .setTitle(`Add Practice Umas`)
                 .setColor('LightGrey')
                 .setThumbnail(`attachment://${img}.png`)
 
@@ -98,14 +98,14 @@ module.exports = {
                     embed.addFields(
                         {
                             name: "\n",
-                            value: `You have no umas in your sample list.\n\nTo add, do \`!sample add (uma name)\`\nTo remove, do \`!sample remove (uma name)\``
+                            value: `You have no umas in your practice list.\n\nTo add, do \`!practice add (uma name)\`\nTo remove, do \`!practice remove (uma name)\``
                         }
                     )
                 } else {
                     embed.addFields(
                         {
                             name: "\n",
-                            value: `Your sampled umas are: \n\n**${getSamples['sample'].map(item => bothLists.find(entry => entry.id == item)['proper']).join('\n')}**`
+                            value: `Your current practice list: \n\n**${getSamples['sample'].map(item => bothLists.find(entry => entry.id == item)['proper']).join('\n')}**`
                         }
                     )
                 }
@@ -115,7 +115,7 @@ module.exports = {
                 embed.addFields(
                         {
                             name: "\n",
-                            value: `Usage: \n\n\`/sample (Add/Remove) (uma name)\``
+                            value: `Usage: \n\n\`/practice (Add/Remove) (uma name)\``
                         }
                     )
 
@@ -139,7 +139,7 @@ module.exports = {
                                 embed.addFields(
                                     {
                                         name: "\n",
-                                        value: `**${properName}** is already in your sample list`
+                                        value: `**${properName}** is already in your practice list`
                                     }
                                 )
 
@@ -149,7 +149,7 @@ module.exports = {
                                 embed.addFields(
                                     {
                                         name: "\n",
-                                        value: `Added **${properName}** to your sample list`
+                                        value: `Added **${properName}** to your practice list`
                                     }
                                 )
 
@@ -191,7 +191,7 @@ module.exports = {
                                 embed.addFields(
                                     {
                                         name: "\n",
-                                        value: `Removed **${properName}** from your sample list`
+                                        value: `Removed **${properName}** from your practice list`
                                     }
                                 )
 
@@ -206,7 +206,7 @@ module.exports = {
                                 embed.addFields(
                                     {
                                         name: "\n",
-                                        value: `**${properName}** is not in your sample list`
+                                        value: `**${properName}** is not in your practice list`
                                     }
                                 )
 
@@ -230,7 +230,7 @@ module.exports = {
                     embed.addFields(
                         {
                             name: "\n",
-                            value: `Usage: \n\n\`/sample (Add/Remove) (uma name)\``
+                            value: `Usage: \n\n\`/practice (Add/Remove) (uma name)\``
                         }
                     )
 

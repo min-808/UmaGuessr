@@ -1,14 +1,14 @@
 const { AttachmentBuilder, EmbedBuilder } = require('discord.js')
 const { getMongoClient } = require('../connect-db.js')
 
-const setup = require('../../firstinit');
+const setup = require('../../firstinit.js');
 
-const img = "sample"
+const img = "practice"
 
 module.exports = {
-    name: 'sample',
-    aliases: ['samples', 'samp'],
-    description: 'Set sample umas to practice',
+    name: 'practice',
+    aliases: ['sample', 'samples', 'samp', 'practice', 'prac'],
+    description: 'Add umas to your practice list',
     
     run: async ({ message, args }) => {
         var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
@@ -24,12 +24,11 @@ module.exports = {
             const count = await ids.countDocuments({ discord_id: discordID });
             if (count < 1) await setup.init(discordID, "uma", "profiles", client);
             
-            var globalList = require('../../src/assets/global-list.json')
-            var JPList = require('../../src/assets/jp-list.json')
+            var globalList = require('../assets/global-list.json')
+            var JPList = require('../assets/jp-list.json')
             var bothLists = globalList.concat(JPList)
 
-            var charToSearch = args.slice(1).join(" ").trim().toLowerCase().replace(/\s+/g, '')
-            let found = false
+            var charToSearch
             var id
             var charName
 
@@ -41,23 +40,34 @@ module.exports = {
             })
 
             const embed = new EmbedBuilder()
-                .setTitle(`Add Sample Umas`)
+                .setTitle(`Add Practice Umas`)
                 .setColor('LightGrey')
                 .setThumbnail(`attachment://${img}.png`)
+
+            const addFieldIfAny = (name, arr) => { // embed helper function
+                if (!arr?.length) return;
+                embed.addFields({
+                    name,
+                    value: arr
+                        .map(item => (bothLists.find(e => e.id === item)?.proper ?? item))
+                        .join("\n")
+                        .slice(0, 1024), // field char limit
+                })
+            }
 
             if (args.length == 0) {
                 if (getSamples['sample'].length == 0) {
                     embed.addFields(
                         {
                             name: "\n",
-                            value: `You have no umas in your sample list.\n\nTo add, do \`!sample add (uma name)\`\nTo remove, do \`!sample remove (uma name)\``
+                            value: `You have no umas in your practice list.\n\nTo add, do \`!practice add (uma name)\`\nTo remove, do \`!practice remove (uma name)\``
                         }
                     )
                 } else {
                     embed.addFields(
                         {
                             name: "\n",
-                            value: `Your sampled umas are: \n\n**${getSamples['sample'].map(item => bothLists.find(entry => entry.id == item)['proper']).join('\n')}**`
+                            value: `Your current practice list: \n\n**${getSamples['sample'].map(item => bothLists.find(entry => entry.id == item)['proper']).join('\n')}**`
                         }
                     )
                 }
@@ -67,128 +77,107 @@ module.exports = {
                 embed.addFields(
                         {
                             name: "\n",
-                            value: `Usage: \n\n\`!sample (add/remove) (uma name)\``
+                            value: `Usage: \n\n\`!practice (add/remove) (uma name)\``
                         }
                     )
 
                     await message.channel.send({ embeds: [embed], files: [file] })
                     return
             } else { // args length >= 2, check arg 1 for add/remove
-                if (args[0].toLowerCase() == "add") {
-                    for (let i = 0; i < bothLists.length; i++) { // We are looping through both lists to find a matching uma that holds a nickname passed in through charToSearch
-                        if (bothLists[i]["names"].includes(charToSearch)) { // This will take a while :/
-                            found = true
-                            id = bothLists[i]["number"]
-                            charName = bothLists[i]["id"]
-                            properName = bothLists[i]["proper"]
+                let errChars = []
+                let addRemChars = []
+                let dupeChars = []
 
-                            if (id == 0) {
-                                found = false
+                let raw = args.slice(1).join(" ")
+                let sampArgs = [...new Set(
+                    raw.split(",")
+                        .map(s => s.trim().toLowerCase().replace(/\s+/g, ""))
+                        .filter(Boolean)
+                )];
+
+                if (args[0].toLowerCase() == "add") { // for every uma in the args, add to sample list
+                    for (let j = 0; j < sampArgs.length; j++) {
+                        let found = false
+
+                        for (let i = 0; i < bothLists.length; i++) { // We are looping through both lists to find a matching uma that holds a nickname passed in through charToSearch
+                            if (bothLists[i]["names"].includes(sampArgs[j])) { // This will take a while :/
+                                found = true
+
+                                id = bothLists[i]["number"]
+                                charName = bothLists[i]["id"]
+                                properName = bothLists[i]["proper"]
+
+                                if (getSamples['sample'].includes(charName)) {
+                                    dupeChars.push(charName)
+                                } else {
+                                    addRemChars.push(charName)
+                                }
+
                                 break
                             }
+                        }
 
-                            if (getSamples['sample'].includes(charName)) {
-                                embed.addFields(
-                                    {
-                                        name: "\n",
-                                        value: `**${properName}** is already in your sample list`
-                                    }
-                                )
-
-                                await message.channel.send({ embeds: [embed], files: [file] })
-                                return
-                            } else {
-                                embed.addFields(
-                                    {
-                                        name: "\n",
-                                        value: `Added **${properName}** to your sample list`
-                                    }
-                                )
-
-                                await ids.updateOne({ discord_id: discordID },
-                                    { $push: { sample: charName } },
-                                    { upsert: true }
-                                );
-
-                                await message.channel.send({ embeds: [embed], files: [file] })
-                                return
-                            }
+                        if (found == false) {
+                            errChars.push(sampArgs[j])
                         }
                     }
 
-                    if (!found) {
-                        embed.addFields(
-                            {
-                                name: "\n",
-                                value: `Unable to find character`
-                            }
-                        )
+                    addFieldIfAny("Added", addRemChars);
+                    addFieldIfAny("Already in list", dupeChars);
+                    addFieldIfAny("Not found", errChars);
 
-                        await message.channel.send({ embeds: [embed] })
+                    if (embed.data.fields?.length) {
+                        await message.channel.send({ embeds: [embed], files: [file] });
+                    } else {
+                        await message.channel.send("No changes, nothing to add/remove");
                     }
+
+                    await ids.updateOne({ discord_id: discordID },
+                        { $push: { sample: { $each: addRemChars } } },
+                        { upsert: true }
+                    );
                 } else if ((args[0].toLowerCase() == "remove") || (args[0].toLowerCase() == "delete")) {
-                    for (let i = 0; i < bothLists.length; i++) { // We are looping through both lists to find a matching uma that holds a nickname passed in through charToSearch
-                        if (bothLists[i]["names"].includes(charToSearch)) { // This will take a while :/
-                            found = true
-                            id = bothLists[i]["number"]
-                            charName = bothLists[i]["id"]
-                            properName = bothLists[i]["proper"]
+                    for (let j = 0; j < sampArgs.length; j++) {
+                        let found = false
 
-                            if (id == 0) {
-                                found = false
+                        for (let i = 0; i < bothLists.length; i++) { // We are looping through both lists to find a matching uma that holds a nickname passed in through charToSearch
+                            if (bothLists[i]["names"].includes(sampArgs[j])) { // This will take a while :/
+                                found = true
+
+                                id = bothLists[i]["number"]
+                                charName = bothLists[i]["id"]
+                                properName = bothLists[i]["proper"]
+
+                                if (getSamples['sample'].includes(charName)) {
+                                    addRemChars.push(charName) // to remove
+                                } else {
+                                    dupeChars.push(charName) // this will hold umas aren't in the list but were in args
+                                }
+
                                 break
                             }
+                        }
 
-                            if (getSamples['sample'].includes(charName)) {
-                                embed.addFields(
-                                    {
-                                        name: "\n",
-                                        value: `Removed **${properName}** from your sample list`
-                                    }
-                                )
-
-                                await ids.updateOne({ discord_id: discordID },
-                                    { $pull: { sample: charName } },
-                                    { upsert: true }
-                                );
-
-                                await message.channel.send({ embeds: [embed], files: [file] })
-                                return
-                            } else {
-                                embed.addFields(
-                                    {
-                                        name: "\n",
-                                        value: `**${properName}** is not in your sample list`
-                                    }
-                                )
-
-                                await message.channel.send({ embeds: [embed], files: [file] })
-                                return
-                            }
+                        if (found == false) {
+                            errChars.push(sampArgs[j])
                         }
                     }
 
-                    if (!found) {
-                        embed.addFields(
-                            {
-                                name: "\n",
-                                value: `Unable to find character`
-                            }
-                        )
+                    addFieldIfAny("Removed", addRemChars);
+                    addFieldIfAny("Currently not in list", dupeChars);
+                    addFieldIfAny("Not found", errChars);
 
-                        await message.channel.send({ embeds: [embed], files: [file] })
+                    if (embed.data.fields?.length) {
+                        await message.channel.send({ embeds: [embed], files: [file] });
+                    } else {
+                        await message.channel.send("No changes, nothing to add/remove");
                     }
-                } else {
-                    embed.addFields(
-                        {
-                            name: "\n",
-                            value: `Usage: \n\n\`!sample (add/remove) (uma name)\``
-                        }
-                    )
 
-                    await message.channel.send({ embeds: [embed], files: [file] })
+                    await ids.updateOne({ discord_id: discordID },
+                        { $pull: { sample: { $in: addRemChars } } },
+                        { upsert: true }
+                    );
                 }
-                
             }
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
