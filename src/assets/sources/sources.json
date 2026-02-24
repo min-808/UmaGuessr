@@ -1500,6 +1500,23 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/toymark_jp/status/2025495782259056993"
+        ],
+        "service": "x",
+        "illustration_id": "2025495782259056993",
+        "artist": "toymark_jp"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/en/artworks/141552057"
+        ],
+        "service": "pixiv",
+        "member_id": "78473295",
+        "illustration_id": "141552057",
+        "artist": "Wtmh"
       }
     ]
   },
@@ -14567,6 +14584,14 @@
         "service": "danbooru",
         "illustration_id": "7758554",
         "artist": "ha (hura76752775)"
+      },
+      {
+        "external_urls": [
+          "https://x.com/say_nri/status/2025815673109467640"
+        ],
+        "service": "x",
+        "illustration_id": "2025815673109467640",
+        "artist": "say_nri"
       }
     ]
   },
@@ -17752,6 +17777,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/the_freakin_yui/status/2025700131941789835"
+        ],
+        "service": "x",
+        "illustration_id": "2025700131941789835",
+        "artist": "the_freakin_yui"
       }
     ]
   },
