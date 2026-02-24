@@ -31,12 +31,14 @@ module.exports = {
                             "**-** `!uma j` for characters only from the JP server" + "\n" +
                             "**-** `!uma a` for guessing characters from both JP and Global servers" + "\n" +
                             "**-** `!uma h` for guessing the uma's IRL horse counterpart" + "\n" +
-                            "**-** `!uma m` for multi-uma guessing" + "\n\n\n"
+                            "**-** `!uma m` for multi-uma guessing" + "\n" +
+                            "**-** `!uma p` for guessing umas that are only in your practice list (`!practice`)" + "\n" + 
+                            "\n\n\n"
                         },
                         {
                             name: "\n",
                             value:
-                            "\n- Use `!set (g/j/a/h/m)` to set the region you want the `!uma` command to default to" + "\n" +
+                            "\n- Use `!set (g/j/a/h/m/p)` to set the region you want the `!uma` command to default to" + "\n" +
                             "- You will have **60** seconds to guess the character, and pressing the `Hint` button will slightly reveal the image" + "\n" +
                             "- If you manage to guess the character without using any hints, you'll get the maximum number of points (**36** points for All, **31** points for IRL, **26** points for JP, **16** for Global)" + "\n" +
                             "- However, every time the Hint button is pressed, you lose points. If all the hints are used or the Unblur button is pressed, you'll only gain **1** point for guessing the uma correctly" + "\n" +
@@ -79,11 +81,12 @@ module.exports = {
                             value: 
                             "**__Game__**" + "\n" +
                             "`!uma`" + " - " + "Play the game (default region is global)" + "\n" +
-                            "You can also choose the game type you want to play by doing !uma and adding one of the following: **g**lobal, **j**p, **a**ll, **h**orse, **m**ulti" + "\n" +
+                            "You can also choose the game type you want to play by doing !uma and adding one of the following: **g**lobal, **j**p, **a**ll, **h**orse, **m**ulti, **p**ractice" + "\n" +
                             "`!set`" + " - " + "Set your default region" + "\n" +
                             "`!skip`" + " - " + "Skip the current character" + "\n" +
                             "`!filter`" + " - " + "Toggle the content filter" + "\n" +
-                            "`!daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
+                            "`!practice (add/remove) (uma name)`" + " - " + "Add umas to your practice list, add multiple by separating the names with commas" + "\n" +
+                            "`!daily`" + " - " + "Claim your daily points, build up a streak to earn more" + "\n" +
                             "`!vote`" + " - " + "Pull up the bot's vote link" + "\n" +
                             "`!redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n"
                         },

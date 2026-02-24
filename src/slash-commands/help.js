@@ -43,12 +43,13 @@ module.exports = {
                             "**-** `/uma Japan` for characters only from the JP server" + "\n" +
                             "**-** `/uma All` for guessing characters from both JP and Global servers" + "\n" +
                             "**-** `/uma Horse` for guessing the uma's IRL horse counterpart" + "\n" +
-                            "**-** `/uma Multi` for multi-uma guessing" + "\n\n\n"
+                            "**-** `/uma Multi` for multi-uma guessing" + "\n" +
+                            "**-** `/uma Practice` for guessing umas that are only in your practice list (`/practice`)" + "\n\n\n"
                         },
                         {
                             name: "\n",
                             value:
-                            "\n- Use `/set (a/j/g/h/m)` to set the region you want the `/uma` command to default to" + "\n" +
+                            "\n- Use `/set (a/j/g/h/m/p)` to set the region you want the `/uma` command to default to" + "\n" +
                             "- You will have **60** seconds to guess the character, and pressing the `Hint` button will slightly reveal the image" + "\n" +
                             "- If you manage to guess the character without using any hints, you'll get the maximum number of points (**36** points for All, **31** points for IRL, **26** points for JP, **16** for Global)" + "\n" +
                             "- However, every time the Hint button is pressed, you lose points. If all the hints are used or the Unblur button is pressed, you'll only gain **1** point for guessing the uma correctly" + "\n" +
@@ -93,6 +94,7 @@ module.exports = {
                             "`/uma (region)`" + " - " + "Play the game (default region is global)" + "\n" +
                             "`/set (region)`" + " - " + "Set your default region" + "\n" +
                             "`/filter`" + " - " + "Toggle the content filter" + "\n" +
+                            "`/practice (Add/Remove) (uma name)`" + " - " + "Add an uma to your practice list" + "\n" +
                             "`/daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
                             "`/vote`" + " - " + "Pull up the bot's vote link" + "\n" +
                             "`/redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n"
