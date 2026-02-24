@@ -249,6 +249,14 @@
     "rarity": 3
     },
     {
+    "id": "foreveryoung",
+    "number": 10404,
+    "proper": "Forever Young",
+    "names": ["foreveryoung", "forever", "young", "ebayan", "フォーエバーヤング", "フォーエバー", "ヤング"],
+    "images": ["foreveryoung1.jpg", "foreveryoung2.jpg", "foreveryoung3.jpg", "foreveryoung4.jpg", "foreveryoung5.jpg", "foreveryoung6.jpg", "foreveryoung7.jpg", "foreveryoung8.jpg", "foreveryoung9.jpg", "foreveryoung10.jpg"],
+    "rarity": 3
+    },
+    {
     "id": "fujimasamarch",
     "number": 50002,
     "proper": "Fujimasa March",
@@ -383,6 +391,14 @@
     "names": ["luckylilac", "lucky", "lilac", "lala", "lalala", "ラッキー", "ライラック", "ララ"],
     "images": ["luckylilac1.jpg", "luckylilac2.jpg", "luckylilac3.jpg", "luckylilac4.jpg", "luckylilac5.jpg", "luckylilac6.jpg", "luckylilac7.jpg", "luckylilac8.jpg", "luckylilac9.jpg", "luckylilac10.jpg"],
     "rarity": 3
+    },
+    {
+    "id": "marchelorraine",
+    "number": 10403,
+    "proper": "Marche Lorraine",
+    "names": ["marchelorraine", "marche", "lorraine", "マルシュロレーヌ", "マルシュ", "ロレーヌ"],
+    "images": ["marchelorraine1.jpg", "marchelorraine2.jpg", "marchelorraine3.jpg", "marchelorraine4.jpg", "marchelorraine5.jpg", "marchelorraine6.jpg", "marchelorraine7.jpg", "marchelorraine8.jpg", "marchelorraine9.jpg", "marchelorraine10.jpg", "marchelorraine11.jpg"],
+    "rarity": 2
     },
     {
     "id": "marveloussunday",
@@ -550,6 +566,14 @@
     "proper": "Rhein Kraft",
     "names": ["rheinkraft", "kraft", "rhein", "ラインクラフト", "クラフト", "ライン"],
     "images":["rheinkraft1.jpg","rheinkraft2.jpg","rheinkraft3.jpg","rheinkraft4.jpg","rheinkraft5.jpg","rheinkraft6.jpg","rheinkraft7.jpg","rheinkraft8.jpg","rheinkraft9.jpg","rheinkraft10.jpg","rheinkraft11.jpg","rheinkraft12.jpg","rheinkraft13.jpg","rheinkraft14.jpg","rheinkraft15.jpg"],
+    "rarity": 3
+    },
+    {
+    "id": "rosekingdom",
+    "number": 10407,
+    "proper": "Rose Kingdom",
+    "names": ["rosekingdom", "rose", "kingdom", "ローズキングダム", "ローズ", "キングダム"],
+    "images": ["rosekingdom1.jpg", "rosekingdom2.jpg", "rosekingdom3.jpg", "rosekingdom4.jpg", "rosekingdom5.jpg", "rosekingdom6.jpg", "rosekingdom7.jpg", "rosekingdom8.jpg", "rosekingdom9.jpg", "rosekingdom10.jpg"],
     "rarity": 3
     },
     {
@@ -726,6 +750,14 @@
     "proper": "Verxina",
     "names": ["verxina", "ヴィルシーナ"],
     "images": ["verxina1.jpg", "verxina2.jpg", "verxina3.jpg", "verxina4.jpg", "verxina5.jpg", "verxina6.jpg", "verxina7.jpg", "verxina8.jpg", "verxina9.jpg", "verxina10.jpg", "verxina11.jpg", "verxina12.jpg", "verxina13.jpg", "verxina14.jpg", "verxina15.jpg", "verxina16.jpg"],
+    "rarity": 3
+    },
+    {
+    "id": "victoirepisa",
+    "number": 10408,
+    "proper": "Victoire Pisa",
+    "names": ["victoirepisa", "victoire", "pisa", "ヴィクトルワールピサ", "ヴィクトルワール", "ピサ"],
+    "images": ["victoirepisa1.jpg", "victoirepisa2.jpg", "victoirepisa3.jpg", "victoirepisa4.jpg", "victoirepisa5.jpg", "victoirepisa6.jpg", "victoirepisa7.jpg", "victoirepisa8.jpg", "victoirepisa9.jpg", "victoirepisa10.jpg", "victoirepisa11.jpg"],
     "rarity": 3
     },
     {
