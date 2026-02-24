@@ -6241,6 +6241,15 @@
         "service": "x",
         "illustration_id": "2025728016811544861",
         "artist": "setsuzan_uma"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/en/artworks/141517679"
+        ],
+        "service": "pixiv",
+        "member_id": "58392862",
+        "illustration_id": "141517679",
+        "artist": "ほうや(HOUYA)"
       }
     ]
   },
@@ -15320,11 +15329,12 @@
       },
       {
         "external_urls": [
-          "https://danbooru.donmai.us/post/show/9941431"
+          "n/a"
         ],
-        "service": "danbooru",
-        "illustration_id": "9941431",
-        "artist": "maimuu"
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       },
       {
         "external_urls": [
@@ -15452,15 +15462,6 @@
         "service": "danbooru",
         "illustration_id": "9487355",
         "artist": "gamel 120"
-      },
-      {
-        "external_urls": [
-          "n/a"
-        ],
-        "service": "n/a",
-        "member_id": "n/a",
-        "illustration_id": "n/a",
-        "artist": "n/a"
       },
       {
         "external_urls": [
