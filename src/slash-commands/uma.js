@@ -656,7 +656,7 @@ module.exports = {
                             gameState.delete(sentMsg.id);
                             activeChannels.delete(channelID);
 
-                            if ((type != "Multi") || (type != "Sample")) {
+                            if ((type != "Multi") && (type != "Sample")) {
                                 await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped
                                     $set: {
                                         streak: 0,
@@ -795,7 +795,7 @@ module.exports = {
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
 
-                        if ((type != "Multi") || (type != "Sample")) {
+                        if ((type != "Multi") && (type != "Sample")) {
                             await ids.updateOne({ discord_id: discordID }, { // Remove streak if author skipped, non-multi
                                 $set: {
                                     streak: 0,
@@ -1470,7 +1470,7 @@ module.exports = {
                         gameState.delete(sentMsg.id);
                         activeChannels.delete(channelID);
 
-                        if ((type != "Multi") || (type != "Sample")) {
+                        if ((type != "Multi") && (type != "Sample")) {
                             await ids.updateOne({ discord_id: discordID }, {
                                 $set: {
                                     streak: 0
