@@ -172,7 +172,7 @@ module.exports = {
                         initialPointsJP = 18 + 1
                         minusPointsJP = 6
                         initialBlur = 18 + 1
-                    } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "s")) || (args[0].toLowerCase().includes("sample")))) {
+                    } else if ((args.length > 0) && (((args[0].length == 1) && (args[0].toLowerCase() == "s")) || ((args[0].length == 1) && (args[0].toLowerCase() == "p")) || (args[0].toLowerCase().includes("sample")) || (args[0].toLowerCase().includes("practice")))) {
                         list = require('../../src/assets/global-list.json')
                         list2 = require('../../src/assets/jp-list.json')
                         list = list.concat(list2)
@@ -222,7 +222,7 @@ module.exports = {
                             initialPointsJP = 18 + 1
                             minusPointsJP = 6
                             initialBlur = 18 + 1
-                        } else if (data["type"] === 's') {
+                        } else if (data["type"] === 'p') {
                             list = require('../../src/assets/global-list.json')
                             list2 = require('../../src/assets/jp-list.json')
                             list = list.concat(list2)
@@ -296,7 +296,7 @@ module.exports = {
                                 .setTitle("\n")
                                 .addFields({
                                     name: "\n",
-                                    value: `You have no umas in your sample list, ending game`
+                                    value: `You have no umas in your practice list, ending game`
                                 })
                                 .setColor("LightGrey")
 

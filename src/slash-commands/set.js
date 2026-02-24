@@ -20,7 +20,7 @@ module.exports = {
                     { name: 'All', value: 'a' },
                     { name: 'Multi', value: 'm' },
                     { name: 'IRL', value: 'h' },
-                    { name: 'Sample', value: 's' },
+                    { name: 'Practice', value: 'p' },
                     { name: 'Help', value: 'help' },
                 )),
 
@@ -108,9 +108,9 @@ module.exports = {
                     value: "Set your game region default to " + `**${proper}**` + ".\nWhenever you use `/uma`, it will now automatically default to this region",
                     inline: true
                 })
-            } else if (interaction.options.getString('region') == "s") {
-                newType = 's'
-                proper = "Sample"
+            } else if (interaction.options.getString('region') == "p") {
+                newType = 'p'
+                proper = "Practice"
 
                 embed.addFields(
                 {
@@ -124,7 +124,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: "Use this command to set the region the `/uma` command will default to when you begin a game\n\n`/set Global` for umas from only the Global server\n`/set Japan` for umas from only the JP server\n`/set All` for umas from both JP and Global\n`/set IRL` for the uma's IRL (horse) counterpart\n`/set Multi` for guessing Multiple umas",
+                    value: "Use this command to set the region the `/uma` command will default to when you begin a game\n\n`/set Global` for umas from only the Global server\n`/set Japan` for umas from only the JP server\n`/set All` for umas from both JP and Global\n`/set IRL` for the uma's IRL (horse) counterpart\n`/set Multi` for guessing Multiple umas\n`/set Practice` for guessing your Practice list",
                     inline: true
                 })
             } else { // Invalid region
@@ -133,7 +133,7 @@ module.exports = {
                 embed.addFields(
                 {
                     name: `\n`,
-                    value: `Invalid region. Please choose ` + "`Global`, `Japan`, `All`, `IRL`, `Multi`, or `Sample`\n\nUse `/set Help` for more information",
+                    value: `Invalid region. Please choose ` + "`Global`, `Japan`, `All`, `IRL`, `Multi`, or `Practice`\n\nUse `/set Help` for more information",
                     inline: true
                 })
             }
