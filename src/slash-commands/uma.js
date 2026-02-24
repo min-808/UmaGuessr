@@ -6,7 +6,6 @@ const path = require("path")
 const fs = require('fs')
 
 const { gameState, activeChannels } = require('../commands/uma.js');
-const { add } = require('../exemptUsers.js');
 
 module.exports = {
     name: 'uma',
