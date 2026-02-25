@@ -96,6 +96,7 @@ module.exports = {
                             "`/filter`" + " - " + "Toggle the content filter" + "\n" +
                             "`/practice (Add/Remove) (uma name)`" + " - " + "Add an uma to your practice list" + "\n" +
                             "`/daily`" + " - " + "Claim your daily points, earn more with a higher streak" + "\n" +
+                            "`/daily Reminder`" + " - " + "Receive reminder messages when your daily is claimable" + "\n" +
                             "`/vote`" + " - " + "Pull up the bot's vote link" + "\n" +
                             "`/redeem`" + " - " + "Redeem your vote to activate the point multiplier" + "\n"
                         },
