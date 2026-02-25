@@ -456,7 +456,7 @@ client.on('ready', async () => {
         timezone: 'Pacific/Honolulu'
     })
 
-    cron.schedule('*/5 * * * *', async () => {
+    cron.schedule('*/10 * * * *', async () => {
         try {
             await sendReminderMsg();
         } catch (error) {
