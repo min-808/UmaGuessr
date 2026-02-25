@@ -18,6 +18,7 @@ module.exports = {
                     { name: 'Total Wins', value: 'wins' },
                     { name: 'Points Today', value: 'daily' },
                     { name: 'Top Streak', value: 'streak' },
+                    { name: 'Top Daily Streak', value: 'top_daily_streak' },
                     { name: 'Average Answer Time', value: 'time' },
                     { name: 'Fastest Answer Time', value: 'fast' },
                     { name: 'Total Points', value: 'points' },
@@ -69,6 +70,10 @@ module.exports = {
             type = "quickest_answer"
             proper = "Fastest Answer Time"
             countType = "sec"
+        } else if (interaction.options.getString('sort') == "top_daily_streak") {
+            type = "top_daily_streak"
+            proper = "Top Daily Streak"
+            countType = "daily streak"
         } else {
             type = "points"
             proper = "Total Points"
@@ -101,6 +106,7 @@ module.exports = {
                 points_today: 1,
                 wins_today: 1,
                 top_streak: 1,
+                top_daily_streak: 1,
                 times: 1,
                 quickest_answer: 1,
                 restrict: 1,

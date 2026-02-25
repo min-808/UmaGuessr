@@ -48,6 +48,7 @@ module.exports = {
             inventory: [],
             times: [],
             daily_streak: 0,
+            top_daily_streak: 0,
             votes: 0,
             username: retUsername + retDiscriminator,
             vote_timer: 0,

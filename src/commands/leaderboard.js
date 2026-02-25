@@ -24,6 +24,10 @@ module.exports = {
             type = "wins"
             proper = "Total Wins"
             countType = type
+        } else if ((args.length > 0) && ((args[0].length == 2 && args[0].toLowerCase().includes("ds")) || (args[0].toLowerCase().includes("daily") && args[1]?.toLowerCase().includes("streak")))) {
+            type = "top_daily_streak"
+            proper = "Top Daily Streak"
+            countType = "daily streak"
         } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("d")) || (args[0].toLowerCase().includes("daily")))) {
             type = "points_today"
             proper = "Points Today"
@@ -72,6 +76,7 @@ module.exports = {
                 points_today: 1,
                 wins_today: 1,
                 top_streak: 1,
+                top_daily_streak: 1, 
                 times: 1,
                 quickest_answer: 1,
                 restrict: 1,

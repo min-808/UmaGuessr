@@ -55,6 +55,7 @@ module.exports = {
                     points: 1,
                     daily_timer: 1,
                     daily_streak: 1,
+                    top_daily_streak: 1,
                     restrict: 1,
                     reminder_msg_sent: 1,
                     reminder_msg_opt: 1,
@@ -113,6 +114,8 @@ module.exports = {
 
                 } else { // You can claim
                     var updateValues;
+                    let calcNewTopStreak;
+                    let currentTop = toParseUserUID['top_daily_streak']
 
                     if (brokenStreak) { // Reset streak
                         console.log("daily streak broken")
@@ -126,6 +129,8 @@ module.exports = {
                                 daily_streak: 1
                             }
                         }
+
+                        calcNewTopStreak = currentTop
                     } else {
                         switch (dailyStreak) {
                             case 0:
@@ -154,7 +159,8 @@ module.exports = {
                                 break
                         }
 
-                        dailyStreak += 1
+                        dailyStreak += 1 // updated daily streak
+                        calcNewTopStreak = Math.max(currentTop, dailyStreak)
                         
                         updateValues = {
                             $inc: {
@@ -164,6 +170,7 @@ module.exports = {
                             $set: {
                                 daily_timer: currentTime,
                                 reminder_msg_sent: false,
+                                top_daily_streak: calcNewTopStreak,
                             }
                         }
                     }
@@ -172,10 +179,8 @@ module.exports = {
                     
                     embed.spliceFields(0, 1, {
                         name: "\n",
-                        value: `You claimed your daily **${pts}** points`
+                        value: `You claimed your daily **${pts}** points\n\nCurrent Daily streak: **${dailyStreak} days**\nTop Daily Streak: **${calcNewTopStreak} days**`
                     })
-
-                    embed.setFooter({ text: `Daily streak: ${dailyStreak} days` });
                 }
 
                 await interaction.editReply({ embeds: [embed], files: [file] });
