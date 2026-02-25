@@ -5908,6 +5908,14 @@
         "service": "danbooru",
         "illustration_id": "9916660",
         "artist": "franz2543"
+      },
+      {
+        "external_urls": [
+          "https://x.com/ainezu555/status/2026325620469399950"
+        ],
+        "service": "x",
+        "illustration_id": "2026325620469399950",
+        "artist": "ainezu555"
       }
     ]
   },
@@ -6250,6 +6258,54 @@
         "member_id": "58392862",
         "illustration_id": "141517679",
         "artist": "ほうや(HOUYA)"
+      },
+      {
+        "external_urls": [
+          "https://x.com/4nnmrynn/status/2026615408577642969/photo/1"
+        ],
+        "service": "x",
+        "illustration_id": "2026615408577642969",
+        "artist": "4nnmrynn"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Marghe_Bita/status/2025609027707928581"
+        ],
+        "service": "x",
+        "illustration_id": "2025609027707928581",
+        "artist": "Marghe_Bita"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Notus_49/status/2026329293530534039"
+        ],
+        "service": "x",
+        "illustration_id": "2026329293530534039",
+        "artist": "Notus_49"
+      },
+      {
+        "external_urls": [
+          "https://x.com/nenbutsu0416/status/2026273945151058100"
+        ],
+        "service": "x",
+        "illustration_id": "2026273945151058100",
+        "artist": "nenbutsu0416"
+      },
+      {
+        "external_urls": [
+          "https://x.com/akaya_siki/status/2026268187776700536"
+        ],
+        "service": "x",
+        "illustration_id": "2026268187776700536",
+        "artist": "akaya_siki"
+      },
+      {
+        "external_urls": [
+          "https://x.com/top_uma_illust/status/2026504226680295659"
+        ],
+        "service": "x",
+        "illustration_id": "2026504226680295659",
+        "artist": "top_uma_illust"
       }
     ]
   },
@@ -10072,6 +10128,30 @@
         "service": "pixiv",
         "illustration_id": "141524468",
         "artist": "お絵描きたかみー"
+      },
+      {
+        "external_urls": [
+          "https://x.com/jorang08/status/2026671459163373730"
+        ],
+        "service": "x",
+        "illustration_id": "2026671459163373730",
+        "artist": "jorang08"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Arnolddayo/status/2026492354056815049"
+        ],
+        "service": "x",
+        "illustration_id": "2026492354056815049",
+        "artist": "Arnolddayo"
+      },
+      {
+        "external_urls": [
+          "https://x.com/shizima_03/status/2026349897847550401"
+        ],
+        "service": "x",
+        "illustration_id": "2026349897847550401",
+        "artist": "shizima_03"
       }
     ]
   },
@@ -21980,6 +22060,80 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      }
+    ]
+  },
+  {
+    "id": "rulership",
+    "artworks": [
+      {
+        "external_urls": [
+          "https://www.pixiv.net/artworks/141606028"
+        ],
+        "service": "pixiv",
+        "member_id": "87098073",
+        "illustration_id": "141606028",
+        "artist": "はらこめし"
+      },
+      {
+        "external_urls": [
+          "https://x.com/217_niconico/status/2026421938919497789"
+        ],
+        "service": "x",
+        "illustration_id": "2026421938919497789",
+        "artist": "217_niconico"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/artworks/141568149"
+        ],
+        "service": "pixiv",
+        "member_id": "11287529",
+        "illustration_id": "141568149",
+        "artist": "kirameki@仕事募集中"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/artworks/141566012"
+        ],
+        "service": "pixiv",
+        "member_id": "",
+        "illustration_id": "141566012",
+        "artist": ""
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/artworks/141523439"
+        ],
+        "service": "pixiv",
+        "member_id": "5303964",
+        "illustration_id": "141523439",
+        "artist": "Solokitsune"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/artworks/141558480"
+        ],
+        "service": "pixiv",
+        "member_id": "102961446",
+        "illustration_id": "141558480",
+        "artist": "disfiro"
+      },
+      {
+        "external_urls": [
+          "https://x.com/kikkasoon/status/2026670273592963408"
+        ],
+        "service": "x",
+        "illustration_id": "2026670273592963408",
+        "artist": "kikkasoon"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Marghe_Bita/status/2025962740981092806"
+        ],
+        "service": "x",
+        "illustration_id": "2025962740981092806",
+        "artist": "Marghe_Bita"
       }
     ]
   },

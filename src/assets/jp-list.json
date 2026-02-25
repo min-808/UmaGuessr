@@ -253,7 +253,7 @@
     "number": 10404,
     "proper": "Forever Young",
     "names": ["foreveryoung", "forever", "young", "ebayan", "フォーエバーヤング", "フォーエバー", "ヤング"],
-    "images": ["foreveryoung1.jpg", "foreveryoung2.jpg", "foreveryoung3.jpg", "foreveryoung4.jpg", "foreveryoung5.jpg", "foreveryoung6.jpg", "foreveryoung7.jpg", "foreveryoung8.jpg", "foreveryoung9.jpg", "foreveryoung10.jpg", "foreveryoung11.jpg"],
+    "images": ["foreveryoung1.jpg", "foreveryoung2.jpg", "foreveryoung3.jpg", "foreveryoung4.jpg", "foreveryoung5.jpg", "foreveryoung6.jpg", "foreveryoung7.jpg", "foreveryoung8.jpg", "foreveryoung9.jpg", "foreveryoung10.jpg", "foreveryoung11.jpg", "foreveryoung12.jpg", "foreveryoung13.jpg", "foreveryoung14.jpg", "foreveryoung15.jpg", "foreveryoung16.jpg", "foreveryoung17.jpg"],
     "rarity": 3
     },
     {
@@ -397,7 +397,7 @@
     "number": 10403,
     "proper": "Marche Lorraine",
     "names": ["marchelorraine", "marche", "lorraine", "マルシュロレーヌ", "マルシュ", "ロレーヌ"],
-    "images": ["marchelorraine1.jpg", "marchelorraine2.jpg", "marchelorraine3.jpg", "marchelorraine4.jpg", "marchelorraine5.jpg", "marchelorraine6.jpg", "marchelorraine7.jpg", "marchelorraine8.jpg", "marchelorraine9.jpg", "marchelorraine10.jpg", "marchelorraine11.jpg"],
+    "images": ["marchelorraine1.jpg", "marchelorraine2.jpg", "marchelorraine3.jpg", "marchelorraine4.jpg", "marchelorraine5.jpg", "marchelorraine6.jpg", "marchelorraine7.jpg", "marchelorraine8.jpg", "marchelorraine9.jpg", "marchelorraine10.jpg", "marchelorraine11.jpg", "marchelorraine12.jpg", "marchelorraine13.jpg", "marchelorraine14.jpg"],
     "rarity": 2
     },
     {
@@ -590,6 +590,14 @@
     "proper": "Rudy Lemono",
     "names": ["rudylemono", "rudy", "lemono", "ルディレモーノ", "レモーノ", "ルディ"],
     "images": ["rudylemono1.jpg", "rudylemono2.jpg", "rudylemono3.jpg"],
+    "rarity": 3
+    },
+    {
+    "id": "rulership",
+    "number": 10405,
+    "proper": "Rulership",
+    "names": ["rulership", "ruler", "ルーラーシップ", "ルーラー"],
+    "images": ["rulership1.jpg", "rulership2.jpg", "rulership3.jpg", "rulership4.jpg", "rulership5.jpg", "rulership6.jpg", "rulership7.jpg", "rulership8.jpg"],
     "rarity": 3
     },
     {
