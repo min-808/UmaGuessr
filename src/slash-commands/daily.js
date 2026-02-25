@@ -76,109 +76,109 @@ module.exports = {
 
             if (interaction.options.getString('toggle') == null) {
             
-            var pastTime = toParseUserUID['daily_timer']
-            var dailyStreak = toParseUserUID['daily_streak']
+                var pastTime = toParseUserUID['daily_timer']
+                var dailyStreak = toParseUserUID['daily_streak']
 
-            if (pastTime + 169_200_000 < currentTime) {
-                brokenStreak = true
-            }
+                if (pastTime + 169_200_000 < currentTime) {
+                    brokenStreak = true
+                }
 
-            let remaining = (pastTime + 84_600_000) - currentTime; // time LEFT, not time passed
+                let remaining = (pastTime + 84_600_000) - currentTime; // time LEFT, not time passed
 
-            let sec = Math.floor(remaining / 1000);
-            let mins = Math.floor(remaining / (1000 * 60));
-            let hours = Math.floor(remaining / (1000 * 60 * 60));
-            let days = Math.floor(remaining / (1000 * 60 * 60 * 24));
+                let sec = Math.floor(remaining / 1000);
+                let mins = Math.floor(remaining / (1000 * 60));
+                let hours = Math.floor(remaining / (1000 * 60 * 60));
+                let days = Math.floor(remaining / (1000 * 60 * 60 * 24));
 
-            if (remaining < 60_000) {
-                writeTime = `${sec.toFixed(0)} seconds`;
-            } else if (remaining < 3_600_000) {
-                writeTime = `${mins.toFixed(0)} minutes and ${(sec - (mins * 60)).toFixed(0)} seconds`;
-            } else if (remaining < 84_600_000) {
-                writeTime = `${hours.toFixed(0)} hours, ${(mins - (hours * 60)).toFixed(0)} minutes, and ${(sec - (mins * 60)).toFixed(0)} seconds`;
-            } else {
-                writeTime = `${days.toFixed(0)} days`;
-            }
-            
-            // If you can't claim daily yet
-            if ((pastTime + 84_600_000) >= currentTime) {
-                file = new AttachmentBuilder(`src/assets/command_images/${badImg}.png`)
-
-                embed.setThumbnail(`attachment://${badImg}.png`)
-                embed.spliceFields(0, 1,
-                    {
-                        name: "\n",
-                        value: `You can claim again in **${writeTime}**`
-                    })
-
-            } else { // You can claim
-                var updateValues;
-
-                if (brokenStreak) { // Reset streak
-                    console.log("daily streak broken")
-                    dailyStreak = 1
-                    updateValues = {
-                        $inc: {
-                            points: pts,
-                        },
-                        $set: {
-                            daily_timer: currentTime,
-                            daily_streak: 1
-                        }
-                    }
+                if (remaining < 60_000) {
+                    writeTime = `${sec.toFixed(0)} seconds`;
+                } else if (remaining < 3_600_000) {
+                    writeTime = `${mins.toFixed(0)} minutes and ${(sec - (mins * 60)).toFixed(0)} seconds`;
+                } else if (remaining < 84_600_000) {
+                    writeTime = `${hours.toFixed(0)} hours, ${(mins - (hours * 60)).toFixed(0)} minutes, and ${(sec - (mins * 60)).toFixed(0)} seconds`;
                 } else {
-                    switch (dailyStreak) {
-                        case 0:
-                            pts = 75
-                            break
-                        case 1:
-                            pts = 85
-                            break
-                        case 2:
-                            pts = 100
-                            break
-                        case 3:
-                            pts = 120
-                            break
-                        case 4:
-                            pts = 150
-                            break
-                        case 5:
-                            pts = 180
-                            break
-                        case 6:
-                            pts = 220
-                            break
-                        default:
-                            pts = 220
-                            break
-                    }
-
-                    dailyStreak += 1
-                    
-                    updateValues = {
-                        $inc: {
-                            points: pts,
-                            daily_streak: 1,
-                        },
-                        $set: {
-                            daily_timer: currentTime,
-                            reminder_msg_sent: false,
-                        }
-                    }
+                    writeTime = `${days.toFixed(0)} days`;
                 }
                 
-                await ids.updateOne({discord_id: discordID}, updateValues)
-                
-                embed.spliceFields(0, 1, {
-                    name: "\n",
-                    value: `You claimed your daily **${pts}** points`
-                })
+                // If you can't claim daily yet
+                if ((pastTime + 84_600_000) >= currentTime) {
+                    file = new AttachmentBuilder(`src/assets/command_images/${badImg}.png`)
 
-                embed.setFooter({ text: `Daily streak: ${dailyStreak} days` });
-            }
+                    embed.setThumbnail(`attachment://${badImg}.png`)
+                    embed.spliceFields(0, 1,
+                        {
+                            name: "\n",
+                            value: `You can claim again in **${writeTime}**`
+                        })
 
-            await interaction.editReply({ embeds: [embed], files: [file] });
+                } else { // You can claim
+                    var updateValues;
+
+                    if (brokenStreak) { // Reset streak
+                        console.log("daily streak broken")
+                        dailyStreak = 1
+                        updateValues = {
+                            $inc: {
+                                points: pts,
+                            },
+                            $set: {
+                                daily_timer: currentTime,
+                                daily_streak: 1
+                            }
+                        }
+                    } else {
+                        switch (dailyStreak) {
+                            case 0:
+                                pts = 75
+                                break
+                            case 1:
+                                pts = 85
+                                break
+                            case 2:
+                                pts = 100
+                                break
+                            case 3:
+                                pts = 120
+                                break
+                            case 4:
+                                pts = 150
+                                break
+                            case 5:
+                                pts = 180
+                                break
+                            case 6:
+                                pts = 220
+                                break
+                            default:
+                                pts = 220
+                                break
+                        }
+
+                        dailyStreak += 1
+                        
+                        updateValues = {
+                            $inc: {
+                                points: pts,
+                                daily_streak: 1,
+                            },
+                            $set: {
+                                daily_timer: currentTime,
+                                reminder_msg_sent: false,
+                            }
+                        }
+                    }
+                    
+                    await ids.updateOne({discord_id: discordID}, updateValues)
+                    
+                    embed.spliceFields(0, 1, {
+                        name: "\n",
+                        value: `You claimed your daily **${pts}** points`
+                    })
+
+                    embed.setFooter({ text: `Daily streak: ${dailyStreak} days` });
+                }
+
+                await interaction.editReply({ embeds: [embed], files: [file] });
             } else if (interaction.options.getString('toggle') == "reminder") {
                 // toggle reminder for user
                 if (toParseUserUID['reminder_msg_opt']) {
