@@ -193,7 +193,7 @@ module.exports = {
                     embed.spliceFields(0, 1,
                     {
                         name: "\n",
-                        value: `Toggled daily reminder message **on**\n\nYou will now **receive a DM** whenever your \`!daily\` is claimable`
+                        value: `Toggled daily reminder message **on**\n\nYou will now **receive a DM** whenever your \`!daily\` is claimable\n\nMake sure to turn on "Allow DMs from server members" in your Discord settings to receive the reminder messages`
                     })
 
                     await ids.updateOne({discord_id: discordID}, { $set: {reminder_msg_opt: true} })
