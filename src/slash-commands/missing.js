@@ -23,7 +23,7 @@ module.exports = {
                     {
                         name: "\n",
                         value: 
-                        "Epiphaneia\nLogotype\nRulership"
+                        "Epiphaneia\nLogotype"
                     }
                 )
 
