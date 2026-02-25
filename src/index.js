@@ -24,7 +24,6 @@ const args = process.argv.slice(2)
 
 var globalList = require('./assets/global-list.json')
 var JPList = require('./assets/jp-list.json');
-const { strict } = require('assert');
 var combinedList = globalList.concat(JPList)
 
 // save error logs
@@ -263,6 +262,42 @@ async function cacheStrict() {
     console.log(`Strict settings (total: ${strictCache.size}) and Restricted users (total: ${restrictedUsers.size}) cached`);
 }
 
+async function sendReminderMsg() {
+    const client_db = new getMongoClient()
+    const database = client_db.db("uma");
+    const stats = database.collection("profiles");
+
+    let currentTime = Date.now()
+    let counter = 0
+
+    const all = await stats.find({
+        reminder_msg_opt: true,
+        reminder_msg_sent: false,
+        daily_timer: { $lte: currentTime - 84_600_000 }
+    }, {
+        projection: {
+            discord_id: 1,
+            daily_timer: 1,
+        }
+    }).toArray();
+
+    for (const entry of all) {
+        try {
+            const user = await client.users.fetch((entry.discord_id).toString())
+            await user.send("Your **daily** is ready to be claimed!")
+            console.log(`Sent daily reminder message to ${user.tag}`)
+            counter++
+
+            await stats.updateOne(
+                { discord_id: entry.discord_id },
+                { $set: { reminder_msg_sent: true } }
+            )
+        } catch (err) {
+            console.log(`Could not send DM to ${entry.discord_id}. Error: ${err}`)
+        }
+    }
+}
+
 async function getPrefix(guildId) { // This will be called everytime a potential message is sent
     if (prefixCache.has(guildId)) { // This will first check the cache to see if the server has a prefix set
         return prefixCache.get(guildId) // If so, return the prefix
@@ -411,11 +446,21 @@ client.on('ready', async () => {
 
     cron.schedule('0 0 * * *', async () => {
         try {
-            await refreshUsernames();
             await resetDaily();
+            await refreshUsernames();
             await pushServerCount();
         } catch (error) {
             console.error('Error in daily scheduled job:', error);
+        }
+    }, {
+        timezone: 'Pacific/Honolulu'
+    })
+
+    cron.schedule('*/5 * * * *', async () => {
+        try {
+            await sendReminderMsg();
+        } catch (error) {
+            console.error('Error in sending daily reminder scheduled job:', error);
         }
     }, {
         timezone: 'Pacific/Honolulu'

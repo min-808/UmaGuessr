@@ -13,7 +13,13 @@ module.exports = {
 
     data: new SlashCommandBuilder()
         .setName('daily')
-        .setDescription('Claim your daily points'),
+        .setDescription('Claim your daily points')
+        .addStringOption(option =>
+            option.setName('toggle')
+                .setDescription('Toggle reminder notifications when your daily is ready')
+                .addChoices(
+                    { name: 'Reminder', value: 'reminder' },
+                )),
 
     run: async ({ interaction, client }) => {
 
@@ -50,12 +56,12 @@ module.exports = {
                     daily_timer: 1,
                     daily_streak: 1,
                     restrict: 1,
+                    reminder_msg_sent: 1,
+                    reminder_msg_opt: 1,
                 }
             }
 
             var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-            var pastTime = toParseUserUID['daily_timer']
-            var dailyStreak = toParseUserUID['daily_streak']
 
             if (toParseUserUID['restrict'] == true) {
                 embed.spliceFields(0, 1,
@@ -67,6 +73,11 @@ module.exports = {
                 await interaction.editReply({ embeds: [embed] });
                 return
             }
+
+            if (interaction.options.getString('toggle') == null) {
+            
+            var pastTime = toParseUserUID['daily_timer']
+            var dailyStreak = toParseUserUID['daily_streak']
 
             if (pastTime + 169_200_000 < currentTime) {
                 brokenStreak = true
@@ -151,7 +162,8 @@ module.exports = {
                             daily_streak: 1,
                         },
                         $set: {
-                            daily_timer: currentTime
+                            daily_timer: currentTime,
+                            reminder_msg_sent: false,
                         }
                     }
                 }
@@ -167,6 +179,37 @@ module.exports = {
             }
 
             await interaction.editReply({ embeds: [embed], files: [file] });
+            } else if (interaction.options.getString('toggle') == "reminder") {
+                // toggle reminder for user
+                if (toParseUserUID['reminder_msg_opt']) {
+                    embed.spliceFields(0, 1,
+                    {
+                        name: "\n",
+                        value: `Toggled daily reminder message **off**\n\nYou will **no longer receive a DM** whenever your \`!daily\` is claimable`
+                    })
+                    
+                    await ids.updateOne({discord_id: discordID}, { $set: {reminder_msg_opt: false} })
+                } else {
+                    embed.spliceFields(0, 1,
+                    {
+                        name: "\n",
+                        value: `Toggled daily reminder message **on**\n\nYou will now **receive a DM** whenever your \`!daily\` is claimable`
+                    })
+
+                    await ids.updateOne({discord_id: discordID}, { $set: {reminder_msg_opt: true} })
+                }
+
+                await interaction.editReply({ embeds: [embed], files: [file] });
+            } else {
+                // invalid argument
+                embed.spliceFields(0, 1,
+                {
+                    name: "\n",
+                    value: `Usage: \n\n\`/daily\` or \`/daily Toggle: Reminder\``
+                })
+
+                await interaction.editReply({ embeds: [embed], files: [file] });
+            }
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
             console.error("Main uma error:", msg);

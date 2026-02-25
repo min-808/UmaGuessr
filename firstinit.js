@@ -61,6 +61,8 @@ module.exports = {
             max_favorites: 3,
             user_id: newInternalId,
             sample: [],
+            reminder_msg_opt: false,
+            reminder_msg_sent: false
         }
     
         const result = await ids.insertOne(doc);

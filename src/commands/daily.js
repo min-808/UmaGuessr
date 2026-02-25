@@ -11,7 +11,7 @@ module.exports = {
     aliases: ['d'],
     description: 'Claim your daily points',
 
-    run: async ({ message, client }) => {
+    run: async ({ message, client, args }) => {
 
         var file = new AttachmentBuilder(`src/assets/command_images/${img}.png`);
 
@@ -44,12 +44,12 @@ module.exports = {
                     daily_timer: 1,
                     daily_streak: 1,
                     restrict: 1,
+                    reminder_msg_sent: 1,
+                    reminder_msg_opt: 1,
                 }
             }
 
             var toParseUserUID = await ids.findOne({discord_id: discordID}, options);
-            var pastTime = toParseUserUID['daily_timer']
-            var dailyStreak = toParseUserUID['daily_streak']
 
             if (toParseUserUID['restrict'] == true) {
                 embed.spliceFields(0, 1,
@@ -61,6 +61,10 @@ module.exports = {
                 await message.channel.send({ embeds: [embed] });
                 return
             }
+            
+            if (args.length == 0) {
+            var pastTime = toParseUserUID['daily_timer']
+            var dailyStreak = toParseUserUID['daily_streak']
 
             if (pastTime + 169_200_000 < currentTime) {
                 brokenStreak = true
@@ -145,7 +149,8 @@ module.exports = {
                             daily_streak: 1,
                         },
                         $set: {
-                            daily_timer: currentTime
+                            daily_timer: currentTime,
+                            reminder_msg_sent: false,
                         }
                     }
                 }
@@ -161,6 +166,40 @@ module.exports = {
             }
 
             await message.channel.send({ embeds: [embed], files: [file] });
+            } else if (args.length > 0) {
+                if (((args[0].length == 1) && (args[0].toLowerCase() == "r")) || (args[0].toLowerCase().includes("reminder"))) {
+                    // toggle reminder for user
+
+                    if (toParseUserUID['reminder_msg_opt']) {
+                        embed.spliceFields(0, 1,
+                        {
+                            name: "\n",
+                            value: `Toggled daily reminder message **off**\n\nYou will **no longer receive a DM** whenever your \`!daily\` is claimable`
+                        })
+                        
+                        await ids.updateOne({discord_id: discordID}, { $set: {reminder_msg_opt: false} })
+                    } else {
+                        embed.spliceFields(0, 1,
+                        {
+                            name: "\n",
+                            value: `Toggled daily reminder message **on**\n\nYou will now **receive a DM** whenever your \`!daily\` is claimable`
+                        })
+
+                        await ids.updateOne({discord_id: discordID}, { $set: {reminder_msg_opt: true} })
+                    }
+
+                    await message.channel.send({ embeds: [embed], files: [file] });
+                } else {
+                    // invalid argument
+                    embed.spliceFields(0, 1,
+                    {
+                        name: "\n",
+                        value: `Usage: \n\n\`!daily\` or \`!daily reminder\``
+                    })
+
+                    await message.channel.send({ embeds: [embed], files: [file] });
+                }
+            }
         } catch (error) {
             const msg = error?.rawError?.message || error?.message || String(error);
             console.error("Main uma error:", msg);
