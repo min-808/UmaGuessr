@@ -224,6 +224,14 @@
     "rarity": 3
   },
   {
+    "id": "mejiroardan",
+    "number": 5528,
+    "proper": "Mejiro Ardan",
+    "names": ["mejiroardan", "ardan", "メジロアルダン", "アルダン"],
+    "images": ["mejiroardan1.jpg", "mejiroardan2.jpg", "mejiroardan3.jpg", "mejiroardan4.jpg", "mejiroardan5.jpg", "mejiroardan6.jpg", "mejiroardan7.jpg", "mejiroardan8.jpg", "mejiroardan9.jpg", "mejiroardan10.jpg", "mejiroardan11.jpg", "mejiroardan12.jpg", "mejiroardan13.jpg", "mejiroardan14.jpg", "mejiroardan15.jpg", "mejiroardan16.jpg", "mejiroardan17.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "mejirodober",
     "number": 5474,
     "proper": "Mejiro Dober",
