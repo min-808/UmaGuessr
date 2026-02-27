@@ -141,7 +141,7 @@ module.exports = {
                         },
                         {
                             name: `Profile`,
-                            value: `Height: ${data['height'] ?? '?'}cm\nWeight: ${data['weight'] ?? '?'}\nMeasurements: B${data['size_b'] ?? '?'} - H${data['size_h'] ?? '?'} - W${data['size_w'] ?? '?'}\nResidence: ${data['residence'] ?? 'N/A'}\nStrengths: ${data['strengths'] ?? 'N/A'}\nWeaknesses: ${data['weaknesses'] ?? 'N/A'}`,
+                            value: `Height: ${data['height'] ?? '?'}cm\nWeight: ${data['weight'] ?? '?'}\nMeasurements: B${data['size_b'] ?? '?'} - H${data['size_h'] ?? '?'} - W${data['size_w'] ?? '?'}\nResidence: ${data['residence'] ?? 'N/A'}\nStrengths: ${data['strengths'] ?? 'N/A'}\nWeaknesses: ${data['weaknesses'] ?? 'N/A'}\nBirthday: ${data['birth_month'] ?? '?'}/${data['birth_day'] ?? '?'}`,
                         },
                         {
                             name: `Facts`,
