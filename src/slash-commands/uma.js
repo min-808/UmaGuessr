@@ -589,7 +589,7 @@ module.exports = {
                             if (type == "Sample") {
                                 newPoints = 0
                             } else {
-                                newPoints = Math.max(1, state.points - minusPointsJP)
+                                newPoints = 1
                             }
 
                             if (type == "Multi") {
