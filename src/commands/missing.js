@@ -17,7 +17,7 @@ module.exports = {
                     {
                         name: "\n",
                         value: 
-                       "Epiphaneia\nLogotype"
+                       "No missing umas"
                     }
                 )
 
