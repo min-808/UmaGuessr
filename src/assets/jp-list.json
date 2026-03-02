@@ -233,6 +233,13 @@
     "rarity": 3
     },
     {
+    "id": "epiphaneia",
+    "number": 10410,
+    "proper": "Epiphaneia",
+    "names": ["epiphaneia", "epi", "エピファネイア", "エピ"],
+    "images": ["epiphaneia1.jpg", "epiphaneia2.jpg", "epiphaneia3.jpg", "epiphaneia4.jpg", "epiphaneia5.jpg", "epiphaneia6.jpg", "epiphaneia7.jpg"]
+    },
+    {
     "id": "espoircity",
     "number": 10280,
     "proper": "Espoir City",
@@ -382,6 +389,14 @@
     "proper": "K.S.Miracle",
     "names": ["ksmiracle", "k.s.miracle", "ks", "k.s.", "k.s", "keichan", "ケイエスミラクル", "ミラクル", "ミラ", "ケイちゃん"],
     "images": ["ksmiracle1.jpg", "ksmiracle2.jpg", "ksmiracle3.jpg", "ksmiracle4.jpg", "ksmiracle5.jpg", "ksmiracle6.jpg"],
+    "rarity": 3
+    },
+    {
+    "id": "logotype",
+    "number": 10409,
+    "proper": "Logotype",
+    "names": ["logotype", "logo", "ロゴ", "ロゴタイプ"],
+    "images": ["logotype1.jpg", "logotype2.jpg", "logotype3.jpg", "logotype4.jpg"],
     "rarity": 3
     },
     {

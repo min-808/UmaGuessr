@@ -9860,6 +9860,45 @@
     ]
   },
   {
+    "id": "logotype",
+    "artworks": [
+      {
+        "external_urls": [
+          "https://x.com/K_liroi/status/2028409997114458496"
+        ],
+        "service": "x",
+        "illustration_id": "2028409997114458496",
+        "artist": "K_liroi"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Arnolddayo/status/2027579517288567097"
+        ],
+        "service": "x",
+        "illustration_id": "2027579517288567097",
+        "artist": "Arnolddayo"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=141619967"
+        ],
+        "service": "pixiv",
+        "member_id": "815686",
+        "illustration_id": "141619967",
+        "artist": "ぱたにーと"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=141538889"
+        ],
+        "service": "pixiv",
+        "member_id": "2989469",
+        "illustration_id": "141538889",
+        "artist": "マミー麿"
+      }
+    ]
+  },
+  {
     "id": "lovesonlyyou",
     "artworks": [
       {
@@ -21751,6 +21790,71 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      }
+    ]
+  },
+  {
+    "id": "epiphaneia",
+    "artworks": [
+      {
+        "external_urls": [
+          "https://x.com/izumi_481/status/2025748957939589351"
+        ],
+        "service": "x",
+        "illustration_id": "2025748957939589351",
+        "artist": "izumi_481"
+      },
+      {
+        "external_urls": [
+          "https://x.com/wakamegaumai/status/2027823248449409226"
+        ],
+        "service": "x",
+        "illustration_id": "2027823248449409226",
+        "artist": "wakamegaumai"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=141655227"
+        ],
+        "service": "pixiv",
+        "member_id": "13019683",
+        "illustration_id": "141655227",
+        "artist": "りろい"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=141637686"
+        ],
+        "service": "pixiv",
+        "member_id": "70204010",
+        "illustration_id": "141637686",
+        "artist": "ᵗ ᵉ ᵗ ʳ ᵃ"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=141582565"
+        ],
+        "service": "pixiv",
+        "member_id": "69457675",
+        "illustration_id": "141582565",
+        "artist": "なむぅ"
+      },
+      {
+        "external_urls": [
+          "https://x.com/ibisf5umauma/status/2026126742512136362"
+        ],
+        "service": "x",
+        "illustration_id": "2026126742512136362",
+        "artist": "ibisf5umauma"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=141530392"
+        ],
+        "service": "pixiv",
+        "member_id": "9329740",
+        "illustration_id": "141530392",
+        "artist": "めそ"
       }
     ]
   },
