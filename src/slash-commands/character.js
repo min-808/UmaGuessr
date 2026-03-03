@@ -101,13 +101,27 @@ module.exports = {
                     var database = client_db.db("uma");
                     var ids = database.collection("count")
 
-                    const umaStats = await ids.findOne({ name: charName }, {
+                    const umaStats = await ids.find({}, {
                         projection: {
+                            name: 1,
                             count: 1,
                             wins: 1,
                             old_count: 1,
                         }
-                    })
+                    }).toArray()
+
+                    umaStats.sort((a, b) => {
+                        const aRate = a.count ? a.wins / a.count : 0
+                        const bRate = b.count ? b.wins / b.count : 0
+                        return bRate - aRate
+                    });
+
+                    let umaWins = (umaStats.find(c => c.name == charName)["wins"])
+                    let umaCount = (umaStats.find(c => c.name == charName)["count"])
+                    let umaOldCount = (umaStats.find(c => c.name == charName)["old_count"])
+
+                    let umaRank = umaStats.findIndex(c => c.name == charName) + 1
+                    let umaTotalCount = umaStats.length - 1 // cuz of cookiezi lmao
 
                     const fetch = (await import("node-fetch")).default
                     const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
@@ -149,7 +163,11 @@ module.exports = {
                         },
                         {
                             name: `Winrate // Times Shown`,
-                            value: `${+((umaStats["wins"] / umaStats["count"]) * 100).toFixed(2) || 0}% // ${umaStats["old_count"]}`,
+                            value: `${+((umaWins / umaCount) * 100).toFixed(2) || 0}% // ${umaOldCount}`,
+                        },
+                        {
+                            name: `Rank`,
+                            value: `${umaRank}/${umaTotalCount}`,
                         },
                         {
                             name: `Region`,
