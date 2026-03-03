@@ -21,6 +21,7 @@ const cooldowns = new Map()
 const COOLDOWN = 2000
 
 const args = process.argv.slice(2)
+var testMode = false
 
 var globalList = require('./assets/global-list.json')
 var JPList = require('./assets/jp-list.json');
@@ -444,27 +445,29 @@ client.on('ready', async () => {
 
     await setUptime();
 
-    cron.schedule('0 0 * * *', async () => {
-        try {
-            await resetDaily();
-            await refreshUsernames();
-            await pushServerCount();
-        } catch (error) {
-            console.error('Error in daily scheduled job:', error);
-        }
-    }, {
-        timezone: 'Pacific/Honolulu'
-    })
+    if (!testMode) {
+        cron.schedule('0 0 * * *', async () => {
+            try {
+                await resetDaily();
+                await refreshUsernames();
+                await pushServerCount();
+            } catch (error) {
+                console.error('Error in daily scheduled job:', error);
+            }
+        }, {
+            timezone: 'Pacific/Honolulu'
+        })
 
-    cron.schedule('*/10 * * * *', async () => {
-        try {
-            await sendReminderMsg();
-        } catch (error) {
-            console.error('Error in sending daily reminder scheduled job:', error);
-        }
-    }, {
-        timezone: 'Pacific/Honolulu'
-    })
+        cron.schedule('*/10 * * * *', async () => {
+            try {
+                await sendReminderMsg();
+            } catch (error) {
+                console.error('Error in sending daily reminder scheduled job:', error);
+            }
+        }, {
+            timezone: 'Pacific/Honolulu'
+        })
+    }
 });
 
 async function setUptime() {
@@ -490,6 +493,7 @@ async function setUptime() {
 
         if (args.includes('test') || args.includes('--test')) {
             client.login(process.env.TEST_BOT)
+            testMode = true
         } else {
             client.login(process.env.MAIN_BOT)
         }
