@@ -249,6 +249,23 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=140844872"
+        ],
+        "service": "pixiv",
+        "member_id": "18342711",
+        "illustration_id": "140844872",
+        "artist": "すきお"
+      },
+      {
+        "external_urls": [
+          "https://x.com/45onb/status/2027717768863531358"
+        ],
+        "service": "x",
+        "illustration_id": "2027717768863531358",
+        "artist": "45onb"
       }
     ]
   },
@@ -1525,6 +1542,14 @@
         "service": "x",
         "illustration_id": "1893947943150850310",
         "artist": "mochiko_smbl"
+      },
+      {
+        "external_urls": [
+          "https://x.com/peru_5503/status/2027542728687686102"
+        ],
+        "service": "x",
+        "illustration_id": "2027542728687686102",
+        "artist": "peru_5503"
       }
     ]
   },
@@ -4500,6 +4525,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Rurisuke_/status/2027987241017221565"
+        ],
+        "service": "x",
+        "illustration_id": "2027987241017221565",
+        "artist": "Rurisuke_"
       }
     ]
   },
@@ -14976,6 +15009,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/hononure3723/status/2027681603363934596"
+        ],
+        "service": "x",
+        "illustration_id": "2027681603363934596",
+        "artist": "hononure3723"
       }
     ]
   },
@@ -15149,6 +15190,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Tanana5831/status/2028022344145571981"
+        ],
+        "service": "x",
+        "illustration_id": "2028022344145571981",
+        "artist": "Tanana5831"
       }
     ]
   },
@@ -15359,6 +15408,22 @@
         "service": "x",
         "illustration_id": "2025634377380528212",
         "artist": "tachyuri"
+      },
+      {
+        "external_urls": [
+          "https://x.com/wlpyx/status/2027322688042402289"
+        ],
+        "service": "x",
+        "illustration_id": "2027322688042402289",
+        "artist": "wlpyx"
+      },
+      {
+        "external_urls": [
+          "https://x.com/gogopan_3700/status/2027326763039338716"
+        ],
+        "service": "x",
+        "illustration_id": "2027326763039338716",
+        "artist": "gogopan_3700"
       }
     ]
   },
@@ -17688,6 +17753,15 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=139503047"
+        ],
+        "service": "pixiv",
+        "member_id": "1645087",
+        "illustration_id": "139503047",
+        "artist": "zbobo"
       }
     ]
   },
@@ -17945,6 +18019,14 @@
         "service": "x",
         "illustration_id": "2025700131941789835",
         "artist": "the_freakin_yui"
+      },
+      {
+        "external_urls": [
+          "https://x.com/franz2543/status/2028853786304024815"
+        ],
+        "service": "x",
+        "illustration_id": "2028853786304024815",
+        "artist": "franz2543"
       }
     ]
   },
@@ -18928,6 +19010,15 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/member_illust.php?mode=medium&illust_id=139486333"
+        ],
+        "service": "pixiv",
+        "member_id": "164784",
+        "illustration_id": "139486333",
+        "artist": "猫姫"
       }
     ]
   },
@@ -20423,6 +20514,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Noa_82G/status/2027685219604804050"
+        ],
+        "service": "x",
+        "illustration_id": "2027685219604804050",
+        "artist": "Noa_82G"
       }
     ]
   },
@@ -20516,6 +20615,14 @@
         "service": "x",
         "illustration_id": "2025892059606118734",
         "artist": "take20131004"
+      },
+      {
+        "external_urls": [
+          "https://x.com/hyper_lenda/status/2027700311453004241"
+        ],
+        "service": "x",
+        "illustration_id": "2027700311453004241",
+        "artist": "hyper_lenda"
       }
     ]
   },
@@ -22334,6 +22441,62 @@
         "service": "x",
         "illustration_id": "2026865098380435945",
         "artist": "top_uma_illust"
+      },
+      {
+        "external_urls": [
+          "https://x.com/mikaduki5/status/2028096293319700873"
+        ],
+        "service": "x",
+        "illustration_id": "2028096293319700873",
+        "artist": "mikaduki5"
+      },
+      {
+        "external_urls": [
+          "https://x.com/CoconToozai/status/2028605016873861379"
+        ],
+        "service": "x",
+        "illustration_id": "2028605016873861379",
+        "artist": "CoconToozai"
+      },
+      {
+        "external_urls": [
+          "https://x.com/setsuzan_uma/status/2027321814486286370"
+        ],
+        "service": "x",
+        "illustration_id": "2027321814486286370",
+        "artist": "setsuzan_uma"
+      },
+      {
+        "external_urls": [
+          "https://x.com/hanma_amnah/status/2027693361306734782"
+        ],
+        "service": "x",
+        "illustration_id": "2027693361306734782",
+        "artist": "hanma_amnah"
+      },
+      {
+        "external_urls": [
+          "https://x.com/nekokanchu/status/2027680338638737595"
+        ],
+        "service": "x",
+        "illustration_id": "2027680338638737595",
+        "artist": "nekokanchu"
+      },
+      {
+        "external_urls": [
+          "https://x.com/ink_sushii/status/2027590355663630380"
+        ],
+        "service": "x",
+        "illustration_id": "2027590355663630380",
+        "artist": "ink_sushii"
+      },
+      {
+        "external_urls": [
+          "https://x.com/manjo_9257/status/2027708411270598770"
+        ],
+        "service": "x",
+        "illustration_id": "2027708411270598770",
+        "artist": "manjo_9257"
       }
     ]
   },
