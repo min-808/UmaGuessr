@@ -7,6 +7,14 @@
     "images": ["agnestachyon1.jpg", "agnestachyon2.jpg", "agnestachyon3.jpg"]
   },
   {
+    "id": "agnesdigital",
+    "number": 5033,
+    "proper": "Agnes Digital",
+    "names": ["agnesdigital", "digital", "digitan", "アグネスデジタル", "デジタル"],
+    "images": ["agnesdigital1.jpg", "agnesdigital2.jpg", "agnesdigital3.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "airgroove",
     "number": 5021,
     "proper": "Air Groove",
@@ -35,11 +43,43 @@
     "images": ["daiwascarlet1.jpg", "daiwascarlet2.jpg", "daiwascarlet3.jpg"]
   },
   {
+    "id": "eishinflash",
+    "number": 5236,
+    "proper": "Eishin Flash",
+    "names": ["eishinflash", "flash", "eishin", "エイシンフラッシュ", "フラッシュ"],
+    "images": ["eishinflash1.jpg", "eishinflash2.jpg", "eishinflash3.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "elcondorpasa",
     "number": 4974,
     "proper": "El Condor Pasa",
     "names": ["elcondorpasa", "condorpas", "pasa", "el", "エルコンドルパサー", "エル"],
     "images": ["elcondorpasa1.jpg", "elcondorpasa2.jpg", "elcondorpasa3.jpg"]
+  },
+  {
+    "id": "finemotion",
+    "number": 5066,
+    "proper": "Fine Motion",
+    "names": ["finemotion", "finemo", "fine", "ファインモーション", "ファイン"],
+    "images":["finemotion1.jpg","finemotion2.jpg","finemotion3.jpg"],
+    "rarity": 3
+  },
+  {
+    "id": "fujikiseki",
+    "number": 4868,
+    "proper": "Fuji Kiseki",
+    "names": ["fujikiseki", "fuji", "フジキセキ", "フジ"],
+    "images": ["fujikiseki1.jpg"],
+    "rarity": 3
+  },
+  {
+    "id": "goldcity",
+    "number": 5269,
+    "proper": "Gold City",
+    "names": ["goldcity", "city", "shichi", "ゴールドシチー", "シチー"],
+    "images": ["goldcity1.jpg", "goldcity2.jpg", "goldcity3.jpg"],
+    "rarity": 3
   },
   {
     "id": "goldship",
@@ -63,6 +103,14 @@
     "images": ["haruurara1.jpg", "haruurara2.jpg", "haruurara3.jpg"]
   },
   {
+    "id": "hishiakebono",
+    "number": 5134,
+    "proper": "Hishi Akebono",
+    "names": ["hishiakebono", "akebono", "bono", "ヒシアケボノ", "アケボノ", "ボノ"],
+    "images": ["hishiakebono1.jpg", "hishiakebono2.jpg", "hishiakebono3.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "hishiamazon",
     "number": 4951,
     "proper": "Hishi Amazon",
@@ -70,11 +118,27 @@
     "images": ["hishiamazon1.jpg", "hishiamazon2.jpg", "hishiamazon3.jpg"]
   },
   {
+    "id": "kawakamiprincess",
+    "number": 5258,
+    "proper": "Kawakami Princess",
+    "names": ["kawakamiprincess", "kawakami", "princess", "カワカミプリンセス", "カワカミ"],
+    "images": ["kawakamiprincess1.jpg", "kawakamiprincess2.jpg", "kawakamiprincess3.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "kinghalo",
     "number": 5497,
     "proper": "King Halo",
     "names": ["kinghalo", "king", "halo", "キングヘイロー", "キング"],
     "images": ["kinghalo1.jpg", "kinghalo2.jpg", "kinghalo3.jpg"]
+  },
+  {
+    "id": "manhattancafe",
+    "number": 5100,
+    "proper": "Manhattan Cafe",
+    "names": ["manhattancafe", "cafe", "マンハッタンカフェ", "カフェ"],
+    "images": ["manhattancafe1.jpg", "manhattancafe2.jpg", "manhattancafe3.jpg"],
+    "rarity": 3
   },
   {
     "id": "maruzensky",
@@ -96,6 +160,30 @@
     "proper": "Mayano Top Gun",
     "names": ["mayanotopgun", "mayano", "topgun", "maya", "マヤノトップガン", "マヤノ", "マヤ"],
     "images": ["mayanotopgun1.jpg", "mayanotopgun2.jpg", "mayanotopgun3.jpg"]
+  },
+  {
+    "id": "meishodoto",
+    "number": 5463,
+    "proper": "Meisho Doto",
+    "names": ["meishodoto", "doto", "dotopi", "meisho", "メイショウドトウ", "ドトウ"],
+    "images": ["meishodoto1.jpg", "meishodoto2.jpg", "meishodoto3.jpg"],
+    "rarity": 3
+  },
+  {
+    "id": "mejiroardan",
+    "number": 5528,
+    "proper": "Mejiro Ardan",
+    "names": ["mejiroardan", "ardan", "メジロアルダン", "アルダン"],
+    "images": ["mejiroardan1.jpg", "mejiroardan2.jpg"],
+    "rarity": 3
+  },
+  {
+    "id": "mejirodober",
+    "number": 5474,
+    "proper": "Mejiro Dober",
+    "names": ["mejirodober", "dober", "ber", "メジロドーベル", "ドーベル", "ベル"],
+    "images":["mejirodober1.jpg","mejirodober2.jpg","mejirodober3.jpg"],
+    "rarity": 3
   },
   {
     "id": "mejiromcqueen",
@@ -161,6 +249,14 @@
     "images": ["sakurabakushino1.jpg", "sakurabakushino2.jpg", "sakurabakushino3.jpg"]
   },
   {
+    "id": "sakurachiyonoo",
+    "number": 5509,
+    "proper": "Sakura Chiyono O",
+    "names": ["sakurachiyonoo", "sakurachiyono", "chiyono", "chiyonoo", "chiyo", "サクラチヨノオー", "チヨノオー", "チヨ"],
+    "images": ["sakurachiyonoo1.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "seiunsky",
     "number": 5044,
     "proper": "Seiun Sky",
@@ -210,6 +306,14 @@
     "images": ["taikishuttle1.jpg", "taikishuttle2.jpg", "taikishuttle3.jpg"]
   },
   {
+    "id": "tamamocross",
+    "number": 5055,
+    "proper": "Tamamo Cross",
+    "names": ["tamamocross", "tamamo", "tama", "cross", "タマモクロス", "タマモ", "タマ"],
+    "images": ["tamamocross1.jpg", "tamamocross2.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "tmoperao",
     "number": 4986,
     "proper": "T.M. Opera O",
@@ -222,6 +326,14 @@
     "proper": "Tokai Teio",
     "names": ["tokaiteio", "teio", "トウカイテイオー"],
     "images": ["tokaiteio1.jpg", "tokaiteio2.jpg", "tokaiteio3.jpg"]
+  },
+  {
+    "id": "tosenjordan",
+    "number": 5360,
+    "proper": "Tosen Jordan",
+    "names": ["tosenjordan", "jordan", "tosen", "トーセンジョーダン"],
+    "images": ["tosenjordan1.jpg", "tosenjordan2.jpg", "tosenjordan3.jpg", "tosenjordan4.jpg"],
+    "rarity": 3
   },
   {
     "id": "vodka",

@@ -75,7 +75,7 @@
     "id": "finemotion",
     "number": 5066,
     "proper": "Fine Motion",
-    "names": ["finemotion", "fine", "ファインモーション", "ファイン"],
+    "names": ["finemotion", "finemo", "fine", "ファインモーション", "ファイン"],
     "images":["finemotion1.jpg","finemotion2.jpg","finemotion3.jpg","finemotion4.jpg","finemotion5.jpg","finemotion6.jpg","finemotion7.jpg","finemotion8.jpg","finemotion9.jpg","finemotion10.jpg","finemotion11.jpg","finemotion12.jpg","finemotion13.jpg"],
     "rarity": 3
   },
