@@ -29,9 +29,9 @@ module.exports = {
 
     run: async ({ interaction, client }) => {
 
-        startGame(interaction, client, true, null)
+        startGame(interaction, client, null, true, false)
 
-        async function startGame(interaction, client, initial = false, buttonUser = null) {
+        async function startGame(interaction, client, buttonUser = null, initial = false, autoplay = false) {
 
             if (!interaction.guild) {
                 return interaction.reply({
@@ -45,6 +45,7 @@ module.exports = {
             var initialBlur = 50 + 1
 
             let umaMap
+            let toStopAutoplay = false
 
             const channelID = interaction.channel.id;
             let user
@@ -111,6 +112,14 @@ module.exports = {
                     .addFields({
                         name: "\n",
                         value: ':star: You guessed one of your **favorite** umas! *(+0 points)*'
+                    })
+                    .setColor("LightGrey")
+
+                var autoPlayStoppedEmbed = new EmbedBuilder()
+                    .setTitle("\n")
+                    .addFields({
+                        name: "\n",
+                        value: '**Autoplay** has been **stopped**\n\nMake sure to finish the current game!'
                     })
                     .setColor("LightGrey")
 
@@ -433,20 +442,49 @@ module.exports = {
                     .setLabel("Play Again")
                     .setStyle(ButtonStyle.Primary)
 
+                const autoplayButton = new ButtonBuilder()
+                    .setCustomId('autoplay')
+                    .setLabel("Autoplay")
+                    .setStyle(ButtonStyle.Success)
+
+                const stopAutoplay = new ButtonBuilder()
+                    .setCustomId('stop_autoplay')
+                    .setLabel("Stop Autoplay")
+                    .setStyle(ButtonStyle.Danger)
+
                 if (type != "IRL") {
                     var row = new ActionRowBuilder()
                         .addComponents(hint)
                         .addComponents(unblur)
                         .addComponents(skip)
+
+                    var rowWithoutAutoplay = new ActionRowBuilder()
+                        .addComponents(hint)
+                        .addComponents(unblur)
+                        .addComponents(skip)
+
+                    if (autoplay) { // give option to stop autoplay
+                        row.addComponents(stopAutoplay)
+                    }
                 }
 
                 if (type == "IRL") {
-                    var row = new ActionRowBuilder()
+                    var row = new ActionRowBuilder() // no unblur
                         .addComponents(skip)
+
+                    var IRLWithoutAutoplay = new ActionRowBuilder()
+                        .addComponents(skip)
+                    
+                    if (autoplay) { // give option to stop autoplay
+                        row.addComponents(stopAutoplay)
+                    }
                 }
 
-                var playAgainRow = new ActionRowBuilder()
-                    .addComponents(playAgain)
+                if (!autoplay) { // for initial games, give option for playing again or autoplay
+                    var playAgainRow = new ActionRowBuilder()
+                        .addComponents(playAgain)
+                        .addComponents(autoplayButton)
+                }
 
                 const embed = new EmbedBuilder()
                     .setTitle(`Guess the Uma`)
@@ -555,9 +593,15 @@ module.exports = {
                                 const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                                     .setImage('attachment://original.jpg')
 
-                                await buttonInteraction.editReply({
-                                    files: [newFile], embeds: [updatedEmbed], components: [row]
-                                });
+                                if (toStopAutoplay) {
+                                    await buttonInteraction.editReply({
+                                        files: [newFile], embeds: [updatedEmbed], components: [rowWithoutAutoplay]
+                                    });
+                                } else {
+                                    await buttonInteraction.editReply({
+                                        files: [newFile], embeds: [updatedEmbed], components: [row]
+                                    });
+                                }
                             } else { // Do image operations for going down a hint level
                                 try {
                                     var newPath = path.join(cacheDir, `${state.blurLevel}-${state.imageName}`);
@@ -574,11 +618,22 @@ module.exports = {
                                 const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                                     .setImage('attachment://blurred.jpg')
 
-                                await buttonInteraction.editReply({
-                                    files: [newFile], embeds: [updatedEmbed], components: [row]
-                                });
+                                if (toStopAutoplay) {
+                                    await buttonInteraction.editReply({
+                                            files: [newFile], embeds: [updatedEmbed], components: [rowWithoutAutoplay]
+                                        });
+                                } else {
+                                    await buttonInteraction.editReply({
+                                        files: [newFile], embeds: [updatedEmbed], components: [row]
+                                    });
+                                }
                             }
                         } else if (buttonInteraction.customId === 'unblur') {
+                            if (buttonInteraction.user.id !== user.id) {
+                                await buttonInteraction.followUp({ content: "Only the game starter can fully unblur!", flags: 64 });
+                                return
+                            }
+
                             let state = gameState.get(sentMsg.id);
                             if (!state) return;
 
@@ -622,9 +677,15 @@ module.exports = {
                             const updatedEmbed = EmbedBuilder.from(sentMsg.embeds[0])
                                 .setImage('attachment://original.jpg')
 
-                            await buttonInteraction.editReply({
-                                files: [newFile], embeds: [updatedEmbed], components: [row]
-                            });
+                            if (toStopAutoplay) {
+                                await buttonInteraction.editReply({
+                                    files: [newFile], embeds: [updatedEmbed], components: [rowWithoutAutoplay]
+                                });
+                            } else {
+                                await buttonInteraction.editReply({
+                                    files: [newFile], embeds: [updatedEmbed], components: [row]
+                                });
+                            }
                         } else if (buttonInteraction.customId === 'skip') {
                             if (buttonInteraction.user.id !== user.id) {
                                 await buttonInteraction.followUp({ content: "Only the game starter can skip!", flags: 64 });
@@ -737,6 +798,35 @@ module.exports = {
                                     files: [file],
                                     components: []
                                 });
+                            }
+
+                            if ((!initial) && (!toStopAutoplay) && (autoplay)) {
+                                    console.log(`Autoplay continuing... started by ${buttonUser.tag}`)
+                                    await startGame(interaction, client, buttonUser, false, true)
+                                }
+
+                            return
+                        } else if (buttonInteraction.customId === 'stop_autoplay') {
+                            if (buttonInteraction.user.id !== user.id) {
+                                await buttonInteraction.followUp({ content: "Only the game starter can stop the autoplay!", flags: 64 });
+
+                                return
+                            }
+
+                            if (!toStopAutoplay) {
+                                if (type != "IRL") {
+                                    await buttonInteraction.editReply({ // remove stop autoplay button
+                                        components: [rowWithoutAutoplay]
+                                    });
+                                } else {
+                                    await buttonInteraction.editReply({ // remove stop autoplay button
+                                        components: [IRLWithoutAutoplay]
+                                    });
+                                }
+
+                                await sentMsg.channel.send({ embeds: [autoPlayStoppedEmbed] });
+                                console.log(`Autoplay stopped by ${buttonUser.tag}`)
+                                toStopAutoplay = true
                             }
 
                             return
@@ -870,6 +960,11 @@ module.exports = {
                             components: []
                         });
 
+                        if ((!initial) && (!toStopAutoplay) && (autoplay)) {
+                            console.log(`Autoplay continuing... started by ${buttonUser.tag}`)
+                            await startGame(interaction, client, buttonUser, false, true)
+                        }
+
                         return
                     }
 
@@ -987,14 +1082,6 @@ module.exports = {
                                     }
                                 }
                             } else { // someone else answered that's not the initial message sender, goodbye streak
-                                if (type != "Sample") {
-                                    await ids.updateOne({ discord_id: discordID }, {
-                                        $set: {
-                                            streak: 0,
-                                        }
-                                    });
-                                }
-
                                 if (client.restrictedUsers.get(authorID) == true) {
                                     addWins = 0
                                 } else {
@@ -1060,7 +1147,13 @@ module.exports = {
                                 })
                                 .setColor('LightGrey')
 
-                            let playAgainMsg = await msg.channel.send({ embeds: [correctEmbed],  components: [playAgainRow] })
+                            let playAgainMsg
+
+                            if (!autoplay) {
+                                playAgainMsg = await msg.channel.send({ embeds: [correctEmbed], components: [playAgainRow] })
+                            } else {
+                                playAgainMsg = await msg.channel.send({ embeds: [correctEmbed] })
+                            }
 
                             if (((newQuickest < topTime) || (topTime == 0)) && (type != "Sample")) { // send special message for new quickest time
                                 let fastestEmbed = new EmbedBuilder()
@@ -1119,7 +1212,17 @@ module.exports = {
                                         })
 
                                         console.log(`Play again button hit by ${playButtonInteraction.user.tag}, starting new ${type} game...`)
-                                        await startGame(interaction, client, false, playButtonInteraction.user)
+                                        await startGame(interaction, client, playButtonInteraction.user, false, false)
+                                    } else if (playButtonInteraction.customId === 'autoplay') {
+                                        playAgainCollector.stop()
+
+                                        await playAgainMsg.edit({
+                                            embeds: [correctEmbed],
+                                            components: []
+                                        })
+
+                                        console.log(`Autoplay started by ${playButtonInteraction.user.tag}, starting new ${type} game...`)
+                                        await startGame(interaction, client, playButtonInteraction.user, false, true)
                                     }
                                 } catch (err) {
                                     playAgainCollector.stop()
@@ -1135,6 +1238,11 @@ module.exports = {
                                     })
                                 }
                             })
+
+                            if ((!initial) && (!toStopAutoplay) && (autoplay)) {
+                                console.log(`Autoplay continuing... started by ${buttonUser.tag}`)
+                                await startGame(interaction, client, buttonUser, false, true)
+                            }
 
                         }
                     } else { // Run this for multi games, got it right
@@ -1322,7 +1430,13 @@ module.exports = {
                                     })
                                     .setColor('LightGrey')
 
-                                let playAgainMsg = await msg.channel.send({ embeds: [summaryEmbed], components: [playAgainRow] })
+                                let playAgainMsg
+                                
+                                if (!autoplay) {
+                                    playAgainMsg = await msg.channel.send({ embeds: [summaryEmbed], components: [playAgainRow] })
+                                } else {
+                                    playAgainMsg = await msg.channel.send({ embeds: [summaryEmbed] })
+                                }
                                 
                                 var revealedEmbed = EmbedBuilder.from(sentMsg.embeds)
                                     .setImage("attachment://revealed.jpg")
@@ -1355,7 +1469,17 @@ module.exports = {
                                             })
 
                                             console.log(`Play again button hit by ${playButtonInteraction.user.tag}, starting new ${type} game...`)
-                                            await startGame(interaction, client, false, playButtonInteraction.user)
+                                            await startGame(interaction, client, playButtonInteraction.user, false, false)
+                                        } else if (playButtonInteraction.customId === 'autoplay') {
+                                            playAgainCollector.stop()
+
+                                            await playAgainMsg.edit({
+                                                embeds: [summaryEmbed],
+                                                components: []
+                                            })
+
+                                            console.log(`Autoplay started by ${playButtonInteraction.user.tag}, starting new ${type} game...`)
+                                            await startGame(interaction, client, playButtonInteraction.user, false, true)
                                         }
                                     } catch (err) {
                                         playAgainCollector.stop()
@@ -1371,6 +1495,11 @@ module.exports = {
                                         })
                                     }
                                 })
+
+                                if ((!initial) && (!toStopAutoplay) && (autoplay)) {
+                                    console.log(`Autoplay continuing... started by ${buttonUser.tag}`)
+                                    await startGame(interaction, client, buttonUser, false, true)
+                                }
                             }
 
                             state.processing = false // release at the end
