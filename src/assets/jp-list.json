@@ -229,7 +229,8 @@
     "number": 10410,
     "proper": "Epiphaneia",
     "names": ["epiphaneia", "epi", "エピファネイア", "エピ"],
-    "images": ["epiphaneia1.jpg", "epiphaneia2.jpg", "epiphaneia3.jpg", "epiphaneia4.jpg", "epiphaneia5.jpg", "epiphaneia6.jpg", "epiphaneia7.jpg"]
+    "images": ["epiphaneia1.jpg", "epiphaneia2.jpg", "epiphaneia3.jpg", "epiphaneia4.jpg", "epiphaneia5.jpg", "epiphaneia6.jpg", "epiphaneia7.jpg"],
+    "rarity": 3
     },
     {
     "id": "espoircity",
@@ -405,7 +406,7 @@
     "proper": "Marche Lorraine",
     "names": ["marchelorraine", "marche", "lorraine", "マルシュロレーヌ", "マルシュ", "ロレーヌ"],
     "images": ["marchelorraine1.jpg", "marchelorraine2.jpg", "marchelorraine3.jpg", "marchelorraine4.jpg", "marchelorraine5.jpg", "marchelorraine6.jpg", "marchelorraine7.jpg", "marchelorraine8.jpg", "marchelorraine9.jpg", "marchelorraine10.jpg", "marchelorraine11.jpg", "marchelorraine12.jpg", "marchelorraine13.jpg", "marchelorraine14.jpg", "marchelorraine15.jpg", "marchelorraine16.jpg"],
-    "rarity": 2
+    "rarity": 3
     },
     {
     "id": "marveloussunday",
@@ -453,7 +454,7 @@
     "proper": "Michelle My Baby",
     "names": ["michellemybaby", "michelle", "baby", "ミシェルマイベイビー", "ミシェル", "ベイビー"],
     "images": ["michellemybaby1.jpg", "michellemybaby2.jpg", "michellemybaby3.jpg", "michellemybaby4.jpg", "michellemybaby5.jpg", "michellemybaby6.jpg"],
-    "rarity": 3
+    "rarity": 10
     },
     {
     "id": "minithelady",
@@ -461,7 +462,7 @@
     "proper": "Mini the Lady",
     "names": ["minithelady", "mini", "lady", "ミニーザレディ", "ミニー", "レディ"],
     "images": ["minithelady1.jpg", "minithelady2.jpg", "minithelady3.jpg", "minithelady4.jpg"],
-    "rarity": 3
+    "rarity": 10
     },
     {
     "id": "moonlightlunacy",
@@ -469,7 +470,7 @@
     "proper": "Moonlight Lunacy",
     "names": ["moonlightlunacy", "moonlight", "lunacy", "luna", "ムーンライトルナシー", "ムーンライト", "ルナシー"],
     "images": ["moonlightlunacy1.jpg", "moonlightlunacy2.jpg", "moonlightlunacy3.jpg", "moonlightlunacy4.jpg"],
-    "rarity": 3
+    "rarity": 10
     },
     {
     "id": "mrcb",
@@ -541,7 +542,7 @@
     "proper": "Obey Your Master",
     "names": ["obeyyourmaster", "obey", "master", "オベイユアマスター", "オベイ", "マスター"],
     "images": ["obeyyourmaster1.jpg", "obeyyourmaster2.jpg", "obeyyourmaster3.jpg", "obeyyourmaster4.jpg", "obeyyourmaster5.jpg", "obeyyourmaster6.jpg", "obeyyourmaster7.jpg", "obeyyourmaster8.jpg", "obeyyourmaster9.jpg", "obeyyourmaster10.jpg", "obeyyourmaster11.jpg", "obeyyourmaster12.jpg", "obeyyourmaster13.jpg", "obeyyourmaster14.jpg", "obeyyourmaster15.jpg", "obeyyourmaster16.jpg", "obeyyourmaster17.jpg", "obeyyourmaster18.jpg", "obeyyourmaster19.jpg", "obeyyourmaster20.jpg"],
-    "rarity": 3
+    "rarity": 10
     },
     {
     "id": "orfevre",
@@ -581,7 +582,7 @@
     "proper": "Royce and Royce",
     "names": ["royceandroyce", "royce", "ロイスアンドロイス", "ロイス"],
     "images": ["royceandroyce1.jpg", "royceandroyce2.jpg", "royceandroyce3.jpg", "royceandroyce4.jpg", "royceandroyce5.jpg", "royceandroyce6.jpg"],
-    "rarity": 3
+    "rarity": 2
     },
     {
     "id": "rudylemono",
@@ -589,7 +590,7 @@
     "proper": "Rudy Lemono",
     "names": ["rudylemono", "rudy", "lemono", "ルディレモーノ", "レモーノ", "ルディ"],
     "images": ["rudylemono1.jpg", "rudylemono2.jpg", "rudylemono3.jpg"],
-    "rarity": 3
+    "rarity": 10
     },
     {
     "id": "rulership",
@@ -725,7 +726,7 @@
     "proper": "Tony Bianca",
     "names": ["tonybianca", "tony", "toni", "bianca", "トニビアンカ", "トニ", "ビアンカ"],
     "images": ["tonybianca1.jpg", "tonybianca2.jpg", "tonybianca3.jpg", "tonybianca4.jpg"],
-    "rarity": 3
+    "rarity": 10
     },
     {
     "id": "transcend",
