@@ -8,14 +8,6 @@
     "rarity": 3
     },
     {
-    "id": "admirevega",
-    "number": 5191,
-    "proper": "Admire Vega",
-    "names": ["admirevega", "ayabe", "ayave", "vega", "アドマイヤベガ", "アヤベ"],
-    "images": ["admirevega1.jpg", "admirevega2.jpg", "admirevega3.jpg", "admirevega4.jpg", "admirevega5.jpg", "admirevega6.jpg", "admirevega7.jpg", "admirevega8.jpg", "admirevega9.jpg", "admirevega10.jpg", "admirevega11.jpg", "admirevega12.jpg", "admirevega13.jpg", "admirevega14.jpg", "admirevega15.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "airmessiah",
     "number": 10220,
     "proper": "Air Messiah",
