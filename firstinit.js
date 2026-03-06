@@ -39,7 +39,9 @@ module.exports = {
             wins: 0,
             streak: 0,
             points: 0,
+            carats: 0,
             points_today: 0,
+            carats_today: 0,
             wins_today: 0,
             daily_timer: 0,
             type: 'x',
@@ -63,7 +65,9 @@ module.exports = {
             user_id: newInternalId,
             sample: [],
             reminder_msg_opt: false,
-            reminder_msg_sent: false
+            reminder_msg_sent: false,
+            supporter: false,
+            voucher: 1
         }
     
         const result = await ids.insertOne(doc);
