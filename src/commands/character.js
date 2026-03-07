@@ -7,7 +7,7 @@ module.exports = {
     name: 'character',
     aliases: ['char'],
     description: 'Show character information',
-    run: async ({ message }) => {
+    run: async ({ client, message }) => {
         try {
             var sources = require('../../src/assets/sources/sources.json')
 
@@ -82,18 +82,32 @@ module.exports = {
                     let umaRank = umaStats.findIndex(c => c.name == charName) + 1
                     let umaTotalCount = umaStats.length - 1 // cuz of cookiezi lmao
 
-                    const fetch = (await import("node-fetch")).default
-                    const res = await fetch(`https://umapyoi.net/api/v1/character/${id}`)
+                    data = otherList.find(item => item.id === id) // FIRST, check the other list
 
-                    if (!res.ok) {
-                        data = otherList.find(item => item.id === id) // check other list
+                    if (data == undefined) { // not found in other list, try the local API
+                        console.log("not found in other list")
+                        data = client.APIData.find(item => item.id === id)
 
-                        if (!data) { // if 404 return bad
-                            console.error(`API returned ${res.status}: ${res.statusText}`);
-                            return message.channel.send(`**Error fetching character data**`);
+                        if (data == undefined) { // not in local API, ping the API now
+                            console.log("not found in local api")
+
+                            try {
+                                const res = await fetch(`https://umapyoi.net/api/v1/character/info`)
+
+                                if (res.ok) { // found, good
+                                    console.log("pinged api")
+                                    data = await res.json()
+                                    data = data.find(item => item.id === id)
+                                } else { // not found, API is likely down, give up :(
+                                    console.error(`API returned ${res.status}: ${res.statusText}`);
+                                    console.error(`API data was not found upon retry. API is likely down`);
+                                    data = []
+                                }
+                            } catch (error) {
+                                console.error(`API data was not found upon retry. API is likely down`, error);
+                                data = []
+                            }
                         }
-                    } else {
-                        data = await res.json()
                     }
 
                     embed.setThumbnail(data['thumb_img'] ?? 'https://i.imgur.com/sZgfUKW.png') // fallback on backup image

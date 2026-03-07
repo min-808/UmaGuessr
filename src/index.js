@@ -66,6 +66,8 @@ client.restrictedUsers = restrictedUsers
 client.prefixCommands = new Collection();
 client.slashCommands = new Collection();
 
+client.APIData = []
+
 var logChannel;
 
 new CommandHandler({
@@ -316,6 +318,22 @@ async function getPrefix(guildId) { // This will be called everytime a potential
     return prefix
 }
 
+async function fetchAPIData() {
+    try {
+        const res = await fetch(`https://umapyoi.net/api/v1/character/info`)
+
+        if (!res.ok) {
+            console.error(`API returned ${res.status}: ${res.statusText}`);
+        } else {
+            client.APIData = await res.json()
+            console.log("Fetched API data for characters")
+        }
+        
+    } catch (error) {
+        console.error("\x1b[1m\x1b[31mError fetching API data!!!\x1b[0m", error);
+    }
+}
+
 function checkImages(data, folderPath) {
     const expectedImages = new Set();
     data.forEach(obj => {
@@ -483,6 +501,8 @@ async function setUptime() {
         await mongoose.connect(process.env.MONGODB_URI);
         await connectMongo()
         console.log("Connected to Database.")
+
+        await fetchAPIData()
 
         await buildCache()
         await loadPrefixes()
