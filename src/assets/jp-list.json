@@ -108,7 +108,7 @@
     "id": "cesario",
     "number": 10176,
     "proper": "Cesario",
-    "names": ["cesario", "cesar", "シーザリオ"],
+    "names": ["cesario", "cesar", "zari", "シーザリオ"],
     "images": ["cesario1.jpg", "cesario2.jpg", "cesario3.jpg", "cesario4.jpg", "cesario5.jpg", "cesario6.jpg", "cesario7.jpg", "cesario8.jpg", "cesario9.jpg", "cesario10.jpg", "cesario11.jpg", "cesario12.jpg", "cesario13.jpg", "cesario14.jpg"],
     "rarity": 3
     },
@@ -252,7 +252,7 @@
     "id": "foreveryoung",
     "number": 10404,
     "proper": "Forever Young",
-    "names": ["foreveryoung", "forever", "young", "ebayan", "yanko", "フォーエバーヤング", "フォーエバー", "ヤング"],
+    "names": ["foreveryoung", "forever", "young", "ebayan", "yanko", "フォーエバーヤング", "フォーエバー", "ヤング", "ヤン子"],
     "images": ["foreveryoung1.jpg", "foreveryoung2.jpg", "foreveryoung3.jpg", "foreveryoung4.jpg", "foreveryoung5.jpg", "foreveryoung6.jpg", "foreveryoung7.jpg", "foreveryoung8.jpg", "foreveryoung9.jpg", "foreveryoung10.jpg", "foreveryoung11.jpg", "foreveryoung12.jpg", "foreveryoung13.jpg", "foreveryoung14.jpg", "foreveryoung15.jpg", "foreveryoung16.jpg", "foreveryoung17.jpg", "foreveryoung18.jpg"],
     "rarity": 3
     },
@@ -404,7 +404,7 @@
     "id": "marchelorraine",
     "number": 10403,
     "proper": "Marche Lorraine",
-    "names": ["marchelorraine", "marche", "lorraine", "マルシュロレーヌ", "マルシュ", "ロレーヌ"],
+    "names": ["marchelorraine", "marche", "lorraine", "marchan", "maruchan", "マルシュロレーヌ", "マルシュ", "ロレーヌ", "マルちゃん", ""],
     "images": ["marchelorraine1.jpg", "marchelorraine2.jpg", "marchelorraine3.jpg", "marchelorraine4.jpg", "marchelorraine5.jpg", "marchelorraine6.jpg", "marchelorraine7.jpg", "marchelorraine8.jpg", "marchelorraine9.jpg", "marchelorraine10.jpg", "marchelorraine11.jpg", "marchelorraine12.jpg", "marchelorraine13.jpg", "marchelorraine14.jpg", "marchelorraine15.jpg", "marchelorraine16.jpg"],
     "rarity": 3
     },
@@ -572,7 +572,7 @@
     "id": "rosekingdom",
     "number": 10407,
     "proper": "Rose Kingdom",
-    "names": ["rosekingdom", "rose", "kingdom", "ローズキングダム", "ローズ", "キングダム"],
+    "names": ["rosekingdom", "rose", "kingdom", "rokin", "ローズキングダム", "ローズ", "キングダム"],
     "images": ["rosekingdom1.jpg", "rosekingdom2.jpg", "rosekingdom3.jpg", "rosekingdom4.jpg", "rosekingdom5.jpg", "rosekingdom6.jpg", "rosekingdom7.jpg", "rosekingdom8.jpg", "rosekingdom9.jpg", "rosekingdom10.jpg", "rosekingdom11.jpg", "rosekingdom12.jpg"],
     "rarity": 3
     },
@@ -596,7 +596,7 @@
     "id": "rulership",
     "number": 10405,
     "proper": "Rulership",
-    "names": ["rulership", "ruler", "ルーラーシップ", "ルーラー"],
+    "names": ["rulership", "ruler", "rurashi", "rura", "ルーラーシップ", "ルーラー"],
     "images": ["rulership1.jpg", "rulership2.jpg", "rulership3.jpg", "rulership4.jpg", "rulership5.jpg", "rulership6.jpg", "rulership7.jpg", "rulership8.jpg", "rulership9.jpg", "rulership10.jpg", "rulership11.jpg", "rulership12.jpg", "rulership13.jpg", "rulership14.jpg", "rulership15.jpg", "rulership16.jpg", "rulership17.jpg", "rulership18.jpg", "rulership19.jpg", "rulership20.jpg", "rulership21.jpg", "rulership22.jpg"],
     "rarity": 3
     },
