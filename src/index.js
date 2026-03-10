@@ -326,7 +326,7 @@ async function fetchAPIData() {
             console.error(`API returned ${res.status}: ${res.statusText}`);
         } else {
             client.APIData = await res.json()
-            console.log("Fetched API data for characters")
+            console.log("Successfully fetched API data for characters")
         }
         
     } catch (error) {
