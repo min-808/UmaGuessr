@@ -1688,6 +1688,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/new_coun_desu/status/2029554661850763732"
+        ],
+        "service": "x",
+        "illustration_id": "2029554661850763732",
+        "artist": "new_coun_desu"
       }
     ]
   },
@@ -5619,6 +5627,13 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },{
+        "external_urls": [
+          "https://x.com/TukuneSour/status/2029502503625359782"
+        ],
+        "service": "x",
+        "illustration_id": "2029502503625359782",
+        "artist": "TukuneSour"
       }
     ]
   },
@@ -10264,6 +10279,22 @@
         "service": "x",
         "illustration_id": "2026960476236841043",
         "artist": "Atelier_Z44"
+      },
+      {
+        "external_urls": [
+          "https://x.com/TukuneSour/status/2029843190547894419"
+        ],
+        "service": "x",
+        "illustration_id": "2029843190547894419",
+        "artist": "TukuneSour"
+      },
+      {
+        "external_urls": [
+          "https://x.com/matikado_purin/status/2030947186452971804"
+        ],
+        "service": "x",
+        "illustration_id": "2030947186452971804",
+        "artist": "matikado_purin"
       }
     ]
   },
@@ -10827,6 +10858,22 @@
         "member_id": "3651076",
         "illustration_id": "93726821",
         "artist": "壱十九"
+      },
+      {
+        "external_urls": [
+          "https://x.com/new_coun_desu/status/2029177262940275113/"
+        ],
+        "service": "x",
+        "illustration_id": "2029177262940275113",
+        "artist": "new_coun_desu"
+      },
+      {
+        "external_urls": [
+          "https://x.com/chiraura7676/status/2029533906089939340"
+        ],
+        "service": "x",
+        "illustration_id": "2029533906089939340",
+        "artist": "chiraura7676"
       }
     ]
   },
@@ -11383,6 +11430,14 @@
         "service": "danbooru",
         "illustration_id": "8795183",
         "artist": "eakon 7bit"
+      },
+      {
+        "external_urls": [
+          "https://x.com/sataboillust/status/1597920828510740480"
+        ],
+        "service": "x",
+        "illustration_id": "1597920828510740480",
+        "artist": "sataboillust"
       }
     ]
   },
@@ -17196,6 +17251,14 @@
         "member_id": "n/a",
         "illustration_id": "n/a",
         "artist": "n/a"
+      },
+      {
+        "external_urls": [
+          "https://x.com/omoti_sakamoto/status/1460918538575646722"
+        ],
+        "service": "x",
+        "illustration_id": "1460918538575646722",
+        "artist": "omoti_sakamoto"
       }
     ]
   },
@@ -20043,6 +20106,14 @@
         "member_id": "1961226",
         "illustration_id": "16509558",
         "artist": "floatgarden"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Komoro_paint555/status/2030674806023356830"
+        ],
+        "service": "x",
+        "illustration_id": "2030674806023356830",
+        "artist": "Komoro_paint555"
       }
     ]
   },
@@ -22497,6 +22568,22 @@
         "service": "x",
         "illustration_id": "2027708411270598770",
         "artist": "manjo_9257"
+      },
+      {
+        "external_urls": [
+          "https://x.com/em26745525/status/2029837338680119297"
+        ],
+        "service": "x",
+        "illustration_id": "2029837338680119297",
+        "artist": "em26745525"
+      },
+      {
+        "external_urls": [
+          "https://x.com/Noa_82G/status/2030255890910302217"
+        ],
+        "service": "x",
+        "illustration_id": "2030255890910302217",
+        "artist": "Noa_82G"
       }
     ]
   },
