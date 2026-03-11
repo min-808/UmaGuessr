@@ -52,7 +52,7 @@ module.exports = {
                 } else if (interaction.options.getString('name').match(/^\d{17,19}$/)) { // possibly just an id?, regex fuckery (number between 17 and 19 digits incl)
                     discordID = BigInt(interaction.options.getString('name'))
                 } else { // not a number with 17-19 digits, so possibly a username string
-                    userProvided = interaction.options.getString('name')
+                    userProvided = interaction.options.getString('name').toLowerCase()
                 }
             }
 

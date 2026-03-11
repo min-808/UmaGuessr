@@ -38,7 +38,7 @@ module.exports = {
                 } else if (/^\d{17,19}$/.test(args[0])) { // possibly just an id?, regex fuckery (number between 17 and 19 digits incl)
                     discordID = BigInt(args[0])
                 } else if (typeof args[0] == 'string') { // not a number with 17-19 digits, so possibly a username string
-                    userProvided = args[0]
+                    userProvided = args[0].toLowerCase()
                 } else { // nothing
                     message.channel.send(`Invalid Discord ID provided`)
                     return
