@@ -192,6 +192,14 @@
     "rarity": 10
   },
   {
+    "id": "kitasanblack",
+    "number": 5603,
+    "proper": "Kitasan Black",
+    "names": ["kitasanblack", "kita", "kitasan", "キタサンブラック", "キタサン"],
+    "images": ["kitasanblack1.jpg", "kitasanblack2.jpg", "kitasanblack3.jpg", "kitasanblack4.jpg", "kitasanblack5.jpg", "kitasanblack6.jpg", "kitasanblack7.jpg", "kitasanblack8.jpg", "kitasanblack9.jpg", "kitasanblack10.jpg", "kitasanblack11.jpg", "kitasanblack12.jpg", "kitasanblack13.jpg", "kitasanblack14.jpg", "kitasanblack15.jpg", "kitasanblack16.jpg", "kitasanblack17.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "manhattancafe",
     "number": 5100,
     "proper": "Manhattan Cafe",
@@ -214,6 +222,14 @@
     "names": ["matikanefukukitaru", "fuku", "fukukitaru", "マチカネフクキタル", "フクキタル", "フク"],
     "images": ["matikanefukukitaru1.jpg", "matikanefukukitaru2.jpg", "matikanefukukitaru3.jpg", "matikanefukukitaru4.jpg", "matikanefukukitaru5.jpg", "matikanefukukitaru6.jpg", "matikanefukukitaru7.jpg", "matikanefukukitaru8.jpg", "matikanefukukitaru9.jpg", "matikanefukukitaru10.jpg"],
     "rarity": 1
+  },
+  {
+    "id": "matikanetannhauser",
+    "number": 5544,
+    "proper": "Matikanetannhauser",
+    "names": ["matikanetannhauser", "matikanetannhäuser", "mambo", "tannhauser", "machitan", "omachi", "マチカネタンホイザ", "タンホイザ", "マチタン", "おマチ"],
+    "images": ["matikanetannhauser1.jpg", "matikanetannhauser2.jpg", "matikanetannhauser3.jpg", "matikanetannhauser4.jpg", "matikanetannhauser5.jpg", "matikanetannhauser6.jpg", "matikanetannhauser7.jpg", "matikanetannhauser8.jpg", "matikanetannhauser9.jpg", "matikanetannhauser10.jpg", "matikanetannhauser11.jpg", "matikanetannhauser12.jpg", "matikanetannhauser13.jpg", "matikanetannhauser14.jpg", "matikanetannhauser15.jpg", "matikanetannhauser16.jpg", "matikanetannhauser17.jpg"],
+    "rarity": 2
   },
   {
     "id": "mayanotopgun",
