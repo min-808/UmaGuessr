@@ -697,11 +697,11 @@
     "rarity": 3
     },
     {
-    "id": "tonybianca",
+    "id": "tonibianca",
     "number": 50010,
-    "proper": "Tony Bianca",
-    "names": ["tonybianca", "tony", "toni", "bianca", "トニビアンカ", "トニ", "ビアンカ"],
-    "images": ["tonybianca1.jpg", "tonybianca2.jpg", "tonybianca3.jpg", "tonybianca4.jpg"],
+    "proper": "Toni Bianca",
+    "names": ["tonibianca", "tony", "toni", "bianca", "トニビアンカ", "トニ", "ビアンカ"],
+    "images": ["tonibianca1.jpg", "tonibianca2.jpg", "tonibianca3.jpg", "tonibianca4.jpg"],
     "rarity": 10
     },
     {
