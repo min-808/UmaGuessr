@@ -409,14 +409,6 @@
     "rarity": 3
     },
     {
-    "id": "mejirobright",
-    "number": 7260,
-    "proper": "Mejiro Bright",
-    "names": ["mejirobright", "bright", "メジロブライト", "ブライト"],
-    "images": ["mejirobright1.jpg", "mejirobright2.jpg", "mejirobright3.jpg", "mejirobright4.jpg", "mejirobright5.jpg", "mejirobright6.jpg", "mejirobright7.jpg", "mejirobright8.jpg", "mejirobright9.jpg", "mejirobright10.jpg", "mejirobright11.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "mejiropalmer",
     "number": 5564,
     "proper": "Mejiro Palmer",
@@ -486,14 +478,6 @@
     "proper": "Neo Universe",
     "names": ["neouniverse", "universe", "yuni", "neo", "ネオユニヴァース", "ユニヴァース", "ユニ"],
     "images": ["neouniverse1.jpg", "neouniverse2.jpg", "neouniverse3.jpg", "neouniverse4.jpg", "neouniverse5.jpg", "neouniverse6.jpg", "neouniverse7.jpg", "neouniverse8.jpg", "neouniverse9.jpg", "neouniverse10.jpg"],
-    "rarity": 3
-    },
-    {
-    "id": "nishinoflower",
-    "number": 5393,
-    "proper": "Nishino Flower",
-    "names": ["nishinoflower", "flower", "nishino", "ニシノフラワー", "フラワー"],
-    "images": ["nishinoflower1.jpg", "nishinoflower2.jpg", "nishinoflower3.jpg", "nishinoflower4.jpg", "nishinoflower5.jpg", "nishinoflower6.jpg", "nishinoflower7.jpg", "nishinoflower8.jpg"],
     "rarity": 3
     },
     {
@@ -766,14 +750,6 @@
     "proper": "Wonder Acute",
     "names": ["wonderacute", "acute", "ワンダーアキュート", "アキュート"],
     "images": ["wonderacute1.jpg", "wonderacute2.jpg", "wonderacute3.jpg", "wonderacute4.jpg", "wonderacute5.jpg", "wonderacute6.jpg", "wonderacute7.jpg", "wonderacute8.jpg", "wonderacute9.jpg", "wonderacute10.jpg", "wonderacute11.jpg", "wonderacute12.jpg", "wonderacute13.jpg", "wonderacute14.jpg", "wonderacute15.jpg", "wonderacute16.jpg"],
-    "rarity": 3
-    },
-    {
-    "id": "yaenomuteki",
-    "number": 5535,
-    "proper": "Yaeno Muteki",
-    "names": ["yaenomuteki", "yaeno", "muteki", "ヤエノムテキ"],
-    "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg", "yaenomuteki5.jpg", "yaenomuteki6.jpg", "yaenomuteki7.jpg", "yaenomuteki8.jpg", "yaenomuteki9.jpg", "yaenomuteki10.jpg", "yaenomuteki11.jpg", "yaenomuteki12.jpg", "yaenomuteki13.jpg", "yaenomuteki14.jpg"],
     "rarity": 3
     },
     {

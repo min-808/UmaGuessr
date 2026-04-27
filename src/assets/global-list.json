@@ -256,6 +256,14 @@
     "rarity": 3
   },
   {
+    "id": "mejirobright",
+    "number": 7260,
+    "proper": "Mejiro Bright",
+    "names": ["mejirobright", "bright", "メジロブライト", "ブライト"],
+    "images": ["mejirobright1.jpg", "mejirobright2.jpg", "mejirobright3.jpg", "mejirobright4.jpg", "mejirobright5.jpg", "mejirobright6.jpg", "mejirobright7.jpg", "mejirobright8.jpg", "mejirobright9.jpg", "mejirobright10.jpg", "mejirobright11.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "mejirodober",
     "number": 5474,
     "proper": "Mejiro Dober",
@@ -310,6 +318,14 @@
     "names": ["nicenature", "nature", "natie", "neicha", "ナイスネイチャ", "ネイチャ"],
     "images": ["nicenature1.jpg", "nicenature2.jpg", "nicenature3.jpg", "nicenature4.jpg", "nicenature5.jpg", "nicenature6.jpg", "nicenature7.jpg", "nicenature8.jpg", "nicenature9.jpg", "nicenature10.jpg", "nicenature11.jpg", "nicenature12.jpg", "nicenature13.jpg", "nicenature14.jpg", "nicenature15.jpg", "nicenature16.jpg", "nicenature17.jpg", "nicenature18.jpg", "nicenature19.jpg", "nicenature20.jpg", "nicenature21.jpg", "nicenature22.jpg", "nicenature23.jpg", "nicenature24.jpg", "nicenature25.jpg", "nicenature26.jpg", "nicenature27.jpg", "nicenature28.jpg", "nicenature29.jpg", "nicenature30.jpg", "nicenature31.jpg", "nicenature32.jpg", "nicenature33.jpg", "nicenature34.jpg", "nicenature35.jpg", "nicenature36.jpg"],
     "rarity": 1
+  },
+  {
+    "id": "nishinoflower",
+    "number": 5393,
+    "proper": "Nishino Flower",
+    "names": ["nishinoflower", "flower", "nishino", "ニシノフラワー", "フラワー"],
+    "images": ["nishinoflower1.jpg", "nishinoflower2.jpg", "nishinoflower3.jpg", "nishinoflower4.jpg", "nishinoflower5.jpg", "nishinoflower6.jpg", "nishinoflower7.jpg", "nishinoflower8.jpg"],
+    "rarity": 3
   },
   {
     "id": "oguricap",
@@ -454,5 +470,13 @@
     "names": ["winningticket", "ticket", "tickezo", "ウイニングチケット", "チケゾー"],
     "images": ["winningticket1.jpg", "winningticket2.jpg", "winningticket3.jpg", "winningticket4.jpg", "winningticket5.jpg", "winningticket6.jpg", "winningticket7.jpg", "winningticket8.jpg", "winningticket9.jpg", "winningticket10.jpg"],
     "rarity": 1
+  },
+  {
+    "id": "yaenomuteki",
+    "number": 5535,
+    "proper": "Yaeno Muteki",
+    "names": ["yaenomuteki", "yaeno", "muteki", "ヤエノムテキ"],
+    "images": ["yaenomuteki1.jpg", "yaenomuteki2.jpg", "yaenomuteki3.jpg", "yaenomuteki4.jpg", "yaenomuteki5.jpg", "yaenomuteki6.jpg", "yaenomuteki7.jpg", "yaenomuteki8.jpg", "yaenomuteki9.jpg", "yaenomuteki10.jpg", "yaenomuteki11.jpg", "yaenomuteki12.jpg", "yaenomuteki13.jpg", "yaenomuteki14.jpg"],
+    "rarity": 3
   }
 ]
