@@ -464,6 +464,7 @@ client.on('ready', async () => {
     await setUptime();
 
     if (!testMode) {
+        // Daily job: reset dailies, refresh usernames, push server count to top.gg
         cron.schedule('0 0 * * *', async () => {
             try {
                 await resetDaily();
@@ -476,11 +477,34 @@ client.on('ready', async () => {
             timezone: 'Pacific/Honolulu'
         })
 
+        // 10-minute job: check to send daily reminder messages
         cron.schedule('*/10 * * * *', async () => {
             try {
                 await sendReminderMsg();
             } catch (error) {
                 console.error('Error in sending daily reminder scheduled job:', error);
+            }
+        }, {
+            timezone: 'Pacific/Honolulu'
+        })
+
+        // Weekly job: reset weekly points/wins every Sunday at midnight
+        cron.schedule('0 0 * * 0', async () => {
+            try {
+                await sendReminderMsg();
+            } catch (error) {
+                console.error('Error in resetting weekly points/wins job:', error);
+            }
+        }, {
+            timezone: 'Pacific/Honolulu'
+        })
+
+        // Monthly job: reset monthly points/wins every first day at midnight
+        cron.schedule('0 0 1 * *', async () => {
+            try {
+                await sendReminderMsg();
+            } catch (error) {
+                console.error('Error in resetting monthly points/wins job:', error);
             }
         }, {
             timezone: 'Pacific/Honolulu'

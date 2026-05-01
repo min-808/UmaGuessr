@@ -15,13 +15,17 @@ module.exports = {
             option.setName('sort')
                 .setDescription('Choose how you want to sort the leaderboard')
                 .addChoices(
+                    { name: 'Total Points', value: 'points' },
                     { name: 'Total Wins', value: 'wins' },
                     { name: 'Points Today', value: 'daily' },
                     { name: 'Top Streak', value: 'streak' },
                     { name: 'Top Daily Streak', value: 'top_daily_streak' },
                     { name: 'Average Answer Time', value: 'time' },
                     { name: 'Fastest Answer Time', value: 'fast' },
-                    { name: 'Total Points', value: 'points' },
+                    { name: 'Weekly Points', value: 'points_weekly' },
+                    { name: 'Monthly Points', value: 'points_monthly' },
+                    { name: 'Weekly Wins', value: 'wins_weekly' },
+                    { name: 'Monthly Wins', value: 'wins_monthly' },
                 ))
         .addStringOption(option =>
             option.setName('range')
@@ -74,7 +78,23 @@ module.exports = {
             type = "top_daily_streak"
             proper = "Top Daily Streak"
             countType = "daily streak"
-        } else {
+        } else if (interaction.options.getString('sort') == "points_weekly") {
+            type = "points_weekly"
+            proper = "Weekly Points"
+            countType = "points"
+        } else if (interaction.options.getString('sort') == "points_monthly") {
+            type = "points_monthly"
+            proper = "Monthly Points"
+            countType = "points"
+        } else if (interaction.options.getString('sort') == "wins_weekly") {
+            type = "wins_weekly"
+            proper = "Weekly Wins"
+            countType = "wins"
+        } else if (interaction.options.getString('sort') == "wins_monthly") {
+            type = "wins_monthly"
+            proper = "Monthly Wins"
+            countType = "wins"
+        }else {
             type = "points"
             proper = "Total Points"
             countType = type
@@ -101,7 +121,11 @@ module.exports = {
                 discord_id: 1,
                 username: 1,
                 points: 1,
+                points_weekly: 1,
+                points_monthly: 1,
                 wins: 1,
+                wins_weekly: 1,
+                wins_monthly: 1,
                 streak: 1,
                 points_today: 1,
                 wins_today: 1,

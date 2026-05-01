@@ -24,6 +24,22 @@ module.exports = {
             type = "wins"
             proper = "Total Wins"
             countType = type
+        } else if ((args.length > 0) && ((args[0].length == 2 && args[0].toLowerCase().includes("ww")) || (args[0].toLowerCase().includes("weekly") && args[1]?.toLowerCase().includes("wins")))) {
+            type = "wins_weekly"
+            proper = "Weekly Wins"
+            countType = "wins"
+        } else if ((args.length > 0) && ((args[0].length == 2 && args[0].toLowerCase().includes("mw")) || (args[0].toLowerCase().includes("monthly") && args[1]?.toLowerCase().includes("wins")))) {
+            type = "wins_monthly"
+            proper = "Monthly Wins"
+            countType = "wins"
+        } else if ((args.length > 0) && ((args[0].length == 2 && args[0].toLowerCase().includes("wp")) || (args[0].toLowerCase().includes("weekly") && args[1]?.toLowerCase().includes("points")))) {
+            type = "points_weekly"
+            proper = "Weekly Points"
+            countType = "points"
+        } else if ((args.length > 0) && ((args[0].length == 2 && args[0].toLowerCase().includes("mp")) || (args[0].toLowerCase().includes("monthly") && args[1]?.toLowerCase().includes("points")))) {
+            type = "points_monthly"
+            proper = "Monthly Points"
+            countType = "points"
         } else if ((args.length > 0) && ((args[0].length == 2 && args[0].toLowerCase().includes("ds")) || (args[0].toLowerCase().includes("daily") && args[1]?.toLowerCase().includes("streak")))) {
             type = "top_daily_streak"
             proper = "Top Daily Streak"
@@ -71,7 +87,11 @@ module.exports = {
                 discord_id: 1,
                 username: 1,
                 points: 1,
+                points_weekly: 1,
+                points_monthly: 1,
                 wins: 1,
+                wins_weekly: 1,
+                wins_monthly: 1,
                 streak: 1,
                 points_today: 1,
                 wins_today: 1,

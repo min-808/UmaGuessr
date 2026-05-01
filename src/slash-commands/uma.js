@@ -1104,10 +1104,14 @@ module.exports = {
                             const addPoints = {
                                 $inc: {
                                     points: state.points + favPoints,
-                                    wins: addWins,
                                     points_today: state.points + favPoints,
-                                    wins_today: addWins,
+                                    points_weekly: state.points + favPoints,
+                                    points_monthly: state.points + favPoints,
 
+                                    wins: addWins,
+                                    wins_today: addWins,
+                                    wins_weekly: addWins,
+                                    wins_monthly: addWins
                                 }
                             }
 
@@ -1357,9 +1361,14 @@ module.exports = {
                             const addPoints = {
                                 $inc: {
                                     points: addCorrectPoints,
-                                    wins: addWins,
                                     points_today: addCorrectPoints,
+                                    points_weekly: addCorrectPoints,
+                                    points_monthly: addCorrectPoints,
+                                    
+                                    wins: addWins,
                                     wins_today: addWins,
+                                    wins_weekly: addWins,
+                                    wins_monthly: addWins
                                 } /*, temporarily pause
                                 $push: {
                                     times: timeAnswered,
