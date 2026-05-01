@@ -4044,6 +4044,15 @@
         "service": "danbooru",
         "illustration_id": "9930776",
         "artist": "zukki (bijitaru)"
+      },
+      {
+        "external_urls": [
+          "n/a"
+        ],
+        "service": "n/a",
+        "member_id": "n/a",
+        "illustration_id": "n/a",
+        "artist": "n/a"
       }
     ]
   },
@@ -12370,15 +12379,6 @@
         "member_id": "24612582",
         "illustration_id": "106186709",
         "artist": "ゆうひどら"
-      },
-      {
-        "external_urls": [
-          "n/a"
-        ],
-        "service": "n/a",
-        "member_id": "n/a",
-        "illustration_id": "n/a",
-        "artist": "n/a"
       },
       {
         "external_urls": [
