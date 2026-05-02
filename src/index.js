@@ -136,6 +136,54 @@ async function resetDaily() {
     await registerStats.updateOne({}, registerUpdate)
 }
 
+async function resetWeekly() {
+    var client_db = new getMongoClient()
+
+    var database = client_db.db("uma");
+    var ids = database.collection("profiles")
+    var registerStats = database.collection("stats")
+
+    var currentDate = new Date()
+    var currentTime = currentDate.toLocaleTimeString( 'en-US', {timeZone: 'Pacific/Honolulu'} )
+
+    console.log(`[${currentTime}] - Resetting weeklies...`)
+
+    const count = await ids.countDocuments({}, {})
+
+    const update = {
+        $set: {
+            points_weekly: 0,
+            wins_weekly: 0,
+        }
+    }
+
+    await ids.updateMany({}, update)
+}
+
+async function resetMonthly() {
+    var client_db = new getMongoClient()
+
+    var database = client_db.db("uma");
+    var ids = database.collection("profiles")
+    var registerStats = database.collection("stats")
+
+    var currentDate = new Date()
+    var currentTime = currentDate.toLocaleTimeString( 'en-US', {timeZone: 'Pacific/Honolulu'} )
+
+    console.log(`[${currentTime}] - Resetting monthlies...`)
+
+    const count = await ids.countDocuments({}, {})
+
+    const update = {
+        $set: {
+            points_monthly: 0,
+            wins_monthly: 0,
+        }
+    }
+
+    await ids.updateMany({}, update)
+}
+
 async function pushServerCount() {
     try {
         const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
@@ -491,7 +539,7 @@ client.on('ready', async () => {
         // Weekly job: reset weekly points/wins every Sunday at midnight
         cron.schedule('0 0 * * 0', async () => {
             try {
-                await sendReminderMsg();
+                await resetWeekly();
             } catch (error) {
                 console.error('Error in resetting weekly points/wins job:', error);
             }
@@ -502,7 +550,7 @@ client.on('ready', async () => {
         // Monthly job: reset monthly points/wins every first day at midnight
         cron.schedule('0 0 1 * *', async () => {
             try {
-                await sendReminderMsg();
+                await resetMonthly();
             } catch (error) {
                 console.error('Error in resetting monthly points/wins job:', error);
             }
