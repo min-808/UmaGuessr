@@ -18325,6 +18325,92 @@
     ]
   },
   {
+    "id": "speedsymboli",
+    "artworks": [
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/8901911"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8901911",
+        "artist": "DOS_704277"
+      },
+      {
+        "external_urls": [
+          "https://www.pixiv.net/en/artworks/128028621"
+        ],
+        "service": "pixiv",
+        "member_id": "15698072",
+        "illustration_id": "128028621",
+        "artist": "くまも"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/10577478"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10577478",
+        "artist": "xkittyzx"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/8915906"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8915906",
+        "artist": "kuz admiral313"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/8899521"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8899521",
+        "artist": "tetora"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/9491191"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9491191",
+        "artist": "jagaimobeniko"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/8932636"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8932636",
+        "artist": "ibisf5umauma"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/9041009"
+        ],
+        "service": "danbooru",
+        "illustration_id": "9041009",
+        "artist": "ibisf5umauma"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/8968915"
+        ],
+        "service": "danbooru",
+        "illustration_id": "8968915",
+        "artist": "minori"
+      },
+      {
+        "external_urls": [
+          "https://danbooru.donmai.us/posts/10739765"
+        ],
+        "service": "danbooru",
+        "illustration_id": "10739765",
+        "artist": "pinosuke"
+      }
+    ]
+  },
+  {
     "id": "staygold",
     "artworks": [
       {

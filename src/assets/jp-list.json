@@ -633,6 +633,14 @@
     "rarity": 3
     },
     {
+    "id": "speedsymboli",
+    "number": 10384,
+    "proper": "Speed Symboli",
+    "names": ["speedsymboli", "speed", "スーさん", "スピードシンボリ", "スピード", "シンボリ"],
+    "images":["speedsymboli1.jpg", "speedsymboli2.jpg", "speedsymboli3.jpg", "speedsymboli4.jpg", "speedsymboli5.jpg", "speedsymboli6.jpg", "speedsymboli7.jpg", "speedsymboli8.jpg", "speedsymboli9.jpg", "speedsymboli10.jpg"],
+    "rarity": 3
+    },
+    {
     "id": "staygold",
     "number": 10393,
     "proper": "Stay Gold",
