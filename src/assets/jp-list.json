@@ -16,14 +16,6 @@
     "rarity": 3
     },
     {
-    "id": "airshakur",
-    "number": 5225,
-    "proper": "Air Shakur",
-    "names": ["airshakur", "shakur", "shaka", "エアシャカール", "シャカ"],
-    "images": ["airshakur1.jpg", "airshakur2.jpg", "airshakur3.jpg", "airshakur4.jpg", "airshakur5.jpg", "airshakur6.jpg", "airshakur7.jpg", "airshakur8.jpg", "airshakur9.jpg", "airshakur10.jpg", "airshakur11.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "almondeye",
     "number": 10391,
     "proper": "Almond Eye",
@@ -321,22 +313,6 @@
     "rarity": 2
     },
     {
-    "id": "inarione",
-    "number": 5202,
-    "proper": "Inari One",
-    "names": ["inarione", "inari", "イナリワン", "イナリ"],
-    "images": ["inarione1.jpg", "inarione2.jpg", "inarione3.jpg", "inarione4.jpg", "inarione5.jpg", "inarione6.jpg", "inarione7.jpg", "inarione8.jpg", "inarione9.jpg", "inarione10.jpg", "inarione11.jpg", "inarione12.jpg", "inarione13.jpg", "inarione14.jpg", "inarione15.jpg", "inarione16.jpg", "inarione17.jpg"],
-    "rarity": 3
-    },
-    {
-    "id": "inesfujin",
-    "number": 5168,
-    "proper": "Ines Fujin",
-    "names": ["inesfujin", "ines", "fujin", "アイネスフウジン", "アイネス"],
-    "images": ["inesfujin1.jpg", "inesfujin2.jpg", "inesfujin3.jpg", "inesfujin4.jpg", "inesfujin5.jpg", "inesfujin6.jpg", "inesfujin7.jpg", "inesfujin8.jpg", "inesfujin9.jpg", "inesfujin10.jpg", "inesfujin11.jpg", "inesfujin12.jpg", "inesfujin13.jpg", "inesfujin14.jpg", "inesfujin15.jpg"],
-    "rarity": 3
-    },
-    {
     "id": "junglepocket",
     "number": 8707,
     "proper": "Jungle Pocket",
@@ -406,14 +382,6 @@
     "proper": "Marvelous Sunday",
     "names": ["marveloussunday", "marvelous", "marve", "mabe", "sunday", "マーベラスサンデー", "マーベラス", "マベ"],
     "images": ["marveloussunday1.jpg", "marveloussunday2.jpg", "marveloussunday3.jpg", "marveloussunday4.jpg", "marveloussunday5.jpg", "marveloussunday6.jpg", "marveloussunday7.jpg", "marveloussunday8.jpg", "marveloussunday9.jpg", "marveloussunday10.jpg", "marveloussunday11.jpg", "marveloussunday12.jpg"],
-    "rarity": 3
-    },
-    {
-    "id": "mejiropalmer",
-    "number": 5564,
-    "proper": "Mejiro Palmer",
-    "names": ["mejiropalmer", "palmer", "メジロパーマー", "パーマー"],
-    "images": ["mejiropalmer1.jpg", "mejiropalmer2.jpg", "mejiropalmer3.jpg", "mejiropalmer4.jpg", "mejiropalmer5.jpg", "mejiropalmer6.jpg", "mejiropalmer7.jpg", "mejiropalmer8.jpg", "mejiropalmer9.jpg", "mejiropalmer10.jpg", "mejiropalmer11.jpg", "mejiropalmer12.jpg", "mejiropalmer13.jpg", "mejiropalmer14.jpg"],
     "rarity": 3
     },
     {
@@ -654,14 +622,6 @@
     "proper": "Still in Love",
     "names": ["stillinlove", "still", "inlove", "スティルインラブ", "スティル"],
     "images": ["stillinlove1.jpg", "stillinlove2.jpg", "stillinlove3.jpg", "stillinlove4.jpg", "stillinlove5.jpg", "stillinlove6.jpg", "stillinlove7.jpg", "stillinlove8.jpg", "stillinlove9.jpg", "stillinlove10.jpg", "stillinlove11.jpg", "stillinlove12.jpg", "stillinlove13.jpg", "stillinlove14.jpg", "stillinlove15.jpg", "stillinlove16.jpg", "stillinlove17.jpg", "stillinlove18.jpg", "stillinlove19.jpg", "stillinlove20.jpg", "stillinlove21.jpg", "stillinlove22.jpg", "stillinlove23.jpg", "stillinlove24.jpg", "stillinlove25.jpg", "stillinlove26.jpg", "stillinlove27.jpg", "stillinlove28.jpg", "stillinlove29.jpg", "stillinlove30.jpg", "stillinlove31.jpg"],
-    "rarity": 3
-    },
-    {
-    "id": "sweeptosho",
-    "number": 5314,
-    "proper": "Sweep Tosho",
-    "names": ["sweeptosho", "sweepy", "sweep", "tosho", "スイープトウショウ", "スイープ", "スイーピー"],
-    "images": ["sweeptosho1.jpg", "sweeptosho2.jpg", "sweeptosho3.jpg", "sweeptosho4.jpg", "sweeptosho5.jpg", "sweeptosho6.jpg", "sweeptosho7.jpg", "sweeptosho8.jpg", "sweeptosho9.jpg", "sweeptosho10.jpg", "sweeptosho11.jpg", "sweeptosho12.jpg", "sweeptosho13.jpg", "sweeptosho14.jpg"],
     "rarity": 3
     },
     {

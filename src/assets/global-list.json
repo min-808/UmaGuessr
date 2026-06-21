@@ -32,6 +32,14 @@
     "rarity": 2
   },
   {
+    "id": "airshakur",
+    "number": 5225,
+    "proper": "Air Shakur",
+    "names": ["airshakur", "shakur", "shaka", "エアシャカール", "シャカ"],
+    "images": ["airshakur1.jpg", "airshakur2.jpg", "airshakur3.jpg", "airshakur4.jpg", "airshakur5.jpg", "airshakur6.jpg", "airshakur7.jpg", "airshakur8.jpg", "airshakur9.jpg", "airshakur10.jpg", "airshakur11.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "akikawayayoi",
     "number": 5650,
     "proper": "Yayoi Akikawa",
@@ -160,6 +168,22 @@
     "rarity": 3
   },
   {
+    "id": "inarione",
+    "number": 5202,
+    "proper": "Inari One",
+    "names": ["inarione", "inari", "イナリワン", "イナリ"],
+    "images": ["inarione1.jpg", "inarione2.jpg", "inarione3.jpg", "inarione4.jpg", "inarione5.jpg", "inarione6.jpg", "inarione7.jpg", "inarione8.jpg", "inarione9.jpg", "inarione10.jpg", "inarione11.jpg", "inarione12.jpg", "inarione13.jpg", "inarione14.jpg", "inarione15.jpg", "inarione16.jpg", "inarione17.jpg"],
+    "rarity": 3
+  },
+  {
+    "id": "inesfujin",
+    "number": 5168,
+    "proper": "Ines Fujin",
+    "names": ["inesfujin", "ines", "fujin", "アイネスフウジン", "アイネス"],
+    "images": ["inesfujin1.jpg", "inesfujin2.jpg", "inesfujin3.jpg", "inesfujin4.jpg", "inesfujin5.jpg", "inesfujin6.jpg", "inesfujin7.jpg", "inesfujin8.jpg", "inesfujin9.jpg", "inesfujin10.jpg", "inesfujin11.jpg", "inesfujin12.jpg", "inesfujin13.jpg", "inesfujin14.jpg", "inesfujin15.jpg"],
+    "rarity": 3
+  },
+  {
     "id": "kashimotoriko",
     "number": 7078,
     "proper": "Riko Kashimoto",
@@ -277,6 +301,14 @@
     "proper": "Mejiro McQueen",
     "names": ["mejiromcqueen", "mcqueen", "mac", "メジロマックイーン", "マックイーン", "マック"],
     "images": ["mejiromcqueen1.jpg", "mejiromcqueen2.jpg", "mejiromcqueen3.jpg", "mejiromcqueen4.jpg", "mejiromcqueen5.jpg", "mejiromcqueen6.jpg", "mejiromcqueen7.jpg", "mejiromcqueen8.jpg", "mejiromcqueen9.jpg", "mejiromcqueen10.jpg", "mejiromcqueen11.jpg", "mejiromcqueen12.jpg", "mejiromcqueen13.jpg", "mejiromcqueen14.jpg", "mejiromcqueen15.jpg", "mejiromcqueen16.jpg", "mejiromcqueen17.jpg"],
+    "rarity": 3
+  },
+  {
+    "id": "mejiropalmer",
+    "number": 5564,
+    "proper": "Mejiro Palmer",
+    "names": ["mejiropalmer", "palmer", "メジロパーマー", "パーマー"],
+    "images": ["mejiropalmer1.jpg", "mejiropalmer2.jpg", "mejiropalmer3.jpg", "mejiropalmer4.jpg", "mejiropalmer5.jpg", "mejiropalmer6.jpg", "mejiropalmer7.jpg", "mejiropalmer8.jpg", "mejiropalmer9.jpg", "mejiropalmer10.jpg", "mejiropalmer11.jpg", "mejiropalmer12.jpg", "mejiropalmer13.jpg", "mejiropalmer14.jpg"],
     "rarity": 3
   },
   {
@@ -406,6 +438,14 @@
     "names": ["supercreek", "creek", "スーパークリーク", "クリーク"],
     "images": ["supercreek1.jpg", "supercreek2.jpg", "supercreek3.jpg", "supercreek4.jpg", "supercreek5.jpg", "supercreek6.jpg", "supercreek7.jpg", "supercreek8.jpg", "supercreek9.jpg", "supercreek10.jpg", "supercreek11.jpg", "supercreek12.jpg", "supercreek13.jpg", "supercreek14.jpg", "supercreek15.jpg", "supercreek16.jpg", "supercreek17.jpg"],
     "rarity": 2
+  },
+  {
+    "id": "sweeptosho",
+    "number": 5314,
+    "proper": "Sweep Tosho",
+    "names": ["sweeptosho", "sweepy", "sweep", "tosho", "スイープトウショウ", "スイープ", "スイーピー"],
+    "images": ["sweeptosho1.jpg", "sweeptosho2.jpg", "sweeptosho3.jpg", "sweeptosho4.jpg", "sweeptosho5.jpg", "sweeptosho6.jpg", "sweeptosho7.jpg", "sweeptosho8.jpg", "sweeptosho9.jpg", "sweeptosho10.jpg", "sweeptosho11.jpg", "sweeptosho12.jpg", "sweeptosho13.jpg", "sweeptosho14.jpg"],
+    "rarity": 3
   },
   {
     "id": "symbolirudolf",
