@@ -231,7 +231,7 @@ module.exports = {
                         list = require('../../src/assets/horse-list.json')
                         type = "IRL"
 
-                        initialPointsJP = 20 + 1
+                        initialPointsJP = 30 + 1
                         minusPointsJP = 6
                     } else if (data["type"] === 'a') {
                         list = require('../../src/assets/global-list.json')
