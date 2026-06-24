@@ -64,6 +64,7 @@ module.exports = {
                         quote: 1,
                         favorites: 1,
                         max_favorites: 1,
+                        user_id: 1,
                     }
                 });
 
@@ -93,6 +94,7 @@ module.exports = {
                         quote: 1,
                         favorites: 1,
                         max_favorites: 1,
+                        user_id: 1,
                     }
                 });
 
@@ -122,7 +124,7 @@ module.exports = {
                 .sort({ points: -1 })
                 .toArray();
 
-            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict, quote, favorites, max_favorites } = data;
+            const { wins, points, streak, points_today, wins_today, top_streak, quickest_answer, times, restrict, quote, favorites, max_favorites, user_id } = data;
             let rankSymbol
 
             if (restrict) {
@@ -292,7 +294,7 @@ module.exports = {
                 }
             );
 
-            embed.setFooter({ text: `Joined on ${utcDate} at ${utcTime} UTC` })
+            embed.setFooter({ text: `Joined on ${utcDate} at ${utcTime} UTC | ID #${user_id}` })
 
             await message.channel.send({ embeds: [embed] })
         } catch (error) {
