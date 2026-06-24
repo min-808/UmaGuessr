@@ -649,6 +649,14 @@
     "rarity": 3
     },
     {
+    "id": "titleholder",
+    "number": 10411,
+    "proper": "Titleholder",
+    "names": ["titleholder", "title", "holder", "タイトルホルダー", "タイトル", "ホルダー"],
+    "images":["titleholder1.jpg","titleholder2.jpg","titleholder3.jpg","titleholder4.jpg","titleholder5.jpg","titleholder6.jpg","titleholder7.jpg","titleholder8.jpg","titleholder9.jpg","titleholder10.jpg","titleholder11.jpg","titleholder12.jpg","titleholder13.jpg", "titleholder14.jpg","titleholder15.jpg","titleholder16.jpg","titleholder17.jpg","titleholder18.jpg","titleholder19.jpg"],
+    "rarity": 3
+    },
+    {
     "id": "tonibianca",
     "number": 50010,
     "proper": "Toni Bianca",
