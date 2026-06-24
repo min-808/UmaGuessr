@@ -305,7 +305,7 @@ module.exports = {
                 }
             );
 
-            embed.setFooter({ text: `Joined on ${utcDate} at ${utcTime} UTC | ID #${user_id}` })
+            embed.setFooter({ text: `Joined on ${utcDate} at ${utcTime} UTC (#${user_id})` })
 
             await interaction.editReply({ embeds: [embed] })
         } catch (error) {
