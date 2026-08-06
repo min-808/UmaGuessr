@@ -17,7 +17,8 @@ module.exports = {
                 .addChoices(
                     { name: 'Total Points', value: 'points' },
                     { name: 'Total Wins', value: 'wins' },
-                    { name: 'Points Today', value: 'daily' },
+                    { name: 'Points Today', value: 'points_today' },
+                    { name: 'Wins Today', value: 'wins_today' },
                     { name: 'Top Streak', value: 'streak' },
                     { name: 'Top Daily Streak', value: 'top_daily_streak' },
                     { name: 'Average Answer Time', value: 'time' },
@@ -58,10 +59,14 @@ module.exports = {
             type = "wins"
             proper = "Total Wins"
             countType = type
-        } else if (interaction.options.getString('sort') == "daily") {
+        } else if (interaction.options.getString('sort') == "points_today") {
             type = "points_today"
             proper = "Points Today"
             countType = "points"
+        } else if (interaction.options.getString('sort') == "wins_today") {
+            type = "wins_today"
+            proper = "Wins Today"
+            countType = "wins"
         } else if (interaction.options.getString('sort') == "streak") {
             type = "top_streak"
             proper = "Top Streak"

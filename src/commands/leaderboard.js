@@ -44,10 +44,14 @@ module.exports = {
             type = "top_daily_streak"
             proper = "Top Daily Streak"
             countType = "daily streak"
-        } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("d")) || (args[0].toLowerCase().includes("daily")))) {
+        } else if ((args.length > 0) && ((args[0].length == 2 && args[0].toLowerCase().includes("pt")) || (args[0].toLowerCase().includes("pointstoday")))) {
             type = "points_today"
             proper = "Points Today"
             countType = "points"
+        } else if ((args.length > 0) && ((args[0].length == 2 && args[0].toLowerCase().includes("wt")) || (args[0].toLowerCase().includes("winstoday")))) {
+            type = "wins_today"
+            proper = "Wins Today"
+            countType = "wins"
         } else if ((args.length > 0) && ((args[0].length == 1 && args[0].toLowerCase().includes("s")) || (args[0].toLowerCase().includes("streak")) || (args[0].toLowerCase().includes("streaks")))) {
             type = "top_streak"
             proper = "Top Streak"
